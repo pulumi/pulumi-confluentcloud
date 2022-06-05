@@ -1,0 +1,43 @@
+{
+    "compilerOptions": {
+        "outDir": "bin",
+        "target": "es2016",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "declaration": true,
+        "sourceMap": true,
+        "stripInternal": true,
+        "experimentalDecorators": true,
+        "noFallthroughCasesInSwitch": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true
+    },
+    "files": [
+        "apiKey.ts",
+        "config/index.ts",
+        "config/vars.ts",
+        "connector.ts",
+        "environment.ts",
+        "getEnvironment.ts",
+        "getKafkaCluster.ts",
+        "getKafkaTopic.ts",
+        "getNetwork.ts",
+        "getOrganization.ts",
+        "getServiceAccount.ts",
+        "getUser.ts",
+        "index.ts",
+        "kafkaAcl.ts",
+        "kafkaCluster.ts",
+        "kafkaTopic.ts",
+        "network.ts",
+        "peering.ts",
+        "privateLinkAccess.ts",
+        "provider.ts",
+        "roleBinding.ts",
+        "serviceAccount.ts",
+        "types/index.ts",
+        "types/input.ts",
+        "types/output.ts",
+        "utilities.ts"
+    ]
+}
