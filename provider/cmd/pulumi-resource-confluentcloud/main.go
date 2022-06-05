@@ -17,9 +17,9 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	confluentcloud "github.com/pulumi/pulumi-confluentcloud/provider"
 	"github.com/pulumi/pulumi-confluentcloud/provider/pkg/version"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 )
 
 func main() {
