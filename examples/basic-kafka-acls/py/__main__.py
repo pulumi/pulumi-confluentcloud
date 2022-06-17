@@ -1,4 +1,4 @@
-"""A Python Pulumi program"""
+"""A Python Pulumi program to setup a Basic Kafka cluster with ACLs for both the producer and consumer."""
 
 import pulumi
 import pulumi_confluentcloud as confluent
