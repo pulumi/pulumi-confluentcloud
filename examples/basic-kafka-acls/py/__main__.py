@@ -62,9 +62,10 @@ app_producer = confluent.ServiceAccount("app-producer",
                                         display_name="app-producer",
                                         description="Service account to produce to 'orders' topic of 'inventory' Kafka cluster")
 
-app_producer_api_key_owner = confluent.ApiKeyOwnerArgs(
-    id=app_producer.id, api_version=app_producer.api_version, kind=app_producer.kind)
-app_consumer_api_key = confluent.ApiKey("app-producer-kafka-api-key",
+app_producer_api_key_owner = confluent.ApiKeyOwnerArgs(id=app_producer.id,
+                                                       api_version=app_producer.api_version,
+                                                       kind=app_producer.kind)
+app_producer_api_key = confluent.ApiKey("app-producer-kafka-api-key",
                                         display_name="app-producer-kafka-api-key",
                                         owner=app_producer_api_key_owner,
                                         managed_resource=cluster_managed_resource)
@@ -117,3 +118,11 @@ app_consumer_topic_acl = create_acl(
 # consumer group. Change the prefix to whatever consumer group ID your consumer uses.
 app_consumer_group_acl = create_acl(
     "app-consumer-read-on-group", "READ", app_consumer, "GROUP", "PREFIXED", "confluent_cli_consumer_")
+
+pulumi.export("environment-id", environment.id)
+pulumi.export("cluster-id", cluster.id)
+pulumi.export("topic-name", orders.topic_name)
+pulumi.export("app-producer-api-key-id", app_producer_api_key.id)
+pulumi.export("app-producer-api-key-secret", app_producer_api_key.secret)
+pulumi.export("app-consumer-api-key-id", app_consumer_api_key.id)
+pulumi.export("app-consumer-api-key-secret", app_consumer_api_key.secret)
