@@ -151,6 +151,7 @@ app_connector_write_on_data_preview_topics_acl = create_acl(
 # aws_access_key_id = config.require("AWS_ACCESS_KEY_ID")
 # aws_secret_access_key = config.require_secret("AWS_SECRET_ACCESS_KEY")
 # s3_bucket_name = config.require("S3_SOURCE_BUCKET_NAME")
+# s3_bucket_region = config.require("S3_SOURCE_BUCKET_REGION")
 
 # Create the source connector. To get the config for the connector you are working with,
 # use the Confluent CLIv2 to describe the connector.
@@ -196,6 +197,7 @@ app_connector_write_on_data_preview_topics_acl = create_acl(
 #                                            "input.data.format": "JSON",
 #                                            "output.data.format": "BYTES",
 #                                            "s3.bucket.name": s3_bucket_name,
+#                                            "s3.region": s3_bucket_region,
 #                                            "tasks.max": "1"
 #                                        })
 
