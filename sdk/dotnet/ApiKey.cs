@@ -36,6 +36,12 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+        /// </summary>
+        [Output("disableWaitForReady")]
+        public Output<bool?> DisableWaitForReady { get; private set; } = null!;
+
+        /// <summary>
         /// A human-readable name for the API Key.
         /// </summary>
         [Output("displayName")]
@@ -54,7 +60,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.ApiKeyOwner> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// (Required String) The secret of the API Key.
+        /// (Required String, Sensitive) The secret of the API Key.
         /// </summary>
         [Output("secret")]
         public Output<string> Secret { get; private set; } = null!;
@@ -112,6 +118,12 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+        /// </summary>
+        [Input("disableWaitForReady")]
+        public Input<bool>? DisableWaitForReady { get; set; }
+
+        /// <summary>
         /// A human-readable name for the API Key.
         /// </summary>
         [Input("displayName")]
@@ -143,6 +155,12 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+        /// </summary>
+        [Input("disableWaitForReady")]
+        public Input<bool>? DisableWaitForReady { get; set; }
+
+        /// <summary>
         /// A human-readable name for the API Key.
         /// </summary>
         [Input("displayName")]
@@ -161,7 +179,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.ApiKeyOwnerGetArgs>? Owner { get; set; }
 
         /// <summary>
-        /// (Required String) The secret of the API Key.
+        /// (Required String, Sensitive) The secret of the API Key.
         /// </summary>
         [Input("secret")]
         public Input<string>? Secret { get; set; }

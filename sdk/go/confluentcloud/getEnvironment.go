@@ -10,6 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// <img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt="">
+//
 // `Environment` describes an Environment data source.
 //
 // ## Example Usage
@@ -46,7 +48,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = confluentcloud.NewRoleBinding(ctx, "test-role-binding", &confluentcloud.RoleBindingArgs{
-// 			Principal:  pulumi.String(fmt.Sprintf("%v%v", "User:", exampleUsingNameServiceAccount.Id)),
+// 			Principal:  pulumi.String(fmt.Sprintf("User:%v", exampleUsingNameServiceAccount.Id)),
 // 			RoleName:   pulumi.String("EnvironmentAdmin"),
 // 			CrnPattern: pulumi.String(exampleUsingNameEnvironment.ResourceName),
 // 		})

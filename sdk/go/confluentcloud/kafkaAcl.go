@@ -13,7 +13,7 @@ import (
 
 // ## Import
 //
-// You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export KAFKA_API_KEY="<kafka_api_key>" $ export KAFKA_API_SECRET="<kafka_api_secret>" $ export KAFKA_HTTP_ENDPOINT="<kafka_http_endpoint>"
+// You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
 //
 // ```sh
 //  $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
@@ -24,11 +24,9 @@ type KafkaAcl struct {
 	pulumi.CustomResourceState
 
 	// The Cluster API Credentials.
-	Credentials KafkaAclCredentialsOutput `pulumi:"credentials"`
+	Credentials KafkaAclCredentialsPtrOutput `pulumi:"credentials"`
 	// The host for the ACL. Should be set to `*` for Confluent Cloud.
-	Host pulumi.StringOutput `pulumi:"host"`
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
-	HttpEndpoint pulumi.StringOutput        `pulumi:"httpEndpoint"`
+	Host         pulumi.StringOutput        `pulumi:"host"`
 	KafkaCluster KafkaAclKafkaClusterOutput `pulumi:"kafkaCluster"`
 	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
 	Operation pulumi.StringOutput `pulumi:"operation"`
@@ -42,6 +40,8 @@ type KafkaAcl struct {
 	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
 	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
 }
 
 // NewKafkaAcl registers a new resource with the given unique name, arguments, and options.
@@ -51,14 +51,8 @@ func NewKafkaAcl(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Credentials == nil {
-		return nil, errors.New("invalid value for required argument 'Credentials'")
-	}
 	if args.Host == nil {
 		return nil, errors.New("invalid value for required argument 'Host'")
-	}
-	if args.HttpEndpoint == nil {
-		return nil, errors.New("invalid value for required argument 'HttpEndpoint'")
 	}
 	if args.KafkaCluster == nil {
 		return nil, errors.New("invalid value for required argument 'KafkaCluster'")
@@ -106,9 +100,7 @@ type kafkaAclState struct {
 	// The Cluster API Credentials.
 	Credentials *KafkaAclCredentials `pulumi:"credentials"`
 	// The host for the ACL. Should be set to `*` for Confluent Cloud.
-	Host *string `pulumi:"host"`
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
-	HttpEndpoint *string               `pulumi:"httpEndpoint"`
+	Host         *string               `pulumi:"host"`
 	KafkaCluster *KafkaAclKafkaCluster `pulumi:"kafkaCluster"`
 	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
 	Operation *string `pulumi:"operation"`
@@ -122,15 +114,15 @@ type kafkaAclState struct {
 	ResourceName *string `pulumi:"resourceName"`
 	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
 	ResourceType *string `pulumi:"resourceType"`
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+	RestEndpoint *string `pulumi:"restEndpoint"`
 }
 
 type KafkaAclState struct {
 	// The Cluster API Credentials.
 	Credentials KafkaAclCredentialsPtrInput
 	// The host for the ACL. Should be set to `*` for Confluent Cloud.
-	Host pulumi.StringPtrInput
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
-	HttpEndpoint pulumi.StringPtrInput
+	Host         pulumi.StringPtrInput
 	KafkaCluster KafkaAclKafkaClusterPtrInput
 	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
 	Operation pulumi.StringPtrInput
@@ -144,6 +136,8 @@ type KafkaAclState struct {
 	ResourceName pulumi.StringPtrInput
 	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
 	ResourceType pulumi.StringPtrInput
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+	RestEndpoint pulumi.StringPtrInput
 }
 
 func (KafkaAclState) ElementType() reflect.Type {
@@ -152,11 +146,9 @@ func (KafkaAclState) ElementType() reflect.Type {
 
 type kafkaAclArgs struct {
 	// The Cluster API Credentials.
-	Credentials KafkaAclCredentials `pulumi:"credentials"`
+	Credentials *KafkaAclCredentials `pulumi:"credentials"`
 	// The host for the ACL. Should be set to `*` for Confluent Cloud.
-	Host string `pulumi:"host"`
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
-	HttpEndpoint string               `pulumi:"httpEndpoint"`
+	Host         string               `pulumi:"host"`
 	KafkaCluster KafkaAclKafkaCluster `pulumi:"kafkaCluster"`
 	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
 	Operation string `pulumi:"operation"`
@@ -170,16 +162,16 @@ type kafkaAclArgs struct {
 	ResourceName string `pulumi:"resourceName"`
 	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
 	ResourceType string `pulumi:"resourceType"`
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+	RestEndpoint *string `pulumi:"restEndpoint"`
 }
 
 // The set of arguments for constructing a KafkaAcl resource.
 type KafkaAclArgs struct {
 	// The Cluster API Credentials.
-	Credentials KafkaAclCredentialsInput
+	Credentials KafkaAclCredentialsPtrInput
 	// The host for the ACL. Should be set to `*` for Confluent Cloud.
-	Host pulumi.StringInput
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
-	HttpEndpoint pulumi.StringInput
+	Host         pulumi.StringInput
 	KafkaCluster KafkaAclKafkaClusterInput
 	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
 	Operation pulumi.StringInput
@@ -193,6 +185,8 @@ type KafkaAclArgs struct {
 	ResourceName pulumi.StringInput
 	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
 	ResourceType pulumi.StringInput
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+	RestEndpoint pulumi.StringPtrInput
 }
 
 func (KafkaAclArgs) ElementType() reflect.Type {
@@ -283,18 +277,13 @@ func (o KafkaAclOutput) ToKafkaAclOutputWithContext(ctx context.Context) KafkaAc
 }
 
 // The Cluster API Credentials.
-func (o KafkaAclOutput) Credentials() KafkaAclCredentialsOutput {
-	return o.ApplyT(func(v *KafkaAcl) KafkaAclCredentialsOutput { return v.Credentials }).(KafkaAclCredentialsOutput)
+func (o KafkaAclOutput) Credentials() KafkaAclCredentialsPtrOutput {
+	return o.ApplyT(func(v *KafkaAcl) KafkaAclCredentialsPtrOutput { return v.Credentials }).(KafkaAclCredentialsPtrOutput)
 }
 
 // The host for the ACL. Should be set to `*` for Confluent Cloud.
 func (o KafkaAclOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.Host }).(pulumi.StringOutput)
-}
-
-// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
-func (o KafkaAclOutput) HttpEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.HttpEndpoint }).(pulumi.StringOutput)
 }
 
 func (o KafkaAclOutput) KafkaCluster() KafkaAclKafkaClusterOutput {
@@ -329,6 +318,11 @@ func (o KafkaAclOutput) ResourceName() pulumi.StringOutput {
 // The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
 func (o KafkaAclOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+func (o KafkaAclOutput) RestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaAcl) pulumi.StringPtrOutput { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }
 
 type KafkaAclArrayOutput struct{ *pulumi.OutputState }

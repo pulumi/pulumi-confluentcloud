@@ -10,6 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// <img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt="">
+//
 // `KafkaTopic` describes a Kafka Topic data source.
 //
 // ## Example Usage
@@ -29,7 +31,7 @@ import (
 // 				Id: confluent_kafka_cluster.Basic - cluster.Id,
 // 			},
 // 			TopicName:    "orders",
-// 			HttpEndpoint: confluent_kafka_cluster.Basic - cluster.Http_endpoint,
+// 			RestEndpoint: confluent_kafka_cluster.Basic - cluster.Rest_endpoint,
 // 			Credentials: GetKafkaTopicCredentials{
 // 				Key:    "<Kafka API Key for confluent_kafka_cluster.basic-cluster>",
 // 				Secret: "<Kafka API Secret for confluent_kafka_cluster.basic-cluster>",
@@ -54,10 +56,10 @@ func LookupKafkaTopic(ctx *pulumi.Context, args *LookupKafkaTopicArgs, opts ...p
 
 // A collection of arguments for invoking getKafkaTopic.
 type LookupKafkaTopicArgs struct {
-	Credentials GetKafkaTopicCredentials `pulumi:"credentials"`
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	HttpEndpoint string                    `pulumi:"httpEndpoint"`
+	Credentials  *GetKafkaTopicCredentials `pulumi:"credentials"`
 	KafkaCluster GetKafkaTopicKafkaCluster `pulumi:"kafkaCluster"`
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint string `pulumi:"restEndpoint"`
 	// The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length and can contain only alphanumeric characters, hyphens, and underscores.
 	TopicName string `pulumi:"topicName"`
 }
@@ -65,14 +67,14 @@ type LookupKafkaTopicArgs struct {
 // A collection of values returned by getKafkaTopic.
 type LookupKafkaTopicResult struct {
 	// (Optional Map) The custom topic settings:
-	Config       map[string]string        `pulumi:"config"`
-	Credentials  GetKafkaTopicCredentials `pulumi:"credentials"`
-	HttpEndpoint string                   `pulumi:"httpEndpoint"`
+	Config      map[string]string         `pulumi:"config"`
+	Credentials *GetKafkaTopicCredentials `pulumi:"credentials"`
 	// The provider-assigned unique ID for this managed resource.
 	Id           string                    `pulumi:"id"`
 	KafkaCluster GetKafkaTopicKafkaCluster `pulumi:"kafkaCluster"`
 	// (Required Number) The number of partitions to create in the topic. Defaults to `6`.
 	PartitionsCount int    `pulumi:"partitionsCount"`
+	RestEndpoint    string `pulumi:"restEndpoint"`
 	TopicName       string `pulumi:"topicName"`
 }
 
@@ -91,10 +93,10 @@ func LookupKafkaTopicOutput(ctx *pulumi.Context, args LookupKafkaTopicOutputArgs
 
 // A collection of arguments for invoking getKafkaTopic.
 type LookupKafkaTopicOutputArgs struct {
-	Credentials GetKafkaTopicCredentialsInput `pulumi:"credentials"`
+	Credentials  GetKafkaTopicCredentialsPtrInput `pulumi:"credentials"`
+	KafkaCluster GetKafkaTopicKafkaClusterInput   `pulumi:"kafkaCluster"`
 	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	HttpEndpoint pulumi.StringInput             `pulumi:"httpEndpoint"`
-	KafkaCluster GetKafkaTopicKafkaClusterInput `pulumi:"kafkaCluster"`
+	RestEndpoint pulumi.StringInput `pulumi:"restEndpoint"`
 	// The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length and can contain only alphanumeric characters, hyphens, and underscores.
 	TopicName pulumi.StringInput `pulumi:"topicName"`
 }
@@ -123,12 +125,8 @@ func (o LookupKafkaTopicResultOutput) Config() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupKafkaTopicResult) map[string]string { return v.Config }).(pulumi.StringMapOutput)
 }
 
-func (o LookupKafkaTopicResultOutput) Credentials() GetKafkaTopicCredentialsOutput {
-	return o.ApplyT(func(v LookupKafkaTopicResult) GetKafkaTopicCredentials { return v.Credentials }).(GetKafkaTopicCredentialsOutput)
-}
-
-func (o LookupKafkaTopicResultOutput) HttpEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupKafkaTopicResult) string { return v.HttpEndpoint }).(pulumi.StringOutput)
+func (o LookupKafkaTopicResultOutput) Credentials() GetKafkaTopicCredentialsPtrOutput {
+	return o.ApplyT(func(v LookupKafkaTopicResult) *GetKafkaTopicCredentials { return v.Credentials }).(GetKafkaTopicCredentialsPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -143,6 +141,10 @@ func (o LookupKafkaTopicResultOutput) KafkaCluster() GetKafkaTopicKafkaClusterOu
 // (Required Number) The number of partitions to create in the topic. Defaults to `6`.
 func (o LookupKafkaTopicResultOutput) PartitionsCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupKafkaTopicResult) int { return v.PartitionsCount }).(pulumi.IntOutput)
+}
+
+func (o LookupKafkaTopicResultOutput) RestEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKafkaTopicResult) string { return v.RestEndpoint }).(pulumi.StringOutput)
 }
 
 func (o LookupKafkaTopicResultOutput) TopicName() pulumi.StringOutput {

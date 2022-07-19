@@ -12,6 +12,8 @@ namespace Pulumi.ConfluentCloud
     public static class GetKafkaCluster
     {
         /// <summary>
+        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// 
         /// `confluentcloud.KafkaCluster` describes a Kafka cluster data source.
         /// 
         /// {{% examples %}}
@@ -61,6 +63,8 @@ namespace Pulumi.ConfluentCloud
             => Pulumi.Deployment.Instance.InvokeAsync<GetKafkaClusterResult>("confluentcloud:index/getKafkaCluster:getKafkaCluster", args ?? new GetKafkaClusterArgs(), options.WithDefaults());
 
         /// <summary>
+        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// 
         /// `confluentcloud.KafkaCluster` describes a Kafka cluster data source.
         /// 
         /// {{% examples %}}
@@ -249,10 +253,6 @@ namespace Pulumi.ConfluentCloud
         public readonly string DisplayName;
         public readonly Outputs.GetKafkaClusterEnvironmentResult Environment;
         /// <summary>
-        /// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-        /// </summary>
-        public readonly string HttpEndpoint;
-        /// <summary>
         /// (Required String) The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
         /// </summary>
         public readonly string Id;
@@ -269,6 +269,10 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
         /// </summary>
         public readonly string Region;
+        /// <summary>
+        /// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// </summary>
+        public readonly string RestEndpoint;
         /// <summary>
         /// (Optional Configuration Block) The configuration of the Standard Kafka cluster.
         /// </summary>
@@ -292,8 +296,6 @@ namespace Pulumi.ConfluentCloud
 
             Outputs.GetKafkaClusterEnvironmentResult environment,
 
-            string httpEndpoint,
-
             string id,
 
             string kind,
@@ -303,6 +305,8 @@ namespace Pulumi.ConfluentCloud
             string rbacCrn,
 
             string region,
+
+            string restEndpoint,
 
             ImmutableArray<Outputs.GetKafkaClusterStandardResult> standards)
         {
@@ -314,12 +318,12 @@ namespace Pulumi.ConfluentCloud
             Dedicated = dedicated;
             DisplayName = displayName;
             Environment = environment;
-            HttpEndpoint = httpEndpoint;
             Id = id;
             Kind = kind;
             Networks = networks;
             RbacCrn = rbacCrn;
             Region = region;
+            RestEndpoint = restEndpoint;
             Standards = standards;
         }
     }

@@ -9,16 +9,31 @@ import (
 )
 
 // The Confluent Cloud API Key.
-func GetApiKey(ctx *pulumi.Context) string {
-	return config.Get(ctx, "confluentcloud:apiKey")
+func GetCloudApiKey(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:cloudApiKey")
 }
 
 // The Confluent Cloud API Secret.
-func GetApiSecret(ctx *pulumi.Context) string {
-	return config.Get(ctx, "confluentcloud:apiSecret")
+func GetCloudApiSecret(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:cloudApiSecret")
 }
 
 // The base endpoint of Confluent Cloud API.
 func GetEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "confluentcloud:endpoint")
+}
+
+// The Kafka Cluster API Key.
+func GetKafkaApiKey(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:kafkaApiKey")
+}
+
+// The Kafka Cluster API Secret.
+func GetKafkaApiSecret(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:kafkaApiSecret")
+}
+
+// The Kafka Cluster REST Endpoint.
+func GetKafkaRestEndpoint(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:kafkaRestEndpoint")
 }

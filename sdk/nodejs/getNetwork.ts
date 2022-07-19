@@ -6,6 +6,8 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
+ * <img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt="">
+ *
  * `confluentcloud.Network` describes a Network data source.
  *
  * ## Example Usage

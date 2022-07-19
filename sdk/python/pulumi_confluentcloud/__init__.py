@@ -13,6 +13,9 @@ from .get_kafka_cluster import *
 from .get_kafka_topic import *
 from .get_network import *
 from .get_organization import *
+from .get_peering import *
+from .get_private_link_access import *
+from .get_role_binding import *
 from .get_service_account import *
 from .get_user import *
 from .kafka_acl import *

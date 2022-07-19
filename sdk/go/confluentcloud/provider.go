@@ -18,11 +18,17 @@ type Provider struct {
 	pulumi.ProviderResourceState
 
 	// The Confluent Cloud API Key.
-	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
+	CloudApiKey pulumi.StringPtrOutput `pulumi:"cloudApiKey"`
 	// The Confluent Cloud API Secret.
-	ApiSecret pulumi.StringPtrOutput `pulumi:"apiSecret"`
+	CloudApiSecret pulumi.StringPtrOutput `pulumi:"cloudApiSecret"`
 	// The base endpoint of Confluent Cloud API.
 	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
+	// The Kafka Cluster API Key.
+	KafkaApiKey pulumi.StringPtrOutput `pulumi:"kafkaApiKey"`
+	// The Kafka Cluster API Secret.
+	KafkaApiSecret pulumi.StringPtrOutput `pulumi:"kafkaApiSecret"`
+	// The Kafka Cluster REST Endpoint.
+	KafkaRestEndpoint pulumi.StringPtrOutput `pulumi:"kafkaRestEndpoint"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -42,21 +48,33 @@ func NewProvider(ctx *pulumi.Context,
 
 type providerArgs struct {
 	// The Confluent Cloud API Key.
-	ApiKey *string `pulumi:"apiKey"`
+	CloudApiKey *string `pulumi:"cloudApiKey"`
 	// The Confluent Cloud API Secret.
-	ApiSecret *string `pulumi:"apiSecret"`
+	CloudApiSecret *string `pulumi:"cloudApiSecret"`
 	// The base endpoint of Confluent Cloud API.
 	Endpoint *string `pulumi:"endpoint"`
+	// The Kafka Cluster API Key.
+	KafkaApiKey *string `pulumi:"kafkaApiKey"`
+	// The Kafka Cluster API Secret.
+	KafkaApiSecret *string `pulumi:"kafkaApiSecret"`
+	// The Kafka Cluster REST Endpoint.
+	KafkaRestEndpoint *string `pulumi:"kafkaRestEndpoint"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
 	// The Confluent Cloud API Key.
-	ApiKey pulumi.StringPtrInput
+	CloudApiKey pulumi.StringPtrInput
 	// The Confluent Cloud API Secret.
-	ApiSecret pulumi.StringPtrInput
+	CloudApiSecret pulumi.StringPtrInput
 	// The base endpoint of Confluent Cloud API.
 	Endpoint pulumi.StringPtrInput
+	// The Kafka Cluster API Key.
+	KafkaApiKey pulumi.StringPtrInput
+	// The Kafka Cluster API Secret.
+	KafkaApiSecret pulumi.StringPtrInput
+	// The Kafka Cluster REST Endpoint.
+	KafkaRestEndpoint pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -97,18 +115,33 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 }
 
 // The Confluent Cloud API Key.
-func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
+func (o ProviderOutput) CloudApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.CloudApiKey }).(pulumi.StringPtrOutput)
 }
 
 // The Confluent Cloud API Secret.
-func (o ProviderOutput) ApiSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiSecret }).(pulumi.StringPtrOutput)
+func (o ProviderOutput) CloudApiSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.CloudApiSecret }).(pulumi.StringPtrOutput)
 }
 
 // The base endpoint of Confluent Cloud API.
 func (o ProviderOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// The Kafka Cluster API Key.
+func (o ProviderOutput) KafkaApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.KafkaApiKey }).(pulumi.StringPtrOutput)
+}
+
+// The Kafka Cluster API Secret.
+func (o ProviderOutput) KafkaApiSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.KafkaApiSecret }).(pulumi.StringPtrOutput)
+}
+
+// The Kafka Cluster REST Endpoint.
+func (o ProviderOutput) KafkaRestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.KafkaRestEndpoint }).(pulumi.StringPtrOutput)
 }
 
 func init() {

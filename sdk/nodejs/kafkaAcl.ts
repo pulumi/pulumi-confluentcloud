@@ -8,7 +8,7 @@ import * as utilities from "./utilities";
 /**
  * ## Import
  *
- * You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export KAFKA_API_KEY="<kafka_api_key>" $ export KAFKA_API_SECRET="<kafka_api_secret>" $ export KAFKA_HTTP_ENDPOINT="<kafka_http_endpoint>"
+ * You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
  *
  * ```sh
  *  $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
@@ -47,15 +47,11 @@ export class KafkaAcl extends pulumi.CustomResource {
     /**
      * The Cluster API Credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.KafkaAclCredentials>;
+    public readonly credentials!: pulumi.Output<outputs.KafkaAclCredentials | undefined>;
     /**
      * The host for the ACL. Should be set to `*` for Confluent Cloud.
      */
     public readonly host!: pulumi.Output<string>;
-    /**
-     * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
-     */
-    public readonly httpEndpoint!: pulumi.Output<string>;
     public readonly kafkaCluster!: pulumi.Output<outputs.KafkaAclKafkaCluster>;
     /**
      * The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
@@ -81,6 +77,10 @@ export class KafkaAcl extends pulumi.CustomResource {
      * The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
      */
     public readonly resourceType!: pulumi.Output<string>;
+    /**
+     * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+     */
+    public readonly restEndpoint!: pulumi.Output<string | undefined>;
 
     /**
      * Create a KafkaAcl resource with the given unique name, arguments, and options.
@@ -97,7 +97,6 @@ export class KafkaAcl extends pulumi.CustomResource {
             const state = argsOrState as KafkaAclState | undefined;
             resourceInputs["credentials"] = state ? state.credentials : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
-            resourceInputs["httpEndpoint"] = state ? state.httpEndpoint : undefined;
             resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
             resourceInputs["operation"] = state ? state.operation : undefined;
             resourceInputs["patternType"] = state ? state.patternType : undefined;
@@ -105,16 +104,11 @@ export class KafkaAcl extends pulumi.CustomResource {
             resourceInputs["principal"] = state ? state.principal : undefined;
             resourceInputs["resourceName"] = state ? state.resourceName : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
         } else {
             const args = argsOrState as KafkaAclArgs | undefined;
-            if ((!args || args.credentials === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'credentials'");
-            }
             if ((!args || args.host === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'host'");
-            }
-            if ((!args || args.httpEndpoint === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'httpEndpoint'");
             }
             if ((!args || args.kafkaCluster === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kafkaCluster'");
@@ -139,7 +133,6 @@ export class KafkaAcl extends pulumi.CustomResource {
             }
             resourceInputs["credentials"] = args ? args.credentials : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["httpEndpoint"] = args ? args.httpEndpoint : undefined;
             resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
             resourceInputs["operation"] = args ? args.operation : undefined;
             resourceInputs["patternType"] = args ? args.patternType : undefined;
@@ -147,6 +140,7 @@ export class KafkaAcl extends pulumi.CustomResource {
             resourceInputs["principal"] = args ? args.principal : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KafkaAcl.__pulumiType, name, resourceInputs, opts);
@@ -165,10 +159,6 @@ export interface KafkaAclState {
      * The host for the ACL. Should be set to `*` for Confluent Cloud.
      */
     host?: pulumi.Input<string>;
-    /**
-     * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
-     */
-    httpEndpoint?: pulumi.Input<string>;
     kafkaCluster?: pulumi.Input<inputs.KafkaAclKafkaCluster>;
     /**
      * The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
@@ -194,6 +184,10 @@ export interface KafkaAclState {
      * The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
      */
     resourceType?: pulumi.Input<string>;
+    /**
+     * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+     */
+    restEndpoint?: pulumi.Input<string>;
 }
 
 /**
@@ -203,15 +197,11 @@ export interface KafkaAclArgs {
     /**
      * The Cluster API Credentials.
      */
-    credentials: pulumi.Input<inputs.KafkaAclCredentials>;
+    credentials?: pulumi.Input<inputs.KafkaAclCredentials>;
     /**
      * The host for the ACL. Should be set to `*` for Confluent Cloud.
      */
     host: pulumi.Input<string>;
-    /**
-     * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
-     */
-    httpEndpoint: pulumi.Input<string>;
     kafkaCluster: pulumi.Input<inputs.KafkaAclKafkaCluster>;
     /**
      * The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
@@ -237,4 +227,8 @@ export interface KafkaAclArgs {
      * The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
      */
     resourceType: pulumi.Input<string>;
+    /**
+     * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+     */
+    restEndpoint?: pulumi.Input<string>;
 }

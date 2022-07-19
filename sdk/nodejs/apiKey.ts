@@ -55,6 +55,10 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+     */
+    public readonly disableWaitForReady!: pulumi.Output<boolean | undefined>;
+    /**
      * A human-readable name for the API Key.
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
@@ -67,7 +71,7 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public readonly owner!: pulumi.Output<outputs.ApiKeyOwner>;
     /**
-     * (Required String) The secret of the API Key.
+     * (Required String, Sensitive) The secret of the API Key.
      */
     public /*out*/ readonly secret!: pulumi.Output<string>;
 
@@ -85,6 +89,7 @@ export class ApiKey extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["disableWaitForReady"] = state ? state.disableWaitForReady : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["managedResource"] = state ? state.managedResource : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
@@ -95,6 +100,7 @@ export class ApiKey extends pulumi.CustomResource {
                 throw new Error("Missing required property 'owner'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disableWaitForReady"] = args ? args.disableWaitForReady : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["managedResource"] = args ? args.managedResource : undefined;
             resourceInputs["owner"] = args ? args.owner : undefined;
@@ -114,6 +120,10 @@ export interface ApiKeyState {
      */
     description?: pulumi.Input<string>;
     /**
+     * An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+     */
+    disableWaitForReady?: pulumi.Input<boolean>;
+    /**
      * A human-readable name for the API Key.
      */
     displayName?: pulumi.Input<string>;
@@ -126,7 +136,7 @@ export interface ApiKeyState {
      */
     owner?: pulumi.Input<inputs.ApiKeyOwner>;
     /**
-     * (Required String) The secret of the API Key.
+     * (Required String, Sensitive) The secret of the API Key.
      */
     secret?: pulumi.Input<string>;
 }
@@ -139,6 +149,10 @@ export interface ApiKeyArgs {
      * A free-form description of the API Account.
      */
     description?: pulumi.Input<string>;
+    /**
+     * An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+     */
+    disableWaitForReady?: pulumi.Input<boolean>;
     /**
      * A human-readable name for the API Key.
      */

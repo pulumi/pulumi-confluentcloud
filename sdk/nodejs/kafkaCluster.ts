@@ -74,10 +74,6 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     public readonly environment!: pulumi.Output<outputs.KafkaClusterEnvironment>;
     /**
-     * (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-     */
-    public /*out*/ readonly httpEndpoint!: pulumi.Output<string>;
-    /**
      * (Required String) A kind of the Kafka cluster, for example, `Cluster`.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
@@ -94,6 +90,10 @@ export class KafkaCluster extends pulumi.CustomResource {
      * The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
      */
     public readonly region!: pulumi.Output<string>;
+    /**
+     * (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
+    public /*out*/ readonly restEndpoint!: pulumi.Output<string>;
     /**
      * The configuration of the Standard Kafka cluster.
      */
@@ -120,11 +120,11 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["dedicated"] = state ? state.dedicated : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["httpEndpoint"] = state ? state.httpEndpoint : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["network"] = state ? state.network : undefined;
             resourceInputs["rbacCrn"] = state ? state.rbacCrn : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
             resourceInputs["standards"] = state ? state.standards : undefined;
         } else {
             const args = argsOrState as KafkaClusterArgs | undefined;
@@ -154,9 +154,9 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["standards"] = args ? args.standards : undefined;
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["bootstrapEndpoint"] = undefined /*out*/;
-            resourceInputs["httpEndpoint"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["rbacCrn"] = undefined /*out*/;
+            resourceInputs["restEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KafkaCluster.__pulumiType, name, resourceInputs, opts);
@@ -197,10 +197,6 @@ export interface KafkaClusterState {
      */
     environment?: pulumi.Input<inputs.KafkaClusterEnvironment>;
     /**
-     * (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-     */
-    httpEndpoint?: pulumi.Input<string>;
-    /**
      * (Required String) A kind of the Kafka cluster, for example, `Cluster`.
      */
     kind?: pulumi.Input<string>;
@@ -217,6 +213,10 @@ export interface KafkaClusterState {
      * The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
      */
     region?: pulumi.Input<string>;
+    /**
+     * (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
+    restEndpoint?: pulumi.Input<string>;
     /**
      * The configuration of the Standard Kafka cluster.
      */

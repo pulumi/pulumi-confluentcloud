@@ -12,6 +12,8 @@ namespace Pulumi.ConfluentCloud
     public static class GetKafkaTopic
     {
         /// <summary>
+        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// 
         /// `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
         /// 
         /// {{% examples %}}
@@ -33,7 +35,7 @@ namespace Pulumi.ConfluentCloud
         ///                 Id = confluent_kafka_cluster.Basic_cluster.Id,
         ///             },
         ///             TopicName = "orders",
-        ///             HttpEndpoint = confluent_kafka_cluster.Basic_cluster.Http_endpoint,
+        ///             RestEndpoint = confluent_kafka_cluster.Basic_cluster.Rest_endpoint,
         ///             Credentials = new ConfluentCloud.Inputs.GetKafkaTopicCredentialsArgs
         ///             {
         ///                 Key = "&lt;Kafka API Key for confluent_kafka_cluster.basic-cluster&gt;",
@@ -54,6 +56,8 @@ namespace Pulumi.ConfluentCloud
             => Pulumi.Deployment.Instance.InvokeAsync<GetKafkaTopicResult>("confluentcloud:index/getKafkaTopic:getKafkaTopic", args ?? new GetKafkaTopicArgs(), options.WithDefaults());
 
         /// <summary>
+        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// 
         /// `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
         /// 
         /// {{% examples %}}
@@ -75,7 +79,7 @@ namespace Pulumi.ConfluentCloud
         ///                 Id = confluent_kafka_cluster.Basic_cluster.Id,
         ///             },
         ///             TopicName = "orders",
-        ///             HttpEndpoint = confluent_kafka_cluster.Basic_cluster.Http_endpoint,
+        ///             RestEndpoint = confluent_kafka_cluster.Basic_cluster.Rest_endpoint,
         ///             Credentials = new ConfluentCloud.Inputs.GetKafkaTopicCredentialsArgs
         ///             {
         ///                 Key = "&lt;Kafka API Key for confluent_kafka_cluster.basic-cluster&gt;",
@@ -99,17 +103,17 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class GetKafkaTopicArgs : Pulumi.InvokeArgs
     {
-        [Input("credentials", required: true)]
-        public Inputs.GetKafkaTopicCredentialsArgs Credentials { get; set; } = null!;
+        [Input("credentials")]
+        public Inputs.GetKafkaTopicCredentialsArgs? Credentials { get; set; }
+
+        [Input("kafkaCluster", required: true)]
+        public Inputs.GetKafkaTopicKafkaClusterArgs KafkaCluster { get; set; } = null!;
 
         /// <summary>
         /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
-        [Input("httpEndpoint", required: true)]
-        public string HttpEndpoint { get; set; } = null!;
-
-        [Input("kafkaCluster", required: true)]
-        public Inputs.GetKafkaTopicKafkaClusterArgs KafkaCluster { get; set; } = null!;
+        [Input("restEndpoint", required: true)]
+        public string RestEndpoint { get; set; } = null!;
 
         /// <summary>
         /// The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length and can contain only alphanumeric characters, hyphens, and underscores.
@@ -124,17 +128,17 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class GetKafkaTopicInvokeArgs : Pulumi.InvokeArgs
     {
-        [Input("credentials", required: true)]
-        public Input<Inputs.GetKafkaTopicCredentialsInputArgs> Credentials { get; set; } = null!;
+        [Input("credentials")]
+        public Input<Inputs.GetKafkaTopicCredentialsInputArgs>? Credentials { get; set; }
+
+        [Input("kafkaCluster", required: true)]
+        public Input<Inputs.GetKafkaTopicKafkaClusterInputArgs> KafkaCluster { get; set; } = null!;
 
         /// <summary>
         /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
-        [Input("httpEndpoint", required: true)]
-        public Input<string> HttpEndpoint { get; set; } = null!;
-
-        [Input("kafkaCluster", required: true)]
-        public Input<Inputs.GetKafkaTopicKafkaClusterInputArgs> KafkaCluster { get; set; } = null!;
+        [Input("restEndpoint", required: true)]
+        public Input<string> RestEndpoint { get; set; } = null!;
 
         /// <summary>
         /// The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length and can contain only alphanumeric characters, hyphens, and underscores.
@@ -155,8 +159,7 @@ namespace Pulumi.ConfluentCloud
         /// (Optional Map) The custom topic settings:
         /// </summary>
         public readonly ImmutableDictionary<string, string> Config;
-        public readonly Outputs.GetKafkaTopicCredentialsResult Credentials;
-        public readonly string HttpEndpoint;
+        public readonly Outputs.GetKafkaTopicCredentialsResult? Credentials;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -166,15 +169,14 @@ namespace Pulumi.ConfluentCloud
         /// (Required Number) The number of partitions to create in the topic. Defaults to `6`.
         /// </summary>
         public readonly int PartitionsCount;
+        public readonly string RestEndpoint;
         public readonly string TopicName;
 
         [OutputConstructor]
         private GetKafkaTopicResult(
             ImmutableDictionary<string, string> config,
 
-            Outputs.GetKafkaTopicCredentialsResult credentials,
-
-            string httpEndpoint,
+            Outputs.GetKafkaTopicCredentialsResult? credentials,
 
             string id,
 
@@ -182,14 +184,16 @@ namespace Pulumi.ConfluentCloud
 
             int partitionsCount,
 
+            string restEndpoint,
+
             string topicName)
         {
             Config = config;
             Credentials = credentials;
-            HttpEndpoint = httpEndpoint;
             Id = id;
             KafkaCluster = kafkaCluster;
             PartitionsCount = partitionsCount;
+            RestEndpoint = restEndpoint;
             TopicName = topicName;
         }
     }

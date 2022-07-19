@@ -4308,6 +4308,47 @@ func (i GetKafkaTopicCredentialsArgs) ToGetKafkaTopicCredentialsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaTopicCredentialsOutput)
 }
 
+func (i GetKafkaTopicCredentialsArgs) ToGetKafkaTopicCredentialsPtrOutput() GetKafkaTopicCredentialsPtrOutput {
+	return i.ToGetKafkaTopicCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetKafkaTopicCredentialsArgs) ToGetKafkaTopicCredentialsPtrOutputWithContext(ctx context.Context) GetKafkaTopicCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaTopicCredentialsOutput).ToGetKafkaTopicCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetKafkaTopicCredentialsPtrInput is an input type that accepts GetKafkaTopicCredentialsArgs, GetKafkaTopicCredentialsPtr and GetKafkaTopicCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetKafkaTopicCredentialsPtrInput` via:
+//
+//          GetKafkaTopicCredentialsArgs{...}
+//
+//  or:
+//
+//          nil
+type GetKafkaTopicCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetKafkaTopicCredentialsPtrOutput() GetKafkaTopicCredentialsPtrOutput
+	ToGetKafkaTopicCredentialsPtrOutputWithContext(context.Context) GetKafkaTopicCredentialsPtrOutput
+}
+
+type getKafkaTopicCredentialsPtrType GetKafkaTopicCredentialsArgs
+
+func GetKafkaTopicCredentialsPtr(v *GetKafkaTopicCredentialsArgs) GetKafkaTopicCredentialsPtrInput {
+	return (*getKafkaTopicCredentialsPtrType)(v)
+}
+
+func (*getKafkaTopicCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetKafkaTopicCredentials)(nil)).Elem()
+}
+
+func (i *getKafkaTopicCredentialsPtrType) ToGetKafkaTopicCredentialsPtrOutput() GetKafkaTopicCredentialsPtrOutput {
+	return i.ToGetKafkaTopicCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getKafkaTopicCredentialsPtrType) ToGetKafkaTopicCredentialsPtrOutputWithContext(ctx context.Context) GetKafkaTopicCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaTopicCredentialsPtrOutput)
+}
+
 type GetKafkaTopicCredentialsOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaTopicCredentialsOutput) ElementType() reflect.Type {
@@ -4322,6 +4363,16 @@ func (o GetKafkaTopicCredentialsOutput) ToGetKafkaTopicCredentialsOutputWithCont
 	return o
 }
 
+func (o GetKafkaTopicCredentialsOutput) ToGetKafkaTopicCredentialsPtrOutput() GetKafkaTopicCredentialsPtrOutput {
+	return o.ToGetKafkaTopicCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetKafkaTopicCredentialsOutput) ToGetKafkaTopicCredentialsPtrOutputWithContext(ctx context.Context) GetKafkaTopicCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetKafkaTopicCredentials) *GetKafkaTopicCredentials {
+		return &v
+	}).(GetKafkaTopicCredentialsPtrOutput)
+}
+
 // The Kafka API Key.
 func (o GetKafkaTopicCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaTopicCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -4330,6 +4381,50 @@ func (o GetKafkaTopicCredentialsOutput) Key() pulumi.StringOutput {
 // The Kafka API Secret.
 func (o GetKafkaTopicCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaTopicCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetKafkaTopicCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaTopicCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetKafkaTopicCredentials)(nil)).Elem()
+}
+
+func (o GetKafkaTopicCredentialsPtrOutput) ToGetKafkaTopicCredentialsPtrOutput() GetKafkaTopicCredentialsPtrOutput {
+	return o
+}
+
+func (o GetKafkaTopicCredentialsPtrOutput) ToGetKafkaTopicCredentialsPtrOutputWithContext(ctx context.Context) GetKafkaTopicCredentialsPtrOutput {
+	return o
+}
+
+func (o GetKafkaTopicCredentialsPtrOutput) Elem() GetKafkaTopicCredentialsOutput {
+	return o.ApplyT(func(v *GetKafkaTopicCredentials) GetKafkaTopicCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetKafkaTopicCredentials
+		return ret
+	}).(GetKafkaTopicCredentialsOutput)
+}
+
+// The Kafka API Key.
+func (o GetKafkaTopicCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetKafkaTopicCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kafka API Secret.
+func (o GetKafkaTopicCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetKafkaTopicCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetKafkaTopicKafkaCluster struct {
@@ -4745,6 +4840,852 @@ func (o GetNetworkGcpArrayOutput) Index(i pulumi.IntInput) GetNetworkGcpOutput {
 	}).(GetNetworkGcpOutput)
 }
 
+type GetPeeringAw struct {
+	// (Required String) The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
+	Account string `pulumi:"account"`
+	// (Required String) The region of the Azure peer VNet.
+	CustomerRegion string `pulumi:"customerRegion"`
+	// (Required String) The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs > Target VPC > Details** section of the AWS Management Console.
+	Routes []string `pulumi:"routes"`
+	// (Required String) The AWS VPC ID of the peer VPC that you're peering with Confluent Cloud. You can find your AWS VPC ID [here](https://console.aws.amazon.com/vpc/) under **Your VPCs** section of the AWS Management Console. Must start with `vpc-`.
+	Vpc string `pulumi:"vpc"`
+}
+
+// GetPeeringAwInput is an input type that accepts GetPeeringAwArgs and GetPeeringAwOutput values.
+// You can construct a concrete instance of `GetPeeringAwInput` via:
+//
+//          GetPeeringAwArgs{...}
+type GetPeeringAwInput interface {
+	pulumi.Input
+
+	ToGetPeeringAwOutput() GetPeeringAwOutput
+	ToGetPeeringAwOutputWithContext(context.Context) GetPeeringAwOutput
+}
+
+type GetPeeringAwArgs struct {
+	// (Required String) The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
+	Account pulumi.StringInput `pulumi:"account"`
+	// (Required String) The region of the Azure peer VNet.
+	CustomerRegion pulumi.StringInput `pulumi:"customerRegion"`
+	// (Required String) The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs > Target VPC > Details** section of the AWS Management Console.
+	Routes pulumi.StringArrayInput `pulumi:"routes"`
+	// (Required String) The AWS VPC ID of the peer VPC that you're peering with Confluent Cloud. You can find your AWS VPC ID [here](https://console.aws.amazon.com/vpc/) under **Your VPCs** section of the AWS Management Console. Must start with `vpc-`.
+	Vpc pulumi.StringInput `pulumi:"vpc"`
+}
+
+func (GetPeeringAwArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPeeringAw)(nil)).Elem()
+}
+
+func (i GetPeeringAwArgs) ToGetPeeringAwOutput() GetPeeringAwOutput {
+	return i.ToGetPeeringAwOutputWithContext(context.Background())
+}
+
+func (i GetPeeringAwArgs) ToGetPeeringAwOutputWithContext(ctx context.Context) GetPeeringAwOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringAwOutput)
+}
+
+// GetPeeringAwArrayInput is an input type that accepts GetPeeringAwArray and GetPeeringAwArrayOutput values.
+// You can construct a concrete instance of `GetPeeringAwArrayInput` via:
+//
+//          GetPeeringAwArray{ GetPeeringAwArgs{...} }
+type GetPeeringAwArrayInput interface {
+	pulumi.Input
+
+	ToGetPeeringAwArrayOutput() GetPeeringAwArrayOutput
+	ToGetPeeringAwArrayOutputWithContext(context.Context) GetPeeringAwArrayOutput
+}
+
+type GetPeeringAwArray []GetPeeringAwInput
+
+func (GetPeeringAwArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPeeringAw)(nil)).Elem()
+}
+
+func (i GetPeeringAwArray) ToGetPeeringAwArrayOutput() GetPeeringAwArrayOutput {
+	return i.ToGetPeeringAwArrayOutputWithContext(context.Background())
+}
+
+func (i GetPeeringAwArray) ToGetPeeringAwArrayOutputWithContext(ctx context.Context) GetPeeringAwArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringAwArrayOutput)
+}
+
+type GetPeeringAwOutput struct{ *pulumi.OutputState }
+
+func (GetPeeringAwOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPeeringAw)(nil)).Elem()
+}
+
+func (o GetPeeringAwOutput) ToGetPeeringAwOutput() GetPeeringAwOutput {
+	return o
+}
+
+func (o GetPeeringAwOutput) ToGetPeeringAwOutputWithContext(ctx context.Context) GetPeeringAwOutput {
+	return o
+}
+
+// (Required String) The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
+func (o GetPeeringAwOutput) Account() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPeeringAw) string { return v.Account }).(pulumi.StringOutput)
+}
+
+// (Required String) The region of the Azure peer VNet.
+func (o GetPeeringAwOutput) CustomerRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPeeringAw) string { return v.CustomerRegion }).(pulumi.StringOutput)
+}
+
+// (Required String) The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs > Target VPC > Details** section of the AWS Management Console.
+func (o GetPeeringAwOutput) Routes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPeeringAw) []string { return v.Routes }).(pulumi.StringArrayOutput)
+}
+
+// (Required String) The AWS VPC ID of the peer VPC that you're peering with Confluent Cloud. You can find your AWS VPC ID [here](https://console.aws.amazon.com/vpc/) under **Your VPCs** section of the AWS Management Console. Must start with `vpc-`.
+func (o GetPeeringAwOutput) Vpc() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPeeringAw) string { return v.Vpc }).(pulumi.StringOutput)
+}
+
+type GetPeeringAwArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPeeringAwArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPeeringAw)(nil)).Elem()
+}
+
+func (o GetPeeringAwArrayOutput) ToGetPeeringAwArrayOutput() GetPeeringAwArrayOutput {
+	return o
+}
+
+func (o GetPeeringAwArrayOutput) ToGetPeeringAwArrayOutputWithContext(ctx context.Context) GetPeeringAwArrayOutput {
+	return o
+}
+
+func (o GetPeeringAwArrayOutput) Index(i pulumi.IntInput) GetPeeringAwOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPeeringAw {
+		return vs[0].([]GetPeeringAw)[vs[1].(int)]
+	}).(GetPeeringAwOutput)
+}
+
+type GetPeeringAzure struct {
+	// (Required String) The region of the Azure peer VNet.
+	CustomerRegion string `pulumi:"customerRegion"`
+	// (Required String) The Tenant ID that represents an organization in Azure Active Directory. You can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
+	Tenant string `pulumi:"tenant"`
+	// (Required String) The resource (composite) ID of the peer Virtual Network that you're peering with Confluent Cloud, in the format `/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Network/virtualNetworks/<VNet name>`. You can find Subscription ID, Resource Group Name and your VNet name under **Virtual Networks > Target VNet > Essentials** section of your [Microsoft Azure Portal](https://portal.azure.com/).
+	Vnet string `pulumi:"vnet"`
+}
+
+// GetPeeringAzureInput is an input type that accepts GetPeeringAzureArgs and GetPeeringAzureOutput values.
+// You can construct a concrete instance of `GetPeeringAzureInput` via:
+//
+//          GetPeeringAzureArgs{...}
+type GetPeeringAzureInput interface {
+	pulumi.Input
+
+	ToGetPeeringAzureOutput() GetPeeringAzureOutput
+	ToGetPeeringAzureOutputWithContext(context.Context) GetPeeringAzureOutput
+}
+
+type GetPeeringAzureArgs struct {
+	// (Required String) The region of the Azure peer VNet.
+	CustomerRegion pulumi.StringInput `pulumi:"customerRegion"`
+	// (Required String) The Tenant ID that represents an organization in Azure Active Directory. You can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
+	Tenant pulumi.StringInput `pulumi:"tenant"`
+	// (Required String) The resource (composite) ID of the peer Virtual Network that you're peering with Confluent Cloud, in the format `/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Network/virtualNetworks/<VNet name>`. You can find Subscription ID, Resource Group Name and your VNet name under **Virtual Networks > Target VNet > Essentials** section of your [Microsoft Azure Portal](https://portal.azure.com/).
+	Vnet pulumi.StringInput `pulumi:"vnet"`
+}
+
+func (GetPeeringAzureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPeeringAzure)(nil)).Elem()
+}
+
+func (i GetPeeringAzureArgs) ToGetPeeringAzureOutput() GetPeeringAzureOutput {
+	return i.ToGetPeeringAzureOutputWithContext(context.Background())
+}
+
+func (i GetPeeringAzureArgs) ToGetPeeringAzureOutputWithContext(ctx context.Context) GetPeeringAzureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringAzureOutput)
+}
+
+// GetPeeringAzureArrayInput is an input type that accepts GetPeeringAzureArray and GetPeeringAzureArrayOutput values.
+// You can construct a concrete instance of `GetPeeringAzureArrayInput` via:
+//
+//          GetPeeringAzureArray{ GetPeeringAzureArgs{...} }
+type GetPeeringAzureArrayInput interface {
+	pulumi.Input
+
+	ToGetPeeringAzureArrayOutput() GetPeeringAzureArrayOutput
+	ToGetPeeringAzureArrayOutputWithContext(context.Context) GetPeeringAzureArrayOutput
+}
+
+type GetPeeringAzureArray []GetPeeringAzureInput
+
+func (GetPeeringAzureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPeeringAzure)(nil)).Elem()
+}
+
+func (i GetPeeringAzureArray) ToGetPeeringAzureArrayOutput() GetPeeringAzureArrayOutput {
+	return i.ToGetPeeringAzureArrayOutputWithContext(context.Background())
+}
+
+func (i GetPeeringAzureArray) ToGetPeeringAzureArrayOutputWithContext(ctx context.Context) GetPeeringAzureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringAzureArrayOutput)
+}
+
+type GetPeeringAzureOutput struct{ *pulumi.OutputState }
+
+func (GetPeeringAzureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPeeringAzure)(nil)).Elem()
+}
+
+func (o GetPeeringAzureOutput) ToGetPeeringAzureOutput() GetPeeringAzureOutput {
+	return o
+}
+
+func (o GetPeeringAzureOutput) ToGetPeeringAzureOutputWithContext(ctx context.Context) GetPeeringAzureOutput {
+	return o
+}
+
+// (Required String) The region of the Azure peer VNet.
+func (o GetPeeringAzureOutput) CustomerRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPeeringAzure) string { return v.CustomerRegion }).(pulumi.StringOutput)
+}
+
+// (Required String) The Tenant ID that represents an organization in Azure Active Directory. You can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
+func (o GetPeeringAzureOutput) Tenant() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPeeringAzure) string { return v.Tenant }).(pulumi.StringOutput)
+}
+
+// (Required String) The resource (composite) ID of the peer Virtual Network that you're peering with Confluent Cloud, in the format `/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Network/virtualNetworks/<VNet name>`. You can find Subscription ID, Resource Group Name and your VNet name under **Virtual Networks > Target VNet > Essentials** section of your [Microsoft Azure Portal](https://portal.azure.com/).
+func (o GetPeeringAzureOutput) Vnet() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPeeringAzure) string { return v.Vnet }).(pulumi.StringOutput)
+}
+
+type GetPeeringAzureArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPeeringAzureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPeeringAzure)(nil)).Elem()
+}
+
+func (o GetPeeringAzureArrayOutput) ToGetPeeringAzureArrayOutput() GetPeeringAzureArrayOutput {
+	return o
+}
+
+func (o GetPeeringAzureArrayOutput) ToGetPeeringAzureArrayOutputWithContext(ctx context.Context) GetPeeringAzureArrayOutput {
+	return o
+}
+
+func (o GetPeeringAzureArrayOutput) Index(i pulumi.IntInput) GetPeeringAzureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPeeringAzure {
+		return vs[0].([]GetPeeringAzure)[vs[1].(int)]
+	}).(GetPeeringAzureOutput)
+}
+
+type GetPeeringEnvironment struct {
+	// The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetPeeringEnvironmentInput is an input type that accepts GetPeeringEnvironmentArgs and GetPeeringEnvironmentOutput values.
+// You can construct a concrete instance of `GetPeeringEnvironmentInput` via:
+//
+//          GetPeeringEnvironmentArgs{...}
+type GetPeeringEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetPeeringEnvironmentOutput() GetPeeringEnvironmentOutput
+	ToGetPeeringEnvironmentOutputWithContext(context.Context) GetPeeringEnvironmentOutput
+}
+
+type GetPeeringEnvironmentArgs struct {
+	// The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetPeeringEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPeeringEnvironment)(nil)).Elem()
+}
+
+func (i GetPeeringEnvironmentArgs) ToGetPeeringEnvironmentOutput() GetPeeringEnvironmentOutput {
+	return i.ToGetPeeringEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetPeeringEnvironmentArgs) ToGetPeeringEnvironmentOutputWithContext(ctx context.Context) GetPeeringEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringEnvironmentOutput)
+}
+
+type GetPeeringEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetPeeringEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPeeringEnvironment)(nil)).Elem()
+}
+
+func (o GetPeeringEnvironmentOutput) ToGetPeeringEnvironmentOutput() GetPeeringEnvironmentOutput {
+	return o
+}
+
+func (o GetPeeringEnvironmentOutput) ToGetPeeringEnvironmentOutputWithContext(ctx context.Context) GetPeeringEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+func (o GetPeeringEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPeeringEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetPeeringGcp struct {
+	// (Optional Boolean) The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
+	ImportCustomRoutes bool `pulumi:"importCustomRoutes"`
+	// (Required String) The GCP Project ID. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+	Project string `pulumi:"project"`
+	// (Required String) The VPC network name that you're peering to Confluent Cloud. You can find your VPC network name under **VPC Networks** section of your [Google Cloud Console](https://console.cloud.google.com/networking/networks/list).
+	VpcNetwork string `pulumi:"vpcNetwork"`
+}
+
+// GetPeeringGcpInput is an input type that accepts GetPeeringGcpArgs and GetPeeringGcpOutput values.
+// You can construct a concrete instance of `GetPeeringGcpInput` via:
+//
+//          GetPeeringGcpArgs{...}
+type GetPeeringGcpInput interface {
+	pulumi.Input
+
+	ToGetPeeringGcpOutput() GetPeeringGcpOutput
+	ToGetPeeringGcpOutputWithContext(context.Context) GetPeeringGcpOutput
+}
+
+type GetPeeringGcpArgs struct {
+	// (Optional Boolean) The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
+	ImportCustomRoutes pulumi.BoolInput `pulumi:"importCustomRoutes"`
+	// (Required String) The GCP Project ID. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+	Project pulumi.StringInput `pulumi:"project"`
+	// (Required String) The VPC network name that you're peering to Confluent Cloud. You can find your VPC network name under **VPC Networks** section of your [Google Cloud Console](https://console.cloud.google.com/networking/networks/list).
+	VpcNetwork pulumi.StringInput `pulumi:"vpcNetwork"`
+}
+
+func (GetPeeringGcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPeeringGcp)(nil)).Elem()
+}
+
+func (i GetPeeringGcpArgs) ToGetPeeringGcpOutput() GetPeeringGcpOutput {
+	return i.ToGetPeeringGcpOutputWithContext(context.Background())
+}
+
+func (i GetPeeringGcpArgs) ToGetPeeringGcpOutputWithContext(ctx context.Context) GetPeeringGcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringGcpOutput)
+}
+
+// GetPeeringGcpArrayInput is an input type that accepts GetPeeringGcpArray and GetPeeringGcpArrayOutput values.
+// You can construct a concrete instance of `GetPeeringGcpArrayInput` via:
+//
+//          GetPeeringGcpArray{ GetPeeringGcpArgs{...} }
+type GetPeeringGcpArrayInput interface {
+	pulumi.Input
+
+	ToGetPeeringGcpArrayOutput() GetPeeringGcpArrayOutput
+	ToGetPeeringGcpArrayOutputWithContext(context.Context) GetPeeringGcpArrayOutput
+}
+
+type GetPeeringGcpArray []GetPeeringGcpInput
+
+func (GetPeeringGcpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPeeringGcp)(nil)).Elem()
+}
+
+func (i GetPeeringGcpArray) ToGetPeeringGcpArrayOutput() GetPeeringGcpArrayOutput {
+	return i.ToGetPeeringGcpArrayOutputWithContext(context.Background())
+}
+
+func (i GetPeeringGcpArray) ToGetPeeringGcpArrayOutputWithContext(ctx context.Context) GetPeeringGcpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringGcpArrayOutput)
+}
+
+type GetPeeringGcpOutput struct{ *pulumi.OutputState }
+
+func (GetPeeringGcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPeeringGcp)(nil)).Elem()
+}
+
+func (o GetPeeringGcpOutput) ToGetPeeringGcpOutput() GetPeeringGcpOutput {
+	return o
+}
+
+func (o GetPeeringGcpOutput) ToGetPeeringGcpOutputWithContext(ctx context.Context) GetPeeringGcpOutput {
+	return o
+}
+
+// (Optional Boolean) The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
+func (o GetPeeringGcpOutput) ImportCustomRoutes() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPeeringGcp) bool { return v.ImportCustomRoutes }).(pulumi.BoolOutput)
+}
+
+// (Required String) The GCP Project ID. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+func (o GetPeeringGcpOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPeeringGcp) string { return v.Project }).(pulumi.StringOutput)
+}
+
+// (Required String) The VPC network name that you're peering to Confluent Cloud. You can find your VPC network name under **VPC Networks** section of your [Google Cloud Console](https://console.cloud.google.com/networking/networks/list).
+func (o GetPeeringGcpOutput) VpcNetwork() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPeeringGcp) string { return v.VpcNetwork }).(pulumi.StringOutput)
+}
+
+type GetPeeringGcpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPeeringGcpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPeeringGcp)(nil)).Elem()
+}
+
+func (o GetPeeringGcpArrayOutput) ToGetPeeringGcpArrayOutput() GetPeeringGcpArrayOutput {
+	return o
+}
+
+func (o GetPeeringGcpArrayOutput) ToGetPeeringGcpArrayOutputWithContext(ctx context.Context) GetPeeringGcpArrayOutput {
+	return o
+}
+
+func (o GetPeeringGcpArrayOutput) Index(i pulumi.IntInput) GetPeeringGcpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPeeringGcp {
+		return vs[0].([]GetPeeringGcp)[vs[1].(int)]
+	}).(GetPeeringGcpOutput)
+}
+
+type GetPeeringNetwork struct {
+	// The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetPeeringNetworkInput is an input type that accepts GetPeeringNetworkArgs and GetPeeringNetworkOutput values.
+// You can construct a concrete instance of `GetPeeringNetworkInput` via:
+//
+//          GetPeeringNetworkArgs{...}
+type GetPeeringNetworkInput interface {
+	pulumi.Input
+
+	ToGetPeeringNetworkOutput() GetPeeringNetworkOutput
+	ToGetPeeringNetworkOutputWithContext(context.Context) GetPeeringNetworkOutput
+}
+
+type GetPeeringNetworkArgs struct {
+	// The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetPeeringNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPeeringNetwork)(nil)).Elem()
+}
+
+func (i GetPeeringNetworkArgs) ToGetPeeringNetworkOutput() GetPeeringNetworkOutput {
+	return i.ToGetPeeringNetworkOutputWithContext(context.Background())
+}
+
+func (i GetPeeringNetworkArgs) ToGetPeeringNetworkOutputWithContext(ctx context.Context) GetPeeringNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringNetworkOutput)
+}
+
+// GetPeeringNetworkArrayInput is an input type that accepts GetPeeringNetworkArray and GetPeeringNetworkArrayOutput values.
+// You can construct a concrete instance of `GetPeeringNetworkArrayInput` via:
+//
+//          GetPeeringNetworkArray{ GetPeeringNetworkArgs{...} }
+type GetPeeringNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGetPeeringNetworkArrayOutput() GetPeeringNetworkArrayOutput
+	ToGetPeeringNetworkArrayOutputWithContext(context.Context) GetPeeringNetworkArrayOutput
+}
+
+type GetPeeringNetworkArray []GetPeeringNetworkInput
+
+func (GetPeeringNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPeeringNetwork)(nil)).Elem()
+}
+
+func (i GetPeeringNetworkArray) ToGetPeeringNetworkArrayOutput() GetPeeringNetworkArrayOutput {
+	return i.ToGetPeeringNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GetPeeringNetworkArray) ToGetPeeringNetworkArrayOutputWithContext(ctx context.Context) GetPeeringNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringNetworkArrayOutput)
+}
+
+type GetPeeringNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetPeeringNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPeeringNetwork)(nil)).Elem()
+}
+
+func (o GetPeeringNetworkOutput) ToGetPeeringNetworkOutput() GetPeeringNetworkOutput {
+	return o
+}
+
+func (o GetPeeringNetworkOutput) ToGetPeeringNetworkOutputWithContext(ctx context.Context) GetPeeringNetworkOutput {
+	return o
+}
+
+// The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+func (o GetPeeringNetworkOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPeeringNetwork) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetPeeringNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPeeringNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPeeringNetwork)(nil)).Elem()
+}
+
+func (o GetPeeringNetworkArrayOutput) ToGetPeeringNetworkArrayOutput() GetPeeringNetworkArrayOutput {
+	return o
+}
+
+func (o GetPeeringNetworkArrayOutput) ToGetPeeringNetworkArrayOutputWithContext(ctx context.Context) GetPeeringNetworkArrayOutput {
+	return o
+}
+
+func (o GetPeeringNetworkArrayOutput) Index(i pulumi.IntInput) GetPeeringNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPeeringNetwork {
+		return vs[0].([]GetPeeringNetwork)[vs[1].(int)]
+	}).(GetPeeringNetworkOutput)
+}
+
+type GetPrivateLinkAccessAw struct {
+	// (Required String) The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
+	Account string `pulumi:"account"`
+}
+
+// GetPrivateLinkAccessAwInput is an input type that accepts GetPrivateLinkAccessAwArgs and GetPrivateLinkAccessAwOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAccessAwInput` via:
+//
+//          GetPrivateLinkAccessAwArgs{...}
+type GetPrivateLinkAccessAwInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAccessAwOutput() GetPrivateLinkAccessAwOutput
+	ToGetPrivateLinkAccessAwOutputWithContext(context.Context) GetPrivateLinkAccessAwOutput
+}
+
+type GetPrivateLinkAccessAwArgs struct {
+	// (Required String) The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
+	Account pulumi.StringInput `pulumi:"account"`
+}
+
+func (GetPrivateLinkAccessAwArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAccessAw)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAccessAwArgs) ToGetPrivateLinkAccessAwOutput() GetPrivateLinkAccessAwOutput {
+	return i.ToGetPrivateLinkAccessAwOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAccessAwArgs) ToGetPrivateLinkAccessAwOutputWithContext(ctx context.Context) GetPrivateLinkAccessAwOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessAwOutput)
+}
+
+// GetPrivateLinkAccessAwArrayInput is an input type that accepts GetPrivateLinkAccessAwArray and GetPrivateLinkAccessAwArrayOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAccessAwArrayInput` via:
+//
+//          GetPrivateLinkAccessAwArray{ GetPrivateLinkAccessAwArgs{...} }
+type GetPrivateLinkAccessAwArrayInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAccessAwArrayOutput() GetPrivateLinkAccessAwArrayOutput
+	ToGetPrivateLinkAccessAwArrayOutputWithContext(context.Context) GetPrivateLinkAccessAwArrayOutput
+}
+
+type GetPrivateLinkAccessAwArray []GetPrivateLinkAccessAwInput
+
+func (GetPrivateLinkAccessAwArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAccessAw)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAccessAwArray) ToGetPrivateLinkAccessAwArrayOutput() GetPrivateLinkAccessAwArrayOutput {
+	return i.ToGetPrivateLinkAccessAwArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAccessAwArray) ToGetPrivateLinkAccessAwArrayOutputWithContext(ctx context.Context) GetPrivateLinkAccessAwArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessAwArrayOutput)
+}
+
+type GetPrivateLinkAccessAwOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAccessAwOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAccessAw)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAccessAwOutput) ToGetPrivateLinkAccessAwOutput() GetPrivateLinkAccessAwOutput {
+	return o
+}
+
+func (o GetPrivateLinkAccessAwOutput) ToGetPrivateLinkAccessAwOutputWithContext(ctx context.Context) GetPrivateLinkAccessAwOutput {
+	return o
+}
+
+// (Required String) The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
+func (o GetPrivateLinkAccessAwOutput) Account() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAccessAw) string { return v.Account }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkAccessAwArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAccessAwArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAccessAw)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAccessAwArrayOutput) ToGetPrivateLinkAccessAwArrayOutput() GetPrivateLinkAccessAwArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAccessAwArrayOutput) ToGetPrivateLinkAccessAwArrayOutputWithContext(ctx context.Context) GetPrivateLinkAccessAwArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAccessAwArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAccessAwOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrivateLinkAccessAw {
+		return vs[0].([]GetPrivateLinkAccessAw)[vs[1].(int)]
+	}).(GetPrivateLinkAccessAwOutput)
+}
+
+type GetPrivateLinkAccessAzure struct {
+	// (Required String) The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+	Subscription string `pulumi:"subscription"`
+}
+
+// GetPrivateLinkAccessAzureInput is an input type that accepts GetPrivateLinkAccessAzureArgs and GetPrivateLinkAccessAzureOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAccessAzureInput` via:
+//
+//          GetPrivateLinkAccessAzureArgs{...}
+type GetPrivateLinkAccessAzureInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAccessAzureOutput() GetPrivateLinkAccessAzureOutput
+	ToGetPrivateLinkAccessAzureOutputWithContext(context.Context) GetPrivateLinkAccessAzureOutput
+}
+
+type GetPrivateLinkAccessAzureArgs struct {
+	// (Required String) The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+	Subscription pulumi.StringInput `pulumi:"subscription"`
+}
+
+func (GetPrivateLinkAccessAzureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAccessAzure)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAccessAzureArgs) ToGetPrivateLinkAccessAzureOutput() GetPrivateLinkAccessAzureOutput {
+	return i.ToGetPrivateLinkAccessAzureOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAccessAzureArgs) ToGetPrivateLinkAccessAzureOutputWithContext(ctx context.Context) GetPrivateLinkAccessAzureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessAzureOutput)
+}
+
+// GetPrivateLinkAccessAzureArrayInput is an input type that accepts GetPrivateLinkAccessAzureArray and GetPrivateLinkAccessAzureArrayOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAccessAzureArrayInput` via:
+//
+//          GetPrivateLinkAccessAzureArray{ GetPrivateLinkAccessAzureArgs{...} }
+type GetPrivateLinkAccessAzureArrayInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAccessAzureArrayOutput() GetPrivateLinkAccessAzureArrayOutput
+	ToGetPrivateLinkAccessAzureArrayOutputWithContext(context.Context) GetPrivateLinkAccessAzureArrayOutput
+}
+
+type GetPrivateLinkAccessAzureArray []GetPrivateLinkAccessAzureInput
+
+func (GetPrivateLinkAccessAzureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAccessAzure)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAccessAzureArray) ToGetPrivateLinkAccessAzureArrayOutput() GetPrivateLinkAccessAzureArrayOutput {
+	return i.ToGetPrivateLinkAccessAzureArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAccessAzureArray) ToGetPrivateLinkAccessAzureArrayOutputWithContext(ctx context.Context) GetPrivateLinkAccessAzureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessAzureArrayOutput)
+}
+
+type GetPrivateLinkAccessAzureOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAccessAzureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAccessAzure)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAccessAzureOutput) ToGetPrivateLinkAccessAzureOutput() GetPrivateLinkAccessAzureOutput {
+	return o
+}
+
+func (o GetPrivateLinkAccessAzureOutput) ToGetPrivateLinkAccessAzureOutputWithContext(ctx context.Context) GetPrivateLinkAccessAzureOutput {
+	return o
+}
+
+// (Required String) The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+func (o GetPrivateLinkAccessAzureOutput) Subscription() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAccessAzure) string { return v.Subscription }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkAccessAzureArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAccessAzureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAccessAzure)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAccessAzureArrayOutput) ToGetPrivateLinkAccessAzureArrayOutput() GetPrivateLinkAccessAzureArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAccessAzureArrayOutput) ToGetPrivateLinkAccessAzureArrayOutputWithContext(ctx context.Context) GetPrivateLinkAccessAzureArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAccessAzureArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAccessAzureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrivateLinkAccessAzure {
+		return vs[0].([]GetPrivateLinkAccessAzure)[vs[1].(int)]
+	}).(GetPrivateLinkAccessAzureOutput)
+}
+
+type GetPrivateLinkAccessEnvironment struct {
+	// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetPrivateLinkAccessEnvironmentInput is an input type that accepts GetPrivateLinkAccessEnvironmentArgs and GetPrivateLinkAccessEnvironmentOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAccessEnvironmentInput` via:
+//
+//          GetPrivateLinkAccessEnvironmentArgs{...}
+type GetPrivateLinkAccessEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAccessEnvironmentOutput() GetPrivateLinkAccessEnvironmentOutput
+	ToGetPrivateLinkAccessEnvironmentOutputWithContext(context.Context) GetPrivateLinkAccessEnvironmentOutput
+}
+
+type GetPrivateLinkAccessEnvironmentArgs struct {
+	// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetPrivateLinkAccessEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAccessEnvironment)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAccessEnvironmentArgs) ToGetPrivateLinkAccessEnvironmentOutput() GetPrivateLinkAccessEnvironmentOutput {
+	return i.ToGetPrivateLinkAccessEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAccessEnvironmentArgs) ToGetPrivateLinkAccessEnvironmentOutputWithContext(ctx context.Context) GetPrivateLinkAccessEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessEnvironmentOutput)
+}
+
+type GetPrivateLinkAccessEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAccessEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAccessEnvironment)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAccessEnvironmentOutput) ToGetPrivateLinkAccessEnvironmentOutput() GetPrivateLinkAccessEnvironmentOutput {
+	return o
+}
+
+func (o GetPrivateLinkAccessEnvironmentOutput) ToGetPrivateLinkAccessEnvironmentOutputWithContext(ctx context.Context) GetPrivateLinkAccessEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+func (o GetPrivateLinkAccessEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAccessEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkAccessNetwork struct {
+	// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetPrivateLinkAccessNetworkInput is an input type that accepts GetPrivateLinkAccessNetworkArgs and GetPrivateLinkAccessNetworkOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAccessNetworkInput` via:
+//
+//          GetPrivateLinkAccessNetworkArgs{...}
+type GetPrivateLinkAccessNetworkInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAccessNetworkOutput() GetPrivateLinkAccessNetworkOutput
+	ToGetPrivateLinkAccessNetworkOutputWithContext(context.Context) GetPrivateLinkAccessNetworkOutput
+}
+
+type GetPrivateLinkAccessNetworkArgs struct {
+	// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetPrivateLinkAccessNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAccessNetwork)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAccessNetworkArgs) ToGetPrivateLinkAccessNetworkOutput() GetPrivateLinkAccessNetworkOutput {
+	return i.ToGetPrivateLinkAccessNetworkOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAccessNetworkArgs) ToGetPrivateLinkAccessNetworkOutputWithContext(ctx context.Context) GetPrivateLinkAccessNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessNetworkOutput)
+}
+
+// GetPrivateLinkAccessNetworkArrayInput is an input type that accepts GetPrivateLinkAccessNetworkArray and GetPrivateLinkAccessNetworkArrayOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAccessNetworkArrayInput` via:
+//
+//          GetPrivateLinkAccessNetworkArray{ GetPrivateLinkAccessNetworkArgs{...} }
+type GetPrivateLinkAccessNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAccessNetworkArrayOutput() GetPrivateLinkAccessNetworkArrayOutput
+	ToGetPrivateLinkAccessNetworkArrayOutputWithContext(context.Context) GetPrivateLinkAccessNetworkArrayOutput
+}
+
+type GetPrivateLinkAccessNetworkArray []GetPrivateLinkAccessNetworkInput
+
+func (GetPrivateLinkAccessNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAccessNetwork)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAccessNetworkArray) ToGetPrivateLinkAccessNetworkArrayOutput() GetPrivateLinkAccessNetworkArrayOutput {
+	return i.ToGetPrivateLinkAccessNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAccessNetworkArray) ToGetPrivateLinkAccessNetworkArrayOutputWithContext(ctx context.Context) GetPrivateLinkAccessNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessNetworkArrayOutput)
+}
+
+type GetPrivateLinkAccessNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAccessNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAccessNetwork)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAccessNetworkOutput) ToGetPrivateLinkAccessNetworkOutput() GetPrivateLinkAccessNetworkOutput {
+	return o
+}
+
+func (o GetPrivateLinkAccessNetworkOutput) ToGetPrivateLinkAccessNetworkOutputWithContext(ctx context.Context) GetPrivateLinkAccessNetworkOutput {
+	return o
+}
+
+// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+func (o GetPrivateLinkAccessNetworkOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAccessNetwork) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkAccessNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAccessNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAccessNetwork)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAccessNetworkArrayOutput) ToGetPrivateLinkAccessNetworkArrayOutput() GetPrivateLinkAccessNetworkArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAccessNetworkArrayOutput) ToGetPrivateLinkAccessNetworkArrayOutputWithContext(ctx context.Context) GetPrivateLinkAccessNetworkArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAccessNetworkArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAccessNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrivateLinkAccessNetwork {
+		return vs[0].([]GetPrivateLinkAccessNetwork)[vs[1].(int)]
+	}).(GetPrivateLinkAccessNetworkOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyManagedResourceInput)(nil)).Elem(), ApiKeyManagedResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyManagedResourcePtrInput)(nil)).Elem(), ApiKeyManagedResourceArgs{})
@@ -4810,6 +5751,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterStandardInput)(nil)).Elem(), GetKafkaClusterStandardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterStandardArrayInput)(nil)).Elem(), GetKafkaClusterStandardArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaTopicCredentialsInput)(nil)).Elem(), GetKafkaTopicCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaTopicCredentialsPtrInput)(nil)).Elem(), GetKafkaTopicCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaTopicKafkaClusterInput)(nil)).Elem(), GetKafkaTopicKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAwInput)(nil)).Elem(), GetNetworkAwArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAwArrayInput)(nil)).Elem(), GetNetworkAwArray{})
@@ -4818,6 +5760,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkEnvironmentInput)(nil)).Elem(), GetNetworkEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkGcpInput)(nil)).Elem(), GetNetworkGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkGcpArrayInput)(nil)).Elem(), GetNetworkGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAwInput)(nil)).Elem(), GetPeeringAwArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAwArrayInput)(nil)).Elem(), GetPeeringAwArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAzureInput)(nil)).Elem(), GetPeeringAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAzureArrayInput)(nil)).Elem(), GetPeeringAzureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringEnvironmentInput)(nil)).Elem(), GetPeeringEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringGcpInput)(nil)).Elem(), GetPeeringGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringGcpArrayInput)(nil)).Elem(), GetPeeringGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringNetworkInput)(nil)).Elem(), GetPeeringNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringNetworkArrayInput)(nil)).Elem(), GetPeeringNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessAwInput)(nil)).Elem(), GetPrivateLinkAccessAwArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessAwArrayInput)(nil)).Elem(), GetPrivateLinkAccessAwArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessAzureInput)(nil)).Elem(), GetPrivateLinkAccessAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessAzureArrayInput)(nil)).Elem(), GetPrivateLinkAccessAzureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessEnvironmentInput)(nil)).Elem(), GetPrivateLinkAccessEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessNetworkInput)(nil)).Elem(), GetPrivateLinkAccessNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessNetworkArrayInput)(nil)).Elem(), GetPrivateLinkAccessNetworkArray{})
 	pulumi.RegisterOutputType(ApiKeyManagedResourceOutput{})
 	pulumi.RegisterOutputType(ApiKeyManagedResourcePtrOutput{})
 	pulumi.RegisterOutputType(ApiKeyManagedResourceEnvironmentOutput{})
@@ -4882,6 +5840,7 @@ func init() {
 	pulumi.RegisterOutputType(GetKafkaClusterStandardOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterStandardArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaTopicCredentialsOutput{})
+	pulumi.RegisterOutputType(GetKafkaTopicCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetKafkaTopicKafkaClusterOutput{})
 	pulumi.RegisterOutputType(GetNetworkAwOutput{})
 	pulumi.RegisterOutputType(GetNetworkAwArrayOutput{})
@@ -4890,4 +5849,20 @@ func init() {
 	pulumi.RegisterOutputType(GetNetworkEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetNetworkGcpOutput{})
 	pulumi.RegisterOutputType(GetNetworkGcpArrayOutput{})
+	pulumi.RegisterOutputType(GetPeeringAwOutput{})
+	pulumi.RegisterOutputType(GetPeeringAwArrayOutput{})
+	pulumi.RegisterOutputType(GetPeeringAzureOutput{})
+	pulumi.RegisterOutputType(GetPeeringAzureArrayOutput{})
+	pulumi.RegisterOutputType(GetPeeringEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetPeeringGcpOutput{})
+	pulumi.RegisterOutputType(GetPeeringGcpArrayOutput{})
+	pulumi.RegisterOutputType(GetPeeringNetworkOutput{})
+	pulumi.RegisterOutputType(GetPeeringNetworkArrayOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAccessAwOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAccessAwArrayOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAccessAzureOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAccessAzureArrayOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAccessEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAccessNetworkOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAccessNetworkArrayOutput{})
 }

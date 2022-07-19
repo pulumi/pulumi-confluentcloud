@@ -6,6 +6,8 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
+ * <img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt="">
+ *
  * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
  *
  * ## Example Usage
@@ -19,7 +21,7 @@ import * as utilities from "./utilities";
  *         id: confluent_kafka_cluster["basic-cluster"].id,
  *     },
  *     topicName: "orders",
- *     httpEndpoint: confluent_kafka_cluster["basic-cluster"].http_endpoint,
+ *     restEndpoint: confluent_kafka_cluster["basic-cluster"].rest_endpoint,
  *     credentials: {
  *         key: "<Kafka API Key for confluent_kafka_cluster.basic-cluster>",
  *         secret: "<Kafka API Secret for confluent_kafka_cluster.basic-cluster>",
@@ -36,8 +38,8 @@ export function getKafkaTopic(args: GetKafkaTopicArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("confluentcloud:index/getKafkaTopic:getKafkaTopic", {
         "credentials": args.credentials,
-        "httpEndpoint": args.httpEndpoint,
         "kafkaCluster": args.kafkaCluster,
+        "restEndpoint": args.restEndpoint,
         "topicName": args.topicName,
     }, opts);
 }
@@ -46,12 +48,12 @@ export function getKafkaTopic(args: GetKafkaTopicArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getKafkaTopic.
  */
 export interface GetKafkaTopicArgs {
-    credentials: inputs.GetKafkaTopicCredentials;
+    credentials?: inputs.GetKafkaTopicCredentials;
+    kafkaCluster: inputs.GetKafkaTopicKafkaCluster;
     /**
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    httpEndpoint: string;
-    kafkaCluster: inputs.GetKafkaTopicKafkaCluster;
+    restEndpoint: string;
     /**
      * The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length and can contain only alphanumeric characters, hyphens, and underscores.
      */
@@ -66,8 +68,7 @@ export interface GetKafkaTopicResult {
      * (Optional Map) The custom topic settings:
      */
     readonly config: {[key: string]: string};
-    readonly credentials: outputs.GetKafkaTopicCredentials;
-    readonly httpEndpoint: string;
+    readonly credentials?: outputs.GetKafkaTopicCredentials;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -77,6 +78,7 @@ export interface GetKafkaTopicResult {
      * (Required Number) The number of partitions to create in the topic. Defaults to `6`.
      */
     readonly partitionsCount: number;
+    readonly restEndpoint: string;
     readonly topicName: string;
 }
 
@@ -88,12 +90,12 @@ export function getKafkaTopicOutput(args: GetKafkaTopicOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getKafkaTopic.
  */
 export interface GetKafkaTopicOutputArgs {
-    credentials: pulumi.Input<inputs.GetKafkaTopicCredentialsArgs>;
+    credentials?: pulumi.Input<inputs.GetKafkaTopicCredentialsArgs>;
+    kafkaCluster: pulumi.Input<inputs.GetKafkaTopicKafkaClusterArgs>;
     /**
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
-    httpEndpoint: pulumi.Input<string>;
-    kafkaCluster: pulumi.Input<inputs.GetKafkaTopicKafkaClusterArgs>;
+    restEndpoint: pulumi.Input<string>;
     /**
      * The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length and can contain only alphanumeric characters, hyphens, and underscores.
      */

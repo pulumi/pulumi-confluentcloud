@@ -12,6 +12,8 @@ namespace Pulumi.ConfluentCloud
     public static class GetServiceAccount
     {
         /// <summary>
+        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// 
         /// `confluentcloud.ServiceAccount` describes a Service Account data source.
         /// 
         /// {{% examples %}}
@@ -52,6 +54,8 @@ namespace Pulumi.ConfluentCloud
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("confluentcloud:index/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountArgs(), options.WithDefaults());
 
         /// <summary>
+        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// 
         /// `confluentcloud.ServiceAccount` describes a Service Account data source.
         /// 
         /// {{% examples %}}

@@ -10,6 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// <img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt="">
+//
 // `getUser` describes a User data source.
 //
 // ## Example Usage
@@ -40,7 +42,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = confluentcloud.NewEnvironment(ctx, "test-env", &confluentcloud.EnvironmentArgs{
-// 			DisplayName: pulumi.String(fmt.Sprintf("%v%v", "env_for_", exampleUsingIdUser.FullName)),
+// 			DisplayName: pulumi.String(fmt.Sprintf("env_for_%v", exampleUsingIdUser.FullName)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -61,7 +63,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = confluentcloud.NewRoleBinding(ctx, "test-role-binding", &confluentcloud.RoleBindingArgs{
-// 			Principal:  pulumi.String(fmt.Sprintf("%v%v", "User:", exampleUsingEmail.Id)),
+// 			Principal:  pulumi.String(fmt.Sprintf("User:%v", exampleUsingEmail.Id)),
 // 			RoleName:   pulumi.String("CloudClusterAdmin"),
 // 			CrnPattern: standard_cluster_on_aws.RbacCrn,
 // 		})

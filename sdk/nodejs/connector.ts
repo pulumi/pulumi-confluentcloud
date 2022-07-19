@@ -55,6 +55,10 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly environment!: pulumi.Output<outputs.ConnectorEnvironment>;
     public readonly kafkaCluster!: pulumi.Output<outputs.ConnectorKafkaCluster>;
+    /**
+     * The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+     */
+    public readonly status!: pulumi.Output<string>;
 
     /**
      * Create a Connector resource with the given unique name, arguments, and options.
@@ -73,6 +77,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["configSensitive"] = state ? state.configSensitive : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
             resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as ConnectorArgs | undefined;
             if ((!args || args.configNonsensitive === undefined) && !opts.urn) {
@@ -88,6 +93,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["configSensitive"] = args ? args.configSensitive : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Connector.__pulumiType, name, resourceInputs, opts);
@@ -111,6 +117,10 @@ export interface ConnectorState {
      */
     environment?: pulumi.Input<inputs.ConnectorEnvironment>;
     kafkaCluster?: pulumi.Input<inputs.ConnectorKafkaCluster>;
+    /**
+     * The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+     */
+    status?: pulumi.Input<string>;
 }
 
 /**
@@ -130,4 +140,8 @@ export interface ConnectorArgs {
      */
     environment: pulumi.Input<inputs.ConnectorEnvironment>;
     kafkaCluster: pulumi.Input<inputs.ConnectorKafkaCluster>;
+    /**
+     * The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+     */
+    status?: pulumi.Input<string>;
 }

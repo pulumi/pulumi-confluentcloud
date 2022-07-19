@@ -31,13 +31,15 @@ type ApiKey struct {
 
 	// A free-form description of the API Account.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+	DisableWaitForReady pulumi.BoolPtrOutput `pulumi:"disableWaitForReady"`
 	// A human-readable name for the API Key.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
 	ManagedResource ApiKeyManagedResourcePtrOutput `pulumi:"managedResource"`
 	// The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
 	Owner ApiKeyOwnerOutput `pulumi:"owner"`
-	// (Required String) The secret of the API Key.
+	// (Required String, Sensitive) The secret of the API Key.
 	Secret pulumi.StringOutput `pulumi:"secret"`
 }
 
@@ -75,26 +77,30 @@ func GetApiKey(ctx *pulumi.Context,
 type apiKeyState struct {
 	// A free-form description of the API Account.
 	Description *string `pulumi:"description"`
+	// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+	DisableWaitForReady *bool `pulumi:"disableWaitForReady"`
 	// A human-readable name for the API Key.
 	DisplayName *string `pulumi:"displayName"`
 	// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
 	ManagedResource *ApiKeyManagedResource `pulumi:"managedResource"`
 	// The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
 	Owner *ApiKeyOwner `pulumi:"owner"`
-	// (Required String) The secret of the API Key.
+	// (Required String, Sensitive) The secret of the API Key.
 	Secret *string `pulumi:"secret"`
 }
 
 type ApiKeyState struct {
 	// A free-form description of the API Account.
 	Description pulumi.StringPtrInput
+	// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+	DisableWaitForReady pulumi.BoolPtrInput
 	// A human-readable name for the API Key.
 	DisplayName pulumi.StringPtrInput
 	// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
 	ManagedResource ApiKeyManagedResourcePtrInput
 	// The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
 	Owner ApiKeyOwnerPtrInput
-	// (Required String) The secret of the API Key.
+	// (Required String, Sensitive) The secret of the API Key.
 	Secret pulumi.StringPtrInput
 }
 
@@ -105,6 +111,8 @@ func (ApiKeyState) ElementType() reflect.Type {
 type apiKeyArgs struct {
 	// A free-form description of the API Account.
 	Description *string `pulumi:"description"`
+	// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+	DisableWaitForReady *bool `pulumi:"disableWaitForReady"`
 	// A human-readable name for the API Key.
 	DisplayName *string `pulumi:"displayName"`
 	// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
@@ -117,6 +125,8 @@ type apiKeyArgs struct {
 type ApiKeyArgs struct {
 	// A free-form description of the API Account.
 	Description pulumi.StringPtrInput
+	// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+	DisableWaitForReady pulumi.BoolPtrInput
 	// A human-readable name for the API Key.
 	DisplayName pulumi.StringPtrInput
 	// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
@@ -217,6 +227,11 @@ func (o ApiKeyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
+func (o ApiKeyOutput) DisableWaitForReady() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiKey) pulumi.BoolPtrOutput { return v.DisableWaitForReady }).(pulumi.BoolPtrOutput)
+}
+
 // A human-readable name for the API Key.
 func (o ApiKeyOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
@@ -232,7 +247,7 @@ func (o ApiKeyOutput) Owner() ApiKeyOwnerOutput {
 	return o.ApplyT(func(v *ApiKey) ApiKeyOwnerOutput { return v.Owner }).(ApiKeyOwnerOutput)
 }
 
-// (Required String) The secret of the API Key.
+// (Required String, Sensitive) The secret of the API Key.
 func (o ApiKeyOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Secret }).(pulumi.StringOutput)
 }
