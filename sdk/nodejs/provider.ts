@@ -28,15 +28,27 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * The Confluent Cloud API Key.
      */
-    public readonly apiKey!: pulumi.Output<string | undefined>;
+    public readonly cloudApiKey!: pulumi.Output<string | undefined>;
     /**
      * The Confluent Cloud API Secret.
      */
-    public readonly apiSecret!: pulumi.Output<string | undefined>;
+    public readonly cloudApiSecret!: pulumi.Output<string | undefined>;
     /**
      * The base endpoint of Confluent Cloud API.
      */
     public readonly endpoint!: pulumi.Output<string | undefined>;
+    /**
+     * The Kafka Cluster API Key.
+     */
+    public readonly kafkaApiKey!: pulumi.Output<string | undefined>;
+    /**
+     * The Kafka Cluster API Secret.
+     */
+    public readonly kafkaApiSecret!: pulumi.Output<string | undefined>;
+    /**
+     * The Kafka Cluster REST Endpoint.
+     */
+    public readonly kafkaRestEndpoint!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -49,9 +61,12 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
-            resourceInputs["apiSecret"] = args ? args.apiSecret : undefined;
+            resourceInputs["cloudApiKey"] = args ? args.cloudApiKey : undefined;
+            resourceInputs["cloudApiSecret"] = args ? args.cloudApiSecret : undefined;
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
+            resourceInputs["kafkaApiKey"] = args ? args.kafkaApiKey : undefined;
+            resourceInputs["kafkaApiSecret"] = args ? args.kafkaApiSecret : undefined;
+            resourceInputs["kafkaRestEndpoint"] = args ? args.kafkaRestEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
@@ -65,13 +80,25 @@ export interface ProviderArgs {
     /**
      * The Confluent Cloud API Key.
      */
-    apiKey?: pulumi.Input<string>;
+    cloudApiKey?: pulumi.Input<string>;
     /**
      * The Confluent Cloud API Secret.
      */
-    apiSecret?: pulumi.Input<string>;
+    cloudApiSecret?: pulumi.Input<string>;
     /**
      * The base endpoint of Confluent Cloud API.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * The Kafka Cluster API Key.
+     */
+    kafkaApiKey?: pulumi.Input<string>;
+    /**
+     * The Kafka Cluster API Secret.
+     */
+    kafkaApiSecret?: pulumi.Input<string>;
+    /**
+     * The Kafka Cluster REST Endpoint.
+     */
+    kafkaRestEndpoint?: pulumi.Input<string>;
 }

@@ -21,20 +21,38 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The Confluent Cloud API Key.
         /// </summary>
-        [Output("apiKey")]
-        public Output<string?> ApiKey { get; private set; } = null!;
+        [Output("cloudApiKey")]
+        public Output<string?> CloudApiKey { get; private set; } = null!;
 
         /// <summary>
         /// The Confluent Cloud API Secret.
         /// </summary>
-        [Output("apiSecret")]
-        public Output<string?> ApiSecret { get; private set; } = null!;
+        [Output("cloudApiSecret")]
+        public Output<string?> CloudApiSecret { get; private set; } = null!;
 
         /// <summary>
         /// The base endpoint of Confluent Cloud API.
         /// </summary>
         [Output("endpoint")]
         public Output<string?> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The Kafka Cluster API Key.
+        /// </summary>
+        [Output("kafkaApiKey")]
+        public Output<string?> KafkaApiKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The Kafka Cluster API Secret.
+        /// </summary>
+        [Output("kafkaApiSecret")]
+        public Output<string?> KafkaApiSecret { get; private set; } = null!;
+
+        /// <summary>
+        /// The Kafka Cluster REST Endpoint.
+        /// </summary>
+        [Output("kafkaRestEndpoint")]
+        public Output<string?> KafkaRestEndpoint { get; private set; } = null!;
 
 
         /// <summary>
@@ -67,20 +85,38 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The Confluent Cloud API Key.
         /// </summary>
-        [Input("apiKey")]
-        public Input<string>? ApiKey { get; set; }
+        [Input("cloudApiKey")]
+        public Input<string>? CloudApiKey { get; set; }
 
         /// <summary>
         /// The Confluent Cloud API Secret.
         /// </summary>
-        [Input("apiSecret")]
-        public Input<string>? ApiSecret { get; set; }
+        [Input("cloudApiSecret")]
+        public Input<string>? CloudApiSecret { get; set; }
 
         /// <summary>
         /// The base endpoint of Confluent Cloud API.
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// The Kafka Cluster API Key.
+        /// </summary>
+        [Input("kafkaApiKey")]
+        public Input<string>? KafkaApiKey { get; set; }
+
+        /// <summary>
+        /// The Kafka Cluster API Secret.
+        /// </summary>
+        [Input("kafkaApiSecret")]
+        public Input<string>? KafkaApiSecret { get; set; }
+
+        /// <summary>
+        /// The Kafka Cluster REST Endpoint.
+        /// </summary>
+        [Input("kafkaRestEndpoint")]
+        public Input<string>? KafkaRestEndpoint { get; set; }
 
         public ProviderArgs()
         {

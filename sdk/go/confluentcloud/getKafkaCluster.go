@@ -10,6 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// <img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt="">
+//
 // `KafkaCluster` describes a Kafka cluster data source.
 //
 // ## Example Usage
@@ -37,7 +39,7 @@ import (
 // 		}
 // 		_, err = confluentcloud.NewServiceAccount(ctx, "test-sa", &confluentcloud.ServiceAccountArgs{
 // 			DisplayName: pulumi.String("app_mgr"),
-// 			Description: pulumi.String(fmt.Sprintf("%v%v", "app_mgr for ", exampleUsingId.DisplayName)),
+// 			Description: pulumi.String(fmt.Sprintf("app_mgr for %v", exampleUsingId.DisplayName)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -97,8 +99,6 @@ type LookupKafkaClusterResult struct {
 	// (Required String) The name of the Kafka cluster.
 	DisplayName string                     `pulumi:"displayName"`
 	Environment GetKafkaClusterEnvironment `pulumi:"environment"`
-	// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	HttpEndpoint string `pulumi:"httpEndpoint"`
 	// (Required String) The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
 	Id string `pulumi:"id"`
 	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
@@ -108,6 +108,8 @@ type LookupKafkaClusterResult struct {
 	RbacCrn string `pulumi:"rbacCrn"`
 	// (Required String) The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 	Region string `pulumi:"region"`
+	// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint string `pulumi:"restEndpoint"`
 	// (Optional Configuration Block) The configuration of the Standard Kafka cluster.
 	Standards []GetKafkaClusterStandard `pulumi:"standards"`
 }
@@ -198,11 +200,6 @@ func (o LookupKafkaClusterResultOutput) Environment() GetKafkaClusterEnvironment
 	return o.ApplyT(func(v LookupKafkaClusterResult) GetKafkaClusterEnvironment { return v.Environment }).(GetKafkaClusterEnvironmentOutput)
 }
 
-// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-func (o LookupKafkaClusterResultOutput) HttpEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupKafkaClusterResult) string { return v.HttpEndpoint }).(pulumi.StringOutput)
-}
-
 // (Required String) The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
 func (o LookupKafkaClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKafkaClusterResult) string { return v.Id }).(pulumi.StringOutput)
@@ -225,6 +222,11 @@ func (o LookupKafkaClusterResultOutput) RbacCrn() pulumi.StringOutput {
 // (Required String) The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 func (o LookupKafkaClusterResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKafkaClusterResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o LookupKafkaClusterResultOutput) RestEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKafkaClusterResult) string { return v.RestEndpoint }).(pulumi.StringOutput)
 }
 
 // (Optional Configuration Block) The configuration of the Standard Kafka cluster.

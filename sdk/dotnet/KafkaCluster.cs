@@ -69,12 +69,6 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.KafkaClusterEnvironment> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-        /// </summary>
-        [Output("httpEndpoint")]
-        public Output<string> HttpEndpoint { get; private set; } = null!;
-
-        /// <summary>
         /// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
         /// </summary>
         [Output("kind")]
@@ -98,6 +92,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// </summary>
+        [Output("restEndpoint")]
+        public Output<string> RestEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The configuration of the Standard Kafka cluster.
@@ -274,12 +274,6 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.KafkaClusterEnvironmentGetArgs>? Environment { get; set; }
 
         /// <summary>
-        /// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-        /// </summary>
-        [Input("httpEndpoint")]
-        public Input<string>? HttpEndpoint { get; set; }
-
-        /// <summary>
         /// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
         /// </summary>
         [Input("kind")]
@@ -303,6 +297,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// </summary>
+        [Input("restEndpoint")]
+        public Input<string>? RestEndpoint { get; set; }
 
         [Input("standards")]
         private InputList<Inputs.KafkaClusterStandardGetArgs>? _standards;

@@ -52,7 +52,7 @@ orders = confluent.KafkaTopic("orders",
                               kafka_cluster=confluent.KafkaTopicKafkaClusterArgs(
                                   id=cluster.id),
                               topic_name="orders",
-                              http_endpoint=cluster.http_endpoint,
+                              rest_endpoint=cluster.rest_endpoint,
                               credentials=confluent.KafkaTopicCredentialsArgs(
                                   key=app_manager_api_key.id,
                                   secret=app_manager_api_key.secret
@@ -104,7 +104,7 @@ def create_acl(name: str,
                               principal=pulumi.Output.concat(
                                   "User:", principal.id),
                               host="*",
-                              http_endpoint=cluster.http_endpoint,
+                              rest_endpoint=cluster.rest_endpoint,
                               credentials=confluent.KafkaAclCredentialsArgs(key=app_manager_api_key.id,
                                                                             secret=app_manager_api_key.secret
                                                                             ))

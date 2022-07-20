@@ -141,6 +141,97 @@ export interface GetNetworkGcp {
     vpcNetwork: string;
 }
 
+export interface GetPeeringAw {
+    /**
+     * (Required String) The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
+     */
+    account: string;
+    /**
+     * (Required String) The region of the Azure peer VNet.
+     */
+    customerRegion: string;
+    /**
+     * (Required String) The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs > Target VPC > Details** section of the AWS Management Console.
+     */
+    routes: string[];
+    /**
+     * (Required String) The AWS VPC ID of the peer VPC that you're peering with Confluent Cloud. You can find your AWS VPC ID [here](https://console.aws.amazon.com/vpc/) under **Your VPCs** section of the AWS Management Console. Must start with `vpc-`.
+     */
+    vpc: string;
+}
+
+export interface GetPeeringAzure {
+    /**
+     * (Required String) The region of the Azure peer VNet.
+     */
+    customerRegion: string;
+    /**
+     * (Required String) The Tenant ID that represents an organization in Azure Active Directory. You can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
+     */
+    tenant: string;
+    /**
+     * (Required String) The resource (composite) ID of the peer Virtual Network that you're peering with Confluent Cloud, in the format `/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Network/virtualNetworks/<VNet name>`. You can find Subscription ID, Resource Group Name and your VNet name under **Virtual Networks > Target VNet > Essentials** section of your [Microsoft Azure Portal](https://portal.azure.com/).
+     */
+    vnet: string;
+}
+
+export interface GetPeeringEnvironment {
+    /**
+     * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetPeeringGcp {
+    /**
+     * (Optional Boolean) The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
+     */
+    importCustomRoutes: boolean;
+    /**
+     * (Required String) The GCP Project ID. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+     */
+    project: string;
+    /**
+     * (Required String) The VPC network name that you're peering to Confluent Cloud. You can find your VPC network name under **VPC Networks** section of your [Google Cloud Console](https://console.cloud.google.com/networking/networks/list).
+     */
+    vpcNetwork: string;
+}
+
+export interface GetPeeringNetwork {
+    /**
+     * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetPrivateLinkAccessAw {
+    /**
+     * (Required String) The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
+     */
+    account: string;
+}
+
+export interface GetPrivateLinkAccessAzure {
+    /**
+     * (Required String) The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
+     */
+    subscription: string;
+}
+
+export interface GetPrivateLinkAccessEnvironment {
+    /**
+     * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetPrivateLinkAccessNetwork {
+    /**
+     * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
 export interface KafkaAclCredentials {
     /**
      * The Kafka API Key.

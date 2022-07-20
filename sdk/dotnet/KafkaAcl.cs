@@ -12,7 +12,7 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Import
     /// 
-    /// You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka ACL resource type&gt;#&lt;Kafka ACL resource name&gt;#&lt;Kafka ACL pattern type&gt;#&lt;Kafka ACL principal&gt;#&lt;Kafka ACL host&gt;#&lt;Kafka ACL operation&gt;#&lt;Kafka ACL permission&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;" $ export KAFKA_API_KEY="&lt;kafka_api_key&gt;" $ export KAFKA_API_SECRET="&lt;kafka_api_secret&gt;" $ export KAFKA_HTTP_ENDPOINT="&lt;kafka_http_endpoint&gt;"
+    /// You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka ACL resource type&gt;#&lt;Kafka ACL resource name&gt;#&lt;Kafka ACL pattern type&gt;#&lt;Kafka ACL principal&gt;#&lt;Kafka ACL host&gt;#&lt;Kafka ACL operation&gt;#&lt;Kafka ACL permission&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;" $ export IMPORT_KAFKA_API_KEY="&lt;kafka_api_key&gt;" $ export IMPORT_KAFKA_API_SECRET="&lt;kafka_api_secret&gt;" $ export IMPORT_KAFKA_REST_ENDPOINT="&lt;kafka_rest_endpoint&gt;"
     /// 
     /// ```sh
     ///  $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
@@ -27,19 +27,13 @@ namespace Pulumi.ConfluentCloud
         /// The Cluster API Credentials.
         /// </summary>
         [Output("credentials")]
-        public Output<Outputs.KafkaAclCredentials> Credentials { get; private set; } = null!;
+        public Output<Outputs.KafkaAclCredentials?> Credentials { get; private set; } = null!;
 
         /// <summary>
         /// The host for the ACL. Should be set to `*` for Confluent Cloud.
         /// </summary>
         [Output("host")]
         public Output<string> Host { get; private set; } = null!;
-
-        /// <summary>
-        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
-        /// </summary>
-        [Output("httpEndpoint")]
-        public Output<string> HttpEndpoint { get; private set; } = null!;
 
         [Output("kafkaCluster")]
         public Output<Outputs.KafkaAclKafkaCluster> KafkaCluster { get; private set; } = null!;
@@ -79,6 +73,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
+
+        /// <summary>
+        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+        /// </summary>
+        [Output("restEndpoint")]
+        public Output<string?> RestEndpoint { get; private set; } = null!;
 
 
         /// <summary>
@@ -129,20 +129,14 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The Cluster API Credentials.
         /// </summary>
-        [Input("credentials", required: true)]
-        public Input<Inputs.KafkaAclCredentialsArgs> Credentials { get; set; } = null!;
+        [Input("credentials")]
+        public Input<Inputs.KafkaAclCredentialsArgs>? Credentials { get; set; }
 
         /// <summary>
         /// The host for the ACL. Should be set to `*` for Confluent Cloud.
         /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
-
-        /// <summary>
-        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
-        /// </summary>
-        [Input("httpEndpoint", required: true)]
-        public Input<string> HttpEndpoint { get; set; } = null!;
 
         [Input("kafkaCluster", required: true)]
         public Input<Inputs.KafkaAclKafkaClusterArgs> KafkaCluster { get; set; } = null!;
@@ -183,6 +177,12 @@ namespace Pulumi.ConfluentCloud
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
 
+        /// <summary>
+        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+        /// </summary>
+        [Input("restEndpoint")]
+        public Input<string>? RestEndpoint { get; set; }
+
         public KafkaAclArgs()
         {
         }
@@ -201,12 +201,6 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
-
-        /// <summary>
-        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
-        /// </summary>
-        [Input("httpEndpoint")]
-        public Input<string>? HttpEndpoint { get; set; }
 
         [Input("kafkaCluster")]
         public Input<Inputs.KafkaAclKafkaClusterGetArgs>? KafkaCluster { get; set; }
@@ -246,6 +240,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
+
+        /// <summary>
+        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
+        /// </summary>
+        [Input("restEndpoint")]
+        public Input<string>? RestEndpoint { get; set; }
 
         public KafkaAclState()
         {

@@ -12,6 +12,8 @@ namespace Pulumi.ConfluentCloud
     public static class GetEnvironment
     {
         /// <summary>
+        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// 
         /// `confluentcloud.Environment` describes an Environment data source.
         /// 
         /// {{% examples %}}
@@ -58,6 +60,8 @@ namespace Pulumi.ConfluentCloud
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("confluentcloud:index/getEnvironment:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
+        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// 
         /// `confluentcloud.Environment` describes an Environment data source.
         /// 
         /// {{% examples %}}

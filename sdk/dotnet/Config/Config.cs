@@ -32,24 +32,24 @@ namespace Pulumi.ConfluentCloud
 
         private static readonly Pulumi.Config __config = new Pulumi.Config("confluentcloud");
 
-        private static readonly __Value<string?> _apiKey = new __Value<string?>(() => __config.Get("apiKey"));
+        private static readonly __Value<string?> _cloudApiKey = new __Value<string?>(() => __config.Get("cloudApiKey"));
         /// <summary>
         /// The Confluent Cloud API Key.
         /// </summary>
-        public static string? ApiKey
+        public static string? CloudApiKey
         {
-            get => _apiKey.Get();
-            set => _apiKey.Set(value);
+            get => _cloudApiKey.Get();
+            set => _cloudApiKey.Set(value);
         }
 
-        private static readonly __Value<string?> _apiSecret = new __Value<string?>(() => __config.Get("apiSecret"));
+        private static readonly __Value<string?> _cloudApiSecret = new __Value<string?>(() => __config.Get("cloudApiSecret"));
         /// <summary>
         /// The Confluent Cloud API Secret.
         /// </summary>
-        public static string? ApiSecret
+        public static string? CloudApiSecret
         {
-            get => _apiSecret.Get();
-            set => _apiSecret.Set(value);
+            get => _cloudApiSecret.Get();
+            set => _cloudApiSecret.Set(value);
         }
 
         private static readonly __Value<string?> _endpoint = new __Value<string?>(() => __config.Get("endpoint"));
@@ -60,6 +60,36 @@ namespace Pulumi.ConfluentCloud
         {
             get => _endpoint.Get();
             set => _endpoint.Set(value);
+        }
+
+        private static readonly __Value<string?> _kafkaApiKey = new __Value<string?>(() => __config.Get("kafkaApiKey"));
+        /// <summary>
+        /// The Kafka Cluster API Key.
+        /// </summary>
+        public static string? KafkaApiKey
+        {
+            get => _kafkaApiKey.Get();
+            set => _kafkaApiKey.Set(value);
+        }
+
+        private static readonly __Value<string?> _kafkaApiSecret = new __Value<string?>(() => __config.Get("kafkaApiSecret"));
+        /// <summary>
+        /// The Kafka Cluster API Secret.
+        /// </summary>
+        public static string? KafkaApiSecret
+        {
+            get => _kafkaApiSecret.Get();
+            set => _kafkaApiSecret.Set(value);
+        }
+
+        private static readonly __Value<string?> _kafkaRestEndpoint = new __Value<string?>(() => __config.Get("kafkaRestEndpoint"));
+        /// <summary>
+        /// The Kafka Cluster REST Endpoint.
+        /// </summary>
+        public static string? KafkaRestEndpoint
+        {
+            get => _kafkaRestEndpoint.Get();
+            set => _kafkaRestEndpoint.Set(value);
         }
 
     }

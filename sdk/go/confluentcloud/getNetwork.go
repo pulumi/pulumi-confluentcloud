@@ -10,6 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// <img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt="">
+//
 // `Network` describes a Network data source.
 //
 // ## Example Usage
@@ -37,7 +39,7 @@ import (
 // 		}
 // 		_, err = confluentcloud.NewServiceAccount(ctx, "test-sa", &confluentcloud.ServiceAccountArgs{
 // 			DisplayName: pulumi.String("test_sa"),
-// 			Description: pulumi.String(fmt.Sprintf("%v%v", "test_sa for ", exampleUsingId.DisplayName)),
+// 			Description: pulumi.String(fmt.Sprintf("test_sa for %v", exampleUsingId.DisplayName)),
 // 		})
 // 		if err != nil {
 // 			return err

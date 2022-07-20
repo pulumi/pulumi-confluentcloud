@@ -6,6 +6,8 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
+ * <img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt="">
+ *
  * `confluentcloud.KafkaCluster` describes a Kafka cluster data source.
  *
  * ## Example Usage
@@ -110,10 +112,6 @@ export interface GetKafkaClusterResult {
     readonly displayName: string;
     readonly environment: outputs.GetKafkaClusterEnvironment;
     /**
-     * (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-     */
-    readonly httpEndpoint: string;
-    /**
      * (Required String) The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
      */
     readonly id: string;
@@ -130,6 +128,10 @@ export interface GetKafkaClusterResult {
      * (Required String) The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
      */
     readonly region: string;
+    /**
+     * (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
+    readonly restEndpoint: string;
     /**
      * (Optional Configuration Block) The configuration of the Standard Kafka cluster.
      */

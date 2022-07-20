@@ -13,7 +13,7 @@ import (
 
 // ## Import
 //
-// You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for example$ export KAFKA_API_KEY="<kafka_api_key>" $ export KAFKA_API_SECRET="<kafka_api_secret>" $ export KAFKA_HTTP_ENDPOINT="<kafka_http_endpoint>"
+// You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for example$ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
 //
 // ```sh
 //  $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
@@ -26,13 +26,13 @@ type KafkaTopic struct {
 	// The custom topic settings to set:
 	Config pulumi.StringMapOutput `pulumi:"config"`
 	// The Cluster API Credentials.
-	Credentials KafkaTopicCredentialsOutput `pulumi:"credentials"`
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	HttpEndpoint pulumi.StringOutput          `pulumi:"httpEndpoint"`
-	KafkaCluster KafkaTopicKafkaClusterOutput `pulumi:"kafkaCluster"`
+	Credentials  KafkaTopicCredentialsPtrOutput `pulumi:"credentials"`
+	KafkaCluster KafkaTopicKafkaClusterOutput   `pulumi:"kafkaCluster"`
 	// The number of partitions to create in the topic. Defaults to `6`.
 	PartitionsCount pulumi.IntPtrOutput `pulumi:"partitionsCount"`
-	// The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
+	// The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
 	TopicName pulumi.StringOutput `pulumi:"topicName"`
 }
 
@@ -43,12 +43,6 @@ func NewKafkaTopic(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Credentials == nil {
-		return nil, errors.New("invalid value for required argument 'Credentials'")
-	}
-	if args.HttpEndpoint == nil {
-		return nil, errors.New("invalid value for required argument 'HttpEndpoint'")
-	}
 	if args.KafkaCluster == nil {
 		return nil, errors.New("invalid value for required argument 'KafkaCluster'")
 	}
@@ -80,13 +74,13 @@ type kafkaTopicState struct {
 	// The custom topic settings to set:
 	Config map[string]string `pulumi:"config"`
 	// The Cluster API Credentials.
-	Credentials *KafkaTopicCredentials `pulumi:"credentials"`
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	HttpEndpoint *string                 `pulumi:"httpEndpoint"`
+	Credentials  *KafkaTopicCredentials  `pulumi:"credentials"`
 	KafkaCluster *KafkaTopicKafkaCluster `pulumi:"kafkaCluster"`
 	// The number of partitions to create in the topic. Defaults to `6`.
 	PartitionsCount *int `pulumi:"partitionsCount"`
-	// The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint *string `pulumi:"restEndpoint"`
+	// The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
 	TopicName *string `pulumi:"topicName"`
 }
 
@@ -94,13 +88,13 @@ type KafkaTopicState struct {
 	// The custom topic settings to set:
 	Config pulumi.StringMapInput
 	// The Cluster API Credentials.
-	Credentials KafkaTopicCredentialsPtrInput
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	HttpEndpoint pulumi.StringPtrInput
+	Credentials  KafkaTopicCredentialsPtrInput
 	KafkaCluster KafkaTopicKafkaClusterPtrInput
 	// The number of partitions to create in the topic. Defaults to `6`.
 	PartitionsCount pulumi.IntPtrInput
-	// The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint pulumi.StringPtrInput
+	// The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
 	TopicName pulumi.StringPtrInput
 }
 
@@ -112,13 +106,13 @@ type kafkaTopicArgs struct {
 	// The custom topic settings to set:
 	Config map[string]string `pulumi:"config"`
 	// The Cluster API Credentials.
-	Credentials KafkaTopicCredentials `pulumi:"credentials"`
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	HttpEndpoint string                 `pulumi:"httpEndpoint"`
+	Credentials  *KafkaTopicCredentials `pulumi:"credentials"`
 	KafkaCluster KafkaTopicKafkaCluster `pulumi:"kafkaCluster"`
 	// The number of partitions to create in the topic. Defaults to `6`.
 	PartitionsCount *int `pulumi:"partitionsCount"`
-	// The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint *string `pulumi:"restEndpoint"`
+	// The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
 	TopicName string `pulumi:"topicName"`
 }
 
@@ -127,13 +121,13 @@ type KafkaTopicArgs struct {
 	// The custom topic settings to set:
 	Config pulumi.StringMapInput
 	// The Cluster API Credentials.
-	Credentials KafkaTopicCredentialsInput
-	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	HttpEndpoint pulumi.StringInput
+	Credentials  KafkaTopicCredentialsPtrInput
 	KafkaCluster KafkaTopicKafkaClusterInput
 	// The number of partitions to create in the topic. Defaults to `6`.
 	PartitionsCount pulumi.IntPtrInput
-	// The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
+	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint pulumi.StringPtrInput
+	// The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
 	TopicName pulumi.StringInput
 }
 
@@ -230,13 +224,8 @@ func (o KafkaTopicOutput) Config() pulumi.StringMapOutput {
 }
 
 // The Cluster API Credentials.
-func (o KafkaTopicOutput) Credentials() KafkaTopicCredentialsOutput {
-	return o.ApplyT(func(v *KafkaTopic) KafkaTopicCredentialsOutput { return v.Credentials }).(KafkaTopicCredentialsOutput)
-}
-
-// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-func (o KafkaTopicOutput) HttpEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *KafkaTopic) pulumi.StringOutput { return v.HttpEndpoint }).(pulumi.StringOutput)
+func (o KafkaTopicOutput) Credentials() KafkaTopicCredentialsPtrOutput {
+	return o.ApplyT(func(v *KafkaTopic) KafkaTopicCredentialsPtrOutput { return v.Credentials }).(KafkaTopicCredentialsPtrOutput)
 }
 
 func (o KafkaTopicOutput) KafkaCluster() KafkaTopicKafkaClusterOutput {
@@ -248,7 +237,12 @@ func (o KafkaTopicOutput) PartitionsCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KafkaTopic) pulumi.IntPtrOutput { return v.PartitionsCount }).(pulumi.IntPtrOutput)
 }
 
-// The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
+// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o KafkaTopicOutput) RestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaTopic) pulumi.StringPtrOutput { return v.RestEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
 func (o KafkaTopicOutput) TopicName() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaTopic) pulumi.StringOutput { return v.TopicName }).(pulumi.StringOutput)
 }

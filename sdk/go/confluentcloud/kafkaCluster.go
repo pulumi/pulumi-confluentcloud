@@ -38,8 +38,6 @@ type KafkaCluster struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment KafkaClusterEnvironmentOutput `pulumi:"environment"`
-	// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	HttpEndpoint pulumi.StringOutput `pulumi:"httpEndpoint"`
 	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -49,6 +47,8 @@ type KafkaCluster struct {
 	RbacCrn pulumi.StringOutput `pulumi:"rbacCrn"`
 	// The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint pulumi.StringOutput `pulumi:"restEndpoint"`
 	// The configuration of the Standard Kafka cluster.
 	Standards KafkaClusterStandardArrayOutput `pulumi:"standards"`
 }
@@ -112,8 +112,6 @@ type kafkaClusterState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *KafkaClusterEnvironment `pulumi:"environment"`
-	// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	HttpEndpoint *string `pulumi:"httpEndpoint"`
 	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
 	Kind *string `pulumi:"kind"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -123,6 +121,8 @@ type kafkaClusterState struct {
 	RbacCrn *string `pulumi:"rbacCrn"`
 	// The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 	Region *string `pulumi:"region"`
+	// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint *string `pulumi:"restEndpoint"`
 	// The configuration of the Standard Kafka cluster.
 	Standards []KafkaClusterStandard `pulumi:"standards"`
 }
@@ -143,8 +143,6 @@ type KafkaClusterState struct {
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment KafkaClusterEnvironmentPtrInput
-	// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	HttpEndpoint pulumi.StringPtrInput
 	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
 	Kind pulumi.StringPtrInput
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -154,6 +152,8 @@ type KafkaClusterState struct {
 	RbacCrn pulumi.StringPtrInput
 	// The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 	Region pulumi.StringPtrInput
+	// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint pulumi.StringPtrInput
 	// The configuration of the Standard Kafka cluster.
 	Standards KafkaClusterStandardArrayInput
 }
@@ -331,11 +331,6 @@ func (o KafkaClusterOutput) Environment() KafkaClusterEnvironmentOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterEnvironmentOutput { return v.Environment }).(KafkaClusterEnvironmentOutput)
 }
 
-// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-func (o KafkaClusterOutput) HttpEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.HttpEndpoint }).(pulumi.StringOutput)
-}
-
 // (Required String) A kind of the Kafka cluster, for example, `Cluster`.
 func (o KafkaClusterOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
@@ -355,6 +350,11 @@ func (o KafkaClusterOutput) RbacCrn() pulumi.StringOutput {
 // The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 func (o KafkaClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o KafkaClusterOutput) RestEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.RestEndpoint }).(pulumi.StringOutput)
 }
 
 // The configuration of the Standard Kafka cluster.

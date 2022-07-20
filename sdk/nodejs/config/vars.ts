@@ -10,10 +10,10 @@ const __config = new pulumi.Config("confluentcloud");
 /**
  * The Confluent Cloud API Key.
  */
-export declare const apiKey: string | undefined;
-Object.defineProperty(exports, "apiKey", {
+export declare const cloudApiKey: string | undefined;
+Object.defineProperty(exports, "cloudApiKey", {
     get() {
-        return __config.get("apiKey");
+        return __config.get("cloudApiKey");
     },
     enumerable: true,
 });
@@ -21,10 +21,10 @@ Object.defineProperty(exports, "apiKey", {
 /**
  * The Confluent Cloud API Secret.
  */
-export declare const apiSecret: string | undefined;
-Object.defineProperty(exports, "apiSecret", {
+export declare const cloudApiSecret: string | undefined;
+Object.defineProperty(exports, "cloudApiSecret", {
     get() {
-        return __config.get("apiSecret");
+        return __config.get("cloudApiSecret");
     },
     enumerable: true,
 });
@@ -36,6 +36,39 @@ export declare const endpoint: string | undefined;
 Object.defineProperty(exports, "endpoint", {
     get() {
         return __config.get("endpoint");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Kafka Cluster API Key.
+ */
+export declare const kafkaApiKey: string | undefined;
+Object.defineProperty(exports, "kafkaApiKey", {
+    get() {
+        return __config.get("kafkaApiKey");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Kafka Cluster API Secret.
+ */
+export declare const kafkaApiSecret: string | undefined;
+Object.defineProperty(exports, "kafkaApiSecret", {
+    get() {
+        return __config.get("kafkaApiSecret");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Kafka Cluster REST Endpoint.
+ */
+export declare const kafkaRestEndpoint: string | undefined;
+Object.defineProperty(exports, "kafkaRestEndpoint", {
+    get() {
+        return __config.get("kafkaRestEndpoint");
     },
     enumerable: true,
 });

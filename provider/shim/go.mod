@@ -3,7 +3,7 @@ module github.com/confluentinc/terraform-provider-confluent/shim
 go 1.18
 
 require (
-	github.com/confluentinc/terraform-provider-confluent v0.9.0
+	github.com/confluentinc/terraform-provider-confluent v1.0.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.16.0
 )
 
@@ -11,7 +11,7 @@ require (
 	github.com/agext/levenshtein v1.2.2 // indirect
 	github.com/antihax/optional v1.0.0 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/apikeys v0.1.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/apikeys v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/cmk v0.6.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/connect v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/iam v0.7.0 // indirect
@@ -60,7 +60,7 @@ require (
 	golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17 // indirect
 	golang.org/x/net v0.0.0-20211216030914-fe4d6282115f // indirect
 	golang.org/x/oauth2 v0.0.0-20210819190943-2bc19b11175f // indirect
-	golang.org/x/sys v0.0.0-20211216021012-1d35b9e2eb4e // indirect
+	golang.org/x/sys v0.0.0-20220412211240-33da011f77ad // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20211208223120-3a66f561d7aa // indirect

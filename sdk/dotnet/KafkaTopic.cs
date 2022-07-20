@@ -12,7 +12,7 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Import
     /// 
-    /// You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka topic name&gt;`, for example$ export KAFKA_API_KEY="&lt;kafka_api_key&gt;" $ export KAFKA_API_SECRET="&lt;kafka_api_secret&gt;" $ export KAFKA_HTTP_ENDPOINT="&lt;kafka_http_endpoint&gt;"
+    /// You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka topic name&gt;`, for example$ export IMPORT_KAFKA_API_KEY="&lt;kafka_api_key&gt;" $ export IMPORT_KAFKA_API_SECRET="&lt;kafka_api_secret&gt;" $ export IMPORT_KAFKA_REST_ENDPOINT="&lt;kafka_rest_endpoint&gt;"
     /// 
     /// ```sh
     ///  $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
@@ -33,13 +33,7 @@ namespace Pulumi.ConfluentCloud
         /// The Cluster API Credentials.
         /// </summary>
         [Output("credentials")]
-        public Output<Outputs.KafkaTopicCredentials> Credentials { get; private set; } = null!;
-
-        /// <summary>
-        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-        /// </summary>
-        [Output("httpEndpoint")]
-        public Output<string> HttpEndpoint { get; private set; } = null!;
+        public Output<Outputs.KafkaTopicCredentials?> Credentials { get; private set; } = null!;
 
         [Output("kafkaCluster")]
         public Output<Outputs.KafkaTopicKafkaCluster> KafkaCluster { get; private set; } = null!;
@@ -51,7 +45,13 @@ namespace Pulumi.ConfluentCloud
         public Output<int?> PartitionsCount { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
+        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// </summary>
+        [Output("restEndpoint")]
+        public Output<string?> RestEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
         /// </summary>
         [Output("topicName")]
         public Output<string> TopicName { get; private set; } = null!;
@@ -117,14 +117,8 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The Cluster API Credentials.
         /// </summary>
-        [Input("credentials", required: true)]
-        public Input<Inputs.KafkaTopicCredentialsArgs> Credentials { get; set; } = null!;
-
-        /// <summary>
-        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-        /// </summary>
-        [Input("httpEndpoint", required: true)]
-        public Input<string> HttpEndpoint { get; set; } = null!;
+        [Input("credentials")]
+        public Input<Inputs.KafkaTopicCredentialsArgs>? Credentials { get; set; }
 
         [Input("kafkaCluster", required: true)]
         public Input<Inputs.KafkaTopicKafkaClusterArgs> KafkaCluster { get; set; } = null!;
@@ -136,7 +130,13 @@ namespace Pulumi.ConfluentCloud
         public Input<int>? PartitionsCount { get; set; }
 
         /// <summary>
-        /// The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
+        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// </summary>
+        [Input("restEndpoint")]
+        public Input<string>? RestEndpoint { get; set; }
+
+        /// <summary>
+        /// The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
         /// </summary>
         [Input("topicName", required: true)]
         public Input<string> TopicName { get; set; } = null!;
@@ -166,12 +166,6 @@ namespace Pulumi.ConfluentCloud
         [Input("credentials")]
         public Input<Inputs.KafkaTopicCredentialsGetArgs>? Credentials { get; set; }
 
-        /// <summary>
-        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-        /// </summary>
-        [Input("httpEndpoint")]
-        public Input<string>? HttpEndpoint { get; set; }
-
         [Input("kafkaCluster")]
         public Input<Inputs.KafkaTopicKafkaClusterGetArgs>? KafkaCluster { get; set; }
 
@@ -182,7 +176,13 @@ namespace Pulumi.ConfluentCloud
         public Input<int>? PartitionsCount { get; set; }
 
         /// <summary>
-        /// The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
+        /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// </summary>
+        [Input("restEndpoint")]
+        public Input<string>? RestEndpoint { get; set; }
+
+        /// <summary>
+        /// The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
         /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }

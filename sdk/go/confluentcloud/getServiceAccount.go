@@ -10,6 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// <img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt="">
+//
 // `ServiceAccount` describes a Service Account data source.
 //
 // ## Example Usage
@@ -40,7 +42,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = confluentcloud.NewEnvironment(ctx, "test-env", &confluentcloud.EnvironmentArgs{
-// 			DisplayName: pulumi.String(fmt.Sprintf("%v%v", "env_for_", exampleUsingIdServiceAccount.DisplayName)),
+// 			DisplayName: pulumi.String(fmt.Sprintf("env_for_%v", exampleUsingIdServiceAccount.DisplayName)),
 // 		})
 // 		if err != nil {
 // 			return err

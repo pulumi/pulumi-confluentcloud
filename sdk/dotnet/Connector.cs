@@ -42,6 +42,12 @@ namespace Pulumi.ConfluentCloud
         [Output("kafkaCluster")]
         public Output<Outputs.ConnectorKafkaCluster> KafkaCluster { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" &gt; "PAUSED"`) and resuming (`"PAUSED" &gt; "RUNNING"`) a connector is supported via an update operation.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Connector resource with the given unique name, arguments, and options.
@@ -121,6 +127,12 @@ namespace Pulumi.ConfluentCloud
         [Input("kafkaCluster", required: true)]
         public Input<Inputs.ConnectorKafkaClusterArgs> KafkaCluster { get; set; } = null!;
 
+        /// <summary>
+        /// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" &gt; "PAUSED"`) and resuming (`"PAUSED" &gt; "RUNNING"`) a connector is supported via an update operation.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
         public ConnectorArgs()
         {
         }
@@ -160,6 +172,12 @@ namespace Pulumi.ConfluentCloud
 
         [Input("kafkaCluster")]
         public Input<Inputs.ConnectorKafkaClusterGetArgs>? KafkaCluster { get; set; }
+
+        /// <summary>
+        /// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" &gt; "PAUSED"`) and resuming (`"PAUSED" &gt; "RUNNING"`) a connector is supported via an update operation.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         public ConnectorState()
         {
