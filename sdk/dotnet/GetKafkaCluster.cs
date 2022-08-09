@@ -38,7 +38,6 @@ namespace Pulumi.ConfluentCloud
         ///         }));
         ///         var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new ConfluentCloud.ServiceAccountArgs
         ///         {
-        ///             DisplayName = "app_mgr",
         ///             Description = exampleUsingId.Apply(exampleUsingId =&gt; $"app_mgr for {exampleUsingId.DisplayName}"),
         ///         });
         ///         var exampleUsingNameKafkaCluster = Output.Create(ConfluentCloud.GetKafkaCluster.InvokeAsync(new ConfluentCloud.GetKafkaClusterArgs
@@ -89,7 +88,6 @@ namespace Pulumi.ConfluentCloud
         ///         }));
         ///         var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new ConfluentCloud.ServiceAccountArgs
         ///         {
-        ///             DisplayName = "app_mgr",
         ///             Description = exampleUsingId.Apply(exampleUsingId =&gt; $"app_mgr for {exampleUsingId.DisplayName}"),
         ///         });
         ///         var exampleUsingNameKafkaCluster = Output.Create(ConfluentCloud.GetKafkaCluster.InvokeAsync(new ConfluentCloud.GetKafkaClusterArgs

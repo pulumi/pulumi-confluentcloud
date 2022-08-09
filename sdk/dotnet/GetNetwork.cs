@@ -38,7 +38,6 @@ namespace Pulumi.ConfluentCloud
         ///         }));
         ///         var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new ConfluentCloud.ServiceAccountArgs
         ///         {
-        ///             DisplayName = "test_sa",
         ///             Description = exampleUsingId.Apply(exampleUsingId =&gt; $"test_sa for {exampleUsingId.DisplayName}"),
         ///         });
         ///         var exampleUsingNameNetwork = Output.Create(ConfluentCloud.GetNetwork.InvokeAsync(new ConfluentCloud.GetNetworkArgs
@@ -89,7 +88,6 @@ namespace Pulumi.ConfluentCloud
         ///         }));
         ///         var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new ConfluentCloud.ServiceAccountArgs
         ///         {
-        ///             DisplayName = "test_sa",
         ///             Description = exampleUsingId.Apply(exampleUsingId =&gt; $"test_sa for {exampleUsingId.DisplayName}"),
         ///         });
         ///         var exampleUsingNameNetwork = Output.Create(ConfluentCloud.GetNetwork.InvokeAsync(new ConfluentCloud.GetNetworkArgs

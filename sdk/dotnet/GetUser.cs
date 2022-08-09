@@ -42,7 +42,6 @@ namespace Pulumi.ConfluentCloud
         ///         });
         ///         var standard_cluster_on_aws = new ConfluentCloud.KafkaCluster("standard-cluster-on-aws", new ConfluentCloud.KafkaClusterArgs
         ///         {
-        ///             DisplayName = "standard_kafka_cluster_on_aws",
         ///             Availability = "SINGLE_ZONE",
         ///             Cloud = "AWS",
         ///             Region = "us-west-2",
@@ -108,7 +107,6 @@ namespace Pulumi.ConfluentCloud
         ///         });
         ///         var standard_cluster_on_aws = new ConfluentCloud.KafkaCluster("standard-cluster-on-aws", new ConfluentCloud.KafkaClusterArgs
         ///         {
-        ///             DisplayName = "standard_kafka_cluster_on_aws",
         ///             Availability = "SINGLE_ZONE",
         ///             Cloud = "AWS",
         ///             Region = "us-west-2",

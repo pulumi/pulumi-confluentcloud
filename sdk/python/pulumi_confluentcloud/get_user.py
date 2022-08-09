@@ -112,7 +112,6 @@ def get_user(email: Optional[str] = None,
     example_using_email = confluentcloud.get_user(email="test123@gmail.com")
     test_env = confluentcloud.Environment("test-env")
     standard_cluster_on_aws = confluentcloud.KafkaCluster("standard-cluster-on-aws",
-        display_name="standard_kafka_cluster_on_aws",
         availability="SINGLE_ZONE",
         cloud="AWS",
         region="us-west-2",
@@ -168,7 +167,6 @@ def get_user_output(email: Optional[pulumi.Input[Optional[str]]] = None,
     example_using_email = confluentcloud.get_user(email="test123@gmail.com")
     test_env = confluentcloud.Environment("test-env")
     standard_cluster_on_aws = confluentcloud.KafkaCluster("standard-cluster-on-aws",
-        display_name="standard_kafka_cluster_on_aws",
         availability="SINGLE_ZONE",
         cloud="AWS",
         region="us-west-2",

@@ -61,7 +61,7 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * A human-readable name for the API Key.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
      */

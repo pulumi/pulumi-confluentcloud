@@ -134,9 +134,6 @@ export class KafkaCluster extends pulumi.CustomResource {
             if ((!args || args.cloud === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cloud'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'displayName'");
-            }
             if ((!args || args.environment === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
@@ -243,7 +240,7 @@ export interface KafkaClusterArgs {
     /**
      * The name of the Kafka cluster.
      */
-    displayName: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */

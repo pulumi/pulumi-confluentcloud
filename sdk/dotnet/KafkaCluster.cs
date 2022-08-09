@@ -181,8 +181,8 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The name of the Kafka cluster.
         /// </summary>
-        [Input("displayName", required: true)]
-        public Input<string> DisplayName { get; set; } = null!;
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
 
         /// <summary>
         /// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.

@@ -360,7 +360,7 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[Optional[str]]:
+    def display_name(self) -> pulumi.Output[str]:
         """
         A human-readable name for the API Key.
         """

@@ -58,21 +58,32 @@ func Provider() tfbridge.ProviderInfo {
 		GitHubOrg:   "confluentinc",
 		Config:      map[string]*tfbridge.SchemaInfo{},
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"confluent_api_key":   {Tok: tfbridge.MakeResource(mainPkg, mainMod, "ApiKey")},
+			"confluent_api_key": {
+				Tok: tfbridge.MakeResource(mainPkg, mainMod, "ApiKey"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"display_name": tfbridge.AutoName("displayName", 255, "-"),
+				}},
 			"confluent_connector": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Connector")},
 			"confluent_environment": {
 				Tok: tfbridge.MakeResource(mainPkg, mainMod, "Environment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"display_name": tfbridge.AutoName("displayName", 255, "-"),
 				}},
-			"confluent_kafka_acl":           {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaAcl")},
-			"confluent_kafka_cluster":       {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaCluster")},
+			"confluent_kafka_acl": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaAcl")},
+			"confluent_kafka_cluster": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaCluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"display_name": tfbridge.AutoName("displayName", 255, "-"),
+				}},
 			"confluent_kafka_topic":         {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaTopic")},
 			"confluent_network":             {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Network")},
 			"confluent_peering":             {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Peering")},
 			"confluent_private_link_access": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "PrivateLinkAccess")},
 			"confluent_role_binding":        {Tok: tfbridge.MakeResource(mainPkg, mainMod, "RoleBinding")},
-			"confluent_service_account":     {Tok: tfbridge.MakeResource(mainPkg, mainMod, "ServiceAccount")},
+			"confluent_service_account": {
+				Tok: tfbridge.MakeResource(mainPkg, mainMod, "ServiceAccount"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"display_name": tfbridge.AutoName("displayName", 255, "-"),
+				}},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"confluent_environment":         {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getEnvironment")},

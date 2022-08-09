@@ -46,7 +46,6 @@ import (
 // 			return err
 // 		}
 // 		_, err = confluentcloud.NewKafkaCluster(ctx, "standard-cluster-on-aws", &confluentcloud.KafkaClusterArgs{
-// 			DisplayName:  pulumi.String("standard_kafka_cluster_on_aws"),
 // 			Availability: pulumi.String("SINGLE_ZONE"),
 // 			Cloud:        pulumi.String("AWS"),
 // 			Region:       pulumi.String("us-west-2"),

@@ -45,7 +45,7 @@ namespace Pulumi.ConfluentCloud
         /// A human-readable name for the API Key.
         /// </summary>
         [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
+        public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.

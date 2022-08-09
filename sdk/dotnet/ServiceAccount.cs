@@ -55,7 +55,7 @@ namespace Pulumi.ConfluentCloud
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ServiceAccount(string name, ServiceAccountArgs args, CustomResourceOptions? options = null)
+        public ServiceAccount(string name, ServiceAccountArgs? args = null, CustomResourceOptions? options = null)
             : base("confluentcloud:index/serviceAccount:ServiceAccount", name, args ?? new ServiceAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -102,8 +102,8 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// A human-readable name for the Service Account.
         /// </summary>
-        [Input("displayName", required: true)]
-        public Input<string> DisplayName { get; set; } = null!;
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
 
         public ServiceAccountArgs()
         {

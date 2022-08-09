@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,12 +36,9 @@ type ServiceAccount struct {
 func NewServiceAccount(ctx *pulumi.Context,
 	name string, args *ServiceAccountArgs, opts ...pulumi.ResourceOption) (*ServiceAccount, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ServiceAccountArgs{}
 	}
 
-	if args.DisplayName == nil {
-		return nil, errors.New("invalid value for required argument 'DisplayName'")
-	}
 	var resource ServiceAccount
 	err := ctx.RegisterResource("confluentcloud:index/serviceAccount:ServiceAccount", name, args, &resource, opts...)
 	if err != nil {
@@ -94,7 +90,7 @@ type serviceAccountArgs struct {
 	// A free-form description of the Service Account.
 	Description *string `pulumi:"description"`
 	// A human-readable name for the Service Account.
-	DisplayName string `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
 }
 
 // The set of arguments for constructing a ServiceAccount resource.
@@ -102,7 +98,7 @@ type ServiceAccountArgs struct {
 	// A free-form description of the Service Account.
 	Description pulumi.StringPtrInput
 	// A human-readable name for the Service Account.
-	DisplayName pulumi.StringInput
+	DisplayName pulumi.StringPtrInput
 }
 
 func (ServiceAccountArgs) ElementType() reflect.Type {
