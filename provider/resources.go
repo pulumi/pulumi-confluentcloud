@@ -58,9 +58,13 @@ func Provider() tfbridge.ProviderInfo {
 		GitHubOrg:   "confluentinc",
 		Config:      map[string]*tfbridge.SchemaInfo{},
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"confluent_api_key":             {Tok: tfbridge.MakeResource(mainPkg, mainMod, "ApiKey")},
-			"confluent_connector":           {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Connector")},
-			"confluent_environment":         {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Environment")},
+			"confluent_api_key":   {Tok: tfbridge.MakeResource(mainPkg, mainMod, "ApiKey")},
+			"confluent_connector": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Connector")},
+			"confluent_environment": {
+				Tok: tfbridge.MakeResource(mainPkg, mainMod, "Environment"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"display_name": tfbridge.AutoName("displayName", 255, "-"),
+				}},
 			"confluent_kafka_acl":           {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaAcl")},
 			"confluent_kafka_cluster":       {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaCluster")},
 			"confluent_kafka_topic":         {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaTopic")},

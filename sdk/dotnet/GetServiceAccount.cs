@@ -39,7 +39,6 @@ namespace Pulumi.ConfluentCloud
         ///         }));
         ///         var test_env = new ConfluentCloud.Environment("test-env", new ConfluentCloud.EnvironmentArgs
         ///         {
-        ///             DisplayName = exampleUsingIdServiceAccount.Apply(exampleUsingIdServiceAccount =&gt; $"env_for_{exampleUsingIdServiceAccount.DisplayName}"),
         ///         });
         ///     }
         /// 
@@ -81,7 +80,6 @@ namespace Pulumi.ConfluentCloud
         ///         }));
         ///         var test_env = new ConfluentCloud.Environment("test-env", new ConfluentCloud.EnvironmentArgs
         ///         {
-        ///             DisplayName = exampleUsingIdServiceAccount.Apply(exampleUsingIdServiceAccount =&gt; $"env_for_{exampleUsingIdServiceAccount.DisplayName}"),
         ///         });
         ///     }
         /// 

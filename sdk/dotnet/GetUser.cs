@@ -39,7 +39,6 @@ namespace Pulumi.ConfluentCloud
         ///         }));
         ///         var test_env = new ConfluentCloud.Environment("test-env", new ConfluentCloud.EnvironmentArgs
         ///         {
-        ///             DisplayName = exampleUsingIdUser.Apply(exampleUsingIdUser =&gt; $"env_for_{exampleUsingIdUser.FullName}"),
         ///         });
         ///         var standard_cluster_on_aws = new ConfluentCloud.KafkaCluster("standard-cluster-on-aws", new ConfluentCloud.KafkaClusterArgs
         ///         {
@@ -106,7 +105,6 @@ namespace Pulumi.ConfluentCloud
         ///         }));
         ///         var test_env = new ConfluentCloud.Environment("test-env", new ConfluentCloud.EnvironmentArgs
         ///         {
-        ///             DisplayName = exampleUsingIdUser.Apply(exampleUsingIdUser =&gt; $"env_for_{exampleUsingIdUser.FullName}"),
         ///         });
         ///         var standard_cluster_on_aws = new ConfluentCloud.KafkaCluster("standard-cluster-on-aws", new ConfluentCloud.KafkaClusterArgs
         ///         {

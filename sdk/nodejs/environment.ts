@@ -59,7 +59,7 @@ export class Environment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: EnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EnvironmentArgs | EnvironmentState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -69,9 +69,6 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["resourceName"] = state ? state.resourceName : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'displayName'");
-            }
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["resourceName"] = undefined /*out*/;
         }
@@ -101,5 +98,5 @@ export interface EnvironmentArgs {
     /**
      * A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
      */
-    displayName: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
 }

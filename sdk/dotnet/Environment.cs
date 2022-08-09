@@ -43,7 +43,7 @@ namespace Pulumi.ConfluentCloud
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Environment(string name, EnvironmentArgs args, CustomResourceOptions? options = null)
+        public Environment(string name, EnvironmentArgs? args = null, CustomResourceOptions? options = null)
             : base("confluentcloud:index/environment:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -84,8 +84,8 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
         /// </summary>
-        [Input("displayName", required: true)]
-        public Input<string> DisplayName { get; set; } = null!;
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
 
         public EnvironmentArgs()
         {

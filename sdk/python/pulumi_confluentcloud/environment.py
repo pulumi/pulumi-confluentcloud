@@ -14,23 +14,24 @@ __all__ = ['EnvironmentArgs', 'Environment']
 @pulumi.input_type
 class EnvironmentArgs:
     def __init__(__self__, *,
-                 display_name: pulumi.Input[str]):
+                 display_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] display_name: A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
         """
-        pulumi.set(__self__, "display_name", display_name)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[str]:
+    def display_name(self) -> Optional[pulumi.Input[str]]:
         """
         A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: pulumi.Input[str]):
+    def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
 
 
@@ -100,7 +101,7 @@ class Environment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EnvironmentArgs,
+                 args: Optional[EnvironmentArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Import
@@ -138,8 +139,6 @@ class Environment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EnvironmentArgs.__new__(EnvironmentArgs)
 
-            if display_name is None and not opts.urn:
-                raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["resource_name"] = None
         super(Environment, __self__).__init__(
