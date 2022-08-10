@@ -22,10 +22,7 @@ import * as utilities from "./utilities";
  *         id: "env-xyz456",
  *     },
  * });
- * const test_sa = new confluentcloud.ServiceAccount("test-sa", {
- *     displayName: "app_mgr",
- *     description: exampleUsingId.then(exampleUsingId => `app_mgr for ${exampleUsingId.displayName}`),
- * });
+ * const test_sa = new confluentcloud.ServiceAccount("test-sa", {description: exampleUsingId.then(exampleUsingId => `app_mgr for ${exampleUsingId.displayName}`)});
  * const exampleUsingNameKafkaCluster = confluentcloud.getKafkaCluster({
  *     displayName: "basic_kafka_cluster",
  *     environment: {

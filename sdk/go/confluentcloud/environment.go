@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,12 +32,9 @@ type Environment struct {
 func NewEnvironment(ctx *pulumi.Context,
 	name string, args *EnvironmentArgs, opts ...pulumi.ResourceOption) (*Environment, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &EnvironmentArgs{}
 	}
 
-	if args.DisplayName == nil {
-		return nil, errors.New("invalid value for required argument 'DisplayName'")
-	}
 	var resource Environment
 	err := ctx.RegisterResource("confluentcloud:index/environment:Environment", name, args, &resource, opts...)
 	if err != nil {
@@ -80,13 +76,13 @@ func (EnvironmentState) ElementType() reflect.Type {
 
 type environmentArgs struct {
 	// A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
-	DisplayName string `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
 	// A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
-	DisplayName pulumi.StringInput
+	DisplayName pulumi.StringPtrInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {

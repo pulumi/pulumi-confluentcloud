@@ -22,10 +22,7 @@ import * as utilities from "./utilities";
  *         id: "env-xyz456",
  *     },
  * });
- * const test_sa = new confluentcloud.ServiceAccount("test-sa", {
- *     displayName: "test_sa",
- *     description: exampleUsingId.then(exampleUsingId => `test_sa for ${exampleUsingId.displayName}`),
- * });
+ * const test_sa = new confluentcloud.ServiceAccount("test-sa", {description: exampleUsingId.then(exampleUsingId => `test_sa for ${exampleUsingId.displayName}`)});
  * const exampleUsingNameNetwork = confluentcloud.getNetwork({
  *     displayName: "my_network",
  *     environment: {

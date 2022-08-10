@@ -34,7 +34,7 @@ type ApiKey struct {
 	// An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
 	DisableWaitForReady pulumi.BoolPtrOutput `pulumi:"disableWaitForReady"`
 	// A human-readable name for the API Key.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
 	ManagedResource ApiKeyManagedResourcePtrOutput `pulumi:"managedResource"`
 	// The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
@@ -233,8 +233,8 @@ func (o ApiKeyOutput) DisableWaitForReady() pulumi.BoolPtrOutput {
 }
 
 // A human-readable name for the API Key.
-func (o ApiKeyOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApiKey) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+func (o ApiKeyOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
 // The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.

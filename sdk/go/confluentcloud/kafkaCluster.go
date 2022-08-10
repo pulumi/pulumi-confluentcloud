@@ -66,9 +66,6 @@ func NewKafkaCluster(ctx *pulumi.Context,
 	if args.Cloud == nil {
 		return nil, errors.New("invalid value for required argument 'Cloud'")
 	}
-	if args.DisplayName == nil {
-		return nil, errors.New("invalid value for required argument 'DisplayName'")
-	}
 	if args.Environment == nil {
 		return nil, errors.New("invalid value for required argument 'Environment'")
 	}
@@ -171,7 +168,7 @@ type kafkaClusterArgs struct {
 	Cloud     string                 `pulumi:"cloud"`
 	Dedicated *KafkaClusterDedicated `pulumi:"dedicated"`
 	// The name of the Kafka cluster.
-	DisplayName string `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment KafkaClusterEnvironment `pulumi:"environment"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -193,7 +190,7 @@ type KafkaClusterArgs struct {
 	Cloud     pulumi.StringInput
 	Dedicated KafkaClusterDedicatedPtrInput
 	// The name of the Kafka cluster.
-	DisplayName pulumi.StringInput
+	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment KafkaClusterEnvironmentInput
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider

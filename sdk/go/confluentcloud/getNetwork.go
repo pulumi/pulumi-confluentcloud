@@ -38,7 +38,6 @@ import (
 // 			return err
 // 		}
 // 		_, err = confluentcloud.NewServiceAccount(ctx, "test-sa", &confluentcloud.ServiceAccountArgs{
-// 			DisplayName: pulumi.String("test_sa"),
 // 			Description: pulumi.String(fmt.Sprintf("test_sa for %v", exampleUsingId.DisplayName)),
 // 		})
 // 		if err != nil {

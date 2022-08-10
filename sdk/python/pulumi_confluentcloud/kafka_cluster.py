@@ -18,34 +18,35 @@ class KafkaClusterArgs:
     def __init__(__self__, *,
                  availability: pulumi.Input[str],
                  cloud: pulumi.Input[str],
-                 display_name: pulumi.Input[str],
                  environment: pulumi.Input['KafkaClusterEnvironmentArgs'],
                  region: pulumi.Input[str],
                  basics: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterBasicArgs']]]] = None,
                  dedicated: Optional[pulumi.Input['KafkaClusterDedicatedArgs']] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['KafkaClusterNetworkArgs']] = None,
                  standards: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterStandardArgs']]]] = None):
         """
         The set of arguments for constructing a KafkaCluster resource.
         :param pulumi.Input[str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
-        :param pulumi.Input[str] display_name: The name of the Kafka cluster.
         :param pulumi.Input['KafkaClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterBasicArgs']]] basics: The configuration of the Basic Kafka cluster.
+        :param pulumi.Input[str] display_name: The name of the Kafka cluster.
         :param pulumi.Input['KafkaClusterNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterStandardArgs']]] standards: The configuration of the Standard Kafka cluster.
         """
         pulumi.set(__self__, "availability", availability)
         pulumi.set(__self__, "cloud", cloud)
-        pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "region", region)
         if basics is not None:
             pulumi.set(__self__, "basics", basics)
         if dedicated is not None:
             pulumi.set(__self__, "dedicated", dedicated)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
         if network is not None:
             pulumi.set(__self__, "network", network)
         if standards is not None:
@@ -74,18 +75,6 @@ class KafkaClusterArgs:
     @cloud.setter
     def cloud(self, value: pulumi.Input[str]):
         pulumi.set(self, "cloud", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[str]:
-        """
-        The name of the Kafka cluster.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "display_name", value)
 
     @property
     @pulumi.getter
@@ -131,6 +120,18 @@ class KafkaClusterArgs:
     @dedicated.setter
     def dedicated(self, value: Optional[pulumi.Input['KafkaClusterDedicatedArgs']]):
         pulumi.set(self, "dedicated", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Kafka cluster.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
 
     @property
     @pulumi.getter
@@ -484,8 +485,6 @@ class KafkaCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cloud'")
             __props__.__dict__["cloud"] = cloud
             __props__.__dict__["dedicated"] = dedicated
-            if display_name is None and not opts.urn:
-                raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")

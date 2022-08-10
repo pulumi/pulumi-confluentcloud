@@ -14,28 +14,17 @@ __all__ = ['ServiceAccountArgs', 'ServiceAccount']
 @pulumi.input_type
 class ServiceAccountArgs:
     def __init__(__self__, *,
-                 display_name: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceAccount resource.
-        :param pulumi.Input[str] display_name: A human-readable name for the Service Account.
         :param pulumi.Input[str] description: A free-form description of the Service Account.
+        :param pulumi.Input[str] display_name: A human-readable name for the Service Account.
         """
-        pulumi.set(__self__, "display_name", display_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[str]:
-        """
-        A human-readable name for the Service Account.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "display_name", value)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
 
     @property
     @pulumi.getter
@@ -48,6 +37,18 @@ class ServiceAccountArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-readable name for the Service Account.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
 
 
 @pulumi.input_type
@@ -150,7 +151,7 @@ class ServiceAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceAccountArgs,
+                 args: Optional[ServiceAccountArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Import
@@ -190,8 +191,6 @@ class ServiceAccount(pulumi.CustomResource):
             __props__ = ServiceAccountArgs.__new__(ServiceAccountArgs)
 
             __props__.__dict__["description"] = description
-            if display_name is None and not opts.urn:
-                raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["api_version"] = None
             __props__.__dict__["kind"] = None

@@ -109,7 +109,7 @@ def get_service_account(display_name: Optional[str] = None,
     example_using_id_service_account = confluentcloud.get_service_account(id="sa-abc123")
     pulumi.export("exampleUsingId", example_using_id_service_account)
     example_using_name = confluentcloud.get_service_account(display_name="test_sa")
-    test_env = confluentcloud.Environment("test-env", display_name=f"env_for_{example_using_id_service_account.display_name}")
+    test_env = confluentcloud.Environment("test-env")
     ```
 
 
@@ -148,7 +148,7 @@ def get_service_account_output(display_name: Optional[pulumi.Input[Optional[str]
     example_using_id_service_account = confluentcloud.get_service_account(id="sa-abc123")
     pulumi.export("exampleUsingId", example_using_id_service_account)
     example_using_name = confluentcloud.get_service_account(display_name="test_sa")
-    test_env = confluentcloud.Environment("test-env", display_name=f"env_for_{example_using_id_service_account.display_name}")
+    test_env = confluentcloud.Environment("test-env")
     ```
 
 

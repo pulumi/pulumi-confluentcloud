@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  * const exampleUsingName = confluentcloud.getServiceAccount({
  *     displayName: "test_sa",
  * });
- * const test_env = new confluentcloud.Environment("test-env", {displayName: exampleUsingIdServiceAccount.then(exampleUsingIdServiceAccount => `env_for_${exampleUsingIdServiceAccount.displayName}`)});
+ * const test_env = new confluentcloud.Environment("test-env", {});
  * ```
  */
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {

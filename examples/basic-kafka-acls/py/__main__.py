@@ -4,11 +4,10 @@ import pulumi
 import pulumi_confluentcloud as confluent
 
 
-environment = confluent.Environment("py-staging", display_name="Staging")
+environment = confluent.Environment("py-staging")
 
 # Create the basic cluster.
 cluster = confluent.KafkaCluster("basic-cluster",
-                                 display_name="inventory",
                                  availability="SINGLE_ZONE",
                                  cloud="AWS",
                                  region="us-west-2",
@@ -25,7 +24,6 @@ cluster_managed_resource = confluent.ApiKeyManagedResourceArgs(id=cluster.id,
 # Create a service account that will be used to manage the cluster
 # and bind the CloudClusterAdmin to it.
 app_manager = confluent.ServiceAccount("app-manager",
-                                       display_name="app-manager",
                                        description="Service account to manage 'inventory' Kafka cluster")
 
 cluster_admin_role_binding = confluent.RoleBinding("app-manager-kafka-cluster-admin",
@@ -38,7 +36,6 @@ cluster_admin_role_binding = confluent.RoleBinding("app-manager-kafka-cluster-ad
 app_manager_api_key_owner = confluent.ApiKeyOwnerArgs(
     id=app_manager.id, api_version=app_manager.api_version, kind=app_manager.kind)
 app_manager_api_key = confluent.ApiKey("app-manager-kafka-api-key",
-                                       display_name="app-manager-kafka-api-key",
                                        owner=app_manager_api_key_owner,
                                        managed_resource=cluster_managed_resource,
                                        opts=pulumi.ResourceOptions(
@@ -60,11 +57,9 @@ orders = confluent.KafkaTopic("orders",
 
 # Create the producer service account and an API key for it.
 app_producer = confluent.ServiceAccount("app-producer",
-                                        display_name="app-producer",
                                         description="Service account to produce to 'orders' topic of 'inventory' Kafka cluster")
 
 app_producer_api_key = confluent.ApiKey("app-producer-kafka-api-key",
-                                        display_name="app-producer-kafka-api-key",
                                         owner=confluent.ApiKeyOwnerArgs(id=app_producer.id,
                                                                         api_version=app_producer.api_version,
                                                                         kind=app_producer.kind),
@@ -72,11 +67,9 @@ app_producer_api_key = confluent.ApiKey("app-producer-kafka-api-key",
 
 # Create the consumer service account and an API key for it.
 app_consumer = confluent.ServiceAccount("app-consumer",
-                                        display_name="app-consumer",
                                         description="Service account to consume from 'orders' topic of 'inventory' Kafka cluster")
 
 app_consumer_api_key = confluent.ApiKey("app-consumer-kafka-api-key",
-                                        display_name="app-consumer-kafka-api-key",
                                         owner=confluent.ApiKeyOwnerArgs(id=app_consumer.id,
                                                                         api_version=app_consumer.api_version,
                                                                         kind=app_consumer.kind),

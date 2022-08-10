@@ -22,9 +22,8 @@ import * as utilities from "./utilities";
  * const exampleUsingEmail = confluentcloud.getUser({
  *     email: "test123@gmail.com",
  * });
- * const test_env = new confluentcloud.Environment("test-env", {displayName: exampleUsingIdUser.then(exampleUsingIdUser => `env_for_${exampleUsingIdUser.fullName}`)});
+ * const test_env = new confluentcloud.Environment("test-env", {});
  * const standard_cluster_on_aws = new confluentcloud.KafkaCluster("standard-cluster-on-aws", {
- *     displayName: "standard_kafka_cluster_on_aws",
  *     availability: "SINGLE_ZONE",
  *     cloud: "AWS",
  *     region: "us-west-2",

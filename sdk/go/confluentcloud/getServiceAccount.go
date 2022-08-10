@@ -20,8 +20,6 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
-//
 // 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -41,9 +39,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = confluentcloud.NewEnvironment(ctx, "test-env", &confluentcloud.EnvironmentArgs{
-// 			DisplayName: pulumi.String(fmt.Sprintf("env_for_%v", exampleUsingIdServiceAccount.DisplayName)),
-// 		})
+// 		_, err = confluentcloud.NewEnvironment(ctx, "test-env", nil)
 // 		if err != nil {
 // 			return err
 // 		}

@@ -219,9 +219,7 @@ def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = 
         environment=confluentcloud.GetNetworkEnvironmentArgs(
             id="env-xyz456",
         ))
-    test_sa = confluentcloud.ServiceAccount("test-sa",
-        display_name="test_sa",
-        description=f"test_sa for {example_using_id.display_name}")
+    test_sa = confluentcloud.ServiceAccount("test-sa", description=f"test_sa for {example_using_id.display_name}")
     example_using_name_network = confluentcloud.get_network(display_name="my_network",
         environment=confluentcloud.GetNetworkEnvironmentArgs(
             id="env-xyz456",
@@ -286,9 +284,7 @@ def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[pulumi.Input
         environment=confluentcloud.GetNetworkEnvironmentArgs(
             id="env-xyz456",
         ))
-    test_sa = confluentcloud.ServiceAccount("test-sa",
-        display_name="test_sa",
-        description=f"test_sa for {example_using_id.display_name}")
+    test_sa = confluentcloud.ServiceAccount("test-sa", description=f"test_sa for {example_using_id.display_name}")
     example_using_name_network = confluentcloud.get_network(display_name="my_network",
         environment=confluentcloud.GetNetworkEnvironmentArgs(
             id="env-xyz456",
