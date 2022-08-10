@@ -11,7 +11,7 @@
 The Confluent Resource Provider lets you manage [Confluent](https://confluent.cloud/) resources.
 
 Please Note:
-This provider is build from the ConfluentInc official Terraform Provider - https://github.com/confluentinc/terraform-provider-confluent
+This provider is built from the ConfluentInc official Terraform Provider - https://github.com/confluentinc/terraform-provider-confluent
 
 ## Installing
 
