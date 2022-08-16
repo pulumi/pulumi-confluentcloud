@@ -16,7 +16,9 @@ import (
 // You can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `<Environment ID>/<Kafka cluster ID>/<Connector name>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
-//  $ pulumi import confluentcloud:index/connector:Connector my_connector "env-abc123/lkc-abc123/S3_SINKConnector_0"
+//
+//	$ pulumi import confluentcloud:index/connector:Connector my_connector "env-abc123/lkc-abc123/S3_SINKConnector_0"
+//
 // ```
 type Connector struct {
 	pulumi.CustomResourceState
@@ -148,7 +150,7 @@ func (i *Connector) ToConnectorOutputWithContext(ctx context.Context) ConnectorO
 // ConnectorArrayInput is an input type that accepts ConnectorArray and ConnectorArrayOutput values.
 // You can construct a concrete instance of `ConnectorArrayInput` via:
 //
-//          ConnectorArray{ ConnectorArgs{...} }
+//	ConnectorArray{ ConnectorArgs{...} }
 type ConnectorArrayInput interface {
 	pulumi.Input
 
@@ -173,7 +175,7 @@ func (i ConnectorArray) ToConnectorArrayOutputWithContext(ctx context.Context) C
 // ConnectorMapInput is an input type that accepts ConnectorMap and ConnectorMapOutput values.
 // You can construct a concrete instance of `ConnectorMapInput` via:
 //
-//          ConnectorMap{ "key": ConnectorArgs{...} }
+//	ConnectorMap{ "key": ConnectorArgs{...} }
 type ConnectorMapInput interface {
 	pulumi.Input
 

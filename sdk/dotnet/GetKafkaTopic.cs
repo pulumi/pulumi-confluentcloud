@@ -21,33 +21,32 @@ namespace Pulumi.ConfluentCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var orders = ConfluentCloud.GetKafkaTopic.Invoke(new()
         ///     {
-        ///         var orders = Output.Create(ConfluentCloud.GetKafkaTopic.InvokeAsync(new ConfluentCloud.GetKafkaTopicArgs
+        ///         KafkaCluster = new ConfluentCloud.Inputs.GetKafkaTopicKafkaClusterInputArgs
         ///         {
-        ///             KafkaCluster = new ConfluentCloud.Inputs.GetKafkaTopicKafkaClusterArgs
-        ///             {
-        ///                 Id = confluent_kafka_cluster.Basic_cluster.Id,
-        ///             },
-        ///             TopicName = "orders",
-        ///             RestEndpoint = confluent_kafka_cluster.Basic_cluster.Rest_endpoint,
-        ///             Credentials = new ConfluentCloud.Inputs.GetKafkaTopicCredentialsArgs
-        ///             {
-        ///                 Key = "&lt;Kafka API Key for confluent_kafka_cluster.basic-cluster&gt;",
-        ///                 Secret = "&lt;Kafka API Secret for confluent_kafka_cluster.basic-cluster&gt;",
-        ///             },
-        ///         }));
-        ///         this.Config = orders.Apply(orders =&gt; orders.Config);
-        ///     }
+        ///             Id = confluent_kafka_cluster.Basic_cluster.Id,
+        ///         },
+        ///         TopicName = "orders",
+        ///         RestEndpoint = confluent_kafka_cluster.Basic_cluster.Rest_endpoint,
+        ///         Credentials = new ConfluentCloud.Inputs.GetKafkaTopicCredentialsInputArgs
+        ///         {
+        ///             Key = "&lt;Kafka API Key for confluent_kafka_cluster.basic-cluster&gt;",
+        ///             Secret = "&lt;Kafka API Secret for confluent_kafka_cluster.basic-cluster&gt;",
+        ///         },
+        ///     });
         /// 
-        ///     [Output("config")]
-        ///     public Output&lt;string&gt; Config { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["config"] = orders.Apply(getKafkaTopicResult =&gt; getKafkaTopicResult.Config),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -65,33 +64,32 @@ namespace Pulumi.ConfluentCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var orders = ConfluentCloud.GetKafkaTopic.Invoke(new()
         ///     {
-        ///         var orders = Output.Create(ConfluentCloud.GetKafkaTopic.InvokeAsync(new ConfluentCloud.GetKafkaTopicArgs
+        ///         KafkaCluster = new ConfluentCloud.Inputs.GetKafkaTopicKafkaClusterInputArgs
         ///         {
-        ///             KafkaCluster = new ConfluentCloud.Inputs.GetKafkaTopicKafkaClusterArgs
-        ///             {
-        ///                 Id = confluent_kafka_cluster.Basic_cluster.Id,
-        ///             },
-        ///             TopicName = "orders",
-        ///             RestEndpoint = confluent_kafka_cluster.Basic_cluster.Rest_endpoint,
-        ///             Credentials = new ConfluentCloud.Inputs.GetKafkaTopicCredentialsArgs
-        ///             {
-        ///                 Key = "&lt;Kafka API Key for confluent_kafka_cluster.basic-cluster&gt;",
-        ///                 Secret = "&lt;Kafka API Secret for confluent_kafka_cluster.basic-cluster&gt;",
-        ///             },
-        ///         }));
-        ///         this.Config = orders.Apply(orders =&gt; orders.Config);
-        ///     }
+        ///             Id = confluent_kafka_cluster.Basic_cluster.Id,
+        ///         },
+        ///         TopicName = "orders",
+        ///         RestEndpoint = confluent_kafka_cluster.Basic_cluster.Rest_endpoint,
+        ///         Credentials = new ConfluentCloud.Inputs.GetKafkaTopicCredentialsInputArgs
+        ///         {
+        ///             Key = "&lt;Kafka API Key for confluent_kafka_cluster.basic-cluster&gt;",
+        ///             Secret = "&lt;Kafka API Secret for confluent_kafka_cluster.basic-cluster&gt;",
+        ///         },
+        ///     });
         /// 
-        ///     [Output("config")]
-        ///     public Output&lt;string&gt; Config { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["config"] = orders.Apply(getKafkaTopicResult =&gt; getKafkaTopicResult.Config),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -101,7 +99,7 @@ namespace Pulumi.ConfluentCloud
     }
 
 
-    public sealed class GetKafkaTopicArgs : Pulumi.InvokeArgs
+    public sealed class GetKafkaTopicArgs : global::Pulumi.InvokeArgs
     {
         [Input("credentials")]
         public Inputs.GetKafkaTopicCredentialsArgs? Credentials { get; set; }
@@ -124,9 +122,10 @@ namespace Pulumi.ConfluentCloud
         public GetKafkaTopicArgs()
         {
         }
+        public static new GetKafkaTopicArgs Empty => new GetKafkaTopicArgs();
     }
 
-    public sealed class GetKafkaTopicInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKafkaTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("credentials")]
         public Input<Inputs.GetKafkaTopicCredentialsInputArgs>? Credentials { get; set; }
@@ -149,6 +148,7 @@ namespace Pulumi.ConfluentCloud
         public GetKafkaTopicInvokeArgs()
         {
         }
+        public static new GetKafkaTopicInvokeArgs Empty => new GetKafkaTopicInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class GetNetworkGcpInputArgs : Pulumi.ResourceArgs
+    public sealed class GetNetworkGcpInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Required String) The GCP project.
@@ -27,5 +27,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public GetNetworkGcpInputArgs()
         {
         }
+        public static new GetNetworkGcpInputArgs Empty => new GetNetworkGcpInputArgs();
     }
 }

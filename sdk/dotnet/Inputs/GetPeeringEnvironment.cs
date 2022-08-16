@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class GetPeeringEnvironmentArgs : Pulumi.InvokeArgs
+    public sealed class GetPeeringEnvironmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
@@ -21,5 +21,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public GetPeeringEnvironmentArgs()
         {
         }
+        public static new GetPeeringEnvironmentArgs Empty => new GetPeeringEnvironmentArgs();
     }
 }

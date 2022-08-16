@@ -21,30 +21,29 @@ namespace Pulumi.ConfluentCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleUsingIdServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()
         ///     {
-        ///         var exampleUsingIdServiceAccount = Output.Create(ConfluentCloud.GetServiceAccount.InvokeAsync(new ConfluentCloud.GetServiceAccountArgs
-        ///         {
-        ///             Id = "sa-abc123",
-        ///         }));
-        ///         this.ExampleUsingId = exampleUsingIdServiceAccount;
-        ///         var exampleUsingName = Output.Create(ConfluentCloud.GetServiceAccount.InvokeAsync(new ConfluentCloud.GetServiceAccountArgs
-        ///         {
-        ///             DisplayName = "test_sa",
-        ///         }));
-        ///         var test_env = new ConfluentCloud.Environment("test-env", new ConfluentCloud.EnvironmentArgs
-        ///         {
-        ///         });
-        ///     }
+        ///         Id = "sa-abc123",
+        ///     });
         /// 
-        ///     [Output("exampleUsingId")]
-        ///     public Output&lt;string&gt; ExampleUsingId { get; set; }
-        /// }
+        ///     var exampleUsingName = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     {
+        ///         DisplayName = "test_sa",
+        ///     });
+        /// 
+        ///     var test_env = new ConfluentCloud.Environment("test-env");
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingIdServiceAccount.Apply(getServiceAccountResult =&gt; getServiceAccountResult),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -62,30 +61,29 @@ namespace Pulumi.ConfluentCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleUsingIdServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()
         ///     {
-        ///         var exampleUsingIdServiceAccount = Output.Create(ConfluentCloud.GetServiceAccount.InvokeAsync(new ConfluentCloud.GetServiceAccountArgs
-        ///         {
-        ///             Id = "sa-abc123",
-        ///         }));
-        ///         this.ExampleUsingId = exampleUsingIdServiceAccount;
-        ///         var exampleUsingName = Output.Create(ConfluentCloud.GetServiceAccount.InvokeAsync(new ConfluentCloud.GetServiceAccountArgs
-        ///         {
-        ///             DisplayName = "test_sa",
-        ///         }));
-        ///         var test_env = new ConfluentCloud.Environment("test-env", new ConfluentCloud.EnvironmentArgs
-        ///         {
-        ///         });
-        ///     }
+        ///         Id = "sa-abc123",
+        ///     });
         /// 
-        ///     [Output("exampleUsingId")]
-        ///     public Output&lt;string&gt; ExampleUsingId { get; set; }
-        /// }
+        ///     var exampleUsingName = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     {
+        ///         DisplayName = "test_sa",
+        ///     });
+        /// 
+        ///     var test_env = new ConfluentCloud.Environment("test-env");
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingIdServiceAccount.Apply(getServiceAccountResult =&gt; getServiceAccountResult),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -95,7 +93,7 @@ namespace Pulumi.ConfluentCloud
     }
 
 
-    public sealed class GetServiceAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A human-readable name for the Service Account.
@@ -112,9 +110,10 @@ namespace Pulumi.ConfluentCloud
         public GetServiceAccountArgs()
         {
         }
+        public static new GetServiceAccountArgs Empty => new GetServiceAccountArgs();
     }
 
-    public sealed class GetServiceAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A human-readable name for the Service Account.
@@ -131,6 +130,7 @@ namespace Pulumi.ConfluentCloud
         public GetServiceAccountInvokeArgs()
         {
         }
+        public static new GetServiceAccountInvokeArgs Empty => new GetServiceAccountInvokeArgs();
     }
 
 

@@ -20,42 +20,45 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUsingId, err := confluentcloud.LookupKafkaCluster(ctx, &GetKafkaClusterArgs{
-// 			Id: pulumi.StringRef("lkc-abc123"),
-// 			Environment: GetKafkaClusterEnvironment{
-// 				Id: "env-xyz456",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = confluentcloud.NewServiceAccount(ctx, "test-sa", &confluentcloud.ServiceAccountArgs{
-// 			Description: pulumi.String(fmt.Sprintf("app_mgr for %v", exampleUsingId.DisplayName)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUsingNameKafkaCluster, err := confluentcloud.LookupKafkaCluster(ctx, &GetKafkaClusterArgs{
-// 			DisplayName: pulumi.StringRef("basic_kafka_cluster"),
-// 			Environment: GetKafkaClusterEnvironment{
-// 				Id: "env-xyz456",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("exampleUsingName", exampleUsingNameKafkaCluster)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUsingId, err := confluentcloud.LookupKafkaCluster(ctx, &GetKafkaClusterArgs{
+//				Id: pulumi.StringRef("lkc-abc123"),
+//				Environment: GetKafkaClusterEnvironment{
+//					Id: "env-xyz456",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewServiceAccount(ctx, "test-sa", &confluentcloud.ServiceAccountArgs{
+//				Description: pulumi.String(fmt.Sprintf("app_mgr for %v", exampleUsingId.DisplayName)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUsingNameKafkaCluster, err := confluentcloud.LookupKafkaCluster(ctx, &GetKafkaClusterArgs{
+//				DisplayName: pulumi.StringRef("basic_kafka_cluster"),
+//				Environment: GetKafkaClusterEnvironment{
+//					Id: "env-xyz456",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("exampleUsingName", exampleUsingNameKafkaCluster)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupKafkaCluster(ctx *pulumi.Context, args *LookupKafkaClusterArgs, opts ...pulumi.InvokeOption) (*LookupKafkaClusterResult, error) {
 	var rv LookupKafkaClusterResult

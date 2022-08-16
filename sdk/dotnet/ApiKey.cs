@@ -27,7 +27,7 @@ namespace Pulumi.ConfluentCloud
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/apiKey:ApiKey")]
-    public partial class ApiKey : Pulumi.CustomResource
+    public partial class ApiKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A free-form description of the API Account.
@@ -109,7 +109,7 @@ namespace Pulumi.ConfluentCloud
         }
     }
 
-    public sealed class ApiKeyArgs : Pulumi.ResourceArgs
+    public sealed class ApiKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A free-form description of the API Account.
@@ -144,9 +144,10 @@ namespace Pulumi.ConfluentCloud
         public ApiKeyArgs()
         {
         }
+        public static new ApiKeyArgs Empty => new ApiKeyArgs();
     }
 
-    public sealed class ApiKeyState : Pulumi.ResourceArgs
+    public sealed class ApiKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A free-form description of the API Account.
@@ -187,5 +188,6 @@ namespace Pulumi.ConfluentCloud
         public ApiKeyState()
         {
         }
+        public static new ApiKeyState Empty => new ApiKeyState();
     }
 }

@@ -20,30 +20,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		orders, err := confluentcloud.LookupKafkaTopic(ctx, &GetKafkaTopicArgs{
-// 			KafkaCluster: GetKafkaTopicKafkaCluster{
-// 				Id: confluent_kafka_cluster.Basic - cluster.Id,
-// 			},
-// 			TopicName:    "orders",
-// 			RestEndpoint: confluent_kafka_cluster.Basic - cluster.Rest_endpoint,
-// 			Credentials: GetKafkaTopicCredentials{
-// 				Key:    "<Kafka API Key for confluent_kafka_cluster.basic-cluster>",
-// 				Secret: "<Kafka API Secret for confluent_kafka_cluster.basic-cluster>",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("config", orders.Config)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			orders, err := confluentcloud.LookupKafkaTopic(ctx, &GetKafkaTopicArgs{
+//				KafkaCluster: GetKafkaTopicKafkaCluster{
+//					Id: confluent_kafka_cluster.Basic - cluster.Id,
+//				},
+//				TopicName:    "orders",
+//				RestEndpoint: confluent_kafka_cluster.Basic - cluster.Rest_endpoint,
+//				Credentials: GetKafkaTopicCredentials{
+//					Key:    "<Kafka API Key for confluent_kafka_cluster.basic-cluster>",
+//					Secret: "<Kafka API Secret for confluent_kafka_cluster.basic-cluster>",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("config", orders.Config)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupKafkaTopic(ctx *pulumi.Context, args *LookupKafkaTopicArgs, opts ...pulumi.InvokeOption) (*LookupKafkaTopicResult, error) {
 	var rv LookupKafkaTopicResult

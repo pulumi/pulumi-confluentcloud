@@ -20,42 +20,45 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUsingId, err := confluentcloud.LookupNetwork(ctx, &GetNetworkArgs{
-// 			Id: pulumi.StringRef("n-abc123"),
-// 			Environment: GetNetworkEnvironment{
-// 				Id: "env-xyz456",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = confluentcloud.NewServiceAccount(ctx, "test-sa", &confluentcloud.ServiceAccountArgs{
-// 			Description: pulumi.String(fmt.Sprintf("test_sa for %v", exampleUsingId.DisplayName)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUsingNameNetwork, err := confluentcloud.LookupNetwork(ctx, &GetNetworkArgs{
-// 			DisplayName: pulumi.StringRef("my_network"),
-// 			Environment: GetNetworkEnvironment{
-// 				Id: "env-xyz456",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("exampleUsingName", exampleUsingNameNetwork)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUsingId, err := confluentcloud.LookupNetwork(ctx, &GetNetworkArgs{
+//				Id: pulumi.StringRef("n-abc123"),
+//				Environment: GetNetworkEnvironment{
+//					Id: "env-xyz456",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewServiceAccount(ctx, "test-sa", &confluentcloud.ServiceAccountArgs{
+//				Description: pulumi.String(fmt.Sprintf("test_sa for %v", exampleUsingId.DisplayName)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUsingNameNetwork, err := confluentcloud.LookupNetwork(ctx, &GetNetworkArgs{
+//				DisplayName: pulumi.StringRef("my_network"),
+//				Environment: GetNetworkEnvironment{
+//					Id: "env-xyz456",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("exampleUsingName", exampleUsingNameNetwork)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupNetwork(ctx *pulumi.Context, args *LookupNetworkArgs, opts ...pulumi.InvokeOption) (*LookupNetworkResult, error) {
 	var rv LookupNetworkResult

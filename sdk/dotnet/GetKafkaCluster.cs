@@ -21,39 +21,40 @@ namespace Pulumi.ConfluentCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleUsingId = ConfluentCloud.GetKafkaCluster.Invoke(new()
         ///     {
-        ///         var exampleUsingId = Output.Create(ConfluentCloud.GetKafkaCluster.InvokeAsync(new ConfluentCloud.GetKafkaClusterArgs
+        ///         Id = "lkc-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetKafkaClusterEnvironmentInputArgs
         ///         {
-        ///             Id = "lkc-abc123",
-        ///             Environment = new ConfluentCloud.Inputs.GetKafkaClusterEnvironmentArgs
-        ///             {
-        ///                 Id = "env-xyz456",
-        ///             },
-        ///         }));
-        ///         var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new ConfluentCloud.ServiceAccountArgs
-        ///         {
-        ///             Description = exampleUsingId.Apply(exampleUsingId =&gt; $"app_mgr for {exampleUsingId.DisplayName}"),
-        ///         });
-        ///         var exampleUsingNameKafkaCluster = Output.Create(ConfluentCloud.GetKafkaCluster.InvokeAsync(new ConfluentCloud.GetKafkaClusterArgs
-        ///         {
-        ///             DisplayName = "basic_kafka_cluster",
-        ///             Environment = new ConfluentCloud.Inputs.GetKafkaClusterEnvironmentArgs
-        ///             {
-        ///                 Id = "env-xyz456",
-        ///             },
-        ///         }));
-        ///         this.ExampleUsingName = exampleUsingNameKafkaCluster;
-        ///     }
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
         /// 
-        ///     [Output("exampleUsingName")]
-        ///     public Output&lt;string&gt; ExampleUsingName { get; set; }
-        /// }
+        ///     var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new()
+        ///     {
+        ///         Description = $"app_mgr for {exampleUsingId.Apply(getKafkaClusterResult =&gt; getKafkaClusterResult.DisplayName)}",
+        ///     });
+        /// 
+        ///     var exampleUsingNameKafkaCluster = ConfluentCloud.GetKafkaCluster.Invoke(new()
+        ///     {
+        ///         DisplayName = "basic_kafka_cluster",
+        ///         Environment = new ConfluentCloud.Inputs.GetKafkaClusterEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingName"] = exampleUsingNameKafkaCluster.Apply(getKafkaClusterResult =&gt; getKafkaClusterResult),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,39 +72,40 @@ namespace Pulumi.ConfluentCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleUsingId = ConfluentCloud.GetKafkaCluster.Invoke(new()
         ///     {
-        ///         var exampleUsingId = Output.Create(ConfluentCloud.GetKafkaCluster.InvokeAsync(new ConfluentCloud.GetKafkaClusterArgs
+        ///         Id = "lkc-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetKafkaClusterEnvironmentInputArgs
         ///         {
-        ///             Id = "lkc-abc123",
-        ///             Environment = new ConfluentCloud.Inputs.GetKafkaClusterEnvironmentArgs
-        ///             {
-        ///                 Id = "env-xyz456",
-        ///             },
-        ///         }));
-        ///         var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new ConfluentCloud.ServiceAccountArgs
-        ///         {
-        ///             Description = exampleUsingId.Apply(exampleUsingId =&gt; $"app_mgr for {exampleUsingId.DisplayName}"),
-        ///         });
-        ///         var exampleUsingNameKafkaCluster = Output.Create(ConfluentCloud.GetKafkaCluster.InvokeAsync(new ConfluentCloud.GetKafkaClusterArgs
-        ///         {
-        ///             DisplayName = "basic_kafka_cluster",
-        ///             Environment = new ConfluentCloud.Inputs.GetKafkaClusterEnvironmentArgs
-        ///             {
-        ///                 Id = "env-xyz456",
-        ///             },
-        ///         }));
-        ///         this.ExampleUsingName = exampleUsingNameKafkaCluster;
-        ///     }
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
         /// 
-        ///     [Output("exampleUsingName")]
-        ///     public Output&lt;string&gt; ExampleUsingName { get; set; }
-        /// }
+        ///     var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new()
+        ///     {
+        ///         Description = $"app_mgr for {exampleUsingId.Apply(getKafkaClusterResult =&gt; getKafkaClusterResult.DisplayName)}",
+        ///     });
+        /// 
+        ///     var exampleUsingNameKafkaCluster = ConfluentCloud.GetKafkaCluster.Invoke(new()
+        ///     {
+        ///         DisplayName = "basic_kafka_cluster",
+        ///         Environment = new ConfluentCloud.Inputs.GetKafkaClusterEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingName"] = exampleUsingNameKafkaCluster.Apply(getKafkaClusterResult =&gt; getKafkaClusterResult),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -113,7 +115,7 @@ namespace Pulumi.ConfluentCloud
     }
 
 
-    public sealed class GetKafkaClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetKafkaClusterArgs : global::Pulumi.InvokeArgs
     {
         [Input("basics")]
         private List<Inputs.GetKafkaClusterBasicArgs>? _basics;
@@ -163,9 +165,10 @@ namespace Pulumi.ConfluentCloud
         public GetKafkaClusterArgs()
         {
         }
+        public static new GetKafkaClusterArgs Empty => new GetKafkaClusterArgs();
     }
 
-    public sealed class GetKafkaClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKafkaClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("basics")]
         private InputList<Inputs.GetKafkaClusterBasicInputArgs>? _basics;
@@ -215,6 +218,7 @@ namespace Pulumi.ConfluentCloud
         public GetKafkaClusterInvokeArgs()
         {
         }
+        public static new GetKafkaClusterInvokeArgs Empty => new GetKafkaClusterInvokeArgs();
     }
 
 

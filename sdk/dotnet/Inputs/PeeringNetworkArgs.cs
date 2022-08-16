@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class PeeringNetworkArgs : Pulumi.ResourceArgs
+    public sealed class PeeringNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Network that the Peering belongs to, for example, `n-abc123`.
@@ -21,5 +21,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public PeeringNetworkArgs()
         {
         }
+        public static new PeeringNetworkArgs Empty => new PeeringNetworkArgs();
     }
 }

@@ -20,32 +20,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUsingIdServiceAccount, err := confluentcloud.LookupServiceAccount(ctx, &GetServiceAccountArgs{
-// 			Id: pulumi.StringRef("sa-abc123"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("exampleUsingId", exampleUsingIdServiceAccount)
-// 		_, err = confluentcloud.LookupServiceAccount(ctx, &GetServiceAccountArgs{
-// 			DisplayName: pulumi.StringRef("test_sa"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = confluentcloud.NewEnvironment(ctx, "test-env", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUsingIdServiceAccount, err := confluentcloud.LookupServiceAccount(ctx, &GetServiceAccountArgs{
+//				Id: pulumi.StringRef("sa-abc123"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("exampleUsingId", exampleUsingIdServiceAccount)
+//			_, err = confluentcloud.LookupServiceAccount(ctx, &GetServiceAccountArgs{
+//				DisplayName: pulumi.StringRef("test_sa"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewEnvironment(ctx, "test-env", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupServiceAccount(ctx *pulumi.Context, args *LookupServiceAccountArgs, opts ...pulumi.InvokeOption) (*LookupServiceAccountResult, error) {
 	var rv LookupServiceAccountResult

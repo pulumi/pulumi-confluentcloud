@@ -15,10 +15,12 @@ import (
 // You can import an Environment by using Environment ID, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
-//  $ pulumi import confluentcloud:index/environment:Environment my_env env-abc123
+//
+//	$ pulumi import confluentcloud:index/environment:Environment my_env env-abc123
+//
 // ```
 //
-//  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+//	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type Environment struct {
 	pulumi.CustomResourceState
 
@@ -111,7 +113,7 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 // EnvironmentArrayInput is an input type that accepts EnvironmentArray and EnvironmentArrayOutput values.
 // You can construct a concrete instance of `EnvironmentArrayInput` via:
 //
-//          EnvironmentArray{ EnvironmentArgs{...} }
+//	EnvironmentArray{ EnvironmentArgs{...} }
 type EnvironmentArrayInput interface {
 	pulumi.Input
 
@@ -136,7 +138,7 @@ func (i EnvironmentArray) ToEnvironmentArrayOutputWithContext(ctx context.Contex
 // EnvironmentMapInput is an input type that accepts EnvironmentMap and EnvironmentMapOutput values.
 // You can construct a concrete instance of `EnvironmentMapInput` via:
 //
-//          EnvironmentMap{ "key": EnvironmentArgs{...} }
+//	EnvironmentMap{ "key": EnvironmentArgs{...} }
 type EnvironmentMapInput interface {
 	pulumi.Input
 

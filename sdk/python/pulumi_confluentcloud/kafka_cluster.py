@@ -181,7 +181,7 @@ class _KafkaClusterState:
         :param pulumi.Input[str] api_version: (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
         :param pulumi.Input[str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterBasicArgs']]] basics: The configuration of the Basic Kafka cluster.
-        :param pulumi.Input[str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param pulumi.Input[str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
         :param pulumi.Input['KafkaClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -262,7 +262,7 @@ class _KafkaClusterState:
     @pulumi.getter(name="bootstrapEndpoint")
     def bootstrap_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
@@ -533,7 +533,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[str] api_version: (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
         :param pulumi.Input[str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']]]] basics: The configuration of the Basic Kafka cluster.
-        :param pulumi.Input[str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param pulumi.Input[str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
         :param pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -593,7 +593,7 @@ class KafkaCluster(pulumi.CustomResource):
     @pulumi.getter(name="bootstrapEndpoint")
     def bootstrap_endpoint(self) -> pulumi.Output[str]:
         """
-        (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 

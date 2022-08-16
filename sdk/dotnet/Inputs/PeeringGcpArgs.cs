@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class PeeringGcpArgs : Pulumi.ResourceArgs
+    public sealed class PeeringGcpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
@@ -33,5 +33,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public PeeringGcpArgs()
         {
         }
+        public static new PeeringGcpArgs Empty => new PeeringGcpArgs();
     }
 }

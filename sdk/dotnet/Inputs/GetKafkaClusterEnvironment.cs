@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class GetKafkaClusterEnvironmentArgs : Pulumi.InvokeArgs
+    public sealed class GetKafkaClusterEnvironmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
@@ -21,5 +21,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public GetKafkaClusterEnvironmentArgs()
         {
         }
+        public static new GetKafkaClusterEnvironmentArgs Empty => new GetKafkaClusterEnvironmentArgs();
     }
 }

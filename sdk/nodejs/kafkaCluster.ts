@@ -57,7 +57,7 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     public readonly basics!: pulumi.Output<outputs.KafkaClusterBasic[] | undefined>;
     /**
-     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     public /*out*/ readonly bootstrapEndpoint!: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export interface KafkaClusterState {
      */
     basics?: pulumi.Input<pulumi.Input<inputs.KafkaClusterBasic>[]>;
     /**
-     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: pulumi.Input<string>;
     /**

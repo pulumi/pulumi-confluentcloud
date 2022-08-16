@@ -16,10 +16,12 @@ import (
 // You can import a Kafka cluster by using Environment ID and Kafka cluster ID, in the format `<Environment ID>/<Kafka cluster ID>`, e.g. $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
-//  $ pulumi import confluentcloud:index/kafkaCluster:KafkaCluster my_kafka env-abc123/lkc-abc123
+//
+//	$ pulumi import confluentcloud:index/kafkaCluster:KafkaCluster my_kafka env-abc123/lkc-abc123
+//
 // ```
 //
-//  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+//	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type KafkaCluster struct {
 	pulumi.CustomResourceState
 
@@ -29,7 +31,7 @@ type KafkaCluster struct {
 	Availability pulumi.StringOutput `pulumi:"availability"`
 	// The configuration of the Basic Kafka cluster.
 	Basics KafkaClusterBasicArrayOutput `pulumi:"basics"`
-	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringOutput `pulumi:"bootstrapEndpoint"`
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud     pulumi.StringOutput            `pulumi:"cloud"`
@@ -100,7 +102,7 @@ type kafkaClusterState struct {
 	Availability *string `pulumi:"availability"`
 	// The configuration of the Basic Kafka cluster.
 	Basics []KafkaClusterBasic `pulumi:"basics"`
-	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint *string `pulumi:"bootstrapEndpoint"`
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud     *string                `pulumi:"cloud"`
@@ -131,7 +133,7 @@ type KafkaClusterState struct {
 	Availability pulumi.StringPtrInput
 	// The configuration of the Basic Kafka cluster.
 	Basics KafkaClusterBasicArrayInput
-	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringPtrInput
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud     pulumi.StringPtrInput
@@ -228,7 +230,7 @@ func (i *KafkaCluster) ToKafkaClusterOutputWithContext(ctx context.Context) Kafk
 // KafkaClusterArrayInput is an input type that accepts KafkaClusterArray and KafkaClusterArrayOutput values.
 // You can construct a concrete instance of `KafkaClusterArrayInput` via:
 //
-//          KafkaClusterArray{ KafkaClusterArgs{...} }
+//	KafkaClusterArray{ KafkaClusterArgs{...} }
 type KafkaClusterArrayInput interface {
 	pulumi.Input
 
@@ -253,7 +255,7 @@ func (i KafkaClusterArray) ToKafkaClusterArrayOutputWithContext(ctx context.Cont
 // KafkaClusterMapInput is an input type that accepts KafkaClusterMap and KafkaClusterMapOutput values.
 // You can construct a concrete instance of `KafkaClusterMapInput` via:
 //
-//          KafkaClusterMap{ "key": KafkaClusterArgs{...} }
+//	KafkaClusterMap{ "key": KafkaClusterArgs{...} }
 type KafkaClusterMapInput interface {
 	pulumi.Input
 
@@ -304,7 +306,7 @@ func (o KafkaClusterOutput) Basics() KafkaClusterBasicArrayOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterBasicArrayOutput { return v.Basics }).(KafkaClusterBasicArrayOutput)
 }
 
-// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o KafkaClusterOutput) BootstrapEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.BootstrapEndpoint }).(pulumi.StringOutput)
 }

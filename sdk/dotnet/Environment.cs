@@ -21,7 +21,7 @@ namespace Pulumi.ConfluentCloud
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/environment:Environment")]
-    public partial class Environment : Pulumi.CustomResource
+    public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
@@ -79,7 +79,7 @@ namespace Pulumi.ConfluentCloud
         }
     }
 
-    public sealed class EnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
@@ -90,9 +90,10 @@ namespace Pulumi.ConfluentCloud
         public EnvironmentArgs()
         {
         }
+        public static new EnvironmentArgs Empty => new EnvironmentArgs();
     }
 
-    public sealed class EnvironmentState : Pulumi.ResourceArgs
+    public sealed class EnvironmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
@@ -109,5 +110,6 @@ namespace Pulumi.ConfluentCloud
         public EnvironmentState()
         {
         }
+        public static new EnvironmentState Empty => new EnvironmentState();
     }
 }

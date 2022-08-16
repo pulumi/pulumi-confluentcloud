@@ -16,10 +16,12 @@ import (
 // You can import a Peering by using Environment ID and Peering ID, in the format `<Environment ID>/<Peering ID>`. The following example shows how to import a Peering$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
-//  $ pulumi import confluentcloud:index/peering:Peering my_peer env-abc123/peer-abc123
+//
+//	$ pulumi import confluentcloud:index/peering:Peering my_peer env-abc123/peer-abc123
+//
 // ```
 //
-//  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+//	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type Peering struct {
 	pulumi.CustomResourceState
 
@@ -152,7 +154,7 @@ func (i *Peering) ToPeeringOutputWithContext(ctx context.Context) PeeringOutput 
 // PeeringArrayInput is an input type that accepts PeeringArray and PeeringArrayOutput values.
 // You can construct a concrete instance of `PeeringArrayInput` via:
 //
-//          PeeringArray{ PeeringArgs{...} }
+//	PeeringArray{ PeeringArgs{...} }
 type PeeringArrayInput interface {
 	pulumi.Input
 
@@ -177,7 +179,7 @@ func (i PeeringArray) ToPeeringArrayOutputWithContext(ctx context.Context) Peeri
 // PeeringMapInput is an input type that accepts PeeringMap and PeeringMapOutput values.
 // You can construct a concrete instance of `PeeringMapInput` via:
 //
-//          PeeringMap{ "key": PeeringArgs{...} }
+//	PeeringMap{ "key": PeeringArgs{...} }
 type PeeringMapInput interface {
 	pulumi.Input
 

@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRoleBinding, err := confluentcloud.LookupRoleBinding(ctx, &GetRoleBindingArgs{
-// 			Id: "rb-abc123",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("example", exampleRoleBinding)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRoleBinding, err := confluentcloud.LookupRoleBinding(ctx, &GetRoleBindingArgs{
+//				Id: "rb-abc123",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("example", exampleRoleBinding)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupRoleBinding(ctx *pulumi.Context, args *LookupRoleBindingArgs, opts ...pulumi.InvokeOption) (*LookupRoleBindingResult, error) {
 	var rv LookupRoleBindingResult

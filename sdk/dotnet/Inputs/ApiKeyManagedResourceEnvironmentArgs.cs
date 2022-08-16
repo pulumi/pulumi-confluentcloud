@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class ApiKeyManagedResourceEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class ApiKeyManagedResourceEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
@@ -21,5 +21,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public ApiKeyManagedResourceEnvironmentArgs()
         {
         }
+        public static new ApiKeyManagedResourceEnvironmentArgs Empty => new ApiKeyManagedResourceEnvironmentArgs();
     }
 }

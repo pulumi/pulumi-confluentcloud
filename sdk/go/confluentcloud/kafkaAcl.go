@@ -16,10 +16,12 @@ import (
 // You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
 //
 // ```sh
-//  $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
+//
+//	$ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
+//
 // ```
 //
-//  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+//	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type KafkaAcl struct {
 	pulumi.CustomResourceState
 
@@ -215,7 +217,7 @@ func (i *KafkaAcl) ToKafkaAclOutputWithContext(ctx context.Context) KafkaAclOutp
 // KafkaAclArrayInput is an input type that accepts KafkaAclArray and KafkaAclArrayOutput values.
 // You can construct a concrete instance of `KafkaAclArrayInput` via:
 //
-//          KafkaAclArray{ KafkaAclArgs{...} }
+//	KafkaAclArray{ KafkaAclArgs{...} }
 type KafkaAclArrayInput interface {
 	pulumi.Input
 
@@ -240,7 +242,7 @@ func (i KafkaAclArray) ToKafkaAclArrayOutputWithContext(ctx context.Context) Kaf
 // KafkaAclMapInput is an input type that accepts KafkaAclMap and KafkaAclMapOutput values.
 // You can construct a concrete instance of `KafkaAclMapInput` via:
 //
-//          KafkaAclMap{ "key": KafkaAclArgs{...} }
+//	KafkaAclMap{ "key": KafkaAclArgs{...} }
 type KafkaAclMapInput interface {
 	pulumi.Input
 

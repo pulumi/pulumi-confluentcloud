@@ -16,10 +16,12 @@ import (
 // You can import a Network by using Environment ID and Network ID, in the format `<Environment ID>/<Network ID>`. The following example shows how to import a Network$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
-//  $ pulumi import confluentcloud:index/network:Network my_network env-abc123/n-abc123
+//
+//	$ pulumi import confluentcloud:index/network:Network my_network env-abc123/n-abc123
+//
 // ```
 //
-//  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+//	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type Network struct {
 	pulumi.CustomResourceState
 
@@ -246,7 +248,7 @@ func (i *Network) ToNetworkOutputWithContext(ctx context.Context) NetworkOutput 
 // NetworkArrayInput is an input type that accepts NetworkArray and NetworkArrayOutput values.
 // You can construct a concrete instance of `NetworkArrayInput` via:
 //
-//          NetworkArray{ NetworkArgs{...} }
+//	NetworkArray{ NetworkArgs{...} }
 type NetworkArrayInput interface {
 	pulumi.Input
 
@@ -271,7 +273,7 @@ func (i NetworkArray) ToNetworkArrayOutputWithContext(ctx context.Context) Netwo
 // NetworkMapInput is an input type that accepts NetworkMap and NetworkMapOutput values.
 // You can construct a concrete instance of `NetworkMapInput` via:
 //
-//          NetworkMap{ "key": NetworkArgs{...} }
+//	NetworkMap{ "key": NetworkArgs{...} }
 type NetworkMapInput interface {
 	pulumi.Input
 

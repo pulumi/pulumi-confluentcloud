@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class PeeringAwsGetArgs : Pulumi.ResourceArgs
+    public sealed class PeeringAwsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
@@ -45,5 +45,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public PeeringAwsGetArgs()
         {
         }
+        public static new PeeringAwsGetArgs Empty => new PeeringAwsGetArgs();
     }
 }

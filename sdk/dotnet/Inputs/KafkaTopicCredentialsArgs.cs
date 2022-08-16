@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class KafkaTopicCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class KafkaTopicCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Kafka API Key.
@@ -27,5 +27,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public KafkaTopicCredentialsArgs()
         {
         }
+        public static new KafkaTopicCredentialsArgs Empty => new KafkaTopicCredentialsArgs();
     }
 }

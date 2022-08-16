@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class GetKafkaClusterDedicatedArgs : Pulumi.InvokeArgs
+    public sealed class GetKafkaClusterDedicatedArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
@@ -27,5 +27,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public GetKafkaClusterDedicatedArgs()
         {
         }
+        public static new GetKafkaClusterDedicatedArgs Empty => new GetKafkaClusterDedicatedArgs();
     }
 }

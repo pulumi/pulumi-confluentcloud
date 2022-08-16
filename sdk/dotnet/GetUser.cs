@@ -21,54 +21,56 @@ namespace Pulumi.ConfluentCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleUsingIdUser = ConfluentCloud.GetUser.Invoke(new()
         ///     {
-        ///         var exampleUsingIdUser = Output.Create(ConfluentCloud.GetUser.InvokeAsync(new ConfluentCloud.GetUserArgs
-        ///         {
-        ///             Id = "u-abc123",
-        ///         }));
-        ///         this.ExampleUsingId = exampleUsingIdUser;
-        ///         var exampleUsingEmail = Output.Create(ConfluentCloud.GetUser.InvokeAsync(new ConfluentCloud.GetUserArgs
-        ///         {
-        ///             Email = "test123@gmail.com",
-        ///         }));
-        ///         var test_env = new ConfluentCloud.Environment("test-env", new ConfluentCloud.EnvironmentArgs
-        ///         {
-        ///         });
-        ///         var standard_cluster_on_aws = new ConfluentCloud.KafkaCluster("standard-cluster-on-aws", new ConfluentCloud.KafkaClusterArgs
-        ///         {
-        ///             Availability = "SINGLE_ZONE",
-        ///             Cloud = "AWS",
-        ///             Region = "us-west-2",
-        ///             Standards = 
-        ///             {
-        ///                 ,
-        ///             },
-        ///             Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
-        ///             {
-        ///                 Id = test_env.Id,
-        ///             },
-        ///         });
-        ///         var test_role_binding = new ConfluentCloud.RoleBinding("test-role-binding", new ConfluentCloud.RoleBindingArgs
-        ///         {
-        ///             Principal = exampleUsingEmail.Apply(exampleUsingEmail =&gt; $"User:{exampleUsingEmail.Id}"),
-        ///             RoleName = "CloudClusterAdmin",
-        ///             CrnPattern = standard_cluster_on_aws.RbacCrn,
-        ///         });
-        ///         var exampleUsingFullName = Output.Create(ConfluentCloud.GetUser.InvokeAsync(new ConfluentCloud.GetUserArgs
-        ///         {
-        ///             FullName = "John Doe",
-        ///         }));
-        ///     }
+        ///         Id = "u-abc123",
+        ///     });
         /// 
-        ///     [Output("exampleUsingId")]
-        ///     public Output&lt;string&gt; ExampleUsingId { get; set; }
-        /// }
+        ///     var exampleUsingEmail = ConfluentCloud.GetUser.Invoke(new()
+        ///     {
+        ///         Email = "test123@gmail.com",
+        ///     });
+        /// 
+        ///     var test_env = new ConfluentCloud.Environment("test-env");
+        /// 
+        ///     var standard_cluster_on_aws = new ConfluentCloud.KafkaCluster("standard-cluster-on-aws", new()
+        ///     {
+        ///         Availability = "SINGLE_ZONE",
+        ///         Cloud = "AWS",
+        ///         Region = "us-west-2",
+        ///         Standards = new[]
+        ///         {
+        ///             ,
+        ///         },
+        ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+        ///         {
+        ///             Id = test_env.Id,
+        ///         },
+        ///     });
+        /// 
+        ///     var test_role_binding = new ConfluentCloud.RoleBinding("test-role-binding", new()
+        ///     {
+        ///         Principal = $"User:{exampleUsingEmail.Apply(getUserResult =&gt; getUserResult.Id)}",
+        ///         RoleName = "CloudClusterAdmin",
+        ///         CrnPattern = standard_cluster_on_aws.RbacCrn,
+        ///     });
+        /// 
+        ///     var exampleUsingFullName = ConfluentCloud.GetUser.Invoke(new()
+        ///     {
+        ///         FullName = "John Doe",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingIdUser.Apply(getUserResult =&gt; getUserResult),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -86,54 +88,56 @@ namespace Pulumi.ConfluentCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleUsingIdUser = ConfluentCloud.GetUser.Invoke(new()
         ///     {
-        ///         var exampleUsingIdUser = Output.Create(ConfluentCloud.GetUser.InvokeAsync(new ConfluentCloud.GetUserArgs
-        ///         {
-        ///             Id = "u-abc123",
-        ///         }));
-        ///         this.ExampleUsingId = exampleUsingIdUser;
-        ///         var exampleUsingEmail = Output.Create(ConfluentCloud.GetUser.InvokeAsync(new ConfluentCloud.GetUserArgs
-        ///         {
-        ///             Email = "test123@gmail.com",
-        ///         }));
-        ///         var test_env = new ConfluentCloud.Environment("test-env", new ConfluentCloud.EnvironmentArgs
-        ///         {
-        ///         });
-        ///         var standard_cluster_on_aws = new ConfluentCloud.KafkaCluster("standard-cluster-on-aws", new ConfluentCloud.KafkaClusterArgs
-        ///         {
-        ///             Availability = "SINGLE_ZONE",
-        ///             Cloud = "AWS",
-        ///             Region = "us-west-2",
-        ///             Standards = 
-        ///             {
-        ///                 ,
-        ///             },
-        ///             Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
-        ///             {
-        ///                 Id = test_env.Id,
-        ///             },
-        ///         });
-        ///         var test_role_binding = new ConfluentCloud.RoleBinding("test-role-binding", new ConfluentCloud.RoleBindingArgs
-        ///         {
-        ///             Principal = exampleUsingEmail.Apply(exampleUsingEmail =&gt; $"User:{exampleUsingEmail.Id}"),
-        ///             RoleName = "CloudClusterAdmin",
-        ///             CrnPattern = standard_cluster_on_aws.RbacCrn,
-        ///         });
-        ///         var exampleUsingFullName = Output.Create(ConfluentCloud.GetUser.InvokeAsync(new ConfluentCloud.GetUserArgs
-        ///         {
-        ///             FullName = "John Doe",
-        ///         }));
-        ///     }
+        ///         Id = "u-abc123",
+        ///     });
         /// 
-        ///     [Output("exampleUsingId")]
-        ///     public Output&lt;string&gt; ExampleUsingId { get; set; }
-        /// }
+        ///     var exampleUsingEmail = ConfluentCloud.GetUser.Invoke(new()
+        ///     {
+        ///         Email = "test123@gmail.com",
+        ///     });
+        /// 
+        ///     var test_env = new ConfluentCloud.Environment("test-env");
+        /// 
+        ///     var standard_cluster_on_aws = new ConfluentCloud.KafkaCluster("standard-cluster-on-aws", new()
+        ///     {
+        ///         Availability = "SINGLE_ZONE",
+        ///         Cloud = "AWS",
+        ///         Region = "us-west-2",
+        ///         Standards = new[]
+        ///         {
+        ///             ,
+        ///         },
+        ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+        ///         {
+        ///             Id = test_env.Id,
+        ///         },
+        ///     });
+        /// 
+        ///     var test_role_binding = new ConfluentCloud.RoleBinding("test-role-binding", new()
+        ///     {
+        ///         Principal = $"User:{exampleUsingEmail.Apply(getUserResult =&gt; getUserResult.Id)}",
+        ///         RoleName = "CloudClusterAdmin",
+        ///         CrnPattern = standard_cluster_on_aws.RbacCrn,
+        ///     });
+        /// 
+        ///     var exampleUsingFullName = ConfluentCloud.GetUser.Invoke(new()
+        ///     {
+        ///         FullName = "John Doe",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingIdUser.Apply(getUserResult =&gt; getUserResult),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -143,7 +147,7 @@ namespace Pulumi.ConfluentCloud
     }
 
 
-    public sealed class GetUserArgs : Pulumi.InvokeArgs
+    public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The email address of the User.
@@ -166,9 +170,10 @@ namespace Pulumi.ConfluentCloud
         public GetUserArgs()
         {
         }
+        public static new GetUserArgs Empty => new GetUserArgs();
     }
 
-    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The email address of the User.
@@ -191,6 +196,7 @@ namespace Pulumi.ConfluentCloud
         public GetUserInvokeArgs()
         {
         }
+        public static new GetUserInvokeArgs Empty => new GetUserInvokeArgs();
     }
 
 

@@ -21,7 +21,7 @@ namespace Pulumi.ConfluentCloud
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/kafkaAcl:KafkaAcl")]
-    public partial class KafkaAcl : Pulumi.CustomResource
+    public partial class KafkaAcl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Cluster API Credentials.
@@ -124,7 +124,7 @@ namespace Pulumi.ConfluentCloud
         }
     }
 
-    public sealed class KafkaAclArgs : Pulumi.ResourceArgs
+    public sealed class KafkaAclArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Cluster API Credentials.
@@ -186,9 +186,10 @@ namespace Pulumi.ConfluentCloud
         public KafkaAclArgs()
         {
         }
+        public static new KafkaAclArgs Empty => new KafkaAclArgs();
     }
 
-    public sealed class KafkaAclState : Pulumi.ResourceArgs
+    public sealed class KafkaAclState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Cluster API Credentials.
@@ -250,5 +251,6 @@ namespace Pulumi.ConfluentCloud
         public KafkaAclState()
         {
         }
+        public static new KafkaAclState Empty => new KafkaAclState();
     }
 }

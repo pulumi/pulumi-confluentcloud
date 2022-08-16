@@ -56,21 +56,10 @@ export interface ConnectorKafkaCluster {
     id: pulumi.Input<string>;
 }
 
-export interface GetKafkaClusterBasicArgs {
-}
-
 export interface GetKafkaClusterBasic {
 }
 
-export interface GetKafkaClusterDedicatedArgs {
-    /**
-     * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-     */
-    cku?: pulumi.Input<number>;
-    /**
-     * (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
-     */
-    encryptionKey?: pulumi.Input<string>;
+export interface GetKafkaClusterBasicArgs {
 }
 
 export interface GetKafkaClusterDedicated {
@@ -84,11 +73,15 @@ export interface GetKafkaClusterDedicated {
     encryptionKey?: string;
 }
 
-export interface GetKafkaClusterEnvironmentArgs {
+export interface GetKafkaClusterDedicatedArgs {
     /**
-     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+     * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
      */
-    id: pulumi.Input<string>;
+    cku?: pulumi.Input<number>;
+    /**
+     * (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
+     */
+    encryptionKey?: pulumi.Input<string>;
 }
 
 export interface GetKafkaClusterEnvironment {
@@ -98,10 +91,17 @@ export interface GetKafkaClusterEnvironment {
     id: string;
 }
 
-export interface GetKafkaClusterStandard {
+export interface GetKafkaClusterEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
 }
 
 export interface GetKafkaClusterStandardArgs {
+}
+
+export interface GetKafkaClusterStandard {
 }
 
 export interface GetKafkaTopicCredentialsArgs {
@@ -190,17 +190,6 @@ export interface GetNetworkEnvironmentArgs {
     id: pulumi.Input<string>;
 }
 
-export interface GetNetworkGcpArgs {
-    /**
-     * (Required String) The GCP project.
-     */
-    project?: pulumi.Input<string>;
-    /**
-     * (Required String) The GCP VPC network name.
-     */
-    vpcNetwork?: pulumi.Input<string>;
-}
-
 export interface GetNetworkGcp {
     /**
      * (Required String) The GCP project.
@@ -210,6 +199,17 @@ export interface GetNetworkGcp {
      * (Required String) The GCP VPC network name.
      */
     vpcNetwork?: string;
+}
+
+export interface GetNetworkGcpArgs {
+    /**
+     * (Required String) The GCP project.
+     */
+    project?: pulumi.Input<string>;
+    /**
+     * (Required String) The GCP VPC network name.
+     */
+    vpcNetwork?: pulumi.Input<string>;
 }
 
 export interface GetPeeringEnvironment {
@@ -433,3 +433,4 @@ export interface PrivateLinkAccessNetwork {
      */
     id: pulumi.Input<string>;
 }
+

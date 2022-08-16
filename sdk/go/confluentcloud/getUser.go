@@ -20,62 +20,65 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUsingIdUser, err := confluentcloud.GetUser(ctx, &GetUserArgs{
-// 			Id: pulumi.StringRef("u-abc123"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("exampleUsingId", exampleUsingIdUser)
-// 		exampleUsingEmail, err := confluentcloud.GetUser(ctx, &GetUserArgs{
-// 			Email: pulumi.StringRef("test123@gmail.com"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = confluentcloud.NewEnvironment(ctx, "test-env", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = confluentcloud.NewKafkaCluster(ctx, "standard-cluster-on-aws", &confluentcloud.KafkaClusterArgs{
-// 			Availability: pulumi.String("SINGLE_ZONE"),
-// 			Cloud:        pulumi.String("AWS"),
-// 			Region:       pulumi.String("us-west-2"),
-// 			Standards: KafkaClusterStandardArray{
-// 				nil,
-// 			},
-// 			Environment: &KafkaClusterEnvironmentArgs{
-// 				Id: test_env.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = confluentcloud.NewRoleBinding(ctx, "test-role-binding", &confluentcloud.RoleBindingArgs{
-// 			Principal:  pulumi.String(fmt.Sprintf("User:%v", exampleUsingEmail.Id)),
-// 			RoleName:   pulumi.String("CloudClusterAdmin"),
-// 			CrnPattern: standard_cluster_on_aws.RbacCrn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = confluentcloud.GetUser(ctx, &GetUserArgs{
-// 			FullName: pulumi.StringRef("John Doe"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUsingIdUser, err := confluentcloud.GetUser(ctx, &GetUserArgs{
+//				Id: pulumi.StringRef("u-abc123"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("exampleUsingId", exampleUsingIdUser)
+//			exampleUsingEmail, err := confluentcloud.GetUser(ctx, &GetUserArgs{
+//				Email: pulumi.StringRef("test123@gmail.com"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewEnvironment(ctx, "test-env", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewKafkaCluster(ctx, "standard-cluster-on-aws", &confluentcloud.KafkaClusterArgs{
+//				Availability: pulumi.String("SINGLE_ZONE"),
+//				Cloud:        pulumi.String("AWS"),
+//				Region:       pulumi.String("us-west-2"),
+//				Standards: KafkaClusterStandardArray{
+//					nil,
+//				},
+//				Environment: &KafkaClusterEnvironmentArgs{
+//					Id: test_env.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewRoleBinding(ctx, "test-role-binding", &confluentcloud.RoleBindingArgs{
+//				Principal:  pulumi.String(fmt.Sprintf("User:%v", exampleUsingEmail.Id)),
+//				RoleName:   pulumi.String("CloudClusterAdmin"),
+//				CrnPattern: standard_cluster_on_aws.RbacCrn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.GetUser(ctx, &GetUserArgs{
+//				FullName: pulumi.StringRef("John Doe"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetUser(ctx *pulumi.Context, args *GetUserArgs, opts ...pulumi.InvokeOption) (*GetUserResult, error) {
 	var rv GetUserResult

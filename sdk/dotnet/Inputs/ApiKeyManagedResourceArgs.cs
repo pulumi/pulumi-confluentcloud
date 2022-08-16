@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class ApiKeyManagedResourceArgs : Pulumi.ResourceArgs
+    public sealed class ApiKeyManagedResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
@@ -36,5 +36,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public ApiKeyManagedResourceArgs()
         {
         }
+        public static new ApiKeyManagedResourceArgs Empty => new ApiKeyManagedResourceArgs();
     }
 }

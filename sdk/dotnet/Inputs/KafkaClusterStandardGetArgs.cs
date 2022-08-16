@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class KafkaClusterStandardGetArgs : Pulumi.ResourceArgs
+    public sealed class KafkaClusterStandardGetArgs : global::Pulumi.ResourceArgs
     {
         public KafkaClusterStandardGetArgs()
         {
         }
+        public static new KafkaClusterStandardGetArgs Empty => new KafkaClusterStandardGetArgs();
     }
 }

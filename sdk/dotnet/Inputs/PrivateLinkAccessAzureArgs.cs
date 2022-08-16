@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class PrivateLinkAccessAzureArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkAccessAzureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
@@ -21,5 +21,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public PrivateLinkAccessAzureArgs()
         {
         }
+        public static new PrivateLinkAccessAzureArgs Empty => new PrivateLinkAccessAzureArgs();
     }
 }
