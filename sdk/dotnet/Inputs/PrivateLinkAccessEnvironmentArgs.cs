@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class PrivateLinkAccessEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkAccessEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
@@ -21,5 +21,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public PrivateLinkAccessEnvironmentArgs()
         {
         }
+        public static new PrivateLinkAccessEnvironmentArgs Empty => new PrivateLinkAccessEnvironmentArgs();
     }
 }

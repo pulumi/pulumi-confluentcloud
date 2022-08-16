@@ -15,10 +15,12 @@ import (
 // You can import a Service Account by using Service Account ID, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
-//  $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
+//
+//	$ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
+//
 // ```
 //
-//  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+//	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type ServiceAccount struct {
 	pulumi.CustomResourceState
 
@@ -127,7 +129,7 @@ func (i *ServiceAccount) ToServiceAccountOutputWithContext(ctx context.Context) 
 // ServiceAccountArrayInput is an input type that accepts ServiceAccountArray and ServiceAccountArrayOutput values.
 // You can construct a concrete instance of `ServiceAccountArrayInput` via:
 //
-//          ServiceAccountArray{ ServiceAccountArgs{...} }
+//	ServiceAccountArray{ ServiceAccountArgs{...} }
 type ServiceAccountArrayInput interface {
 	pulumi.Input
 
@@ -152,7 +154,7 @@ func (i ServiceAccountArray) ToServiceAccountArrayOutputWithContext(ctx context.
 // ServiceAccountMapInput is an input type that accepts ServiceAccountMap and ServiceAccountMapOutput values.
 // You can construct a concrete instance of `ServiceAccountMapInput` via:
 //
-//          ServiceAccountMap{ "key": ServiceAccountArgs{...} }
+//	ServiceAccountMap{ "key": ServiceAccountArgs{...} }
 type ServiceAccountMapInput interface {
 	pulumi.Input
 

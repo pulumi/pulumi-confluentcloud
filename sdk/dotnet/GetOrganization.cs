@@ -21,20 +21,19 @@ namespace Pulumi.ConfluentCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var exampleOrganization = Output.Create(ConfluentCloud.GetOrganization.InvokeAsync());
-        ///         this.Example = exampleOrganization;
-        ///     }
+        ///     var exampleOrganization = ConfluentCloud.GetOrganization.Invoke();
         /// 
-        ///     [Output("example")]
-        ///     public Output&lt;string&gt; Example { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = exampleOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

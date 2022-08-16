@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class NetworkEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class NetworkEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Environment that the Network belongs to, for example, `env-abc123`.
@@ -21,5 +21,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public NetworkEnvironmentArgs()
         {
         }
+        public static new NetworkEnvironmentArgs Empty => new NetworkEnvironmentArgs();
     }
 }

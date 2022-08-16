@@ -74,7 +74,7 @@ namespace Pulumi.ConfluentCloud
         }
     }
 
-    internal sealed class ConfluentCloudResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class ConfluentCloudResourceTypeAttribute : global::Pulumi.ResourceTypeAttribute
     {
         public ConfluentCloudResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {

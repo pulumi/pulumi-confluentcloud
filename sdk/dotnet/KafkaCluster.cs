@@ -21,7 +21,7 @@ namespace Pulumi.ConfluentCloud
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/kafkaCluster:KafkaCluster")]
-    public partial class KafkaCluster : Pulumi.CustomResource
+    public partial class KafkaCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
@@ -42,7 +42,7 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableArray<Outputs.KafkaClusterBasic>> Basics { get; private set; } = null!;
 
         /// <summary>
-        /// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        /// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         /// </summary>
         [Output("bootstrapEndpoint")]
         public Output<string> BootstrapEndpoint { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.ConfluentCloud
         }
     }
 
-    public sealed class KafkaClusterArgs : Pulumi.ResourceArgs
+    public sealed class KafkaClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
@@ -218,9 +218,10 @@ namespace Pulumi.ConfluentCloud
         public KafkaClusterArgs()
         {
         }
+        public static new KafkaClusterArgs Empty => new KafkaClusterArgs();
     }
 
-    public sealed class KafkaClusterState : Pulumi.ResourceArgs
+    public sealed class KafkaClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
@@ -247,7 +248,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        /// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         /// </summary>
         [Input("bootstrapEndpoint")]
         public Input<string>? BootstrapEndpoint { get; set; }
@@ -319,5 +320,6 @@ namespace Pulumi.ConfluentCloud
         public KafkaClusterState()
         {
         }
+        public static new KafkaClusterState Empty => new KafkaClusterState();
     }
 }

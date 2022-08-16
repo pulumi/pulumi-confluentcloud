@@ -21,7 +21,7 @@ namespace Pulumi.ConfluentCloud
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/serviceAccount:ServiceAccount")]
-    public partial class ServiceAccount : Pulumi.CustomResource
+    public partial class ServiceAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
@@ -91,7 +91,7 @@ namespace Pulumi.ConfluentCloud
         }
     }
 
-    public sealed class ServiceAccountArgs : Pulumi.ResourceArgs
+    public sealed class ServiceAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A free-form description of the Service Account.
@@ -108,9 +108,10 @@ namespace Pulumi.ConfluentCloud
         public ServiceAccountArgs()
         {
         }
+        public static new ServiceAccountArgs Empty => new ServiceAccountArgs();
     }
 
-    public sealed class ServiceAccountState : Pulumi.ResourceArgs
+    public sealed class ServiceAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
@@ -139,5 +140,6 @@ namespace Pulumi.ConfluentCloud
         public ServiceAccountState()
         {
         }
+        public static new ServiceAccountState Empty => new ServiceAccountState();
     }
 }

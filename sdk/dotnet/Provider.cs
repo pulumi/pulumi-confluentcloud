@@ -16,7 +16,7 @@ namespace Pulumi.ConfluentCloud
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [ConfluentCloudResourceType("pulumi:providers:confluentcloud")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
         /// The Confluent Cloud API Key.
@@ -80,7 +80,7 @@ namespace Pulumi.ConfluentCloud
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Confluent Cloud API Key.
@@ -121,5 +121,6 @@ namespace Pulumi.ConfluentCloud
         public ProviderArgs()
         {
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

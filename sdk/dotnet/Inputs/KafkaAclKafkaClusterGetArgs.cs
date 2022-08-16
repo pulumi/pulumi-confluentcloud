@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class KafkaAclKafkaClusterGetArgs : Pulumi.ResourceArgs
+    public sealed class KafkaAclKafkaClusterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Kafka cluster, for example, `lkc-abc123`.
@@ -21,5 +21,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public KafkaAclKafkaClusterGetArgs()
         {
         }
+        public static new KafkaAclKafkaClusterGetArgs Empty => new KafkaAclKafkaClusterGetArgs();
     }
 }

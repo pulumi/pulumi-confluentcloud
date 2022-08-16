@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class KafkaClusterNetworkArgs : Pulumi.ResourceArgs
+    public sealed class KafkaClusterNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
@@ -21,5 +21,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public KafkaClusterNetworkArgs()
         {
         }
+        public static new KafkaClusterNetworkArgs Empty => new KafkaClusterNetworkArgs();
     }
 }

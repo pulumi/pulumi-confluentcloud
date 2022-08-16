@@ -21,7 +21,7 @@ namespace Pulumi.ConfluentCloud
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/roleBinding:RoleBinding")]
-    public partial class RoleBinding : Pulumi.CustomResource
+    public partial class RoleBinding : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A [Confluent Resource Name(CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
@@ -85,7 +85,7 @@ namespace Pulumi.ConfluentCloud
         }
     }
 
-    public sealed class RoleBindingArgs : Pulumi.ResourceArgs
+    public sealed class RoleBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A [Confluent Resource Name(CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
@@ -108,9 +108,10 @@ namespace Pulumi.ConfluentCloud
         public RoleBindingArgs()
         {
         }
+        public static new RoleBindingArgs Empty => new RoleBindingArgs();
     }
 
-    public sealed class RoleBindingState : Pulumi.ResourceArgs
+    public sealed class RoleBindingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A [Confluent Resource Name(CRN)](https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)) that specifies the scope and resource patterns necessary for the role to bind.
@@ -133,5 +134,6 @@ namespace Pulumi.ConfluentCloud
         public RoleBindingState()
         {
         }
+        public static new RoleBindingState Empty => new RoleBindingState();
     }
 }

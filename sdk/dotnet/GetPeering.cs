@@ -21,38 +21,36 @@ namespace Pulumi.ConfluentCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleUsingIdPeering = ConfluentCloud.GetPeering.Invoke(new()
         ///     {
-        ///         var exampleUsingIdPeering = Output.Create(ConfluentCloud.GetPeering.InvokeAsync(new ConfluentCloud.GetPeeringArgs
+        ///         Id = "peer-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetPeeringEnvironmentInputArgs
         ///         {
-        ///             Id = "peer-abc123",
-        ///             Environment = new ConfluentCloud.Inputs.GetPeeringEnvironmentArgs
-        ///             {
-        ///                 Id = "env-xyz456",
-        ///             },
-        ///         }));
-        ///         this.ExampleUsingId = exampleUsingIdPeering;
-        ///         var exampleUsingNamePeering = Output.Create(ConfluentCloud.GetPeering.InvokeAsync(new ConfluentCloud.GetPeeringArgs
-        ///         {
-        ///             DisplayName = "my_peering",
-        ///             Environment = new ConfluentCloud.Inputs.GetPeeringEnvironmentArgs
-        ///             {
-        ///                 Id = "env-xyz456",
-        ///             },
-        ///         }));
-        ///         this.ExampleUsingName = exampleUsingNamePeering;
-        ///     }
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
         /// 
-        ///     [Output("exampleUsingId")]
-        ///     public Output&lt;string&gt; ExampleUsingId { get; set; }
-        ///     [Output("exampleUsingName")]
-        ///     public Output&lt;string&gt; ExampleUsingName { get; set; }
-        /// }
+        ///     var exampleUsingNamePeering = ConfluentCloud.GetPeering.Invoke(new()
+        ///     {
+        ///         DisplayName = "my_peering",
+        ///         Environment = new ConfluentCloud.Inputs.GetPeeringEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingIdPeering.Apply(getPeeringResult =&gt; getPeeringResult),
+        ///         ["exampleUsingName"] = exampleUsingNamePeering.Apply(getPeeringResult =&gt; getPeeringResult),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -70,38 +68,36 @@ namespace Pulumi.ConfluentCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleUsingIdPeering = ConfluentCloud.GetPeering.Invoke(new()
         ///     {
-        ///         var exampleUsingIdPeering = Output.Create(ConfluentCloud.GetPeering.InvokeAsync(new ConfluentCloud.GetPeeringArgs
+        ///         Id = "peer-abc123",
+        ///         Environment = new ConfluentCloud.Inputs.GetPeeringEnvironmentInputArgs
         ///         {
-        ///             Id = "peer-abc123",
-        ///             Environment = new ConfluentCloud.Inputs.GetPeeringEnvironmentArgs
-        ///             {
-        ///                 Id = "env-xyz456",
-        ///             },
-        ///         }));
-        ///         this.ExampleUsingId = exampleUsingIdPeering;
-        ///         var exampleUsingNamePeering = Output.Create(ConfluentCloud.GetPeering.InvokeAsync(new ConfluentCloud.GetPeeringArgs
-        ///         {
-        ///             DisplayName = "my_peering",
-        ///             Environment = new ConfluentCloud.Inputs.GetPeeringEnvironmentArgs
-        ///             {
-        ///                 Id = "env-xyz456",
-        ///             },
-        ///         }));
-        ///         this.ExampleUsingName = exampleUsingNamePeering;
-        ///     }
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
         /// 
-        ///     [Output("exampleUsingId")]
-        ///     public Output&lt;string&gt; ExampleUsingId { get; set; }
-        ///     [Output("exampleUsingName")]
-        ///     public Output&lt;string&gt; ExampleUsingName { get; set; }
-        /// }
+        ///     var exampleUsingNamePeering = ConfluentCloud.GetPeering.Invoke(new()
+        ///     {
+        ///         DisplayName = "my_peering",
+        ///         Environment = new ConfluentCloud.Inputs.GetPeeringEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["exampleUsingId"] = exampleUsingIdPeering.Apply(getPeeringResult =&gt; getPeeringResult),
+        ///         ["exampleUsingName"] = exampleUsingNamePeering.Apply(getPeeringResult =&gt; getPeeringResult),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -111,7 +107,7 @@ namespace Pulumi.ConfluentCloud
     }
 
 
-    public sealed class GetPeeringArgs : Pulumi.InvokeArgs
+    public sealed class GetPeeringArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A human-readable name for the Peering.
@@ -131,9 +127,10 @@ namespace Pulumi.ConfluentCloud
         public GetPeeringArgs()
         {
         }
+        public static new GetPeeringArgs Empty => new GetPeeringArgs();
     }
 
-    public sealed class GetPeeringInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPeeringInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A human-readable name for the Peering.
@@ -153,6 +150,7 @@ namespace Pulumi.ConfluentCloud
         public GetPeeringInvokeArgs()
         {
         }
+        public static new GetPeeringInvokeArgs Empty => new GetPeeringInvokeArgs();
     }
 
 

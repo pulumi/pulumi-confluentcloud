@@ -23,7 +23,7 @@ type ApiKeyManagedResource struct {
 // ApiKeyManagedResourceInput is an input type that accepts ApiKeyManagedResourceArgs and ApiKeyManagedResourceOutput values.
 // You can construct a concrete instance of `ApiKeyManagedResourceInput` via:
 //
-//          ApiKeyManagedResourceArgs{...}
+//	ApiKeyManagedResourceArgs{...}
 type ApiKeyManagedResourceInput interface {
 	pulumi.Input
 
@@ -64,11 +64,11 @@ func (i ApiKeyManagedResourceArgs) ToApiKeyManagedResourcePtrOutputWithContext(c
 // ApiKeyManagedResourcePtrInput is an input type that accepts ApiKeyManagedResourceArgs, ApiKeyManagedResourcePtr and ApiKeyManagedResourcePtrOutput values.
 // You can construct a concrete instance of `ApiKeyManagedResourcePtrInput` via:
 //
-//          ApiKeyManagedResourceArgs{...}
+//	        ApiKeyManagedResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiKeyManagedResourcePtrInput interface {
 	pulumi.Input
 
@@ -208,7 +208,7 @@ type ApiKeyManagedResourceEnvironment struct {
 // ApiKeyManagedResourceEnvironmentInput is an input type that accepts ApiKeyManagedResourceEnvironmentArgs and ApiKeyManagedResourceEnvironmentOutput values.
 // You can construct a concrete instance of `ApiKeyManagedResourceEnvironmentInput` via:
 //
-//          ApiKeyManagedResourceEnvironmentArgs{...}
+//	ApiKeyManagedResourceEnvironmentArgs{...}
 type ApiKeyManagedResourceEnvironmentInput interface {
 	pulumi.Input
 
@@ -244,11 +244,11 @@ func (i ApiKeyManagedResourceEnvironmentArgs) ToApiKeyManagedResourceEnvironment
 // ApiKeyManagedResourceEnvironmentPtrInput is an input type that accepts ApiKeyManagedResourceEnvironmentArgs, ApiKeyManagedResourceEnvironmentPtr and ApiKeyManagedResourceEnvironmentPtrOutput values.
 // You can construct a concrete instance of `ApiKeyManagedResourceEnvironmentPtrInput` via:
 //
-//          ApiKeyManagedResourceEnvironmentArgs{...}
+//	        ApiKeyManagedResourceEnvironmentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiKeyManagedResourceEnvironmentPtrInput interface {
 	pulumi.Input
 
@@ -349,7 +349,7 @@ type ApiKeyOwner struct {
 // ApiKeyOwnerInput is an input type that accepts ApiKeyOwnerArgs and ApiKeyOwnerOutput values.
 // You can construct a concrete instance of `ApiKeyOwnerInput` via:
 //
-//          ApiKeyOwnerArgs{...}
+//	ApiKeyOwnerArgs{...}
 type ApiKeyOwnerInput interface {
 	pulumi.Input
 
@@ -389,11 +389,11 @@ func (i ApiKeyOwnerArgs) ToApiKeyOwnerPtrOutputWithContext(ctx context.Context) 
 // ApiKeyOwnerPtrInput is an input type that accepts ApiKeyOwnerArgs, ApiKeyOwnerPtr and ApiKeyOwnerPtrOutput values.
 // You can construct a concrete instance of `ApiKeyOwnerPtrInput` via:
 //
-//          ApiKeyOwnerArgs{...}
+//	        ApiKeyOwnerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApiKeyOwnerPtrInput interface {
 	pulumi.Input
 
@@ -520,7 +520,7 @@ type ConnectorEnvironment struct {
 // ConnectorEnvironmentInput is an input type that accepts ConnectorEnvironmentArgs and ConnectorEnvironmentOutput values.
 // You can construct a concrete instance of `ConnectorEnvironmentInput` via:
 //
-//          ConnectorEnvironmentArgs{...}
+//	ConnectorEnvironmentArgs{...}
 type ConnectorEnvironmentInput interface {
 	pulumi.Input
 
@@ -556,11 +556,11 @@ func (i ConnectorEnvironmentArgs) ToConnectorEnvironmentPtrOutputWithContext(ctx
 // ConnectorEnvironmentPtrInput is an input type that accepts ConnectorEnvironmentArgs, ConnectorEnvironmentPtr and ConnectorEnvironmentPtrOutput values.
 // You can construct a concrete instance of `ConnectorEnvironmentPtrInput` via:
 //
-//          ConnectorEnvironmentArgs{...}
+//	        ConnectorEnvironmentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorEnvironmentPtrInput interface {
 	pulumi.Input
 
@@ -657,7 +657,7 @@ type ConnectorKafkaCluster struct {
 // ConnectorKafkaClusterInput is an input type that accepts ConnectorKafkaClusterArgs and ConnectorKafkaClusterOutput values.
 // You can construct a concrete instance of `ConnectorKafkaClusterInput` via:
 //
-//          ConnectorKafkaClusterArgs{...}
+//	ConnectorKafkaClusterArgs{...}
 type ConnectorKafkaClusterInput interface {
 	pulumi.Input
 
@@ -693,11 +693,11 @@ func (i ConnectorKafkaClusterArgs) ToConnectorKafkaClusterPtrOutputWithContext(c
 // ConnectorKafkaClusterPtrInput is an input type that accepts ConnectorKafkaClusterArgs, ConnectorKafkaClusterPtr and ConnectorKafkaClusterPtrOutput values.
 // You can construct a concrete instance of `ConnectorKafkaClusterPtrInput` via:
 //
-//          ConnectorKafkaClusterArgs{...}
+//	        ConnectorKafkaClusterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorKafkaClusterPtrInput interface {
 	pulumi.Input
 
@@ -796,7 +796,7 @@ type KafkaAclCredentials struct {
 // KafkaAclCredentialsInput is an input type that accepts KafkaAclCredentialsArgs and KafkaAclCredentialsOutput values.
 // You can construct a concrete instance of `KafkaAclCredentialsInput` via:
 //
-//          KafkaAclCredentialsArgs{...}
+//	KafkaAclCredentialsArgs{...}
 type KafkaAclCredentialsInput interface {
 	pulumi.Input
 
@@ -834,11 +834,11 @@ func (i KafkaAclCredentialsArgs) ToKafkaAclCredentialsPtrOutputWithContext(ctx c
 // KafkaAclCredentialsPtrInput is an input type that accepts KafkaAclCredentialsArgs, KafkaAclCredentialsPtr and KafkaAclCredentialsPtrOutput values.
 // You can construct a concrete instance of `KafkaAclCredentialsPtrInput` via:
 //
-//          KafkaAclCredentialsArgs{...}
+//	        KafkaAclCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaAclCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -950,7 +950,7 @@ type KafkaAclKafkaCluster struct {
 // KafkaAclKafkaClusterInput is an input type that accepts KafkaAclKafkaClusterArgs and KafkaAclKafkaClusterOutput values.
 // You can construct a concrete instance of `KafkaAclKafkaClusterInput` via:
 //
-//          KafkaAclKafkaClusterArgs{...}
+//	KafkaAclKafkaClusterArgs{...}
 type KafkaAclKafkaClusterInput interface {
 	pulumi.Input
 
@@ -986,11 +986,11 @@ func (i KafkaAclKafkaClusterArgs) ToKafkaAclKafkaClusterPtrOutputWithContext(ctx
 // KafkaAclKafkaClusterPtrInput is an input type that accepts KafkaAclKafkaClusterArgs, KafkaAclKafkaClusterPtr and KafkaAclKafkaClusterPtrOutput values.
 // You can construct a concrete instance of `KafkaAclKafkaClusterPtrInput` via:
 //
-//          KafkaAclKafkaClusterArgs{...}
+//	        KafkaAclKafkaClusterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaAclKafkaClusterPtrInput interface {
 	pulumi.Input
 
@@ -1085,7 +1085,7 @@ type KafkaClusterBasic struct {
 // KafkaClusterBasicInput is an input type that accepts KafkaClusterBasicArgs and KafkaClusterBasicOutput values.
 // You can construct a concrete instance of `KafkaClusterBasicInput` via:
 //
-//          KafkaClusterBasicArgs{...}
+//	KafkaClusterBasicArgs{...}
 type KafkaClusterBasicInput interface {
 	pulumi.Input
 
@@ -1111,7 +1111,7 @@ func (i KafkaClusterBasicArgs) ToKafkaClusterBasicOutputWithContext(ctx context.
 // KafkaClusterBasicArrayInput is an input type that accepts KafkaClusterBasicArray and KafkaClusterBasicArrayOutput values.
 // You can construct a concrete instance of `KafkaClusterBasicArrayInput` via:
 //
-//          KafkaClusterBasicArray{ KafkaClusterBasicArgs{...} }
+//	KafkaClusterBasicArray{ KafkaClusterBasicArgs{...} }
 type KafkaClusterBasicArrayInput interface {
 	pulumi.Input
 
@@ -1177,7 +1177,7 @@ type KafkaClusterDedicated struct {
 // KafkaClusterDedicatedInput is an input type that accepts KafkaClusterDedicatedArgs and KafkaClusterDedicatedOutput values.
 // You can construct a concrete instance of `KafkaClusterDedicatedInput` via:
 //
-//          KafkaClusterDedicatedArgs{...}
+//	KafkaClusterDedicatedArgs{...}
 type KafkaClusterDedicatedInput interface {
 	pulumi.Input
 
@@ -1215,11 +1215,11 @@ func (i KafkaClusterDedicatedArgs) ToKafkaClusterDedicatedPtrOutputWithContext(c
 // KafkaClusterDedicatedPtrInput is an input type that accepts KafkaClusterDedicatedArgs, KafkaClusterDedicatedPtr and KafkaClusterDedicatedPtrOutput values.
 // You can construct a concrete instance of `KafkaClusterDedicatedPtrInput` via:
 //
-//          KafkaClusterDedicatedArgs{...}
+//	        KafkaClusterDedicatedArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterDedicatedPtrInput interface {
 	pulumi.Input
 
@@ -1331,7 +1331,7 @@ type KafkaClusterEnvironment struct {
 // KafkaClusterEnvironmentInput is an input type that accepts KafkaClusterEnvironmentArgs and KafkaClusterEnvironmentOutput values.
 // You can construct a concrete instance of `KafkaClusterEnvironmentInput` via:
 //
-//          KafkaClusterEnvironmentArgs{...}
+//	KafkaClusterEnvironmentArgs{...}
 type KafkaClusterEnvironmentInput interface {
 	pulumi.Input
 
@@ -1367,11 +1367,11 @@ func (i KafkaClusterEnvironmentArgs) ToKafkaClusterEnvironmentPtrOutputWithConte
 // KafkaClusterEnvironmentPtrInput is an input type that accepts KafkaClusterEnvironmentArgs, KafkaClusterEnvironmentPtr and KafkaClusterEnvironmentPtrOutput values.
 // You can construct a concrete instance of `KafkaClusterEnvironmentPtrInput` via:
 //
-//          KafkaClusterEnvironmentArgs{...}
+//	        KafkaClusterEnvironmentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterEnvironmentPtrInput interface {
 	pulumi.Input
 
@@ -1468,7 +1468,7 @@ type KafkaClusterNetwork struct {
 // KafkaClusterNetworkInput is an input type that accepts KafkaClusterNetworkArgs and KafkaClusterNetworkOutput values.
 // You can construct a concrete instance of `KafkaClusterNetworkInput` via:
 //
-//          KafkaClusterNetworkArgs{...}
+//	KafkaClusterNetworkArgs{...}
 type KafkaClusterNetworkInput interface {
 	pulumi.Input
 
@@ -1504,11 +1504,11 @@ func (i KafkaClusterNetworkArgs) ToKafkaClusterNetworkPtrOutputWithContext(ctx c
 // KafkaClusterNetworkPtrInput is an input type that accepts KafkaClusterNetworkArgs, KafkaClusterNetworkPtr and KafkaClusterNetworkPtrOutput values.
 // You can construct a concrete instance of `KafkaClusterNetworkPtrInput` via:
 //
-//          KafkaClusterNetworkArgs{...}
+//	        KafkaClusterNetworkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaClusterNetworkPtrInput interface {
 	pulumi.Input
 
@@ -1603,7 +1603,7 @@ type KafkaClusterStandard struct {
 // KafkaClusterStandardInput is an input type that accepts KafkaClusterStandardArgs and KafkaClusterStandardOutput values.
 // You can construct a concrete instance of `KafkaClusterStandardInput` via:
 //
-//          KafkaClusterStandardArgs{...}
+//	KafkaClusterStandardArgs{...}
 type KafkaClusterStandardInput interface {
 	pulumi.Input
 
@@ -1629,7 +1629,7 @@ func (i KafkaClusterStandardArgs) ToKafkaClusterStandardOutputWithContext(ctx co
 // KafkaClusterStandardArrayInput is an input type that accepts KafkaClusterStandardArray and KafkaClusterStandardArrayOutput values.
 // You can construct a concrete instance of `KafkaClusterStandardArrayInput` via:
 //
-//          KafkaClusterStandardArray{ KafkaClusterStandardArgs{...} }
+//	KafkaClusterStandardArray{ KafkaClusterStandardArgs{...} }
 type KafkaClusterStandardArrayInput interface {
 	pulumi.Input
 
@@ -1695,7 +1695,7 @@ type KafkaTopicCredentials struct {
 // KafkaTopicCredentialsInput is an input type that accepts KafkaTopicCredentialsArgs and KafkaTopicCredentialsOutput values.
 // You can construct a concrete instance of `KafkaTopicCredentialsInput` via:
 //
-//          KafkaTopicCredentialsArgs{...}
+//	KafkaTopicCredentialsArgs{...}
 type KafkaTopicCredentialsInput interface {
 	pulumi.Input
 
@@ -1733,11 +1733,11 @@ func (i KafkaTopicCredentialsArgs) ToKafkaTopicCredentialsPtrOutputWithContext(c
 // KafkaTopicCredentialsPtrInput is an input type that accepts KafkaTopicCredentialsArgs, KafkaTopicCredentialsPtr and KafkaTopicCredentialsPtrOutput values.
 // You can construct a concrete instance of `KafkaTopicCredentialsPtrInput` via:
 //
-//          KafkaTopicCredentialsArgs{...}
+//	        KafkaTopicCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaTopicCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -1849,7 +1849,7 @@ type KafkaTopicKafkaCluster struct {
 // KafkaTopicKafkaClusterInput is an input type that accepts KafkaTopicKafkaClusterArgs and KafkaTopicKafkaClusterOutput values.
 // You can construct a concrete instance of `KafkaTopicKafkaClusterInput` via:
 //
-//          KafkaTopicKafkaClusterArgs{...}
+//	KafkaTopicKafkaClusterArgs{...}
 type KafkaTopicKafkaClusterInput interface {
 	pulumi.Input
 
@@ -1885,11 +1885,11 @@ func (i KafkaTopicKafkaClusterArgs) ToKafkaTopicKafkaClusterPtrOutputWithContext
 // KafkaTopicKafkaClusterPtrInput is an input type that accepts KafkaTopicKafkaClusterArgs, KafkaTopicKafkaClusterPtr and KafkaTopicKafkaClusterPtrOutput values.
 // You can construct a concrete instance of `KafkaTopicKafkaClusterPtrInput` via:
 //
-//          KafkaTopicKafkaClusterArgs{...}
+//	        KafkaTopicKafkaClusterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KafkaTopicKafkaClusterPtrInput interface {
 	pulumi.Input
 
@@ -1988,7 +1988,7 @@ type NetworkAw struct {
 // NetworkAwInput is an input type that accepts NetworkAwArgs and NetworkAwOutput values.
 // You can construct a concrete instance of `NetworkAwInput` via:
 //
-//          NetworkAwArgs{...}
+//	NetworkAwArgs{...}
 type NetworkAwInput interface {
 	pulumi.Input
 
@@ -2018,7 +2018,7 @@ func (i NetworkAwArgs) ToNetworkAwOutputWithContext(ctx context.Context) Network
 // NetworkAwArrayInput is an input type that accepts NetworkAwArray and NetworkAwArrayOutput values.
 // You can construct a concrete instance of `NetworkAwArrayInput` via:
 //
-//          NetworkAwArray{ NetworkAwArgs{...} }
+//	NetworkAwArray{ NetworkAwArgs{...} }
 type NetworkAwArrayInput interface {
 	pulumi.Input
 
@@ -2092,7 +2092,7 @@ type NetworkAzure struct {
 // NetworkAzureInput is an input type that accepts NetworkAzureArgs and NetworkAzureOutput values.
 // You can construct a concrete instance of `NetworkAzureInput` via:
 //
-//          NetworkAzureArgs{...}
+//	NetworkAzureArgs{...}
 type NetworkAzureInput interface {
 	pulumi.Input
 
@@ -2120,7 +2120,7 @@ func (i NetworkAzureArgs) ToNetworkAzureOutputWithContext(ctx context.Context) N
 // NetworkAzureArrayInput is an input type that accepts NetworkAzureArray and NetworkAzureArrayOutput values.
 // You can construct a concrete instance of `NetworkAzureArrayInput` via:
 //
-//          NetworkAzureArray{ NetworkAzureArgs{...} }
+//	NetworkAzureArray{ NetworkAzureArgs{...} }
 type NetworkAzureArrayInput interface {
 	pulumi.Input
 
@@ -2189,7 +2189,7 @@ type NetworkEnvironment struct {
 // NetworkEnvironmentInput is an input type that accepts NetworkEnvironmentArgs and NetworkEnvironmentOutput values.
 // You can construct a concrete instance of `NetworkEnvironmentInput` via:
 //
-//          NetworkEnvironmentArgs{...}
+//	NetworkEnvironmentArgs{...}
 type NetworkEnvironmentInput interface {
 	pulumi.Input
 
@@ -2225,11 +2225,11 @@ func (i NetworkEnvironmentArgs) ToNetworkEnvironmentPtrOutputWithContext(ctx con
 // NetworkEnvironmentPtrInput is an input type that accepts NetworkEnvironmentArgs, NetworkEnvironmentPtr and NetworkEnvironmentPtrOutput values.
 // You can construct a concrete instance of `NetworkEnvironmentPtrInput` via:
 //
-//          NetworkEnvironmentArgs{...}
+//	        NetworkEnvironmentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkEnvironmentPtrInput interface {
 	pulumi.Input
 
@@ -2328,7 +2328,7 @@ type NetworkGcp struct {
 // NetworkGcpInput is an input type that accepts NetworkGcpArgs and NetworkGcpOutput values.
 // You can construct a concrete instance of `NetworkGcpInput` via:
 //
-//          NetworkGcpArgs{...}
+//	NetworkGcpArgs{...}
 type NetworkGcpInput interface {
 	pulumi.Input
 
@@ -2358,7 +2358,7 @@ func (i NetworkGcpArgs) ToNetworkGcpOutputWithContext(ctx context.Context) Netwo
 // NetworkGcpArrayInput is an input type that accepts NetworkGcpArray and NetworkGcpArrayOutput values.
 // You can construct a concrete instance of `NetworkGcpArrayInput` via:
 //
-//          NetworkGcpArray{ NetworkGcpArgs{...} }
+//	NetworkGcpArray{ NetworkGcpArgs{...} }
 type NetworkGcpArrayInput interface {
 	pulumi.Input
 
@@ -2438,7 +2438,7 @@ type PeeringAws struct {
 // PeeringAwsInput is an input type that accepts PeeringAwsArgs and PeeringAwsOutput values.
 // You can construct a concrete instance of `PeeringAwsInput` via:
 //
-//          PeeringAwsArgs{...}
+//	PeeringAwsArgs{...}
 type PeeringAwsInput interface {
 	pulumi.Input
 
@@ -2480,11 +2480,11 @@ func (i PeeringAwsArgs) ToPeeringAwsPtrOutputWithContext(ctx context.Context) Pe
 // PeeringAwsPtrInput is an input type that accepts PeeringAwsArgs, PeeringAwsPtr and PeeringAwsPtrOutput values.
 // You can construct a concrete instance of `PeeringAwsPtrInput` via:
 //
-//          PeeringAwsArgs{...}
+//	        PeeringAwsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PeeringAwsPtrInput interface {
 	pulumi.Input
 
@@ -2630,7 +2630,7 @@ type PeeringAzure struct {
 // PeeringAzureInput is an input type that accepts PeeringAzureArgs and PeeringAzureOutput values.
 // You can construct a concrete instance of `PeeringAzureInput` via:
 //
-//          PeeringAzureArgs{...}
+//	PeeringAzureArgs{...}
 type PeeringAzureInput interface {
 	pulumi.Input
 
@@ -2670,11 +2670,11 @@ func (i PeeringAzureArgs) ToPeeringAzurePtrOutputWithContext(ctx context.Context
 // PeeringAzurePtrInput is an input type that accepts PeeringAzureArgs, PeeringAzurePtr and PeeringAzurePtrOutput values.
 // You can construct a concrete instance of `PeeringAzurePtrInput` via:
 //
-//          PeeringAzureArgs{...}
+//	        PeeringAzureArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PeeringAzurePtrInput interface {
 	pulumi.Input
 
@@ -2801,7 +2801,7 @@ type PeeringEnvironment struct {
 // PeeringEnvironmentInput is an input type that accepts PeeringEnvironmentArgs and PeeringEnvironmentOutput values.
 // You can construct a concrete instance of `PeeringEnvironmentInput` via:
 //
-//          PeeringEnvironmentArgs{...}
+//	PeeringEnvironmentArgs{...}
 type PeeringEnvironmentInput interface {
 	pulumi.Input
 
@@ -2837,11 +2837,11 @@ func (i PeeringEnvironmentArgs) ToPeeringEnvironmentPtrOutputWithContext(ctx con
 // PeeringEnvironmentPtrInput is an input type that accepts PeeringEnvironmentArgs, PeeringEnvironmentPtr and PeeringEnvironmentPtrOutput values.
 // You can construct a concrete instance of `PeeringEnvironmentPtrInput` via:
 //
-//          PeeringEnvironmentArgs{...}
+//	        PeeringEnvironmentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PeeringEnvironmentPtrInput interface {
 	pulumi.Input
 
@@ -2942,7 +2942,7 @@ type PeeringGcp struct {
 // PeeringGcpInput is an input type that accepts PeeringGcpArgs and PeeringGcpOutput values.
 // You can construct a concrete instance of `PeeringGcpInput` via:
 //
-//          PeeringGcpArgs{...}
+//	PeeringGcpArgs{...}
 type PeeringGcpInput interface {
 	pulumi.Input
 
@@ -2982,11 +2982,11 @@ func (i PeeringGcpArgs) ToPeeringGcpPtrOutputWithContext(ctx context.Context) Pe
 // PeeringGcpPtrInput is an input type that accepts PeeringGcpArgs, PeeringGcpPtr and PeeringGcpPtrOutput values.
 // You can construct a concrete instance of `PeeringGcpPtrInput` via:
 //
-//          PeeringGcpArgs{...}
+//	        PeeringGcpArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PeeringGcpPtrInput interface {
 	pulumi.Input
 
@@ -3113,7 +3113,7 @@ type PeeringNetwork struct {
 // PeeringNetworkInput is an input type that accepts PeeringNetworkArgs and PeeringNetworkOutput values.
 // You can construct a concrete instance of `PeeringNetworkInput` via:
 //
-//          PeeringNetworkArgs{...}
+//	PeeringNetworkArgs{...}
 type PeeringNetworkInput interface {
 	pulumi.Input
 
@@ -3149,11 +3149,11 @@ func (i PeeringNetworkArgs) ToPeeringNetworkPtrOutputWithContext(ctx context.Con
 // PeeringNetworkPtrInput is an input type that accepts PeeringNetworkArgs, PeeringNetworkPtr and PeeringNetworkPtrOutput values.
 // You can construct a concrete instance of `PeeringNetworkPtrInput` via:
 //
-//          PeeringNetworkArgs{...}
+//	        PeeringNetworkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PeeringNetworkPtrInput interface {
 	pulumi.Input
 
@@ -3250,7 +3250,7 @@ type PrivateLinkAccessAws struct {
 // PrivateLinkAccessAwsInput is an input type that accepts PrivateLinkAccessAwsArgs and PrivateLinkAccessAwsOutput values.
 // You can construct a concrete instance of `PrivateLinkAccessAwsInput` via:
 //
-//          PrivateLinkAccessAwsArgs{...}
+//	PrivateLinkAccessAwsArgs{...}
 type PrivateLinkAccessAwsInput interface {
 	pulumi.Input
 
@@ -3286,11 +3286,11 @@ func (i PrivateLinkAccessAwsArgs) ToPrivateLinkAccessAwsPtrOutputWithContext(ctx
 // PrivateLinkAccessAwsPtrInput is an input type that accepts PrivateLinkAccessAwsArgs, PrivateLinkAccessAwsPtr and PrivateLinkAccessAwsPtrOutput values.
 // You can construct a concrete instance of `PrivateLinkAccessAwsPtrInput` via:
 //
-//          PrivateLinkAccessAwsArgs{...}
+//	        PrivateLinkAccessAwsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateLinkAccessAwsPtrInput interface {
 	pulumi.Input
 
@@ -3387,7 +3387,7 @@ type PrivateLinkAccessAzure struct {
 // PrivateLinkAccessAzureInput is an input type that accepts PrivateLinkAccessAzureArgs and PrivateLinkAccessAzureOutput values.
 // You can construct a concrete instance of `PrivateLinkAccessAzureInput` via:
 //
-//          PrivateLinkAccessAzureArgs{...}
+//	PrivateLinkAccessAzureArgs{...}
 type PrivateLinkAccessAzureInput interface {
 	pulumi.Input
 
@@ -3423,11 +3423,11 @@ func (i PrivateLinkAccessAzureArgs) ToPrivateLinkAccessAzurePtrOutputWithContext
 // PrivateLinkAccessAzurePtrInput is an input type that accepts PrivateLinkAccessAzureArgs, PrivateLinkAccessAzurePtr and PrivateLinkAccessAzurePtrOutput values.
 // You can construct a concrete instance of `PrivateLinkAccessAzurePtrInput` via:
 //
-//          PrivateLinkAccessAzureArgs{...}
+//	        PrivateLinkAccessAzureArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateLinkAccessAzurePtrInput interface {
 	pulumi.Input
 
@@ -3524,7 +3524,7 @@ type PrivateLinkAccessEnvironment struct {
 // PrivateLinkAccessEnvironmentInput is an input type that accepts PrivateLinkAccessEnvironmentArgs and PrivateLinkAccessEnvironmentOutput values.
 // You can construct a concrete instance of `PrivateLinkAccessEnvironmentInput` via:
 //
-//          PrivateLinkAccessEnvironmentArgs{...}
+//	PrivateLinkAccessEnvironmentArgs{...}
 type PrivateLinkAccessEnvironmentInput interface {
 	pulumi.Input
 
@@ -3560,11 +3560,11 @@ func (i PrivateLinkAccessEnvironmentArgs) ToPrivateLinkAccessEnvironmentPtrOutpu
 // PrivateLinkAccessEnvironmentPtrInput is an input type that accepts PrivateLinkAccessEnvironmentArgs, PrivateLinkAccessEnvironmentPtr and PrivateLinkAccessEnvironmentPtrOutput values.
 // You can construct a concrete instance of `PrivateLinkAccessEnvironmentPtrInput` via:
 //
-//          PrivateLinkAccessEnvironmentArgs{...}
+//	        PrivateLinkAccessEnvironmentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateLinkAccessEnvironmentPtrInput interface {
 	pulumi.Input
 
@@ -3661,7 +3661,7 @@ type PrivateLinkAccessNetwork struct {
 // PrivateLinkAccessNetworkInput is an input type that accepts PrivateLinkAccessNetworkArgs and PrivateLinkAccessNetworkOutput values.
 // You can construct a concrete instance of `PrivateLinkAccessNetworkInput` via:
 //
-//          PrivateLinkAccessNetworkArgs{...}
+//	PrivateLinkAccessNetworkArgs{...}
 type PrivateLinkAccessNetworkInput interface {
 	pulumi.Input
 
@@ -3697,11 +3697,11 @@ func (i PrivateLinkAccessNetworkArgs) ToPrivateLinkAccessNetworkPtrOutputWithCon
 // PrivateLinkAccessNetworkPtrInput is an input type that accepts PrivateLinkAccessNetworkArgs, PrivateLinkAccessNetworkPtr and PrivateLinkAccessNetworkPtrOutput values.
 // You can construct a concrete instance of `PrivateLinkAccessNetworkPtrInput` via:
 //
-//          PrivateLinkAccessNetworkArgs{...}
+//	        PrivateLinkAccessNetworkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PrivateLinkAccessNetworkPtrInput interface {
 	pulumi.Input
 
@@ -3796,7 +3796,7 @@ type GetKafkaClusterBasic struct {
 // GetKafkaClusterBasicInput is an input type that accepts GetKafkaClusterBasicArgs and GetKafkaClusterBasicOutput values.
 // You can construct a concrete instance of `GetKafkaClusterBasicInput` via:
 //
-//          GetKafkaClusterBasicArgs{...}
+//	GetKafkaClusterBasicArgs{...}
 type GetKafkaClusterBasicInput interface {
 	pulumi.Input
 
@@ -3822,7 +3822,7 @@ func (i GetKafkaClusterBasicArgs) ToGetKafkaClusterBasicOutputWithContext(ctx co
 // GetKafkaClusterBasicArrayInput is an input type that accepts GetKafkaClusterBasicArray and GetKafkaClusterBasicArrayOutput values.
 // You can construct a concrete instance of `GetKafkaClusterBasicArrayInput` via:
 //
-//          GetKafkaClusterBasicArray{ GetKafkaClusterBasicArgs{...} }
+//	GetKafkaClusterBasicArray{ GetKafkaClusterBasicArgs{...} }
 type GetKafkaClusterBasicArrayInput interface {
 	pulumi.Input
 
@@ -3888,7 +3888,7 @@ type GetKafkaClusterDedicated struct {
 // GetKafkaClusterDedicatedInput is an input type that accepts GetKafkaClusterDedicatedArgs and GetKafkaClusterDedicatedOutput values.
 // You can construct a concrete instance of `GetKafkaClusterDedicatedInput` via:
 //
-//          GetKafkaClusterDedicatedArgs{...}
+//	GetKafkaClusterDedicatedArgs{...}
 type GetKafkaClusterDedicatedInput interface {
 	pulumi.Input
 
@@ -3926,11 +3926,11 @@ func (i GetKafkaClusterDedicatedArgs) ToGetKafkaClusterDedicatedPtrOutputWithCon
 // GetKafkaClusterDedicatedPtrInput is an input type that accepts GetKafkaClusterDedicatedArgs, GetKafkaClusterDedicatedPtr and GetKafkaClusterDedicatedPtrOutput values.
 // You can construct a concrete instance of `GetKafkaClusterDedicatedPtrInput` via:
 //
-//          GetKafkaClusterDedicatedArgs{...}
+//	        GetKafkaClusterDedicatedArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetKafkaClusterDedicatedPtrInput interface {
 	pulumi.Input
 
@@ -4042,7 +4042,7 @@ type GetKafkaClusterEnvironment struct {
 // GetKafkaClusterEnvironmentInput is an input type that accepts GetKafkaClusterEnvironmentArgs and GetKafkaClusterEnvironmentOutput values.
 // You can construct a concrete instance of `GetKafkaClusterEnvironmentInput` via:
 //
-//          GetKafkaClusterEnvironmentArgs{...}
+//	GetKafkaClusterEnvironmentArgs{...}
 type GetKafkaClusterEnvironmentInput interface {
 	pulumi.Input
 
@@ -4094,7 +4094,7 @@ type GetKafkaClusterNetwork struct {
 // GetKafkaClusterNetworkInput is an input type that accepts GetKafkaClusterNetworkArgs and GetKafkaClusterNetworkOutput values.
 // You can construct a concrete instance of `GetKafkaClusterNetworkInput` via:
 //
-//          GetKafkaClusterNetworkArgs{...}
+//	GetKafkaClusterNetworkArgs{...}
 type GetKafkaClusterNetworkInput interface {
 	pulumi.Input
 
@@ -4122,7 +4122,7 @@ func (i GetKafkaClusterNetworkArgs) ToGetKafkaClusterNetworkOutputWithContext(ct
 // GetKafkaClusterNetworkArrayInput is an input type that accepts GetKafkaClusterNetworkArray and GetKafkaClusterNetworkArrayOutput values.
 // You can construct a concrete instance of `GetKafkaClusterNetworkArrayInput` via:
 //
-//          GetKafkaClusterNetworkArray{ GetKafkaClusterNetworkArgs{...} }
+//	GetKafkaClusterNetworkArray{ GetKafkaClusterNetworkArgs{...} }
 type GetKafkaClusterNetworkArrayInput interface {
 	pulumi.Input
 
@@ -4189,7 +4189,7 @@ type GetKafkaClusterStandard struct {
 // GetKafkaClusterStandardInput is an input type that accepts GetKafkaClusterStandardArgs and GetKafkaClusterStandardOutput values.
 // You can construct a concrete instance of `GetKafkaClusterStandardInput` via:
 //
-//          GetKafkaClusterStandardArgs{...}
+//	GetKafkaClusterStandardArgs{...}
 type GetKafkaClusterStandardInput interface {
 	pulumi.Input
 
@@ -4215,7 +4215,7 @@ func (i GetKafkaClusterStandardArgs) ToGetKafkaClusterStandardOutputWithContext(
 // GetKafkaClusterStandardArrayInput is an input type that accepts GetKafkaClusterStandardArray and GetKafkaClusterStandardArrayOutput values.
 // You can construct a concrete instance of `GetKafkaClusterStandardArrayInput` via:
 //
-//          GetKafkaClusterStandardArray{ GetKafkaClusterStandardArgs{...} }
+//	GetKafkaClusterStandardArray{ GetKafkaClusterStandardArgs{...} }
 type GetKafkaClusterStandardArrayInput interface {
 	pulumi.Input
 
@@ -4281,7 +4281,7 @@ type GetKafkaTopicCredentials struct {
 // GetKafkaTopicCredentialsInput is an input type that accepts GetKafkaTopicCredentialsArgs and GetKafkaTopicCredentialsOutput values.
 // You can construct a concrete instance of `GetKafkaTopicCredentialsInput` via:
 //
-//          GetKafkaTopicCredentialsArgs{...}
+//	GetKafkaTopicCredentialsArgs{...}
 type GetKafkaTopicCredentialsInput interface {
 	pulumi.Input
 
@@ -4319,11 +4319,11 @@ func (i GetKafkaTopicCredentialsArgs) ToGetKafkaTopicCredentialsPtrOutputWithCon
 // GetKafkaTopicCredentialsPtrInput is an input type that accepts GetKafkaTopicCredentialsArgs, GetKafkaTopicCredentialsPtr and GetKafkaTopicCredentialsPtrOutput values.
 // You can construct a concrete instance of `GetKafkaTopicCredentialsPtrInput` via:
 //
-//          GetKafkaTopicCredentialsArgs{...}
+//	        GetKafkaTopicCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetKafkaTopicCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -4435,7 +4435,7 @@ type GetKafkaTopicKafkaCluster struct {
 // GetKafkaTopicKafkaClusterInput is an input type that accepts GetKafkaTopicKafkaClusterArgs and GetKafkaTopicKafkaClusterOutput values.
 // You can construct a concrete instance of `GetKafkaTopicKafkaClusterInput` via:
 //
-//          GetKafkaTopicKafkaClusterArgs{...}
+//	GetKafkaTopicKafkaClusterArgs{...}
 type GetKafkaTopicKafkaClusterInput interface {
 	pulumi.Input
 
@@ -4489,7 +4489,7 @@ type GetNetworkAw struct {
 // GetNetworkAwInput is an input type that accepts GetNetworkAwArgs and GetNetworkAwOutput values.
 // You can construct a concrete instance of `GetNetworkAwInput` via:
 //
-//          GetNetworkAwArgs{...}
+//	GetNetworkAwArgs{...}
 type GetNetworkAwInput interface {
 	pulumi.Input
 
@@ -4519,7 +4519,7 @@ func (i GetNetworkAwArgs) ToGetNetworkAwOutputWithContext(ctx context.Context) G
 // GetNetworkAwArrayInput is an input type that accepts GetNetworkAwArray and GetNetworkAwArrayOutput values.
 // You can construct a concrete instance of `GetNetworkAwArrayInput` via:
 //
-//          GetNetworkAwArray{ GetNetworkAwArgs{...} }
+//	GetNetworkAwArray{ GetNetworkAwArgs{...} }
 type GetNetworkAwArrayInput interface {
 	pulumi.Input
 
@@ -4593,7 +4593,7 @@ type GetNetworkAzure struct {
 // GetNetworkAzureInput is an input type that accepts GetNetworkAzureArgs and GetNetworkAzureOutput values.
 // You can construct a concrete instance of `GetNetworkAzureInput` via:
 //
-//          GetNetworkAzureArgs{...}
+//	GetNetworkAzureArgs{...}
 type GetNetworkAzureInput interface {
 	pulumi.Input
 
@@ -4621,7 +4621,7 @@ func (i GetNetworkAzureArgs) ToGetNetworkAzureOutputWithContext(ctx context.Cont
 // GetNetworkAzureArrayInput is an input type that accepts GetNetworkAzureArray and GetNetworkAzureArrayOutput values.
 // You can construct a concrete instance of `GetNetworkAzureArrayInput` via:
 //
-//          GetNetworkAzureArray{ GetNetworkAzureArgs{...} }
+//	GetNetworkAzureArray{ GetNetworkAzureArgs{...} }
 type GetNetworkAzureArrayInput interface {
 	pulumi.Input
 
@@ -4690,7 +4690,7 @@ type GetNetworkEnvironment struct {
 // GetNetworkEnvironmentInput is an input type that accepts GetNetworkEnvironmentArgs and GetNetworkEnvironmentOutput values.
 // You can construct a concrete instance of `GetNetworkEnvironmentInput` via:
 //
-//          GetNetworkEnvironmentArgs{...}
+//	GetNetworkEnvironmentArgs{...}
 type GetNetworkEnvironmentInput interface {
 	pulumi.Input
 
@@ -4744,7 +4744,7 @@ type GetNetworkGcp struct {
 // GetNetworkGcpInput is an input type that accepts GetNetworkGcpArgs and GetNetworkGcpOutput values.
 // You can construct a concrete instance of `GetNetworkGcpInput` via:
 //
-//          GetNetworkGcpArgs{...}
+//	GetNetworkGcpArgs{...}
 type GetNetworkGcpInput interface {
 	pulumi.Input
 
@@ -4774,7 +4774,7 @@ func (i GetNetworkGcpArgs) ToGetNetworkGcpOutputWithContext(ctx context.Context)
 // GetNetworkGcpArrayInput is an input type that accepts GetNetworkGcpArray and GetNetworkGcpArrayOutput values.
 // You can construct a concrete instance of `GetNetworkGcpArrayInput` via:
 //
-//          GetNetworkGcpArray{ GetNetworkGcpArgs{...} }
+//	GetNetworkGcpArray{ GetNetworkGcpArgs{...} }
 type GetNetworkGcpArrayInput interface {
 	pulumi.Input
 
@@ -4854,7 +4854,7 @@ type GetPeeringAw struct {
 // GetPeeringAwInput is an input type that accepts GetPeeringAwArgs and GetPeeringAwOutput values.
 // You can construct a concrete instance of `GetPeeringAwInput` via:
 //
-//          GetPeeringAwArgs{...}
+//	GetPeeringAwArgs{...}
 type GetPeeringAwInput interface {
 	pulumi.Input
 
@@ -4888,7 +4888,7 @@ func (i GetPeeringAwArgs) ToGetPeeringAwOutputWithContext(ctx context.Context) G
 // GetPeeringAwArrayInput is an input type that accepts GetPeeringAwArray and GetPeeringAwArrayOutput values.
 // You can construct a concrete instance of `GetPeeringAwArrayInput` via:
 //
-//          GetPeeringAwArray{ GetPeeringAwArgs{...} }
+//	GetPeeringAwArray{ GetPeeringAwArgs{...} }
 type GetPeeringAwArrayInput interface {
 	pulumi.Input
 
@@ -4976,7 +4976,7 @@ type GetPeeringAzure struct {
 // GetPeeringAzureInput is an input type that accepts GetPeeringAzureArgs and GetPeeringAzureOutput values.
 // You can construct a concrete instance of `GetPeeringAzureInput` via:
 //
-//          GetPeeringAzureArgs{...}
+//	GetPeeringAzureArgs{...}
 type GetPeeringAzureInput interface {
 	pulumi.Input
 
@@ -5008,7 +5008,7 @@ func (i GetPeeringAzureArgs) ToGetPeeringAzureOutputWithContext(ctx context.Cont
 // GetPeeringAzureArrayInput is an input type that accepts GetPeeringAzureArray and GetPeeringAzureArrayOutput values.
 // You can construct a concrete instance of `GetPeeringAzureArrayInput` via:
 //
-//          GetPeeringAzureArray{ GetPeeringAzureArgs{...} }
+//	GetPeeringAzureArray{ GetPeeringAzureArgs{...} }
 type GetPeeringAzureArrayInput interface {
 	pulumi.Input
 
@@ -5087,7 +5087,7 @@ type GetPeeringEnvironment struct {
 // GetPeeringEnvironmentInput is an input type that accepts GetPeeringEnvironmentArgs and GetPeeringEnvironmentOutput values.
 // You can construct a concrete instance of `GetPeeringEnvironmentInput` via:
 //
-//          GetPeeringEnvironmentArgs{...}
+//	GetPeeringEnvironmentArgs{...}
 type GetPeeringEnvironmentInput interface {
 	pulumi.Input
 
@@ -5143,7 +5143,7 @@ type GetPeeringGcp struct {
 // GetPeeringGcpInput is an input type that accepts GetPeeringGcpArgs and GetPeeringGcpOutput values.
 // You can construct a concrete instance of `GetPeeringGcpInput` via:
 //
-//          GetPeeringGcpArgs{...}
+//	GetPeeringGcpArgs{...}
 type GetPeeringGcpInput interface {
 	pulumi.Input
 
@@ -5175,7 +5175,7 @@ func (i GetPeeringGcpArgs) ToGetPeeringGcpOutputWithContext(ctx context.Context)
 // GetPeeringGcpArrayInput is an input type that accepts GetPeeringGcpArray and GetPeeringGcpArrayOutput values.
 // You can construct a concrete instance of `GetPeeringGcpArrayInput` via:
 //
-//          GetPeeringGcpArray{ GetPeeringGcpArgs{...} }
+//	GetPeeringGcpArray{ GetPeeringGcpArgs{...} }
 type GetPeeringGcpArrayInput interface {
 	pulumi.Input
 
@@ -5254,7 +5254,7 @@ type GetPeeringNetwork struct {
 // GetPeeringNetworkInput is an input type that accepts GetPeeringNetworkArgs and GetPeeringNetworkOutput values.
 // You can construct a concrete instance of `GetPeeringNetworkInput` via:
 //
-//          GetPeeringNetworkArgs{...}
+//	GetPeeringNetworkArgs{...}
 type GetPeeringNetworkInput interface {
 	pulumi.Input
 
@@ -5282,7 +5282,7 @@ func (i GetPeeringNetworkArgs) ToGetPeeringNetworkOutputWithContext(ctx context.
 // GetPeeringNetworkArrayInput is an input type that accepts GetPeeringNetworkArray and GetPeeringNetworkArrayOutput values.
 // You can construct a concrete instance of `GetPeeringNetworkArrayInput` via:
 //
-//          GetPeeringNetworkArray{ GetPeeringNetworkArgs{...} }
+//	GetPeeringNetworkArray{ GetPeeringNetworkArgs{...} }
 type GetPeeringNetworkArrayInput interface {
 	pulumi.Input
 
@@ -5351,7 +5351,7 @@ type GetPrivateLinkAccessAw struct {
 // GetPrivateLinkAccessAwInput is an input type that accepts GetPrivateLinkAccessAwArgs and GetPrivateLinkAccessAwOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAccessAwInput` via:
 //
-//          GetPrivateLinkAccessAwArgs{...}
+//	GetPrivateLinkAccessAwArgs{...}
 type GetPrivateLinkAccessAwInput interface {
 	pulumi.Input
 
@@ -5379,7 +5379,7 @@ func (i GetPrivateLinkAccessAwArgs) ToGetPrivateLinkAccessAwOutputWithContext(ct
 // GetPrivateLinkAccessAwArrayInput is an input type that accepts GetPrivateLinkAccessAwArray and GetPrivateLinkAccessAwArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAccessAwArrayInput` via:
 //
-//          GetPrivateLinkAccessAwArray{ GetPrivateLinkAccessAwArgs{...} }
+//	GetPrivateLinkAccessAwArray{ GetPrivateLinkAccessAwArgs{...} }
 type GetPrivateLinkAccessAwArrayInput interface {
 	pulumi.Input
 
@@ -5448,7 +5448,7 @@ type GetPrivateLinkAccessAzure struct {
 // GetPrivateLinkAccessAzureInput is an input type that accepts GetPrivateLinkAccessAzureArgs and GetPrivateLinkAccessAzureOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAccessAzureInput` via:
 //
-//          GetPrivateLinkAccessAzureArgs{...}
+//	GetPrivateLinkAccessAzureArgs{...}
 type GetPrivateLinkAccessAzureInput interface {
 	pulumi.Input
 
@@ -5476,7 +5476,7 @@ func (i GetPrivateLinkAccessAzureArgs) ToGetPrivateLinkAccessAzureOutputWithCont
 // GetPrivateLinkAccessAzureArrayInput is an input type that accepts GetPrivateLinkAccessAzureArray and GetPrivateLinkAccessAzureArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAccessAzureArrayInput` via:
 //
-//          GetPrivateLinkAccessAzureArray{ GetPrivateLinkAccessAzureArgs{...} }
+//	GetPrivateLinkAccessAzureArray{ GetPrivateLinkAccessAzureArgs{...} }
 type GetPrivateLinkAccessAzureArrayInput interface {
 	pulumi.Input
 
@@ -5545,7 +5545,7 @@ type GetPrivateLinkAccessEnvironment struct {
 // GetPrivateLinkAccessEnvironmentInput is an input type that accepts GetPrivateLinkAccessEnvironmentArgs and GetPrivateLinkAccessEnvironmentOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAccessEnvironmentInput` via:
 //
-//          GetPrivateLinkAccessEnvironmentArgs{...}
+//	GetPrivateLinkAccessEnvironmentArgs{...}
 type GetPrivateLinkAccessEnvironmentInput interface {
 	pulumi.Input
 
@@ -5597,7 +5597,7 @@ type GetPrivateLinkAccessNetwork struct {
 // GetPrivateLinkAccessNetworkInput is an input type that accepts GetPrivateLinkAccessNetworkArgs and GetPrivateLinkAccessNetworkOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAccessNetworkInput` via:
 //
-//          GetPrivateLinkAccessNetworkArgs{...}
+//	GetPrivateLinkAccessNetworkArgs{...}
 type GetPrivateLinkAccessNetworkInput interface {
 	pulumi.Input
 
@@ -5625,7 +5625,7 @@ func (i GetPrivateLinkAccessNetworkArgs) ToGetPrivateLinkAccessNetworkOutputWith
 // GetPrivateLinkAccessNetworkArrayInput is an input type that accepts GetPrivateLinkAccessNetworkArray and GetPrivateLinkAccessNetworkArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAccessNetworkArrayInput` via:
 //
-//          GetPrivateLinkAccessNetworkArray{ GetPrivateLinkAccessNetworkArgs{...} }
+//	GetPrivateLinkAccessNetworkArray{ GetPrivateLinkAccessNetworkArgs{...} }
 type GetPrivateLinkAccessNetworkArrayInput interface {
 	pulumi.Input
 

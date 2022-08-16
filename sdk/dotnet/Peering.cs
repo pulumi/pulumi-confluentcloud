@@ -21,7 +21,7 @@ namespace Pulumi.ConfluentCloud
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/peering:Peering")]
-    public partial class Peering : Pulumi.CustomResource
+    public partial class Peering : global::Pulumi.CustomResource
     {
         [Output("aws")]
         public Output<Outputs.PeeringAws?> Aws { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.ConfluentCloud
         }
     }
 
-    public sealed class PeeringArgs : Pulumi.ResourceArgs
+    public sealed class PeeringArgs : global::Pulumi.ResourceArgs
     {
         [Input("aws")]
         public Input<Inputs.PeeringAwsArgs>? Aws { get; set; }
@@ -128,9 +128,10 @@ namespace Pulumi.ConfluentCloud
         public PeeringArgs()
         {
         }
+        public static new PeeringArgs Empty => new PeeringArgs();
     }
 
-    public sealed class PeeringState : Pulumi.ResourceArgs
+    public sealed class PeeringState : global::Pulumi.ResourceArgs
     {
         [Input("aws")]
         public Input<Inputs.PeeringAwsGetArgs>? Aws { get; set; }
@@ -163,5 +164,6 @@ namespace Pulumi.ConfluentCloud
         public PeeringState()
         {
         }
+        public static new PeeringState Empty => new PeeringState();
     }
 }

@@ -21,23 +21,22 @@ namespace Pulumi.ConfluentCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleRoleBinding = ConfluentCloud.GetRoleBinding.Invoke(new()
         ///     {
-        ///         var exampleRoleBinding = Output.Create(ConfluentCloud.GetRoleBinding.InvokeAsync(new ConfluentCloud.GetRoleBindingArgs
-        ///         {
-        ///             Id = "rb-abc123",
-        ///         }));
-        ///         this.Example = exampleRoleBinding;
-        ///     }
+        ///         Id = "rb-abc123",
+        ///     });
         /// 
-        ///     [Output("example")]
-        ///     public Output&lt;string&gt; Example { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = exampleRoleBinding.Apply(getRoleBindingResult =&gt; getRoleBindingResult),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,23 +54,22 @@ namespace Pulumi.ConfluentCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleRoleBinding = ConfluentCloud.GetRoleBinding.Invoke(new()
         ///     {
-        ///         var exampleRoleBinding = Output.Create(ConfluentCloud.GetRoleBinding.InvokeAsync(new ConfluentCloud.GetRoleBindingArgs
-        ///         {
-        ///             Id = "rb-abc123",
-        ///         }));
-        ///         this.Example = exampleRoleBinding;
-        ///     }
+        ///         Id = "rb-abc123",
+        ///     });
         /// 
-        ///     [Output("example")]
-        ///     public Output&lt;string&gt; Example { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = exampleRoleBinding.Apply(getRoleBindingResult =&gt; getRoleBindingResult),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.ConfluentCloud
     }
 
 
-    public sealed class GetRoleBindingArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleBindingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Role Binding (for example, `rb-abc123`).
@@ -92,9 +90,10 @@ namespace Pulumi.ConfluentCloud
         public GetRoleBindingArgs()
         {
         }
+        public static new GetRoleBindingArgs Empty => new GetRoleBindingArgs();
     }
 
-    public sealed class GetRoleBindingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRoleBindingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Role Binding (for example, `rb-abc123`).
@@ -105,6 +104,7 @@ namespace Pulumi.ConfluentCloud
         public GetRoleBindingInvokeArgs()
         {
         }
+        public static new GetRoleBindingInvokeArgs Empty => new GetRoleBindingInvokeArgs();
     }
 
 

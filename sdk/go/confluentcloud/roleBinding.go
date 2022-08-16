@@ -16,10 +16,12 @@ import (
 // You can import a Role Binding by using Role Binding ID, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
-//  $ pulumi import confluentcloud:index/roleBinding:RoleBinding my_rb rb-f3a90de
+//
+//	$ pulumi import confluentcloud:index/roleBinding:RoleBinding my_rb rb-f3a90de
+//
 // ```
 //
-//  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+//	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type RoleBinding struct {
 	pulumi.CustomResourceState
 
@@ -135,7 +137,7 @@ func (i *RoleBinding) ToRoleBindingOutputWithContext(ctx context.Context) RoleBi
 // RoleBindingArrayInput is an input type that accepts RoleBindingArray and RoleBindingArrayOutput values.
 // You can construct a concrete instance of `RoleBindingArrayInput` via:
 //
-//          RoleBindingArray{ RoleBindingArgs{...} }
+//	RoleBindingArray{ RoleBindingArgs{...} }
 type RoleBindingArrayInput interface {
 	pulumi.Input
 
@@ -160,7 +162,7 @@ func (i RoleBindingArray) ToRoleBindingArrayOutputWithContext(ctx context.Contex
 // RoleBindingMapInput is an input type that accepts RoleBindingMap and RoleBindingMapOutput values.
 // You can construct a concrete instance of `RoleBindingMapInput` via:
 //
-//          RoleBindingMap{ "key": RoleBindingArgs{...} }
+//	RoleBindingMap{ "key": RoleBindingArgs{...} }
 type RoleBindingMapInput interface {
 	pulumi.Input
 

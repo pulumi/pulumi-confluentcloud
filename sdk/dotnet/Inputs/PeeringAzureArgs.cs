@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class PeeringAzureArgs : Pulumi.ResourceArgs
+    public sealed class PeeringAzureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The region of the Azure peer VNet.
@@ -33,5 +33,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public PeeringAzureArgs()
         {
         }
+        public static new PeeringAzureArgs Empty => new PeeringAzureArgs();
     }
 }

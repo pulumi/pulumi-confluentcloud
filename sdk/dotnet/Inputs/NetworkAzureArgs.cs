@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class NetworkAzureArgs : Pulumi.ResourceArgs
+    public sealed class NetworkAzureArgs : global::Pulumi.ResourceArgs
     {
         [Input("privateLinkServiceAliases")]
         private InputMap<string>? _privateLinkServiceAliases;
@@ -27,5 +27,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public NetworkAzureArgs()
         {
         }
+        public static new NetworkAzureArgs Empty => new NetworkAzureArgs();
     }
 }

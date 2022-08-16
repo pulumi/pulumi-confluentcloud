@@ -87,8 +87,8 @@ github.com/confluentinc/ccloud-sdk-go-v2/networking v0.2.0 h1:tXxfF1Nq90ca/xf3gc
 github.com/confluentinc/ccloud-sdk-go-v2/networking v0.2.0/go.mod h1:EcmHhRib8dDuO5ZsO+qS3scX9xEP5E/IXOVoItp5X2s=
 github.com/confluentinc/ccloud-sdk-go-v2/org v0.4.0 h1:WcJs6RbY8nU5HapaG0ZCH9ftFBtZyuKMIuNAkdVmc2o=
 github.com/confluentinc/ccloud-sdk-go-v2/org v0.4.0/go.mod h1:zREJ+OOZz0rEXCaPx0JbCVj2EfNnYs/c6qhPDfhldI0=
-github.com/confluentinc/terraform-provider-confluent v1.0.0 h1:63uE0N7hNGSgMirVKUaquXmGEoYuk4rCTDkos2Jbqgg=
-github.com/confluentinc/terraform-provider-confluent v1.0.0/go.mod h1:wYiM6dryZ52LqFIpE174d4MddpQchDl4wlsRXPpOlLw=
+github.com/confluentinc/terraform-provider-confluent v1.1.0 h1:5/p+U3XVemASZnUNM5RidBMhIxyJorStRdRPGf5ShHA=
+github.com/confluentinc/terraform-provider-confluent v1.1.0/go.mod h1:wYiM6dryZ52LqFIpE174d4MddpQchDl4wlsRXPpOlLw=
 github.com/containerd/cgroups v1.0.3 h1:ADZftAkglvCiD44c77s5YmMqaP2pzVCFZvBmAlBdAP4=
 github.com/containerd/containerd v1.6.1 h1:oa2uY0/0G+JX4X7hpGCYvkp9FjUancz56kSNnb1sG3o=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=

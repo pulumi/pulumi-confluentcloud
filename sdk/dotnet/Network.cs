@@ -21,7 +21,7 @@ namespace Pulumi.ConfluentCloud
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/network:Network")]
-    public partial class Network : Pulumi.CustomResource
+    public partial class Network : global::Pulumi.CustomResource
     {
         /// <summary>
         /// (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
@@ -149,7 +149,7 @@ namespace Pulumi.ConfluentCloud
         }
     }
 
-    public sealed class NetworkArgs : Pulumi.ResourceArgs
+    public sealed class NetworkArgs : global::Pulumi.ResourceArgs
     {
         [Input("aws")]
         private InputList<Inputs.NetworkAwArgs>? _aws;
@@ -248,9 +248,10 @@ namespace Pulumi.ConfluentCloud
         public NetworkArgs()
         {
         }
+        public static new NetworkArgs Empty => new NetworkArgs();
     }
 
-    public sealed class NetworkState : Pulumi.ResourceArgs
+    public sealed class NetworkState : global::Pulumi.ResourceArgs
     {
         [Input("aws")]
         private InputList<Inputs.NetworkAwGetArgs>? _aws;
@@ -373,5 +374,6 @@ namespace Pulumi.ConfluentCloud
         public NetworkState()
         {
         }
+        public static new NetworkState Empty => new NetworkState();
     }
 }

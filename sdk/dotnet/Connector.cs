@@ -19,7 +19,7 @@ namespace Pulumi.ConfluentCloud
     /// ```
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/connector:Connector")]
-    public partial class Connector : Pulumi.CustomResource
+    public partial class Connector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The custom connector _nonsensitive_ configuration settings to set:
@@ -92,7 +92,7 @@ namespace Pulumi.ConfluentCloud
         }
     }
 
-    public sealed class ConnectorArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("configNonsensitive", required: true)]
         private InputMap<string>? _configNonsensitive;
@@ -136,9 +136,10 @@ namespace Pulumi.ConfluentCloud
         public ConnectorArgs()
         {
         }
+        public static new ConnectorArgs Empty => new ConnectorArgs();
     }
 
-    public sealed class ConnectorState : Pulumi.ResourceArgs
+    public sealed class ConnectorState : global::Pulumi.ResourceArgs
     {
         [Input("configNonsensitive")]
         private InputMap<string>? _configNonsensitive;
@@ -182,5 +183,6 @@ namespace Pulumi.ConfluentCloud
         public ConnectorState()
         {
         }
+        public static new ConnectorState Empty => new ConnectorState();
     }
 }

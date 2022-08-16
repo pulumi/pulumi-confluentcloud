@@ -18,10 +18,90 @@ namespace Pulumi.ConfluentCloud
     ///  $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
     /// ```
     /// 
-    ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    ///  resource "confluent_kafka_topic" "orders" {
+    /// 
+    ///  kafka_cluster {
+    /// 
+    ///  id = confluent_kafka_cluster.basic-cluster.id
+    /// 
+    ///  }
+    /// 
+    ///  topic_name
+    /// 
+    ///  = "orders"
+    /// 
+    ///  partitions_count
+    /// 
+    ///  = 4
+    /// 
+    ///  rest_endpoint
+    /// 
+    /// = confluent_kafka_cluster.basic-cluster.rest_endpoint
+    /// 
+    /// # https://docs.confluent.io/cloud/current/clusters/broker-config.html#custom-topic-settings-for-all-cluster-types
+    /// 
+    ///  config = {
+    /// 
+    ///  "cleanup.policy"
+    /// 
+    /// = "delete"
+    /// 
+    ///  "delete.retention.ms"
+    /// 
+    ///  = "86400000"
+    /// 
+    ///  "max.compaction.lag.ms"
+    /// 
+    ///  = "9223372036854775807"
+    /// 
+    ///  "max.message.bytes"
+    /// 
+    ///  = "2097164"
+    /// 
+    ///  "message.timestamp.difference.max.ms" = "9223372036854775807"
+    /// 
+    ///  "message.timestamp.type"
+    /// 
+    /// = "CreateTime"
+    /// 
+    ///  "min.compaction.lag.ms"
+    /// 
+    ///  = "0"
+    /// 
+    ///  "min.insync.replicas"
+    /// 
+    ///  = "2"
+    /// 
+    ///  "retention.bytes"
+    /// 
+    ///  = "-1"
+    /// 
+    ///  "retention.ms"
+    /// 
+    /// = "604800000"
+    /// 
+    ///  "segment.bytes"
+    /// 
+    ///  = "104857600"
+    /// 
+    ///  "segment.ms"
+    /// 
+    /// = "604800000"
+    /// 
+    ///  }
+    /// 
+    ///  credentials {
+    /// 
+    ///  key
+    /// 
+    /// = confluent_api_key.app-manager-kafka-api-key.id
+    /// 
+    ///  secret = confluent_api_key.app-manager-kafka-api-key.secret
+    /// 
+    ///  } } !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/kafkaTopic:KafkaTopic")]
-    public partial class KafkaTopic : Pulumi.CustomResource
+    public partial class KafkaTopic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The custom topic settings to set:
@@ -100,7 +180,7 @@ namespace Pulumi.ConfluentCloud
         }
     }
 
-    public sealed class KafkaTopicArgs : Pulumi.ResourceArgs
+    public sealed class KafkaTopicArgs : global::Pulumi.ResourceArgs
     {
         [Input("config")]
         private InputMap<string>? _config;
@@ -144,9 +224,10 @@ namespace Pulumi.ConfluentCloud
         public KafkaTopicArgs()
         {
         }
+        public static new KafkaTopicArgs Empty => new KafkaTopicArgs();
     }
 
-    public sealed class KafkaTopicState : Pulumi.ResourceArgs
+    public sealed class KafkaTopicState : global::Pulumi.ResourceArgs
     {
         [Input("config")]
         private InputMap<string>? _config;
@@ -190,5 +271,6 @@ namespace Pulumi.ConfluentCloud
         public KafkaTopicState()
         {
         }
+        public static new KafkaTopicState Empty => new KafkaTopicState();
     }
 }

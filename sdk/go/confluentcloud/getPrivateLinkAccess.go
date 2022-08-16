@@ -20,35 +20,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUsingIdPrivateLinkAccess, err := confluentcloud.LookupPrivateLinkAccess(ctx, &GetPrivateLinkAccessArgs{
-// 			Id: pulumi.StringRef("pla-abc123"),
-// 			Environment: GetPrivateLinkAccessEnvironment{
-// 				Id: "env-xyz456",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("exampleUsingId", exampleUsingIdPrivateLinkAccess)
-// 		exampleUsingNamePrivateLinkAccess, err := confluentcloud.LookupPrivateLinkAccess(ctx, &GetPrivateLinkAccessArgs{
-// 			DisplayName: pulumi.StringRef("my_pla"),
-// 			Environment: GetPrivateLinkAccessEnvironment{
-// 				Id: "env-xyz456",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("exampleUsingName", exampleUsingNamePrivateLinkAccess)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUsingIdPrivateLinkAccess, err := confluentcloud.LookupPrivateLinkAccess(ctx, &GetPrivateLinkAccessArgs{
+//				Id: pulumi.StringRef("pla-abc123"),
+//				Environment: GetPrivateLinkAccessEnvironment{
+//					Id: "env-xyz456",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("exampleUsingId", exampleUsingIdPrivateLinkAccess)
+//			exampleUsingNamePrivateLinkAccess, err := confluentcloud.LookupPrivateLinkAccess(ctx, &GetPrivateLinkAccessArgs{
+//				DisplayName: pulumi.StringRef("my_pla"),
+//				Environment: GetPrivateLinkAccessEnvironment{
+//					Id: "env-xyz456",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("exampleUsingName", exampleUsingNamePrivateLinkAccess)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupPrivateLinkAccess(ctx *pulumi.Context, args *LookupPrivateLinkAccessArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkAccessResult, error) {
 	var rv LookupPrivateLinkAccessResult

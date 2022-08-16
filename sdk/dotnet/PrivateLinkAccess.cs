@@ -21,7 +21,7 @@ namespace Pulumi.ConfluentCloud
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/privateLinkAccess:PrivateLinkAccess")]
-    public partial class PrivateLinkAccess : Pulumi.CustomResource
+    public partial class PrivateLinkAccess : global::Pulumi.CustomResource
     {
         [Output("aws")]
         public Output<Outputs.PrivateLinkAccessAws?> Aws { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.ConfluentCloud
         }
     }
 
-    public sealed class PrivateLinkAccessArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkAccessArgs : global::Pulumi.ResourceArgs
     {
         [Input("aws")]
         public Input<Inputs.PrivateLinkAccessAwsArgs>? Aws { get; set; }
@@ -122,9 +122,10 @@ namespace Pulumi.ConfluentCloud
         public PrivateLinkAccessArgs()
         {
         }
+        public static new PrivateLinkAccessArgs Empty => new PrivateLinkAccessArgs();
     }
 
-    public sealed class PrivateLinkAccessState : Pulumi.ResourceArgs
+    public sealed class PrivateLinkAccessState : global::Pulumi.ResourceArgs
     {
         [Input("aws")]
         public Input<Inputs.PrivateLinkAccessAwsGetArgs>? Aws { get; set; }
@@ -154,5 +155,6 @@ namespace Pulumi.ConfluentCloud
         public PrivateLinkAccessState()
         {
         }
+        public static new PrivateLinkAccessState Empty => new PrivateLinkAccessState();
     }
 }

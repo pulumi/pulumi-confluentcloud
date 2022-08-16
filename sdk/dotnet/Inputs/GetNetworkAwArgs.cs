@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class GetNetworkAwInputArgs : Pulumi.ResourceArgs
+    public sealed class GetNetworkAwInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
@@ -27,5 +27,6 @@ namespace Pulumi.ConfluentCloud.Inputs
         public GetNetworkAwInputArgs()
         {
         }
+        public static new GetNetworkAwInputArgs Empty => new GetNetworkAwInputArgs();
     }
 }
