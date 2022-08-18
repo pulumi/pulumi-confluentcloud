@@ -59,8 +59,8 @@ dotnet add package Pulumi.ConfluentCloud
 
 The following configuration points are available for the `confluent cloud` provider:
 
-- `confluentcloud:apiKey` (environment: `CONFLUENT_CLOUD_API_KEY`) - the API key for `Confluent Cloud`
-- `confluentcloud:apiSecret` (environment: `CONFLUENT_CLOUD_API_SECRET`) - the region in which to deploy resources
+- `confluentcloud:cloudApiKey` (environment: `CONFLUENT_CLOUD_API_KEY`) - the API key for `Confluent Cloud`
+- `confluentcloud:cloudApiSecret` (environment: `CONFLUENT_CLOUD_API_SECRET`) - the region in which to deploy resources
 
 ## Reference
 
