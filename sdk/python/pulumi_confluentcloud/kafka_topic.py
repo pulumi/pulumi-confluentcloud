@@ -20,6 +20,7 @@ class KafkaTopicArgs:
                  topic_name: pulumi.Input[str],
                  config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  credentials: Optional[pulumi.Input['KafkaTopicCredentialsArgs']] = None,
+                 http_endpoint: Optional[pulumi.Input[str]] = None,
                  partitions_count: Optional[pulumi.Input[int]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None):
         """
@@ -27,6 +28,7 @@ class KafkaTopicArgs:
         :param pulumi.Input[str] topic_name: The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The custom topic settings to set:
         :param pulumi.Input['KafkaTopicCredentialsArgs'] credentials: The Cluster API Credentials.
+        :param pulumi.Input[str] http_endpoint: The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[int] partitions_count: The number of partitions to create in the topic. Defaults to `6`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
@@ -36,6 +38,11 @@ class KafkaTopicArgs:
             pulumi.set(__self__, "config", config)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if http_endpoint is not None:
+            warnings.warn("""This parameter has been deprecated in favour of Rest Endpoint""", DeprecationWarning)
+            pulumi.log.warn("""http_endpoint is deprecated: This parameter has been deprecated in favour of Rest Endpoint""")
+        if http_endpoint is not None:
+            pulumi.set(__self__, "http_endpoint", http_endpoint)
         if partitions_count is not None:
             pulumi.set(__self__, "partitions_count", partitions_count)
         if rest_endpoint is not None:
@@ -87,6 +94,18 @@ class KafkaTopicArgs:
         pulumi.set(self, "credentials", value)
 
     @property
+    @pulumi.getter(name="httpEndpoint")
+    def http_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "http_endpoint")
+
+    @http_endpoint.setter
+    def http_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_endpoint", value)
+
+    @property
     @pulumi.getter(name="partitionsCount")
     def partitions_count(self) -> Optional[pulumi.Input[int]]:
         """
@@ -116,6 +135,7 @@ class _KafkaTopicState:
     def __init__(__self__, *,
                  config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  credentials: Optional[pulumi.Input['KafkaTopicCredentialsArgs']] = None,
+                 http_endpoint: Optional[pulumi.Input[str]] = None,
                  kafka_cluster: Optional[pulumi.Input['KafkaTopicKafkaClusterArgs']] = None,
                  partitions_count: Optional[pulumi.Input[int]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
@@ -124,6 +144,7 @@ class _KafkaTopicState:
         Input properties used for looking up and filtering KafkaTopic resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The custom topic settings to set:
         :param pulumi.Input['KafkaTopicCredentialsArgs'] credentials: The Cluster API Credentials.
+        :param pulumi.Input[str] http_endpoint: The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[int] partitions_count: The number of partitions to create in the topic. Defaults to `6`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] topic_name: The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
@@ -132,6 +153,11 @@ class _KafkaTopicState:
             pulumi.set(__self__, "config", config)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if http_endpoint is not None:
+            warnings.warn("""This parameter has been deprecated in favour of Rest Endpoint""", DeprecationWarning)
+            pulumi.log.warn("""http_endpoint is deprecated: This parameter has been deprecated in favour of Rest Endpoint""")
+        if http_endpoint is not None:
+            pulumi.set(__self__, "http_endpoint", http_endpoint)
         if kafka_cluster is not None:
             pulumi.set(__self__, "kafka_cluster", kafka_cluster)
         if partitions_count is not None:
@@ -164,6 +190,18 @@ class _KafkaTopicState:
     @credentials.setter
     def credentials(self, value: Optional[pulumi.Input['KafkaTopicCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="httpEndpoint")
+    def http_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "http_endpoint")
+
+    @http_endpoint.setter
+    def http_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_endpoint", value)
 
     @property
     @pulumi.getter(name="kafkaCluster")
@@ -218,6 +256,7 @@ class KafkaTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  credentials: Optional[pulumi.Input[pulumi.InputType['KafkaTopicCredentialsArgs']]] = None,
+                 http_endpoint: Optional[pulumi.Input[str]] = None,
                  kafka_cluster: Optional[pulumi.Input[pulumi.InputType['KafkaTopicKafkaClusterArgs']]] = None,
                  partitions_count: Optional[pulumi.Input[int]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
@@ -318,6 +357,7 @@ class KafkaTopic(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The custom topic settings to set:
         :param pulumi.Input[pulumi.InputType['KafkaTopicCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[str] http_endpoint: The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[int] partitions_count: The number of partitions to create in the topic. Defaults to `6`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] topic_name: The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
@@ -436,6 +476,7 @@ class KafkaTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  credentials: Optional[pulumi.Input[pulumi.InputType['KafkaTopicCredentialsArgs']]] = None,
+                 http_endpoint: Optional[pulumi.Input[str]] = None,
                  kafka_cluster: Optional[pulumi.Input[pulumi.InputType['KafkaTopicKafkaClusterArgs']]] = None,
                  partitions_count: Optional[pulumi.Input[int]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
@@ -451,6 +492,10 @@ class KafkaTopic(pulumi.CustomResource):
 
             __props__.__dict__["config"] = config
             __props__.__dict__["credentials"] = credentials
+            if http_endpoint is not None and not opts.urn:
+                warnings.warn("""This parameter has been deprecated in favour of Rest Endpoint""", DeprecationWarning)
+                pulumi.log.warn("""http_endpoint is deprecated: This parameter has been deprecated in favour of Rest Endpoint""")
+            __props__.__dict__["http_endpoint"] = http_endpoint
             if kafka_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_cluster'")
             __props__.__dict__["kafka_cluster"] = kafka_cluster
@@ -471,6 +516,7 @@ class KafkaTopic(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             credentials: Optional[pulumi.Input[pulumi.InputType['KafkaTopicCredentialsArgs']]] = None,
+            http_endpoint: Optional[pulumi.Input[str]] = None,
             kafka_cluster: Optional[pulumi.Input[pulumi.InputType['KafkaTopicKafkaClusterArgs']]] = None,
             partitions_count: Optional[pulumi.Input[int]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
@@ -484,6 +530,7 @@ class KafkaTopic(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The custom topic settings to set:
         :param pulumi.Input[pulumi.InputType['KafkaTopicCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[str] http_endpoint: The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[int] partitions_count: The number of partitions to create in the topic. Defaults to `6`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] topic_name: The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
@@ -494,6 +541,7 @@ class KafkaTopic(pulumi.CustomResource):
 
         __props__.__dict__["config"] = config
         __props__.__dict__["credentials"] = credentials
+        __props__.__dict__["http_endpoint"] = http_endpoint
         __props__.__dict__["kafka_cluster"] = kafka_cluster
         __props__.__dict__["partitions_count"] = partitions_count
         __props__.__dict__["rest_endpoint"] = rest_endpoint
@@ -515,6 +563,14 @@ class KafkaTopic(pulumi.CustomResource):
         The Cluster API Credentials.
         """
         return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="httpEndpoint")
+    def http_endpoint(self) -> pulumi.Output[str]:
+        """
+        The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "http_endpoint")
 
     @property
     @pulumi.getter(name="kafkaCluster")

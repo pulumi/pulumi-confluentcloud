@@ -115,6 +115,12 @@ namespace Pulumi.ConfluentCloud
         [Output("credentials")]
         public Output<Outputs.KafkaTopicCredentials?> Credentials { get; private set; } = null!;
 
+        /// <summary>
+        /// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// </summary>
+        [Output("httpEndpoint")]
+        public Output<string> HttpEndpoint { get; private set; } = null!;
+
         [Output("kafkaCluster")]
         public Output<Outputs.KafkaTopicKafkaCluster> KafkaCluster { get; private set; } = null!;
 
@@ -200,6 +206,12 @@ namespace Pulumi.ConfluentCloud
         [Input("credentials")]
         public Input<Inputs.KafkaTopicCredentialsArgs>? Credentials { get; set; }
 
+        /// <summary>
+        /// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// </summary>
+        [Input("httpEndpoint")]
+        public Input<string>? HttpEndpoint { get; set; }
+
         [Input("kafkaCluster", required: true)]
         public Input<Inputs.KafkaTopicKafkaClusterArgs> KafkaCluster { get; set; } = null!;
 
@@ -246,6 +258,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.KafkaTopicCredentialsGetArgs>? Credentials { get; set; }
+
+        /// <summary>
+        /// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// </summary>
+        [Input("httpEndpoint")]
+        public Input<string>? HttpEndpoint { get; set; }
 
         [Input("kafkaCluster")]
         public Input<Inputs.KafkaTopicKafkaClusterGetArgs>? KafkaCluster { get; set; }

@@ -108,8 +108,12 @@ type KafkaTopic struct {
 	// The custom topic settings to set:
 	Config pulumi.StringMapOutput `pulumi:"config"`
 	// The Cluster API Credentials.
-	Credentials  KafkaTopicCredentialsPtrOutput `pulumi:"credentials"`
-	KafkaCluster KafkaTopicKafkaClusterOutput   `pulumi:"kafkaCluster"`
+	Credentials KafkaTopicCredentialsPtrOutput `pulumi:"credentials"`
+	// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	//
+	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
+	HttpEndpoint pulumi.StringOutput          `pulumi:"httpEndpoint"`
+	KafkaCluster KafkaTopicKafkaClusterOutput `pulumi:"kafkaCluster"`
 	// The number of partitions to create in the topic. Defaults to `6`.
 	PartitionsCount pulumi.IntPtrOutput `pulumi:"partitionsCount"`
 	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -156,7 +160,11 @@ type kafkaTopicState struct {
 	// The custom topic settings to set:
 	Config map[string]string `pulumi:"config"`
 	// The Cluster API Credentials.
-	Credentials  *KafkaTopicCredentials  `pulumi:"credentials"`
+	Credentials *KafkaTopicCredentials `pulumi:"credentials"`
+	// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	//
+	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
+	HttpEndpoint *string                 `pulumi:"httpEndpoint"`
 	KafkaCluster *KafkaTopicKafkaCluster `pulumi:"kafkaCluster"`
 	// The number of partitions to create in the topic. Defaults to `6`.
 	PartitionsCount *int `pulumi:"partitionsCount"`
@@ -170,7 +178,11 @@ type KafkaTopicState struct {
 	// The custom topic settings to set:
 	Config pulumi.StringMapInput
 	// The Cluster API Credentials.
-	Credentials  KafkaTopicCredentialsPtrInput
+	Credentials KafkaTopicCredentialsPtrInput
+	// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	//
+	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
+	HttpEndpoint pulumi.StringPtrInput
 	KafkaCluster KafkaTopicKafkaClusterPtrInput
 	// The number of partitions to create in the topic. Defaults to `6`.
 	PartitionsCount pulumi.IntPtrInput
@@ -188,7 +200,11 @@ type kafkaTopicArgs struct {
 	// The custom topic settings to set:
 	Config map[string]string `pulumi:"config"`
 	// The Cluster API Credentials.
-	Credentials  *KafkaTopicCredentials `pulumi:"credentials"`
+	Credentials *KafkaTopicCredentials `pulumi:"credentials"`
+	// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	//
+	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
+	HttpEndpoint *string                `pulumi:"httpEndpoint"`
 	KafkaCluster KafkaTopicKafkaCluster `pulumi:"kafkaCluster"`
 	// The number of partitions to create in the topic. Defaults to `6`.
 	PartitionsCount *int `pulumi:"partitionsCount"`
@@ -203,7 +219,11 @@ type KafkaTopicArgs struct {
 	// The custom topic settings to set:
 	Config pulumi.StringMapInput
 	// The Cluster API Credentials.
-	Credentials  KafkaTopicCredentialsPtrInput
+	Credentials KafkaTopicCredentialsPtrInput
+	// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	//
+	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
+	HttpEndpoint pulumi.StringPtrInput
 	KafkaCluster KafkaTopicKafkaClusterInput
 	// The number of partitions to create in the topic. Defaults to `6`.
 	PartitionsCount pulumi.IntPtrInput
@@ -308,6 +328,13 @@ func (o KafkaTopicOutput) Config() pulumi.StringMapOutput {
 // The Cluster API Credentials.
 func (o KafkaTopicOutput) Credentials() KafkaTopicCredentialsPtrOutput {
 	return o.ApplyT(func(v *KafkaTopic) KafkaTopicCredentialsPtrOutput { return v.Credentials }).(KafkaTopicCredentialsPtrOutput)
+}
+
+// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+//
+// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
+func (o KafkaTopicOutput) HttpEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *KafkaTopic) pulumi.StringOutput { return v.HttpEndpoint }).(pulumi.StringOutput)
 }
 
 func (o KafkaTopicOutput) KafkaCluster() KafkaTopicKafkaClusterOutput {
