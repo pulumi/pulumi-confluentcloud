@@ -1897,6 +1897,11 @@
                     "$ref": "#/types/confluentcloud:index/KafkaTopicCredentials:KafkaTopicCredentials",
                     "description": "The Cluster API Credentials.\n"
                 },
+                "httpEndpoint": {
+                    "type": "string",
+                    "description": "The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "deprecationMessage": "This parameter has been deprecated in favour of Rest Endpoint"
+                },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/KafkaTopicKafkaCluster:KafkaTopicKafkaCluster"
                 },
@@ -1915,6 +1920,7 @@
             },
             "required": [
                 "config",
+                "httpEndpoint",
                 "kafkaCluster",
                 "topicName"
             ],
@@ -1929,6 +1935,11 @@
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/KafkaTopicCredentials:KafkaTopicCredentials",
                     "description": "The Cluster API Credentials.\n"
+                },
+                "httpEndpoint": {
+                    "type": "string",
+                    "description": "The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "deprecationMessage": "This parameter has been deprecated in favour of Rest Endpoint"
                 },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/KafkaTopicKafkaCluster:KafkaTopicKafkaCluster",
@@ -1967,6 +1978,11 @@
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/KafkaTopicCredentials:KafkaTopicCredentials",
                         "description": "The Cluster API Credentials.\n"
+                    },
+                    "httpEndpoint": {
+                        "type": "string",
+                        "description": "The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "deprecationMessage": "This parameter has been deprecated in favour of Rest Endpoint"
                     },
                     "kafkaCluster": {
                         "$ref": "#/types/confluentcloud:index/KafkaTopicKafkaCluster:KafkaTopicKafkaCluster",

@@ -140,6 +140,24 @@ public class KafkaTopic extends com.pulumi.resources.CustomResource {
     public Output<Optional<KafkaTopicCredentials>> credentials() {
         return Codegen.optional(this.credentials);
     }
+    /**
+     * The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * 
+     * @deprecated
+     * This parameter has been deprecated in favour of Rest Endpoint
+     * 
+     */
+    @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
+    @Export(name="httpEndpoint", type=String.class, parameters={})
+    private Output<String> httpEndpoint;
+
+    /**
+     * @return The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * 
+     */
+    public Output<String> httpEndpoint() {
+        return this.httpEndpoint;
+    }
     @Export(name="kafkaCluster", type=KafkaTopicKafkaCluster.class, parameters={})
     private Output<KafkaTopicKafkaCluster> kafkaCluster;
 
