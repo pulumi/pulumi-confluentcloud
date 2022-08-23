@@ -1044,6 +1044,32 @@ public final class ConfluentcloudFunctions {
      * `confluentcloud.getOrganization` describes an Organization data source.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleOrganization = ConfluentcloudFunctions.getOrganization();
+     * 
+     *         ctx.export(&#34;example&#34;, exampleOrganization.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetOrganizationResult> getOrganization() {
@@ -1055,6 +1081,32 @@ public final class ConfluentcloudFunctions {
      * `confluentcloud.getOrganization` describes an Organization data source.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleOrganization = ConfluentcloudFunctions.getOrganization();
+     * 
+     *         ctx.export(&#34;example&#34;, exampleOrganization.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain() {
@@ -1066,6 +1118,32 @@ public final class ConfluentcloudFunctions {
      * `confluentcloud.getOrganization` describes an Organization data source.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleOrganization = ConfluentcloudFunctions.getOrganization();
+     * 
+     *         ctx.export(&#34;example&#34;, exampleOrganization.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetOrganizationResult> getOrganization(InvokeArgs args) {
@@ -1077,6 +1155,32 @@ public final class ConfluentcloudFunctions {
      * `confluentcloud.getOrganization` describes an Organization data source.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleOrganization = ConfluentcloudFunctions.getOrganization();
+     * 
+     *         ctx.export(&#34;example&#34;, exampleOrganization.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(InvokeArgs args) {
@@ -1088,6 +1192,32 @@ public final class ConfluentcloudFunctions {
      * `confluentcloud.getOrganization` describes an Organization data source.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleOrganization = ConfluentcloudFunctions.getOrganization();
+     * 
+     *         ctx.export(&#34;example&#34;, exampleOrganization.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *     }
+     * }
+     * ```
      * 
      */
     public static Output<GetOrganizationResult> getOrganization(InvokeArgs args, InvokeOptions options) {
@@ -1099,6 +1229,32 @@ public final class ConfluentcloudFunctions {
      * `confluentcloud.getOrganization` describes an Organization data source.
      * 
      * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleOrganization = ConfluentcloudFunctions.getOrganization();
+     * 
+     *         ctx.export(&#34;example&#34;, exampleOrganization.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(InvokeArgs args, InvokeOptions options) {

@@ -7,7 +7,7 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.16.0
 )
 
-replace github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20220819222606-421fbb8d0482
+replace github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20220823212458-bed201d7c62c
 
 require (
 	github.com/agext/levenshtein v1.2.2 // indirect
@@ -17,6 +17,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/cmk v0.6.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/connect v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/iam v0.7.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/identity-provider v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.2.0 // indirect
