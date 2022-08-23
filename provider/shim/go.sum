@@ -79,6 +79,8 @@ github.com/confluentinc/ccloud-sdk-go-v2/connect v0.2.0 h1:rEb3sxzKCZvZCnEZ10WyG
 github.com/confluentinc/ccloud-sdk-go-v2/connect v0.2.0/go.mod h1:lF4AfDtxoL0V7ZIMOULWiAycPwlfyt9UG659adRNdOM=
 github.com/confluentinc/ccloud-sdk-go-v2/iam v0.7.0 h1:ZGVAFrMO4PItSyKr5evdxu2CoRunP7nufQWfpLGTfeA=
 github.com/confluentinc/ccloud-sdk-go-v2/iam v0.7.0/go.mod h1:2Lm82ly9Yh5LLhp8OTnUGqjz4JdIXAZ5a0/u9T+rGGU=
+github.com/confluentinc/ccloud-sdk-go-v2/identity-provider v0.2.0 h1:9TT8UCFRc5zUdsE7UgMz7hqN+2KYnIkBcAKCaiZJrXw=
+github.com/confluentinc/ccloud-sdk-go-v2/identity-provider v0.2.0/go.mod h1:JLmrXfnT2PzcuXHD8a6c2cW1c9LKK7aMsdZjjqxYPEk=
 github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.3.0 h1:SoH721t+NGT5Lxxn0sj9DO9YvS2CPh3FdN/+iBKmWAI=
 github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.3.0/go.mod h1:+3crwD4MWa0CGGuyEixXMeLNy0VIRTbxezSduM33qbg=
 github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 h1:DaipFGVdZjAE8eSztUrA/4b74kj6k5lZ0EJmK1RqccU=
@@ -300,8 +302,8 @@ github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
-github.com/pulumi/terraform-provider-confluent v0.0.0-20220819222606-421fbb8d0482 h1:h8iGOIPurZs0ax38i6pVcqlZWLy9Mqxgg15N+yD0WcI=
-github.com/pulumi/terraform-provider-confluent v0.0.0-20220819222606-421fbb8d0482/go.mod h1:wYiM6dryZ52LqFIpE174d4MddpQchDl4wlsRXPpOlLw=
+github.com/pulumi/terraform-provider-confluent v0.0.0-20220823212458-bed201d7c62c h1:OfH9hOfnOZ5ZIBXWqJKPM3jSWQHvMNcvoyvLDSMwcIU=
+github.com/pulumi/terraform-provider-confluent v0.0.0-20220823212458-bed201d7c62c/go.mod h1:kIoKT2FHgbUWYTHGCEa6RKb6fY4cGK+KHRsI8yEDpsM=
 github.com/rogpeppe/fastuuid v1.2.0/go.mod h1:jVj6XXZzXRy/MSR5jhDC/2q6DgLz+nrA6LYCDYWNEvQ=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/samber/lo v1.20.0 h1:20FtphdORvp4yxklurzZv2HX+g+0urEMQziODC5bV70=
