@@ -18,42 +18,27 @@ public final class GetPrivateLinkAccessResult {
      * @return (Optional Configuration Block) The AWS-specific Private Link Access details if available. It supports the following:
      * 
      */
-    private final List<GetPrivateLinkAccessAw> aws;
+    private List<GetPrivateLinkAccessAw> aws;
     /**
      * @return (Optional Configuration Block) The Azure-specific Private Link Access details if available. It supports the following:
      * 
      */
-    private final List<GetPrivateLinkAccessAzure> azures;
+    private List<GetPrivateLinkAccessAzure> azures;
     /**
      * @return (Optional String) The name of the Private Link Access.
      * - `environment` (Required Configuration Block) supports the following:
      * 
      */
-    private final String displayName;
-    private final GetPrivateLinkAccessEnvironment environment;
+    private String displayName;
+    private GetPrivateLinkAccessEnvironment environment;
     /**
      * @return (Required String) The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
      * 
      */
-    private final String id;
-    private final List<GetPrivateLinkAccessNetwork> networks;
+    private String id;
+    private List<GetPrivateLinkAccessNetwork> networks;
 
-    @CustomType.Constructor
-    private GetPrivateLinkAccessResult(
-        @CustomType.Parameter("aws") List<GetPrivateLinkAccessAw> aws,
-        @CustomType.Parameter("azures") List<GetPrivateLinkAccessAzure> azures,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("environment") GetPrivateLinkAccessEnvironment environment,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("networks") List<GetPrivateLinkAccessNetwork> networks) {
-        this.aws = aws;
-        this.azures = azures;
-        this.displayName = displayName;
-        this.environment = environment;
-        this.id = id;
-        this.networks = networks;
-    }
-
+    private GetPrivateLinkAccessResult() {}
     /**
      * @return (Optional Configuration Block) The AWS-specific Private Link Access details if available. It supports the following:
      * 
@@ -97,7 +82,7 @@ public final class GetPrivateLinkAccessResult {
     public static Builder builder(GetPrivateLinkAccessResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetPrivateLinkAccessAw> aws;
         private List<GetPrivateLinkAccessAzure> azures;
@@ -105,11 +90,7 @@ public final class GetPrivateLinkAccessResult {
         private GetPrivateLinkAccessEnvironment environment;
         private String id;
         private List<GetPrivateLinkAccessNetwork> networks;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPrivateLinkAccessResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aws = defaults.aws;
@@ -120,6 +101,7 @@ public final class GetPrivateLinkAccessResult {
     	      this.networks = defaults.networks;
         }
 
+        @CustomType.Setter
         public Builder aws(List<GetPrivateLinkAccessAw> aws) {
             this.aws = Objects.requireNonNull(aws);
             return this;
@@ -127,6 +109,7 @@ public final class GetPrivateLinkAccessResult {
         public Builder aws(GetPrivateLinkAccessAw... aws) {
             return aws(List.of(aws));
         }
+        @CustomType.Setter
         public Builder azures(List<GetPrivateLinkAccessAzure> azures) {
             this.azures = Objects.requireNonNull(azures);
             return this;
@@ -134,26 +117,38 @@ public final class GetPrivateLinkAccessResult {
         public Builder azures(GetPrivateLinkAccessAzure... azures) {
             return azures(List.of(azures));
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder environment(GetPrivateLinkAccessEnvironment environment) {
             this.environment = Objects.requireNonNull(environment);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder networks(List<GetPrivateLinkAccessNetwork> networks) {
             this.networks = Objects.requireNonNull(networks);
             return this;
         }
         public Builder networks(GetPrivateLinkAccessNetwork... networks) {
             return networks(List.of(networks));
-        }        public GetPrivateLinkAccessResult build() {
-            return new GetPrivateLinkAccessResult(aws, azures, displayName, environment, id, networks);
+        }
+        public GetPrivateLinkAccessResult build() {
+            final var o = new GetPrivateLinkAccessResult();
+            o.aws = aws;
+            o.azures = azures;
+            o.displayName = displayName;
+            o.environment = environment;
+            o.id = id;
+            o.networks = networks;
+            return o;
         }
     }
 }

@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKafkaClusterBasic {
-    @CustomType.Constructor
-    private GetKafkaClusterBasic() {
-    }
-
+    private GetKafkaClusterBasic() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class GetKafkaClusterBasic {
     public static Builder builder(GetKafkaClusterBasic defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKafkaClusterBasic defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public GetKafkaClusterBasic build() {
-            return new GetKafkaClusterBasic();
+            final var o = new GetKafkaClusterBasic();
+            return o;
         }
     }
 }

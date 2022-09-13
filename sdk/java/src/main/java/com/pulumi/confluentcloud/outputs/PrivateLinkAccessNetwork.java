@@ -13,13 +13,9 @@ public final class PrivateLinkAccessNetwork {
      * @return The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private PrivateLinkAccessNetwork(@CustomType.Parameter("id") String id) {
-        this.id = id;
-    }
-
+    private PrivateLinkAccessNetwork() {}
     /**
      * @return The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
      * 
@@ -35,24 +31,24 @@ public final class PrivateLinkAccessNetwork {
     public static Builder builder(PrivateLinkAccessNetwork defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PrivateLinkAccessNetwork defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public PrivateLinkAccessNetwork build() {
-            return new PrivateLinkAccessNetwork(id);
+        }
+        public PrivateLinkAccessNetwork build() {
+            final var o = new PrivateLinkAccessNetwork();
+            o.id = id;
+            return o;
         }
     }
 }

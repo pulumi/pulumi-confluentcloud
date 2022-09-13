@@ -13,13 +13,9 @@ public final class PrivateLinkAccessAzure {
      * @return The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
      * 
      */
-    private final String subscription;
+    private String subscription;
 
-    @CustomType.Constructor
-    private PrivateLinkAccessAzure(@CustomType.Parameter("subscription") String subscription) {
-        this.subscription = subscription;
-    }
-
+    private PrivateLinkAccessAzure() {}
     /**
      * @return The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
      * 
@@ -35,24 +31,24 @@ public final class PrivateLinkAccessAzure {
     public static Builder builder(PrivateLinkAccessAzure defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String subscription;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PrivateLinkAccessAzure defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.subscription = defaults.subscription;
         }
 
+        @CustomType.Setter
         public Builder subscription(String subscription) {
             this.subscription = Objects.requireNonNull(subscription);
             return this;
-        }        public PrivateLinkAccessAzure build() {
-            return new PrivateLinkAccessAzure(subscription);
+        }
+        public PrivateLinkAccessAzure build() {
+            final var o = new PrivateLinkAccessAzure();
+            o.subscription = subscription;
+            return o;
         }
     }
 }

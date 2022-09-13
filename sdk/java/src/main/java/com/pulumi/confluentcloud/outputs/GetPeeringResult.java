@@ -19,49 +19,32 @@ public final class GetPeeringResult {
      * @return (Optional Configuration Block) The AWS-specific Peering details if available. It supports the following:
      * 
      */
-    private final List<GetPeeringAw> aws;
+    private List<GetPeeringAw> aws;
     /**
      * @return (Optional Configuration Block) The Azure-specific Peering details if available. It supports the following:
      * 
      */
-    private final List<GetPeeringAzure> azures;
+    private List<GetPeeringAzure> azures;
     /**
      * @return (Optional String) The name of the Peering.
      * - `environment` (Required Configuration Block) supports the following:
      * 
      */
-    private final String displayName;
-    private final GetPeeringEnvironment environment;
+    private String displayName;
+    private GetPeeringEnvironment environment;
     /**
      * @return (Optional Configuration Block) The Azure-specific Peering details if available. It supports the following:
      * 
      */
-    private final List<GetPeeringGcp> gcps;
+    private List<GetPeeringGcp> gcps;
     /**
      * @return (Required String) The ID of the Network that the Peering belongs to, for example, `n-abc123`.
      * 
      */
-    private final String id;
-    private final List<GetPeeringNetwork> networks;
+    private String id;
+    private List<GetPeeringNetwork> networks;
 
-    @CustomType.Constructor
-    private GetPeeringResult(
-        @CustomType.Parameter("aws") List<GetPeeringAw> aws,
-        @CustomType.Parameter("azures") List<GetPeeringAzure> azures,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("environment") GetPeeringEnvironment environment,
-        @CustomType.Parameter("gcps") List<GetPeeringGcp> gcps,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("networks") List<GetPeeringNetwork> networks) {
-        this.aws = aws;
-        this.azures = azures;
-        this.displayName = displayName;
-        this.environment = environment;
-        this.gcps = gcps;
-        this.id = id;
-        this.networks = networks;
-    }
-
+    private GetPeeringResult() {}
     /**
      * @return (Optional Configuration Block) The AWS-specific Peering details if available. It supports the following:
      * 
@@ -112,7 +95,7 @@ public final class GetPeeringResult {
     public static Builder builder(GetPeeringResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetPeeringAw> aws;
         private List<GetPeeringAzure> azures;
@@ -121,11 +104,7 @@ public final class GetPeeringResult {
         private List<GetPeeringGcp> gcps;
         private String id;
         private List<GetPeeringNetwork> networks;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPeeringResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aws = defaults.aws;
@@ -137,6 +116,7 @@ public final class GetPeeringResult {
     	      this.networks = defaults.networks;
         }
 
+        @CustomType.Setter
         public Builder aws(List<GetPeeringAw> aws) {
             this.aws = Objects.requireNonNull(aws);
             return this;
@@ -144,6 +124,7 @@ public final class GetPeeringResult {
         public Builder aws(GetPeeringAw... aws) {
             return aws(List.of(aws));
         }
+        @CustomType.Setter
         public Builder azures(List<GetPeeringAzure> azures) {
             this.azures = Objects.requireNonNull(azures);
             return this;
@@ -151,14 +132,17 @@ public final class GetPeeringResult {
         public Builder azures(GetPeeringAzure... azures) {
             return azures(List.of(azures));
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder environment(GetPeeringEnvironment environment) {
             this.environment = Objects.requireNonNull(environment);
             return this;
         }
+        @CustomType.Setter
         public Builder gcps(List<GetPeeringGcp> gcps) {
             this.gcps = Objects.requireNonNull(gcps);
             return this;
@@ -166,18 +150,29 @@ public final class GetPeeringResult {
         public Builder gcps(GetPeeringGcp... gcps) {
             return gcps(List.of(gcps));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder networks(List<GetPeeringNetwork> networks) {
             this.networks = Objects.requireNonNull(networks);
             return this;
         }
         public Builder networks(GetPeeringNetwork... networks) {
             return networks(List.of(networks));
-        }        public GetPeeringResult build() {
-            return new GetPeeringResult(aws, azures, displayName, environment, gcps, id, networks);
+        }
+        public GetPeeringResult build() {
+            final var o = new GetPeeringResult();
+            o.aws = aws;
+            o.azures = azures;
+            o.displayName = displayName;
+            o.environment = environment;
+            o.gcps = gcps;
+            o.id = id;
+            o.networks = networks;
+            return o;
         }
     }
 }

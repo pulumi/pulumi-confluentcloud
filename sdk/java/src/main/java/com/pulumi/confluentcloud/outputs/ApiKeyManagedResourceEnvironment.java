@@ -13,13 +13,9 @@ public final class ApiKeyManagedResourceEnvironment {
      * @return The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private ApiKeyManagedResourceEnvironment(@CustomType.Parameter("id") String id) {
-        this.id = id;
-    }
-
+    private ApiKeyManagedResourceEnvironment() {}
     /**
      * @return The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
      * 
@@ -35,24 +31,24 @@ public final class ApiKeyManagedResourceEnvironment {
     public static Builder builder(ApiKeyManagedResourceEnvironment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiKeyManagedResourceEnvironment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public ApiKeyManagedResourceEnvironment build() {
-            return new ApiKeyManagedResourceEnvironment(id);
+        }
+        public ApiKeyManagedResourceEnvironment build() {
+            final var o = new ApiKeyManagedResourceEnvironment();
+            o.id = id;
+            return o;
         }
     }
 }

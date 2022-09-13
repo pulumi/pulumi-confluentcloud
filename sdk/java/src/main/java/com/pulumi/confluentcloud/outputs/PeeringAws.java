@@ -14,35 +14,24 @@ public final class PeeringAws {
      * @return The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
      * 
      */
-    private final String account;
+    private String account;
     /**
      * @return The region of the Azure peer VNet.
      * 
      */
-    private final String customerRegion;
+    private String customerRegion;
     /**
      * @return The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs &gt; Target VPC &gt; Details** section of the AWS Management Console.
      * 
      */
-    private final List<String> routes;
+    private List<String> routes;
     /**
      * @return The AWS VPC ID of the peer VPC that you&#39;re peering with Confluent Cloud. You can find your AWS VPC ID [here](https://console.aws.amazon.com/vpc/) under **Your VPCs** section of the AWS Management Console. Must start with `vpc-`.
      * 
      */
-    private final String vpc;
+    private String vpc;
 
-    @CustomType.Constructor
-    private PeeringAws(
-        @CustomType.Parameter("account") String account,
-        @CustomType.Parameter("customerRegion") String customerRegion,
-        @CustomType.Parameter("routes") List<String> routes,
-        @CustomType.Parameter("vpc") String vpc) {
-        this.account = account;
-        this.customerRegion = customerRegion;
-        this.routes = routes;
-        this.vpc = vpc;
-    }
-
+    private PeeringAws() {}
     /**
      * @return The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
      * 
@@ -79,17 +68,13 @@ public final class PeeringAws {
     public static Builder builder(PeeringAws defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String account;
         private String customerRegion;
         private List<String> routes;
         private String vpc;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PeeringAws defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.account = defaults.account;
@@ -98,14 +83,17 @@ public final class PeeringAws {
     	      this.vpc = defaults.vpc;
         }
 
+        @CustomType.Setter
         public Builder account(String account) {
             this.account = Objects.requireNonNull(account);
             return this;
         }
+        @CustomType.Setter
         public Builder customerRegion(String customerRegion) {
             this.customerRegion = Objects.requireNonNull(customerRegion);
             return this;
         }
+        @CustomType.Setter
         public Builder routes(List<String> routes) {
             this.routes = Objects.requireNonNull(routes);
             return this;
@@ -113,11 +101,18 @@ public final class PeeringAws {
         public Builder routes(String... routes) {
             return routes(List.of(routes));
         }
+        @CustomType.Setter
         public Builder vpc(String vpc) {
             this.vpc = Objects.requireNonNull(vpc);
             return this;
-        }        public PeeringAws build() {
-            return new PeeringAws(account, customerRegion, routes, vpc);
+        }
+        public PeeringAws build() {
+            final var o = new PeeringAws();
+            o.account = account;
+            o.customerRegion = customerRegion;
+            o.routes = routes;
+            o.vpc = vpc;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class GetKafkaClusterNetwork {
      * @return The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetKafkaClusterNetwork(@CustomType.Parameter("id") String id) {
-        this.id = id;
-    }
-
+    private GetKafkaClusterNetwork() {}
     /**
      * @return The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
      * 
@@ -35,24 +31,24 @@ public final class GetKafkaClusterNetwork {
     public static Builder builder(GetKafkaClusterNetwork defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKafkaClusterNetwork defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetKafkaClusterNetwork build() {
-            return new GetKafkaClusterNetwork(id);
+        }
+        public GetKafkaClusterNetwork build() {
+            final var o = new GetKafkaClusterNetwork();
+            o.id = id;
+            return o;
         }
     }
 }

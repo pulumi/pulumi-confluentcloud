@@ -14,13 +14,9 @@ public final class GetNetworkAzure {
      * @return (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
      * 
      */
-    private final Map<String,String> privateLinkServiceAliases;
+    private Map<String,String> privateLinkServiceAliases;
 
-    @CustomType.Constructor
-    private GetNetworkAzure(@CustomType.Parameter("privateLinkServiceAliases") Map<String,String> privateLinkServiceAliases) {
-        this.privateLinkServiceAliases = privateLinkServiceAliases;
-    }
-
+    private GetNetworkAzure() {}
     /**
      * @return (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
      * 
@@ -36,24 +32,24 @@ public final class GetNetworkAzure {
     public static Builder builder(GetNetworkAzure defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,String> privateLinkServiceAliases;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNetworkAzure defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.privateLinkServiceAliases = defaults.privateLinkServiceAliases;
         }
 
+        @CustomType.Setter
         public Builder privateLinkServiceAliases(Map<String,String> privateLinkServiceAliases) {
             this.privateLinkServiceAliases = Objects.requireNonNull(privateLinkServiceAliases);
             return this;
-        }        public GetNetworkAzure build() {
-            return new GetNetworkAzure(privateLinkServiceAliases);
+        }
+        public GetNetworkAzure build() {
+            final var o = new GetNetworkAzure();
+            o.privateLinkServiceAliases = privateLinkServiceAliases;
+            return o;
         }
     }
 }

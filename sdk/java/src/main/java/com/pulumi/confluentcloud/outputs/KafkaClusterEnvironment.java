@@ -13,13 +13,9 @@ public final class KafkaClusterEnvironment {
      * @return The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private KafkaClusterEnvironment(@CustomType.Parameter("id") String id) {
-        this.id = id;
-    }
-
+    private KafkaClusterEnvironment() {}
     /**
      * @return The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
      * 
@@ -35,24 +31,24 @@ public final class KafkaClusterEnvironment {
     public static Builder builder(KafkaClusterEnvironment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KafkaClusterEnvironment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public KafkaClusterEnvironment build() {
-            return new KafkaClusterEnvironment(id);
+        }
+        public KafkaClusterEnvironment build() {
+            final var o = new KafkaClusterEnvironment();
+            o.id = id;
+            return o;
         }
     }
 }

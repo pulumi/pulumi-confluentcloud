@@ -13,13 +13,9 @@ public final class NetworkEnvironment {
      * @return The ID of the Environment that the Network belongs to, for example, `env-abc123`.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private NetworkEnvironment(@CustomType.Parameter("id") String id) {
-        this.id = id;
-    }
-
+    private NetworkEnvironment() {}
     /**
      * @return The ID of the Environment that the Network belongs to, for example, `env-abc123`.
      * 
@@ -35,24 +31,24 @@ public final class NetworkEnvironment {
     public static Builder builder(NetworkEnvironment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkEnvironment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public NetworkEnvironment build() {
-            return new NetworkEnvironment(id);
+        }
+        public NetworkEnvironment build() {
+            final var o = new NetworkEnvironment();
+            o.id = id;
+            return o;
         }
     }
 }

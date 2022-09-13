@@ -8,10 +8,7 @@ import java.util.Objects;
 
 @CustomType
 public final class KafkaClusterStandard {
-    @CustomType.Constructor
-    private KafkaClusterStandard() {
-    }
-
+    private KafkaClusterStandard() {}
 
     public static Builder builder() {
         return new Builder();
@@ -20,18 +17,16 @@ public final class KafkaClusterStandard {
     public static Builder builder(KafkaClusterStandard defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KafkaClusterStandard defaults) {
     	      Objects.requireNonNull(defaults);
         }
+
         public KafkaClusterStandard build() {
-            return new KafkaClusterStandard();
+            final var o = new KafkaClusterStandard();
+            return o;
         }
     }
 }

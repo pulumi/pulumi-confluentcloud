@@ -12,7 +12,7 @@ namespace Pulumi.ConfluentCloud
     public static class GetOrganization
     {
         /// <summary>
-        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.getOrganization` describes an Organization data source.
         /// 

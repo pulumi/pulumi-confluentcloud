@@ -12,7 +12,7 @@ namespace Pulumi.ConfluentCloud
     public static class GetPrivateLinkAccess
     {
         /// <summary>
-        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.PrivateLinkAccess` describes a Network data source.
         /// 
@@ -59,7 +59,7 @@ namespace Pulumi.ConfluentCloud
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkAccessResult>("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", args ?? new GetPrivateLinkAccessArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.PrivateLinkAccess` describes a Network data source.
         /// 

@@ -15,21 +15,14 @@ public final class NetworkAw {
      * @return (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
      * 
      */
-    private final @Nullable String privateLinkEndpointService;
+    private @Nullable String privateLinkEndpointService;
     /**
      * @return (Required String) The AWS VPC ID for the network.
      * 
      */
-    private final @Nullable String vpc;
+    private @Nullable String vpc;
 
-    @CustomType.Constructor
-    private NetworkAw(
-        @CustomType.Parameter("privateLinkEndpointService") @Nullable String privateLinkEndpointService,
-        @CustomType.Parameter("vpc") @Nullable String vpc) {
-        this.privateLinkEndpointService = privateLinkEndpointService;
-        this.vpc = vpc;
-    }
-
+    private NetworkAw() {}
     /**
      * @return (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
      * 
@@ -52,30 +45,32 @@ public final class NetworkAw {
     public static Builder builder(NetworkAw defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String privateLinkEndpointService;
         private @Nullable String vpc;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkAw defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.privateLinkEndpointService = defaults.privateLinkEndpointService;
     	      this.vpc = defaults.vpc;
         }
 
+        @CustomType.Setter
         public Builder privateLinkEndpointService(@Nullable String privateLinkEndpointService) {
             this.privateLinkEndpointService = privateLinkEndpointService;
             return this;
         }
+        @CustomType.Setter
         public Builder vpc(@Nullable String vpc) {
             this.vpc = vpc;
             return this;
-        }        public NetworkAw build() {
-            return new NetworkAw(privateLinkEndpointService, vpc);
+        }
+        public NetworkAw build() {
+            final var o = new NetworkAw();
+            o.privateLinkEndpointService = privateLinkEndpointService;
+            o.vpc = vpc;
+            return o;
         }
     }
 }

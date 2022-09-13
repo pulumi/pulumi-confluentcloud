@@ -13,13 +13,9 @@ public final class GetKafkaTopicKafkaCluster {
      * @return The ID of the Kafka cluster, for example, `lkc-abc123`.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetKafkaTopicKafkaCluster(@CustomType.Parameter("id") String id) {
-        this.id = id;
-    }
-
+    private GetKafkaTopicKafkaCluster() {}
     /**
      * @return The ID of the Kafka cluster, for example, `lkc-abc123`.
      * 
@@ -35,24 +31,24 @@ public final class GetKafkaTopicKafkaCluster {
     public static Builder builder(GetKafkaTopicKafkaCluster defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKafkaTopicKafkaCluster defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetKafkaTopicKafkaCluster build() {
-            return new GetKafkaTopicKafkaCluster(id);
+        }
+        public GetKafkaTopicKafkaCluster build() {
+            final var o = new GetKafkaTopicKafkaCluster();
+            o.id = id;
+            return o;
         }
     }
 }

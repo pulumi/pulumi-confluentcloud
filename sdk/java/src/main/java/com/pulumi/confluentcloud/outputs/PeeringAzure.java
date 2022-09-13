@@ -13,28 +13,19 @@ public final class PeeringAzure {
      * @return The region of the Azure peer VNet.
      * 
      */
-    private final String customerRegion;
+    private String customerRegion;
     /**
      * @return The Tenant ID that represents an organization in Azure Active Directory. You can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
      * 
      */
-    private final String tenant;
+    private String tenant;
     /**
      * @return The resource (composite) ID of the peer Virtual Network that you&#39;re peering with Confluent Cloud, in the format `/subscriptions/&lt;Subscription ID&gt;/resourceGroups/&lt;Resource Group Name&gt;/providers/Microsoft.Network/virtualNetworks/&lt;VNet name&gt;`. You can find Subscription ID, Resource Group Name and your VNet name under **Virtual Networks &gt; Target VNet &gt; Essentials** section of your [Microsoft Azure Portal](https://portal.azure.com/).
      * 
      */
-    private final String vnet;
+    private String vnet;
 
-    @CustomType.Constructor
-    private PeeringAzure(
-        @CustomType.Parameter("customerRegion") String customerRegion,
-        @CustomType.Parameter("tenant") String tenant,
-        @CustomType.Parameter("vnet") String vnet) {
-        this.customerRegion = customerRegion;
-        this.tenant = tenant;
-        this.vnet = vnet;
-    }
-
+    private PeeringAzure() {}
     /**
      * @return The region of the Azure peer VNet.
      * 
@@ -64,16 +55,12 @@ public final class PeeringAzure {
     public static Builder builder(PeeringAzure defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String customerRegion;
         private String tenant;
         private String vnet;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PeeringAzure defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customerRegion = defaults.customerRegion;
@@ -81,19 +68,27 @@ public final class PeeringAzure {
     	      this.vnet = defaults.vnet;
         }
 
+        @CustomType.Setter
         public Builder customerRegion(String customerRegion) {
             this.customerRegion = Objects.requireNonNull(customerRegion);
             return this;
         }
+        @CustomType.Setter
         public Builder tenant(String tenant) {
             this.tenant = Objects.requireNonNull(tenant);
             return this;
         }
+        @CustomType.Setter
         public Builder vnet(String vnet) {
             this.vnet = Objects.requireNonNull(vnet);
             return this;
-        }        public PeeringAzure build() {
-            return new PeeringAzure(customerRegion, tenant, vnet);
+        }
+        public PeeringAzure build() {
+            final var o = new PeeringAzure();
+            o.customerRegion = customerRegion;
+            o.tenant = tenant;
+            o.vnet = vnet;
+            return o;
         }
     }
 }

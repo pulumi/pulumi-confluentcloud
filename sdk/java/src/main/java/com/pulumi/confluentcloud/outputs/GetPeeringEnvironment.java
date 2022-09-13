@@ -13,13 +13,9 @@ public final class GetPeeringEnvironment {
      * @return The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetPeeringEnvironment(@CustomType.Parameter("id") String id) {
-        this.id = id;
-    }
-
+    private GetPeeringEnvironment() {}
     /**
      * @return The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
      * 
@@ -35,24 +31,24 @@ public final class GetPeeringEnvironment {
     public static Builder builder(GetPeeringEnvironment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPeeringEnvironment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetPeeringEnvironment build() {
-            return new GetPeeringEnvironment(id);
+        }
+        public GetPeeringEnvironment build() {
+            final var o = new GetPeeringEnvironment();
+            o.id = id;
+            return o;
         }
     }
 }

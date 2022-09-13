@@ -16,28 +16,19 @@ public final class PeeringGcp {
      * @return The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
      * 
      */
-    private final @Nullable Boolean importCustomRoutes;
+    private @Nullable Boolean importCustomRoutes;
     /**
      * @return The GCP Project ID. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
      * 
      */
-    private final String project;
+    private String project;
     /**
      * @return The VPC network name that you&#39;re peering to Confluent Cloud. You can find your VPC network name under **VPC Networks** section of your [Google Cloud Console](https://console.cloud.google.com/networking/networks/list).
      * 
      */
-    private final String vpcNetwork;
+    private String vpcNetwork;
 
-    @CustomType.Constructor
-    private PeeringGcp(
-        @CustomType.Parameter("importCustomRoutes") @Nullable Boolean importCustomRoutes,
-        @CustomType.Parameter("project") String project,
-        @CustomType.Parameter("vpcNetwork") String vpcNetwork) {
-        this.importCustomRoutes = importCustomRoutes;
-        this.project = project;
-        this.vpcNetwork = vpcNetwork;
-    }
-
+    private PeeringGcp() {}
     /**
      * @return The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
      * 
@@ -67,16 +58,12 @@ public final class PeeringGcp {
     public static Builder builder(PeeringGcp defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean importCustomRoutes;
         private String project;
         private String vpcNetwork;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PeeringGcp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.importCustomRoutes = defaults.importCustomRoutes;
@@ -84,19 +71,27 @@ public final class PeeringGcp {
     	      this.vpcNetwork = defaults.vpcNetwork;
         }
 
+        @CustomType.Setter
         public Builder importCustomRoutes(@Nullable Boolean importCustomRoutes) {
             this.importCustomRoutes = importCustomRoutes;
             return this;
         }
+        @CustomType.Setter
         public Builder project(String project) {
             this.project = Objects.requireNonNull(project);
             return this;
         }
+        @CustomType.Setter
         public Builder vpcNetwork(String vpcNetwork) {
             this.vpcNetwork = Objects.requireNonNull(vpcNetwork);
             return this;
-        }        public PeeringGcp build() {
-            return new PeeringGcp(importCustomRoutes, project, vpcNetwork);
+        }
+        public PeeringGcp build() {
+            final var o = new PeeringGcp();
+            o.importCustomRoutes = importCustomRoutes;
+            o.project = project;
+            o.vpcNetwork = vpcNetwork;
+            return o;
         }
     }
 }

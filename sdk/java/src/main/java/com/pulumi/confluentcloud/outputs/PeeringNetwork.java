@@ -13,13 +13,9 @@ public final class PeeringNetwork {
      * @return The ID of the Network that the Peering belongs to, for example, `n-abc123`.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private PeeringNetwork(@CustomType.Parameter("id") String id) {
-        this.id = id;
-    }
-
+    private PeeringNetwork() {}
     /**
      * @return The ID of the Network that the Peering belongs to, for example, `n-abc123`.
      * 
@@ -35,24 +31,24 @@ public final class PeeringNetwork {
     public static Builder builder(PeeringNetwork defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PeeringNetwork defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public PeeringNetwork build() {
-            return new PeeringNetwork(id);
+        }
+        public PeeringNetwork build() {
+            final var o = new PeeringNetwork();
+            o.id = id;
+            return o;
         }
     }
 }

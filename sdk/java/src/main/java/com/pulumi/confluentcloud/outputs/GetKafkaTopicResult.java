@@ -19,40 +19,23 @@ public final class GetKafkaTopicResult {
      * @return (Optional Map) The custom topic settings:
      * 
      */
-    private final Map<String,String> config;
-    private final @Nullable GetKafkaTopicCredentials credentials;
+    private Map<String,String> config;
+    private @Nullable GetKafkaTopicCredentials credentials;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final GetKafkaTopicKafkaCluster kafkaCluster;
+    private String id;
+    private GetKafkaTopicKafkaCluster kafkaCluster;
     /**
      * @return (Required Number) The number of partitions to create in the topic. Defaults to `6`.
      * 
      */
-    private final Integer partitionsCount;
-    private final String restEndpoint;
-    private final String topicName;
+    private Integer partitionsCount;
+    private String restEndpoint;
+    private String topicName;
 
-    @CustomType.Constructor
-    private GetKafkaTopicResult(
-        @CustomType.Parameter("config") Map<String,String> config,
-        @CustomType.Parameter("credentials") @Nullable GetKafkaTopicCredentials credentials,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kafkaCluster") GetKafkaTopicKafkaCluster kafkaCluster,
-        @CustomType.Parameter("partitionsCount") Integer partitionsCount,
-        @CustomType.Parameter("restEndpoint") String restEndpoint,
-        @CustomType.Parameter("topicName") String topicName) {
-        this.config = config;
-        this.credentials = credentials;
-        this.id = id;
-        this.kafkaCluster = kafkaCluster;
-        this.partitionsCount = partitionsCount;
-        this.restEndpoint = restEndpoint;
-        this.topicName = topicName;
-    }
-
+    private GetKafkaTopicResult() {}
     /**
      * @return (Optional Map) The custom topic settings:
      * 
@@ -94,7 +77,7 @@ public final class GetKafkaTopicResult {
     public static Builder builder(GetKafkaTopicResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,String> config;
         private @Nullable GetKafkaTopicCredentials credentials;
@@ -103,11 +86,7 @@ public final class GetKafkaTopicResult {
         private Integer partitionsCount;
         private String restEndpoint;
         private String topicName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKafkaTopicResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.config = defaults.config;
@@ -119,35 +98,51 @@ public final class GetKafkaTopicResult {
     	      this.topicName = defaults.topicName;
         }
 
+        @CustomType.Setter
         public Builder config(Map<String,String> config) {
             this.config = Objects.requireNonNull(config);
             return this;
         }
+        @CustomType.Setter
         public Builder credentials(@Nullable GetKafkaTopicCredentials credentials) {
             this.credentials = credentials;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kafkaCluster(GetKafkaTopicKafkaCluster kafkaCluster) {
             this.kafkaCluster = Objects.requireNonNull(kafkaCluster);
             return this;
         }
+        @CustomType.Setter
         public Builder partitionsCount(Integer partitionsCount) {
             this.partitionsCount = Objects.requireNonNull(partitionsCount);
             return this;
         }
+        @CustomType.Setter
         public Builder restEndpoint(String restEndpoint) {
             this.restEndpoint = Objects.requireNonNull(restEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder topicName(String topicName) {
             this.topicName = Objects.requireNonNull(topicName);
             return this;
-        }        public GetKafkaTopicResult build() {
-            return new GetKafkaTopicResult(config, credentials, id, kafkaCluster, partitionsCount, restEndpoint, topicName);
+        }
+        public GetKafkaTopicResult build() {
+            final var o = new GetKafkaTopicResult();
+            o.config = config;
+            o.credentials = credentials;
+            o.id = id;
+            o.kafkaCluster = kafkaCluster;
+            o.partitionsCount = partitionsCount;
+            o.restEndpoint = restEndpoint;
+            o.topicName = topicName;
+            return o;
         }
     }
 }

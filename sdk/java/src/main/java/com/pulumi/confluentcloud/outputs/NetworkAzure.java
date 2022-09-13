@@ -15,13 +15,9 @@ public final class NetworkAzure {
      * @return (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zone names, for example, `1` and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service), for example, `s-nk99e-privatelink-1.8c43dcd0-695c-1234-bc35-11fe6abb303a.centralus.azure.privatelinkservice`.
      * 
      */
-    private final @Nullable Map<String,String> privateLinkServiceAliases;
+    private @Nullable Map<String,String> privateLinkServiceAliases;
 
-    @CustomType.Constructor
-    private NetworkAzure(@CustomType.Parameter("privateLinkServiceAliases") @Nullable Map<String,String> privateLinkServiceAliases) {
-        this.privateLinkServiceAliases = privateLinkServiceAliases;
-    }
-
+    private NetworkAzure() {}
     /**
      * @return (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zone names, for example, `1` and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service), for example, `s-nk99e-privatelink-1.8c43dcd0-695c-1234-bc35-11fe6abb303a.centralus.azure.privatelinkservice`.
      * 
@@ -37,24 +33,24 @@ public final class NetworkAzure {
     public static Builder builder(NetworkAzure defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> privateLinkServiceAliases;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkAzure defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.privateLinkServiceAliases = defaults.privateLinkServiceAliases;
         }
 
+        @CustomType.Setter
         public Builder privateLinkServiceAliases(@Nullable Map<String,String> privateLinkServiceAliases) {
             this.privateLinkServiceAliases = privateLinkServiceAliases;
             return this;
-        }        public NetworkAzure build() {
-            return new NetworkAzure(privateLinkServiceAliases);
+        }
+        public NetworkAzure build() {
+            final var o = new NetworkAzure();
+            o.privateLinkServiceAliases = privateLinkServiceAliases;
+            return o;
         }
     }
 }

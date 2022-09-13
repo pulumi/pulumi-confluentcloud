@@ -12,7 +12,7 @@ namespace Pulumi.ConfluentCloud
     public static class GetKafkaTopic
     {
         /// <summary>
-        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
         /// 
@@ -55,7 +55,7 @@ namespace Pulumi.ConfluentCloud
             => Pulumi.Deployment.Instance.InvokeAsync<GetKafkaTopicResult>("confluentcloud:index/getKafkaTopic:getKafkaTopic", args ?? new GetKafkaTopicArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
         /// 
