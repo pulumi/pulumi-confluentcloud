@@ -23,7 +23,7 @@ class GetPrivateLinkAccessResult:
     """
     A collection of values returned by getPrivateLinkAccess.
     """
-    def __init__(__self__, aws=None, azures=None, display_name=None, environment=None, id=None, networks=None):
+    def __init__(__self__, aws=None, azures=None, display_name=None, environment=None, gcps=None, id=None, networks=None):
         if aws and not isinstance(aws, list):
             raise TypeError("Expected argument 'aws' to be a list")
         pulumi.set(__self__, "aws", aws)
@@ -36,6 +36,9 @@ class GetPrivateLinkAccessResult:
         if environment and not isinstance(environment, dict):
             raise TypeError("Expected argument 'environment' to be a dict")
         pulumi.set(__self__, "environment", environment)
+        if gcps and not isinstance(gcps, list):
+            raise TypeError("Expected argument 'gcps' to be a list")
+        pulumi.set(__self__, "gcps", gcps)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -75,6 +78,14 @@ class GetPrivateLinkAccessResult:
 
     @property
     @pulumi.getter
+    def gcps(self) -> Sequence['outputs.GetPrivateLinkAccessGcpResult']:
+        """
+        (Optional Configuration Block) The GCP-specific Private Service Connect details if available. It supports the following:
+        """
+        return pulumi.get(self, "gcps")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
         (Required String) The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
@@ -97,6 +108,7 @@ class AwaitableGetPrivateLinkAccessResult(GetPrivateLinkAccessResult):
             azures=self.azures,
             display_name=self.display_name,
             environment=self.environment,
+            gcps=self.gcps,
             id=self.id,
             networks=self.networks)
 
@@ -144,6 +156,7 @@ def get_private_link_access(display_name: Optional[str] = None,
         azures=__ret__.azures,
         display_name=__ret__.display_name,
         environment=__ret__.environment,
+        gcps=__ret__.gcps,
         id=__ret__.id,
         networks=__ret__.networks)
 

@@ -172,6 +172,10 @@ namespace Pulumi.ConfluentCloud
         public readonly string DisplayName;
         public readonly Outputs.GetPrivateLinkAccessEnvironmentResult Environment;
         /// <summary>
+        /// (Optional Configuration Block) The GCP-specific Private Service Connect details if available. It supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPrivateLinkAccessGcpResult> Gcps;
+        /// <summary>
         /// (Required String) The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
         /// </summary>
         public readonly string Id;
@@ -187,6 +191,8 @@ namespace Pulumi.ConfluentCloud
 
             Outputs.GetPrivateLinkAccessEnvironmentResult environment,
 
+            ImmutableArray<Outputs.GetPrivateLinkAccessGcpResult> gcps,
+
             string id,
 
             ImmutableArray<Outputs.GetPrivateLinkAccessNetworkResult> networks)
@@ -195,6 +201,7 @@ namespace Pulumi.ConfluentCloud
             Azures = azures;
             DisplayName = displayName;
             Environment = environment;
+            Gcps = gcps;
             Id = id;
             Networks = networks;
         }

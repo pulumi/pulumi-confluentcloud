@@ -12,8 +12,20 @@ namespace Pulumi.ConfluentCloud.Inputs
 
     public sealed class GetNetworkGcpArgs : global::Pulumi.InvokeArgs
     {
+        [Input("privateServiceConnectServiceAttachments", required: true)]
+        private Dictionary<string, string>? _privateServiceConnectServiceAttachments;
+
         /// <summary>
-        /// (Required String) The GCP project.
+        /// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+        /// </summary>
+        public Dictionary<string, string> PrivateServiceConnectServiceAttachments
+        {
+            get => _privateServiceConnectServiceAttachments ?? (_privateServiceConnectServiceAttachments = new Dictionary<string, string>());
+            set => _privateServiceConnectServiceAttachments = value;
+        }
+
+        /// <summary>
+        /// (Required String) The GCP project ID.
         /// </summary>
         [Input("project", required: true)]
         public string Project { get; set; } = null!;

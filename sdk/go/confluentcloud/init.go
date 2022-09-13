@@ -26,12 +26,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Connector{}
 	case "confluentcloud:index/environment:Environment":
 		r = &Environment{}
+	case "confluentcloud:index/identityPool:IdentityPool":
+		r = &IdentityPool{}
+	case "confluentcloud:index/identityProvider:IdentityProvider":
+		r = &IdentityProvider{}
 	case "confluentcloud:index/kafkaAcl:KafkaAcl":
 		r = &KafkaAcl{}
 	case "confluentcloud:index/kafkaCluster:KafkaCluster":
 		r = &KafkaCluster{}
 	case "confluentcloud:index/kafkaTopic:KafkaTopic":
 		r = &KafkaTopic{}
+	case "confluentcloud:index/ksqlCluster:KsqlCluster":
+		r = &KsqlCluster{}
 	case "confluentcloud:index/network:Network":
 		r = &Network{}
 	case "confluentcloud:index/peering:Peering":
@@ -87,6 +93,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
+		"index/identityPool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/identityProvider",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
 		"index/kafkaAcl",
 		&module{version},
 	)
@@ -98,6 +114,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/kafkaTopic",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/ksqlCluster",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

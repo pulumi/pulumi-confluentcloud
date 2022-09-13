@@ -55,6 +55,7 @@ export class PrivateLinkAccess extends pulumi.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     public readonly environment!: pulumi.Output<outputs.PrivateLinkAccessEnvironment>;
+    public readonly gcp!: pulumi.Output<outputs.PrivateLinkAccessGcp | undefined>;
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
      * accounts.
@@ -78,6 +79,7 @@ export class PrivateLinkAccess extends pulumi.CustomResource {
             resourceInputs["azure"] = state ? state.azure : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
+            resourceInputs["gcp"] = state ? state.gcp : undefined;
             resourceInputs["network"] = state ? state.network : undefined;
         } else {
             const args = argsOrState as PrivateLinkAccessArgs | undefined;
@@ -91,6 +93,7 @@ export class PrivateLinkAccess extends pulumi.CustomResource {
             resourceInputs["azure"] = args ? args.azure : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["gcp"] = args ? args.gcp : undefined;
             resourceInputs["network"] = args ? args.network : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -112,6 +115,7 @@ export interface PrivateLinkAccessState {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment?: pulumi.Input<inputs.PrivateLinkAccessEnvironment>;
+    gcp?: pulumi.Input<inputs.PrivateLinkAccessGcp>;
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
      * accounts.
@@ -133,6 +137,7 @@ export interface PrivateLinkAccessArgs {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment: pulumi.Input<inputs.PrivateLinkAccessEnvironment>;
+    gcp?: pulumi.Input<inputs.PrivateLinkAccessGcp>;
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
      * accounts.

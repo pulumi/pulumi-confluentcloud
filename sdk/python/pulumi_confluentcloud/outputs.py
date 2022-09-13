@@ -16,6 +16,7 @@ __all__ = [
     'ApiKeyOwner',
     'ConnectorEnvironment',
     'ConnectorKafkaCluster',
+    'IdentityPoolIdentityProvider',
     'KafkaAclCredentials',
     'KafkaAclKafkaCluster',
     'KafkaClusterBasic',
@@ -25,6 +26,9 @@ __all__ = [
     'KafkaClusterStandard',
     'KafkaTopicCredentials',
     'KafkaTopicKafkaCluster',
+    'KsqlClusterCredentialIdentity',
+    'KsqlClusterEnvironment',
+    'KsqlClusterKafkaCluster',
     'NetworkAw',
     'NetworkAzure',
     'NetworkEnvironment',
@@ -37,7 +41,9 @@ __all__ = [
     'PrivateLinkAccessAws',
     'PrivateLinkAccessAzure',
     'PrivateLinkAccessEnvironment',
+    'PrivateLinkAccessGcp',
     'PrivateLinkAccessNetwork',
+    'GetIdentityPoolIdentityProviderResult',
     'GetKafkaClusterBasicResult',
     'GetKafkaClusterDedicatedResult',
     'GetKafkaClusterEnvironmentResult',
@@ -45,6 +51,9 @@ __all__ = [
     'GetKafkaClusterStandardResult',
     'GetKafkaTopicCredentialsResult',
     'GetKafkaTopicKafkaClusterResult',
+    'GetKsqlClusterCredentialIdentityResult',
+    'GetKsqlClusterEnvironmentResult',
+    'GetKsqlClusterKafkaClusterResult',
     'GetNetworkAwResult',
     'GetNetworkAzureResult',
     'GetNetworkEnvironmentResult',
@@ -57,6 +66,7 @@ __all__ = [
     'GetPrivateLinkAccessAwResult',
     'GetPrivateLinkAccessAzureResult',
     'GetPrivateLinkAccessEnvironmentResult',
+    'GetPrivateLinkAccessGcpResult',
     'GetPrivateLinkAccessNetworkResult',
 ]
 
@@ -231,6 +241,24 @@ class ConnectorKafkaCluster(dict):
     def id(self) -> str:
         """
         The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class IdentityPoolIdentityProvider(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -425,6 +453,60 @@ class KafkaTopicKafkaCluster(dict):
 
 
 @pulumi.output_type
+class KsqlClusterCredentialIdentity(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the associated service or user account, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the associated service or user account, for example, `sa-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class KsqlClusterEnvironment(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the associated service or user account, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the associated service or user account, for example, `sa-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class KsqlClusterKafkaCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the associated service or user account, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the associated service or user account, for example, `sa-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class NetworkAw(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -531,7 +613,9 @@ class NetworkGcp(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "vpcNetwork":
+        if key == "privateServiceConnectServiceAttachments":
+            suggest = "private_service_connect_service_attachments"
+        elif key == "vpcNetwork":
             suggest = "vpc_network"
 
         if suggest:
@@ -546,22 +630,34 @@ class NetworkGcp(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 private_service_connect_service_attachments: Optional[Mapping[str, str]] = None,
                  project: Optional[str] = None,
                  vpc_network: Optional[str] = None):
         """
-        :param str project: (Required String) The GCP project.
+        :param Mapping[str, str] private_service_connect_service_attachments: (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+        :param str project: (Required String) The GCP project ID.
         :param str vpc_network: (Required String) The GCP VPC network name.
         """
+        if private_service_connect_service_attachments is not None:
+            pulumi.set(__self__, "private_service_connect_service_attachments", private_service_connect_service_attachments)
         if project is not None:
             pulumi.set(__self__, "project", project)
         if vpc_network is not None:
             pulumi.set(__self__, "vpc_network", vpc_network)
 
     @property
+    @pulumi.getter(name="privateServiceConnectServiceAttachments")
+    def private_service_connect_service_attachments(self) -> Optional[Mapping[str, str]]:
+        """
+        (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+        """
+        return pulumi.get(self, "private_service_connect_service_attachments")
+
+    @property
     @pulumi.getter
     def project(self) -> Optional[str]:
         """
-        (Required String) The GCP project.
+        (Required String) The GCP project ID.
         """
         return pulumi.get(self, "project")
 
@@ -850,6 +946,24 @@ class PrivateLinkAccessEnvironment(dict):
 
 
 @pulumi.output_type
+class PrivateLinkAccessGcp(dict):
+    def __init__(__self__, *,
+                 project: str):
+        """
+        :param str project: The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+        """
+        pulumi.set(__self__, "project", project)
+
+    @property
+    @pulumi.getter
+    def project(self) -> str:
+        """
+        The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+        """
+        return pulumi.get(self, "project")
+
+
+@pulumi.output_type
 class PrivateLinkAccessNetwork(dict):
     def __init__(__self__, *,
                  id: str):
@@ -863,6 +977,24 @@ class PrivateLinkAccessNetwork(dict):
     def id(self) -> str:
         """
         The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetIdentityPoolIdentityProviderResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -992,6 +1124,60 @@ class GetKafkaTopicKafkaClusterResult(dict):
 
 
 @pulumi.output_type
+class GetKsqlClusterCredentialIdentityResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetKsqlClusterEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetKsqlClusterKafkaClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class GetNetworkAwResult(dict):
     def __init__(__self__, *,
                  private_link_endpoint_service: str,
@@ -1059,20 +1245,31 @@ class GetNetworkEnvironmentResult(dict):
 @pulumi.output_type
 class GetNetworkGcpResult(dict):
     def __init__(__self__, *,
+                 private_service_connect_service_attachments: Mapping[str, str],
                  project: str,
                  vpc_network: str):
         """
-        :param str project: (Required String) The GCP project.
+        :param Mapping[str, str] private_service_connect_service_attachments: (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+        :param str project: (Required String) The GCP project ID.
         :param str vpc_network: (Required String) The GCP VPC network name.
         """
+        pulumi.set(__self__, "private_service_connect_service_attachments", private_service_connect_service_attachments)
         pulumi.set(__self__, "project", project)
         pulumi.set(__self__, "vpc_network", vpc_network)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectServiceAttachments")
+    def private_service_connect_service_attachments(self) -> Mapping[str, str]:
+        """
+        (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+        """
+        return pulumi.get(self, "private_service_connect_service_attachments")
 
     @property
     @pulumi.getter
     def project(self) -> str:
         """
-        (Required String) The GCP project.
+        (Required String) The GCP project ID.
         """
         return pulumi.get(self, "project")
 
@@ -1304,6 +1501,24 @@ class GetPrivateLinkAccessEnvironmentResult(dict):
         The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetPrivateLinkAccessGcpResult(dict):
+    def __init__(__self__, *,
+                 project: str):
+        """
+        :param str project: (Required String) The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+        """
+        pulumi.set(__self__, "project", project)
+
+    @property
+    @pulumi.getter
+    def project(self) -> str:
+        """
+        (Required String) The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+        """
+        return pulumi.get(self, "project")
 
 
 @pulumi.output_type

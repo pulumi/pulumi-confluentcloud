@@ -9,8 +9,11 @@ from .api_key import *
 from .connector import *
 from .environment import *
 from .get_environment import *
+from .get_identity_pool import *
+from .get_identity_provider import *
 from .get_kafka_cluster import *
 from .get_kafka_topic import *
+from .get_ksql_cluster import *
 from .get_network import *
 from .get_organization import *
 from .get_peering import *
@@ -18,9 +21,12 @@ from .get_private_link_access import *
 from .get_role_binding import *
 from .get_service_account import *
 from .get_user import *
+from .identity_pool import *
+from .identity_provider import *
 from .kafka_acl import *
 from .kafka_cluster import *
 from .kafka_topic import *
+from .ksql_cluster import *
 from .network import *
 from .peering import *
 from .private_link_access import *
@@ -66,6 +72,22 @@ _utilities.register(
  },
  {
   "pkg": "confluentcloud",
+  "mod": "index/identityPool",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/identityPool:IdentityPool": "IdentityPool"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/identityProvider",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/identityProvider:IdentityProvider": "IdentityProvider"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
   "mod": "index/kafkaAcl",
   "fqn": "pulumi_confluentcloud",
   "classes": {
@@ -86,6 +108,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/kafkaTopic:KafkaTopic": "KafkaTopic"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/ksqlCluster",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/ksqlCluster:KsqlCluster": "KsqlCluster"
   }
  },
  {

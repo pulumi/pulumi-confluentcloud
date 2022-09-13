@@ -57,21 +57,24 @@ export interface ConnectorKafkaCluster {
     id: pulumi.Input<string>;
 }
 
+export interface GetIdentityPoolIdentityProvider {
+    /**
+     * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+     */
+    id: string;
+}
+
+export interface GetIdentityPoolIdentityProviderArgs {
+    /**
+     * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface GetKafkaClusterBasic {
 }
 
 export interface GetKafkaClusterBasicArgs {
-}
-
-export interface GetKafkaClusterDedicated {
-    /**
-     * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-     */
-    cku?: number;
-    /**
-     * (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
-     */
-    encryptionKey?: string;
 }
 
 export interface GetKafkaClusterDedicatedArgs {
@@ -85,11 +88,15 @@ export interface GetKafkaClusterDedicatedArgs {
     encryptionKey?: pulumi.Input<string>;
 }
 
-export interface GetKafkaClusterEnvironment {
+export interface GetKafkaClusterDedicated {
     /**
-     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+     * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
      */
-    id: string;
+    cku?: number;
+    /**
+     * (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
+     */
+    encryptionKey?: string;
 }
 
 export interface GetKafkaClusterEnvironmentArgs {
@@ -99,21 +106,17 @@ export interface GetKafkaClusterEnvironmentArgs {
     id: pulumi.Input<string>;
 }
 
-export interface GetKafkaClusterStandardArgs {
+export interface GetKafkaClusterEnvironment {
+    /**
+     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+     */
+    id: string;
 }
 
 export interface GetKafkaClusterStandard {
 }
 
-export interface GetKafkaTopicCredentialsArgs {
-    /**
-     * The Kafka API Key.
-     */
-    key: pulumi.Input<string>;
-    /**
-     * The Kafka API Secret.
-     */
-    secret: pulumi.Input<string>;
+export interface GetKafkaClusterStandardArgs {
 }
 
 export interface GetKafkaTopicCredentials {
@@ -127,6 +130,24 @@ export interface GetKafkaTopicCredentials {
     secret: string;
 }
 
+export interface GetKafkaTopicCredentialsArgs {
+    /**
+     * The Kafka API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Kafka API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetKafkaTopicKafkaClusterArgs {
+    /**
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface GetKafkaTopicKafkaCluster {
     /**
      * The ID of the Kafka cluster, for example, `lkc-abc123`.
@@ -134,9 +155,16 @@ export interface GetKafkaTopicKafkaCluster {
     id: string;
 }
 
-export interface GetKafkaTopicKafkaClusterArgs {
+export interface GetKsqlClusterEnvironment {
     /**
-     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetKsqlClusterEnvironmentArgs {
+    /**
+     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
      */
     id: pulumi.Input<string>;
 }
@@ -163,13 +191,6 @@ export interface GetNetworkAwArgs {
     vpc?: pulumi.Input<string>;
 }
 
-export interface GetNetworkAzureArgs {
-    /**
-     * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
-     */
-    privateLinkServiceAliases?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-}
-
 export interface GetNetworkAzure {
     /**
      * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
@@ -177,11 +198,11 @@ export interface GetNetworkAzure {
     privateLinkServiceAliases?: {[key: string]: string};
 }
 
-export interface GetNetworkEnvironment {
+export interface GetNetworkAzureArgs {
     /**
-     * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+     * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
      */
-    id: string;
+    privateLinkServiceAliases?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 export interface GetNetworkEnvironmentArgs {
@@ -191,9 +212,20 @@ export interface GetNetworkEnvironmentArgs {
     id: pulumi.Input<string>;
 }
 
+export interface GetNetworkEnvironment {
+    /**
+     * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
 export interface GetNetworkGcp {
     /**
-     * (Required String) The GCP project.
+     * (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     */
+    privateServiceConnectServiceAttachments?: {[key: string]: string};
+    /**
+     * (Required String) The GCP project ID.
      */
     project?: string;
     /**
@@ -204,7 +236,11 @@ export interface GetNetworkGcp {
 
 export interface GetNetworkGcpArgs {
     /**
-     * (Required String) The GCP project.
+     * (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     */
+    privateServiceConnectServiceAttachments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * (Required String) The GCP project ID.
      */
     project?: pulumi.Input<string>;
     /**
@@ -213,18 +249,18 @@ export interface GetNetworkGcpArgs {
     vpcNetwork?: pulumi.Input<string>;
 }
 
-export interface GetPeeringEnvironment {
-    /**
-     * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
-     */
-    id: string;
-}
-
 export interface GetPeeringEnvironmentArgs {
     /**
      * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
      */
     id: pulumi.Input<string>;
+}
+
+export interface GetPeeringEnvironment {
+    /**
+     * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+     */
+    id: string;
 }
 
 export interface GetPrivateLinkAccessEnvironment {
@@ -237,6 +273,13 @@ export interface GetPrivateLinkAccessEnvironment {
 export interface GetPrivateLinkAccessEnvironmentArgs {
     /**
      * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface IdentityPoolIdentityProvider {
+    /**
+     * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -308,6 +351,27 @@ export interface KafkaTopicKafkaCluster {
     id: pulumi.Input<string>;
 }
 
+export interface KsqlClusterCredentialIdentity {
+    /**
+     * The ID of the associated service or user account, for example, `sa-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface KsqlClusterEnvironment {
+    /**
+     * The ID of the associated service or user account, for example, `sa-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface KsqlClusterKafkaCluster {
+    /**
+     * The ID of the associated service or user account, for example, `sa-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface NetworkAw {
     /**
      * (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
@@ -335,7 +399,11 @@ export interface NetworkEnvironment {
 
 export interface NetworkGcp {
     /**
-     * (Required String) The GCP project.
+     * (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     */
+    privateServiceConnectServiceAttachments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * (Required String) The GCP project ID.
      */
     project?: pulumi.Input<string>;
     /**
@@ -426,6 +494,13 @@ export interface PrivateLinkAccessEnvironment {
      * The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
      */
     id: pulumi.Input<string>;
+}
+
+export interface PrivateLinkAccessGcp {
+    /**
+     * The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+     */
+    project: pulumi.Input<string>;
 }
 
 export interface PrivateLinkAccessNetwork {

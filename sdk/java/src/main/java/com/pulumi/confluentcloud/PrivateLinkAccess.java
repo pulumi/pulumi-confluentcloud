@@ -9,6 +9,7 @@ import com.pulumi.confluentcloud.inputs.PrivateLinkAccessState;
 import com.pulumi.confluentcloud.outputs.PrivateLinkAccessAws;
 import com.pulumi.confluentcloud.outputs.PrivateLinkAccessAzure;
 import com.pulumi.confluentcloud.outputs.PrivateLinkAccessEnvironment;
+import com.pulumi.confluentcloud.outputs.PrivateLinkAccessGcp;
 import com.pulumi.confluentcloud.outputs.PrivateLinkAccessNetwork;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -71,6 +72,12 @@ public class PrivateLinkAccess extends com.pulumi.resources.CustomResource {
      */
     public Output<PrivateLinkAccessEnvironment> environment() {
         return this.environment;
+    }
+    @Export(name="gcp", type=PrivateLinkAccessGcp.class, parameters={})
+    private Output</* @Nullable */ PrivateLinkAccessGcp> gcp;
+
+    public Output<Optional<PrivateLinkAccessGcp>> gcp() {
+        return Codegen.optional(this.gcp);
     }
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider

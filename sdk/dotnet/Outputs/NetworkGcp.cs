@@ -14,7 +14,11 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class NetworkGcp
     {
         /// <summary>
-        /// (Required String) The GCP project.
+        /// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? PrivateServiceConnectServiceAttachments;
+        /// <summary>
+        /// (Required String) The GCP project ID.
         /// </summary>
         public readonly string? Project;
         /// <summary>
@@ -24,10 +28,13 @@ namespace Pulumi.ConfluentCloud.Outputs
 
         [OutputConstructor]
         private NetworkGcp(
+            ImmutableDictionary<string, string>? privateServiceConnectServiceAttachments,
+
             string? project,
 
             string? vpcNetwork)
         {
+            PrivateServiceConnectServiceAttachments = privateServiceConnectServiceAttachments;
             Project = project;
             VpcNetwork = vpcNetwork;
         }

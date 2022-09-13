@@ -786,6 +786,143 @@ func (o ConnectorKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type IdentityPoolIdentityProvider struct {
+	// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// IdentityPoolIdentityProviderInput is an input type that accepts IdentityPoolIdentityProviderArgs and IdentityPoolIdentityProviderOutput values.
+// You can construct a concrete instance of `IdentityPoolIdentityProviderInput` via:
+//
+//	IdentityPoolIdentityProviderArgs{...}
+type IdentityPoolIdentityProviderInput interface {
+	pulumi.Input
+
+	ToIdentityPoolIdentityProviderOutput() IdentityPoolIdentityProviderOutput
+	ToIdentityPoolIdentityProviderOutputWithContext(context.Context) IdentityPoolIdentityProviderOutput
+}
+
+type IdentityPoolIdentityProviderArgs struct {
+	// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (IdentityPoolIdentityProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPoolIdentityProvider)(nil)).Elem()
+}
+
+func (i IdentityPoolIdentityProviderArgs) ToIdentityPoolIdentityProviderOutput() IdentityPoolIdentityProviderOutput {
+	return i.ToIdentityPoolIdentityProviderOutputWithContext(context.Background())
+}
+
+func (i IdentityPoolIdentityProviderArgs) ToIdentityPoolIdentityProviderOutputWithContext(ctx context.Context) IdentityPoolIdentityProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolIdentityProviderOutput)
+}
+
+func (i IdentityPoolIdentityProviderArgs) ToIdentityPoolIdentityProviderPtrOutput() IdentityPoolIdentityProviderPtrOutput {
+	return i.ToIdentityPoolIdentityProviderPtrOutputWithContext(context.Background())
+}
+
+func (i IdentityPoolIdentityProviderArgs) ToIdentityPoolIdentityProviderPtrOutputWithContext(ctx context.Context) IdentityPoolIdentityProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolIdentityProviderOutput).ToIdentityPoolIdentityProviderPtrOutputWithContext(ctx)
+}
+
+// IdentityPoolIdentityProviderPtrInput is an input type that accepts IdentityPoolIdentityProviderArgs, IdentityPoolIdentityProviderPtr and IdentityPoolIdentityProviderPtrOutput values.
+// You can construct a concrete instance of `IdentityPoolIdentityProviderPtrInput` via:
+//
+//	        IdentityPoolIdentityProviderArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentityPoolIdentityProviderPtrInput interface {
+	pulumi.Input
+
+	ToIdentityPoolIdentityProviderPtrOutput() IdentityPoolIdentityProviderPtrOutput
+	ToIdentityPoolIdentityProviderPtrOutputWithContext(context.Context) IdentityPoolIdentityProviderPtrOutput
+}
+
+type identityPoolIdentityProviderPtrType IdentityPoolIdentityProviderArgs
+
+func IdentityPoolIdentityProviderPtr(v *IdentityPoolIdentityProviderArgs) IdentityPoolIdentityProviderPtrInput {
+	return (*identityPoolIdentityProviderPtrType)(v)
+}
+
+func (*identityPoolIdentityProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityPoolIdentityProvider)(nil)).Elem()
+}
+
+func (i *identityPoolIdentityProviderPtrType) ToIdentityPoolIdentityProviderPtrOutput() IdentityPoolIdentityProviderPtrOutput {
+	return i.ToIdentityPoolIdentityProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *identityPoolIdentityProviderPtrType) ToIdentityPoolIdentityProviderPtrOutputWithContext(ctx context.Context) IdentityPoolIdentityProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolIdentityProviderPtrOutput)
+}
+
+type IdentityPoolIdentityProviderOutput struct{ *pulumi.OutputState }
+
+func (IdentityPoolIdentityProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPoolIdentityProvider)(nil)).Elem()
+}
+
+func (o IdentityPoolIdentityProviderOutput) ToIdentityPoolIdentityProviderOutput() IdentityPoolIdentityProviderOutput {
+	return o
+}
+
+func (o IdentityPoolIdentityProviderOutput) ToIdentityPoolIdentityProviderOutputWithContext(ctx context.Context) IdentityPoolIdentityProviderOutput {
+	return o
+}
+
+func (o IdentityPoolIdentityProviderOutput) ToIdentityPoolIdentityProviderPtrOutput() IdentityPoolIdentityProviderPtrOutput {
+	return o.ToIdentityPoolIdentityProviderPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityPoolIdentityProviderOutput) ToIdentityPoolIdentityProviderPtrOutputWithContext(ctx context.Context) IdentityPoolIdentityProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPoolIdentityProvider) *IdentityPoolIdentityProvider {
+		return &v
+	}).(IdentityPoolIdentityProviderPtrOutput)
+}
+
+// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+func (o IdentityPoolIdentityProviderOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityPoolIdentityProvider) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type IdentityPoolIdentityProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityPoolIdentityProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityPoolIdentityProvider)(nil)).Elem()
+}
+
+func (o IdentityPoolIdentityProviderPtrOutput) ToIdentityPoolIdentityProviderPtrOutput() IdentityPoolIdentityProviderPtrOutput {
+	return o
+}
+
+func (o IdentityPoolIdentityProviderPtrOutput) ToIdentityPoolIdentityProviderPtrOutputWithContext(ctx context.Context) IdentityPoolIdentityProviderPtrOutput {
+	return o
+}
+
+func (o IdentityPoolIdentityProviderPtrOutput) Elem() IdentityPoolIdentityProviderOutput {
+	return o.ApplyT(func(v *IdentityPoolIdentityProvider) IdentityPoolIdentityProvider {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityPoolIdentityProvider
+		return ret
+	}).(IdentityPoolIdentityProviderOutput)
+}
+
+// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+func (o IdentityPoolIdentityProviderPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityPoolIdentityProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type KafkaAclCredentials struct {
 	// The Kafka API Key.
 	Key string `pulumi:"key"`
@@ -1978,6 +2115,417 @@ func (o KafkaTopicKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type KsqlClusterCredentialIdentity struct {
+	// The ID of the associated service or user account, for example, `sa-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// KsqlClusterCredentialIdentityInput is an input type that accepts KsqlClusterCredentialIdentityArgs and KsqlClusterCredentialIdentityOutput values.
+// You can construct a concrete instance of `KsqlClusterCredentialIdentityInput` via:
+//
+//	KsqlClusterCredentialIdentityArgs{...}
+type KsqlClusterCredentialIdentityInput interface {
+	pulumi.Input
+
+	ToKsqlClusterCredentialIdentityOutput() KsqlClusterCredentialIdentityOutput
+	ToKsqlClusterCredentialIdentityOutputWithContext(context.Context) KsqlClusterCredentialIdentityOutput
+}
+
+type KsqlClusterCredentialIdentityArgs struct {
+	// The ID of the associated service or user account, for example, `sa-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (KsqlClusterCredentialIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KsqlClusterCredentialIdentity)(nil)).Elem()
+}
+
+func (i KsqlClusterCredentialIdentityArgs) ToKsqlClusterCredentialIdentityOutput() KsqlClusterCredentialIdentityOutput {
+	return i.ToKsqlClusterCredentialIdentityOutputWithContext(context.Background())
+}
+
+func (i KsqlClusterCredentialIdentityArgs) ToKsqlClusterCredentialIdentityOutputWithContext(ctx context.Context) KsqlClusterCredentialIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterCredentialIdentityOutput)
+}
+
+func (i KsqlClusterCredentialIdentityArgs) ToKsqlClusterCredentialIdentityPtrOutput() KsqlClusterCredentialIdentityPtrOutput {
+	return i.ToKsqlClusterCredentialIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i KsqlClusterCredentialIdentityArgs) ToKsqlClusterCredentialIdentityPtrOutputWithContext(ctx context.Context) KsqlClusterCredentialIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterCredentialIdentityOutput).ToKsqlClusterCredentialIdentityPtrOutputWithContext(ctx)
+}
+
+// KsqlClusterCredentialIdentityPtrInput is an input type that accepts KsqlClusterCredentialIdentityArgs, KsqlClusterCredentialIdentityPtr and KsqlClusterCredentialIdentityPtrOutput values.
+// You can construct a concrete instance of `KsqlClusterCredentialIdentityPtrInput` via:
+//
+//	        KsqlClusterCredentialIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type KsqlClusterCredentialIdentityPtrInput interface {
+	pulumi.Input
+
+	ToKsqlClusterCredentialIdentityPtrOutput() KsqlClusterCredentialIdentityPtrOutput
+	ToKsqlClusterCredentialIdentityPtrOutputWithContext(context.Context) KsqlClusterCredentialIdentityPtrOutput
+}
+
+type ksqlClusterCredentialIdentityPtrType KsqlClusterCredentialIdentityArgs
+
+func KsqlClusterCredentialIdentityPtr(v *KsqlClusterCredentialIdentityArgs) KsqlClusterCredentialIdentityPtrInput {
+	return (*ksqlClusterCredentialIdentityPtrType)(v)
+}
+
+func (*ksqlClusterCredentialIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KsqlClusterCredentialIdentity)(nil)).Elem()
+}
+
+func (i *ksqlClusterCredentialIdentityPtrType) ToKsqlClusterCredentialIdentityPtrOutput() KsqlClusterCredentialIdentityPtrOutput {
+	return i.ToKsqlClusterCredentialIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *ksqlClusterCredentialIdentityPtrType) ToKsqlClusterCredentialIdentityPtrOutputWithContext(ctx context.Context) KsqlClusterCredentialIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterCredentialIdentityPtrOutput)
+}
+
+type KsqlClusterCredentialIdentityOutput struct{ *pulumi.OutputState }
+
+func (KsqlClusterCredentialIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KsqlClusterCredentialIdentity)(nil)).Elem()
+}
+
+func (o KsqlClusterCredentialIdentityOutput) ToKsqlClusterCredentialIdentityOutput() KsqlClusterCredentialIdentityOutput {
+	return o
+}
+
+func (o KsqlClusterCredentialIdentityOutput) ToKsqlClusterCredentialIdentityOutputWithContext(ctx context.Context) KsqlClusterCredentialIdentityOutput {
+	return o
+}
+
+func (o KsqlClusterCredentialIdentityOutput) ToKsqlClusterCredentialIdentityPtrOutput() KsqlClusterCredentialIdentityPtrOutput {
+	return o.ToKsqlClusterCredentialIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o KsqlClusterCredentialIdentityOutput) ToKsqlClusterCredentialIdentityPtrOutputWithContext(ctx context.Context) KsqlClusterCredentialIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KsqlClusterCredentialIdentity) *KsqlClusterCredentialIdentity {
+		return &v
+	}).(KsqlClusterCredentialIdentityPtrOutput)
+}
+
+// The ID of the associated service or user account, for example, `sa-abc123`.
+func (o KsqlClusterCredentialIdentityOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v KsqlClusterCredentialIdentity) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type KsqlClusterCredentialIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (KsqlClusterCredentialIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KsqlClusterCredentialIdentity)(nil)).Elem()
+}
+
+func (o KsqlClusterCredentialIdentityPtrOutput) ToKsqlClusterCredentialIdentityPtrOutput() KsqlClusterCredentialIdentityPtrOutput {
+	return o
+}
+
+func (o KsqlClusterCredentialIdentityPtrOutput) ToKsqlClusterCredentialIdentityPtrOutputWithContext(ctx context.Context) KsqlClusterCredentialIdentityPtrOutput {
+	return o
+}
+
+func (o KsqlClusterCredentialIdentityPtrOutput) Elem() KsqlClusterCredentialIdentityOutput {
+	return o.ApplyT(func(v *KsqlClusterCredentialIdentity) KsqlClusterCredentialIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret KsqlClusterCredentialIdentity
+		return ret
+	}).(KsqlClusterCredentialIdentityOutput)
+}
+
+// The ID of the associated service or user account, for example, `sa-abc123`.
+func (o KsqlClusterCredentialIdentityPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KsqlClusterCredentialIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type KsqlClusterEnvironment struct {
+	// The ID of the associated service or user account, for example, `sa-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// KsqlClusterEnvironmentInput is an input type that accepts KsqlClusterEnvironmentArgs and KsqlClusterEnvironmentOutput values.
+// You can construct a concrete instance of `KsqlClusterEnvironmentInput` via:
+//
+//	KsqlClusterEnvironmentArgs{...}
+type KsqlClusterEnvironmentInput interface {
+	pulumi.Input
+
+	ToKsqlClusterEnvironmentOutput() KsqlClusterEnvironmentOutput
+	ToKsqlClusterEnvironmentOutputWithContext(context.Context) KsqlClusterEnvironmentOutput
+}
+
+type KsqlClusterEnvironmentArgs struct {
+	// The ID of the associated service or user account, for example, `sa-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (KsqlClusterEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KsqlClusterEnvironment)(nil)).Elem()
+}
+
+func (i KsqlClusterEnvironmentArgs) ToKsqlClusterEnvironmentOutput() KsqlClusterEnvironmentOutput {
+	return i.ToKsqlClusterEnvironmentOutputWithContext(context.Background())
+}
+
+func (i KsqlClusterEnvironmentArgs) ToKsqlClusterEnvironmentOutputWithContext(ctx context.Context) KsqlClusterEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterEnvironmentOutput)
+}
+
+func (i KsqlClusterEnvironmentArgs) ToKsqlClusterEnvironmentPtrOutput() KsqlClusterEnvironmentPtrOutput {
+	return i.ToKsqlClusterEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i KsqlClusterEnvironmentArgs) ToKsqlClusterEnvironmentPtrOutputWithContext(ctx context.Context) KsqlClusterEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterEnvironmentOutput).ToKsqlClusterEnvironmentPtrOutputWithContext(ctx)
+}
+
+// KsqlClusterEnvironmentPtrInput is an input type that accepts KsqlClusterEnvironmentArgs, KsqlClusterEnvironmentPtr and KsqlClusterEnvironmentPtrOutput values.
+// You can construct a concrete instance of `KsqlClusterEnvironmentPtrInput` via:
+//
+//	        KsqlClusterEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type KsqlClusterEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToKsqlClusterEnvironmentPtrOutput() KsqlClusterEnvironmentPtrOutput
+	ToKsqlClusterEnvironmentPtrOutputWithContext(context.Context) KsqlClusterEnvironmentPtrOutput
+}
+
+type ksqlClusterEnvironmentPtrType KsqlClusterEnvironmentArgs
+
+func KsqlClusterEnvironmentPtr(v *KsqlClusterEnvironmentArgs) KsqlClusterEnvironmentPtrInput {
+	return (*ksqlClusterEnvironmentPtrType)(v)
+}
+
+func (*ksqlClusterEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KsqlClusterEnvironment)(nil)).Elem()
+}
+
+func (i *ksqlClusterEnvironmentPtrType) ToKsqlClusterEnvironmentPtrOutput() KsqlClusterEnvironmentPtrOutput {
+	return i.ToKsqlClusterEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *ksqlClusterEnvironmentPtrType) ToKsqlClusterEnvironmentPtrOutputWithContext(ctx context.Context) KsqlClusterEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterEnvironmentPtrOutput)
+}
+
+type KsqlClusterEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (KsqlClusterEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KsqlClusterEnvironment)(nil)).Elem()
+}
+
+func (o KsqlClusterEnvironmentOutput) ToKsqlClusterEnvironmentOutput() KsqlClusterEnvironmentOutput {
+	return o
+}
+
+func (o KsqlClusterEnvironmentOutput) ToKsqlClusterEnvironmentOutputWithContext(ctx context.Context) KsqlClusterEnvironmentOutput {
+	return o
+}
+
+func (o KsqlClusterEnvironmentOutput) ToKsqlClusterEnvironmentPtrOutput() KsqlClusterEnvironmentPtrOutput {
+	return o.ToKsqlClusterEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o KsqlClusterEnvironmentOutput) ToKsqlClusterEnvironmentPtrOutputWithContext(ctx context.Context) KsqlClusterEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KsqlClusterEnvironment) *KsqlClusterEnvironment {
+		return &v
+	}).(KsqlClusterEnvironmentPtrOutput)
+}
+
+// The ID of the associated service or user account, for example, `sa-abc123`.
+func (o KsqlClusterEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v KsqlClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type KsqlClusterEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (KsqlClusterEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KsqlClusterEnvironment)(nil)).Elem()
+}
+
+func (o KsqlClusterEnvironmentPtrOutput) ToKsqlClusterEnvironmentPtrOutput() KsqlClusterEnvironmentPtrOutput {
+	return o
+}
+
+func (o KsqlClusterEnvironmentPtrOutput) ToKsqlClusterEnvironmentPtrOutputWithContext(ctx context.Context) KsqlClusterEnvironmentPtrOutput {
+	return o
+}
+
+func (o KsqlClusterEnvironmentPtrOutput) Elem() KsqlClusterEnvironmentOutput {
+	return o.ApplyT(func(v *KsqlClusterEnvironment) KsqlClusterEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret KsqlClusterEnvironment
+		return ret
+	}).(KsqlClusterEnvironmentOutput)
+}
+
+// The ID of the associated service or user account, for example, `sa-abc123`.
+func (o KsqlClusterEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KsqlClusterEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type KsqlClusterKafkaCluster struct {
+	// The ID of the associated service or user account, for example, `sa-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// KsqlClusterKafkaClusterInput is an input type that accepts KsqlClusterKafkaClusterArgs and KsqlClusterKafkaClusterOutput values.
+// You can construct a concrete instance of `KsqlClusterKafkaClusterInput` via:
+//
+//	KsqlClusterKafkaClusterArgs{...}
+type KsqlClusterKafkaClusterInput interface {
+	pulumi.Input
+
+	ToKsqlClusterKafkaClusterOutput() KsqlClusterKafkaClusterOutput
+	ToKsqlClusterKafkaClusterOutputWithContext(context.Context) KsqlClusterKafkaClusterOutput
+}
+
+type KsqlClusterKafkaClusterArgs struct {
+	// The ID of the associated service or user account, for example, `sa-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (KsqlClusterKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KsqlClusterKafkaCluster)(nil)).Elem()
+}
+
+func (i KsqlClusterKafkaClusterArgs) ToKsqlClusterKafkaClusterOutput() KsqlClusterKafkaClusterOutput {
+	return i.ToKsqlClusterKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i KsqlClusterKafkaClusterArgs) ToKsqlClusterKafkaClusterOutputWithContext(ctx context.Context) KsqlClusterKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterKafkaClusterOutput)
+}
+
+func (i KsqlClusterKafkaClusterArgs) ToKsqlClusterKafkaClusterPtrOutput() KsqlClusterKafkaClusterPtrOutput {
+	return i.ToKsqlClusterKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i KsqlClusterKafkaClusterArgs) ToKsqlClusterKafkaClusterPtrOutputWithContext(ctx context.Context) KsqlClusterKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterKafkaClusterOutput).ToKsqlClusterKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// KsqlClusterKafkaClusterPtrInput is an input type that accepts KsqlClusterKafkaClusterArgs, KsqlClusterKafkaClusterPtr and KsqlClusterKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `KsqlClusterKafkaClusterPtrInput` via:
+//
+//	        KsqlClusterKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type KsqlClusterKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToKsqlClusterKafkaClusterPtrOutput() KsqlClusterKafkaClusterPtrOutput
+	ToKsqlClusterKafkaClusterPtrOutputWithContext(context.Context) KsqlClusterKafkaClusterPtrOutput
+}
+
+type ksqlClusterKafkaClusterPtrType KsqlClusterKafkaClusterArgs
+
+func KsqlClusterKafkaClusterPtr(v *KsqlClusterKafkaClusterArgs) KsqlClusterKafkaClusterPtrInput {
+	return (*ksqlClusterKafkaClusterPtrType)(v)
+}
+
+func (*ksqlClusterKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KsqlClusterKafkaCluster)(nil)).Elem()
+}
+
+func (i *ksqlClusterKafkaClusterPtrType) ToKsqlClusterKafkaClusterPtrOutput() KsqlClusterKafkaClusterPtrOutput {
+	return i.ToKsqlClusterKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *ksqlClusterKafkaClusterPtrType) ToKsqlClusterKafkaClusterPtrOutputWithContext(ctx context.Context) KsqlClusterKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterKafkaClusterPtrOutput)
+}
+
+type KsqlClusterKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (KsqlClusterKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KsqlClusterKafkaCluster)(nil)).Elem()
+}
+
+func (o KsqlClusterKafkaClusterOutput) ToKsqlClusterKafkaClusterOutput() KsqlClusterKafkaClusterOutput {
+	return o
+}
+
+func (o KsqlClusterKafkaClusterOutput) ToKsqlClusterKafkaClusterOutputWithContext(ctx context.Context) KsqlClusterKafkaClusterOutput {
+	return o
+}
+
+func (o KsqlClusterKafkaClusterOutput) ToKsqlClusterKafkaClusterPtrOutput() KsqlClusterKafkaClusterPtrOutput {
+	return o.ToKsqlClusterKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o KsqlClusterKafkaClusterOutput) ToKsqlClusterKafkaClusterPtrOutputWithContext(ctx context.Context) KsqlClusterKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KsqlClusterKafkaCluster) *KsqlClusterKafkaCluster {
+		return &v
+	}).(KsqlClusterKafkaClusterPtrOutput)
+}
+
+// The ID of the associated service or user account, for example, `sa-abc123`.
+func (o KsqlClusterKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v KsqlClusterKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type KsqlClusterKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (KsqlClusterKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KsqlClusterKafkaCluster)(nil)).Elem()
+}
+
+func (o KsqlClusterKafkaClusterPtrOutput) ToKsqlClusterKafkaClusterPtrOutput() KsqlClusterKafkaClusterPtrOutput {
+	return o
+}
+
+func (o KsqlClusterKafkaClusterPtrOutput) ToKsqlClusterKafkaClusterPtrOutputWithContext(ctx context.Context) KsqlClusterKafkaClusterPtrOutput {
+	return o
+}
+
+func (o KsqlClusterKafkaClusterPtrOutput) Elem() KsqlClusterKafkaClusterOutput {
+	return o.ApplyT(func(v *KsqlClusterKafkaCluster) KsqlClusterKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret KsqlClusterKafkaCluster
+		return ret
+	}).(KsqlClusterKafkaClusterOutput)
+}
+
+// The ID of the associated service or user account, for example, `sa-abc123`.
+func (o KsqlClusterKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KsqlClusterKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type NetworkAw struct {
 	// (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
 	PrivateLinkEndpointService *string `pulumi:"privateLinkEndpointService"`
@@ -2319,7 +2867,9 @@ func (o NetworkEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type NetworkGcp struct {
-	// (Required String) The GCP project.
+	// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+	PrivateServiceConnectServiceAttachments map[string]string `pulumi:"privateServiceConnectServiceAttachments"`
+	// (Required String) The GCP project ID.
 	Project *string `pulumi:"project"`
 	// (Required String) The GCP VPC network name.
 	VpcNetwork *string `pulumi:"vpcNetwork"`
@@ -2337,7 +2887,9 @@ type NetworkGcpInput interface {
 }
 
 type NetworkGcpArgs struct {
-	// (Required String) The GCP project.
+	// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+	PrivateServiceConnectServiceAttachments pulumi.StringMapInput `pulumi:"privateServiceConnectServiceAttachments"`
+	// (Required String) The GCP project ID.
 	Project pulumi.StringPtrInput `pulumi:"project"`
 	// (Required String) The GCP VPC network name.
 	VpcNetwork pulumi.StringPtrInput `pulumi:"vpcNetwork"`
@@ -2394,7 +2946,12 @@ func (o NetworkGcpOutput) ToNetworkGcpOutputWithContext(ctx context.Context) Net
 	return o
 }
 
-// (Required String) The GCP project.
+// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+func (o NetworkGcpOutput) PrivateServiceConnectServiceAttachments() pulumi.StringMapOutput {
+	return o.ApplyT(func(v NetworkGcp) map[string]string { return v.PrivateServiceConnectServiceAttachments }).(pulumi.StringMapOutput)
+}
+
+// (Required String) The GCP project ID.
 func (o NetworkGcpOutput) Project() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkGcp) *string { return v.Project }).(pulumi.StringPtrOutput)
 }
@@ -3653,6 +4210,143 @@ func (o PrivateLinkAccessEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type PrivateLinkAccessGcp struct {
+	// The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+	Project string `pulumi:"project"`
+}
+
+// PrivateLinkAccessGcpInput is an input type that accepts PrivateLinkAccessGcpArgs and PrivateLinkAccessGcpOutput values.
+// You can construct a concrete instance of `PrivateLinkAccessGcpInput` via:
+//
+//	PrivateLinkAccessGcpArgs{...}
+type PrivateLinkAccessGcpInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAccessGcpOutput() PrivateLinkAccessGcpOutput
+	ToPrivateLinkAccessGcpOutputWithContext(context.Context) PrivateLinkAccessGcpOutput
+}
+
+type PrivateLinkAccessGcpArgs struct {
+	// The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+	Project pulumi.StringInput `pulumi:"project"`
+}
+
+func (PrivateLinkAccessGcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAccessGcp)(nil)).Elem()
+}
+
+func (i PrivateLinkAccessGcpArgs) ToPrivateLinkAccessGcpOutput() PrivateLinkAccessGcpOutput {
+	return i.ToPrivateLinkAccessGcpOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAccessGcpArgs) ToPrivateLinkAccessGcpOutputWithContext(ctx context.Context) PrivateLinkAccessGcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessGcpOutput)
+}
+
+func (i PrivateLinkAccessGcpArgs) ToPrivateLinkAccessGcpPtrOutput() PrivateLinkAccessGcpPtrOutput {
+	return i.ToPrivateLinkAccessGcpPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAccessGcpArgs) ToPrivateLinkAccessGcpPtrOutputWithContext(ctx context.Context) PrivateLinkAccessGcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessGcpOutput).ToPrivateLinkAccessGcpPtrOutputWithContext(ctx)
+}
+
+// PrivateLinkAccessGcpPtrInput is an input type that accepts PrivateLinkAccessGcpArgs, PrivateLinkAccessGcpPtr and PrivateLinkAccessGcpPtrOutput values.
+// You can construct a concrete instance of `PrivateLinkAccessGcpPtrInput` via:
+//
+//	        PrivateLinkAccessGcpArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrivateLinkAccessGcpPtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAccessGcpPtrOutput() PrivateLinkAccessGcpPtrOutput
+	ToPrivateLinkAccessGcpPtrOutputWithContext(context.Context) PrivateLinkAccessGcpPtrOutput
+}
+
+type privateLinkAccessGcpPtrType PrivateLinkAccessGcpArgs
+
+func PrivateLinkAccessGcpPtr(v *PrivateLinkAccessGcpArgs) PrivateLinkAccessGcpPtrInput {
+	return (*privateLinkAccessGcpPtrType)(v)
+}
+
+func (*privateLinkAccessGcpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAccessGcp)(nil)).Elem()
+}
+
+func (i *privateLinkAccessGcpPtrType) ToPrivateLinkAccessGcpPtrOutput() PrivateLinkAccessGcpPtrOutput {
+	return i.ToPrivateLinkAccessGcpPtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkAccessGcpPtrType) ToPrivateLinkAccessGcpPtrOutputWithContext(ctx context.Context) PrivateLinkAccessGcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessGcpPtrOutput)
+}
+
+type PrivateLinkAccessGcpOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAccessGcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAccessGcp)(nil)).Elem()
+}
+
+func (o PrivateLinkAccessGcpOutput) ToPrivateLinkAccessGcpOutput() PrivateLinkAccessGcpOutput {
+	return o
+}
+
+func (o PrivateLinkAccessGcpOutput) ToPrivateLinkAccessGcpOutputWithContext(ctx context.Context) PrivateLinkAccessGcpOutput {
+	return o
+}
+
+func (o PrivateLinkAccessGcpOutput) ToPrivateLinkAccessGcpPtrOutput() PrivateLinkAccessGcpPtrOutput {
+	return o.ToPrivateLinkAccessGcpPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkAccessGcpOutput) ToPrivateLinkAccessGcpPtrOutputWithContext(ctx context.Context) PrivateLinkAccessGcpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkAccessGcp) *PrivateLinkAccessGcp {
+		return &v
+	}).(PrivateLinkAccessGcpPtrOutput)
+}
+
+// The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+func (o PrivateLinkAccessGcpOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkAccessGcp) string { return v.Project }).(pulumi.StringOutput)
+}
+
+type PrivateLinkAccessGcpPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAccessGcpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAccessGcp)(nil)).Elem()
+}
+
+func (o PrivateLinkAccessGcpPtrOutput) ToPrivateLinkAccessGcpPtrOutput() PrivateLinkAccessGcpPtrOutput {
+	return o
+}
+
+func (o PrivateLinkAccessGcpPtrOutput) ToPrivateLinkAccessGcpPtrOutputWithContext(ctx context.Context) PrivateLinkAccessGcpPtrOutput {
+	return o
+}
+
+func (o PrivateLinkAccessGcpPtrOutput) Elem() PrivateLinkAccessGcpOutput {
+	return o.ApplyT(func(v *PrivateLinkAccessGcp) PrivateLinkAccessGcp {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkAccessGcp
+		return ret
+	}).(PrivateLinkAccessGcpOutput)
+}
+
+// The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+func (o PrivateLinkAccessGcpPtrOutput) Project() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkAccessGcp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Project
+	}).(pulumi.StringPtrOutput)
+}
+
 type PrivateLinkAccessNetwork struct {
 	// The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
 	Id string `pulumi:"id"`
@@ -3788,6 +4482,58 @@ func (o PrivateLinkAccessNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+type GetIdentityPoolIdentityProvider struct {
+	// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetIdentityPoolIdentityProviderInput is an input type that accepts GetIdentityPoolIdentityProviderArgs and GetIdentityPoolIdentityProviderOutput values.
+// You can construct a concrete instance of `GetIdentityPoolIdentityProviderInput` via:
+//
+//	GetIdentityPoolIdentityProviderArgs{...}
+type GetIdentityPoolIdentityProviderInput interface {
+	pulumi.Input
+
+	ToGetIdentityPoolIdentityProviderOutput() GetIdentityPoolIdentityProviderOutput
+	ToGetIdentityPoolIdentityProviderOutputWithContext(context.Context) GetIdentityPoolIdentityProviderOutput
+}
+
+type GetIdentityPoolIdentityProviderArgs struct {
+	// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetIdentityPoolIdentityProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIdentityPoolIdentityProvider)(nil)).Elem()
+}
+
+func (i GetIdentityPoolIdentityProviderArgs) ToGetIdentityPoolIdentityProviderOutput() GetIdentityPoolIdentityProviderOutput {
+	return i.ToGetIdentityPoolIdentityProviderOutputWithContext(context.Background())
+}
+
+func (i GetIdentityPoolIdentityProviderArgs) ToGetIdentityPoolIdentityProviderOutputWithContext(ctx context.Context) GetIdentityPoolIdentityProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIdentityPoolIdentityProviderOutput)
+}
+
+type GetIdentityPoolIdentityProviderOutput struct{ *pulumi.OutputState }
+
+func (GetIdentityPoolIdentityProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIdentityPoolIdentityProvider)(nil)).Elem()
+}
+
+func (o GetIdentityPoolIdentityProviderOutput) ToGetIdentityPoolIdentityProviderOutput() GetIdentityPoolIdentityProviderOutput {
+	return o
+}
+
+func (o GetIdentityPoolIdentityProviderOutput) ToGetIdentityPoolIdentityProviderOutputWithContext(ctx context.Context) GetIdentityPoolIdentityProviderOutput {
+	return o
+}
+
+// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+func (o GetIdentityPoolIdentityProviderOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentityPoolIdentityProvider) string { return v.Id }).(pulumi.StringOutput)
 }
 
 type GetKafkaClusterBasic struct {
@@ -4479,6 +5225,252 @@ func (o GetKafkaTopicKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaTopicKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
 }
 
+type GetKsqlClusterCredentialIdentity struct {
+	// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetKsqlClusterCredentialIdentityInput is an input type that accepts GetKsqlClusterCredentialIdentityArgs and GetKsqlClusterCredentialIdentityOutput values.
+// You can construct a concrete instance of `GetKsqlClusterCredentialIdentityInput` via:
+//
+//	GetKsqlClusterCredentialIdentityArgs{...}
+type GetKsqlClusterCredentialIdentityInput interface {
+	pulumi.Input
+
+	ToGetKsqlClusterCredentialIdentityOutput() GetKsqlClusterCredentialIdentityOutput
+	ToGetKsqlClusterCredentialIdentityOutputWithContext(context.Context) GetKsqlClusterCredentialIdentityOutput
+}
+
+type GetKsqlClusterCredentialIdentityArgs struct {
+	// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetKsqlClusterCredentialIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKsqlClusterCredentialIdentity)(nil)).Elem()
+}
+
+func (i GetKsqlClusterCredentialIdentityArgs) ToGetKsqlClusterCredentialIdentityOutput() GetKsqlClusterCredentialIdentityOutput {
+	return i.ToGetKsqlClusterCredentialIdentityOutputWithContext(context.Background())
+}
+
+func (i GetKsqlClusterCredentialIdentityArgs) ToGetKsqlClusterCredentialIdentityOutputWithContext(ctx context.Context) GetKsqlClusterCredentialIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKsqlClusterCredentialIdentityOutput)
+}
+
+// GetKsqlClusterCredentialIdentityArrayInput is an input type that accepts GetKsqlClusterCredentialIdentityArray and GetKsqlClusterCredentialIdentityArrayOutput values.
+// You can construct a concrete instance of `GetKsqlClusterCredentialIdentityArrayInput` via:
+//
+//	GetKsqlClusterCredentialIdentityArray{ GetKsqlClusterCredentialIdentityArgs{...} }
+type GetKsqlClusterCredentialIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetKsqlClusterCredentialIdentityArrayOutput() GetKsqlClusterCredentialIdentityArrayOutput
+	ToGetKsqlClusterCredentialIdentityArrayOutputWithContext(context.Context) GetKsqlClusterCredentialIdentityArrayOutput
+}
+
+type GetKsqlClusterCredentialIdentityArray []GetKsqlClusterCredentialIdentityInput
+
+func (GetKsqlClusterCredentialIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKsqlClusterCredentialIdentity)(nil)).Elem()
+}
+
+func (i GetKsqlClusterCredentialIdentityArray) ToGetKsqlClusterCredentialIdentityArrayOutput() GetKsqlClusterCredentialIdentityArrayOutput {
+	return i.ToGetKsqlClusterCredentialIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetKsqlClusterCredentialIdentityArray) ToGetKsqlClusterCredentialIdentityArrayOutputWithContext(ctx context.Context) GetKsqlClusterCredentialIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKsqlClusterCredentialIdentityArrayOutput)
+}
+
+type GetKsqlClusterCredentialIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetKsqlClusterCredentialIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKsqlClusterCredentialIdentity)(nil)).Elem()
+}
+
+func (o GetKsqlClusterCredentialIdentityOutput) ToGetKsqlClusterCredentialIdentityOutput() GetKsqlClusterCredentialIdentityOutput {
+	return o
+}
+
+func (o GetKsqlClusterCredentialIdentityOutput) ToGetKsqlClusterCredentialIdentityOutputWithContext(ctx context.Context) GetKsqlClusterCredentialIdentityOutput {
+	return o
+}
+
+// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+func (o GetKsqlClusterCredentialIdentityOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKsqlClusterCredentialIdentity) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetKsqlClusterCredentialIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKsqlClusterCredentialIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKsqlClusterCredentialIdentity)(nil)).Elem()
+}
+
+func (o GetKsqlClusterCredentialIdentityArrayOutput) ToGetKsqlClusterCredentialIdentityArrayOutput() GetKsqlClusterCredentialIdentityArrayOutput {
+	return o
+}
+
+func (o GetKsqlClusterCredentialIdentityArrayOutput) ToGetKsqlClusterCredentialIdentityArrayOutputWithContext(ctx context.Context) GetKsqlClusterCredentialIdentityArrayOutput {
+	return o
+}
+
+func (o GetKsqlClusterCredentialIdentityArrayOutput) Index(i pulumi.IntInput) GetKsqlClusterCredentialIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKsqlClusterCredentialIdentity {
+		return vs[0].([]GetKsqlClusterCredentialIdentity)[vs[1].(int)]
+	}).(GetKsqlClusterCredentialIdentityOutput)
+}
+
+type GetKsqlClusterEnvironment struct {
+	// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetKsqlClusterEnvironmentInput is an input type that accepts GetKsqlClusterEnvironmentArgs and GetKsqlClusterEnvironmentOutput values.
+// You can construct a concrete instance of `GetKsqlClusterEnvironmentInput` via:
+//
+//	GetKsqlClusterEnvironmentArgs{...}
+type GetKsqlClusterEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetKsqlClusterEnvironmentOutput() GetKsqlClusterEnvironmentOutput
+	ToGetKsqlClusterEnvironmentOutputWithContext(context.Context) GetKsqlClusterEnvironmentOutput
+}
+
+type GetKsqlClusterEnvironmentArgs struct {
+	// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetKsqlClusterEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKsqlClusterEnvironment)(nil)).Elem()
+}
+
+func (i GetKsqlClusterEnvironmentArgs) ToGetKsqlClusterEnvironmentOutput() GetKsqlClusterEnvironmentOutput {
+	return i.ToGetKsqlClusterEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetKsqlClusterEnvironmentArgs) ToGetKsqlClusterEnvironmentOutputWithContext(ctx context.Context) GetKsqlClusterEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKsqlClusterEnvironmentOutput)
+}
+
+type GetKsqlClusterEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetKsqlClusterEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKsqlClusterEnvironment)(nil)).Elem()
+}
+
+func (o GetKsqlClusterEnvironmentOutput) ToGetKsqlClusterEnvironmentOutput() GetKsqlClusterEnvironmentOutput {
+	return o
+}
+
+func (o GetKsqlClusterEnvironmentOutput) ToGetKsqlClusterEnvironmentOutputWithContext(ctx context.Context) GetKsqlClusterEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+func (o GetKsqlClusterEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKsqlClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetKsqlClusterKafkaCluster struct {
+	// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetKsqlClusterKafkaClusterInput is an input type that accepts GetKsqlClusterKafkaClusterArgs and GetKsqlClusterKafkaClusterOutput values.
+// You can construct a concrete instance of `GetKsqlClusterKafkaClusterInput` via:
+//
+//	GetKsqlClusterKafkaClusterArgs{...}
+type GetKsqlClusterKafkaClusterInput interface {
+	pulumi.Input
+
+	ToGetKsqlClusterKafkaClusterOutput() GetKsqlClusterKafkaClusterOutput
+	ToGetKsqlClusterKafkaClusterOutputWithContext(context.Context) GetKsqlClusterKafkaClusterOutput
+}
+
+type GetKsqlClusterKafkaClusterArgs struct {
+	// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetKsqlClusterKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKsqlClusterKafkaCluster)(nil)).Elem()
+}
+
+func (i GetKsqlClusterKafkaClusterArgs) ToGetKsqlClusterKafkaClusterOutput() GetKsqlClusterKafkaClusterOutput {
+	return i.ToGetKsqlClusterKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i GetKsqlClusterKafkaClusterArgs) ToGetKsqlClusterKafkaClusterOutputWithContext(ctx context.Context) GetKsqlClusterKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKsqlClusterKafkaClusterOutput)
+}
+
+// GetKsqlClusterKafkaClusterArrayInput is an input type that accepts GetKsqlClusterKafkaClusterArray and GetKsqlClusterKafkaClusterArrayOutput values.
+// You can construct a concrete instance of `GetKsqlClusterKafkaClusterArrayInput` via:
+//
+//	GetKsqlClusterKafkaClusterArray{ GetKsqlClusterKafkaClusterArgs{...} }
+type GetKsqlClusterKafkaClusterArrayInput interface {
+	pulumi.Input
+
+	ToGetKsqlClusterKafkaClusterArrayOutput() GetKsqlClusterKafkaClusterArrayOutput
+	ToGetKsqlClusterKafkaClusterArrayOutputWithContext(context.Context) GetKsqlClusterKafkaClusterArrayOutput
+}
+
+type GetKsqlClusterKafkaClusterArray []GetKsqlClusterKafkaClusterInput
+
+func (GetKsqlClusterKafkaClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKsqlClusterKafkaCluster)(nil)).Elem()
+}
+
+func (i GetKsqlClusterKafkaClusterArray) ToGetKsqlClusterKafkaClusterArrayOutput() GetKsqlClusterKafkaClusterArrayOutput {
+	return i.ToGetKsqlClusterKafkaClusterArrayOutputWithContext(context.Background())
+}
+
+func (i GetKsqlClusterKafkaClusterArray) ToGetKsqlClusterKafkaClusterArrayOutputWithContext(ctx context.Context) GetKsqlClusterKafkaClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKsqlClusterKafkaClusterArrayOutput)
+}
+
+type GetKsqlClusterKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (GetKsqlClusterKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKsqlClusterKafkaCluster)(nil)).Elem()
+}
+
+func (o GetKsqlClusterKafkaClusterOutput) ToGetKsqlClusterKafkaClusterOutput() GetKsqlClusterKafkaClusterOutput {
+	return o
+}
+
+func (o GetKsqlClusterKafkaClusterOutput) ToGetKsqlClusterKafkaClusterOutputWithContext(ctx context.Context) GetKsqlClusterKafkaClusterOutput {
+	return o
+}
+
+// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+func (o GetKsqlClusterKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKsqlClusterKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetKsqlClusterKafkaClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKsqlClusterKafkaClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKsqlClusterKafkaCluster)(nil)).Elem()
+}
+
+func (o GetKsqlClusterKafkaClusterArrayOutput) ToGetKsqlClusterKafkaClusterArrayOutput() GetKsqlClusterKafkaClusterArrayOutput {
+	return o
+}
+
+func (o GetKsqlClusterKafkaClusterArrayOutput) ToGetKsqlClusterKafkaClusterArrayOutputWithContext(ctx context.Context) GetKsqlClusterKafkaClusterArrayOutput {
+	return o
+}
+
+func (o GetKsqlClusterKafkaClusterArrayOutput) Index(i pulumi.IntInput) GetKsqlClusterKafkaClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKsqlClusterKafkaCluster {
+		return vs[0].([]GetKsqlClusterKafkaCluster)[vs[1].(int)]
+	}).(GetKsqlClusterKafkaClusterOutput)
+}
+
 type GetNetworkAw struct {
 	// (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
 	PrivateLinkEndpointService string `pulumi:"privateLinkEndpointService"`
@@ -4735,7 +5727,9 @@ func (o GetNetworkEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetNetworkGcp struct {
-	// (Required String) The GCP project.
+	// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+	PrivateServiceConnectServiceAttachments map[string]string `pulumi:"privateServiceConnectServiceAttachments"`
+	// (Required String) The GCP project ID.
 	Project string `pulumi:"project"`
 	// (Required String) The GCP VPC network name.
 	VpcNetwork string `pulumi:"vpcNetwork"`
@@ -4753,7 +5747,9 @@ type GetNetworkGcpInput interface {
 }
 
 type GetNetworkGcpArgs struct {
-	// (Required String) The GCP project.
+	// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+	PrivateServiceConnectServiceAttachments pulumi.StringMapInput `pulumi:"privateServiceConnectServiceAttachments"`
+	// (Required String) The GCP project ID.
 	Project pulumi.StringInput `pulumi:"project"`
 	// (Required String) The GCP VPC network name.
 	VpcNetwork pulumi.StringInput `pulumi:"vpcNetwork"`
@@ -4810,7 +5806,12 @@ func (o GetNetworkGcpOutput) ToGetNetworkGcpOutputWithContext(ctx context.Contex
 	return o
 }
 
-// (Required String) The GCP project.
+// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+func (o GetNetworkGcpOutput) PrivateServiceConnectServiceAttachments() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNetworkGcp) map[string]string { return v.PrivateServiceConnectServiceAttachments }).(pulumi.StringMapOutput)
+}
+
+// (Required String) The GCP project ID.
 func (o GetNetworkGcpOutput) Project() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkGcp) string { return v.Project }).(pulumi.StringOutput)
 }
@@ -5589,6 +6590,103 @@ func (o GetPrivateLinkAccessEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAccessEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
 
+type GetPrivateLinkAccessGcp struct {
+	// (Required String) The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+	Project string `pulumi:"project"`
+}
+
+// GetPrivateLinkAccessGcpInput is an input type that accepts GetPrivateLinkAccessGcpArgs and GetPrivateLinkAccessGcpOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAccessGcpInput` via:
+//
+//	GetPrivateLinkAccessGcpArgs{...}
+type GetPrivateLinkAccessGcpInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAccessGcpOutput() GetPrivateLinkAccessGcpOutput
+	ToGetPrivateLinkAccessGcpOutputWithContext(context.Context) GetPrivateLinkAccessGcpOutput
+}
+
+type GetPrivateLinkAccessGcpArgs struct {
+	// (Required String) The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+	Project pulumi.StringInput `pulumi:"project"`
+}
+
+func (GetPrivateLinkAccessGcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAccessGcp)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAccessGcpArgs) ToGetPrivateLinkAccessGcpOutput() GetPrivateLinkAccessGcpOutput {
+	return i.ToGetPrivateLinkAccessGcpOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAccessGcpArgs) ToGetPrivateLinkAccessGcpOutputWithContext(ctx context.Context) GetPrivateLinkAccessGcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessGcpOutput)
+}
+
+// GetPrivateLinkAccessGcpArrayInput is an input type that accepts GetPrivateLinkAccessGcpArray and GetPrivateLinkAccessGcpArrayOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAccessGcpArrayInput` via:
+//
+//	GetPrivateLinkAccessGcpArray{ GetPrivateLinkAccessGcpArgs{...} }
+type GetPrivateLinkAccessGcpArrayInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAccessGcpArrayOutput() GetPrivateLinkAccessGcpArrayOutput
+	ToGetPrivateLinkAccessGcpArrayOutputWithContext(context.Context) GetPrivateLinkAccessGcpArrayOutput
+}
+
+type GetPrivateLinkAccessGcpArray []GetPrivateLinkAccessGcpInput
+
+func (GetPrivateLinkAccessGcpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAccessGcp)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAccessGcpArray) ToGetPrivateLinkAccessGcpArrayOutput() GetPrivateLinkAccessGcpArrayOutput {
+	return i.ToGetPrivateLinkAccessGcpArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAccessGcpArray) ToGetPrivateLinkAccessGcpArrayOutputWithContext(ctx context.Context) GetPrivateLinkAccessGcpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessGcpArrayOutput)
+}
+
+type GetPrivateLinkAccessGcpOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAccessGcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAccessGcp)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAccessGcpOutput) ToGetPrivateLinkAccessGcpOutput() GetPrivateLinkAccessGcpOutput {
+	return o
+}
+
+func (o GetPrivateLinkAccessGcpOutput) ToGetPrivateLinkAccessGcpOutputWithContext(ctx context.Context) GetPrivateLinkAccessGcpOutput {
+	return o
+}
+
+// (Required String) The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+func (o GetPrivateLinkAccessGcpOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAccessGcp) string { return v.Project }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkAccessGcpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAccessGcpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAccessGcp)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAccessGcpArrayOutput) ToGetPrivateLinkAccessGcpArrayOutput() GetPrivateLinkAccessGcpArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAccessGcpArrayOutput) ToGetPrivateLinkAccessGcpArrayOutputWithContext(ctx context.Context) GetPrivateLinkAccessGcpArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAccessGcpArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAccessGcpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrivateLinkAccessGcp {
+		return vs[0].([]GetPrivateLinkAccessGcp)[vs[1].(int)]
+	}).(GetPrivateLinkAccessGcpOutput)
+}
+
 type GetPrivateLinkAccessNetwork struct {
 	// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
 	Id string `pulumi:"id"`
@@ -5697,6 +6795,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEnvironmentPtrInput)(nil)).Elem(), ConnectorEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterInput)(nil)).Elem(), ConnectorKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterPtrInput)(nil)).Elem(), ConnectorKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolIdentityProviderInput)(nil)).Elem(), IdentityPoolIdentityProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolIdentityProviderPtrInput)(nil)).Elem(), IdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaAclCredentialsInput)(nil)).Elem(), KafkaAclCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaAclCredentialsPtrInput)(nil)).Elem(), KafkaAclCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaAclKafkaClusterInput)(nil)).Elem(), KafkaAclKafkaClusterArgs{})
@@ -5715,6 +6815,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaTopicCredentialsPtrInput)(nil)).Elem(), KafkaTopicCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaTopicKafkaClusterInput)(nil)).Elem(), KafkaTopicKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaTopicKafkaClusterPtrInput)(nil)).Elem(), KafkaTopicKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KsqlClusterCredentialIdentityInput)(nil)).Elem(), KsqlClusterCredentialIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KsqlClusterCredentialIdentityPtrInput)(nil)).Elem(), KsqlClusterCredentialIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KsqlClusterEnvironmentInput)(nil)).Elem(), KsqlClusterEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KsqlClusterEnvironmentPtrInput)(nil)).Elem(), KsqlClusterEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KsqlClusterKafkaClusterInput)(nil)).Elem(), KsqlClusterKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KsqlClusterKafkaClusterPtrInput)(nil)).Elem(), KsqlClusterKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAwInput)(nil)).Elem(), NetworkAwArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAwArrayInput)(nil)).Elem(), NetworkAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAzureInput)(nil)).Elem(), NetworkAzureArgs{})
@@ -5739,8 +6845,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessAzurePtrInput)(nil)).Elem(), PrivateLinkAccessAzureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessEnvironmentInput)(nil)).Elem(), PrivateLinkAccessEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessEnvironmentPtrInput)(nil)).Elem(), PrivateLinkAccessEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessGcpInput)(nil)).Elem(), PrivateLinkAccessGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessGcpPtrInput)(nil)).Elem(), PrivateLinkAccessGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessNetworkInput)(nil)).Elem(), PrivateLinkAccessNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessNetworkPtrInput)(nil)).Elem(), PrivateLinkAccessNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolIdentityProviderInput)(nil)).Elem(), GetIdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterBasicInput)(nil)).Elem(), GetKafkaClusterBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterBasicArrayInput)(nil)).Elem(), GetKafkaClusterBasicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterDedicatedInput)(nil)).Elem(), GetKafkaClusterDedicatedArgs{})
@@ -5753,6 +6862,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaTopicCredentialsInput)(nil)).Elem(), GetKafkaTopicCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaTopicCredentialsPtrInput)(nil)).Elem(), GetKafkaTopicCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaTopicKafkaClusterInput)(nil)).Elem(), GetKafkaTopicKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKsqlClusterCredentialIdentityInput)(nil)).Elem(), GetKsqlClusterCredentialIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKsqlClusterCredentialIdentityArrayInput)(nil)).Elem(), GetKsqlClusterCredentialIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKsqlClusterEnvironmentInput)(nil)).Elem(), GetKsqlClusterEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKsqlClusterKafkaClusterInput)(nil)).Elem(), GetKsqlClusterKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKsqlClusterKafkaClusterArrayInput)(nil)).Elem(), GetKsqlClusterKafkaClusterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAwInput)(nil)).Elem(), GetNetworkAwArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAwArrayInput)(nil)).Elem(), GetNetworkAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAzureInput)(nil)).Elem(), GetNetworkAzureArgs{})
@@ -5774,6 +6888,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessAzureInput)(nil)).Elem(), GetPrivateLinkAccessAzureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessAzureArrayInput)(nil)).Elem(), GetPrivateLinkAccessAzureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessEnvironmentInput)(nil)).Elem(), GetPrivateLinkAccessEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessGcpInput)(nil)).Elem(), GetPrivateLinkAccessGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessGcpArrayInput)(nil)).Elem(), GetPrivateLinkAccessGcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessNetworkInput)(nil)).Elem(), GetPrivateLinkAccessNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessNetworkArrayInput)(nil)).Elem(), GetPrivateLinkAccessNetworkArray{})
 	pulumi.RegisterOutputType(ApiKeyManagedResourceOutput{})
@@ -5786,6 +6902,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorKafkaClusterOutput{})
 	pulumi.RegisterOutputType(ConnectorKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(IdentityPoolIdentityProviderOutput{})
+	pulumi.RegisterOutputType(IdentityPoolIdentityProviderPtrOutput{})
 	pulumi.RegisterOutputType(KafkaAclCredentialsOutput{})
 	pulumi.RegisterOutputType(KafkaAclCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(KafkaAclKafkaClusterOutput{})
@@ -5804,6 +6922,12 @@ func init() {
 	pulumi.RegisterOutputType(KafkaTopicCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(KafkaTopicKafkaClusterOutput{})
 	pulumi.RegisterOutputType(KafkaTopicKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(KsqlClusterCredentialIdentityOutput{})
+	pulumi.RegisterOutputType(KsqlClusterCredentialIdentityPtrOutput{})
+	pulumi.RegisterOutputType(KsqlClusterEnvironmentOutput{})
+	pulumi.RegisterOutputType(KsqlClusterEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(KsqlClusterKafkaClusterOutput{})
+	pulumi.RegisterOutputType(KsqlClusterKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(NetworkAwOutput{})
 	pulumi.RegisterOutputType(NetworkAwArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAzureOutput{})
@@ -5828,8 +6952,11 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkAccessAzurePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAccessEnvironmentOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAccessEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAccessGcpOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAccessGcpPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAccessNetworkOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAccessNetworkPtrOutput{})
+	pulumi.RegisterOutputType(GetIdentityPoolIdentityProviderOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterBasicOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterBasicArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterDedicatedOutput{})
@@ -5842,6 +6969,11 @@ func init() {
 	pulumi.RegisterOutputType(GetKafkaTopicCredentialsOutput{})
 	pulumi.RegisterOutputType(GetKafkaTopicCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetKafkaTopicKafkaClusterOutput{})
+	pulumi.RegisterOutputType(GetKsqlClusterCredentialIdentityOutput{})
+	pulumi.RegisterOutputType(GetKsqlClusterCredentialIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetKsqlClusterEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetKsqlClusterKafkaClusterOutput{})
+	pulumi.RegisterOutputType(GetKsqlClusterKafkaClusterArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkAwOutput{})
 	pulumi.RegisterOutputType(GetNetworkAwArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkAzureOutput{})
@@ -5863,6 +6995,8 @@ func init() {
 	pulumi.RegisterOutputType(GetPrivateLinkAccessAzureOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAccessAzureArrayOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAccessEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAccessGcpOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAccessGcpArrayOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAccessNetworkOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAccessNetworkArrayOutput{})
 }

@@ -80,6 +80,10 @@ export interface GetPrivateLinkAccessResult {
     readonly displayName: string;
     readonly environment: outputs.GetPrivateLinkAccessEnvironment;
     /**
+     * (Optional Configuration Block) The GCP-specific Private Service Connect details if available. It supports the following:
+     */
+    readonly gcps: outputs.GetPrivateLinkAccessGcp[];
+    /**
      * (Required String) The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
      */
     readonly id: string;

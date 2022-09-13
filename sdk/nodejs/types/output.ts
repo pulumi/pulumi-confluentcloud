@@ -57,6 +57,13 @@ export interface ConnectorKafkaCluster {
     id: string;
 }
 
+export interface GetIdentityPoolIdentityProvider {
+    /**
+     * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+     */
+    id: string;
+}
+
 export interface GetKafkaClusterBasic {
 }
 
@@ -106,6 +113,27 @@ export interface GetKafkaTopicKafkaCluster {
     id: string;
 }
 
+export interface GetKsqlClusterCredentialIdentity {
+    /**
+     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetKsqlClusterEnvironment {
+    /**
+     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetKsqlClusterKafkaCluster {
+    /**
+     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
 export interface GetNetworkAw {
     /**
      * (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
@@ -133,7 +161,11 @@ export interface GetNetworkEnvironment {
 
 export interface GetNetworkGcp {
     /**
-     * (Required String) The GCP project.
+     * (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     */
+    privateServiceConnectServiceAttachments: {[key: string]: string};
+    /**
+     * (Required String) The GCP project ID.
      */
     project: string;
     /**
@@ -226,9 +258,23 @@ export interface GetPrivateLinkAccessEnvironment {
     id: string;
 }
 
+export interface GetPrivateLinkAccessGcp {
+    /**
+     * (Required String) The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+     */
+    project: string;
+}
+
 export interface GetPrivateLinkAccessNetwork {
     /**
      * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface IdentityPoolIdentityProvider {
+    /**
+     * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
      */
     id: string;
 }
@@ -300,6 +346,27 @@ export interface KafkaTopicKafkaCluster {
     id: string;
 }
 
+export interface KsqlClusterCredentialIdentity {
+    /**
+     * The ID of the associated service or user account, for example, `sa-abc123`.
+     */
+    id: string;
+}
+
+export interface KsqlClusterEnvironment {
+    /**
+     * The ID of the associated service or user account, for example, `sa-abc123`.
+     */
+    id: string;
+}
+
+export interface KsqlClusterKafkaCluster {
+    /**
+     * The ID of the associated service or user account, for example, `sa-abc123`.
+     */
+    id: string;
+}
+
 export interface NetworkAw {
     /**
      * (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
@@ -327,7 +394,11 @@ export interface NetworkEnvironment {
 
 export interface NetworkGcp {
     /**
-     * (Required String) The GCP project.
+     * (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     */
+    privateServiceConnectServiceAttachments: {[key: string]: string};
+    /**
+     * (Required String) The GCP project ID.
      */
     project: string;
     /**
@@ -418,6 +489,13 @@ export interface PrivateLinkAccessEnvironment {
      * The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
      */
     id: string;
+}
+
+export interface PrivateLinkAccessGcp {
+    /**
+     * The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+     */
+    project: string;
 }
 
 export interface PrivateLinkAccessNetwork {

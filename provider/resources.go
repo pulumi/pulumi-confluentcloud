@@ -84,6 +84,9 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"display_name": tfbridge.AutoName("displayName", 255, "-"),
 				}},
+			"confluent_identity_pool":     {Tok: tfbridge.MakeResource(mainPkg, mainMod, "IdentityPool")},
+			"confluent_identity_provider": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "IdentityProvider")},
+			"confluent_ksql_cluster":      {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KsqlCluster")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"confluent_environment":         {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getEnvironment")},
@@ -96,6 +99,9 @@ func Provider() tfbridge.ProviderInfo {
 			"confluent_peering":             {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getPeering")},
 			"confluent_private_link_access": {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getPrivateLinkAccess")},
 			"confluent_role_binding":        {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getRoleBinding")},
+			"confluent_identity_pool":       {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getIdentityPool")},
+			"confluent_identity_provider":   {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getIdentityProvider")},
+			"confluent_ksql_cluster":        {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getKsqlCluster")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

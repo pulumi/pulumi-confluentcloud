@@ -81,6 +81,8 @@ type LookupPrivateLinkAccessResult struct {
 	// - `environment` (Required Configuration Block) supports the following:
 	DisplayName string                          `pulumi:"displayName"`
 	Environment GetPrivateLinkAccessEnvironment `pulumi:"environment"`
+	// (Optional Configuration Block) The GCP-specific Private Service Connect details if available. It supports the following:
+	Gcps []GetPrivateLinkAccessGcp `pulumi:"gcps"`
 	// (Required String) The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
 	Id       string                        `pulumi:"id"`
 	Networks []GetPrivateLinkAccessNetwork `pulumi:"networks"`
@@ -145,6 +147,11 @@ func (o LookupPrivateLinkAccessResultOutput) DisplayName() pulumi.StringOutput {
 
 func (o LookupPrivateLinkAccessResultOutput) Environment() GetPrivateLinkAccessEnvironmentOutput {
 	return o.ApplyT(func(v LookupPrivateLinkAccessResult) GetPrivateLinkAccessEnvironment { return v.Environment }).(GetPrivateLinkAccessEnvironmentOutput)
+}
+
+// (Optional Configuration Block) The GCP-specific Private Service Connect details if available. It supports the following:
+func (o LookupPrivateLinkAccessResultOutput) Gcps() GetPrivateLinkAccessGcpArrayOutput {
+	return o.ApplyT(func(v LookupPrivateLinkAccessResult) []GetPrivateLinkAccessGcp { return v.Gcps }).(GetPrivateLinkAccessGcpArrayOutput)
 }
 
 // (Required String) The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
