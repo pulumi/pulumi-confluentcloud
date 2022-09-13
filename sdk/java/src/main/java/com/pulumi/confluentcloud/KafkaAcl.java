@@ -121,14 +121,14 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
         return this.principal;
     }
     /**
-     * The resource name for the ACL.
+     * The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
      * 
      */
     @Export(name="resourceName", type=String.class, parameters={})
     private Output<String> resourceName;
 
     /**
-     * @return The resource name for the ACL.
+     * @return The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
      * 
      */
     public Output<String> resourceName() {

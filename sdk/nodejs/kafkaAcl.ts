@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -70,7 +71,7 @@ export class KafkaAcl extends pulumi.CustomResource {
      */
     public readonly principal!: pulumi.Output<string>;
     /**
-     * The resource name for the ACL.
+     * The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
      */
     public readonly resourceName!: pulumi.Output<string>;
     /**
@@ -177,7 +178,7 @@ export interface KafkaAclState {
      */
     principal?: pulumi.Input<string>;
     /**
-     * The resource name for the ACL.
+     * The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
      */
     resourceName?: pulumi.Input<string>;
     /**
@@ -220,7 +221,7 @@ export interface KafkaAclArgs {
      */
     principal: pulumi.Input<string>;
     /**
-     * The resource name for the ACL.
+     * The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
      */
     resourceName: pulumi.Input<string>;
     /**

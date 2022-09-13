@@ -38,7 +38,7 @@ type KafkaAcl struct {
 	Permission pulumi.StringOutput `pulumi:"permission"`
 	// The principal for the ACL.
 	Principal pulumi.StringOutput `pulumi:"principal"`
-	// The resource name for the ACL.
+	// The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
 	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
 	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
@@ -112,7 +112,7 @@ type kafkaAclState struct {
 	Permission *string `pulumi:"permission"`
 	// The principal for the ACL.
 	Principal *string `pulumi:"principal"`
-	// The resource name for the ACL.
+	// The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
 	ResourceName *string `pulumi:"resourceName"`
 	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
 	ResourceType *string `pulumi:"resourceType"`
@@ -134,7 +134,7 @@ type KafkaAclState struct {
 	Permission pulumi.StringPtrInput
 	// The principal for the ACL.
 	Principal pulumi.StringPtrInput
-	// The resource name for the ACL.
+	// The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
 	ResourceName pulumi.StringPtrInput
 	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
 	ResourceType pulumi.StringPtrInput
@@ -160,7 +160,7 @@ type kafkaAclArgs struct {
 	Permission string `pulumi:"permission"`
 	// The principal for the ACL.
 	Principal string `pulumi:"principal"`
-	// The resource name for the ACL.
+	// The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
 	ResourceName string `pulumi:"resourceName"`
 	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
 	ResourceType string `pulumi:"resourceType"`
@@ -183,7 +183,7 @@ type KafkaAclArgs struct {
 	Permission pulumi.StringInput
 	// The principal for the ACL.
 	Principal pulumi.StringInput
-	// The resource name for the ACL.
+	// The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
 	ResourceName pulumi.StringInput
 	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
 	ResourceType pulumi.StringInput
@@ -312,7 +312,7 @@ func (o KafkaAclOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
-// The resource name for the ACL.
+// The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
 func (o KafkaAclOutput) ResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.ResourceName }).(pulumi.StringOutput)
 }

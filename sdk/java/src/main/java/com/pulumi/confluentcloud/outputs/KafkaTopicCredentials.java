@@ -13,21 +13,14 @@ public final class KafkaTopicCredentials {
      * @return The Kafka API Key.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return The Kafka API Secret.
      * 
      */
-    private final String secret;
+    private String secret;
 
-    @CustomType.Constructor
-    private KafkaTopicCredentials(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("secret") String secret) {
-        this.key = key;
-        this.secret = secret;
-    }
-
+    private KafkaTopicCredentials() {}
     /**
      * @return The Kafka API Key.
      * 
@@ -50,30 +43,32 @@ public final class KafkaTopicCredentials {
     public static Builder builder(KafkaTopicCredentials defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private String secret;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KafkaTopicCredentials defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.secret = defaults.secret;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder secret(String secret) {
             this.secret = Objects.requireNonNull(secret);
             return this;
-        }        public KafkaTopicCredentials build() {
-            return new KafkaTopicCredentials(key, secret);
+        }
+        public KafkaTopicCredentials build() {
+            final var o = new KafkaTopicCredentials();
+            o.key = key;
+            o.secret = secret;
+            return o;
         }
     }
 }

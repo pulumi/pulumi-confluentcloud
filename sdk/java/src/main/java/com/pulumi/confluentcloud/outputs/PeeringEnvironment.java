@@ -13,13 +13,9 @@ public final class PeeringEnvironment {
      * @return The ID of the Network that the Peering belongs to, for example, `n-abc123`.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private PeeringEnvironment(@CustomType.Parameter("id") String id) {
-        this.id = id;
-    }
-
+    private PeeringEnvironment() {}
     /**
      * @return The ID of the Network that the Peering belongs to, for example, `n-abc123`.
      * 
@@ -35,24 +31,24 @@ public final class PeeringEnvironment {
     public static Builder builder(PeeringEnvironment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PeeringEnvironment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public PeeringEnvironment build() {
-            return new PeeringEnvironment(id);
+        }
+        public PeeringEnvironment build() {
+            final var o = new PeeringEnvironment();
+            o.id = id;
+            return o;
         }
     }
 }

@@ -13,28 +13,19 @@ public final class ApiKeyOwner {
      * @return The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
      * 
      */
-    private final String apiVersion;
+    private String apiVersion;
     /**
      * @return The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The kind of the managed resource that the API Key associated with, for example, `Cluster`.
      * 
      */
-    private final String kind;
+    private String kind;
 
-    @CustomType.Constructor
-    private ApiKeyOwner(
-        @CustomType.Parameter("apiVersion") String apiVersion,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kind") String kind) {
-        this.apiVersion = apiVersion;
-        this.id = id;
-        this.kind = kind;
-    }
-
+    private ApiKeyOwner() {}
     /**
      * @return The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
      * 
@@ -64,16 +55,12 @@ public final class ApiKeyOwner {
     public static Builder builder(ApiKeyOwner defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiVersion;
         private String id;
         private String kind;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiKeyOwner defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiVersion = defaults.apiVersion;
@@ -81,19 +68,27 @@ public final class ApiKeyOwner {
     	      this.kind = defaults.kind;
         }
 
+        @CustomType.Setter
         public Builder apiVersion(String apiVersion) {
             this.apiVersion = Objects.requireNonNull(apiVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
-        }        public ApiKeyOwner build() {
-            return new ApiKeyOwner(apiVersion, id, kind);
+        }
+        public ApiKeyOwner build() {
+            final var o = new ApiKeyOwner();
+            o.apiVersion = apiVersion;
+            o.id = id;
+            o.kind = kind;
+            return o;
         }
     }
 }

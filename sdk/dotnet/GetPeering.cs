@@ -12,7 +12,7 @@ namespace Pulumi.ConfluentCloud
     public static class GetPeering
     {
         /// <summary>
-        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.Peering` describes a Peering data source.
         /// 
@@ -59,7 +59,7 @@ namespace Pulumi.ConfluentCloud
             => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringResult>("confluentcloud:index/getPeering:getPeering", args ?? new GetPeeringArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &lt;img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt=""&gt;
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.Peering` describes a Peering data source.
         /// 

@@ -13,21 +13,14 @@ public final class GetOrganizationResult {
      * @return (Required String) The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return (Required String) The Confluent Resource Name of the Organization, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
      * 
      */
-    private final String resourceName;
+    private String resourceName;
 
-    @CustomType.Constructor
-    private GetOrganizationResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("resourceName") String resourceName) {
-        this.id = id;
-        this.resourceName = resourceName;
-    }
-
+    private GetOrganizationResult() {}
     /**
      * @return (Required String) The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
      * 
@@ -50,30 +43,32 @@ public final class GetOrganizationResult {
     public static Builder builder(GetOrganizationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String resourceName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetOrganizationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.resourceName = defaults.resourceName;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceName(String resourceName) {
             this.resourceName = Objects.requireNonNull(resourceName);
             return this;
-        }        public GetOrganizationResult build() {
-            return new GetOrganizationResult(id, resourceName);
+        }
+        public GetOrganizationResult build() {
+            final var o = new GetOrganizationResult();
+            o.id = id;
+            o.resourceName = resourceName;
+            return o;
         }
     }
 }

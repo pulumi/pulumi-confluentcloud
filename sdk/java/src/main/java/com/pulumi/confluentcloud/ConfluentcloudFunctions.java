@@ -41,7 +41,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class ConfluentcloudFunctions {
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.Environment` describes an Environment data source.
      * 
@@ -98,7 +98,7 @@ public final class ConfluentcloudFunctions {
         return getEnvironment(GetEnvironmentArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.Environment` describes an Environment data source.
      * 
@@ -155,7 +155,7 @@ public final class ConfluentcloudFunctions {
         return getEnvironmentPlain(GetEnvironmentPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.Environment` describes an Environment data source.
      * 
@@ -212,7 +212,7 @@ public final class ConfluentcloudFunctions {
         return getEnvironment(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.Environment` describes an Environment data source.
      * 
@@ -269,7 +269,7 @@ public final class ConfluentcloudFunctions {
         return getEnvironmentPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.Environment` describes an Environment data source.
      * 
@@ -326,7 +326,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.Environment` describes an Environment data source.
      * 
@@ -383,7 +383,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KafkaCluster` describes a Kafka cluster data source.
      * 
@@ -440,7 +440,7 @@ public final class ConfluentcloudFunctions {
         return getKafkaCluster(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KafkaCluster` describes a Kafka cluster data source.
      * 
@@ -497,7 +497,7 @@ public final class ConfluentcloudFunctions {
         return getKafkaClusterPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KafkaCluster` describes a Kafka cluster data source.
      * 
@@ -554,7 +554,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getKafkaCluster:getKafkaCluster", TypeShape.of(GetKafkaClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KafkaCluster` describes a Kafka cluster data source.
      * 
@@ -611,7 +611,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getKafkaCluster:getKafkaCluster", TypeShape.of(GetKafkaClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
      * 
@@ -661,7 +661,7 @@ public final class ConfluentcloudFunctions {
         return getKafkaTopic(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
      * 
@@ -711,7 +711,7 @@ public final class ConfluentcloudFunctions {
         return getKafkaTopicPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
      * 
@@ -761,7 +761,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getKafkaTopic:getKafkaTopic", TypeShape.of(GetKafkaTopicResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
      * 
@@ -811,7 +811,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getKafkaTopic:getKafkaTopic", TypeShape.of(GetKafkaTopicResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.Network` describes a Network data source.
      * 
@@ -868,7 +868,7 @@ public final class ConfluentcloudFunctions {
         return getNetwork(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.Network` describes a Network data source.
      * 
@@ -925,7 +925,7 @@ public final class ConfluentcloudFunctions {
         return getNetworkPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.Network` describes a Network data source.
      * 
@@ -982,7 +982,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.Network` describes a Network data source.
      * 
@@ -1039,7 +1039,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getNetwork:getNetwork", TypeShape.of(GetNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getOrganization` describes an Organization data source.
      * 
@@ -1076,7 +1076,7 @@ public final class ConfluentcloudFunctions {
         return getOrganization(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getOrganization` describes an Organization data source.
      * 
@@ -1113,7 +1113,7 @@ public final class ConfluentcloudFunctions {
         return getOrganizationPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getOrganization` describes an Organization data source.
      * 
@@ -1150,7 +1150,7 @@ public final class ConfluentcloudFunctions {
         return getOrganization(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getOrganization` describes an Organization data source.
      * 
@@ -1187,7 +1187,7 @@ public final class ConfluentcloudFunctions {
         return getOrganizationPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getOrganization` describes an Organization data source.
      * 
@@ -1224,7 +1224,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getOrganization` describes an Organization data source.
      * 
@@ -1261,7 +1261,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.Peering` describes a Peering data source.
      * 
@@ -1313,7 +1313,7 @@ public final class ConfluentcloudFunctions {
         return getPeering(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.Peering` describes a Peering data source.
      * 
@@ -1365,7 +1365,7 @@ public final class ConfluentcloudFunctions {
         return getPeeringPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.Peering` describes a Peering data source.
      * 
@@ -1417,7 +1417,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getPeering:getPeering", TypeShape.of(GetPeeringResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.Peering` describes a Peering data source.
      * 
@@ -1469,7 +1469,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getPeering:getPeering", TypeShape.of(GetPeeringResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.PrivateLinkAccess` describes a Network data source.
      * 
@@ -1521,7 +1521,7 @@ public final class ConfluentcloudFunctions {
         return getPrivateLinkAccess(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.PrivateLinkAccess` describes a Network data source.
      * 
@@ -1573,7 +1573,7 @@ public final class ConfluentcloudFunctions {
         return getPrivateLinkAccessPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.PrivateLinkAccess` describes a Network data source.
      * 
@@ -1625,7 +1625,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", TypeShape.of(GetPrivateLinkAccessResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.PrivateLinkAccess` describes a Network data source.
      * 
@@ -1677,7 +1677,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", TypeShape.of(GetPrivateLinkAccessResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.RoleBinding` describes a Role Binding.
      * 
@@ -1717,7 +1717,7 @@ public final class ConfluentcloudFunctions {
         return getRoleBinding(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.RoleBinding` describes a Role Binding.
      * 
@@ -1757,7 +1757,7 @@ public final class ConfluentcloudFunctions {
         return getRoleBindingPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.RoleBinding` describes a Role Binding.
      * 
@@ -1797,7 +1797,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getRoleBinding:getRoleBinding", TypeShape.of(GetRoleBindingResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.RoleBinding` describes a Role Binding.
      * 
@@ -1837,7 +1837,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getRoleBinding:getRoleBinding", TypeShape.of(GetRoleBindingResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.ServiceAccount` describes a Service Account data source.
      * 
@@ -1884,7 +1884,7 @@ public final class ConfluentcloudFunctions {
         return getServiceAccount(GetServiceAccountArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.ServiceAccount` describes a Service Account data source.
      * 
@@ -1931,7 +1931,7 @@ public final class ConfluentcloudFunctions {
         return getServiceAccountPlain(GetServiceAccountPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.ServiceAccount` describes a Service Account data source.
      * 
@@ -1978,7 +1978,7 @@ public final class ConfluentcloudFunctions {
         return getServiceAccount(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.ServiceAccount` describes a Service Account data source.
      * 
@@ -2025,7 +2025,7 @@ public final class ConfluentcloudFunctions {
         return getServiceAccountPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.ServiceAccount` describes a Service Account data source.
      * 
@@ -2072,7 +2072,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.ServiceAccount` describes a Service Account data source.
      * 
@@ -2119,7 +2119,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getUser` describes a User data source.
      * 
@@ -2192,7 +2192,7 @@ public final class ConfluentcloudFunctions {
         return getUser(GetUserArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getUser` describes a User data source.
      * 
@@ -2265,7 +2265,7 @@ public final class ConfluentcloudFunctions {
         return getUserPlain(GetUserPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getUser` describes a User data source.
      * 
@@ -2338,7 +2338,7 @@ public final class ConfluentcloudFunctions {
         return getUser(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getUser` describes a User data source.
      * 
@@ -2411,7 +2411,7 @@ public final class ConfluentcloudFunctions {
         return getUserPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getUser` describes a User data source.
      * 
@@ -2484,7 +2484,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &lt;img src=&#34;https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8&#34; alt=&#34;&#34;&gt;
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getUser` describes a User data source.
      * 

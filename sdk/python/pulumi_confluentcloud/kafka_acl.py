@@ -33,7 +33,7 @@ class KafkaAclArgs:
         :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.
         :param pulumi.Input[str] permission: The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
         :param pulumi.Input[str] principal: The principal for the ACL.
-        :param pulumi.Input[str] resource_name: The resource name for the ACL.
+        :param pulumi.Input[str] resource_name: The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         :param pulumi.Input[str] resource_type: The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
         :param pulumi.Input['KafkaAclCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
@@ -124,7 +124,7 @@ class KafkaAclArgs:
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> pulumi.Input[str]:
         """
-        The resource name for the ACL.
+        The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         """
         return pulumi.get(self, "resource_name")
 
@@ -190,7 +190,7 @@ class _KafkaAclState:
         :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.
         :param pulumi.Input[str] permission: The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
         :param pulumi.Input[str] principal: The principal for the ACL.
-        :param pulumi.Input[str] resource_name: The resource name for the ACL.
+        :param pulumi.Input[str] resource_name: The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         :param pulumi.Input[str] resource_type: The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
         """
@@ -300,7 +300,7 @@ class _KafkaAclState:
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource name for the ACL.
+        The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         """
         return pulumi.get(self, "resource_name")
 
@@ -368,7 +368,7 @@ class KafkaAcl(pulumi.CustomResource):
         :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.
         :param pulumi.Input[str] permission: The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
         :param pulumi.Input[str] principal: The principal for the ACL.
-        :param pulumi.Input[str] resource_name_: The resource name for the ACL.
+        :param pulumi.Input[str] resource_name_: The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         :param pulumi.Input[str] resource_type: The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
         """
@@ -482,7 +482,7 @@ class KafkaAcl(pulumi.CustomResource):
         :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.
         :param pulumi.Input[str] permission: The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
         :param pulumi.Input[str] principal: The principal for the ACL.
-        :param pulumi.Input[str] resource_name_: The resource name for the ACL.
+        :param pulumi.Input[str] resource_name_: The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         :param pulumi.Input[str] resource_type: The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
         """
@@ -559,7 +559,7 @@ class KafkaAcl(pulumi.CustomResource):
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> pulumi.Output[str]:
         """
-        The resource name for the ACL.
+        The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         """
         return pulumi.get(self, "resource_name")
 

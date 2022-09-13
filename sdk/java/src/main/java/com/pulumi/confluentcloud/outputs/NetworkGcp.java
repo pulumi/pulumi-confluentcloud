@@ -15,21 +15,14 @@ public final class NetworkGcp {
      * @return (Required String) The GCP project.
      * 
      */
-    private final @Nullable String project;
+    private @Nullable String project;
     /**
      * @return (Required String) The GCP VPC network name.
      * 
      */
-    private final @Nullable String vpcNetwork;
+    private @Nullable String vpcNetwork;
 
-    @CustomType.Constructor
-    private NetworkGcp(
-        @CustomType.Parameter("project") @Nullable String project,
-        @CustomType.Parameter("vpcNetwork") @Nullable String vpcNetwork) {
-        this.project = project;
-        this.vpcNetwork = vpcNetwork;
-    }
-
+    private NetworkGcp() {}
     /**
      * @return (Required String) The GCP project.
      * 
@@ -52,30 +45,32 @@ public final class NetworkGcp {
     public static Builder builder(NetworkGcp defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String project;
         private @Nullable String vpcNetwork;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkGcp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.project = defaults.project;
     	      this.vpcNetwork = defaults.vpcNetwork;
         }
 
+        @CustomType.Setter
         public Builder project(@Nullable String project) {
             this.project = project;
             return this;
         }
+        @CustomType.Setter
         public Builder vpcNetwork(@Nullable String vpcNetwork) {
             this.vpcNetwork = vpcNetwork;
             return this;
-        }        public NetworkGcp build() {
-            return new NetworkGcp(project, vpcNetwork);
+        }
+        public NetworkGcp build() {
+            final var o = new NetworkGcp();
+            o.project = project;
+            o.vpcNetwork = vpcNetwork;
+            return o;
         }
     }
 }

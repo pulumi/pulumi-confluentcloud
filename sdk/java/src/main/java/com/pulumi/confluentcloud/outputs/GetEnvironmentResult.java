@@ -13,28 +13,19 @@ public final class GetEnvironmentResult {
      * @return (Required String) A human-readable name for the Environment.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return (Required String) The ID of the Environment, for example, `env-abc123`.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
      * 
      */
-    private final String resourceName;
+    private String resourceName;
 
-    @CustomType.Constructor
-    private GetEnvironmentResult(
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("resourceName") String resourceName) {
-        this.displayName = displayName;
-        this.id = id;
-        this.resourceName = resourceName;
-    }
-
+    private GetEnvironmentResult() {}
     /**
      * @return (Required String) A human-readable name for the Environment.
      * 
@@ -64,16 +55,12 @@ public final class GetEnvironmentResult {
     public static Builder builder(GetEnvironmentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String displayName;
         private String id;
         private String resourceName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEnvironmentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayName = defaults.displayName;
@@ -81,19 +68,27 @@ public final class GetEnvironmentResult {
     	      this.resourceName = defaults.resourceName;
         }
 
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceName(String resourceName) {
             this.resourceName = Objects.requireNonNull(resourceName);
             return this;
-        }        public GetEnvironmentResult build() {
-            return new GetEnvironmentResult(displayName, id, resourceName);
+        }
+        public GetEnvironmentResult build() {
+            final var o = new GetEnvironmentResult();
+            o.displayName = displayName;
+            o.id = id;
+            o.resourceName = resourceName;
+            return o;
         }
     }
 }

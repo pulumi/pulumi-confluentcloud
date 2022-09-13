@@ -14,31 +14,20 @@ public final class ApiKeyManagedResource {
      * @return The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
      * 
      */
-    private final String apiVersion;
-    private final ApiKeyManagedResourceEnvironment environment;
+    private String apiVersion;
+    private ApiKeyManagedResourceEnvironment environment;
     /**
      * @return The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The kind of the managed resource that the API Key associated with, for example, `Cluster`.
      * 
      */
-    private final String kind;
+    private String kind;
 
-    @CustomType.Constructor
-    private ApiKeyManagedResource(
-        @CustomType.Parameter("apiVersion") String apiVersion,
-        @CustomType.Parameter("environment") ApiKeyManagedResourceEnvironment environment,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kind") String kind) {
-        this.apiVersion = apiVersion;
-        this.environment = environment;
-        this.id = id;
-        this.kind = kind;
-    }
-
+    private ApiKeyManagedResource() {}
     /**
      * @return The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
      * 
@@ -71,17 +60,13 @@ public final class ApiKeyManagedResource {
     public static Builder builder(ApiKeyManagedResource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiVersion;
         private ApiKeyManagedResourceEnvironment environment;
         private String id;
         private String kind;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiKeyManagedResource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiVersion = defaults.apiVersion;
@@ -90,23 +75,33 @@ public final class ApiKeyManagedResource {
     	      this.kind = defaults.kind;
         }
 
+        @CustomType.Setter
         public Builder apiVersion(String apiVersion) {
             this.apiVersion = Objects.requireNonNull(apiVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder environment(ApiKeyManagedResourceEnvironment environment) {
             this.environment = Objects.requireNonNull(environment);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
-        }        public ApiKeyManagedResource build() {
-            return new ApiKeyManagedResource(apiVersion, environment, id, kind);
+        }
+        public ApiKeyManagedResource build() {
+            final var o = new ApiKeyManagedResource();
+            o.apiVersion = apiVersion;
+            o.environment = environment;
+            o.id = id;
+            o.kind = kind;
+            return o;
         }
     }
 }

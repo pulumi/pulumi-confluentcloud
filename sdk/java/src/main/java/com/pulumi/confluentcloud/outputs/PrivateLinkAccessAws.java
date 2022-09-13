@@ -13,13 +13,9 @@ public final class PrivateLinkAccessAws {
      * @return The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
      * 
      */
-    private final String account;
+    private String account;
 
-    @CustomType.Constructor
-    private PrivateLinkAccessAws(@CustomType.Parameter("account") String account) {
-        this.account = account;
-    }
-
+    private PrivateLinkAccessAws() {}
     /**
      * @return The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
      * 
@@ -35,24 +31,24 @@ public final class PrivateLinkAccessAws {
     public static Builder builder(PrivateLinkAccessAws defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String account;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PrivateLinkAccessAws defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.account = defaults.account;
         }
 
+        @CustomType.Setter
         public Builder account(String account) {
             this.account = Objects.requireNonNull(account);
             return this;
-        }        public PrivateLinkAccessAws build() {
-            return new PrivateLinkAccessAws(account);
+        }
+        public PrivateLinkAccessAws build() {
+            final var o = new PrivateLinkAccessAws();
+            o.account = account;
+            return o;
         }
     }
 }

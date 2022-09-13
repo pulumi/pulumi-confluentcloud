@@ -13,42 +13,29 @@ public final class GetUserResult {
      * @return (Required String) An API Version of the schema version of the User.
      * 
      */
-    private final String apiVersion;
+    private String apiVersion;
     /**
      * @return (Required String) The email address of the User.
      * 
      */
-    private final String email;
+    private String email;
     /**
      * @return (Required String) The full name of the User.
      * 
      */
-    private final String fullName;
+    private String fullName;
     /**
      * @return (Required String) The ID of the User, for example, `u-abc123`.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return (Required String) A kind of the User.
      * 
      */
-    private final String kind;
+    private String kind;
 
-    @CustomType.Constructor
-    private GetUserResult(
-        @CustomType.Parameter("apiVersion") String apiVersion,
-        @CustomType.Parameter("email") String email,
-        @CustomType.Parameter("fullName") String fullName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kind") String kind) {
-        this.apiVersion = apiVersion;
-        this.email = email;
-        this.fullName = fullName;
-        this.id = id;
-        this.kind = kind;
-    }
-
+    private GetUserResult() {}
     /**
      * @return (Required String) An API Version of the schema version of the User.
      * 
@@ -92,18 +79,14 @@ public final class GetUserResult {
     public static Builder builder(GetUserResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiVersion;
         private String email;
         private String fullName;
         private String id;
         private String kind;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiVersion = defaults.apiVersion;
@@ -113,27 +96,39 @@ public final class GetUserResult {
     	      this.kind = defaults.kind;
         }
 
+        @CustomType.Setter
         public Builder apiVersion(String apiVersion) {
             this.apiVersion = Objects.requireNonNull(apiVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
             return this;
         }
+        @CustomType.Setter
         public Builder fullName(String fullName) {
             this.fullName = Objects.requireNonNull(fullName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
-        }        public GetUserResult build() {
-            return new GetUserResult(apiVersion, email, fullName, id, kind);
+        }
+        public GetUserResult build() {
+            final var o = new GetUserResult();
+            o.apiVersion = apiVersion;
+            o.email = email;
+            o.fullName = fullName;
+            o.id = id;
+            o.kind = kind;
+            return o;
         }
     }
 }

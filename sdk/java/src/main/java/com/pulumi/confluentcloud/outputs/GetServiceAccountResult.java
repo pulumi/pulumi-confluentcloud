@@ -13,42 +13,29 @@ public final class GetServiceAccountResult {
      * @return (Required String) An API Version of the schema version of the Service Account.
      * 
      */
-    private final String apiVersion;
+    private String apiVersion;
     /**
      * @return (Required String) A free-form description of the Service Account.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return (Required String) A human-readable name for the Service Account.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return (Required String) The ID of the Service Account (e.g., `sa-abc123`).
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return (Required String) A kind of the Service Account.
      * 
      */
-    private final String kind;
+    private String kind;
 
-    @CustomType.Constructor
-    private GetServiceAccountResult(
-        @CustomType.Parameter("apiVersion") String apiVersion,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kind") String kind) {
-        this.apiVersion = apiVersion;
-        this.description = description;
-        this.displayName = displayName;
-        this.id = id;
-        this.kind = kind;
-    }
-
+    private GetServiceAccountResult() {}
     /**
      * @return (Required String) An API Version of the schema version of the Service Account.
      * 
@@ -92,18 +79,14 @@ public final class GetServiceAccountResult {
     public static Builder builder(GetServiceAccountResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiVersion;
         private String description;
         private String displayName;
         private String id;
         private String kind;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiVersion = defaults.apiVersion;
@@ -113,27 +96,39 @@ public final class GetServiceAccountResult {
     	      this.kind = defaults.kind;
         }
 
+        @CustomType.Setter
         public Builder apiVersion(String apiVersion) {
             this.apiVersion = Objects.requireNonNull(apiVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
-        }        public GetServiceAccountResult build() {
-            return new GetServiceAccountResult(apiVersion, description, displayName, id, kind);
+        }
+        public GetServiceAccountResult build() {
+            final var o = new GetServiceAccountResult();
+            o.apiVersion = apiVersion;
+            o.description = description;
+            o.displayName = displayName;
+            o.id = id;
+            o.kind = kind;
+            return o;
         }
     }
 }

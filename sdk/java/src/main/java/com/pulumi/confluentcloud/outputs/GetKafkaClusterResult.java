@@ -21,104 +21,71 @@ public final class GetKafkaClusterResult {
      * @return (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
      * 
      */
-    private final String apiVersion;
+    private String apiVersion;
     /**
      * @return (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
      * 
      */
-    private final String availability;
+    private String availability;
     /**
      * @return (Optional Configuration Block) The configuration of the Basic Kafka cluster.
      * 
      */
-    private final @Nullable List<GetKafkaClusterBasic> basics;
+    private @Nullable List<GetKafkaClusterBasic> basics;
     /**
      * @return (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      * 
      */
-    private final String bootstrapEndpoint;
+    private String bootstrapEndpoint;
     /**
      * @return (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      * 
      */
-    private final String cloud;
+    private String cloud;
     /**
      * @return (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
      * 
      */
-    private final @Nullable GetKafkaClusterDedicated dedicated;
+    private @Nullable GetKafkaClusterDedicated dedicated;
     /**
      * @return (Required String) The name of the Kafka cluster.
      * 
      */
-    private final String displayName;
-    private final GetKafkaClusterEnvironment environment;
+    private String displayName;
+    private GetKafkaClusterEnvironment environment;
     /**
      * @return (Required String) The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return (Required String) A kind of the Kafka cluster, for example, `Cluster`.
      * 
      */
-    private final String kind;
-    private final List<GetKafkaClusterNetwork> networks;
+    private String kind;
+    private List<GetKafkaClusterNetwork> networks;
     /**
      * @return (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
      * 
      */
-    private final String rbacCrn;
+    private String rbacCrn;
     /**
      * @return (Required String) The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
      * 
      */
-    private final String region;
+    private String region;
     /**
      * @return (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
-    private final String restEndpoint;
+    private String restEndpoint;
     /**
      * @return (Optional Configuration Block) The configuration of the Standard Kafka cluster.
      * 
      */
-    private final @Nullable List<GetKafkaClusterStandard> standards;
+    private @Nullable List<GetKafkaClusterStandard> standards;
 
-    @CustomType.Constructor
-    private GetKafkaClusterResult(
-        @CustomType.Parameter("apiVersion") String apiVersion,
-        @CustomType.Parameter("availability") String availability,
-        @CustomType.Parameter("basics") @Nullable List<GetKafkaClusterBasic> basics,
-        @CustomType.Parameter("bootstrapEndpoint") String bootstrapEndpoint,
-        @CustomType.Parameter("cloud") String cloud,
-        @CustomType.Parameter("dedicated") @Nullable GetKafkaClusterDedicated dedicated,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("environment") GetKafkaClusterEnvironment environment,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kind") String kind,
-        @CustomType.Parameter("networks") List<GetKafkaClusterNetwork> networks,
-        @CustomType.Parameter("rbacCrn") String rbacCrn,
-        @CustomType.Parameter("region") String region,
-        @CustomType.Parameter("restEndpoint") String restEndpoint,
-        @CustomType.Parameter("standards") @Nullable List<GetKafkaClusterStandard> standards) {
-        this.apiVersion = apiVersion;
-        this.availability = availability;
-        this.basics = basics;
-        this.bootstrapEndpoint = bootstrapEndpoint;
-        this.cloud = cloud;
-        this.dedicated = dedicated;
-        this.displayName = displayName;
-        this.environment = environment;
-        this.id = id;
-        this.kind = kind;
-        this.networks = networks;
-        this.rbacCrn = rbacCrn;
-        this.region = region;
-        this.restEndpoint = restEndpoint;
-        this.standards = standards;
-    }
-
+    private GetKafkaClusterResult() {}
     /**
      * @return (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
      * 
@@ -224,7 +191,7 @@ public final class GetKafkaClusterResult {
     public static Builder builder(GetKafkaClusterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiVersion;
         private String availability;
@@ -241,11 +208,7 @@ public final class GetKafkaClusterResult {
         private String region;
         private String restEndpoint;
         private @Nullable List<GetKafkaClusterStandard> standards;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKafkaClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiVersion = defaults.apiVersion;
@@ -265,14 +228,17 @@ public final class GetKafkaClusterResult {
     	      this.standards = defaults.standards;
         }
 
+        @CustomType.Setter
         public Builder apiVersion(String apiVersion) {
             this.apiVersion = Objects.requireNonNull(apiVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder availability(String availability) {
             this.availability = Objects.requireNonNull(availability);
             return this;
         }
+        @CustomType.Setter
         public Builder basics(@Nullable List<GetKafkaClusterBasic> basics) {
             this.basics = basics;
             return this;
@@ -280,34 +246,42 @@ public final class GetKafkaClusterResult {
         public Builder basics(GetKafkaClusterBasic... basics) {
             return basics(List.of(basics));
         }
+        @CustomType.Setter
         public Builder bootstrapEndpoint(String bootstrapEndpoint) {
             this.bootstrapEndpoint = Objects.requireNonNull(bootstrapEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder cloud(String cloud) {
             this.cloud = Objects.requireNonNull(cloud);
             return this;
         }
+        @CustomType.Setter
         public Builder dedicated(@Nullable GetKafkaClusterDedicated dedicated) {
             this.dedicated = dedicated;
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder environment(GetKafkaClusterEnvironment environment) {
             this.environment = Objects.requireNonNull(environment);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
         }
+        @CustomType.Setter
         public Builder networks(List<GetKafkaClusterNetwork> networks) {
             this.networks = Objects.requireNonNull(networks);
             return this;
@@ -315,26 +289,47 @@ public final class GetKafkaClusterResult {
         public Builder networks(GetKafkaClusterNetwork... networks) {
             return networks(List.of(networks));
         }
+        @CustomType.Setter
         public Builder rbacCrn(String rbacCrn) {
             this.rbacCrn = Objects.requireNonNull(rbacCrn);
             return this;
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
         }
+        @CustomType.Setter
         public Builder restEndpoint(String restEndpoint) {
             this.restEndpoint = Objects.requireNonNull(restEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder standards(@Nullable List<GetKafkaClusterStandard> standards) {
             this.standards = standards;
             return this;
         }
         public Builder standards(GetKafkaClusterStandard... standards) {
             return standards(List.of(standards));
-        }        public GetKafkaClusterResult build() {
-            return new GetKafkaClusterResult(apiVersion, availability, basics, bootstrapEndpoint, cloud, dedicated, displayName, environment, id, kind, networks, rbacCrn, region, restEndpoint, standards);
+        }
+        public GetKafkaClusterResult build() {
+            final var o = new GetKafkaClusterResult();
+            o.apiVersion = apiVersion;
+            o.availability = availability;
+            o.basics = basics;
+            o.bootstrapEndpoint = bootstrapEndpoint;
+            o.cloud = cloud;
+            o.dedicated = dedicated;
+            o.displayName = displayName;
+            o.environment = environment;
+            o.id = id;
+            o.kind = kind;
+            o.networks = networks;
+            o.rbacCrn = rbacCrn;
+            o.region = region;
+            o.restEndpoint = restEndpoint;
+            o.standards = standards;
+            return o;
         }
     }
 }

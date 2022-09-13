@@ -19,55 +19,55 @@ public final class GetNetworkResult {
      * @return (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
      * 
      */
-    private final List<GetNetworkAw> aws;
+    private List<GetNetworkAw> aws;
     /**
      * @return (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
      * 
      */
-    private final List<GetNetworkAzure> azures;
+    private List<GetNetworkAzure> azures;
     /**
      * @return (Required String) The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
      * 
      */
-    private final String cidr;
+    private String cidr;
     /**
      * @return (Required String) The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      * 
      */
-    private final String cloud;
+    private String cloud;
     /**
      * @return (Required List of String) The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
      * 
      */
-    private final List<String> connectionTypes;
+    private List<String> connectionTypes;
     /**
      * @return (Required String) The name of the Network.
      * 
      */
-    private final String displayName;
-    private final String dnsDomain;
-    private final GetNetworkEnvironment environment;
+    private String displayName;
+    private String dnsDomain;
+    private GetNetworkEnvironment environment;
     /**
      * @return (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
      * 
      */
-    private final List<GetNetworkGcp> gcps;
+    private List<GetNetworkGcp> gcps;
     /**
      * @return (Required String) The ID of the Network, for example, `n-abc123`.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return (Required String) The cloud provider region where the network exists.
      * 
      */
-    private final String region;
+    private String region;
     /**
      * @return (Required String) The Confluent Resource Name of the Network.
      * 
      */
-    private final String resourceName;
-    private final Map<String,String> zonalSubdomains;
+    private String resourceName;
+    private Map<String,String> zonalSubdomains;
     /**
      * @return (Optional List of String) The 3 availability zones for this network. They can optionally be specified for AWS networks
      * used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
@@ -76,40 +76,9 @@ public final class GetNetworkResult {
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
      * 
      */
-    private final List<String> zones;
+    private List<String> zones;
 
-    @CustomType.Constructor
-    private GetNetworkResult(
-        @CustomType.Parameter("aws") List<GetNetworkAw> aws,
-        @CustomType.Parameter("azures") List<GetNetworkAzure> azures,
-        @CustomType.Parameter("cidr") String cidr,
-        @CustomType.Parameter("cloud") String cloud,
-        @CustomType.Parameter("connectionTypes") List<String> connectionTypes,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("dnsDomain") String dnsDomain,
-        @CustomType.Parameter("environment") GetNetworkEnvironment environment,
-        @CustomType.Parameter("gcps") List<GetNetworkGcp> gcps,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("region") String region,
-        @CustomType.Parameter("resourceName") String resourceName,
-        @CustomType.Parameter("zonalSubdomains") Map<String,String> zonalSubdomains,
-        @CustomType.Parameter("zones") List<String> zones) {
-        this.aws = aws;
-        this.azures = azures;
-        this.cidr = cidr;
-        this.cloud = cloud;
-        this.connectionTypes = connectionTypes;
-        this.displayName = displayName;
-        this.dnsDomain = dnsDomain;
-        this.environment = environment;
-        this.gcps = gcps;
-        this.id = id;
-        this.region = region;
-        this.resourceName = resourceName;
-        this.zonalSubdomains = zonalSubdomains;
-        this.zones = zones;
-    }
-
+    private GetNetworkResult() {}
     /**
      * @return (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
      * 
@@ -208,7 +177,7 @@ public final class GetNetworkResult {
     public static Builder builder(GetNetworkResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetNetworkAw> aws;
         private List<GetNetworkAzure> azures;
@@ -224,11 +193,7 @@ public final class GetNetworkResult {
         private String resourceName;
         private Map<String,String> zonalSubdomains;
         private List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNetworkResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aws = defaults.aws;
@@ -247,6 +212,7 @@ public final class GetNetworkResult {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder aws(List<GetNetworkAw> aws) {
             this.aws = Objects.requireNonNull(aws);
             return this;
@@ -254,6 +220,7 @@ public final class GetNetworkResult {
         public Builder aws(GetNetworkAw... aws) {
             return aws(List.of(aws));
         }
+        @CustomType.Setter
         public Builder azures(List<GetNetworkAzure> azures) {
             this.azures = Objects.requireNonNull(azures);
             return this;
@@ -261,14 +228,17 @@ public final class GetNetworkResult {
         public Builder azures(GetNetworkAzure... azures) {
             return azures(List.of(azures));
         }
+        @CustomType.Setter
         public Builder cidr(String cidr) {
             this.cidr = Objects.requireNonNull(cidr);
             return this;
         }
+        @CustomType.Setter
         public Builder cloud(String cloud) {
             this.cloud = Objects.requireNonNull(cloud);
             return this;
         }
+        @CustomType.Setter
         public Builder connectionTypes(List<String> connectionTypes) {
             this.connectionTypes = Objects.requireNonNull(connectionTypes);
             return this;
@@ -276,18 +246,22 @@ public final class GetNetworkResult {
         public Builder connectionTypes(String... connectionTypes) {
             return connectionTypes(List.of(connectionTypes));
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder dnsDomain(String dnsDomain) {
             this.dnsDomain = Objects.requireNonNull(dnsDomain);
             return this;
         }
+        @CustomType.Setter
         public Builder environment(GetNetworkEnvironment environment) {
             this.environment = Objects.requireNonNull(environment);
             return this;
         }
+        @CustomType.Setter
         public Builder gcps(List<GetNetworkGcp> gcps) {
             this.gcps = Objects.requireNonNull(gcps);
             return this;
@@ -295,30 +269,51 @@ public final class GetNetworkResult {
         public Builder gcps(GetNetworkGcp... gcps) {
             return gcps(List.of(gcps));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceName(String resourceName) {
             this.resourceName = Objects.requireNonNull(resourceName);
             return this;
         }
+        @CustomType.Setter
         public Builder zonalSubdomains(Map<String,String> zonalSubdomains) {
             this.zonalSubdomains = Objects.requireNonNull(zonalSubdomains);
             return this;
         }
+        @CustomType.Setter
         public Builder zones(List<String> zones) {
             this.zones = Objects.requireNonNull(zones);
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public GetNetworkResult build() {
-            return new GetNetworkResult(aws, azures, cidr, cloud, connectionTypes, displayName, dnsDomain, environment, gcps, id, region, resourceName, zonalSubdomains, zones);
+        }
+        public GetNetworkResult build() {
+            final var o = new GetNetworkResult();
+            o.aws = aws;
+            o.azures = azures;
+            o.cidr = cidr;
+            o.cloud = cloud;
+            o.connectionTypes = connectionTypes;
+            o.displayName = displayName;
+            o.dnsDomain = dnsDomain;
+            o.environment = environment;
+            o.gcps = gcps;
+            o.id = id;
+            o.region = region;
+            o.resourceName = resourceName;
+            o.zonalSubdomains = zonalSubdomains;
+            o.zones = zones;
+            return o;
         }
     }
 }

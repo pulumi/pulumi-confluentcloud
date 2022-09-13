@@ -13,13 +13,9 @@ public final class GetPrivateLinkAccessNetwork {
      * @return The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetPrivateLinkAccessNetwork(@CustomType.Parameter("id") String id) {
-        this.id = id;
-    }
-
+    private GetPrivateLinkAccessNetwork() {}
     /**
      * @return The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
      * 
@@ -35,24 +31,24 @@ public final class GetPrivateLinkAccessNetwork {
     public static Builder builder(GetPrivateLinkAccessNetwork defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPrivateLinkAccessNetwork defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetPrivateLinkAccessNetwork build() {
-            return new GetPrivateLinkAccessNetwork(id);
+        }
+        public GetPrivateLinkAccessNetwork build() {
+            final var o = new GetPrivateLinkAccessNetwork();
+            o.id = id;
+            return o;
         }
     }
 }

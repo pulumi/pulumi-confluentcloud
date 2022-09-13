@@ -63,7 +63,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Principal { get; private set; } = null!;
 
         /// <summary>
-        /// The resource name for the ACL.
+        /// The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         /// </summary>
         [Output("resourceName")]
         public Output<string> ResourceName { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string> Principal { get; set; } = null!;
 
         /// <summary>
-        /// The resource name for the ACL.
+        /// The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Principal { get; set; }
 
         /// <summary>
-        /// The resource name for the ACL.
+        /// The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
         /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }

@@ -216,7 +216,7 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
                       standards: Optional[Sequence[pulumi.InputType['GetKafkaClusterStandardArgs']]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKafkaClusterResult:
     """
-    <img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt="">
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `KafkaCluster` describes a Kafka cluster data source.
 
@@ -282,7 +282,7 @@ def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[pul
                              standards: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKafkaClusterStandardArgs']]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKafkaClusterResult]:
     """
-    <img src="https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8" alt="">
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `KafkaCluster` describes a Kafka cluster data source.
 
