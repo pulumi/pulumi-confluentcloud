@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAccessAw;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAccessAzure;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAccessEnvironment;
+import com.pulumi.confluentcloud.outputs.GetPrivateLinkAccessGcp;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAccessNetwork;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -31,6 +32,11 @@ public final class GetPrivateLinkAccessResult {
      */
     private String displayName;
     private GetPrivateLinkAccessEnvironment environment;
+    /**
+     * @return (Optional Configuration Block) The GCP-specific Private Service Connect details if available. It supports the following:
+     * 
+     */
+    private List<GetPrivateLinkAccessGcp> gcps;
     /**
      * @return (Required String) The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
      * 
@@ -65,6 +71,13 @@ public final class GetPrivateLinkAccessResult {
         return this.environment;
     }
     /**
+     * @return (Optional Configuration Block) The GCP-specific Private Service Connect details if available. It supports the following:
+     * 
+     */
+    public List<GetPrivateLinkAccessGcp> gcps() {
+        return this.gcps;
+    }
+    /**
      * @return (Required String) The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
      * 
      */
@@ -88,6 +101,7 @@ public final class GetPrivateLinkAccessResult {
         private List<GetPrivateLinkAccessAzure> azures;
         private String displayName;
         private GetPrivateLinkAccessEnvironment environment;
+        private List<GetPrivateLinkAccessGcp> gcps;
         private String id;
         private List<GetPrivateLinkAccessNetwork> networks;
         public Builder() {}
@@ -97,6 +111,7 @@ public final class GetPrivateLinkAccessResult {
     	      this.azures = defaults.azures;
     	      this.displayName = defaults.displayName;
     	      this.environment = defaults.environment;
+    	      this.gcps = defaults.gcps;
     	      this.id = defaults.id;
     	      this.networks = defaults.networks;
         }
@@ -128,6 +143,14 @@ public final class GetPrivateLinkAccessResult {
             return this;
         }
         @CustomType.Setter
+        public Builder gcps(List<GetPrivateLinkAccessGcp> gcps) {
+            this.gcps = Objects.requireNonNull(gcps);
+            return this;
+        }
+        public Builder gcps(GetPrivateLinkAccessGcp... gcps) {
+            return gcps(List.of(gcps));
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
@@ -146,6 +169,7 @@ public final class GetPrivateLinkAccessResult {
             o.azures = azures;
             o.displayName = displayName;
             o.environment = environment;
+            o.gcps = gcps;
             o.id = id;
             o.networks = networks;
             return o;

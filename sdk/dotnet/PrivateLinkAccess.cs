@@ -41,6 +41,9 @@ namespace Pulumi.ConfluentCloud
         [Output("environment")]
         public Output<Outputs.PrivateLinkAccessEnvironment> Environment { get; private set; } = null!;
 
+        [Output("gcp")]
+        public Output<Outputs.PrivateLinkAccessGcp?> Gcp { get; private set; } = null!;
+
         /// <summary>
         /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
         /// accounts.
@@ -112,6 +115,9 @@ namespace Pulumi.ConfluentCloud
         [Input("environment", required: true)]
         public Input<Inputs.PrivateLinkAccessEnvironmentArgs> Environment { get; set; } = null!;
 
+        [Input("gcp")]
+        public Input<Inputs.PrivateLinkAccessGcpArgs>? Gcp { get; set; }
+
         /// <summary>
         /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
         /// accounts.
@@ -144,6 +150,9 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("environment")]
         public Input<Inputs.PrivateLinkAccessEnvironmentGetArgs>? Environment { get; set; }
+
+        [Input("gcp")]
+        public Input<Inputs.PrivateLinkAccessGcpGetArgs>? Gcp { get; set; }
 
         /// <summary>
         /// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider

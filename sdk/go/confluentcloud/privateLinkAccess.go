@@ -31,6 +31,7 @@ type PrivateLinkAccess struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAccessEnvironmentOutput `pulumi:"environment"`
+	Gcp         PrivateLinkAccessGcpPtrOutput      `pulumi:"gcp"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
 	// accounts.
 	Network PrivateLinkAccessNetworkOutput `pulumi:"network"`
@@ -77,6 +78,7 @@ type privateLinkAccessState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *PrivateLinkAccessEnvironment `pulumi:"environment"`
+	Gcp         *PrivateLinkAccessGcp         `pulumi:"gcp"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
 	// accounts.
 	Network *PrivateLinkAccessNetwork `pulumi:"network"`
@@ -89,6 +91,7 @@ type PrivateLinkAccessState struct {
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAccessEnvironmentPtrInput
+	Gcp         PrivateLinkAccessGcpPtrInput
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
 	// accounts.
 	Network PrivateLinkAccessNetworkPtrInput
@@ -105,6 +108,7 @@ type privateLinkAccessArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAccessEnvironment `pulumi:"environment"`
+	Gcp         *PrivateLinkAccessGcp        `pulumi:"gcp"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
 	// accounts.
 	Network PrivateLinkAccessNetwork `pulumi:"network"`
@@ -118,6 +122,7 @@ type PrivateLinkAccessArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAccessEnvironmentInput
+	Gcp         PrivateLinkAccessGcpPtrInput
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
 	// accounts.
 	Network PrivateLinkAccessNetworkInput
@@ -226,6 +231,10 @@ func (o PrivateLinkAccessOutput) DisplayName() pulumi.StringOutput {
 // Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 func (o PrivateLinkAccessOutput) Environment() PrivateLinkAccessEnvironmentOutput {
 	return o.ApplyT(func(v *PrivateLinkAccess) PrivateLinkAccessEnvironmentOutput { return v.Environment }).(PrivateLinkAccessEnvironmentOutput)
+}
+
+func (o PrivateLinkAccessOutput) Gcp() PrivateLinkAccessGcpPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkAccess) PrivateLinkAccessGcpPtrOutput { return v.Gcp }).(PrivateLinkAccessGcpPtrOutput)
 }
 
 // Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider

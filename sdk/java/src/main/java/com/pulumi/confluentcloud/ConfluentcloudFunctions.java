@@ -6,10 +6,16 @@ package com.pulumi.confluentcloud;
 import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
+import com.pulumi.confluentcloud.inputs.GetIdentityPoolPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
+import com.pulumi.confluentcloud.inputs.GetIdentityProviderPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaTopicPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetKsqlClusterArgs;
+import com.pulumi.confluentcloud.inputs.GetKsqlClusterPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetNetworkArgs;
 import com.pulumi.confluentcloud.inputs.GetNetworkPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetPeeringArgs;
@@ -23,8 +29,11 @@ import com.pulumi.confluentcloud.inputs.GetServiceAccountPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetUserArgs;
 import com.pulumi.confluentcloud.inputs.GetUserPlainArgs;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
+import com.pulumi.confluentcloud.outputs.GetIdentityPoolResult;
+import com.pulumi.confluentcloud.outputs.GetIdentityProviderResult;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterResult;
 import com.pulumi.confluentcloud.outputs.GetKafkaTopicResult;
+import com.pulumi.confluentcloud.outputs.GetKsqlClusterResult;
 import com.pulumi.confluentcloud.outputs.GetNetworkResult;
 import com.pulumi.confluentcloud.outputs.GetOrganizationResult;
 import com.pulumi.confluentcloud.outputs.GetPeeringResult;
@@ -381,6 +390,484 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * `confluentcloud.IdentityPool` describes an Identity Pool data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityPoolIdentityProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *             .id(&#34;pool-xyz456&#34;)
+     *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
+     *                 .id(&#34;op-abc123&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         final var exampleUsingNameIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *             .displayName(&#34;My Identity Pool&#34;)
+     *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
+     *                 .id(&#34;op-abc123&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIdentityPoolResult> getIdentityPool(GetIdentityPoolArgs args) {
+        return getIdentityPool(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * `confluentcloud.IdentityPool` describes an Identity Pool data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityPoolIdentityProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *             .id(&#34;pool-xyz456&#34;)
+     *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
+     *                 .id(&#34;op-abc123&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         final var exampleUsingNameIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *             .displayName(&#34;My Identity Pool&#34;)
+     *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
+     *                 .id(&#34;op-abc123&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIdentityPoolResult> getIdentityPoolPlain(GetIdentityPoolPlainArgs args) {
+        return getIdentityPoolPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * `confluentcloud.IdentityPool` describes an Identity Pool data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityPoolIdentityProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *             .id(&#34;pool-xyz456&#34;)
+     *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
+     *                 .id(&#34;op-abc123&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         final var exampleUsingNameIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *             .displayName(&#34;My Identity Pool&#34;)
+     *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
+     *                 .id(&#34;op-abc123&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIdentityPoolResult> getIdentityPool(GetIdentityPoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getIdentityPool:getIdentityPool", TypeShape.of(GetIdentityPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * `confluentcloud.IdentityPool` describes an Identity Pool data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityPoolIdentityProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *             .id(&#34;pool-xyz456&#34;)
+     *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
+     *                 .id(&#34;op-abc123&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         final var exampleUsingNameIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *             .displayName(&#34;My Identity Pool&#34;)
+     *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
+     *                 .id(&#34;op-abc123&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIdentityPoolResult> getIdentityPoolPlain(GetIdentityPoolPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getIdentityPool:getIdentityPool", TypeShape.of(GetIdentityPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * `confluentcloud.IdentityProvider` describes an Identity Provider data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *             .id(&#34;op-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         final var exampleUsingNameIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIdentityProviderResult> getIdentityProvider() {
+        return getIdentityProvider(GetIdentityProviderArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * `confluentcloud.IdentityProvider` describes an Identity Provider data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *             .id(&#34;op-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         final var exampleUsingNameIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIdentityProviderResult> getIdentityProviderPlain() {
+        return getIdentityProviderPlain(GetIdentityProviderPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * `confluentcloud.IdentityProvider` describes an Identity Provider data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *             .id(&#34;op-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         final var exampleUsingNameIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIdentityProviderResult> getIdentityProvider(GetIdentityProviderArgs args) {
+        return getIdentityProvider(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * `confluentcloud.IdentityProvider` describes an Identity Provider data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *             .id(&#34;op-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         final var exampleUsingNameIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIdentityProviderResult> getIdentityProviderPlain(GetIdentityProviderPlainArgs args) {
+        return getIdentityProviderPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * `confluentcloud.IdentityProvider` describes an Identity Provider data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *             .id(&#34;op-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         final var exampleUsingNameIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIdentityProviderResult> getIdentityProvider(GetIdentityProviderArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getIdentityProvider:getIdentityProvider", TypeShape.of(GetIdentityProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * `confluentcloud.IdentityProvider` describes an Identity Provider data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *             .id(&#34;op-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         final var exampleUsingNameIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIdentityProviderResult> getIdentityProviderPlain(GetIdentityProviderPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getIdentityProvider:getIdentityProvider", TypeShape.of(GetIdentityProviderResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -809,6 +1296,222 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetKafkaTopicResult> getKafkaTopicPlain(GetKafkaTopicPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getKafkaTopic:getKafkaTopic", TypeShape.of(GetKafkaTopicResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## # confluentcloud.KsqlCluster Data Source
+     * 
+     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKsqlClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKsqlClusterEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *             .id(&#34;lksqlc-abc123&#34;)
+     *             .environment(GetKsqlClusterEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         final var exampleUsingNameKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *             .displayName(&#34;ksqldb_cluster&#34;)
+     *             .environment(GetKsqlClusterEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetKsqlClusterResult> getKsqlCluster(GetKsqlClusterArgs args) {
+        return getKsqlCluster(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## # confluentcloud.KsqlCluster Data Source
+     * 
+     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKsqlClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKsqlClusterEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *             .id(&#34;lksqlc-abc123&#34;)
+     *             .environment(GetKsqlClusterEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         final var exampleUsingNameKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *             .displayName(&#34;ksqldb_cluster&#34;)
+     *             .environment(GetKsqlClusterEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetKsqlClusterResult> getKsqlClusterPlain(GetKsqlClusterPlainArgs args) {
+        return getKsqlClusterPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## # confluentcloud.KsqlCluster Data Source
+     * 
+     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKsqlClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKsqlClusterEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *             .id(&#34;lksqlc-abc123&#34;)
+     *             .environment(GetKsqlClusterEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         final var exampleUsingNameKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *             .displayName(&#34;ksqldb_cluster&#34;)
+     *             .environment(GetKsqlClusterEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetKsqlClusterResult> getKsqlCluster(GetKsqlClusterArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getKsqlCluster:getKsqlCluster", TypeShape.of(GetKsqlClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## # confluentcloud.KsqlCluster Data Source
+     * 
+     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKsqlClusterArgs;
+     * import com.pulumi.confluentcloud.inputs.GetKsqlClusterEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *             .id(&#34;lksqlc-abc123&#34;)
+     *             .environment(GetKsqlClusterEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         final var exampleUsingNameKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *             .displayName(&#34;ksqldb_cluster&#34;)
+     *             .environment(GetKsqlClusterEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetKsqlClusterResult> getKsqlClusterPlain(GetKsqlClusterPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getKsqlCluster:getKsqlCluster", TypeShape.of(GetKsqlClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

@@ -20,7 +20,8 @@ class PrivateLinkAccessArgs:
                  network: pulumi.Input['PrivateLinkAccessNetworkArgs'],
                  aws: Optional[pulumi.Input['PrivateLinkAccessAwsArgs']] = None,
                  azure: Optional[pulumi.Input['PrivateLinkAccessAzureArgs']] = None,
-                 display_name: Optional[pulumi.Input[str]] = None):
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 gcp: Optional[pulumi.Input['PrivateLinkAccessGcpArgs']] = None):
         """
         The set of arguments for constructing a PrivateLinkAccess resource.
         :param pulumi.Input['PrivateLinkAccessEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -36,6 +37,8 @@ class PrivateLinkAccessArgs:
             pulumi.set(__self__, "azure", azure)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if gcp is not None:
+            pulumi.set(__self__, "gcp", gcp)
 
     @property
     @pulumi.getter
@@ -92,6 +95,15 @@ class PrivateLinkAccessArgs:
     def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
 
+    @property
+    @pulumi.getter
+    def gcp(self) -> Optional[pulumi.Input['PrivateLinkAccessGcpArgs']]:
+        return pulumi.get(self, "gcp")
+
+    @gcp.setter
+    def gcp(self, value: Optional[pulumi.Input['PrivateLinkAccessGcpArgs']]):
+        pulumi.set(self, "gcp", value)
+
 
 @pulumi.input_type
 class _PrivateLinkAccessState:
@@ -100,6 +112,7 @@ class _PrivateLinkAccessState:
                  azure: Optional[pulumi.Input['PrivateLinkAccessAzureArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input['PrivateLinkAccessEnvironmentArgs']] = None,
+                 gcp: Optional[pulumi.Input['PrivateLinkAccessGcpArgs']] = None,
                  network: Optional[pulumi.Input['PrivateLinkAccessNetworkArgs']] = None):
         """
         Input properties used for looking up and filtering PrivateLinkAccess resources.
@@ -116,6 +129,8 @@ class _PrivateLinkAccessState:
             pulumi.set(__self__, "display_name", display_name)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if gcp is not None:
+            pulumi.set(__self__, "gcp", gcp)
         if network is not None:
             pulumi.set(__self__, "network", network)
 
@@ -163,6 +178,15 @@ class _PrivateLinkAccessState:
 
     @property
     @pulumi.getter
+    def gcp(self) -> Optional[pulumi.Input['PrivateLinkAccessGcpArgs']]:
+        return pulumi.get(self, "gcp")
+
+    @gcp.setter
+    def gcp(self, value: Optional[pulumi.Input['PrivateLinkAccessGcpArgs']]):
+        pulumi.set(self, "gcp", value)
+
+    @property
+    @pulumi.getter
     def network(self) -> Optional[pulumi.Input['PrivateLinkAccessNetworkArgs']]:
         """
         Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -184,6 +208,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
                  azure: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessAzureArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessEnvironmentArgs']]] = None,
+                 gcp: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessGcpArgs']]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessNetworkArgs']]] = None,
                  __props__=None):
         """
@@ -240,6 +265,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
                  azure: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessAzureArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessEnvironmentArgs']]] = None,
+                 gcp: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessGcpArgs']]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessNetworkArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -256,6 +282,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            __props__.__dict__["gcp"] = gcp
             if network is None and not opts.urn:
                 raise TypeError("Missing required property 'network'")
             __props__.__dict__["network"] = network
@@ -273,6 +300,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
             azure: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessAzureArgs']]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             environment: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessEnvironmentArgs']]] = None,
+            gcp: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessGcpArgs']]] = None,
             network: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessNetworkArgs']]] = None) -> 'PrivateLinkAccess':
         """
         Get an existing PrivateLinkAccess resource's state with the given name, id, and optional extra
@@ -294,6 +322,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
         __props__.__dict__["azure"] = azure
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["environment"] = environment
+        __props__.__dict__["gcp"] = gcp
         __props__.__dict__["network"] = network
         return PrivateLinkAccess(resource_name, opts=opts, __props__=__props__)
 
@@ -322,6 +351,11 @@ class PrivateLinkAccess(pulumi.CustomResource):
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
+    def gcp(self) -> pulumi.Output[Optional['outputs.PrivateLinkAccessGcp']]:
+        return pulumi.get(self, "gcp")
 
     @property
     @pulumi.getter

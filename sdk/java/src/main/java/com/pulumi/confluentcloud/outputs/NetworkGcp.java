@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -12,7 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NetworkGcp {
     /**
-     * @return (Required String) The GCP project.
+     * @return (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * 
+     */
+    private @Nullable Map<String,String> privateServiceConnectServiceAttachments;
+    /**
+     * @return (Required String) The GCP project ID.
      * 
      */
     private @Nullable String project;
@@ -24,7 +30,14 @@ public final class NetworkGcp {
 
     private NetworkGcp() {}
     /**
-     * @return (Required String) The GCP project.
+     * @return (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * 
+     */
+    public Map<String,String> privateServiceConnectServiceAttachments() {
+        return this.privateServiceConnectServiceAttachments == null ? Map.of() : this.privateServiceConnectServiceAttachments;
+    }
+    /**
+     * @return (Required String) The GCP project ID.
      * 
      */
     public Optional<String> project() {
@@ -47,15 +60,22 @@ public final class NetworkGcp {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Map<String,String> privateServiceConnectServiceAttachments;
         private @Nullable String project;
         private @Nullable String vpcNetwork;
         public Builder() {}
         public Builder(NetworkGcp defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.privateServiceConnectServiceAttachments = defaults.privateServiceConnectServiceAttachments;
     	      this.project = defaults.project;
     	      this.vpcNetwork = defaults.vpcNetwork;
         }
 
+        @CustomType.Setter
+        public Builder privateServiceConnectServiceAttachments(@Nullable Map<String,String> privateServiceConnectServiceAttachments) {
+            this.privateServiceConnectServiceAttachments = privateServiceConnectServiceAttachments;
+            return this;
+        }
         @CustomType.Setter
         public Builder project(@Nullable String project) {
             this.project = project;
@@ -68,6 +88,7 @@ public final class NetworkGcp {
         }
         public NetworkGcp build() {
             final var o = new NetworkGcp();
+            o.privateServiceConnectServiceAttachments = privateServiceConnectServiceAttachments;
             o.project = project;
             o.vpcNetwork = vpcNetwork;
             return o;

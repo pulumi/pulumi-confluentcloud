@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.confluentcloud.inputs.PrivateLinkAccessAwsArgs;
 import com.pulumi.confluentcloud.inputs.PrivateLinkAccessAzureArgs;
 import com.pulumi.confluentcloud.inputs.PrivateLinkAccessEnvironmentArgs;
+import com.pulumi.confluentcloud.inputs.PrivateLinkAccessGcpArgs;
 import com.pulumi.confluentcloud.inputs.PrivateLinkAccessNetworkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -63,6 +64,13 @@ public final class PrivateLinkAccessState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.environment);
     }
 
+    @Import(name="gcp")
+    private @Nullable Output<PrivateLinkAccessGcpArgs> gcp;
+
+    public Optional<Output<PrivateLinkAccessGcpArgs>> gcp() {
+        return Optional.ofNullable(this.gcp);
+    }
+
     /**
      * Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
      * accounts.
@@ -87,6 +95,7 @@ public final class PrivateLinkAccessState extends com.pulumi.resources.ResourceA
         this.azure = $.azure;
         this.displayName = $.displayName;
         this.environment = $.environment;
+        this.gcp = $.gcp;
         this.network = $.network;
     }
 
@@ -166,6 +175,15 @@ public final class PrivateLinkAccessState extends com.pulumi.resources.ResourceA
          */
         public Builder environment(PrivateLinkAccessEnvironmentArgs environment) {
             return environment(Output.of(environment));
+        }
+
+        public Builder gcp(@Nullable Output<PrivateLinkAccessGcpArgs> gcp) {
+            $.gcp = gcp;
+            return this;
+        }
+
+        public Builder gcp(PrivateLinkAccessGcpArgs gcp) {
+            return gcp(Output.of(gcp));
         }
 
         /**

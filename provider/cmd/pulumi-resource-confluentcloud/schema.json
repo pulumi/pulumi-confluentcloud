@@ -226,6 +226,24 @@
                 "id"
             ]
         },
+        "confluentcloud:index/IdentityPoolIdentityProvider:IdentityPoolIdentityProvider": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/KafkaAclCredentials:KafkaAclCredentials": {
             "properties": {
                 "key": {
@@ -384,6 +402,60 @@
                 "id"
             ]
         },
+        "confluentcloud:index/KsqlClusterCredentialIdentity:KsqlClusterCredentialIdentity": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the associated service or user account, for example, `sa-abc123`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/KsqlClusterEnvironment:KsqlClusterEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the associated service or user account, for example, `sa-abc123`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/KsqlClusterKafkaCluster:KsqlClusterKafkaCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the associated service or user account, for example, `sa-abc123`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/NetworkAw:NetworkAw": {
             "properties": {
                 "privateLinkEndpointService": {
@@ -459,15 +531,26 @@
         },
         "confluentcloud:index/NetworkGcp:NetworkGcp": {
             "properties": {
-                "project": {
-                    "type": "string",
-                    "description": "(Required String) The GCP project.\n",
+                "privateServiceConnectServiceAttachments": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "(Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).\n",
                     "language": {
                         "python": {
                             "mapCase": false
                         }
-                    },
-                    "willReplaceOnChanges": true
+                    }
+                },
+                "project": {
+                    "type": "string",
+                    "description": "(Required String) The GCP project ID.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
                 },
                 "vpcNetwork": {
                     "type": "string",
@@ -476,14 +559,14 @@
                         "python": {
                             "mapCase": false
                         }
-                    },
-                    "willReplaceOnChanges": true
+                    }
                 }
             },
             "type": "object",
             "language": {
                 "nodejs": {
                     "requiredOutputs": [
+                        "privateServiceConnectServiceAttachments",
                         "project",
                         "vpcNetwork"
                     ]
@@ -713,6 +796,24 @@
                 "id"
             ]
         },
+        "confluentcloud:index/PrivateLinkAccessGcp:PrivateLinkAccessGcp": {
+            "properties": {
+                "project": {
+                    "type": "string",
+                    "description": "The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "project"
+            ]
+        },
         "confluentcloud:index/PrivateLinkAccessNetwork:PrivateLinkAccessNetwork": {
             "properties": {
                 "id": {
@@ -724,6 +825,23 @@
                         }
                     },
                     "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getIdentityPoolIdentityProvider:getIdentityPoolIdentityProvider": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
                 }
             },
             "type": "object",
@@ -852,6 +970,67 @@
                 "id"
             ]
         },
+        "confluentcloud:index/getKsqlClusterCredentialIdentity:getKsqlClusterCredentialIdentity": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getKsqlClusterEnvironment:getKsqlClusterEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getKsqlClusterKafkaCluster:getKsqlClusterKafkaCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/getNetworkAw:getNetworkAw": {
             "properties": {
                 "privateLinkEndpointService": {
@@ -928,9 +1107,21 @@
         },
         "confluentcloud:index/getNetworkGcp:getNetworkGcp": {
             "properties": {
+                "privateServiceConnectServiceAttachments": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "(Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "project": {
                     "type": "string",
-                    "description": "(Required String) The GCP project.\n",
+                    "description": "(Required String) The GCP project ID.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -949,6 +1140,7 @@
             },
             "type": "object",
             "required": [
+                "privateServiceConnectServiceAttachments",
                 "project",
                 "vpcNetwork"
             ],
@@ -1196,6 +1388,28 @@
             "required": [
                 "id"
             ]
+        },
+        "confluentcloud:index/getPrivateLinkAccessGcp:getPrivateLinkAccessGcp": {
+            "properties": {
+                "project": {
+                    "type": "string",
+                    "description": "(Required String) The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "project"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "confluentcloud:index/getPrivateLinkAccessNetwork:getPrivateLinkAccessNetwork": {
             "properties": {
@@ -1507,6 +1721,172 @@
                     "resourceName": {
                         "type": "string",
                         "description": "(Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/identityPool:IdentityPool": {
+            "description": "[![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview\u0026body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)\n\n\u003e **Note:** `confluentcloud.IdentityPool` resource is available in a **Limited Availability** for early adopters. Limited Availability features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Limited Availability** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Limited Availability features. Limited Availability features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Limited Availability features at any time in Confluent’s sole discretion.\n\n`confluentcloud.IdentityPool` provides an Identity Pool resource that enables creating, editing, and deleting identity pools on Confluent Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example Identity Pool to be used with Azure AD\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst azure = new confluentcloud.IdentityProvider(\"azure\", {\n    displayName: \"My OIDC Provider: Azure AD\",\n    description: \"My description\",\n    issuer: \"https://login.microsoftonline.com/{tenant_id}/v2.0\",\n    jwksUri: \"https://login.microsoftonline.com/common/discovery/v2.0/keys\",\n});\nconst example = new confluentcloud.IdentityPool(\"example\", {\n    identityProvider: {\n        id: azure.id,\n    },\n    displayName: \"My Identity Pool\",\n    description: \"Prod Access to Kafka clusters to Release Engineering\",\n    identityClaim: \"claims.sub\",\n    filter: \"claims.aud==\\\"confluent\\\" \u0026\u0026 claims.group!=\\\"invalid_group\\\"\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nazure = confluentcloud.IdentityProvider(\"azure\",\n    display_name=\"My OIDC Provider: Azure AD\",\n    description=\"My description\",\n    issuer=\"https://login.microsoftonline.com/{tenant_id}/v2.0\",\n    jwks_uri=\"https://login.microsoftonline.com/common/discovery/v2.0/keys\")\nexample = confluentcloud.IdentityPool(\"example\",\n    identity_provider=confluentcloud.IdentityPoolIdentityProviderArgs(\n        id=azure.id,\n    ),\n    display_name=\"My Identity Pool\",\n    description=\"Prod Access to Kafka clusters to Release Engineering\",\n    identity_claim=\"claims.sub\",\n    filter=\"claims.aud==\\\"confluent\\\" \u0026\u0026 claims.group!=\\\"invalid_group\\\"\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var azure = new ConfluentCloud.IdentityProvider(\"azure\", new()\n    {\n        DisplayName = \"My OIDC Provider: Azure AD\",\n        Description = \"My description\",\n        Issuer = \"https://login.microsoftonline.com/{tenant_id}/v2.0\",\n        JwksUri = \"https://login.microsoftonline.com/common/discovery/v2.0/keys\",\n    });\n\n    var example = new ConfluentCloud.IdentityPool(\"example\", new()\n    {\n        IdentityProvider = new ConfluentCloud.Inputs.IdentityPoolIdentityProviderArgs\n        {\n            Id = azure.Id,\n        },\n        DisplayName = \"My Identity Pool\",\n        Description = \"Prod Access to Kafka clusters to Release Engineering\",\n        IdentityClaim = \"claims.sub\",\n        Filter = \"claims.aud==\\\"confluent\\\" \u0026\u0026 claims.group!=\\\"invalid_group\\\"\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tazure, err := confluentcloud.NewIdentityProvider(ctx, \"azure\", \u0026confluentcloud.IdentityProviderArgs{\n\t\t\tDisplayName: pulumi.String(\"My OIDC Provider: Azure AD\"),\n\t\t\tDescription: pulumi.String(\"My description\"),\n\t\t\tIssuer:      pulumi.String(\"https://login.microsoftonline.com/{tenant_id}/v2.0\"),\n\t\t\tJwksUri:     pulumi.String(\"https://login.microsoftonline.com/common/discovery/v2.0/keys\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewIdentityPool(ctx, \"example\", \u0026confluentcloud.IdentityPoolArgs{\n\t\t\tIdentityProvider: \u0026IdentityPoolIdentityProviderArgs{\n\t\t\t\tId: azure.ID(),\n\t\t\t},\n\t\t\tDisplayName:   pulumi.String(\"My Identity Pool\"),\n\t\t\tDescription:   pulumi.String(\"Prod Access to Kafka clusters to Release Engineering\"),\n\t\t\tIdentityClaim: pulumi.String(\"claims.sub\"),\n\t\t\tFilter:        pulumi.String(\"claims.aud==\\\"confluent\\\" \u0026\u0026 claims.group!=\\\"invalid_group\\\"\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.IdentityProvider;\nimport com.pulumi.confluentcloud.IdentityProviderArgs;\nimport com.pulumi.confluentcloud.IdentityPool;\nimport com.pulumi.confluentcloud.IdentityPoolArgs;\nimport com.pulumi.confluentcloud.inputs.IdentityPoolIdentityProviderArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var azure = new IdentityProvider(\"azure\", IdentityProviderArgs.builder()        \n            .displayName(\"My OIDC Provider: Azure AD\")\n            .description(\"My description\")\n            .issuer(\"https://login.microsoftonline.com/{tenant_id}/v2.0\")\n            .jwksUri(\"https://login.microsoftonline.com/common/discovery/v2.0/keys\")\n            .build());\n\n        var example = new IdentityPool(\"example\", IdentityPoolArgs.builder()        \n            .identityProvider(IdentityPoolIdentityProviderArgs.builder()\n                .id(azure.id())\n                .build())\n            .displayName(\"My Identity Pool\")\n            .description(\"Prod Access to Kafka clusters to Release Engineering\")\n            .identityClaim(\"claims.sub\")\n            .filter(\"claims.aud==\\\"confluent\\\" \u0026\u0026 claims.group!=\\\"invalid_group\\\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  azure:\n    type: confluentcloud:IdentityProvider\n    properties:\n      displayName: 'My OIDC Provider: Azure AD'\n      description: My description\n      issuer: https://login.microsoftonline.com/{tenant_id}/v2.0\n      jwksUri: https://login.microsoftonline.com/common/discovery/v2.0/keys\n  example:\n    type: confluentcloud:IdentityPool\n    properties:\n      identityProvider:\n        id: ${azure.id}\n      displayName: My Identity Pool\n      description: Prod Access to Kafka clusters to Release Engineering\n      identityClaim: claims.sub\n      filter: claims.aud==\"confluent\" \u0026\u0026 claims.group!=\"invalid_group\"\n```\n{{% /example %}}\n{{% example %}}\n### Example Identity Pool to be used with Okta\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst okta = new confluentcloud.IdentityProvider(\"okta\", {\n    displayName: \"My OIDC Provider: Okta\",\n    description: \"My description\",\n    issuer: \"https://mycompany.okta.com/oauth2/default\",\n    jwksUri: \"https://mycompany.okta.com/oauth2/default/v1/keys\",\n});\nconst example = new confluentcloud.IdentityPool(\"example\", {\n    identityProvider: {\n        id: okta.id,\n    },\n    displayName: \"My Identity Pool\",\n    description: \"Prod Access to Kafka clusters to Release Engineering\",\n    identityClaim: \"claims.sub\",\n    filter: \"claims.aud==\\\"confluent\\\" \u0026\u0026 claims.group!=\\\"invalid_group\\\"\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nokta = confluentcloud.IdentityProvider(\"okta\",\n    display_name=\"My OIDC Provider: Okta\",\n    description=\"My description\",\n    issuer=\"https://mycompany.okta.com/oauth2/default\",\n    jwks_uri=\"https://mycompany.okta.com/oauth2/default/v1/keys\")\nexample = confluentcloud.IdentityPool(\"example\",\n    identity_provider=confluentcloud.IdentityPoolIdentityProviderArgs(\n        id=okta.id,\n    ),\n    display_name=\"My Identity Pool\",\n    description=\"Prod Access to Kafka clusters to Release Engineering\",\n    identity_claim=\"claims.sub\",\n    filter=\"claims.aud==\\\"confluent\\\" \u0026\u0026 claims.group!=\\\"invalid_group\\\"\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var okta = new ConfluentCloud.IdentityProvider(\"okta\", new()\n    {\n        DisplayName = \"My OIDC Provider: Okta\",\n        Description = \"My description\",\n        Issuer = \"https://mycompany.okta.com/oauth2/default\",\n        JwksUri = \"https://mycompany.okta.com/oauth2/default/v1/keys\",\n    });\n\n    var example = new ConfluentCloud.IdentityPool(\"example\", new()\n    {\n        IdentityProvider = new ConfluentCloud.Inputs.IdentityPoolIdentityProviderArgs\n        {\n            Id = okta.Id,\n        },\n        DisplayName = \"My Identity Pool\",\n        Description = \"Prod Access to Kafka clusters to Release Engineering\",\n        IdentityClaim = \"claims.sub\",\n        Filter = \"claims.aud==\\\"confluent\\\" \u0026\u0026 claims.group!=\\\"invalid_group\\\"\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tokta, err := confluentcloud.NewIdentityProvider(ctx, \"okta\", \u0026confluentcloud.IdentityProviderArgs{\n\t\t\tDisplayName: pulumi.String(\"My OIDC Provider: Okta\"),\n\t\t\tDescription: pulumi.String(\"My description\"),\n\t\t\tIssuer:      pulumi.String(\"https://mycompany.okta.com/oauth2/default\"),\n\t\t\tJwksUri:     pulumi.String(\"https://mycompany.okta.com/oauth2/default/v1/keys\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewIdentityPool(ctx, \"example\", \u0026confluentcloud.IdentityPoolArgs{\n\t\t\tIdentityProvider: \u0026IdentityPoolIdentityProviderArgs{\n\t\t\t\tId: okta.ID(),\n\t\t\t},\n\t\t\tDisplayName:   pulumi.String(\"My Identity Pool\"),\n\t\t\tDescription:   pulumi.String(\"Prod Access to Kafka clusters to Release Engineering\"),\n\t\t\tIdentityClaim: pulumi.String(\"claims.sub\"),\n\t\t\tFilter:        pulumi.String(\"claims.aud==\\\"confluent\\\" \u0026\u0026 claims.group!=\\\"invalid_group\\\"\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.IdentityProvider;\nimport com.pulumi.confluentcloud.IdentityProviderArgs;\nimport com.pulumi.confluentcloud.IdentityPool;\nimport com.pulumi.confluentcloud.IdentityPoolArgs;\nimport com.pulumi.confluentcloud.inputs.IdentityPoolIdentityProviderArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var okta = new IdentityProvider(\"okta\", IdentityProviderArgs.builder()        \n            .displayName(\"My OIDC Provider: Okta\")\n            .description(\"My description\")\n            .issuer(\"https://mycompany.okta.com/oauth2/default\")\n            .jwksUri(\"https://mycompany.okta.com/oauth2/default/v1/keys\")\n            .build());\n\n        var example = new IdentityPool(\"example\", IdentityPoolArgs.builder()        \n            .identityProvider(IdentityPoolIdentityProviderArgs.builder()\n                .id(okta.id())\n                .build())\n            .displayName(\"My Identity Pool\")\n            .description(\"Prod Access to Kafka clusters to Release Engineering\")\n            .identityClaim(\"claims.sub\")\n            .filter(\"claims.aud==\\\"confluent\\\" \u0026\u0026 claims.group!=\\\"invalid_group\\\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  okta:\n    type: confluentcloud:IdentityProvider\n    properties:\n      displayName: 'My OIDC Provider: Okta'\n      description: My description\n      issuer: https://mycompany.okta.com/oauth2/default\n      jwksUri: https://mycompany.okta.com/oauth2/default/v1/keys\n  example:\n    type: confluentcloud:IdentityPool\n    properties:\n      identityProvider:\n        id: ${okta.id}\n      displayName: My Identity Pool\n      description: Prod Access to Kafka clusters to Release Engineering\n      identityClaim: claims.sub\n      filter: claims.aud==\"confluent\" \u0026\u0026 claims.group!=\"invalid_group\"\n```\n\n{{% /example %}}\n{{% /examples %}}\n## External Documentation\n\n* [Use identity pools with your OAuth provider](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html).\n\n\n## Import\n\nYou can import an Identity Pool by using Identity Provider ID and Identity Pool ID, in the format `\u003cIdentity Provider ID\u003e/\u003cIdentity Pool ID\u003e`. The following example shows how to import an Identity Pool$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description for the Identity Pool.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "A human-readable name for the Identity Pool.\n"
+                },
+                "filter": {
+                    "type": "string",
+                    "description": "A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).\n"
+                },
+                "identityClaim": {
+                    "type": "string",
+                    "description": "The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that \"identity Z used identity pool X to access topic A\".\n"
+                },
+                "identityProvider": {
+                    "$ref": "#/types/confluentcloud:index/IdentityPoolIdentityProvider:IdentityPoolIdentityProvider",
+                    "description": "Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.\n"
+                }
+            },
+            "required": [
+                "description",
+                "displayName",
+                "filter",
+                "identityClaim",
+                "identityProvider"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description for the Identity Pool.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "A human-readable name for the Identity Pool.\n"
+                },
+                "filter": {
+                    "type": "string",
+                    "description": "A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).\n"
+                },
+                "identityClaim": {
+                    "type": "string",
+                    "description": "The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that \"identity Z used identity pool X to access topic A\".\n"
+                },
+                "identityProvider": {
+                    "$ref": "#/types/confluentcloud:index/IdentityPoolIdentityProvider:IdentityPoolIdentityProvider",
+                    "description": "Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "description",
+                "displayName",
+                "filter",
+                "identityClaim",
+                "identityProvider"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IdentityPool resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "A description for the Identity Pool.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "A human-readable name for the Identity Pool.\n"
+                    },
+                    "filter": {
+                        "type": "string",
+                        "description": "A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).\n"
+                    },
+                    "identityClaim": {
+                        "type": "string",
+                        "description": "The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that \"identity Z used identity pool X to access topic A\".\n"
+                    },
+                    "identityProvider": {
+                        "$ref": "#/types/confluentcloud:index/IdentityPoolIdentityProvider:IdentityPoolIdentityProvider",
+                        "description": "Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/identityProvider:IdentityProvider": {
+            "description": "[![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview\u0026body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)\n\n\u003e **Note:** `confluentcloud.IdentityProvider` resource is available in a **Limited Availability** for early adopters. Limited Availability features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Limited Availability** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Limited Availability features. Limited Availability features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Limited Availability features at any time in Confluent’s sole discretion.\n\n`confluentcloud.IdentityProvider` provides an Identity Provider resource that enables creating, editing, and deleting identity providers on Confluent Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example Identity Provider: Azure AD\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluent from \"@pulumi/confluent\";\n\nconst azure = new confluent.IdentityProvider(\"azure\", {\n    description: \"My description\",\n    displayName: \"My OIDC Provider: Azure AD\",\n    issuer: \"https://login.microsoftonline.com/{tenant_id}/v2.0\",\n    jwksUri: \"https://login.microsoftonline.com/common/discovery/v2.0/keys\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nazure = confluentcloud.IdentityProvider(\"azure\",\n    description=\"My description\",\n    display_name=\"My OIDC Provider: Azure AD\",\n    issuer=\"https://login.microsoftonline.com/{tenant_id}/v2.0\",\n    jwks_uri=\"https://login.microsoftonline.com/common/discovery/v2.0/keys\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var azure = new ConfluentCloud.IdentityProvider(\"azure\", new()\n    {\n        Description = \"My description\",\n        DisplayName = \"My OIDC Provider: Azure AD\",\n        Issuer = \"https://login.microsoftonline.com/{tenant_id}/v2.0\",\n        JwksUri = \"https://login.microsoftonline.com/common/discovery/v2.0/keys\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewIdentityProvider(ctx, \"azure\", \u0026confluentcloud.IdentityProviderArgs{\n\t\t\tDescription: pulumi.String(\"My description\"),\n\t\t\tDisplayName: pulumi.String(\"My OIDC Provider: Azure AD\"),\n\t\t\tIssuer:      pulumi.String(\"https://login.microsoftonline.com/{tenant_id}/v2.0\"),\n\t\t\tJwksUri:     pulumi.String(\"https://login.microsoftonline.com/common/discovery/v2.0/keys\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.IdentityProvider;\nimport com.pulumi.confluentcloud.IdentityProviderArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var azure = new IdentityProvider(\"azure\", IdentityProviderArgs.builder()        \n            .description(\"My description\")\n            .displayName(\"My OIDC Provider: Azure AD\")\n            .issuer(\"https://login.microsoftonline.com/{tenant_id}/v2.0\")\n            .jwksUri(\"https://login.microsoftonline.com/common/discovery/v2.0/keys\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  azure:\n    type: confluentcloud:IdentityProvider\n    properties:\n      description: My description\n      displayName: 'My OIDC Provider: Azure AD'\n      issuer: https://login.microsoftonline.com/{tenant_id}/v2.0\n      jwksUri: https://login.microsoftonline.com/common/discovery/v2.0/keys\n```\n{{% /example %}}\n{{% example %}}\n### Example Identity Provider: Okta\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluent from \"@pulumi/confluent\";\n\nconst okta = new confluent.IdentityProvider(\"okta\", {\n    description: \"My description\",\n    displayName: \"My OIDC Provider: Okta\",\n    issuer: \"https://mycompany.okta.com/oauth2/default\",\n    jwksUri: \"https://mycompany.okta.com/oauth2/default/v1/keys\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nokta = confluentcloud.IdentityProvider(\"okta\",\n    description=\"My description\",\n    display_name=\"My OIDC Provider: Okta\",\n    issuer=\"https://mycompany.okta.com/oauth2/default\",\n    jwks_uri=\"https://mycompany.okta.com/oauth2/default/v1/keys\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var okta = new ConfluentCloud.IdentityProvider(\"okta\", new()\n    {\n        Description = \"My description\",\n        DisplayName = \"My OIDC Provider: Okta\",\n        Issuer = \"https://mycompany.okta.com/oauth2/default\",\n        JwksUri = \"https://mycompany.okta.com/oauth2/default/v1/keys\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewIdentityProvider(ctx, \"okta\", \u0026confluentcloud.IdentityProviderArgs{\n\t\t\tDescription: pulumi.String(\"My description\"),\n\t\t\tDisplayName: pulumi.String(\"My OIDC Provider: Okta\"),\n\t\t\tIssuer:      pulumi.String(\"https://mycompany.okta.com/oauth2/default\"),\n\t\t\tJwksUri:     pulumi.String(\"https://mycompany.okta.com/oauth2/default/v1/keys\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.IdentityProvider;\nimport com.pulumi.confluentcloud.IdentityProviderArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var okta = new IdentityProvider(\"okta\", IdentityProviderArgs.builder()        \n            .description(\"My description\")\n            .displayName(\"My OIDC Provider: Okta\")\n            .issuer(\"https://mycompany.okta.com/oauth2/default\")\n            .jwksUri(\"https://mycompany.okta.com/oauth2/default/v1/keys\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  okta:\n    type: confluentcloud:IdentityProvider\n    properties:\n      description: My description\n      displayName: 'My OIDC Provider: Okta'\n      issuer: https://mycompany.okta.com/oauth2/default\n      jwksUri: https://mycompany.okta.com/oauth2/default/v1/keys\n```\n\n{{% /example %}}\n{{% /examples %}}\n## External Documentation\n\n* [Authenticating with OAuth](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/overview.html).\n\n\n## Import\n\nYou can import an Identity Provider by using Identity Provider ID, for example$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/identityProvider:IdentityProvider example op-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description for the Identity Provider.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "A human-readable name for the Identity Provider.\n"
+                },
+                "issuer": {
+                    "type": "string",
+                    "description": "A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.\n"
+                },
+                "jwksUri": {
+                    "type": "string",
+                    "description": "A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.\n"
+                }
+            },
+            "required": [
+                "description",
+                "displayName",
+                "issuer",
+                "jwksUri"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description for the Identity Provider.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "A human-readable name for the Identity Provider.\n"
+                },
+                "issuer": {
+                    "type": "string",
+                    "description": "A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.\n",
+                    "willReplaceOnChanges": true
+                },
+                "jwksUri": {
+                    "type": "string",
+                    "description": "A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "description",
+                "displayName",
+                "issuer",
+                "jwksUri"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IdentityProvider resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "A description for the Identity Provider.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "A human-readable name for the Identity Provider.\n"
+                    },
+                    "issuer": {
+                        "type": "string",
+                        "description": "A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "jwksUri": {
+                        "type": "string",
+                        "description": "A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -2007,6 +2387,156 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/ksqlCluster:KsqlCluster": {
+            "description": "\n\n\n## Import\n\nYou can import a ksqlDB cluster by using Environment ID and ksqlDB cluster ID, in the format `\u003cEnvironment ID\u003e/\u003cksqlDB cluster ID\u003e`, for example$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/ksqlCluster:KsqlCluster example env-abc123/lksqlc-abc123\n```\n\n !\u003e **Warning:**\n\nDo not forget to delete the terminal's command history afterward for security purposes. ",
+            "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "(Required String) An API Version of the schema version of the ksqlDB cluster, for example, `ksqldbcm/v2`.\n"
+                },
+                "credentialIdentity": {
+                    "$ref": "#/types/confluentcloud:index/KsqlClusterCredentialIdentity:KsqlClusterCredentialIdentity"
+                },
+                "csu": {
+                    "type": "integer",
+                    "description": "The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the ksqlDB cluster.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/KsqlClusterEnvironment:KsqlClusterEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                },
+                "httpEndpoint": {
+                    "type": "string",
+                    "description": "(Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.\n"
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/KsqlClusterKafkaCluster:KsqlClusterKafkaCluster"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Required String) A kind of the ksqlDB cluster, for example, `Cluster`.\n"
+                },
+                "storage": {
+                    "type": "integer",
+                    "description": "(Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.\n"
+                },
+                "topicPrefix": {
+                    "type": "string",
+                    "description": "(Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.\n"
+                },
+                "useDetailedProcessingLog": {
+                    "type": "boolean",
+                    "description": "Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.\n"
+                }
+            },
+            "required": [
+                "apiVersion",
+                "credentialIdentity",
+                "csu",
+                "displayName",
+                "environment",
+                "httpEndpoint",
+                "kafkaCluster",
+                "kind",
+                "storage",
+                "topicPrefix"
+            ],
+            "inputProperties": {
+                "credentialIdentity": {
+                    "$ref": "#/types/confluentcloud:index/KsqlClusterCredentialIdentity:KsqlClusterCredentialIdentity",
+                    "willReplaceOnChanges": true
+                },
+                "csu": {
+                    "type": "integer",
+                    "description": "The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.\n",
+                    "willReplaceOnChanges": true
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the ksqlDB cluster.\n",
+                    "willReplaceOnChanges": true
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/KsqlClusterEnvironment:KsqlClusterEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/KsqlClusterKafkaCluster:KsqlClusterKafkaCluster",
+                    "willReplaceOnChanges": true
+                },
+                "useDetailedProcessingLog": {
+                    "type": "boolean",
+                    "description": "Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "credentialIdentity",
+                "csu",
+                "displayName",
+                "environment",
+                "kafkaCluster"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering KsqlCluster resources.\n",
+                "properties": {
+                    "apiVersion": {
+                        "type": "string",
+                        "description": "(Required String) An API Version of the schema version of the ksqlDB cluster, for example, `ksqldbcm/v2`.\n"
+                    },
+                    "credentialIdentity": {
+                        "$ref": "#/types/confluentcloud:index/KsqlClusterCredentialIdentity:KsqlClusterCredentialIdentity",
+                        "willReplaceOnChanges": true
+                    },
+                    "csu": {
+                        "type": "integer",
+                        "description": "The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the ksqlDB cluster.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/KsqlClusterEnvironment:KsqlClusterEnvironment",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "httpEndpoint": {
+                        "type": "string",
+                        "description": "(Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.\n"
+                    },
+                    "kafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/KsqlClusterKafkaCluster:KsqlClusterKafkaCluster",
+                        "willReplaceOnChanges": true
+                    },
+                    "kind": {
+                        "type": "string",
+                        "description": "(Required String) A kind of the ksqlDB cluster, for example, `Cluster`.\n"
+                    },
+                    "storage": {
+                        "type": "integer",
+                        "description": "(Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.\n"
+                    },
+                    "topicPrefix": {
+                        "type": "string",
+                        "description": "(Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.\n"
+                    },
+                    "useDetailedProcessingLog": {
+                        "type": "boolean",
+                        "description": "Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/network:Network": {
             "description": "\n\n\n## Import\n\nYou can import a Network by using Environment ID and Network ID, in the format `\u003cEnvironment ID\u003e/\u003cNetwork ID\u003e`. The following example shows how to import a Network$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/network:Network my_network env-abc123/n-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
             "properties": {
@@ -2360,6 +2890,9 @@
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAccessEnvironment:PrivateLinkAccessEnvironment",
                     "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
                 },
+                "gcp": {
+                    "$ref": "#/types/confluentcloud:index/PrivateLinkAccessGcp:PrivateLinkAccessGcp"
+                },
                 "network": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAccessNetwork:PrivateLinkAccessNetwork",
                     "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n"
@@ -2386,6 +2919,10 @@
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/PrivateLinkAccessEnvironment:PrivateLinkAccessEnvironment",
                     "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "gcp": {
+                    "$ref": "#/types/confluentcloud:index/PrivateLinkAccessGcp:PrivateLinkAccessGcp",
                     "willReplaceOnChanges": true
                 },
                 "network": {
@@ -2416,6 +2953,10 @@
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/PrivateLinkAccessEnvironment:PrivateLinkAccessEnvironment",
                         "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "gcp": {
+                        "$ref": "#/types/confluentcloud:index/PrivateLinkAccessGcp:PrivateLinkAccessGcp",
                         "willReplaceOnChanges": true
                     },
                     "network": {
@@ -2591,6 +3132,116 @@
                     "displayName",
                     "id",
                     "resourceName"
+                ]
+            }
+        },
+        "confluentcloud:index/getIdentityPool:getIdentityPool": {
+            "description": "[![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview\u0026body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)\n\n`confluentcloud.IdentityPool` describes an Identity Pool data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleUsingIdIdentityPool = confluentcloud.getIdentityPool({\n    id: \"pool-xyz456\",\n    identityProvider: {\n        id: \"op-abc123\",\n    },\n});\nexport const exampleUsingId = exampleUsingIdIdentityPool;\nconst exampleUsingNameIdentityPool = confluentcloud.getIdentityPool({\n    displayName: \"My Identity Pool\",\n    identityProvider: {\n        id: \"op-abc123\",\n    },\n});\nexport const exampleUsingName = exampleUsingNameIdentityPool;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_using_id_identity_pool = confluentcloud.get_identity_pool(id=\"pool-xyz456\",\n    identity_provider=confluentcloud.GetIdentityPoolIdentityProviderArgs(\n        id=\"op-abc123\",\n    ))\npulumi.export(\"exampleUsingId\", example_using_id_identity_pool)\nexample_using_name_identity_pool = confluentcloud.get_identity_pool(display_name=\"My Identity Pool\",\n    identity_provider=confluentcloud.GetIdentityPoolIdentityProviderArgs(\n        id=\"op-abc123\",\n    ))\npulumi.export(\"exampleUsingName\", example_using_name_identity_pool)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleUsingIdIdentityPool = ConfluentCloud.GetIdentityPool.Invoke(new()\n    {\n        Id = \"pool-xyz456\",\n        IdentityProvider = new ConfluentCloud.Inputs.GetIdentityPoolIdentityProviderInputArgs\n        {\n            Id = \"op-abc123\",\n        },\n    });\n\n    var exampleUsingNameIdentityPool = ConfluentCloud.GetIdentityPool.Invoke(new()\n    {\n        DisplayName = \"My Identity Pool\",\n        IdentityProvider = new ConfluentCloud.Inputs.GetIdentityPoolIdentityProviderInputArgs\n        {\n            Id = \"op-abc123\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"exampleUsingId\"] = exampleUsingIdIdentityPool.Apply(getIdentityPoolResult =\u003e getIdentityPoolResult),\n        [\"exampleUsingName\"] = exampleUsingNameIdentityPool.Apply(getIdentityPoolResult =\u003e getIdentityPoolResult),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleUsingIdIdentityPool, err := confluentcloud.LookupIdentityPool(ctx, \u0026GetIdentityPoolArgs{\n\t\t\tId: pulumi.StringRef(\"pool-xyz456\"),\n\t\t\tIdentityProvider: GetIdentityPoolIdentityProvider{\n\t\t\t\tId: \"op-abc123\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingId\", exampleUsingIdIdentityPool)\n\t\texampleUsingNameIdentityPool, err := confluentcloud.LookupIdentityPool(ctx, \u0026GetIdentityPoolArgs{\n\t\t\tDisplayName: pulumi.StringRef(\"My Identity Pool\"),\n\t\t\tIdentityProvider: GetIdentityPoolIdentityProvider{\n\t\t\t\tId: \"op-abc123\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingName\", exampleUsingNameIdentityPool)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;\nimport com.pulumi.confluentcloud.inputs.GetIdentityPoolIdentityProviderArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleUsingIdIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()\n            .id(\"pool-xyz456\")\n            .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()\n                .id(\"op-abc123\")\n                .build())\n            .build());\n\n        ctx.export(\"exampleUsingId\", exampleUsingIdIdentityPool.applyValue(getIdentityPoolResult -\u003e getIdentityPoolResult));\n        final var exampleUsingNameIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()\n            .displayName(\"My Identity Pool\")\n            .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()\n                .id(\"op-abc123\")\n                .build())\n            .build());\n\n        ctx.export(\"exampleUsingName\", exampleUsingNameIdentityPool.applyValue(getIdentityPoolResult -\u003e getIdentityPoolResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleUsingIdIdentityPool:\n    Fn::Invoke:\n      Function: confluentcloud:getIdentityPool\n      Arguments:\n        id: pool-xyz456\n        identityProvider:\n          id: op-abc123\n  exampleUsingNameIdentityPool:\n    Fn::Invoke:\n      Function: confluentcloud:getIdentityPool\n      Arguments:\n        displayName: My Identity Pool\n        identityProvider:\n          id: op-abc123\noutputs:\n  exampleUsingId: ${exampleUsingIdIdentityPool}\n  exampleUsingName: ${exampleUsingNameIdentityPool}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getIdentityPool.\n",
+                "properties": {
+                    "displayName": {
+                        "type": "string",
+                        "description": "A human-readable name for the Identity Pool.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.\n"
+                    },
+                    "identityProvider": {
+                        "$ref": "#/types/confluentcloud:index/getIdentityPoolIdentityProvider:getIdentityPoolIdentityProvider"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "identityProvider"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getIdentityPool.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "(Required String) A description for the Identity Pool.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "(Required String) A human-readable name for the Identity Pool.\n"
+                    },
+                    "filter": {
+                        "type": "string",
+                        "description": "(Required String) A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.\n"
+                    },
+                    "identityClaim": {
+                        "type": "string",
+                        "description": "(Required String) The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that \"identity Z used identity pool X to access topic A\".\n"
+                    },
+                    "identityProvider": {
+                        "$ref": "#/types/confluentcloud:index/getIdentityPoolIdentityProvider:getIdentityPoolIdentityProvider"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "displayName",
+                    "filter",
+                    "id",
+                    "identityClaim",
+                    "identityProvider"
+                ]
+            }
+        },
+        "confluentcloud:index/getIdentityProvider:getIdentityProvider": {
+            "description": "[![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview\u0026body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)\n\n`confluentcloud.IdentityProvider` describes an Identity Provider data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleUsingIdIdentityProvider = confluentcloud.getIdentityProvider({\n    id: \"op-abc123\",\n});\nexport const exampleUsingId = exampleUsingIdIdentityProvider;\nconst exampleUsingNameIdentityProvider = confluentcloud.getIdentityProvider({\n    displayName: \"My OIDC Provider: Azure AD\",\n});\nexport const exampleUsingName = exampleUsingNameIdentityProvider;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_using_id_identity_provider = confluentcloud.get_identity_provider(id=\"op-abc123\")\npulumi.export(\"exampleUsingId\", example_using_id_identity_provider)\nexample_using_name_identity_provider = confluentcloud.get_identity_provider(display_name=\"My OIDC Provider: Azure AD\")\npulumi.export(\"exampleUsingName\", example_using_name_identity_provider)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleUsingIdIdentityProvider = ConfluentCloud.GetIdentityProvider.Invoke(new()\n    {\n        Id = \"op-abc123\",\n    });\n\n    var exampleUsingNameIdentityProvider = ConfluentCloud.GetIdentityProvider.Invoke(new()\n    {\n        DisplayName = \"My OIDC Provider: Azure AD\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"exampleUsingId\"] = exampleUsingIdIdentityProvider.Apply(getIdentityProviderResult =\u003e getIdentityProviderResult),\n        [\"exampleUsingName\"] = exampleUsingNameIdentityProvider.Apply(getIdentityProviderResult =\u003e getIdentityProviderResult),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleUsingIdIdentityProvider, err := confluentcloud.LookupIdentityProvider(ctx, \u0026GetIdentityProviderArgs{\n\t\t\tId: pulumi.StringRef(\"op-abc123\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingId\", exampleUsingIdIdentityProvider)\n\t\texampleUsingNameIdentityProvider, err := confluentcloud.LookupIdentityProvider(ctx, \u0026GetIdentityProviderArgs{\n\t\t\tDisplayName: pulumi.StringRef(\"My OIDC Provider: Azure AD\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingName\", exampleUsingNameIdentityProvider)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleUsingIdIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()\n            .id(\"op-abc123\")\n            .build());\n\n        ctx.export(\"exampleUsingId\", exampleUsingIdIdentityProvider.applyValue(getIdentityProviderResult -\u003e getIdentityProviderResult));\n        final var exampleUsingNameIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()\n            .displayName(\"My OIDC Provider: Azure AD\")\n            .build());\n\n        ctx.export(\"exampleUsingName\", exampleUsingNameIdentityProvider.applyValue(getIdentityProviderResult -\u003e getIdentityProviderResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleUsingIdIdentityProvider:\n    Fn::Invoke:\n      Function: confluentcloud:getIdentityProvider\n      Arguments:\n        id: op-abc123\n  exampleUsingNameIdentityProvider:\n    Fn::Invoke:\n      Function: confluentcloud:getIdentityProvider\n      Arguments:\n        displayName: 'My OIDC Provider: Azure AD'\noutputs:\n  exampleUsingId: ${exampleUsingIdIdentityProvider}\n  exampleUsingName: ${exampleUsingNameIdentityProvider}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getIdentityProvider.\n",
+                "properties": {
+                    "displayName": {
+                        "type": "string",
+                        "description": "A human-readable name for the Identity Provider.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Identity Provider, for example, `op-abc123`.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getIdentityProvider.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "(Required String) A description for the Identity Provider.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "(Required String) A human-readable name for the Identity Provider.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the Identity Provider, for example, `op-abc123`.\n"
+                    },
+                    "issuer": {
+                        "type": "string",
+                        "description": "(Required String) A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.\n"
+                    },
+                    "jwksUri": {
+                        "type": "string",
+                        "description": "(Required String) A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "displayName",
+                    "id",
+                    "issuer",
+                    "jwksUri"
                 ]
             }
         },
@@ -2788,6 +3439,98 @@
                     "restEndpoint",
                     "topicName",
                     "id"
+                ]
+            }
+        },
+        "confluentcloud:index/getKsqlCluster:getKsqlCluster": {
+            "description": "## # confluentcloud.KsqlCluster Data Source\n\n[![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleUsingIdKsqlCluster = confluentcloud.getKsqlCluster({\n    id: \"lksqlc-abc123\",\n    environment: {\n        id: \"env-xyz456\",\n    },\n});\nexport const exampleUsingId = exampleUsingIdKsqlCluster;\nconst exampleUsingNameKsqlCluster = confluentcloud.getKsqlCluster({\n    displayName: \"ksqldb_cluster\",\n    environment: {\n        id: \"env-xyz456\",\n    },\n});\nexport const exampleUsingName = exampleUsingNameKsqlCluster;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_using_id_ksql_cluster = confluentcloud.get_ksql_cluster(id=\"lksqlc-abc123\",\n    environment=confluentcloud.GetKsqlClusterEnvironmentArgs(\n        id=\"env-xyz456\",\n    ))\npulumi.export(\"exampleUsingId\", example_using_id_ksql_cluster)\nexample_using_name_ksql_cluster = confluentcloud.get_ksql_cluster(display_name=\"ksqldb_cluster\",\n    environment=confluentcloud.GetKsqlClusterEnvironmentArgs(\n        id=\"env-xyz456\",\n    ))\npulumi.export(\"exampleUsingName\", example_using_name_ksql_cluster)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleUsingIdKsqlCluster = ConfluentCloud.GetKsqlCluster.Invoke(new()\n    {\n        Id = \"lksqlc-abc123\",\n        Environment = new ConfluentCloud.Inputs.GetKsqlClusterEnvironmentInputArgs\n        {\n            Id = \"env-xyz456\",\n        },\n    });\n\n    var exampleUsingNameKsqlCluster = ConfluentCloud.GetKsqlCluster.Invoke(new()\n    {\n        DisplayName = \"ksqldb_cluster\",\n        Environment = new ConfluentCloud.Inputs.GetKsqlClusterEnvironmentInputArgs\n        {\n            Id = \"env-xyz456\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"exampleUsingId\"] = exampleUsingIdKsqlCluster.Apply(getKsqlClusterResult =\u003e getKsqlClusterResult),\n        [\"exampleUsingName\"] = exampleUsingNameKsqlCluster.Apply(getKsqlClusterResult =\u003e getKsqlClusterResult),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleUsingIdKsqlCluster, err := confluentcloud.LookupKsqlCluster(ctx, \u0026GetKsqlClusterArgs{\n\t\t\tId: pulumi.StringRef(\"lksqlc-abc123\"),\n\t\t\tEnvironment: GetKsqlClusterEnvironment{\n\t\t\t\tId: \"env-xyz456\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingId\", exampleUsingIdKsqlCluster)\n\t\texampleUsingNameKsqlCluster, err := confluentcloud.LookupKsqlCluster(ctx, \u0026GetKsqlClusterArgs{\n\t\t\tDisplayName: pulumi.StringRef(\"ksqldb_cluster\"),\n\t\t\tEnvironment: GetKsqlClusterEnvironment{\n\t\t\t\tId: \"env-xyz456\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingName\", exampleUsingNameKsqlCluster)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetKsqlClusterArgs;\nimport com.pulumi.confluentcloud.inputs.GetKsqlClusterEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleUsingIdKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()\n            .id(\"lksqlc-abc123\")\n            .environment(GetKsqlClusterEnvironmentArgs.builder()\n                .id(\"env-xyz456\")\n                .build())\n            .build());\n\n        ctx.export(\"exampleUsingId\", exampleUsingIdKsqlCluster.applyValue(getKsqlClusterResult -\u003e getKsqlClusterResult));\n        final var exampleUsingNameKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()\n            .displayName(\"ksqldb_cluster\")\n            .environment(GetKsqlClusterEnvironmentArgs.builder()\n                .id(\"env-xyz456\")\n                .build())\n            .build());\n\n        ctx.export(\"exampleUsingName\", exampleUsingNameKsqlCluster.applyValue(getKsqlClusterResult -\u003e getKsqlClusterResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleUsingIdKsqlCluster:\n    Fn::Invoke:\n      Function: confluentcloud:getKsqlCluster\n      Arguments:\n        id: lksqlc-abc123\n        environment:\n          id: env-xyz456\n  exampleUsingNameKsqlCluster:\n    Fn::Invoke:\n      Function: confluentcloud:getKsqlCluster\n      Arguments:\n        displayName: ksqldb_cluster\n        environment:\n          id: env-xyz456\noutputs:\n  exampleUsingId: ${exampleUsingIdKsqlCluster}\n  exampleUsingName: ${exampleUsingNameKsqlCluster}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getKsqlCluster.\n",
+                "properties": {
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the ksqlDB cluster.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getKsqlClusterEnvironment:getKsqlClusterEnvironment"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environment"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getKsqlCluster.\n",
+                "properties": {
+                    "apiVersion": {
+                        "type": "string",
+                        "description": "(Required String) An API Version of the schema version of the ksqlDB cluster, for example, `ksqldbcm/v2`.\n"
+                    },
+                    "credentialIdentities": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getKsqlClusterCredentialIdentity:getKsqlClusterCredentialIdentity"
+                        }
+                    },
+                    "csu": {
+                        "type": "integer",
+                        "description": "(Required Number) The number of CSUs (Confluent Streaming Units) in the ksqlDB cluster.\n- `use_detailed_processing_log` (Optional Boolean) Controls whether the row data should be included in the processing log topic.\n"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getKsqlClusterEnvironment:getKsqlClusterEnvironment"
+                    },
+                    "httpEndpoint": {
+                        "type": "string",
+                        "description": "(Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.\n- `kafka_cluster` (Optional Configuration Block) supports the following:\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the service or user account that the ksqlDB cluster belongs to, for example, `sa-abc123`.\n"
+                    },
+                    "kafkaClusters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getKsqlClusterKafkaCluster:getKsqlClusterKafkaCluster"
+                        }
+                    },
+                    "kind": {
+                        "type": "string",
+                        "description": "(Required String) A kind of the ksqlDB cluster, for example, `Cluster`.\n"
+                    },
+                    "storage": {
+                        "type": "integer",
+                        "description": "(Required Integer) The amount of storage (in GB) provisioned to this cluster.\n"
+                    },
+                    "topicPrefix": {
+                        "type": "string",
+                        "description": "(Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.\n"
+                    },
+                    "useDetailedProcessingLog": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "apiVersion",
+                    "credentialIdentities",
+                    "csu",
+                    "displayName",
+                    "environment",
+                    "httpEndpoint",
+                    "id",
+                    "kafkaClusters",
+                    "kind",
+                    "storage",
+                    "topicPrefix",
+                    "useDetailedProcessingLog"
                 ]
             }
         },
@@ -3071,6 +3814,13 @@
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/getPrivateLinkAccessEnvironment:getPrivateLinkAccessEnvironment"
                     },
+                    "gcps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getPrivateLinkAccessGcp:getPrivateLinkAccessGcp"
+                        },
+                        "description": "(Optional Configuration Block) The GCP-specific Private Service Connect details if available. It supports the following:\n"
+                    },
                     "id": {
                         "type": "string",
                         "description": "(Required String) The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.\n"
@@ -3088,6 +3838,7 @@
                     "azures",
                     "displayName",
                     "environment",
+                    "gcps",
                     "id",
                     "networks"
                 ]

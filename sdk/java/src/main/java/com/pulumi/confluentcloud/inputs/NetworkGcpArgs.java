@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,14 +17,29 @@ public final class NetworkGcpArgs extends com.pulumi.resources.ResourceArgs {
     public static final NetworkGcpArgs Empty = new NetworkGcpArgs();
 
     /**
-     * (Required String) The GCP project.
+     * (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * 
+     */
+    @Import(name="privateServiceConnectServiceAttachments")
+    private @Nullable Output<Map<String,String>> privateServiceConnectServiceAttachments;
+
+    /**
+     * @return (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * 
+     */
+    public Optional<Output<Map<String,String>>> privateServiceConnectServiceAttachments() {
+        return Optional.ofNullable(this.privateServiceConnectServiceAttachments);
+    }
+
+    /**
+     * (Required String) The GCP project ID.
      * 
      */
     @Import(name="project")
     private @Nullable Output<String> project;
 
     /**
-     * @return (Required String) The GCP project.
+     * @return (Required String) The GCP project ID.
      * 
      */
     public Optional<Output<String>> project() {
@@ -48,6 +64,7 @@ public final class NetworkGcpArgs extends com.pulumi.resources.ResourceArgs {
     private NetworkGcpArgs() {}
 
     private NetworkGcpArgs(NetworkGcpArgs $) {
+        this.privateServiceConnectServiceAttachments = $.privateServiceConnectServiceAttachments;
         this.project = $.project;
         this.vpcNetwork = $.vpcNetwork;
     }
@@ -71,7 +88,28 @@ public final class NetworkGcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param project (Required String) The GCP project.
+         * @param privateServiceConnectServiceAttachments (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateServiceConnectServiceAttachments(@Nullable Output<Map<String,String>> privateServiceConnectServiceAttachments) {
+            $.privateServiceConnectServiceAttachments = privateServiceConnectServiceAttachments;
+            return this;
+        }
+
+        /**
+         * @param privateServiceConnectServiceAttachments (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateServiceConnectServiceAttachments(Map<String,String> privateServiceConnectServiceAttachments) {
+            return privateServiceConnectServiceAttachments(Output.of(privateServiceConnectServiceAttachments));
+        }
+
+        /**
+         * @param project (Required String) The GCP project ID.
          * 
          * @return builder
          * 
@@ -82,7 +120,7 @@ public final class NetworkGcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param project (Required String) The GCP project.
+         * @param project (Required String) The GCP project ID.
          * 
          * @return builder
          * 
