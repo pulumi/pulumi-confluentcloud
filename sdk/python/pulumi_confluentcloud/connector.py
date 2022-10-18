@@ -252,7 +252,7 @@ class Connector(pulumi.CustomResource):
             if config_nonsensitive is None and not opts.urn:
                 raise TypeError("Missing required property 'config_nonsensitive'")
             __props__.__dict__["config_nonsensitive"] = config_nonsensitive
-            __props__.__dict__["config_sensitive"] = config_sensitive
+            __props__.__dict__["config_sensitive"] = None if config_sensitive is None else pulumi.Output.secret(config_sensitive)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
@@ -260,6 +260,8 @@ class Connector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kafka_cluster'")
             __props__.__dict__["kafka_cluster"] = kafka_cluster
             __props__.__dict__["status"] = status
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["configSensitive"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Connector, __self__).__init__(
             'confluentcloud:index/connector:Connector',
             resource_name,

@@ -12,17 +12,37 @@ namespace Pulumi.ConfluentCloud.Inputs
 
     public sealed class KafkaClusterConfigCredentialsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("key", required: true)]
+        private Input<string>? _key;
+
         /// <summary>
         /// The Kafka API Key.
         /// </summary>
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
+        public Input<string>? Key
+        {
+            get => _key;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _key = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("secret", required: true)]
+        private Input<string>? _secret;
 
         /// <summary>
         /// The Kafka API Secret.
         /// </summary>
-        [Input("secret", required: true)]
-        public Input<string> Secret { get; set; } = null!;
+        public Input<string>? Secret
+        {
+            get => _secret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public KafkaClusterConfigCredentialsArgs()
         {

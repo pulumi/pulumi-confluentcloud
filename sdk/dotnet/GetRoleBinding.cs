@@ -42,7 +42,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRoleBindingResult> InvokeAsync(GetRoleBindingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleBindingResult>("confluentcloud:index/getRoleBinding:getRoleBinding", args ?? new GetRoleBindingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleBindingResult>("confluentcloud:index/getRoleBinding:getRoleBinding", args ?? new GetRoleBindingArgs(), options.WithDefaults());
 
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -75,7 +75,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRoleBindingResult> Invoke(GetRoleBindingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRoleBindingResult>("confluentcloud:index/getRoleBinding:getRoleBinding", args ?? new GetRoleBindingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleBindingResult>("confluentcloud:index/getRoleBinding:getRoleBinding", args ?? new GetRoleBindingInvokeArgs(), options.WithDefaults());
     }
 
 

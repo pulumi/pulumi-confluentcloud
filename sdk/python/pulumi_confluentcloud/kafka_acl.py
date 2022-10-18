@@ -423,7 +423,7 @@ class KafkaAcl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KafkaAclArgs.__new__(KafkaAclArgs)
 
-            __props__.__dict__["credentials"] = credentials
+            __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             if host is None and not opts.urn:
                 raise TypeError("Missing required property 'host'")
             __props__.__dict__["host"] = host
@@ -449,6 +449,8 @@ class KafkaAcl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["rest_endpoint"] = rest_endpoint
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(KafkaAcl, __self__).__init__(
             'confluentcloud:index/kafkaAcl:KafkaAcl',
             resource_name,

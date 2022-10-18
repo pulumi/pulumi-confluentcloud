@@ -111,11 +111,13 @@ export class KafkaClusterConfig extends pulumi.CustomResource {
                 throw new Error("Missing required property 'kafkaCluster'");
             }
             resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
             resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
             resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["credentials"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(KafkaClusterConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

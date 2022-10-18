@@ -52,7 +52,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetKafkaTopicResult> InvokeAsync(GetKafkaTopicArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKafkaTopicResult>("confluentcloud:index/getKafkaTopic:getKafkaTopic", args ?? new GetKafkaTopicArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKafkaTopicResult>("confluentcloud:index/getKafkaTopic:getKafkaTopic", args ?? new GetKafkaTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -95,14 +95,19 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetKafkaTopicResult> Invoke(GetKafkaTopicInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKafkaTopicResult>("confluentcloud:index/getKafkaTopic:getKafkaTopic", args ?? new GetKafkaTopicInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKafkaTopicResult>("confluentcloud:index/getKafkaTopic:getKafkaTopic", args ?? new GetKafkaTopicInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetKafkaTopicArgs : global::Pulumi.InvokeArgs
     {
         [Input("credentials")]
-        public Inputs.GetKafkaTopicCredentialsArgs? Credentials { get; set; }
+        private Inputs.GetKafkaTopicCredentialsArgs? _credentials;
+        public Inputs.GetKafkaTopicCredentialsArgs? Credentials
+        {
+            get => _credentials;
+            set => _credentials = value;
+        }
 
         [Input("kafkaCluster", required: true)]
         public Inputs.GetKafkaTopicKafkaClusterArgs KafkaCluster { get; set; } = null!;
@@ -128,7 +133,16 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetKafkaTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("credentials")]
-        public Input<Inputs.GetKafkaTopicCredentialsInputArgs>? Credentials { get; set; }
+        private Input<Inputs.GetKafkaTopicCredentialsInputArgs>? _credentials;
+        public Input<Inputs.GetKafkaTopicCredentialsInputArgs>? Credentials
+        {
+            get => _credentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _credentials = Output.Tuple<Input<Inputs.GetKafkaTopicCredentialsInputArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("kafkaCluster", required: true)]
         public Input<Inputs.GetKafkaTopicKafkaClusterInputArgs> KafkaCluster { get; set; } = null!;

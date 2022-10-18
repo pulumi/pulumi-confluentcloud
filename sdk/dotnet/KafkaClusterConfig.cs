@@ -102,6 +102,10 @@ namespace Pulumi.ConfluentCloud
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "credentials",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -137,11 +141,21 @@ namespace Pulumi.ConfluentCloud
             set => _config = value;
         }
 
+        [Input("credentials")]
+        private Input<Inputs.KafkaClusterConfigCredentialsArgs>? _credentials;
+
         /// <summary>
         /// The Cluster API Credentials.
         /// </summary>
-        [Input("credentials")]
-        public Input<Inputs.KafkaClusterConfigCredentialsArgs>? Credentials { get; set; }
+        public Input<Inputs.KafkaClusterConfigCredentialsArgs>? Credentials
+        {
+            get => _credentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _credentials = Output.Tuple<Input<Inputs.KafkaClusterConfigCredentialsArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("kafkaCluster", required: true)]
         public Input<Inputs.KafkaClusterConfigKafkaClusterArgs> KafkaCluster { get; set; } = null!;
@@ -172,11 +186,21 @@ namespace Pulumi.ConfluentCloud
             set => _config = value;
         }
 
+        [Input("credentials")]
+        private Input<Inputs.KafkaClusterConfigCredentialsGetArgs>? _credentials;
+
         /// <summary>
         /// The Cluster API Credentials.
         /// </summary>
-        [Input("credentials")]
-        public Input<Inputs.KafkaClusterConfigCredentialsGetArgs>? Credentials { get; set; }
+        public Input<Inputs.KafkaClusterConfigCredentialsGetArgs>? Credentials
+        {
+            get => _credentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _credentials = Output.Tuple<Input<Inputs.KafkaClusterConfigCredentialsGetArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("kafkaCluster")]
         public Input<Inputs.KafkaClusterConfigKafkaClusterGetArgs>? KafkaCluster { get; set; }

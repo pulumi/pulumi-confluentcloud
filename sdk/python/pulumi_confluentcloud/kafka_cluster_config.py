@@ -272,11 +272,13 @@ class KafkaClusterConfig(pulumi.CustomResource):
             if config is None and not opts.urn:
                 raise TypeError("Missing required property 'config'")
             __props__.__dict__["config"] = config
-            __props__.__dict__["credentials"] = credentials
+            __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             if kafka_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_cluster'")
             __props__.__dict__["kafka_cluster"] = kafka_cluster
             __props__.__dict__["rest_endpoint"] = rest_endpoint
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(KafkaClusterConfig, __self__).__init__(
             'confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig',
             resource_name,

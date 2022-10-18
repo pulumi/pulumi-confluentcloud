@@ -49,7 +49,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceAccountResult> InvokeAsync(GetServiceAccountArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("confluentcloud:index/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("confluentcloud:index/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -89,7 +89,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceAccountResult> Invoke(GetServiceAccountInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceAccountResult>("confluentcloud:index/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceAccountResult>("confluentcloud:index/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountInvokeArgs(), options.WithDefaults());
     }
 
 

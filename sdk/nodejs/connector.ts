@@ -91,12 +91,14 @@ export class Connector extends pulumi.CustomResource {
                 throw new Error("Missing required property 'kafkaCluster'");
             }
             resourceInputs["configNonsensitive"] = args ? args.configNonsensitive : undefined;
-            resourceInputs["configSensitive"] = args ? args.configSensitive : undefined;
+            resourceInputs["configSensitive"] = args?.configSensitive ? pulumi.secret(args.configSensitive) : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["configSensitive"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Connector.__pulumiType, name, resourceInputs, opts);
     }
 }

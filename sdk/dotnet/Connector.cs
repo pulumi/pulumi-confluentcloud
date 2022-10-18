@@ -71,6 +71,10 @@ namespace Pulumi.ConfluentCloud
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "configSensitive",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -115,7 +119,11 @@ namespace Pulumi.ConfluentCloud
         public InputMap<string> ConfigSensitive
         {
             get => _configSensitive ?? (_configSensitive = new InputMap<string>());
-            set => _configSensitive = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _configSensitive = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>
@@ -162,7 +170,11 @@ namespace Pulumi.ConfluentCloud
         public InputMap<string> ConfigSensitive
         {
             get => _configSensitive ?? (_configSensitive = new InputMap<string>());
-            set => _configSensitive = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _configSensitive = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>

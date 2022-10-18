@@ -19,7 +19,16 @@ namespace Pulumi.ConfluentCloud.Inputs
         public Input<string>? BootstrapEndpoint { get; set; }
 
         [Input("credentials")]
-        public Input<Inputs.ClusterLinkSourceKafkaClusterCredentialsGetArgs>? Credentials { get; set; }
+        private Input<Inputs.ClusterLinkSourceKafkaClusterCredentialsGetArgs>? _credentials;
+        public Input<Inputs.ClusterLinkSourceKafkaClusterCredentialsGetArgs>? Credentials
+        {
+            get => _credentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _credentials = Output.Tuple<Input<Inputs.ClusterLinkSourceKafkaClusterCredentialsGetArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the destination Kafka cluster, for example, `lkc-abc123`.

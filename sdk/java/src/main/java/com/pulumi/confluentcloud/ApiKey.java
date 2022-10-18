@@ -14,19 +14,20 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * ## Import
  * 
- * You can import a Kafka API Key by using the Environment ID and Kafka API Key ID in the format `&lt;Environment ID&gt;/&lt;Kafka API Key ID&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34; $ export API_KEY_SECRET=&#34;&lt;api_key_secret&gt;&#34; # Option #1Kafka API Key
+ * You can import a Kafka API Key by using the Environment ID and Kafka API Key ID in the format `&lt;Environment ID&gt;/&lt;Kafka API Key ID&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34; $ export API_KEY_SECRET=&#34;&lt;api_key_secret&gt;&#34; Option #1Kafka API Key
  * 
  * ```sh
  *  $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key &#34;env-abc123/UTT6WDRXX7FHD2GV&#34;
  * ```
  * 
- *  You can import a Cloud API Key by using Cloud API Key ID, for example$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34; $ export API_KEY_SECRET=&#34;&lt;api_key_secret&gt;&#34; # Option #2Cloud API Key
+ *  You can import a Cloud API Key by using Cloud API Key ID, for example$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34; $ export API_KEY_SECRET=&#34;&lt;api_key_secret&gt;&#34; Option #2Cloud API Key
  * 
  * ```sh
  *  $ pulumi import confluentcloud:index/apiKey:ApiKey example_cloud_api_key &#34;4UEXOMMWIBE5KZQG&#34;
@@ -154,6 +155,9 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "secret"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

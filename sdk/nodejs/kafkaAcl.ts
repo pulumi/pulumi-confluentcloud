@@ -132,7 +132,7 @@ export class KafkaAcl extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
             resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
             resourceInputs["operation"] = args ? args.operation : undefined;
@@ -144,6 +144,8 @@ export class KafkaAcl extends pulumi.CustomResource {
             resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["credentials"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(KafkaAcl.__pulumiType, name, resourceInputs, opts);
     }
 }

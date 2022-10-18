@@ -13,7 +13,16 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class KafkaMirrorTopicKafkaClusterGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("credentials")]
-        public Input<Inputs.KafkaMirrorTopicKafkaClusterCredentialsGetArgs>? Credentials { get; set; }
+        private Input<Inputs.KafkaMirrorTopicKafkaClusterCredentialsGetArgs>? _credentials;
+        public Input<Inputs.KafkaMirrorTopicKafkaClusterCredentialsGetArgs>? Credentials
+        {
+            get => _credentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _credentials = Output.Tuple<Input<Inputs.KafkaMirrorTopicKafkaClusterCredentialsGetArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the destination Kafka cluster, for example, `lkc-abc123`.

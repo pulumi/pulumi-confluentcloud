@@ -58,7 +58,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetKsqlClusterResult> InvokeAsync(GetKsqlClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKsqlClusterResult>("confluentcloud:index/getKsqlCluster:getKsqlCluster", args ?? new GetKsqlClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKsqlClusterResult>("confluentcloud:index/getKsqlCluster:getKsqlCluster", args ?? new GetKsqlClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// ## # confluentcloud.KsqlCluster Data Source
@@ -107,7 +107,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetKsqlClusterResult> Invoke(GetKsqlClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKsqlClusterResult>("confluentcloud:index/getKsqlCluster:getKsqlCluster", args ?? new GetKsqlClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKsqlClusterResult>("confluentcloud:index/getKsqlCluster:getKsqlCluster", args ?? new GetKsqlClusterInvokeArgs(), options.WithDefaults());
     }
 
 

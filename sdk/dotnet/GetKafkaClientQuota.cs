@@ -44,7 +44,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetKafkaClientQuotaResult> InvokeAsync(GetKafkaClientQuotaArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKafkaClientQuotaResult>("confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota", args ?? new GetKafkaClientQuotaArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKafkaClientQuotaResult>("confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota", args ?? new GetKafkaClientQuotaArgs(), options.WithDefaults());
 
         /// <summary>
         /// [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Client Quotas API](https://img.shields.io/badge/-Request%20Access%20To%20Clients%20Quotas-%23bc8540)](mailto:cloud-client-quotas-ea@confluent.io?subject=Request%20to%20join%20Kafka%20Quotas%20Management%20API%20Early%20Access&amp;amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20kafka-quotas/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
@@ -79,7 +79,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetKafkaClientQuotaResult> Invoke(GetKafkaClientQuotaInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKafkaClientQuotaResult>("confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota", args ?? new GetKafkaClientQuotaInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKafkaClientQuotaResult>("confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota", args ?? new GetKafkaClientQuotaInvokeArgs(), options.WithDefaults());
     }
 
 

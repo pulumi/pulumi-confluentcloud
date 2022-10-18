@@ -13,7 +13,7 @@ import (
 
 // ## Import
 //
-// You can import a Kafka API Key by using the Environment ID and Kafka API Key ID in the format `<Environment ID>/<Kafka API Key ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export API_KEY_SECRET="<api_key_secret>" # Option #1Kafka API Key
+// You can import a Kafka API Key by using the Environment ID and Kafka API Key ID in the format `<Environment ID>/<Kafka API Key ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export API_KEY_SECRET="<api_key_secret>" Option #1Kafka API Key
 //
 // ```sh
 //
@@ -21,7 +21,7 @@ import (
 //
 // ```
 //
-//	You can import a Cloud API Key by using Cloud API Key ID, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export API_KEY_SECRET="<api_key_secret>" # Option #2Cloud API Key
+//	You can import a Cloud API Key by using Cloud API Key ID, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export API_KEY_SECRET="<api_key_secret>" Option #2Cloud API Key
 //
 // ```sh
 //
@@ -57,6 +57,10 @@ func NewApiKey(ctx *pulumi.Context,
 	if args.Owner == nil {
 		return nil, errors.New("invalid value for required argument 'Owner'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"secret",
+	})
+	opts = append(opts, secrets)
 	var resource ApiKey
 	err := ctx.RegisterResource("confluentcloud:index/apiKey:ApiKey", name, args, &resource, opts...)
 	if err != nil {

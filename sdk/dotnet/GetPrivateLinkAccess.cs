@@ -56,7 +56,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPrivateLinkAccessResult> InvokeAsync(GetPrivateLinkAccessArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkAccessResult>("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", args ?? new GetPrivateLinkAccessArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkAccessResult>("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", args ?? new GetPrivateLinkAccessArgs(), options.WithDefaults());
 
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -103,7 +103,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPrivateLinkAccessResult> Invoke(GetPrivateLinkAccessInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateLinkAccessResult>("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", args ?? new GetPrivateLinkAccessInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkAccessResult>("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", args ?? new GetPrivateLinkAccessInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -60,7 +60,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetKafkaClusterResult> InvokeAsync(GetKafkaClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKafkaClusterResult>("confluentcloud:index/getKafkaCluster:getKafkaCluster", args ?? new GetKafkaClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKafkaClusterResult>("confluentcloud:index/getKafkaCluster:getKafkaCluster", args ?? new GetKafkaClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -111,7 +111,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetKafkaClusterResult> Invoke(GetKafkaClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKafkaClusterResult>("confluentcloud:index/getKafkaCluster:getKafkaCluster", args ?? new GetKafkaClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKafkaClusterResult>("confluentcloud:index/getKafkaCluster:getKafkaCluster", args ?? new GetKafkaClusterInvokeArgs(), options.WithDefaults());
     }
 
 

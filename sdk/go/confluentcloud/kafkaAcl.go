@@ -77,6 +77,13 @@ func NewKafkaAcl(ctx *pulumi.Context,
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
+	if args.Credentials != nil {
+		args.Credentials = pulumi.ToSecret(args.Credentials).(KafkaAclCredentialsPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"credentials",
+	})
+	opts = append(opts, secrets)
 	var resource KafkaAcl
 	err := ctx.RegisterResource("confluentcloud:index/kafkaAcl:KafkaAcl", name, args, &resource, opts...)
 	if err != nil {

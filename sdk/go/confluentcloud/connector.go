@@ -50,6 +50,13 @@ func NewConnector(ctx *pulumi.Context,
 	if args.KafkaCluster == nil {
 		return nil, errors.New("invalid value for required argument 'KafkaCluster'")
 	}
+	if args.ConfigSensitive != nil {
+		args.ConfigSensitive = pulumi.ToSecret(args.ConfigSensitive).(pulumi.StringMapOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"configSensitive",
+	})
+	opts = append(opts, secrets)
 	var resource Connector
 	err := ctx.RegisterResource("confluentcloud:index/connector:Connector", name, args, &resource, opts...)
 	if err != nil {

@@ -72,6 +72,13 @@ namespace Pulumi.ConfluentCloud
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "cloudApiKey",
+                    "cloudApiSecret",
+                    "kafkaApiKey",
+                    "kafkaApiSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -82,17 +89,37 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
+        [Input("cloudApiKey")]
+        private Input<string>? _cloudApiKey;
+
         /// <summary>
         /// The Confluent Cloud API Key.
         /// </summary>
-        [Input("cloudApiKey")]
-        public Input<string>? CloudApiKey { get; set; }
+        public Input<string>? CloudApiKey
+        {
+            get => _cloudApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _cloudApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("cloudApiSecret")]
+        private Input<string>? _cloudApiSecret;
 
         /// <summary>
         /// The Confluent Cloud API Secret.
         /// </summary>
-        [Input("cloudApiSecret")]
-        public Input<string>? CloudApiSecret { get; set; }
+        public Input<string>? CloudApiSecret
+        {
+            get => _cloudApiSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _cloudApiSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The base endpoint of Confluent Cloud API.
@@ -100,17 +127,37 @@ namespace Pulumi.ConfluentCloud
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
+        [Input("kafkaApiKey")]
+        private Input<string>? _kafkaApiKey;
+
         /// <summary>
         /// The Kafka Cluster API Key.
         /// </summary>
-        [Input("kafkaApiKey")]
-        public Input<string>? KafkaApiKey { get; set; }
+        public Input<string>? KafkaApiKey
+        {
+            get => _kafkaApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _kafkaApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("kafkaApiSecret")]
+        private Input<string>? _kafkaApiSecret;
 
         /// <summary>
         /// The Kafka Cluster API Secret.
         /// </summary>
-        [Input("kafkaApiSecret")]
-        public Input<string>? KafkaApiSecret { get; set; }
+        public Input<string>? KafkaApiSecret
+        {
+            get => _kafkaApiSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _kafkaApiSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Kafka Cluster REST Endpoint.

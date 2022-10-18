@@ -88,6 +88,13 @@ func NewKafkaClusterConfig(ctx *pulumi.Context,
 	if args.KafkaCluster == nil {
 		return nil, errors.New("invalid value for required argument 'KafkaCluster'")
 	}
+	if args.Credentials != nil {
+		args.Credentials = pulumi.ToSecret(args.Credentials).(KafkaClusterConfigCredentialsPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"credentials",
+	})
+	opts = append(opts, secrets)
 	var resource KafkaClusterConfig
 	err := ctx.RegisterResource("confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig", name, args, &resource, opts...)
 	if err != nil {

@@ -39,7 +39,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("confluentcloud:index/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("confluentcloud:index/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
