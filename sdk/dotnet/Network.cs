@@ -97,7 +97,7 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The 3 availability zones for this network. They can optionally be specified for AWS networks
-        /// used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+        /// used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
         /// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         /// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
         /// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -234,7 +234,7 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The 3 availability zones for this network. They can optionally be specified for AWS networks
-        /// used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+        /// used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
         /// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         /// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
         /// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -360,7 +360,7 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The 3 availability zones for this network. They can optionally be specified for AWS networks
-        /// used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+        /// used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
         /// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         /// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
         /// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.

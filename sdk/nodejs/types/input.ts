@@ -43,6 +43,60 @@ export interface ApiKeyOwner {
     kind: pulumi.Input<string>;
 }
 
+export interface ClusterLinkDestinationKafkaCluster {
+    /**
+     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     */
+    bootstrapEndpoint?: pulumi.Input<string>;
+    credentials?: pulumi.Input<inputs.ClusterLinkDestinationKafkaClusterCredentials>;
+    /**
+     * The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
+    restEndpoint?: pulumi.Input<string>;
+}
+
+export interface ClusterLinkDestinationKafkaClusterCredentials {
+    /**
+     * The Kafka API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Kafka API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface ClusterLinkSourceKafkaCluster {
+    /**
+     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     */
+    bootstrapEndpoint?: pulumi.Input<string>;
+    credentials?: pulumi.Input<inputs.ClusterLinkSourceKafkaClusterCredentials>;
+    /**
+     * The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
+    restEndpoint?: pulumi.Input<string>;
+}
+
+export interface ClusterLinkSourceKafkaClusterCredentials {
+    /**
+     * The Kafka API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Kafka API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
 export interface ConnectorEnvironment {
     /**
      * The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
@@ -57,13 +111,6 @@ export interface ConnectorKafkaCluster {
     id: pulumi.Input<string>;
 }
 
-export interface GetIdentityPoolIdentityProvider {
-    /**
-     * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
-     */
-    id: string;
-}
-
 export interface GetIdentityPoolIdentityProviderArgs {
     /**
      * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
@@ -71,21 +118,17 @@ export interface GetIdentityPoolIdentityProviderArgs {
     id: pulumi.Input<string>;
 }
 
+export interface GetIdentityPoolIdentityProvider {
+    /**
+     * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+     */
+    id: string;
+}
+
 export interface GetKafkaClusterBasic {
 }
 
 export interface GetKafkaClusterBasicArgs {
-}
-
-export interface GetKafkaClusterDedicatedArgs {
-    /**
-     * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-     */
-    cku?: pulumi.Input<number>;
-    /**
-     * (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
-     */
-    encryptionKey?: pulumi.Input<string>;
 }
 
 export interface GetKafkaClusterDedicated {
@@ -99,11 +142,15 @@ export interface GetKafkaClusterDedicated {
     encryptionKey?: string;
 }
 
-export interface GetKafkaClusterEnvironmentArgs {
+export interface GetKafkaClusterDedicatedArgs {
     /**
-     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+     * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
      */
-    id: pulumi.Input<string>;
+    cku?: pulumi.Input<number>;
+    /**
+     * (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
+     */
+    encryptionKey?: pulumi.Input<string>;
 }
 
 export interface GetKafkaClusterEnvironment {
@@ -113,10 +160,17 @@ export interface GetKafkaClusterEnvironment {
     id: string;
 }
 
-export interface GetKafkaClusterStandard {
+export interface GetKafkaClusterEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
 }
 
 export interface GetKafkaClusterStandardArgs {
+}
+
+export interface GetKafkaClusterStandard {
 }
 
 export interface GetKafkaTopicCredentials {
@@ -141,13 +195,6 @@ export interface GetKafkaTopicCredentialsArgs {
     secret: pulumi.Input<string>;
 }
 
-export interface GetKafkaTopicKafkaClusterArgs {
-    /**
-     * The ID of the Kafka cluster, for example, `lkc-abc123`.
-     */
-    id: pulumi.Input<string>;
-}
-
 export interface GetKafkaTopicKafkaCluster {
     /**
      * The ID of the Kafka cluster, for example, `lkc-abc123`.
@@ -155,11 +202,11 @@ export interface GetKafkaTopicKafkaCluster {
     id: string;
 }
 
-export interface GetKsqlClusterEnvironment {
+export interface GetKafkaTopicKafkaClusterArgs {
     /**
-     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
      */
-    id: string;
+    id: pulumi.Input<string>;
 }
 
 export interface GetKsqlClusterEnvironmentArgs {
@@ -167,6 +214,13 @@ export interface GetKsqlClusterEnvironmentArgs {
      * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
      */
     id: pulumi.Input<string>;
+}
+
+export interface GetKsqlClusterEnvironment {
+    /**
+     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+     */
+    id: string;
 }
 
 export interface GetNetworkAw {
@@ -191,13 +245,6 @@ export interface GetNetworkAwArgs {
     vpc?: pulumi.Input<string>;
 }
 
-export interface GetNetworkAzure {
-    /**
-     * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
-     */
-    privateLinkServiceAliases?: {[key: string]: string};
-}
-
 export interface GetNetworkAzureArgs {
     /**
      * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
@@ -205,11 +252,11 @@ export interface GetNetworkAzureArgs {
     privateLinkServiceAliases?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
-export interface GetNetworkEnvironmentArgs {
+export interface GetNetworkAzure {
     /**
-     * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+     * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
      */
-    id: pulumi.Input<string>;
+    privateLinkServiceAliases?: {[key: string]: string};
 }
 
 export interface GetNetworkEnvironment {
@@ -217,6 +264,13 @@ export interface GetNetworkEnvironment {
      * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
      */
     id: string;
+}
+
+export interface GetNetworkEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
 }
 
 export interface GetNetworkGcp {
@@ -249,18 +303,18 @@ export interface GetNetworkGcpArgs {
     vpcNetwork?: pulumi.Input<string>;
 }
 
-export interface GetPeeringEnvironmentArgs {
-    /**
-     * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
-     */
-    id: pulumi.Input<string>;
-}
-
 export interface GetPeeringEnvironment {
     /**
      * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
      */
     id: string;
+}
+
+export interface GetPeeringEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
 }
 
 export interface GetPrivateLinkAccessEnvironment {
@@ -302,7 +356,50 @@ export interface KafkaAclKafkaCluster {
     id: pulumi.Input<string>;
 }
 
+export interface KafkaClientQuotaEnvironment {
+    /**
+     * The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface KafkaClientQuotaKafkaCluster {
+    /**
+     * The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface KafkaClientQuotaThroughput {
+    /**
+     * The egress throughput limit in bytes per second.
+     */
+    egressByteRate: pulumi.Input<string>;
+    /**
+     * The ingress throughput limit in bytes per second.
+     */
+    ingressByteRate: pulumi.Input<string>;
+}
+
 export interface KafkaClusterBasic {
+}
+
+export interface KafkaClusterConfigCredentials {
+    /**
+     * The Kafka API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Kafka API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface KafkaClusterConfigKafkaCluster {
+    /**
+     * The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: pulumi.Input<string>;
 }
 
 export interface KafkaClusterDedicated {
@@ -331,6 +428,43 @@ export interface KafkaClusterNetwork {
 }
 
 export interface KafkaClusterStandard {
+}
+
+export interface KafkaMirrorTopicClusterLink {
+    /**
+     * The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
+     */
+    linkName: pulumi.Input<string>;
+}
+
+export interface KafkaMirrorTopicKafkaCluster {
+    credentials?: pulumi.Input<inputs.KafkaMirrorTopicKafkaClusterCredentials>;
+    /**
+     * The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
+    restEndpoint?: pulumi.Input<string>;
+}
+
+export interface KafkaMirrorTopicKafkaClusterCredentials {
+    /**
+     * The Kafka API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Kafka API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface KafkaMirrorTopicSourceKafkaTopic {
+    /**
+     * The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
+     */
+    topicName: pulumi.Input<string>;
 }
 
 export interface KafkaTopicCredentials {

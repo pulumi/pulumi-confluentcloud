@@ -14,16 +14,29 @@ __all__ = [
     'ApiKeyManagedResource',
     'ApiKeyManagedResourceEnvironment',
     'ApiKeyOwner',
+    'ClusterLinkDestinationKafkaCluster',
+    'ClusterLinkDestinationKafkaClusterCredentials',
+    'ClusterLinkSourceKafkaCluster',
+    'ClusterLinkSourceKafkaClusterCredentials',
     'ConnectorEnvironment',
     'ConnectorKafkaCluster',
     'IdentityPoolIdentityProvider',
     'KafkaAclCredentials',
     'KafkaAclKafkaCluster',
+    'KafkaClientQuotaEnvironment',
+    'KafkaClientQuotaKafkaCluster',
+    'KafkaClientQuotaThroughput',
     'KafkaClusterBasic',
+    'KafkaClusterConfigCredentials',
+    'KafkaClusterConfigKafkaCluster',
     'KafkaClusterDedicated',
     'KafkaClusterEnvironment',
     'KafkaClusterNetwork',
     'KafkaClusterStandard',
+    'KafkaMirrorTopicClusterLink',
+    'KafkaMirrorTopicKafkaCluster',
+    'KafkaMirrorTopicKafkaClusterCredentials',
+    'KafkaMirrorTopicSourceKafkaTopic',
     'KafkaTopicCredentials',
     'KafkaTopicKafkaCluster',
     'KsqlClusterCredentialIdentity',
@@ -44,6 +57,9 @@ __all__ = [
     'PrivateLinkAccessGcp',
     'PrivateLinkAccessNetwork',
     'GetIdentityPoolIdentityProviderResult',
+    'GetKafkaClientQuotaEnvironmentResult',
+    'GetKafkaClientQuotaKafkaClusterResult',
+    'GetKafkaClientQuotaThroughputResult',
     'GetKafkaClusterBasicResult',
     'GetKafkaClusterDedicatedResult',
     'GetKafkaClusterEnvironmentResult',
@@ -210,6 +226,202 @@ class ApiKeyOwner(dict):
 
 
 @pulumi.output_type
+class ClusterLinkDestinationKafkaCluster(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bootstrapEndpoint":
+            suggest = "bootstrap_endpoint"
+        elif key == "restEndpoint":
+            suggest = "rest_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterLinkDestinationKafkaCluster. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterLinkDestinationKafkaCluster.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterLinkDestinationKafkaCluster.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 bootstrap_endpoint: Optional[str] = None,
+                 credentials: Optional['outputs.ClusterLinkDestinationKafkaClusterCredentials'] = None,
+                 rest_endpoint: Optional[str] = None):
+        """
+        :param str id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        :param str bootstrap_endpoint: The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param str rest_endpoint: The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        pulumi.set(__self__, "id", id)
+        if bootstrap_endpoint is not None:
+            pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if rest_endpoint is not None:
+            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="bootstrapEndpoint")
+    def bootstrap_endpoint(self) -> Optional[str]:
+        """
+        The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        """
+        return pulumi.get(self, "bootstrap_endpoint")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.ClusterLinkDestinationKafkaClusterCredentials']:
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> Optional[str]:
+        """
+        The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "rest_endpoint")
+
+
+@pulumi.output_type
+class ClusterLinkDestinationKafkaClusterCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Kafka API Key.
+        :param str secret: The Kafka API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Kafka API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Kafka API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class ClusterLinkSourceKafkaCluster(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bootstrapEndpoint":
+            suggest = "bootstrap_endpoint"
+        elif key == "restEndpoint":
+            suggest = "rest_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterLinkSourceKafkaCluster. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterLinkSourceKafkaCluster.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterLinkSourceKafkaCluster.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 bootstrap_endpoint: Optional[str] = None,
+                 credentials: Optional['outputs.ClusterLinkSourceKafkaClusterCredentials'] = None,
+                 rest_endpoint: Optional[str] = None):
+        """
+        :param str id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        :param str bootstrap_endpoint: The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param str rest_endpoint: The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        pulumi.set(__self__, "id", id)
+        if bootstrap_endpoint is not None:
+            pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if rest_endpoint is not None:
+            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="bootstrapEndpoint")
+    def bootstrap_endpoint(self) -> Optional[str]:
+        """
+        The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        """
+        return pulumi.get(self, "bootstrap_endpoint")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.ClusterLinkSourceKafkaClusterCredentials']:
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> Optional[str]:
+        """
+        The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "rest_endpoint")
+
+
+@pulumi.output_type
+class ClusterLinkSourceKafkaClusterCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Kafka API Key.
+        :param str secret: The Kafka API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Kafka API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Kafka API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
 class ConnectorEnvironment(dict):
     def __init__(__self__, *,
                  id: str):
@@ -311,9 +523,140 @@ class KafkaAclKafkaCluster(dict):
 
 
 @pulumi.output_type
+class KafkaClientQuotaEnvironment(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class KafkaClientQuotaKafkaCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class KafkaClientQuotaThroughput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "egressByteRate":
+            suggest = "egress_byte_rate"
+        elif key == "ingressByteRate":
+            suggest = "ingress_byte_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClientQuotaThroughput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClientQuotaThroughput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClientQuotaThroughput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 egress_byte_rate: str,
+                 ingress_byte_rate: str):
+        """
+        :param str egress_byte_rate: The egress throughput limit in bytes per second.
+        :param str ingress_byte_rate: The ingress throughput limit in bytes per second.
+        """
+        pulumi.set(__self__, "egress_byte_rate", egress_byte_rate)
+        pulumi.set(__self__, "ingress_byte_rate", ingress_byte_rate)
+
+    @property
+    @pulumi.getter(name="egressByteRate")
+    def egress_byte_rate(self) -> str:
+        """
+        The egress throughput limit in bytes per second.
+        """
+        return pulumi.get(self, "egress_byte_rate")
+
+    @property
+    @pulumi.getter(name="ingressByteRate")
+    def ingress_byte_rate(self) -> str:
+        """
+        The ingress throughput limit in bytes per second.
+        """
+        return pulumi.get(self, "ingress_byte_rate")
+
+
+@pulumi.output_type
 class KafkaClusterBasic(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class KafkaClusterConfigCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Kafka API Key.
+        :param str secret: The Kafka API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Kafka API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Kafka API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class KafkaClusterConfigKafkaCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -403,6 +746,160 @@ class KafkaClusterNetwork(dict):
 class KafkaClusterStandard(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class KafkaMirrorTopicClusterLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkName":
+            suggest = "link_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaMirrorTopicClusterLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaMirrorTopicClusterLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaMirrorTopicClusterLink.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 link_name: str):
+        """
+        :param str link_name: The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
+        """
+        pulumi.set(__self__, "link_name", link_name)
+
+    @property
+    @pulumi.getter(name="linkName")
+    def link_name(self) -> str:
+        """
+        The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
+        """
+        return pulumi.get(self, "link_name")
+
+
+@pulumi.output_type
+class KafkaMirrorTopicKafkaCluster(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restEndpoint":
+            suggest = "rest_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaMirrorTopicKafkaCluster. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaMirrorTopicKafkaCluster.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaMirrorTopicKafkaCluster.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 credentials: Optional['outputs.KafkaMirrorTopicKafkaClusterCredentials'] = None,
+                 rest_endpoint: Optional[str] = None):
+        """
+        :param str id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        :param str rest_endpoint: The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        pulumi.set(__self__, "id", id)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if rest_endpoint is not None:
+            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.KafkaMirrorTopicKafkaClusterCredentials']:
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> Optional[str]:
+        """
+        The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "rest_endpoint")
+
+
+@pulumi.output_type
+class KafkaMirrorTopicKafkaClusterCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Kafka API Key.
+        :param str secret: The Kafka API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Kafka API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Kafka API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class KafkaMirrorTopicSourceKafkaTopic(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicName":
+            suggest = "topic_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaMirrorTopicSourceKafkaTopic. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaMirrorTopicSourceKafkaTopic.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaMirrorTopicSourceKafkaTopic.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 topic_name: str):
+        """
+        :param str topic_name: The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
+        """
+        pulumi.set(__self__, "topic_name", topic_name)
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> str:
+        """
+        The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
+        """
+        return pulumi.get(self, "topic_name")
 
 
 @pulumi.output_type
@@ -997,6 +1494,71 @@ class GetIdentityPoolIdentityProviderResult(dict):
         The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetKafkaClientQuotaEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Kafka Client Quota (for example, `cq-abc123`).
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Kafka Client Quota (for example, `cq-abc123`).
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetKafkaClientQuotaKafkaClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Kafka Client Quota (for example, `cq-abc123`).
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Kafka Client Quota (for example, `cq-abc123`).
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetKafkaClientQuotaThroughputResult(dict):
+    def __init__(__self__, *,
+                 egress_byte_rate: str,
+                 ingress_byte_rate: str):
+        """
+        :param str egress_byte_rate: (Required String) The egress throughput limit in bytes per second.
+        :param str ingress_byte_rate: (Required String) The ingress throughput limit in bytes per second.
+        """
+        pulumi.set(__self__, "egress_byte_rate", egress_byte_rate)
+        pulumi.set(__self__, "ingress_byte_rate", ingress_byte_rate)
+
+    @property
+    @pulumi.getter(name="egressByteRate")
+    def egress_byte_rate(self) -> str:
+        """
+        (Required String) The egress throughput limit in bytes per second.
+        """
+        return pulumi.get(self, "egress_byte_rate")
+
+    @property
+    @pulumi.getter(name="ingressByteRate")
+    def ingress_byte_rate(self) -> str:
+        """
+        (Required String) The ingress throughput limit in bytes per second.
+        """
+        return pulumi.get(self, "ingress_byte_rate")
 
 
 @pulumi.output_type

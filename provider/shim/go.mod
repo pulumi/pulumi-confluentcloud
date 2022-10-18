@@ -7,14 +7,13 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.16.0
 )
 
-replace github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20220913141559-0af345d42281
+replace github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20221018200507-563fcc6855e4
 
 require (
 	github.com/Azure/go-ansiterm v0.0.0-20210617225240-d185dfc1b5a1 // indirect
 	github.com/Microsoft/go-winio v0.5.1 // indirect
 	github.com/Microsoft/hcsshim v0.9.3 // indirect
 	github.com/agext/levenshtein v1.2.2 // indirect
-	github.com/antihax/optional v1.0.0 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/cenkalti/backoff/v4 v4.1.2 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/apikeys v0.3.0 // indirect
@@ -22,7 +21,8 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/connect v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/iam v0.7.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/identity-provider v0.2.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.3.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/kafka-quotas v0.4.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.8.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.3.0 // indirect

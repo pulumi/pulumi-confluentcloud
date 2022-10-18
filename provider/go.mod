@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-confluentcloud/provider
 go 1.18
 
 replace (
-	github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20220913141559-0af345d42281
+	github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20221018200507-563fcc6855e4
 	github.com/confluentinc/terraform-provider-confluent/shim => ./shim
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9
 )
@@ -43,7 +43,6 @@ require (
 	github.com/acomagu/bufpipe v1.0.3 // indirect
 	github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
-	github.com/antihax/optional v1.0.0 // indirect
 	github.com/apparentlymart/go-cidr v1.1.0 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
@@ -69,7 +68,8 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/connect v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/iam v0.7.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/identity-provider v0.2.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.3.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/kafka-quotas v0.4.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.8.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.3.0 // indirect

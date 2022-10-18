@@ -202,7 +202,6 @@ github.com/alexflint/go-filemutex v0.0.0-20171022225611-72bdc8eae2ae/go.mod h1:C
 github.com/alexflint/go-filemutex v1.1.0/go.mod h1:7P4iRhttt/nUvUOrYIhcpMzv2G6CY9UnI16Z+UJqRyk=
 github.com/anmitsu/go-shlex v0.0.0-20161002113705-648efa622239 h1:kFOfPq6dUM1hTo4JG6LR5AXSUEsOjtdm0kw0FtQtMJA=
 github.com/anmitsu/go-shlex v0.0.0-20161002113705-648efa622239/go.mod h1:2FmKhYUyUczH0OGQWaF5ceTx0UBShxjsH6f8oGKYe2c=
-github.com/antihax/optional v1.0.0 h1:xK2lYat7ZLaVVcIuj82J8kIro4V6kDe0AUDFboUCwcg=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
 github.com/apparentlymart/go-cidr v1.0.1/go.mod h1:EBcsNrHc3zQeuaeCeCtQruQm+n9/YjEn/vI25Lg7Gwc=
 github.com/apparentlymart/go-cidr v1.1.0 h1:2mAhrMoF+nhXqxTzSZMUzDHkLjmIHC+Zzn4tdgBZjnU=
@@ -333,8 +332,10 @@ github.com/confluentinc/ccloud-sdk-go-v2/iam v0.7.0 h1:ZGVAFrMO4PItSyKr5evdxu2Co
 github.com/confluentinc/ccloud-sdk-go-v2/iam v0.7.0/go.mod h1:2Lm82ly9Yh5LLhp8OTnUGqjz4JdIXAZ5a0/u9T+rGGU=
 github.com/confluentinc/ccloud-sdk-go-v2/identity-provider v0.2.0 h1:9TT8UCFRc5zUdsE7UgMz7hqN+2KYnIkBcAKCaiZJrXw=
 github.com/confluentinc/ccloud-sdk-go-v2/identity-provider v0.2.0/go.mod h1:JLmrXfnT2PzcuXHD8a6c2cW1c9LKK7aMsdZjjqxYPEk=
-github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.3.0 h1:SoH721t+NGT5Lxxn0sj9DO9YvS2CPh3FdN/+iBKmWAI=
-github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.3.0/go.mod h1:+3crwD4MWa0CGGuyEixXMeLNy0VIRTbxezSduM33qbg=
+github.com/confluentinc/ccloud-sdk-go-v2/kafka-quotas v0.4.0 h1:T9e7lNj/VjxE89+tcpX2RS2NE4rWNWbJjxcO2yehEqM=
+github.com/confluentinc/ccloud-sdk-go-v2/kafka-quotas v0.4.0/go.mod h1:7gqwWFIyj2MAGpL/kf6SGXm/pi2Z6qpMJIjKlgEEhhg=
+github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.8.0 h1:3ao7ogaPdQzIbQFb+fE2gKw5jgOk7t66eAMfxwXNRQA=
+github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.8.0/go.mod h1:UZB+e0EXNFKNT8yPIHcQMDy0QvNvJzL55VOEnM9bMoY=
 github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0 h1:dtLqrG3nltpe2xucO8Bj17HPw+mTJG5zYxJksQ7+Yhw=
 github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0/go.mod h1:0LAvd4VqlaRwKU4yvDEkVCtV43yNezt56+hBe9Lmg7Q=
 github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 h1:DaipFGVdZjAE8eSztUrA/4b74kj6k5lZ0EJmK1RqccU=
@@ -1250,8 +1251,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9 h1:JMw+t5I+6E8Lna7JF+ghAoOLOl23UIbshJyRNP+K1HU=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9/go.mod h1:mYPs/uchNcBq7AclQv9QUtSf9iNcfp1Ag21jqTlDf2M=
-github.com/pulumi/terraform-provider-confluent v0.0.0-20220913141559-0af345d42281 h1:aprhtfsd2VuTKduDlbIfaUlU8eYA3kercGKLtzNLqj0=
-github.com/pulumi/terraform-provider-confluent v0.0.0-20220913141559-0af345d42281/go.mod h1:DHLQIohK1K5rZbdGNO8MJ8OIT+W4CJbcBYRwlJmYP30=
+github.com/pulumi/terraform-provider-confluent v0.0.0-20221018200507-563fcc6855e4 h1:JS3Th9fU0/b7Ic8TSi4OLWMahrE0ckZwNG5qvUPmEAk=
+github.com/pulumi/terraform-provider-confluent v0.0.0-20221018200507-563fcc6855e4/go.mod h1:wlcopvHv02gB6SGQC5mH1k6kr7Tv6ruBa3QNwbyXe10=
 github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af/go.mod h1:XWv6SoW27p1b0cqNHllgS5HIMJraePCO15w5zCzIWYg=

@@ -38,7 +38,7 @@ class NetworkArgs:
         :param pulumi.Input[str] display_name: The name of the Network.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The 3 availability zones for this network. They can optionally be specified for AWS networks
-               used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+               used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
                On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
                On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -173,7 +173,7 @@ class NetworkArgs:
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The 3 availability zones for this network. They can optionally be specified for AWS networks
-        used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+        used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
         On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
         On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -216,7 +216,7 @@ class _NetworkState:
         :param pulumi.Input[str] resource_name: (Required String) The Confluent Resource Name of the Network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] zonal_subdomains: (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The 3 availability zones for this network. They can optionally be specified for AWS networks
-               used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+               used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
                On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
                On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -397,7 +397,7 @@ class _NetworkState:
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The 3 availability zones for this network. They can optionally be specified for AWS networks
-        used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+        used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
         On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
         On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -448,7 +448,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkGcpArgs']]]] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
         :param pulumi.Input[str] region: The cloud provider region where the network exists.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The 3 availability zones for this network. They can optionally be specified for AWS networks
-               used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+               used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
                On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
                On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -568,7 +568,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: (Required String) The Confluent Resource Name of the Network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] zonal_subdomains: (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The 3 availability zones for this network. They can optionally be specified for AWS networks
-               used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+               used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
                On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
                On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -693,7 +693,7 @@ class Network(pulumi.CustomResource):
     def zones(self) -> pulumi.Output[Sequence[str]]:
         """
         The 3 availability zones for this network. They can optionally be specified for AWS networks
-        used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+        used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
         On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
         On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.

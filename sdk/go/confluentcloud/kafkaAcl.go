@@ -30,9 +30,9 @@ type KafkaAcl struct {
 	// The host for the ACL. Should be set to `*` for Confluent Cloud.
 	Host         pulumi.StringOutput        `pulumi:"host"`
 	KafkaCluster KafkaAclKafkaClusterOutput `pulumi:"kafkaCluster"`
-	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
+	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	Operation pulumi.StringOutput `pulumi:"operation"`
-	// The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.
+	// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
 	PatternType pulumi.StringOutput `pulumi:"patternType"`
 	// The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
 	Permission pulumi.StringOutput `pulumi:"permission"`
@@ -40,7 +40,7 @@ type KafkaAcl struct {
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
 	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
-	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
+	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
 	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
@@ -104,9 +104,9 @@ type kafkaAclState struct {
 	// The host for the ACL. Should be set to `*` for Confluent Cloud.
 	Host         *string               `pulumi:"host"`
 	KafkaCluster *KafkaAclKafkaCluster `pulumi:"kafkaCluster"`
-	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
+	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	Operation *string `pulumi:"operation"`
-	// The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.
+	// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
 	PatternType *string `pulumi:"patternType"`
 	// The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
 	Permission *string `pulumi:"permission"`
@@ -114,7 +114,7 @@ type kafkaAclState struct {
 	Principal *string `pulumi:"principal"`
 	// The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
 	ResourceName *string `pulumi:"resourceName"`
-	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
+	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	ResourceType *string `pulumi:"resourceType"`
 	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
 	RestEndpoint *string `pulumi:"restEndpoint"`
@@ -126,9 +126,9 @@ type KafkaAclState struct {
 	// The host for the ACL. Should be set to `*` for Confluent Cloud.
 	Host         pulumi.StringPtrInput
 	KafkaCluster KafkaAclKafkaClusterPtrInput
-	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
+	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	Operation pulumi.StringPtrInput
-	// The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.
+	// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
 	PatternType pulumi.StringPtrInput
 	// The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
 	Permission pulumi.StringPtrInput
@@ -136,7 +136,7 @@ type KafkaAclState struct {
 	Principal pulumi.StringPtrInput
 	// The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
 	ResourceName pulumi.StringPtrInput
-	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
+	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	ResourceType pulumi.StringPtrInput
 	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
 	RestEndpoint pulumi.StringPtrInput
@@ -152,9 +152,9 @@ type kafkaAclArgs struct {
 	// The host for the ACL. Should be set to `*` for Confluent Cloud.
 	Host         string               `pulumi:"host"`
 	KafkaCluster KafkaAclKafkaCluster `pulumi:"kafkaCluster"`
-	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
+	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	Operation string `pulumi:"operation"`
-	// The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.
+	// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
 	PatternType string `pulumi:"patternType"`
 	// The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
 	Permission string `pulumi:"permission"`
@@ -162,7 +162,7 @@ type kafkaAclArgs struct {
 	Principal string `pulumi:"principal"`
 	// The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
 	ResourceName string `pulumi:"resourceName"`
-	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
+	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	ResourceType string `pulumi:"resourceType"`
 	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
 	RestEndpoint *string `pulumi:"restEndpoint"`
@@ -175,9 +175,9 @@ type KafkaAclArgs struct {
 	// The host for the ACL. Should be set to `*` for Confluent Cloud.
 	Host         pulumi.StringInput
 	KafkaCluster KafkaAclKafkaClusterInput
-	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
+	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	Operation pulumi.StringInput
-	// The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.
+	// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
 	PatternType pulumi.StringInput
 	// The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
 	Permission pulumi.StringInput
@@ -185,7 +185,7 @@ type KafkaAclArgs struct {
 	Principal pulumi.StringInput
 	// The resource name for the ACL. Must be `kafka-cluster` if `resourceType` equals to `CLUSTER`.
 	ResourceName pulumi.StringInput
-	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
+	// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	ResourceType pulumi.StringInput
 	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
 	RestEndpoint pulumi.StringPtrInput
@@ -292,12 +292,12 @@ func (o KafkaAclOutput) KafkaCluster() KafkaAclKafkaClusterOutput {
 	return o.ApplyT(func(v *KafkaAcl) KafkaAclKafkaClusterOutput { return v.KafkaCluster }).(KafkaAclKafkaClusterOutput)
 }
 
-// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
+// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 func (o KafkaAclOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.Operation }).(pulumi.StringOutput)
 }
 
-// The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.
+// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
 func (o KafkaAclOutput) PatternType() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.PatternType }).(pulumi.StringOutput)
 }
@@ -317,7 +317,7 @@ func (o KafkaAclOutput) ResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.ResourceName }).(pulumi.StringOutput)
 }
 
-// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
+// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 func (o KafkaAclOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }

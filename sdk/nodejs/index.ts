@@ -9,6 +9,10 @@ export { ApiKeyArgs, ApiKeyState } from "./apiKey";
 export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
 
+export { ClusterLinkArgs, ClusterLinkState } from "./clusterLink";
+export type ClusterLink = import("./clusterLink").ClusterLink;
+export const ClusterLink: typeof import("./clusterLink").ClusterLink = null as any;
+
 export { ConnectorArgs, ConnectorState } from "./connector";
 export type Connector = import("./connector").Connector;
 export const Connector: typeof import("./connector").Connector = null as any;
@@ -28,6 +32,10 @@ export const getIdentityPoolOutput: typeof import("./getIdentityPool").getIdenti
 export { GetIdentityProviderArgs, GetIdentityProviderResult, GetIdentityProviderOutputArgs } from "./getIdentityProvider";
 export const getIdentityProvider: typeof import("./getIdentityProvider").getIdentityProvider = null as any;
 export const getIdentityProviderOutput: typeof import("./getIdentityProvider").getIdentityProviderOutput = null as any;
+
+export { GetKafkaClientQuotaArgs, GetKafkaClientQuotaResult, GetKafkaClientQuotaOutputArgs } from "./getKafkaClientQuota";
+export const getKafkaClientQuota: typeof import("./getKafkaClientQuota").getKafkaClientQuota = null as any;
+export const getKafkaClientQuotaOutput: typeof import("./getKafkaClientQuota").getKafkaClientQuotaOutput = null as any;
 
 export { GetKafkaClusterArgs, GetKafkaClusterResult, GetKafkaClusterOutputArgs } from "./getKafkaCluster";
 export const getKafkaCluster: typeof import("./getKafkaCluster").getKafkaCluster = null as any;
@@ -80,9 +88,21 @@ export { KafkaAclArgs, KafkaAclState } from "./kafkaAcl";
 export type KafkaAcl = import("./kafkaAcl").KafkaAcl;
 export const KafkaAcl: typeof import("./kafkaAcl").KafkaAcl = null as any;
 
+export { KafkaClientQuotaArgs, KafkaClientQuotaState } from "./kafkaClientQuota";
+export type KafkaClientQuota = import("./kafkaClientQuota").KafkaClientQuota;
+export const KafkaClientQuota: typeof import("./kafkaClientQuota").KafkaClientQuota = null as any;
+
 export { KafkaClusterArgs, KafkaClusterState } from "./kafkaCluster";
 export type KafkaCluster = import("./kafkaCluster").KafkaCluster;
 export const KafkaCluster: typeof import("./kafkaCluster").KafkaCluster = null as any;
+
+export { KafkaClusterConfigArgs, KafkaClusterConfigState } from "./kafkaClusterConfig";
+export type KafkaClusterConfig = import("./kafkaClusterConfig").KafkaClusterConfig;
+export const KafkaClusterConfig: typeof import("./kafkaClusterConfig").KafkaClusterConfig = null as any;
+
+export { KafkaMirrorTopicArgs, KafkaMirrorTopicState } from "./kafkaMirrorTopic";
+export type KafkaMirrorTopic = import("./kafkaMirrorTopic").KafkaMirrorTopic;
+export const KafkaMirrorTopic: typeof import("./kafkaMirrorTopic").KafkaMirrorTopic = null as any;
 
 export { KafkaTopicArgs, KafkaTopicState } from "./kafkaTopic";
 export type KafkaTopic = import("./kafkaTopic").KafkaTopic;
@@ -117,11 +137,13 @@ export type ServiceAccount = import("./serviceAccount").ServiceAccount;
 export const ServiceAccount: typeof import("./serviceAccount").ServiceAccount = null as any;
 
 utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
+utilities.lazyLoad(exports, ["ClusterLink"], () => require("./clusterLink"));
 utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
 utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
 utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
 utilities.lazyLoad(exports, ["getIdentityPool","getIdentityPoolOutput"], () => require("./getIdentityPool"));
 utilities.lazyLoad(exports, ["getIdentityProvider","getIdentityProviderOutput"], () => require("./getIdentityProvider"));
+utilities.lazyLoad(exports, ["getKafkaClientQuota","getKafkaClientQuotaOutput"], () => require("./getKafkaClientQuota"));
 utilities.lazyLoad(exports, ["getKafkaCluster","getKafkaClusterOutput"], () => require("./getKafkaCluster"));
 utilities.lazyLoad(exports, ["getKafkaTopic","getKafkaTopicOutput"], () => require("./getKafkaTopic"));
 utilities.lazyLoad(exports, ["getKsqlCluster","getKsqlClusterOutput"], () => require("./getKsqlCluster"));
@@ -135,7 +157,10 @@ utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUse
 utilities.lazyLoad(exports, ["IdentityPool"], () => require("./identityPool"));
 utilities.lazyLoad(exports, ["IdentityProvider"], () => require("./identityProvider"));
 utilities.lazyLoad(exports, ["KafkaAcl"], () => require("./kafkaAcl"));
+utilities.lazyLoad(exports, ["KafkaClientQuota"], () => require("./kafkaClientQuota"));
 utilities.lazyLoad(exports, ["KafkaCluster"], () => require("./kafkaCluster"));
+utilities.lazyLoad(exports, ["KafkaClusterConfig"], () => require("./kafkaClusterConfig"));
+utilities.lazyLoad(exports, ["KafkaMirrorTopic"], () => require("./kafkaMirrorTopic"));
 utilities.lazyLoad(exports, ["KafkaTopic"], () => require("./kafkaTopic"));
 utilities.lazyLoad(exports, ["KsqlCluster"], () => require("./ksqlCluster"));
 utilities.lazyLoad(exports, ["Network"], () => require("./network"));
@@ -160,6 +185,8 @@ const _module = {
         switch (type) {
             case "confluentcloud:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
+            case "confluentcloud:index/clusterLink:ClusterLink":
+                return new ClusterLink(name, <any>undefined, { urn })
             case "confluentcloud:index/connector:Connector":
                 return new Connector(name, <any>undefined, { urn })
             case "confluentcloud:index/environment:Environment":
@@ -170,8 +197,14 @@ const _module = {
                 return new IdentityProvider(name, <any>undefined, { urn })
             case "confluentcloud:index/kafkaAcl:KafkaAcl":
                 return new KafkaAcl(name, <any>undefined, { urn })
+            case "confluentcloud:index/kafkaClientQuota:KafkaClientQuota":
+                return new KafkaClientQuota(name, <any>undefined, { urn })
             case "confluentcloud:index/kafkaCluster:KafkaCluster":
                 return new KafkaCluster(name, <any>undefined, { urn })
+            case "confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig":
+                return new KafkaClusterConfig(name, <any>undefined, { urn })
+            case "confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic":
+                return new KafkaMirrorTopic(name, <any>undefined, { urn })
             case "confluentcloud:index/kafkaTopic:KafkaTopic":
                 return new KafkaTopic(name, <any>undefined, { urn })
             case "confluentcloud:index/ksqlCluster:KsqlCluster":
@@ -192,12 +225,16 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("confluentcloud", "index/apiKey", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/clusterLink", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/connector", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/environment", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/identityPool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/identityProvider", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/kafkaAcl", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/kafkaClientQuota", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/kafkaCluster", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/kafkaClusterConfig", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/kafkaMirrorTopic", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/kafkaTopic", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/ksqlCluster", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/network", _module)

@@ -36,7 +36,7 @@ const (
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv2.NewProvider(shim.NewProvider())
+	p := shimv2.NewProvider(shim.NewProvider(version.Version, fmt.Sprintf("pulumi-%s/%s", mainPkg, version.Version)))
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
@@ -63,22 +63,30 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"display_name": tfbridge.AutoName("displayName", 255, "-"),
 				}},
+			"confluent_cluster_link": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "ClusterLink"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"link_name": tfbridge.AutoName("link", 255, "-"),
+				},
+			},
 			"confluent_connector": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Connector")},
 			"confluent_environment": {
 				Tok: tfbridge.MakeResource(mainPkg, mainMod, "Environment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"display_name": tfbridge.AutoName("displayName", 255, "-"),
 				}},
-			"confluent_kafka_acl": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaAcl")},
+			"confluent_kafka_acl":          {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaAcl")},
+			"confluent_kafka_client_quota": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaClientQuota")},
 			"confluent_kafka_cluster": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaCluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"display_name": tfbridge.AutoName("displayName", 255, "-"),
 				}},
-			"confluent_kafka_topic":         {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaTopic")},
-			"confluent_network":             {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Network")},
-			"confluent_peering":             {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Peering")},
-			"confluent_private_link_access": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "PrivateLinkAccess")},
-			"confluent_role_binding":        {Tok: tfbridge.MakeResource(mainPkg, mainMod, "RoleBinding")},
+			"confluent_kafka_cluster_config": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaClusterConfig")},
+			"confluent_kafka_mirror_topic":   {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaMirrorTopic")},
+			"confluent_kafka_topic":          {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaTopic")},
+			"confluent_network":              {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Network")},
+			"confluent_peering":              {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Peering")},
+			"confluent_private_link_access":  {Tok: tfbridge.MakeResource(mainPkg, mainMod, "PrivateLinkAccess")},
+			"confluent_role_binding":         {Tok: tfbridge.MakeResource(mainPkg, mainMod, "RoleBinding")},
 			"confluent_service_account": {
 				Tok: tfbridge.MakeResource(mainPkg, mainMod, "ServiceAccount"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -90,6 +98,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"confluent_environment":         {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getEnvironment")},
+			"confluent_kafka_client_quota":  {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getKafkaClientQuota")},
 			"confluent_kafka_cluster":       {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getKafkaCluster")},
 			"confluent_kafka_topic":         {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getKafkaTopic")},
 			"confluent_network":             {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getNetwork")},

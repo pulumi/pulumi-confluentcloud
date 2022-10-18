@@ -190,6 +190,152 @@
                 "kind"
             ]
         },
+        "confluentcloud:index/ClusterLinkDestinationKafkaCluster:ClusterLinkDestinationKafkaCluster": {
+            "properties": {
+                "bootstrapEndpoint": {
+                    "type": "string",
+                    "description": "The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/ClusterLinkDestinationKafkaClusterCredentials:ClusterLinkDestinationKafkaClusterCredentials",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the destination Kafka cluster, for example, `lkc-abc123`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/ClusterLinkDestinationKafkaClusterCredentials:ClusterLinkDestinationKafkaClusterCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Kafka API Key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Kafka API Secret.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/ClusterLinkSourceKafkaCluster:ClusterLinkSourceKafkaCluster": {
+            "properties": {
+                "bootstrapEndpoint": {
+                    "type": "string",
+                    "description": "The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/ClusterLinkSourceKafkaClusterCredentials:ClusterLinkSourceKafkaClusterCredentials",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the destination Kafka cluster, for example, `lkc-abc123`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/ClusterLinkSourceKafkaClusterCredentials:ClusterLinkSourceKafkaClusterCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Kafka API Key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Kafka API Secret.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
         "confluentcloud:index/ConnectorEnvironment:ConnectorEnvironment": {
             "properties": {
                 "id": {
@@ -289,8 +435,116 @@
                 "id"
             ]
         },
+        "confluentcloud:index/KafkaClientQuotaEnvironment:KafkaClientQuotaEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/KafkaClientQuotaKafkaCluster:KafkaClientQuotaKafkaCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/KafkaClientQuotaThroughput:KafkaClientQuotaThroughput": {
+            "properties": {
+                "egressByteRate": {
+                    "type": "string",
+                    "description": "The egress throughput limit in bytes per second.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ingressByteRate": {
+                    "type": "string",
+                    "description": "The ingress throughput limit in bytes per second.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "egressByteRate",
+                "ingressByteRate"
+            ]
+        },
         "confluentcloud:index/KafkaClusterBasic:KafkaClusterBasic": {
             "type": "object"
+        },
+        "confluentcloud:index/KafkaClusterConfigCredentials:KafkaClusterConfigCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Kafka API Key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Kafka API Secret.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/KafkaClusterConfigKafkaCluster:KafkaClusterConfigKafkaCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
         },
         "confluentcloud:index/KafkaClusterDedicated:KafkaClusterDedicated": {
             "properties": {
@@ -356,6 +610,105 @@
         },
         "confluentcloud:index/KafkaClusterStandard:KafkaClusterStandard": {
             "type": "object"
+        },
+        "confluentcloud:index/KafkaMirrorTopicClusterLink:KafkaMirrorTopicClusterLink": {
+            "properties": {
+                "linkName": {
+                    "type": "string",
+                    "description": "The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "linkName"
+            ]
+        },
+        "confluentcloud:index/KafkaMirrorTopicKafkaCluster:KafkaMirrorTopicKafkaCluster": {
+            "properties": {
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/KafkaMirrorTopicKafkaClusterCredentials:KafkaMirrorTopicKafkaClusterCredentials",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the destination Kafka cluster, for example, `lkc-abc123`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/KafkaMirrorTopicKafkaClusterCredentials:KafkaMirrorTopicKafkaClusterCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Kafka API Key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Kafka API Secret.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/KafkaMirrorTopicSourceKafkaTopic:KafkaMirrorTopicSourceKafkaTopic": {
+            "properties": {
+                "topicName": {
+                    "type": "string",
+                    "description": "The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "topicName"
+            ]
         },
         "confluentcloud:index/KafkaTopicCredentials:KafkaTopicCredentials": {
             "properties": {
@@ -848,6 +1201,82 @@
             "required": [
                 "id"
             ]
+        },
+        "confluentcloud:index/getKafkaClientQuotaEnvironment:getKafkaClientQuotaEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Kafka Client Quota (for example, `cq-abc123`).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getKafkaClientQuotaKafkaCluster:getKafkaClientQuotaKafkaCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Kafka Client Quota (for example, `cq-abc123`).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getKafkaClientQuotaThroughput:getKafkaClientQuotaThroughput": {
+            "properties": {
+                "egressByteRate": {
+                    "type": "string",
+                    "description": "(Required String) The egress throughput limit in bytes per second.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ingressByteRate": {
+                    "type": "string",
+                    "description": "(Required String) The ingress throughput limit in bytes per second.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "egressByteRate",
+                "ingressByteRate"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "confluentcloud:index/getKafkaClusterBasic:getKafkaClusterBasic": {
             "type": "object"
@@ -1585,6 +2014,88 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/clusterLink:ClusterLink": {
+            "description": "\n\n\n## Import\n\nYou can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode, source Kafka cluster ID, and destination Kafka cluster ID, in the format `\u003cCluster link name\u003e/\u003cCluster link mode\u003e/\u003cCluster connection mode\u003e/\u003cSource Kafka cluster ID\u003e/\u003cDestination Kafka cluster ID\u003e`, for example$ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT=\"\u003csource_kafka_bootstrap_endpoint\u003e\" $ export IMPORT_SOURCE_KAFKA_API_KEY=\"\u003csource_kafka_api_key\u003e\" $ export IMPORT_SOURCE_KAFKA_API_SECRET=\"\u003csource_kafka_api_secret\u003e\" $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT=\"\u003cdestination_kafka_rest_endpoint\u003e\" $ export IMPORT_DESTINATION_KAFKA_API_KEY=\"\u003cdestination_kafka_api_key\u003e\" $ export IMPORT_DESTINATION_KAFKA_API_SECRET=\"\u003cdestination_kafka_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "connectionMode": {
+                    "type": "string",
+                    "description": "The connection mode of the cluster link. The supported values are `\"INBOUND\"` and `\"OUTBOUND\"`. Defaults to `\"OUTBOUND\"`.\n"
+                },
+                "destinationKafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/ClusterLinkDestinationKafkaCluster:ClusterLinkDestinationKafkaCluster"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The name of the cluster link, for example, `my-cluster-link`.\n"
+                },
+                "linkMode": {
+                    "type": "string",
+                    "description": "The mode of the cluster link. The supported values are `\"DESTINATION\"` and `\"SOURCE\"`. Defaults to `\"DESTINATION\"`.\n"
+                },
+                "sourceKafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/ClusterLinkSourceKafkaCluster:ClusterLinkSourceKafkaCluster"
+                }
+            },
+            "required": [
+                "destinationKafkaCluster",
+                "link",
+                "sourceKafkaCluster"
+            ],
+            "inputProperties": {
+                "connectionMode": {
+                    "type": "string",
+                    "description": "The connection mode of the cluster link. The supported values are `\"INBOUND\"` and `\"OUTBOUND\"`. Defaults to `\"OUTBOUND\"`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "destinationKafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/ClusterLinkDestinationKafkaCluster:ClusterLinkDestinationKafkaCluster"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The name of the cluster link, for example, `my-cluster-link`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "linkMode": {
+                    "type": "string",
+                    "description": "The mode of the cluster link. The supported values are `\"DESTINATION\"` and `\"SOURCE\"`. Defaults to `\"DESTINATION\"`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "sourceKafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/ClusterLinkSourceKafkaCluster:ClusterLinkSourceKafkaCluster"
+                }
+            },
+            "requiredInputs": [
+                "destinationKafkaCluster",
+                "sourceKafkaCluster"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ClusterLink resources.\n",
+                "properties": {
+                    "connectionMode": {
+                        "type": "string",
+                        "description": "The connection mode of the cluster link. The supported values are `\"INBOUND\"` and `\"OUTBOUND\"`. Defaults to `\"OUTBOUND\"`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "destinationKafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/ClusterLinkDestinationKafkaCluster:ClusterLinkDestinationKafkaCluster"
+                    },
+                    "link": {
+                        "type": "string",
+                        "description": "The name of the cluster link, for example, `my-cluster-link`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "linkMode": {
+                        "type": "string",
+                        "description": "The mode of the cluster link. The supported values are `\"DESTINATION\"` and `\"SOURCE\"`. Defaults to `\"DESTINATION\"`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "sourceKafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/ClusterLinkSourceKafkaCluster:ClusterLinkSourceKafkaCluster"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/connector:Connector": {
             "description": "\n\n\n## Import\n\nYou can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `\u003cEnvironment ID\u003e/\u003cKafka cluster ID\u003e/\u003cConnector name\u003e`, for example$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/connector:Connector my_connector \"env-abc123/lkc-abc123/S3_SINKConnector_0\"\n```\n\n ",
             "properties": {
@@ -1908,11 +2419,11 @@
                 },
                 "operation": {
                     "type": "string",
-                    "description": "The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.\n"
+                    "description": "The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.\n"
                 },
                 "patternType": {
                     "type": "string",
-                    "description": "The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.\n"
+                    "description": "The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.\n"
                 },
                 "permission": {
                     "type": "string",
@@ -1928,7 +2439,7 @@
                 },
                 "resourceType": {
                     "type": "string",
-                    "description": "The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.\n"
+                    "description": "The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.\n"
                 },
                 "restEndpoint": {
                     "type": "string",
@@ -1961,12 +2472,12 @@
                 },
                 "operation": {
                     "type": "string",
-                    "description": "The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.\n",
+                    "description": "The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.\n",
                     "willReplaceOnChanges": true
                 },
                 "patternType": {
                     "type": "string",
-                    "description": "The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.\n",
+                    "description": "The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.\n",
                     "willReplaceOnChanges": true
                 },
                 "permission": {
@@ -1986,7 +2497,7 @@
                 },
                 "resourceType": {
                     "type": "string",
-                    "description": "The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.\n",
+                    "description": "The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
@@ -2023,12 +2534,12 @@
                     },
                     "operation": {
                         "type": "string",
-                        "description": "The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.\n",
+                        "description": "The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.\n",
                         "willReplaceOnChanges": true
                     },
                     "patternType": {
                         "type": "string",
-                        "description": "The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.\n",
+                        "description": "The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.\n",
                         "willReplaceOnChanges": true
                     },
                     "permission": {
@@ -2048,13 +2559,122 @@
                     },
                     "resourceType": {
                         "type": "string",
-                        "description": "The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.\n",
+                        "description": "The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.\n",
                         "willReplaceOnChanges": true
                     },
                     "restEndpoint": {
                         "type": "string",
                         "description": "The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.\n",
                         "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/kafkaClientQuota:KafkaClientQuota": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.KafkaClientQuota(\"example\", {\n    displayName: \"test-quota\",\n    description: \"Test Quota\",\n    throughput: {\n        ingressByteRate: \"100\",\n        egressByteRate: \"200\",\n    },\n    principals: [\n        confluent_service_account.app_manager.id,\n        confluent_service_account.app_manager_2.id,\n    ],\n    kafkaCluster: {\n        id: confluent_kafka_cluster.dedicated.id,\n    },\n    environment: {\n        id: confluent_environment.development.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.KafkaClientQuota(\"example\",\n    display_name=\"test-quota\",\n    description=\"Test Quota\",\n    throughput=confluentcloud.KafkaClientQuotaThroughputArgs(\n        ingress_byte_rate=\"100\",\n        egress_byte_rate=\"200\",\n    ),\n    principals=[\n        confluent_service_account[\"app_manager\"][\"id\"],\n        confluent_service_account[\"app_manager_2\"][\"id\"],\n    ],\n    kafka_cluster=confluentcloud.KafkaClientQuotaKafkaClusterArgs(\n        id=confluent_kafka_cluster[\"dedicated\"][\"id\"],\n    ),\n    environment=confluentcloud.KafkaClientQuotaEnvironmentArgs(\n        id=confluent_environment[\"development\"][\"id\"],\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.KafkaClientQuota(\"example\", new()\n    {\n        DisplayName = \"test-quota\",\n        Description = \"Test Quota\",\n        Throughput = new ConfluentCloud.Inputs.KafkaClientQuotaThroughputArgs\n        {\n            IngressByteRate = \"100\",\n            EgressByteRate = \"200\",\n        },\n        Principals = new[]\n        {\n            confluent_service_account.App_manager.Id,\n            confluent_service_account.App_manager_2.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.KafkaClientQuotaKafkaClusterArgs\n        {\n            Id = confluent_kafka_cluster.Dedicated.Id,\n        },\n        Environment = new ConfluentCloud.Inputs.KafkaClientQuotaEnvironmentArgs\n        {\n            Id = confluent_environment.Development.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewKafkaClientQuota(ctx, \"example\", \u0026confluentcloud.KafkaClientQuotaArgs{\n\t\t\tDisplayName: pulumi.String(\"test-quota\"),\n\t\t\tDescription: pulumi.String(\"Test Quota\"),\n\t\t\tThroughput: \u0026KafkaClientQuotaThroughputArgs{\n\t\t\t\tIngressByteRate: pulumi.String(\"100\"),\n\t\t\t\tEgressByteRate:  pulumi.String(\"200\"),\n\t\t\t},\n\t\t\tPrincipals: pulumi.StringArray{\n\t\t\t\tpulumi.Any(confluent_service_account.App_manager.Id),\n\t\t\t\tpulumi.Any(confluent_service_account.App_manager_2.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026KafkaClientQuotaKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(confluent_kafka_cluster.Dedicated.Id),\n\t\t\t},\n\t\t\tEnvironment: \u0026KafkaClientQuotaEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(confluent_environment.Development.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.KafkaClientQuota;\nimport com.pulumi.confluentcloud.KafkaClientQuotaArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClientQuotaThroughputArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClientQuotaKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClientQuotaEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new KafkaClientQuota(\"example\", KafkaClientQuotaArgs.builder()        \n            .displayName(\"test-quota\")\n            .description(\"Test Quota\")\n            .throughput(KafkaClientQuotaThroughputArgs.builder()\n                .ingressByteRate(\"100\")\n                .egressByteRate(\"200\")\n                .build())\n            .principals(            \n                confluent_service_account.app_manager().id(),\n                confluent_service_account.app_manager_2().id())\n            .kafkaCluster(KafkaClientQuotaKafkaClusterArgs.builder()\n                .id(confluent_kafka_cluster.dedicated().id())\n                .build())\n            .environment(KafkaClientQuotaEnvironmentArgs.builder()\n                .id(confluent_environment.development().id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:KafkaClientQuota\n    properties:\n      displayName: test-quota\n      description: Test Quota\n      throughput:\n        ingressByteRate: 100\n        egressByteRate: 200\n      principals:\n        - ${confluent_service_account.app_manager.id}\n        - ${confluent_service_account.app_manager_2.id}\n      kafkaCluster:\n        id: ${confluent_kafka_cluster.dedicated.id}\n      environment:\n        id: ${confluent_environment.development.id}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nYou can import a Kafka Client Quota by using Kafka Client Quota ID. The following example shows how to import a Kafka Client Quota ID$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/kafkaClientQuota:KafkaClientQuota example cq-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Kafka Client Quota.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Kafka Client Quota.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/KafkaClientQuotaEnvironment:KafkaClientQuotaEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/KafkaClientQuotaKafkaCluster:KafkaClientQuotaKafkaCluster"
+                },
+                "principals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of service accounts to apply the Kafka Client Quota to. Use the special name, \"default\",  to represent the default quota for all users and service accounts.\n"
+                },
+                "throughput": {
+                    "$ref": "#/types/confluentcloud:index/KafkaClientQuotaThroughput:KafkaClientQuotaThroughput",
+                    "description": "Block for representing a Kafka Quota.\n"
+                }
+            },
+            "required": [
+                "displayName",
+                "environment",
+                "kafkaCluster",
+                "principals",
+                "throughput"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Kafka Client Quota.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Kafka Client Quota.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/KafkaClientQuotaEnvironment:KafkaClientQuotaEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/KafkaClientQuotaKafkaCluster:KafkaClientQuotaKafkaCluster",
+                    "willReplaceOnChanges": true
+                },
+                "principals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of service accounts to apply the Kafka Client Quota to. Use the special name, \"default\",  to represent the default quota for all users and service accounts.\n"
+                },
+                "throughput": {
+                    "$ref": "#/types/confluentcloud:index/KafkaClientQuotaThroughput:KafkaClientQuotaThroughput",
+                    "description": "Block for representing a Kafka Quota.\n"
+                }
+            },
+            "requiredInputs": [
+                "displayName",
+                "environment",
+                "kafkaCluster",
+                "principals",
+                "throughput"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering KafkaClientQuota resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the Kafka Client Quota.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the Kafka Client Quota.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/KafkaClientQuotaEnvironment:KafkaClientQuotaEnvironment",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "kafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/KafkaClientQuotaKafkaCluster:KafkaClientQuotaKafkaCluster",
+                        "willReplaceOnChanges": true
+                    },
+                    "principals": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The list of service accounts to apply the Kafka Client Quota to. Use the special name, \"default\",  to represent the default quota for all users and service accounts.\n"
+                    },
+                    "throughput": {
+                        "$ref": "#/types/confluentcloud:index/KafkaClientQuotaThroughput:KafkaClientQuotaThroughput",
+                        "description": "Block for representing a Kafka Quota.\n"
                     }
                 },
                 "type": "object"
@@ -2258,6 +2878,167 @@
                             "$ref": "#/types/confluentcloud:index/KafkaClusterStandard:KafkaClusterStandard"
                         },
                         "description": "The configuration of the Standard Kafka cluster.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig": {
+            "description": "[![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.KafkaClusterConfig` provides a Kafka cluster config resource that enables updating configs on a Dedicated Kafka cluster on Confluent Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst orders = new confluentcloud.KafkaClusterConfig(\"orders\", {\n    kafkaCluster: {\n        id: confluent_kafka_cluster.dedicated.id,\n    },\n    restEndpoint: confluent_kafka_cluster.dedicated.rest_endpoint,\n    config: {\n        \"auto.create.topics.enable\": \"true\",\n        \"log.retention.ms\": \"604800123\",\n    },\n    credentials: {\n        key: confluent_api_key[\"app-manager-kafka-api-key\"].id,\n        secret: confluent_api_key[\"app-manager-kafka-api-key\"].secret,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\norders = confluentcloud.KafkaClusterConfig(\"orders\",\n    kafka_cluster=confluentcloud.KafkaClusterConfigKafkaClusterArgs(\n        id=confluent_kafka_cluster[\"dedicated\"][\"id\"],\n    ),\n    rest_endpoint=confluent_kafka_cluster[\"dedicated\"][\"rest_endpoint\"],\n    config={\n        \"auto.create.topics.enable\": \"true\",\n        \"log.retention.ms\": \"604800123\",\n    },\n    credentials=confluentcloud.KafkaClusterConfigCredentialsArgs(\n        key=confluent_api_key[\"app-manager-kafka-api-key\"][\"id\"],\n        secret=confluent_api_key[\"app-manager-kafka-api-key\"][\"secret\"],\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var orders = new ConfluentCloud.KafkaClusterConfig(\"orders\", new()\n    {\n        KafkaCluster = new ConfluentCloud.Inputs.KafkaClusterConfigKafkaClusterArgs\n        {\n            Id = confluent_kafka_cluster.Dedicated.Id,\n        },\n        RestEndpoint = confluent_kafka_cluster.Dedicated.Rest_endpoint,\n        Config = \n        {\n            { \"auto.create.topics.enable\", \"true\" },\n            { \"log.retention.ms\", \"604800123\" },\n        },\n        Credentials = new ConfluentCloud.Inputs.KafkaClusterConfigCredentialsArgs\n        {\n            Key = confluent_api_key.App_manager_kafka_api_key.Id,\n            Secret = confluent_api_key.App_manager_kafka_api_key.Secret,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewKafkaClusterConfig(ctx, \"orders\", \u0026confluentcloud.KafkaClusterConfigArgs{\n\t\t\tKafkaCluster: \u0026KafkaClusterConfigKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(confluent_kafka_cluster.Dedicated.Id),\n\t\t\t},\n\t\t\tRestEndpoint: pulumi.Any(confluent_kafka_cluster.Dedicated.Rest_endpoint),\n\t\t\tConfig: pulumi.StringMap{\n\t\t\t\t\"auto.create.topics.enable\": pulumi.String(\"true\"),\n\t\t\t\t\"log.retention.ms\":          pulumi.String(\"604800123\"),\n\t\t\t},\n\t\t\tCredentials: \u0026KafkaClusterConfigCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(confluent_api_key.App - manager - kafka - api - key.Id),\n\t\t\t\tSecret: pulumi.Any(confluent_api_key.App - manager - kafka - api - key.Secret),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.KafkaClusterConfig;\nimport com.pulumi.confluentcloud.KafkaClusterConfigArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClusterConfigKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClusterConfigCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var orders = new KafkaClusterConfig(\"orders\", KafkaClusterConfigArgs.builder()        \n            .kafkaCluster(KafkaClusterConfigKafkaClusterArgs.builder()\n                .id(confluent_kafka_cluster.dedicated().id())\n                .build())\n            .restEndpoint(confluent_kafka_cluster.dedicated().rest_endpoint())\n            .config(Map.ofEntries(\n                Map.entry(\"auto.create.topics.enable\", \"true\"),\n                Map.entry(\"log.retention.ms\", \"604800123\")\n            ))\n            .credentials(KafkaClusterConfigCredentialsArgs.builder()\n                .key(confluent_api_key.app-manager-kafka-api-key().id())\n                .secret(confluent_api_key.app-manager-kafka-api-key().secret())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  orders:\n    type: confluentcloud:KafkaClusterConfig\n    properties:\n      kafkaCluster:\n        id: ${confluent_kafka_cluster.dedicated.id}\n      restEndpoint: ${confluent_kafka_cluster.dedicated.rest_endpoint}\n      config:\n        auto.create.topics.enable: true\n        log.retention.ms: 604800123\n      credentials:\n        key: ${confluent_api_key\"app-manager-kafka-api-key\"[%!s(MISSING)].id}\n        secret: ${confluent_api_key\"app-manager-kafka-api-key\"[%!s(MISSING)].secret}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nYou can import a Kafka cluster config by using the Kafka cluster ID, for example$ export IMPORT_KAFKA_API_KEY=\"\u003ckafka_api_key\u003e\" $ export IMPORT_KAFKA_API_SECRET=\"\u003ckafka_api_secret\u003e\" $ export IMPORT_KAFKA_REST_ENDPOINT=\"\u003ckafka_rest_endpoint\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "config": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The custom cluster settings to set:\n"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/KafkaClusterConfigCredentials:KafkaClusterConfigCredentials",
+                    "description": "The Cluster API Credentials.\n"
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/KafkaClusterConfigKafkaCluster:KafkaClusterConfigKafkaCluster"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                }
+            },
+            "required": [
+                "config",
+                "kafkaCluster"
+            ],
+            "inputProperties": {
+                "config": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The custom cluster settings to set:\n"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/KafkaClusterConfigCredentials:KafkaClusterConfigCredentials",
+                    "description": "The Cluster API Credentials.\n"
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/KafkaClusterConfigKafkaCluster:KafkaClusterConfigKafkaCluster",
+                    "willReplaceOnChanges": true
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "config",
+                "kafkaCluster"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering KafkaClusterConfig resources.\n",
+                "properties": {
+                    "config": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "The custom cluster settings to set:\n"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/KafkaClusterConfigCredentials:KafkaClusterConfigCredentials",
+                        "description": "The Cluster API Credentials.\n"
+                    },
+                    "kafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/KafkaClusterConfigKafkaCluster:KafkaClusterConfigKafkaCluster",
+                        "willReplaceOnChanges": true
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic": {
+            "description": "\n\n\n## Import\n\nYou can import a Kafka mirror topic by using the Kafka cluster ID, cluster link name, and Kafka topic name in the format `\u003cKafka cluster ID\u003e/\u003cCluster link name\u003e/\u003cKafka topic name\u003e`, for example$ export IMPORT_KAFKA_API_KEY=\"\u003ckafka_api_key\u003e\" $ export IMPORT_KAFKA_API_SECRET=\"\u003ckafka_api_secret\u003e\" $ export IMPORT_KAFKA_REST_ENDPOINT=\"\u003ckafka_rest_endpoint\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic my_mirror_topic lkc-abc123/my-cluster-link/orders-123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "clusterLink": {
+                    "$ref": "#/types/confluentcloud:index/KafkaMirrorTopicClusterLink:KafkaMirrorTopicClusterLink"
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/KafkaMirrorTopicKafkaCluster:KafkaMirrorTopicKafkaCluster"
+                },
+                "mirrorTopicName": {
+                    "type": "string",
+                    "description": "The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `\u003cprefix\u003e` is configured for the cluster link, the mirror topic name has to be of the format `\u003cprefix\u003e\u003csource_topic_name\u003e`.\n"
+                },
+                "sourceKafkaTopic": {
+                    "$ref": "#/types/confluentcloud:index/KafkaMirrorTopicSourceKafkaTopic:KafkaMirrorTopicSourceKafkaTopic"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the mirror topic. The supported values are `\"ACTIVE\"`, `\"PAUSED\"`, `\"PROMOTED\"`, `\"FAILED_OVER\"`. Pausing (`\"ACTIVE\" \u003e \"PAUSED\"`), resuming (`\"PAUSED\" \u003e \"ACTIVE\"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `\"ACTIVE\"`.\n"
+                }
+            },
+            "required": [
+                "clusterLink",
+                "kafkaCluster",
+                "mirrorTopicName",
+                "sourceKafkaTopic",
+                "status"
+            ],
+            "inputProperties": {
+                "clusterLink": {
+                    "$ref": "#/types/confluentcloud:index/KafkaMirrorTopicClusterLink:KafkaMirrorTopicClusterLink",
+                    "willReplaceOnChanges": true
+                },
+                "kafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/KafkaMirrorTopicKafkaCluster:KafkaMirrorTopicKafkaCluster"
+                },
+                "mirrorTopicName": {
+                    "type": "string",
+                    "description": "The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `\u003cprefix\u003e` is configured for the cluster link, the mirror topic name has to be of the format `\u003cprefix\u003e\u003csource_topic_name\u003e`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "sourceKafkaTopic": {
+                    "$ref": "#/types/confluentcloud:index/KafkaMirrorTopicSourceKafkaTopic:KafkaMirrorTopicSourceKafkaTopic",
+                    "willReplaceOnChanges": true
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the mirror topic. The supported values are `\"ACTIVE\"`, `\"PAUSED\"`, `\"PROMOTED\"`, `\"FAILED_OVER\"`. Pausing (`\"ACTIVE\" \u003e \"PAUSED\"`), resuming (`\"PAUSED\" \u003e \"ACTIVE\"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `\"ACTIVE\"`.\n"
+                }
+            },
+            "requiredInputs": [
+                "clusterLink",
+                "kafkaCluster",
+                "sourceKafkaTopic"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering KafkaMirrorTopic resources.\n",
+                "properties": {
+                    "clusterLink": {
+                        "$ref": "#/types/confluentcloud:index/KafkaMirrorTopicClusterLink:KafkaMirrorTopicClusterLink",
+                        "willReplaceOnChanges": true
+                    },
+                    "kafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/KafkaMirrorTopicKafkaCluster:KafkaMirrorTopicKafkaCluster"
+                    },
+                    "mirrorTopicName": {
+                        "type": "string",
+                        "description": "The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `\u003cprefix\u003e` is configured for the cluster link, the mirror topic name has to be of the format `\u003cprefix\u003e\u003csource_topic_name\u003e`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "sourceKafkaTopic": {
+                        "$ref": "#/types/confluentcloud:index/KafkaMirrorTopicSourceKafkaTopic:KafkaMirrorTopicSourceKafkaTopic",
+                        "willReplaceOnChanges": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The status of the mirror topic. The supported values are `\"ACTIVE\"`, `\"PAUSED\"`, `\"PROMOTED\"`, `\"FAILED_OVER\"`. Pausing (`\"ACTIVE\" \u003e \"PAUSED\"`), resuming (`\"PAUSED\" \u003e \"ACTIVE\"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `\"ACTIVE\"`.\n"
                     }
                 },
                 "type": "object"
@@ -2608,7 +3389,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The 3 availability zones for this network. They can optionally be specified for AWS networks\nused with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.\nOn AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.\nOn GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.\nOn Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.\n"
+                    "description": "The 3 availability zones for this network. They can optionally be specified for AWS networks\nused with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.\nOn AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.\nOn GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.\nOn Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.\n"
                 }
             },
             "required": [
@@ -2685,7 +3466,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The 3 availability zones for this network. They can optionally be specified for AWS networks\nused with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.\nOn AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.\nOn GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.\nOn Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.\n",
+                    "description": "The 3 availability zones for this network. They can optionally be specified for AWS networks\nused with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.\nOn AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.\nOn GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.\nOn Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -2771,7 +3552,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "The 3 availability zones for this network. They can optionally be specified for AWS networks\nused with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.\nOn AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.\nOn GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.\nOn Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.\n",
+                        "description": "The 3 availability zones for this network. They can optionally be specified for AWS networks\nused with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.\nOn AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.\nOn GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.\nOn Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -3242,6 +4023,74 @@
                     "id",
                     "issuer",
                     "jwksUri"
+                ]
+            }
+        },
+        "confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota": {
+            "description": "[![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Client Quotas API](https://img.shields.io/badge/-Request%20Access%20To%20Clients%20Quotas-%23bc8540)](mailto:cloud-client-quotas-ea@confluent.io?subject=Request%20to%20join%20Kafka%20Quotas%20Management%20API%20Early%20Access\u0026amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20kafka-quotas/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)\n\n`confluentcloud.KafkaClientQuota` describes a Kafka Client Quota.\n\n\u003e **Note:** See [Control application usage with Client Quotas](https://docs.confluent.io/cloud/current/clusters/client-quotas.html#control-application-usage-with-client-quotas) for more details.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleKafkaClientQuota = confluentcloud.getKafkaClientQuota({\n    id: \"cq-abc123\",\n});\nexport const example = exampleKafkaClientQuota;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_kafka_client_quota = confluentcloud.get_kafka_client_quota(id=\"cq-abc123\")\npulumi.export(\"example\", example_kafka_client_quota)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleKafkaClientQuota = ConfluentCloud.GetKafkaClientQuota.Invoke(new()\n    {\n        Id = \"cq-abc123\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = exampleKafkaClientQuota.Apply(getKafkaClientQuotaResult =\u003e getKafkaClientQuotaResult),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleKafkaClientQuota, err := confluentcloud.LookupKafkaClientQuota(ctx, \u0026GetKafkaClientQuotaArgs{\n\t\t\tId: \"cq-abc123\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", exampleKafkaClientQuota)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleKafkaClientQuota = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()\n            .id(\"cq-abc123\")\n            .build());\n\n        ctx.export(\"example\", exampleKafkaClientQuota.applyValue(getKafkaClientQuotaResult -\u003e getKafkaClientQuotaResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleKafkaClientQuota:\n    Fn::Invoke:\n      Function: confluentcloud:getKafkaClientQuota\n      Arguments:\n        id: cq-abc123\noutputs:\n  example: ${exampleKafkaClientQuota}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getKafkaClientQuota.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Kafka Client Quota (for example, `cq-abc123`).\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getKafkaClientQuota.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "(Required String) The description of the Kafka Client Quota.\n- `throughput` (Required Configuration Block) supports the following:\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "(Required String) The name of the Kafka Client Quota.\n"
+                    },
+                    "environments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getKafkaClientQuotaEnvironment:getKafkaClientQuotaEnvironment"
+                        }
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.\n"
+                    },
+                    "kafkaClusters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getKafkaClientQuotaKafkaCluster:getKafkaClientQuotaKafkaCluster"
+                        }
+                    },
+                    "principals": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(Required Set of Strings) The list of service accounts to apply the Kafka Client Quota to. Use the special name, \"default\", to represent the default quota for all users and service accounts.\n- `kafka_cluster` (Required Configuration Block) supports the following:\n"
+                    },
+                    "throughputs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getKafkaClientQuotaThroughput:getKafkaClientQuotaThroughput"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "displayName",
+                    "environments",
+                    "id",
+                    "kafkaClusters",
+                    "principals",
+                    "throughputs"
                 ]
             }
         },
