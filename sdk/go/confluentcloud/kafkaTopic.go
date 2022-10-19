@@ -135,6 +135,13 @@ func NewKafkaTopic(ctx *pulumi.Context,
 	if args.TopicName == nil {
 		return nil, errors.New("invalid value for required argument 'TopicName'")
 	}
+	if args.Credentials != nil {
+		args.Credentials = pulumi.ToSecret(args.Credentials).(KafkaTopicCredentialsPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"credentials",
+	})
+	opts = append(opts, secrets)
 	var resource KafkaTopic
 	err := ctx.RegisterResource("confluentcloud:index/kafkaTopic:KafkaTopic", name, args, &resource, opts...)
 	if err != nil {

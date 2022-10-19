@@ -56,7 +56,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPeeringResult> InvokeAsync(GetPeeringArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringResult>("confluentcloud:index/getPeering:getPeering", args ?? new GetPeeringArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeeringResult>("confluentcloud:index/getPeering:getPeering", args ?? new GetPeeringArgs(), options.WithDefaults());
 
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -103,7 +103,7 @@ namespace Pulumi.ConfluentCloud
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPeeringResult> Invoke(GetPeeringInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPeeringResult>("confluentcloud:index/getPeering:getPeering", args ?? new GetPeeringInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPeeringResult>("confluentcloud:index/getPeering:getPeering", args ?? new GetPeeringInvokeArgs(), options.WithDefaults());
     }
 
 

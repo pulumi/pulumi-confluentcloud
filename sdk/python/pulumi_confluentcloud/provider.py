@@ -184,12 +184,14 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__.__dict__["cloud_api_key"] = cloud_api_key
-            __props__.__dict__["cloud_api_secret"] = cloud_api_secret
+            __props__.__dict__["cloud_api_key"] = None if cloud_api_key is None else pulumi.Output.secret(cloud_api_key)
+            __props__.__dict__["cloud_api_secret"] = None if cloud_api_secret is None else pulumi.Output.secret(cloud_api_secret)
             __props__.__dict__["endpoint"] = endpoint
-            __props__.__dict__["kafka_api_key"] = kafka_api_key
-            __props__.__dict__["kafka_api_secret"] = kafka_api_secret
+            __props__.__dict__["kafka_api_key"] = None if kafka_api_key is None else pulumi.Output.secret(kafka_api_key)
+            __props__.__dict__["kafka_api_secret"] = None if kafka_api_secret is None else pulumi.Output.secret(kafka_api_secret)
             __props__.__dict__["kafka_rest_endpoint"] = kafka_rest_endpoint
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["cloudApiKey", "cloudApiSecret", "kafkaApiKey", "kafkaApiSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'confluentcloud',
             resource_name,

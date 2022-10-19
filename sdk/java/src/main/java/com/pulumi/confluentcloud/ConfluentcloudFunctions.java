@@ -10,6 +10,8 @@ import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityPoolPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityProviderPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaArgs;
+import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
@@ -31,6 +33,7 @@ import com.pulumi.confluentcloud.inputs.GetUserPlainArgs;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityPoolResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityProviderResult;
+import com.pulumi.confluentcloud.outputs.GetKafkaClientQuotaResult;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterResult;
 import com.pulumi.confluentcloud.outputs.GetKafkaTopicResult;
 import com.pulumi.confluentcloud.outputs.GetKsqlClusterResult;
@@ -868,6 +871,174 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetIdentityProviderResult> getIdentityProviderPlain(GetIdentityProviderPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getIdentityProvider:getIdentityProvider", TypeShape.of(GetIdentityProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Client Quotas API](https://img.shields.io/badge/-Request%20Access%20To%20Clients%20Quotas-%23bc8540)](mailto:cloud-client-quotas-ea@confluent.io?subject=Request%20to%20join%20Kafka%20Quotas%20Management%20API%20Early%20Access&amp;amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20kafka-quotas/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * `confluentcloud.KafkaClientQuota` describes a Kafka Client Quota.
+     * 
+     * &gt; **Note:** See [Control application usage with Client Quotas](https://docs.confluent.io/cloud/current/clusters/client-quotas.html#control-application-usage-with-client-quotas) for more details.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleKafkaClientQuota = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
+     *             .id(&#34;cq-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;example&#34;, exampleKafkaClientQuota.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetKafkaClientQuotaResult> getKafkaClientQuota(GetKafkaClientQuotaArgs args) {
+        return getKafkaClientQuota(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Client Quotas API](https://img.shields.io/badge/-Request%20Access%20To%20Clients%20Quotas-%23bc8540)](mailto:cloud-client-quotas-ea@confluent.io?subject=Request%20to%20join%20Kafka%20Quotas%20Management%20API%20Early%20Access&amp;amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20kafka-quotas/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * `confluentcloud.KafkaClientQuota` describes a Kafka Client Quota.
+     * 
+     * &gt; **Note:** See [Control application usage with Client Quotas](https://docs.confluent.io/cloud/current/clusters/client-quotas.html#control-application-usage-with-client-quotas) for more details.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleKafkaClientQuota = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
+     *             .id(&#34;cq-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;example&#34;, exampleKafkaClientQuota.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetKafkaClientQuotaResult> getKafkaClientQuotaPlain(GetKafkaClientQuotaPlainArgs args) {
+        return getKafkaClientQuotaPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Client Quotas API](https://img.shields.io/badge/-Request%20Access%20To%20Clients%20Quotas-%23bc8540)](mailto:cloud-client-quotas-ea@confluent.io?subject=Request%20to%20join%20Kafka%20Quotas%20Management%20API%20Early%20Access&amp;amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20kafka-quotas/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * `confluentcloud.KafkaClientQuota` describes a Kafka Client Quota.
+     * 
+     * &gt; **Note:** See [Control application usage with Client Quotas](https://docs.confluent.io/cloud/current/clusters/client-quotas.html#control-application-usage-with-client-quotas) for more details.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleKafkaClientQuota = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
+     *             .id(&#34;cq-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;example&#34;, exampleKafkaClientQuota.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetKafkaClientQuotaResult> getKafkaClientQuota(GetKafkaClientQuotaArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota", TypeShape.of(GetKafkaClientQuotaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Client Quotas API](https://img.shields.io/badge/-Request%20Access%20To%20Clients%20Quotas-%23bc8540)](mailto:cloud-client-quotas-ea@confluent.io?subject=Request%20to%20join%20Kafka%20Quotas%20Management%20API%20Early%20Access&amp;amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20kafka-quotas/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * `confluentcloud.KafkaClientQuota` describes a Kafka Client Quota.
+     * 
+     * &gt; **Note:** See [Control application usage with Client Quotas](https://docs.confluent.io/cloud/current/clusters/client-quotas.html#control-application-usage-with-client-quotas) for more details.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleKafkaClientQuota = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
+     *             .id(&#34;cq-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;example&#34;, exampleKafkaClientQuota.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetKafkaClientQuotaResult> getKafkaClientQuotaPlain(GetKafkaClientQuotaPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota", TypeShape.of(GetKafkaClientQuotaResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

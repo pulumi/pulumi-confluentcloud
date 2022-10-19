@@ -43,6 +43,60 @@ export interface ApiKeyOwner {
     kind: string;
 }
 
+export interface ClusterLinkDestinationKafkaCluster {
+    /**
+     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     */
+    bootstrapEndpoint?: string;
+    credentials?: outputs.ClusterLinkDestinationKafkaClusterCredentials;
+    /**
+     * The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: string;
+    /**
+     * The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
+    restEndpoint?: string;
+}
+
+export interface ClusterLinkDestinationKafkaClusterCredentials {
+    /**
+     * The Kafka API Key.
+     */
+    key: string;
+    /**
+     * The Kafka API Secret.
+     */
+    secret: string;
+}
+
+export interface ClusterLinkSourceKafkaCluster {
+    /**
+     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     */
+    bootstrapEndpoint?: string;
+    credentials?: outputs.ClusterLinkSourceKafkaClusterCredentials;
+    /**
+     * The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: string;
+    /**
+     * The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
+    restEndpoint?: string;
+}
+
+export interface ClusterLinkSourceKafkaClusterCredentials {
+    /**
+     * The Kafka API Key.
+     */
+    key: string;
+    /**
+     * The Kafka API Secret.
+     */
+    secret: string;
+}
+
 export interface ConnectorEnvironment {
     /**
      * The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
@@ -62,6 +116,31 @@ export interface GetIdentityPoolIdentityProvider {
      * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
      */
     id: string;
+}
+
+export interface GetKafkaClientQuotaEnvironment {
+    /**
+     * The ID of the Kafka Client Quota (for example, `cq-abc123`).
+     */
+    id: string;
+}
+
+export interface GetKafkaClientQuotaKafkaCluster {
+    /**
+     * The ID of the Kafka Client Quota (for example, `cq-abc123`).
+     */
+    id: string;
+}
+
+export interface GetKafkaClientQuotaThroughput {
+    /**
+     * (Required String) The egress throughput limit in bytes per second.
+     */
+    egressByteRate: string;
+    /**
+     * (Required String) The ingress throughput limit in bytes per second.
+     */
+    ingressByteRate: string;
 }
 
 export interface GetKafkaClusterBasic {
@@ -297,7 +376,50 @@ export interface KafkaAclKafkaCluster {
     id: string;
 }
 
+export interface KafkaClientQuotaEnvironment {
+    /**
+     * The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface KafkaClientQuotaKafkaCluster {
+    /**
+     * The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface KafkaClientQuotaThroughput {
+    /**
+     * The egress throughput limit in bytes per second.
+     */
+    egressByteRate: string;
+    /**
+     * The ingress throughput limit in bytes per second.
+     */
+    ingressByteRate: string;
+}
+
 export interface KafkaClusterBasic {
+}
+
+export interface KafkaClusterConfigCredentials {
+    /**
+     * The Kafka API Key.
+     */
+    key: string;
+    /**
+     * The Kafka API Secret.
+     */
+    secret: string;
+}
+
+export interface KafkaClusterConfigKafkaCluster {
+    /**
+     * The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: string;
 }
 
 export interface KafkaClusterDedicated {
@@ -326,6 +448,43 @@ export interface KafkaClusterNetwork {
 }
 
 export interface KafkaClusterStandard {
+}
+
+export interface KafkaMirrorTopicClusterLink {
+    /**
+     * The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
+     */
+    linkName: string;
+}
+
+export interface KafkaMirrorTopicKafkaCluster {
+    credentials?: outputs.KafkaMirrorTopicKafkaClusterCredentials;
+    /**
+     * The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: string;
+    /**
+     * The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
+    restEndpoint?: string;
+}
+
+export interface KafkaMirrorTopicKafkaClusterCredentials {
+    /**
+     * The Kafka API Key.
+     */
+    key: string;
+    /**
+     * The Kafka API Secret.
+     */
+    secret: string;
+}
+
+export interface KafkaMirrorTopicSourceKafkaTopic {
+    /**
+     * The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
+     */
+    topicName: string;
 }
 
 export interface KafkaTopicCredentials {

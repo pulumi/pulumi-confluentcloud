@@ -5,6 +5,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
-func NewProvider() *schema.Provider {
-	return provider.New("")()
+func NewProvider(version, customUserAgent string) *schema.Provider {
+	return provider.New(version, customUserAgent)()
 }

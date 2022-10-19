@@ -491,7 +491,7 @@ class KafkaTopic(pulumi.CustomResource):
             __props__ = KafkaTopicArgs.__new__(KafkaTopicArgs)
 
             __props__.__dict__["config"] = config
-            __props__.__dict__["credentials"] = credentials
+            __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             if http_endpoint is not None and not opts.urn:
                 warnings.warn("""This parameter has been deprecated in favour of Rest Endpoint""", DeprecationWarning)
                 pulumi.log.warn("""http_endpoint is deprecated: This parameter has been deprecated in favour of Rest Endpoint""")
@@ -504,6 +504,8 @@ class KafkaTopic(pulumi.CustomResource):
             if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")
             __props__.__dict__["topic_name"] = topic_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(KafkaTopic, __self__).__init__(
             'confluentcloud:index/kafkaTopic:KafkaTopic',
             resource_name,

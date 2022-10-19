@@ -6,11 +6,13 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .api_key import *
+from .cluster_link import *
 from .connector import *
 from .environment import *
 from .get_environment import *
 from .get_identity_pool import *
 from .get_identity_provider import *
+from .get_kafka_client_quota import *
 from .get_kafka_cluster import *
 from .get_kafka_topic import *
 from .get_ksql_cluster import *
@@ -24,7 +26,10 @@ from .get_user import *
 from .identity_pool import *
 from .identity_provider import *
 from .kafka_acl import *
+from .kafka_client_quota import *
 from .kafka_cluster import *
+from .kafka_cluster_config import *
+from .kafka_mirror_topic import *
 from .kafka_topic import *
 from .ksql_cluster import *
 from .network import *
@@ -52,6 +57,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/apiKey:ApiKey": "ApiKey"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/clusterLink",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/clusterLink:ClusterLink": "ClusterLink"
   }
  },
  {
@@ -96,10 +109,34 @@ _utilities.register(
  },
  {
   "pkg": "confluentcloud",
+  "mod": "index/kafkaClientQuota",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/kafkaClientQuota:KafkaClientQuota": "KafkaClientQuota"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
   "mod": "index/kafkaCluster",
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/kafkaCluster:KafkaCluster": "KafkaCluster"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/kafkaClusterConfig",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig": "KafkaClusterConfig"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/kafkaMirrorTopic",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic": "KafkaMirrorTopic"
   }
  },
  {

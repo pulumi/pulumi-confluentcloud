@@ -12,13 +12,13 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Import
     /// 
-    /// You can import a Kafka API Key by using the Environment ID and Kafka API Key ID in the format `&lt;Environment ID&gt;/&lt;Kafka API Key ID&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;" $ export API_KEY_SECRET="&lt;api_key_secret&gt;" # Option #1Kafka API Key
+    /// You can import a Kafka API Key by using the Environment ID and Kafka API Key ID in the format `&lt;Environment ID&gt;/&lt;Kafka API Key ID&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;" $ export API_KEY_SECRET="&lt;api_key_secret&gt;" Option #1Kafka API Key
     /// 
     /// ```sh
     ///  $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key "env-abc123/UTT6WDRXX7FHD2GV"
     /// ```
     /// 
-    ///  You can import a Cloud API Key by using Cloud API Key ID, for example$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;" $ export API_KEY_SECRET="&lt;api_key_secret&gt;" # Option #2Cloud API Key
+    ///  You can import a Cloud API Key by using Cloud API Key ID, for example$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;" $ export API_KEY_SECRET="&lt;api_key_secret&gt;" Option #2Cloud API Key
     /// 
     /// ```sh
     ///  $ pulumi import confluentcloud:index/apiKey:ApiKey example_cloud_api_key "4UEXOMMWIBE5KZQG"
@@ -88,6 +88,10 @@ namespace Pulumi.ConfluentCloud
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "secret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -179,11 +183,21 @@ namespace Pulumi.ConfluentCloud
         [Input("owner")]
         public Input<Inputs.ApiKeyOwnerGetArgs>? Owner { get; set; }
 
+        [Input("secret")]
+        private Input<string>? _secret;
+
         /// <summary>
         /// (Required String, Sensitive) The secret of the API Key.
         /// </summary>
-        [Input("secret")]
-        public Input<string>? Secret { get; set; }
+        public Input<string>? Secret
+        {
+            get => _secret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ApiKeyState()
         {

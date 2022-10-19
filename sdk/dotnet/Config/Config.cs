@@ -30,7 +30,7 @@ namespace Pulumi.ConfluentCloud
             }
         }
 
-        private static readonly Pulumi.Config __config = new Pulumi.Config("confluentcloud");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("confluentcloud");
 
         private static readonly __Value<string?> _cloudApiKey = new __Value<string?>(() => __config.Get("cloudApiKey"));
         /// <summary>

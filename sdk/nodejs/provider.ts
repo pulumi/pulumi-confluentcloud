@@ -61,14 +61,16 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["cloudApiKey"] = args ? args.cloudApiKey : undefined;
-            resourceInputs["cloudApiSecret"] = args ? args.cloudApiSecret : undefined;
+            resourceInputs["cloudApiKey"] = args?.cloudApiKey ? pulumi.secret(args.cloudApiKey) : undefined;
+            resourceInputs["cloudApiSecret"] = args?.cloudApiSecret ? pulumi.secret(args.cloudApiSecret) : undefined;
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["kafkaApiKey"] = args ? args.kafkaApiKey : undefined;
-            resourceInputs["kafkaApiSecret"] = args ? args.kafkaApiSecret : undefined;
+            resourceInputs["kafkaApiKey"] = args?.kafkaApiKey ? pulumi.secret(args.kafkaApiKey) : undefined;
+            resourceInputs["kafkaApiSecret"] = args?.kafkaApiSecret ? pulumi.secret(args.kafkaApiSecret) : undefined;
             resourceInputs["kafkaRestEndpoint"] = args ? args.kafkaRestEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["cloudApiKey", "cloudApiSecret", "kafkaApiKey", "kafkaApiSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }

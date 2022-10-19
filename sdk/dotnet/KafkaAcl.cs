@@ -39,13 +39,13 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.KafkaAclKafkaCluster> KafkaCluster { get; private set; } = null!;
 
         /// <summary>
-        /// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
+        /// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         /// </summary>
         [Output("operation")]
         public Output<string> Operation { get; private set; } = null!;
 
         /// <summary>
-        /// The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.
+        /// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
         /// </summary>
         [Output("patternType")]
         public Output<string> PatternType { get; private set; } = null!;
@@ -69,7 +69,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> ResourceName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
+        /// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
@@ -103,6 +103,10 @@ namespace Pulumi.ConfluentCloud
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "credentials",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -126,11 +130,21 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class KafkaAclArgs : global::Pulumi.ResourceArgs
     {
+        [Input("credentials")]
+        private Input<Inputs.KafkaAclCredentialsArgs>? _credentials;
+
         /// <summary>
         /// The Cluster API Credentials.
         /// </summary>
-        [Input("credentials")]
-        public Input<Inputs.KafkaAclCredentialsArgs>? Credentials { get; set; }
+        public Input<Inputs.KafkaAclCredentialsArgs>? Credentials
+        {
+            get => _credentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _credentials = Output.Tuple<Input<Inputs.KafkaAclCredentialsArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The host for the ACL. Should be set to `*` for Confluent Cloud.
@@ -142,13 +156,13 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.KafkaAclKafkaClusterArgs> KafkaCluster { get; set; } = null!;
 
         /// <summary>
-        /// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
+        /// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         /// </summary>
         [Input("operation", required: true)]
         public Input<string> Operation { get; set; } = null!;
 
         /// <summary>
-        /// The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.
+        /// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
         /// </summary>
         [Input("patternType", required: true)]
         public Input<string> PatternType { get; set; } = null!;
@@ -172,7 +186,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
+        /// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
@@ -191,11 +205,21 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class KafkaAclState : global::Pulumi.ResourceArgs
     {
+        [Input("credentials")]
+        private Input<Inputs.KafkaAclCredentialsGetArgs>? _credentials;
+
         /// <summary>
         /// The Cluster API Credentials.
         /// </summary>
-        [Input("credentials")]
-        public Input<Inputs.KafkaAclCredentialsGetArgs>? Credentials { get; set; }
+        public Input<Inputs.KafkaAclCredentialsGetArgs>? Credentials
+        {
+            get => _credentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _credentials = Output.Tuple<Input<Inputs.KafkaAclCredentialsGetArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The host for the ACL. Should be set to `*` for Confluent Cloud.
@@ -207,13 +231,13 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.KafkaAclKafkaClusterGetArgs>? KafkaCluster { get; set; }
 
         /// <summary>
-        /// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.
+        /// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         /// </summary>
         [Input("operation")]
         public Input<string>? Operation { get; set; }
 
         /// <summary>
-        /// The pattern type for the ACL. Accepted values are: `UNKNOWN`,`ANY`,`MATCH`, `LITERAL`, and `PREFIXED`.
+        /// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
         /// </summary>
         [Input("patternType")]
         public Input<string>? PatternType { get; set; }
@@ -237,7 +261,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? ResourceName { get; set; }
 
         /// <summary>
-        /// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`.
+        /// The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }

@@ -38,6 +38,25 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
+	if args.CloudApiKey != nil {
+		args.CloudApiKey = pulumi.ToSecret(args.CloudApiKey).(pulumi.StringPtrOutput)
+	}
+	if args.CloudApiSecret != nil {
+		args.CloudApiSecret = pulumi.ToSecret(args.CloudApiSecret).(pulumi.StringPtrOutput)
+	}
+	if args.KafkaApiKey != nil {
+		args.KafkaApiKey = pulumi.ToSecret(args.KafkaApiKey).(pulumi.StringPtrOutput)
+	}
+	if args.KafkaApiSecret != nil {
+		args.KafkaApiSecret = pulumi.ToSecret(args.KafkaApiSecret).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"cloudApiKey",
+		"cloudApiSecret",
+		"kafkaApiKey",
+		"kafkaApiSecret",
+	})
+	opts = append(opts, secrets)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:confluentcloud", name, args, &resource, opts...)
 	if err != nil {

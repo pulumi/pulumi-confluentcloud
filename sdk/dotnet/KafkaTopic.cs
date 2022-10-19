@@ -165,6 +165,10 @@ namespace Pulumi.ConfluentCloud
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "credentials",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -200,11 +204,21 @@ namespace Pulumi.ConfluentCloud
             set => _config = value;
         }
 
+        [Input("credentials")]
+        private Input<Inputs.KafkaTopicCredentialsArgs>? _credentials;
+
         /// <summary>
         /// The Cluster API Credentials.
         /// </summary>
-        [Input("credentials")]
-        public Input<Inputs.KafkaTopicCredentialsArgs>? Credentials { get; set; }
+        public Input<Inputs.KafkaTopicCredentialsArgs>? Credentials
+        {
+            get => _credentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _credentials = Output.Tuple<Input<Inputs.KafkaTopicCredentialsArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -253,11 +267,21 @@ namespace Pulumi.ConfluentCloud
             set => _config = value;
         }
 
+        [Input("credentials")]
+        private Input<Inputs.KafkaTopicCredentialsGetArgs>? _credentials;
+
         /// <summary>
         /// The Cluster API Credentials.
         /// </summary>
-        [Input("credentials")]
-        public Input<Inputs.KafkaTopicCredentialsGetArgs>? Credentials { get; set; }
+        public Input<Inputs.KafkaTopicCredentialsGetArgs>? Credentials
+        {
+            get => _credentials;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _credentials = Output.Tuple<Input<Inputs.KafkaTopicCredentialsGetArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).

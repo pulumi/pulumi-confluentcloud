@@ -12,17 +12,29 @@ namespace Pulumi.ConfluentCloud.Inputs
 
     public sealed class GetKafkaTopicCredentialsArgs : global::Pulumi.InvokeArgs
     {
+        [Input("key", required: true)]
+        private string? _key;
+
         /// <summary>
         /// The Kafka API Key.
         /// </summary>
-        [Input("key", required: true)]
-        public string Key { get; set; } = null!;
+        public string? Key
+        {
+            get => _key;
+            set => _key = value;
+        }
+
+        [Input("secret", required: true)]
+        private string? _secret;
 
         /// <summary>
         /// The Kafka API Secret.
         /// </summary>
-        [Input("secret", required: true)]
-        public string Secret { get; set; } = null!;
+        public string? Secret
+        {
+            get => _secret;
+            set => _secret = value;
+        }
 
         public GetKafkaTopicCredentialsArgs()
         {

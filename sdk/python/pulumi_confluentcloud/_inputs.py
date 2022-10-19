@@ -13,16 +13,29 @@ __all__ = [
     'ApiKeyManagedResourceArgs',
     'ApiKeyManagedResourceEnvironmentArgs',
     'ApiKeyOwnerArgs',
+    'ClusterLinkDestinationKafkaClusterArgs',
+    'ClusterLinkDestinationKafkaClusterCredentialsArgs',
+    'ClusterLinkSourceKafkaClusterArgs',
+    'ClusterLinkSourceKafkaClusterCredentialsArgs',
     'ConnectorEnvironmentArgs',
     'ConnectorKafkaClusterArgs',
     'IdentityPoolIdentityProviderArgs',
     'KafkaAclCredentialsArgs',
     'KafkaAclKafkaClusterArgs',
+    'KafkaClientQuotaEnvironmentArgs',
+    'KafkaClientQuotaKafkaClusterArgs',
+    'KafkaClientQuotaThroughputArgs',
     'KafkaClusterBasicArgs',
+    'KafkaClusterConfigCredentialsArgs',
+    'KafkaClusterConfigKafkaClusterArgs',
     'KafkaClusterDedicatedArgs',
     'KafkaClusterEnvironmentArgs',
     'KafkaClusterNetworkArgs',
     'KafkaClusterStandardArgs',
+    'KafkaMirrorTopicClusterLinkArgs',
+    'KafkaMirrorTopicKafkaClusterArgs',
+    'KafkaMirrorTopicKafkaClusterCredentialsArgs',
+    'KafkaMirrorTopicSourceKafkaTopicArgs',
     'KafkaTopicCredentialsArgs',
     'KafkaTopicKafkaClusterArgs',
     'KsqlClusterCredentialIdentityArgs',
@@ -196,6 +209,212 @@ class ApiKeyOwnerArgs:
 
 
 @pulumi.input_type
+class ClusterLinkDestinationKafkaClusterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 bootstrap_endpoint: Optional[pulumi.Input[str]] = None,
+                 credentials: Optional[pulumi.Input['ClusterLinkDestinationKafkaClusterCredentialsArgs']] = None,
+                 rest_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        pulumi.set(__self__, "id", id)
+        if bootstrap_endpoint is not None:
+            pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if rest_endpoint is not None:
+            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="bootstrapEndpoint")
+    def bootstrap_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        """
+        return pulumi.get(self, "bootstrap_endpoint")
+
+    @bootstrap_endpoint.setter
+    def bootstrap_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bootstrap_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['ClusterLinkDestinationKafkaClusterCredentialsArgs']]:
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['ClusterLinkDestinationKafkaClusterCredentialsArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "rest_endpoint")
+
+    @rest_endpoint.setter
+    def rest_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rest_endpoint", value)
+
+
+@pulumi.input_type
+class ClusterLinkDestinationKafkaClusterCredentialsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Kafka API Key.
+        :param pulumi.Input[str] secret: The Kafka API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Kafka API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[str]:
+        """
+        The Kafka API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class ClusterLinkSourceKafkaClusterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 bootstrap_endpoint: Optional[pulumi.Input[str]] = None,
+                 credentials: Optional[pulumi.Input['ClusterLinkSourceKafkaClusterCredentialsArgs']] = None,
+                 rest_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        pulumi.set(__self__, "id", id)
+        if bootstrap_endpoint is not None:
+            pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if rest_endpoint is not None:
+            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="bootstrapEndpoint")
+    def bootstrap_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        """
+        return pulumi.get(self, "bootstrap_endpoint")
+
+    @bootstrap_endpoint.setter
+    def bootstrap_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bootstrap_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['ClusterLinkSourceKafkaClusterCredentialsArgs']]:
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['ClusterLinkSourceKafkaClusterCredentialsArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "rest_endpoint")
+
+    @rest_endpoint.setter
+    def rest_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rest_endpoint", value)
+
+
+@pulumi.input_type
+class ClusterLinkSourceKafkaClusterCredentialsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Kafka API Key.
+        :param pulumi.Input[str] secret: The Kafka API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Kafka API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[str]:
+        """
+        The Kafka API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
 class ConnectorEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -321,9 +540,149 @@ class KafkaAclKafkaClusterArgs:
 
 
 @pulumi.input_type
+class KafkaClientQuotaEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class KafkaClientQuotaKafkaClusterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class KafkaClientQuotaThroughputArgs:
+    def __init__(__self__, *,
+                 egress_byte_rate: pulumi.Input[str],
+                 ingress_byte_rate: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] egress_byte_rate: The egress throughput limit in bytes per second.
+        :param pulumi.Input[str] ingress_byte_rate: The ingress throughput limit in bytes per second.
+        """
+        pulumi.set(__self__, "egress_byte_rate", egress_byte_rate)
+        pulumi.set(__self__, "ingress_byte_rate", ingress_byte_rate)
+
+    @property
+    @pulumi.getter(name="egressByteRate")
+    def egress_byte_rate(self) -> pulumi.Input[str]:
+        """
+        The egress throughput limit in bytes per second.
+        """
+        return pulumi.get(self, "egress_byte_rate")
+
+    @egress_byte_rate.setter
+    def egress_byte_rate(self, value: pulumi.Input[str]):
+        pulumi.set(self, "egress_byte_rate", value)
+
+    @property
+    @pulumi.getter(name="ingressByteRate")
+    def ingress_byte_rate(self) -> pulumi.Input[str]:
+        """
+        The ingress throughput limit in bytes per second.
+        """
+        return pulumi.get(self, "ingress_byte_rate")
+
+    @ingress_byte_rate.setter
+    def ingress_byte_rate(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ingress_byte_rate", value)
+
+
+@pulumi.input_type
 class KafkaClusterBasicArgs:
     def __init__(__self__):
         pass
+
+
+@pulumi.input_type
+class KafkaClusterConfigCredentialsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Kafka API Key.
+        :param pulumi.Input[str] secret: The Kafka API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Kafka API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[str]:
+        """
+        The Kafka API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class KafkaClusterConfigKafkaClusterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -412,6 +771,137 @@ class KafkaClusterNetworkArgs:
 class KafkaClusterStandardArgs:
     def __init__(__self__):
         pass
+
+
+@pulumi.input_type
+class KafkaMirrorTopicClusterLinkArgs:
+    def __init__(__self__, *,
+                 link_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] link_name: The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
+        """
+        pulumi.set(__self__, "link_name", link_name)
+
+    @property
+    @pulumi.getter(name="linkName")
+    def link_name(self) -> pulumi.Input[str]:
+        """
+        The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
+        """
+        return pulumi.get(self, "link_name")
+
+    @link_name.setter
+    def link_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link_name", value)
+
+
+@pulumi.input_type
+class KafkaMirrorTopicKafkaClusterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 credentials: Optional[pulumi.Input['KafkaMirrorTopicKafkaClusterCredentialsArgs']] = None,
+                 rest_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        pulumi.set(__self__, "id", id)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if rest_endpoint is not None:
+            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['KafkaMirrorTopicKafkaClusterCredentialsArgs']]:
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['KafkaMirrorTopicKafkaClusterCredentialsArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "rest_endpoint")
+
+    @rest_endpoint.setter
+    def rest_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rest_endpoint", value)
+
+
+@pulumi.input_type
+class KafkaMirrorTopicKafkaClusterCredentialsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Kafka API Key.
+        :param pulumi.Input[str] secret: The Kafka API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Kafka API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[str]:
+        """
+        The Kafka API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class KafkaMirrorTopicSourceKafkaTopicArgs:
+    def __init__(__self__, *,
+                 topic_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] topic_name: The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
+        """
+        pulumi.set(__self__, "topic_name", topic_name)
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> pulumi.Input[str]:
+        """
+        The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
+        """
+        return pulumi.get(self, "topic_name")
+
+    @topic_name.setter
+    def topic_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "topic_name", value)
 
 
 @pulumi.input_type

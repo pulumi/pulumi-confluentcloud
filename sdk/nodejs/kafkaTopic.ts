@@ -182,7 +182,7 @@ export class KafkaTopic extends pulumi.CustomResource {
                 throw new Error("Missing required property 'topicName'");
             }
             resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
             resourceInputs["httpEndpoint"] = args ? args.httpEndpoint : undefined;
             resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
             resourceInputs["partitionsCount"] = args ? args.partitionsCount : undefined;
@@ -190,6 +190,8 @@ export class KafkaTopic extends pulumi.CustomResource {
             resourceInputs["topicName"] = args ? args.topicName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["credentials"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(KafkaTopic.__pulumiType, name, resourceInputs, opts);
     }
 }

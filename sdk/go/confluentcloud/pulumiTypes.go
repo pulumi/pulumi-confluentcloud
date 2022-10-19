@@ -512,6 +512,700 @@ func (o ApiKeyOwnerPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterLinkDestinationKafkaCluster struct {
+	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	BootstrapEndpoint *string                                        `pulumi:"bootstrapEndpoint"`
+	Credentials       *ClusterLinkDestinationKafkaClusterCredentials `pulumi:"credentials"`
+	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+	Id string `pulumi:"id"`
+	// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint *string `pulumi:"restEndpoint"`
+}
+
+// ClusterLinkDestinationKafkaClusterInput is an input type that accepts ClusterLinkDestinationKafkaClusterArgs and ClusterLinkDestinationKafkaClusterOutput values.
+// You can construct a concrete instance of `ClusterLinkDestinationKafkaClusterInput` via:
+//
+//	ClusterLinkDestinationKafkaClusterArgs{...}
+type ClusterLinkDestinationKafkaClusterInput interface {
+	pulumi.Input
+
+	ToClusterLinkDestinationKafkaClusterOutput() ClusterLinkDestinationKafkaClusterOutput
+	ToClusterLinkDestinationKafkaClusterOutputWithContext(context.Context) ClusterLinkDestinationKafkaClusterOutput
+}
+
+type ClusterLinkDestinationKafkaClusterArgs struct {
+	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	BootstrapEndpoint pulumi.StringPtrInput                                 `pulumi:"bootstrapEndpoint"`
+	Credentials       ClusterLinkDestinationKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
+	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint pulumi.StringPtrInput `pulumi:"restEndpoint"`
+}
+
+func (ClusterLinkDestinationKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkDestinationKafkaCluster)(nil)).Elem()
+}
+
+func (i ClusterLinkDestinationKafkaClusterArgs) ToClusterLinkDestinationKafkaClusterOutput() ClusterLinkDestinationKafkaClusterOutput {
+	return i.ToClusterLinkDestinationKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkDestinationKafkaClusterArgs) ToClusterLinkDestinationKafkaClusterOutputWithContext(ctx context.Context) ClusterLinkDestinationKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkDestinationKafkaClusterOutput)
+}
+
+func (i ClusterLinkDestinationKafkaClusterArgs) ToClusterLinkDestinationKafkaClusterPtrOutput() ClusterLinkDestinationKafkaClusterPtrOutput {
+	return i.ToClusterLinkDestinationKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkDestinationKafkaClusterArgs) ToClusterLinkDestinationKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkDestinationKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkDestinationKafkaClusterOutput).ToClusterLinkDestinationKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// ClusterLinkDestinationKafkaClusterPtrInput is an input type that accepts ClusterLinkDestinationKafkaClusterArgs, ClusterLinkDestinationKafkaClusterPtr and ClusterLinkDestinationKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `ClusterLinkDestinationKafkaClusterPtrInput` via:
+//
+//	        ClusterLinkDestinationKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterLinkDestinationKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToClusterLinkDestinationKafkaClusterPtrOutput() ClusterLinkDestinationKafkaClusterPtrOutput
+	ToClusterLinkDestinationKafkaClusterPtrOutputWithContext(context.Context) ClusterLinkDestinationKafkaClusterPtrOutput
+}
+
+type clusterLinkDestinationKafkaClusterPtrType ClusterLinkDestinationKafkaClusterArgs
+
+func ClusterLinkDestinationKafkaClusterPtr(v *ClusterLinkDestinationKafkaClusterArgs) ClusterLinkDestinationKafkaClusterPtrInput {
+	return (*clusterLinkDestinationKafkaClusterPtrType)(v)
+}
+
+func (*clusterLinkDestinationKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkDestinationKafkaCluster)(nil)).Elem()
+}
+
+func (i *clusterLinkDestinationKafkaClusterPtrType) ToClusterLinkDestinationKafkaClusterPtrOutput() ClusterLinkDestinationKafkaClusterPtrOutput {
+	return i.ToClusterLinkDestinationKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterLinkDestinationKafkaClusterPtrType) ToClusterLinkDestinationKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkDestinationKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkDestinationKafkaClusterPtrOutput)
+}
+
+type ClusterLinkDestinationKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkDestinationKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkDestinationKafkaCluster)(nil)).Elem()
+}
+
+func (o ClusterLinkDestinationKafkaClusterOutput) ToClusterLinkDestinationKafkaClusterOutput() ClusterLinkDestinationKafkaClusterOutput {
+	return o
+}
+
+func (o ClusterLinkDestinationKafkaClusterOutput) ToClusterLinkDestinationKafkaClusterOutputWithContext(ctx context.Context) ClusterLinkDestinationKafkaClusterOutput {
+	return o
+}
+
+func (o ClusterLinkDestinationKafkaClusterOutput) ToClusterLinkDestinationKafkaClusterPtrOutput() ClusterLinkDestinationKafkaClusterPtrOutput {
+	return o.ToClusterLinkDestinationKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterLinkDestinationKafkaClusterOutput) ToClusterLinkDestinationKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkDestinationKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkDestinationKafkaCluster) *ClusterLinkDestinationKafkaCluster {
+		return &v
+	}).(ClusterLinkDestinationKafkaClusterPtrOutput)
+}
+
+// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+func (o ClusterLinkDestinationKafkaClusterOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLinkDestinationKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLinkDestinationKafkaClusterOutput) Credentials() ClusterLinkDestinationKafkaClusterCredentialsPtrOutput {
+	return o.ApplyT(func(v ClusterLinkDestinationKafkaCluster) *ClusterLinkDestinationKafkaClusterCredentials {
+		return v.Credentials
+	}).(ClusterLinkDestinationKafkaClusterCredentialsPtrOutput)
+}
+
+// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+func (o ClusterLinkDestinationKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLinkDestinationKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o ClusterLinkDestinationKafkaClusterOutput) RestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLinkDestinationKafkaCluster) *string { return v.RestEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type ClusterLinkDestinationKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkDestinationKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkDestinationKafkaCluster)(nil)).Elem()
+}
+
+func (o ClusterLinkDestinationKafkaClusterPtrOutput) ToClusterLinkDestinationKafkaClusterPtrOutput() ClusterLinkDestinationKafkaClusterPtrOutput {
+	return o
+}
+
+func (o ClusterLinkDestinationKafkaClusterPtrOutput) ToClusterLinkDestinationKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkDestinationKafkaClusterPtrOutput {
+	return o
+}
+
+func (o ClusterLinkDestinationKafkaClusterPtrOutput) Elem() ClusterLinkDestinationKafkaClusterOutput {
+	return o.ApplyT(func(v *ClusterLinkDestinationKafkaCluster) ClusterLinkDestinationKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLinkDestinationKafkaCluster
+		return ret
+	}).(ClusterLinkDestinationKafkaClusterOutput)
+}
+
+// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+func (o ClusterLinkDestinationKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkDestinationKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BootstrapEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLinkDestinationKafkaClusterPtrOutput) Credentials() ClusterLinkDestinationKafkaClusterCredentialsPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkDestinationKafkaCluster) *ClusterLinkDestinationKafkaClusterCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(ClusterLinkDestinationKafkaClusterCredentialsPtrOutput)
+}
+
+// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+func (o ClusterLinkDestinationKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkDestinationKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o ClusterLinkDestinationKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkDestinationKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterLinkDestinationKafkaClusterCredentials struct {
+	// The Kafka API Key.
+	Key string `pulumi:"key"`
+	// The Kafka API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// ClusterLinkDestinationKafkaClusterCredentialsInput is an input type that accepts ClusterLinkDestinationKafkaClusterCredentialsArgs and ClusterLinkDestinationKafkaClusterCredentialsOutput values.
+// You can construct a concrete instance of `ClusterLinkDestinationKafkaClusterCredentialsInput` via:
+//
+//	ClusterLinkDestinationKafkaClusterCredentialsArgs{...}
+type ClusterLinkDestinationKafkaClusterCredentialsInput interface {
+	pulumi.Input
+
+	ToClusterLinkDestinationKafkaClusterCredentialsOutput() ClusterLinkDestinationKafkaClusterCredentialsOutput
+	ToClusterLinkDestinationKafkaClusterCredentialsOutputWithContext(context.Context) ClusterLinkDestinationKafkaClusterCredentialsOutput
+}
+
+type ClusterLinkDestinationKafkaClusterCredentialsArgs struct {
+	// The Kafka API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Kafka API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (ClusterLinkDestinationKafkaClusterCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkDestinationKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (i ClusterLinkDestinationKafkaClusterCredentialsArgs) ToClusterLinkDestinationKafkaClusterCredentialsOutput() ClusterLinkDestinationKafkaClusterCredentialsOutput {
+	return i.ToClusterLinkDestinationKafkaClusterCredentialsOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkDestinationKafkaClusterCredentialsArgs) ToClusterLinkDestinationKafkaClusterCredentialsOutputWithContext(ctx context.Context) ClusterLinkDestinationKafkaClusterCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkDestinationKafkaClusterCredentialsOutput)
+}
+
+func (i ClusterLinkDestinationKafkaClusterCredentialsArgs) ToClusterLinkDestinationKafkaClusterCredentialsPtrOutput() ClusterLinkDestinationKafkaClusterCredentialsPtrOutput {
+	return i.ToClusterLinkDestinationKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkDestinationKafkaClusterCredentialsArgs) ToClusterLinkDestinationKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkDestinationKafkaClusterCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkDestinationKafkaClusterCredentialsOutput).ToClusterLinkDestinationKafkaClusterCredentialsPtrOutputWithContext(ctx)
+}
+
+// ClusterLinkDestinationKafkaClusterCredentialsPtrInput is an input type that accepts ClusterLinkDestinationKafkaClusterCredentialsArgs, ClusterLinkDestinationKafkaClusterCredentialsPtr and ClusterLinkDestinationKafkaClusterCredentialsPtrOutput values.
+// You can construct a concrete instance of `ClusterLinkDestinationKafkaClusterCredentialsPtrInput` via:
+//
+//	        ClusterLinkDestinationKafkaClusterCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterLinkDestinationKafkaClusterCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToClusterLinkDestinationKafkaClusterCredentialsPtrOutput() ClusterLinkDestinationKafkaClusterCredentialsPtrOutput
+	ToClusterLinkDestinationKafkaClusterCredentialsPtrOutputWithContext(context.Context) ClusterLinkDestinationKafkaClusterCredentialsPtrOutput
+}
+
+type clusterLinkDestinationKafkaClusterCredentialsPtrType ClusterLinkDestinationKafkaClusterCredentialsArgs
+
+func ClusterLinkDestinationKafkaClusterCredentialsPtr(v *ClusterLinkDestinationKafkaClusterCredentialsArgs) ClusterLinkDestinationKafkaClusterCredentialsPtrInput {
+	return (*clusterLinkDestinationKafkaClusterCredentialsPtrType)(v)
+}
+
+func (*clusterLinkDestinationKafkaClusterCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkDestinationKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (i *clusterLinkDestinationKafkaClusterCredentialsPtrType) ToClusterLinkDestinationKafkaClusterCredentialsPtrOutput() ClusterLinkDestinationKafkaClusterCredentialsPtrOutput {
+	return i.ToClusterLinkDestinationKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterLinkDestinationKafkaClusterCredentialsPtrType) ToClusterLinkDestinationKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkDestinationKafkaClusterCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkDestinationKafkaClusterCredentialsPtrOutput)
+}
+
+type ClusterLinkDestinationKafkaClusterCredentialsOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkDestinationKafkaClusterCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkDestinationKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) ToClusterLinkDestinationKafkaClusterCredentialsOutput() ClusterLinkDestinationKafkaClusterCredentialsOutput {
+	return o
+}
+
+func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) ToClusterLinkDestinationKafkaClusterCredentialsOutputWithContext(ctx context.Context) ClusterLinkDestinationKafkaClusterCredentialsOutput {
+	return o
+}
+
+func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) ToClusterLinkDestinationKafkaClusterCredentialsPtrOutput() ClusterLinkDestinationKafkaClusterCredentialsPtrOutput {
+	return o.ToClusterLinkDestinationKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) ToClusterLinkDestinationKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkDestinationKafkaClusterCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkDestinationKafkaClusterCredentials) *ClusterLinkDestinationKafkaClusterCredentials {
+		return &v
+	}).(ClusterLinkDestinationKafkaClusterCredentialsPtrOutput)
+}
+
+// The Kafka API Key.
+func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLinkDestinationKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Kafka API Secret.
+func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLinkDestinationKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type ClusterLinkDestinationKafkaClusterCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkDestinationKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) ToClusterLinkDestinationKafkaClusterCredentialsPtrOutput() ClusterLinkDestinationKafkaClusterCredentialsPtrOutput {
+	return o
+}
+
+func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) ToClusterLinkDestinationKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkDestinationKafkaClusterCredentialsPtrOutput {
+	return o
+}
+
+func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Elem() ClusterLinkDestinationKafkaClusterCredentialsOutput {
+	return o.ApplyT(func(v *ClusterLinkDestinationKafkaClusterCredentials) ClusterLinkDestinationKafkaClusterCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLinkDestinationKafkaClusterCredentials
+		return ret
+	}).(ClusterLinkDestinationKafkaClusterCredentialsOutput)
+}
+
+// The Kafka API Key.
+func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkDestinationKafkaClusterCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kafka API Secret.
+func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkDestinationKafkaClusterCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterLinkSourceKafkaCluster struct {
+	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	BootstrapEndpoint *string                                   `pulumi:"bootstrapEndpoint"`
+	Credentials       *ClusterLinkSourceKafkaClusterCredentials `pulumi:"credentials"`
+	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+	Id string `pulumi:"id"`
+	// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint *string `pulumi:"restEndpoint"`
+}
+
+// ClusterLinkSourceKafkaClusterInput is an input type that accepts ClusterLinkSourceKafkaClusterArgs and ClusterLinkSourceKafkaClusterOutput values.
+// You can construct a concrete instance of `ClusterLinkSourceKafkaClusterInput` via:
+//
+//	ClusterLinkSourceKafkaClusterArgs{...}
+type ClusterLinkSourceKafkaClusterInput interface {
+	pulumi.Input
+
+	ToClusterLinkSourceKafkaClusterOutput() ClusterLinkSourceKafkaClusterOutput
+	ToClusterLinkSourceKafkaClusterOutputWithContext(context.Context) ClusterLinkSourceKafkaClusterOutput
+}
+
+type ClusterLinkSourceKafkaClusterArgs struct {
+	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	BootstrapEndpoint pulumi.StringPtrInput                            `pulumi:"bootstrapEndpoint"`
+	Credentials       ClusterLinkSourceKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
+	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint pulumi.StringPtrInput `pulumi:"restEndpoint"`
+}
+
+func (ClusterLinkSourceKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkSourceKafkaCluster)(nil)).Elem()
+}
+
+func (i ClusterLinkSourceKafkaClusterArgs) ToClusterLinkSourceKafkaClusterOutput() ClusterLinkSourceKafkaClusterOutput {
+	return i.ToClusterLinkSourceKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkSourceKafkaClusterArgs) ToClusterLinkSourceKafkaClusterOutputWithContext(ctx context.Context) ClusterLinkSourceKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkSourceKafkaClusterOutput)
+}
+
+func (i ClusterLinkSourceKafkaClusterArgs) ToClusterLinkSourceKafkaClusterPtrOutput() ClusterLinkSourceKafkaClusterPtrOutput {
+	return i.ToClusterLinkSourceKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkSourceKafkaClusterArgs) ToClusterLinkSourceKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkSourceKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkSourceKafkaClusterOutput).ToClusterLinkSourceKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// ClusterLinkSourceKafkaClusterPtrInput is an input type that accepts ClusterLinkSourceKafkaClusterArgs, ClusterLinkSourceKafkaClusterPtr and ClusterLinkSourceKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `ClusterLinkSourceKafkaClusterPtrInput` via:
+//
+//	        ClusterLinkSourceKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterLinkSourceKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToClusterLinkSourceKafkaClusterPtrOutput() ClusterLinkSourceKafkaClusterPtrOutput
+	ToClusterLinkSourceKafkaClusterPtrOutputWithContext(context.Context) ClusterLinkSourceKafkaClusterPtrOutput
+}
+
+type clusterLinkSourceKafkaClusterPtrType ClusterLinkSourceKafkaClusterArgs
+
+func ClusterLinkSourceKafkaClusterPtr(v *ClusterLinkSourceKafkaClusterArgs) ClusterLinkSourceKafkaClusterPtrInput {
+	return (*clusterLinkSourceKafkaClusterPtrType)(v)
+}
+
+func (*clusterLinkSourceKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkSourceKafkaCluster)(nil)).Elem()
+}
+
+func (i *clusterLinkSourceKafkaClusterPtrType) ToClusterLinkSourceKafkaClusterPtrOutput() ClusterLinkSourceKafkaClusterPtrOutput {
+	return i.ToClusterLinkSourceKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterLinkSourceKafkaClusterPtrType) ToClusterLinkSourceKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkSourceKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkSourceKafkaClusterPtrOutput)
+}
+
+type ClusterLinkSourceKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkSourceKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkSourceKafkaCluster)(nil)).Elem()
+}
+
+func (o ClusterLinkSourceKafkaClusterOutput) ToClusterLinkSourceKafkaClusterOutput() ClusterLinkSourceKafkaClusterOutput {
+	return o
+}
+
+func (o ClusterLinkSourceKafkaClusterOutput) ToClusterLinkSourceKafkaClusterOutputWithContext(ctx context.Context) ClusterLinkSourceKafkaClusterOutput {
+	return o
+}
+
+func (o ClusterLinkSourceKafkaClusterOutput) ToClusterLinkSourceKafkaClusterPtrOutput() ClusterLinkSourceKafkaClusterPtrOutput {
+	return o.ToClusterLinkSourceKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterLinkSourceKafkaClusterOutput) ToClusterLinkSourceKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkSourceKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkSourceKafkaCluster) *ClusterLinkSourceKafkaCluster {
+		return &v
+	}).(ClusterLinkSourceKafkaClusterPtrOutput)
+}
+
+// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+func (o ClusterLinkSourceKafkaClusterOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLinkSourceKafkaClusterOutput) Credentials() ClusterLinkSourceKafkaClusterCredentialsPtrOutput {
+	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) *ClusterLinkSourceKafkaClusterCredentials { return v.Credentials }).(ClusterLinkSourceKafkaClusterCredentialsPtrOutput)
+}
+
+// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+func (o ClusterLinkSourceKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o ClusterLinkSourceKafkaClusterOutput) RestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) *string { return v.RestEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type ClusterLinkSourceKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkSourceKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkSourceKafkaCluster)(nil)).Elem()
+}
+
+func (o ClusterLinkSourceKafkaClusterPtrOutput) ToClusterLinkSourceKafkaClusterPtrOutput() ClusterLinkSourceKafkaClusterPtrOutput {
+	return o
+}
+
+func (o ClusterLinkSourceKafkaClusterPtrOutput) ToClusterLinkSourceKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkSourceKafkaClusterPtrOutput {
+	return o
+}
+
+func (o ClusterLinkSourceKafkaClusterPtrOutput) Elem() ClusterLinkSourceKafkaClusterOutput {
+	return o.ApplyT(func(v *ClusterLinkSourceKafkaCluster) ClusterLinkSourceKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLinkSourceKafkaCluster
+		return ret
+	}).(ClusterLinkSourceKafkaClusterOutput)
+}
+
+// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+func (o ClusterLinkSourceKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkSourceKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BootstrapEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLinkSourceKafkaClusterPtrOutput) Credentials() ClusterLinkSourceKafkaClusterCredentialsPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkSourceKafkaCluster) *ClusterLinkSourceKafkaClusterCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(ClusterLinkSourceKafkaClusterCredentialsPtrOutput)
+}
+
+// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+func (o ClusterLinkSourceKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkSourceKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o ClusterLinkSourceKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkSourceKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterLinkSourceKafkaClusterCredentials struct {
+	// The Kafka API Key.
+	Key string `pulumi:"key"`
+	// The Kafka API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// ClusterLinkSourceKafkaClusterCredentialsInput is an input type that accepts ClusterLinkSourceKafkaClusterCredentialsArgs and ClusterLinkSourceKafkaClusterCredentialsOutput values.
+// You can construct a concrete instance of `ClusterLinkSourceKafkaClusterCredentialsInput` via:
+//
+//	ClusterLinkSourceKafkaClusterCredentialsArgs{...}
+type ClusterLinkSourceKafkaClusterCredentialsInput interface {
+	pulumi.Input
+
+	ToClusterLinkSourceKafkaClusterCredentialsOutput() ClusterLinkSourceKafkaClusterCredentialsOutput
+	ToClusterLinkSourceKafkaClusterCredentialsOutputWithContext(context.Context) ClusterLinkSourceKafkaClusterCredentialsOutput
+}
+
+type ClusterLinkSourceKafkaClusterCredentialsArgs struct {
+	// The Kafka API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Kafka API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (ClusterLinkSourceKafkaClusterCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkSourceKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (i ClusterLinkSourceKafkaClusterCredentialsArgs) ToClusterLinkSourceKafkaClusterCredentialsOutput() ClusterLinkSourceKafkaClusterCredentialsOutput {
+	return i.ToClusterLinkSourceKafkaClusterCredentialsOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkSourceKafkaClusterCredentialsArgs) ToClusterLinkSourceKafkaClusterCredentialsOutputWithContext(ctx context.Context) ClusterLinkSourceKafkaClusterCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkSourceKafkaClusterCredentialsOutput)
+}
+
+func (i ClusterLinkSourceKafkaClusterCredentialsArgs) ToClusterLinkSourceKafkaClusterCredentialsPtrOutput() ClusterLinkSourceKafkaClusterCredentialsPtrOutput {
+	return i.ToClusterLinkSourceKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkSourceKafkaClusterCredentialsArgs) ToClusterLinkSourceKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkSourceKafkaClusterCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkSourceKafkaClusterCredentialsOutput).ToClusterLinkSourceKafkaClusterCredentialsPtrOutputWithContext(ctx)
+}
+
+// ClusterLinkSourceKafkaClusterCredentialsPtrInput is an input type that accepts ClusterLinkSourceKafkaClusterCredentialsArgs, ClusterLinkSourceKafkaClusterCredentialsPtr and ClusterLinkSourceKafkaClusterCredentialsPtrOutput values.
+// You can construct a concrete instance of `ClusterLinkSourceKafkaClusterCredentialsPtrInput` via:
+//
+//	        ClusterLinkSourceKafkaClusterCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterLinkSourceKafkaClusterCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToClusterLinkSourceKafkaClusterCredentialsPtrOutput() ClusterLinkSourceKafkaClusterCredentialsPtrOutput
+	ToClusterLinkSourceKafkaClusterCredentialsPtrOutputWithContext(context.Context) ClusterLinkSourceKafkaClusterCredentialsPtrOutput
+}
+
+type clusterLinkSourceKafkaClusterCredentialsPtrType ClusterLinkSourceKafkaClusterCredentialsArgs
+
+func ClusterLinkSourceKafkaClusterCredentialsPtr(v *ClusterLinkSourceKafkaClusterCredentialsArgs) ClusterLinkSourceKafkaClusterCredentialsPtrInput {
+	return (*clusterLinkSourceKafkaClusterCredentialsPtrType)(v)
+}
+
+func (*clusterLinkSourceKafkaClusterCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkSourceKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (i *clusterLinkSourceKafkaClusterCredentialsPtrType) ToClusterLinkSourceKafkaClusterCredentialsPtrOutput() ClusterLinkSourceKafkaClusterCredentialsPtrOutput {
+	return i.ToClusterLinkSourceKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterLinkSourceKafkaClusterCredentialsPtrType) ToClusterLinkSourceKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkSourceKafkaClusterCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkSourceKafkaClusterCredentialsPtrOutput)
+}
+
+type ClusterLinkSourceKafkaClusterCredentialsOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkSourceKafkaClusterCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkSourceKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (o ClusterLinkSourceKafkaClusterCredentialsOutput) ToClusterLinkSourceKafkaClusterCredentialsOutput() ClusterLinkSourceKafkaClusterCredentialsOutput {
+	return o
+}
+
+func (o ClusterLinkSourceKafkaClusterCredentialsOutput) ToClusterLinkSourceKafkaClusterCredentialsOutputWithContext(ctx context.Context) ClusterLinkSourceKafkaClusterCredentialsOutput {
+	return o
+}
+
+func (o ClusterLinkSourceKafkaClusterCredentialsOutput) ToClusterLinkSourceKafkaClusterCredentialsPtrOutput() ClusterLinkSourceKafkaClusterCredentialsPtrOutput {
+	return o.ToClusterLinkSourceKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterLinkSourceKafkaClusterCredentialsOutput) ToClusterLinkSourceKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkSourceKafkaClusterCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkSourceKafkaClusterCredentials) *ClusterLinkSourceKafkaClusterCredentials {
+		return &v
+	}).(ClusterLinkSourceKafkaClusterCredentialsPtrOutput)
+}
+
+// The Kafka API Key.
+func (o ClusterLinkSourceKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLinkSourceKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Kafka API Secret.
+func (o ClusterLinkSourceKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLinkSourceKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type ClusterLinkSourceKafkaClusterCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkSourceKafkaClusterCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkSourceKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) ToClusterLinkSourceKafkaClusterCredentialsPtrOutput() ClusterLinkSourceKafkaClusterCredentialsPtrOutput {
+	return o
+}
+
+func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) ToClusterLinkSourceKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkSourceKafkaClusterCredentialsPtrOutput {
+	return o
+}
+
+func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Elem() ClusterLinkSourceKafkaClusterCredentialsOutput {
+	return o.ApplyT(func(v *ClusterLinkSourceKafkaClusterCredentials) ClusterLinkSourceKafkaClusterCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLinkSourceKafkaClusterCredentials
+		return ret
+	}).(ClusterLinkSourceKafkaClusterCredentialsOutput)
+}
+
+// The Kafka API Key.
+func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkSourceKafkaClusterCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kafka API Secret.
+func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkSourceKafkaClusterCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConnectorEnvironment struct {
 	// The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
@@ -1216,6 +1910,436 @@ func (o KafkaAclKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type KafkaClientQuotaEnvironment struct {
+	// The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// KafkaClientQuotaEnvironmentInput is an input type that accepts KafkaClientQuotaEnvironmentArgs and KafkaClientQuotaEnvironmentOutput values.
+// You can construct a concrete instance of `KafkaClientQuotaEnvironmentInput` via:
+//
+//	KafkaClientQuotaEnvironmentArgs{...}
+type KafkaClientQuotaEnvironmentInput interface {
+	pulumi.Input
+
+	ToKafkaClientQuotaEnvironmentOutput() KafkaClientQuotaEnvironmentOutput
+	ToKafkaClientQuotaEnvironmentOutputWithContext(context.Context) KafkaClientQuotaEnvironmentOutput
+}
+
+type KafkaClientQuotaEnvironmentArgs struct {
+	// The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (KafkaClientQuotaEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClientQuotaEnvironment)(nil)).Elem()
+}
+
+func (i KafkaClientQuotaEnvironmentArgs) ToKafkaClientQuotaEnvironmentOutput() KafkaClientQuotaEnvironmentOutput {
+	return i.ToKafkaClientQuotaEnvironmentOutputWithContext(context.Background())
+}
+
+func (i KafkaClientQuotaEnvironmentArgs) ToKafkaClientQuotaEnvironmentOutputWithContext(ctx context.Context) KafkaClientQuotaEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaEnvironmentOutput)
+}
+
+func (i KafkaClientQuotaEnvironmentArgs) ToKafkaClientQuotaEnvironmentPtrOutput() KafkaClientQuotaEnvironmentPtrOutput {
+	return i.ToKafkaClientQuotaEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaClientQuotaEnvironmentArgs) ToKafkaClientQuotaEnvironmentPtrOutputWithContext(ctx context.Context) KafkaClientQuotaEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaEnvironmentOutput).ToKafkaClientQuotaEnvironmentPtrOutputWithContext(ctx)
+}
+
+// KafkaClientQuotaEnvironmentPtrInput is an input type that accepts KafkaClientQuotaEnvironmentArgs, KafkaClientQuotaEnvironmentPtr and KafkaClientQuotaEnvironmentPtrOutput values.
+// You can construct a concrete instance of `KafkaClientQuotaEnvironmentPtrInput` via:
+//
+//	        KafkaClientQuotaEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type KafkaClientQuotaEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToKafkaClientQuotaEnvironmentPtrOutput() KafkaClientQuotaEnvironmentPtrOutput
+	ToKafkaClientQuotaEnvironmentPtrOutputWithContext(context.Context) KafkaClientQuotaEnvironmentPtrOutput
+}
+
+type kafkaClientQuotaEnvironmentPtrType KafkaClientQuotaEnvironmentArgs
+
+func KafkaClientQuotaEnvironmentPtr(v *KafkaClientQuotaEnvironmentArgs) KafkaClientQuotaEnvironmentPtrInput {
+	return (*kafkaClientQuotaEnvironmentPtrType)(v)
+}
+
+func (*kafkaClientQuotaEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClientQuotaEnvironment)(nil)).Elem()
+}
+
+func (i *kafkaClientQuotaEnvironmentPtrType) ToKafkaClientQuotaEnvironmentPtrOutput() KafkaClientQuotaEnvironmentPtrOutput {
+	return i.ToKafkaClientQuotaEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClientQuotaEnvironmentPtrType) ToKafkaClientQuotaEnvironmentPtrOutputWithContext(ctx context.Context) KafkaClientQuotaEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaEnvironmentPtrOutput)
+}
+
+type KafkaClientQuotaEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (KafkaClientQuotaEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClientQuotaEnvironment)(nil)).Elem()
+}
+
+func (o KafkaClientQuotaEnvironmentOutput) ToKafkaClientQuotaEnvironmentOutput() KafkaClientQuotaEnvironmentOutput {
+	return o
+}
+
+func (o KafkaClientQuotaEnvironmentOutput) ToKafkaClientQuotaEnvironmentOutputWithContext(ctx context.Context) KafkaClientQuotaEnvironmentOutput {
+	return o
+}
+
+func (o KafkaClientQuotaEnvironmentOutput) ToKafkaClientQuotaEnvironmentPtrOutput() KafkaClientQuotaEnvironmentPtrOutput {
+	return o.ToKafkaClientQuotaEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClientQuotaEnvironmentOutput) ToKafkaClientQuotaEnvironmentPtrOutputWithContext(ctx context.Context) KafkaClientQuotaEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClientQuotaEnvironment) *KafkaClientQuotaEnvironment {
+		return &v
+	}).(KafkaClientQuotaEnvironmentPtrOutput)
+}
+
+// The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+func (o KafkaClientQuotaEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClientQuotaEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type KafkaClientQuotaEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaClientQuotaEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClientQuotaEnvironment)(nil)).Elem()
+}
+
+func (o KafkaClientQuotaEnvironmentPtrOutput) ToKafkaClientQuotaEnvironmentPtrOutput() KafkaClientQuotaEnvironmentPtrOutput {
+	return o
+}
+
+func (o KafkaClientQuotaEnvironmentPtrOutput) ToKafkaClientQuotaEnvironmentPtrOutputWithContext(ctx context.Context) KafkaClientQuotaEnvironmentPtrOutput {
+	return o
+}
+
+func (o KafkaClientQuotaEnvironmentPtrOutput) Elem() KafkaClientQuotaEnvironmentOutput {
+	return o.ApplyT(func(v *KafkaClientQuotaEnvironment) KafkaClientQuotaEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClientQuotaEnvironment
+		return ret
+	}).(KafkaClientQuotaEnvironmentOutput)
+}
+
+// The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+func (o KafkaClientQuotaEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClientQuotaEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type KafkaClientQuotaKafkaCluster struct {
+	// The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// KafkaClientQuotaKafkaClusterInput is an input type that accepts KafkaClientQuotaKafkaClusterArgs and KafkaClientQuotaKafkaClusterOutput values.
+// You can construct a concrete instance of `KafkaClientQuotaKafkaClusterInput` via:
+//
+//	KafkaClientQuotaKafkaClusterArgs{...}
+type KafkaClientQuotaKafkaClusterInput interface {
+	pulumi.Input
+
+	ToKafkaClientQuotaKafkaClusterOutput() KafkaClientQuotaKafkaClusterOutput
+	ToKafkaClientQuotaKafkaClusterOutputWithContext(context.Context) KafkaClientQuotaKafkaClusterOutput
+}
+
+type KafkaClientQuotaKafkaClusterArgs struct {
+	// The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (KafkaClientQuotaKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClientQuotaKafkaCluster)(nil)).Elem()
+}
+
+func (i KafkaClientQuotaKafkaClusterArgs) ToKafkaClientQuotaKafkaClusterOutput() KafkaClientQuotaKafkaClusterOutput {
+	return i.ToKafkaClientQuotaKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i KafkaClientQuotaKafkaClusterArgs) ToKafkaClientQuotaKafkaClusterOutputWithContext(ctx context.Context) KafkaClientQuotaKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaKafkaClusterOutput)
+}
+
+func (i KafkaClientQuotaKafkaClusterArgs) ToKafkaClientQuotaKafkaClusterPtrOutput() KafkaClientQuotaKafkaClusterPtrOutput {
+	return i.ToKafkaClientQuotaKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaClientQuotaKafkaClusterArgs) ToKafkaClientQuotaKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClientQuotaKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaKafkaClusterOutput).ToKafkaClientQuotaKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// KafkaClientQuotaKafkaClusterPtrInput is an input type that accepts KafkaClientQuotaKafkaClusterArgs, KafkaClientQuotaKafkaClusterPtr and KafkaClientQuotaKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `KafkaClientQuotaKafkaClusterPtrInput` via:
+//
+//	        KafkaClientQuotaKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type KafkaClientQuotaKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToKafkaClientQuotaKafkaClusterPtrOutput() KafkaClientQuotaKafkaClusterPtrOutput
+	ToKafkaClientQuotaKafkaClusterPtrOutputWithContext(context.Context) KafkaClientQuotaKafkaClusterPtrOutput
+}
+
+type kafkaClientQuotaKafkaClusterPtrType KafkaClientQuotaKafkaClusterArgs
+
+func KafkaClientQuotaKafkaClusterPtr(v *KafkaClientQuotaKafkaClusterArgs) KafkaClientQuotaKafkaClusterPtrInput {
+	return (*kafkaClientQuotaKafkaClusterPtrType)(v)
+}
+
+func (*kafkaClientQuotaKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClientQuotaKafkaCluster)(nil)).Elem()
+}
+
+func (i *kafkaClientQuotaKafkaClusterPtrType) ToKafkaClientQuotaKafkaClusterPtrOutput() KafkaClientQuotaKafkaClusterPtrOutput {
+	return i.ToKafkaClientQuotaKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClientQuotaKafkaClusterPtrType) ToKafkaClientQuotaKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClientQuotaKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaKafkaClusterPtrOutput)
+}
+
+type KafkaClientQuotaKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (KafkaClientQuotaKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClientQuotaKafkaCluster)(nil)).Elem()
+}
+
+func (o KafkaClientQuotaKafkaClusterOutput) ToKafkaClientQuotaKafkaClusterOutput() KafkaClientQuotaKafkaClusterOutput {
+	return o
+}
+
+func (o KafkaClientQuotaKafkaClusterOutput) ToKafkaClientQuotaKafkaClusterOutputWithContext(ctx context.Context) KafkaClientQuotaKafkaClusterOutput {
+	return o
+}
+
+func (o KafkaClientQuotaKafkaClusterOutput) ToKafkaClientQuotaKafkaClusterPtrOutput() KafkaClientQuotaKafkaClusterPtrOutput {
+	return o.ToKafkaClientQuotaKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClientQuotaKafkaClusterOutput) ToKafkaClientQuotaKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClientQuotaKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClientQuotaKafkaCluster) *KafkaClientQuotaKafkaCluster {
+		return &v
+	}).(KafkaClientQuotaKafkaClusterPtrOutput)
+}
+
+// The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+func (o KafkaClientQuotaKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClientQuotaKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type KafkaClientQuotaKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaClientQuotaKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClientQuotaKafkaCluster)(nil)).Elem()
+}
+
+func (o KafkaClientQuotaKafkaClusterPtrOutput) ToKafkaClientQuotaKafkaClusterPtrOutput() KafkaClientQuotaKafkaClusterPtrOutput {
+	return o
+}
+
+func (o KafkaClientQuotaKafkaClusterPtrOutput) ToKafkaClientQuotaKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClientQuotaKafkaClusterPtrOutput {
+	return o
+}
+
+func (o KafkaClientQuotaKafkaClusterPtrOutput) Elem() KafkaClientQuotaKafkaClusterOutput {
+	return o.ApplyT(func(v *KafkaClientQuotaKafkaCluster) KafkaClientQuotaKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClientQuotaKafkaCluster
+		return ret
+	}).(KafkaClientQuotaKafkaClusterOutput)
+}
+
+// The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+func (o KafkaClientQuotaKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClientQuotaKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type KafkaClientQuotaThroughput struct {
+	// The egress throughput limit in bytes per second.
+	EgressByteRate string `pulumi:"egressByteRate"`
+	// The ingress throughput limit in bytes per second.
+	IngressByteRate string `pulumi:"ingressByteRate"`
+}
+
+// KafkaClientQuotaThroughputInput is an input type that accepts KafkaClientQuotaThroughputArgs and KafkaClientQuotaThroughputOutput values.
+// You can construct a concrete instance of `KafkaClientQuotaThroughputInput` via:
+//
+//	KafkaClientQuotaThroughputArgs{...}
+type KafkaClientQuotaThroughputInput interface {
+	pulumi.Input
+
+	ToKafkaClientQuotaThroughputOutput() KafkaClientQuotaThroughputOutput
+	ToKafkaClientQuotaThroughputOutputWithContext(context.Context) KafkaClientQuotaThroughputOutput
+}
+
+type KafkaClientQuotaThroughputArgs struct {
+	// The egress throughput limit in bytes per second.
+	EgressByteRate pulumi.StringInput `pulumi:"egressByteRate"`
+	// The ingress throughput limit in bytes per second.
+	IngressByteRate pulumi.StringInput `pulumi:"ingressByteRate"`
+}
+
+func (KafkaClientQuotaThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClientQuotaThroughput)(nil)).Elem()
+}
+
+func (i KafkaClientQuotaThroughputArgs) ToKafkaClientQuotaThroughputOutput() KafkaClientQuotaThroughputOutput {
+	return i.ToKafkaClientQuotaThroughputOutputWithContext(context.Background())
+}
+
+func (i KafkaClientQuotaThroughputArgs) ToKafkaClientQuotaThroughputOutputWithContext(ctx context.Context) KafkaClientQuotaThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaThroughputOutput)
+}
+
+func (i KafkaClientQuotaThroughputArgs) ToKafkaClientQuotaThroughputPtrOutput() KafkaClientQuotaThroughputPtrOutput {
+	return i.ToKafkaClientQuotaThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaClientQuotaThroughputArgs) ToKafkaClientQuotaThroughputPtrOutputWithContext(ctx context.Context) KafkaClientQuotaThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaThroughputOutput).ToKafkaClientQuotaThroughputPtrOutputWithContext(ctx)
+}
+
+// KafkaClientQuotaThroughputPtrInput is an input type that accepts KafkaClientQuotaThroughputArgs, KafkaClientQuotaThroughputPtr and KafkaClientQuotaThroughputPtrOutput values.
+// You can construct a concrete instance of `KafkaClientQuotaThroughputPtrInput` via:
+//
+//	        KafkaClientQuotaThroughputArgs{...}
+//
+//	or:
+//
+//	        nil
+type KafkaClientQuotaThroughputPtrInput interface {
+	pulumi.Input
+
+	ToKafkaClientQuotaThroughputPtrOutput() KafkaClientQuotaThroughputPtrOutput
+	ToKafkaClientQuotaThroughputPtrOutputWithContext(context.Context) KafkaClientQuotaThroughputPtrOutput
+}
+
+type kafkaClientQuotaThroughputPtrType KafkaClientQuotaThroughputArgs
+
+func KafkaClientQuotaThroughputPtr(v *KafkaClientQuotaThroughputArgs) KafkaClientQuotaThroughputPtrInput {
+	return (*kafkaClientQuotaThroughputPtrType)(v)
+}
+
+func (*kafkaClientQuotaThroughputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClientQuotaThroughput)(nil)).Elem()
+}
+
+func (i *kafkaClientQuotaThroughputPtrType) ToKafkaClientQuotaThroughputPtrOutput() KafkaClientQuotaThroughputPtrOutput {
+	return i.ToKafkaClientQuotaThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClientQuotaThroughputPtrType) ToKafkaClientQuotaThroughputPtrOutputWithContext(ctx context.Context) KafkaClientQuotaThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaThroughputPtrOutput)
+}
+
+type KafkaClientQuotaThroughputOutput struct{ *pulumi.OutputState }
+
+func (KafkaClientQuotaThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClientQuotaThroughput)(nil)).Elem()
+}
+
+func (o KafkaClientQuotaThroughputOutput) ToKafkaClientQuotaThroughputOutput() KafkaClientQuotaThroughputOutput {
+	return o
+}
+
+func (o KafkaClientQuotaThroughputOutput) ToKafkaClientQuotaThroughputOutputWithContext(ctx context.Context) KafkaClientQuotaThroughputOutput {
+	return o
+}
+
+func (o KafkaClientQuotaThroughputOutput) ToKafkaClientQuotaThroughputPtrOutput() KafkaClientQuotaThroughputPtrOutput {
+	return o.ToKafkaClientQuotaThroughputPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClientQuotaThroughputOutput) ToKafkaClientQuotaThroughputPtrOutputWithContext(ctx context.Context) KafkaClientQuotaThroughputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClientQuotaThroughput) *KafkaClientQuotaThroughput {
+		return &v
+	}).(KafkaClientQuotaThroughputPtrOutput)
+}
+
+// The egress throughput limit in bytes per second.
+func (o KafkaClientQuotaThroughputOutput) EgressByteRate() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClientQuotaThroughput) string { return v.EgressByteRate }).(pulumi.StringOutput)
+}
+
+// The ingress throughput limit in bytes per second.
+func (o KafkaClientQuotaThroughputOutput) IngressByteRate() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClientQuotaThroughput) string { return v.IngressByteRate }).(pulumi.StringOutput)
+}
+
+type KafkaClientQuotaThroughputPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaClientQuotaThroughputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClientQuotaThroughput)(nil)).Elem()
+}
+
+func (o KafkaClientQuotaThroughputPtrOutput) ToKafkaClientQuotaThroughputPtrOutput() KafkaClientQuotaThroughputPtrOutput {
+	return o
+}
+
+func (o KafkaClientQuotaThroughputPtrOutput) ToKafkaClientQuotaThroughputPtrOutputWithContext(ctx context.Context) KafkaClientQuotaThroughputPtrOutput {
+	return o
+}
+
+func (o KafkaClientQuotaThroughputPtrOutput) Elem() KafkaClientQuotaThroughputOutput {
+	return o.ApplyT(func(v *KafkaClientQuotaThroughput) KafkaClientQuotaThroughput {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClientQuotaThroughput
+		return ret
+	}).(KafkaClientQuotaThroughputOutput)
+}
+
+// The egress throughput limit in bytes per second.
+func (o KafkaClientQuotaThroughputPtrOutput) EgressByteRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClientQuotaThroughput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EgressByteRate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ingress throughput limit in bytes per second.
+func (o KafkaClientQuotaThroughputPtrOutput) IngressByteRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClientQuotaThroughput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IngressByteRate
+	}).(pulumi.StringPtrOutput)
+}
+
 type KafkaClusterBasic struct {
 }
 
@@ -1302,6 +2426,299 @@ func (o KafkaClusterBasicArrayOutput) Index(i pulumi.IntInput) KafkaClusterBasic
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KafkaClusterBasic {
 		return vs[0].([]KafkaClusterBasic)[vs[1].(int)]
 	}).(KafkaClusterBasicOutput)
+}
+
+type KafkaClusterConfigCredentials struct {
+	// The Kafka API Key.
+	Key string `pulumi:"key"`
+	// The Kafka API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// KafkaClusterConfigCredentialsInput is an input type that accepts KafkaClusterConfigCredentialsArgs and KafkaClusterConfigCredentialsOutput values.
+// You can construct a concrete instance of `KafkaClusterConfigCredentialsInput` via:
+//
+//	KafkaClusterConfigCredentialsArgs{...}
+type KafkaClusterConfigCredentialsInput interface {
+	pulumi.Input
+
+	ToKafkaClusterConfigCredentialsOutput() KafkaClusterConfigCredentialsOutput
+	ToKafkaClusterConfigCredentialsOutputWithContext(context.Context) KafkaClusterConfigCredentialsOutput
+}
+
+type KafkaClusterConfigCredentialsArgs struct {
+	// The Kafka API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Kafka API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (KafkaClusterConfigCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterConfigCredentials)(nil)).Elem()
+}
+
+func (i KafkaClusterConfigCredentialsArgs) ToKafkaClusterConfigCredentialsOutput() KafkaClusterConfigCredentialsOutput {
+	return i.ToKafkaClusterConfigCredentialsOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterConfigCredentialsArgs) ToKafkaClusterConfigCredentialsOutputWithContext(ctx context.Context) KafkaClusterConfigCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterConfigCredentialsOutput)
+}
+
+func (i KafkaClusterConfigCredentialsArgs) ToKafkaClusterConfigCredentialsPtrOutput() KafkaClusterConfigCredentialsPtrOutput {
+	return i.ToKafkaClusterConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterConfigCredentialsArgs) ToKafkaClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) KafkaClusterConfigCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterConfigCredentialsOutput).ToKafkaClusterConfigCredentialsPtrOutputWithContext(ctx)
+}
+
+// KafkaClusterConfigCredentialsPtrInput is an input type that accepts KafkaClusterConfigCredentialsArgs, KafkaClusterConfigCredentialsPtr and KafkaClusterConfigCredentialsPtrOutput values.
+// You can construct a concrete instance of `KafkaClusterConfigCredentialsPtrInput` via:
+//
+//	        KafkaClusterConfigCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type KafkaClusterConfigCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToKafkaClusterConfigCredentialsPtrOutput() KafkaClusterConfigCredentialsPtrOutput
+	ToKafkaClusterConfigCredentialsPtrOutputWithContext(context.Context) KafkaClusterConfigCredentialsPtrOutput
+}
+
+type kafkaClusterConfigCredentialsPtrType KafkaClusterConfigCredentialsArgs
+
+func KafkaClusterConfigCredentialsPtr(v *KafkaClusterConfigCredentialsArgs) KafkaClusterConfigCredentialsPtrInput {
+	return (*kafkaClusterConfigCredentialsPtrType)(v)
+}
+
+func (*kafkaClusterConfigCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterConfigCredentials)(nil)).Elem()
+}
+
+func (i *kafkaClusterConfigCredentialsPtrType) ToKafkaClusterConfigCredentialsPtrOutput() KafkaClusterConfigCredentialsPtrOutput {
+	return i.ToKafkaClusterConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClusterConfigCredentialsPtrType) ToKafkaClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) KafkaClusterConfigCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterConfigCredentialsPtrOutput)
+}
+
+type KafkaClusterConfigCredentialsOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterConfigCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterConfigCredentials)(nil)).Elem()
+}
+
+func (o KafkaClusterConfigCredentialsOutput) ToKafkaClusterConfigCredentialsOutput() KafkaClusterConfigCredentialsOutput {
+	return o
+}
+
+func (o KafkaClusterConfigCredentialsOutput) ToKafkaClusterConfigCredentialsOutputWithContext(ctx context.Context) KafkaClusterConfigCredentialsOutput {
+	return o
+}
+
+func (o KafkaClusterConfigCredentialsOutput) ToKafkaClusterConfigCredentialsPtrOutput() KafkaClusterConfigCredentialsPtrOutput {
+	return o.ToKafkaClusterConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClusterConfigCredentialsOutput) ToKafkaClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) KafkaClusterConfigCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterConfigCredentials) *KafkaClusterConfigCredentials {
+		return &v
+	}).(KafkaClusterConfigCredentialsPtrOutput)
+}
+
+// The Kafka API Key.
+func (o KafkaClusterConfigCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterConfigCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Kafka API Secret.
+func (o KafkaClusterConfigCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterConfigCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type KafkaClusterConfigCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterConfigCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterConfigCredentials)(nil)).Elem()
+}
+
+func (o KafkaClusterConfigCredentialsPtrOutput) ToKafkaClusterConfigCredentialsPtrOutput() KafkaClusterConfigCredentialsPtrOutput {
+	return o
+}
+
+func (o KafkaClusterConfigCredentialsPtrOutput) ToKafkaClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) KafkaClusterConfigCredentialsPtrOutput {
+	return o
+}
+
+func (o KafkaClusterConfigCredentialsPtrOutput) Elem() KafkaClusterConfigCredentialsOutput {
+	return o.ApplyT(func(v *KafkaClusterConfigCredentials) KafkaClusterConfigCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterConfigCredentials
+		return ret
+	}).(KafkaClusterConfigCredentialsOutput)
+}
+
+// The Kafka API Key.
+func (o KafkaClusterConfigCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterConfigCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kafka API Secret.
+func (o KafkaClusterConfigCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterConfigCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type KafkaClusterConfigKafkaCluster struct {
+	// The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// KafkaClusterConfigKafkaClusterInput is an input type that accepts KafkaClusterConfigKafkaClusterArgs and KafkaClusterConfigKafkaClusterOutput values.
+// You can construct a concrete instance of `KafkaClusterConfigKafkaClusterInput` via:
+//
+//	KafkaClusterConfigKafkaClusterArgs{...}
+type KafkaClusterConfigKafkaClusterInput interface {
+	pulumi.Input
+
+	ToKafkaClusterConfigKafkaClusterOutput() KafkaClusterConfigKafkaClusterOutput
+	ToKafkaClusterConfigKafkaClusterOutputWithContext(context.Context) KafkaClusterConfigKafkaClusterOutput
+}
+
+type KafkaClusterConfigKafkaClusterArgs struct {
+	// The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (KafkaClusterConfigKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterConfigKafkaCluster)(nil)).Elem()
+}
+
+func (i KafkaClusterConfigKafkaClusterArgs) ToKafkaClusterConfigKafkaClusterOutput() KafkaClusterConfigKafkaClusterOutput {
+	return i.ToKafkaClusterConfigKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterConfigKafkaClusterArgs) ToKafkaClusterConfigKafkaClusterOutputWithContext(ctx context.Context) KafkaClusterConfigKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterConfigKafkaClusterOutput)
+}
+
+func (i KafkaClusterConfigKafkaClusterArgs) ToKafkaClusterConfigKafkaClusterPtrOutput() KafkaClusterConfigKafkaClusterPtrOutput {
+	return i.ToKafkaClusterConfigKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterConfigKafkaClusterArgs) ToKafkaClusterConfigKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClusterConfigKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterConfigKafkaClusterOutput).ToKafkaClusterConfigKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// KafkaClusterConfigKafkaClusterPtrInput is an input type that accepts KafkaClusterConfigKafkaClusterArgs, KafkaClusterConfigKafkaClusterPtr and KafkaClusterConfigKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `KafkaClusterConfigKafkaClusterPtrInput` via:
+//
+//	        KafkaClusterConfigKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type KafkaClusterConfigKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToKafkaClusterConfigKafkaClusterPtrOutput() KafkaClusterConfigKafkaClusterPtrOutput
+	ToKafkaClusterConfigKafkaClusterPtrOutputWithContext(context.Context) KafkaClusterConfigKafkaClusterPtrOutput
+}
+
+type kafkaClusterConfigKafkaClusterPtrType KafkaClusterConfigKafkaClusterArgs
+
+func KafkaClusterConfigKafkaClusterPtr(v *KafkaClusterConfigKafkaClusterArgs) KafkaClusterConfigKafkaClusterPtrInput {
+	return (*kafkaClusterConfigKafkaClusterPtrType)(v)
+}
+
+func (*kafkaClusterConfigKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterConfigKafkaCluster)(nil)).Elem()
+}
+
+func (i *kafkaClusterConfigKafkaClusterPtrType) ToKafkaClusterConfigKafkaClusterPtrOutput() KafkaClusterConfigKafkaClusterPtrOutput {
+	return i.ToKafkaClusterConfigKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClusterConfigKafkaClusterPtrType) ToKafkaClusterConfigKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClusterConfigKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterConfigKafkaClusterPtrOutput)
+}
+
+type KafkaClusterConfigKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterConfigKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterConfigKafkaCluster)(nil)).Elem()
+}
+
+func (o KafkaClusterConfigKafkaClusterOutput) ToKafkaClusterConfigKafkaClusterOutput() KafkaClusterConfigKafkaClusterOutput {
+	return o
+}
+
+func (o KafkaClusterConfigKafkaClusterOutput) ToKafkaClusterConfigKafkaClusterOutputWithContext(ctx context.Context) KafkaClusterConfigKafkaClusterOutput {
+	return o
+}
+
+func (o KafkaClusterConfigKafkaClusterOutput) ToKafkaClusterConfigKafkaClusterPtrOutput() KafkaClusterConfigKafkaClusterPtrOutput {
+	return o.ToKafkaClusterConfigKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClusterConfigKafkaClusterOutput) ToKafkaClusterConfigKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClusterConfigKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterConfigKafkaCluster) *KafkaClusterConfigKafkaCluster {
+		return &v
+	}).(KafkaClusterConfigKafkaClusterPtrOutput)
+}
+
+// The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
+func (o KafkaClusterConfigKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterConfigKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type KafkaClusterConfigKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterConfigKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterConfigKafkaCluster)(nil)).Elem()
+}
+
+func (o KafkaClusterConfigKafkaClusterPtrOutput) ToKafkaClusterConfigKafkaClusterPtrOutput() KafkaClusterConfigKafkaClusterPtrOutput {
+	return o
+}
+
+func (o KafkaClusterConfigKafkaClusterPtrOutput) ToKafkaClusterConfigKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClusterConfigKafkaClusterPtrOutput {
+	return o
+}
+
+func (o KafkaClusterConfigKafkaClusterPtrOutput) Elem() KafkaClusterConfigKafkaClusterOutput {
+	return o.ApplyT(func(v *KafkaClusterConfigKafkaCluster) KafkaClusterConfigKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterConfigKafkaCluster
+		return ret
+	}).(KafkaClusterConfigKafkaClusterOutput)
+}
+
+// The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
+func (o KafkaClusterConfigKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterConfigKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 type KafkaClusterDedicated struct {
@@ -1820,6 +3237,607 @@ func (o KafkaClusterStandardArrayOutput) Index(i pulumi.IntInput) KafkaClusterSt
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KafkaClusterStandard {
 		return vs[0].([]KafkaClusterStandard)[vs[1].(int)]
 	}).(KafkaClusterStandardOutput)
+}
+
+type KafkaMirrorTopicClusterLink struct {
+	// The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
+	LinkName string `pulumi:"linkName"`
+}
+
+// KafkaMirrorTopicClusterLinkInput is an input type that accepts KafkaMirrorTopicClusterLinkArgs and KafkaMirrorTopicClusterLinkOutput values.
+// You can construct a concrete instance of `KafkaMirrorTopicClusterLinkInput` via:
+//
+//	KafkaMirrorTopicClusterLinkArgs{...}
+type KafkaMirrorTopicClusterLinkInput interface {
+	pulumi.Input
+
+	ToKafkaMirrorTopicClusterLinkOutput() KafkaMirrorTopicClusterLinkOutput
+	ToKafkaMirrorTopicClusterLinkOutputWithContext(context.Context) KafkaMirrorTopicClusterLinkOutput
+}
+
+type KafkaMirrorTopicClusterLinkArgs struct {
+	// The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
+	LinkName pulumi.StringInput `pulumi:"linkName"`
+}
+
+func (KafkaMirrorTopicClusterLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaMirrorTopicClusterLink)(nil)).Elem()
+}
+
+func (i KafkaMirrorTopicClusterLinkArgs) ToKafkaMirrorTopicClusterLinkOutput() KafkaMirrorTopicClusterLinkOutput {
+	return i.ToKafkaMirrorTopicClusterLinkOutputWithContext(context.Background())
+}
+
+func (i KafkaMirrorTopicClusterLinkArgs) ToKafkaMirrorTopicClusterLinkOutputWithContext(ctx context.Context) KafkaMirrorTopicClusterLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicClusterLinkOutput)
+}
+
+func (i KafkaMirrorTopicClusterLinkArgs) ToKafkaMirrorTopicClusterLinkPtrOutput() KafkaMirrorTopicClusterLinkPtrOutput {
+	return i.ToKafkaMirrorTopicClusterLinkPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaMirrorTopicClusterLinkArgs) ToKafkaMirrorTopicClusterLinkPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicClusterLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicClusterLinkOutput).ToKafkaMirrorTopicClusterLinkPtrOutputWithContext(ctx)
+}
+
+// KafkaMirrorTopicClusterLinkPtrInput is an input type that accepts KafkaMirrorTopicClusterLinkArgs, KafkaMirrorTopicClusterLinkPtr and KafkaMirrorTopicClusterLinkPtrOutput values.
+// You can construct a concrete instance of `KafkaMirrorTopicClusterLinkPtrInput` via:
+//
+//	        KafkaMirrorTopicClusterLinkArgs{...}
+//
+//	or:
+//
+//	        nil
+type KafkaMirrorTopicClusterLinkPtrInput interface {
+	pulumi.Input
+
+	ToKafkaMirrorTopicClusterLinkPtrOutput() KafkaMirrorTopicClusterLinkPtrOutput
+	ToKafkaMirrorTopicClusterLinkPtrOutputWithContext(context.Context) KafkaMirrorTopicClusterLinkPtrOutput
+}
+
+type kafkaMirrorTopicClusterLinkPtrType KafkaMirrorTopicClusterLinkArgs
+
+func KafkaMirrorTopicClusterLinkPtr(v *KafkaMirrorTopicClusterLinkArgs) KafkaMirrorTopicClusterLinkPtrInput {
+	return (*kafkaMirrorTopicClusterLinkPtrType)(v)
+}
+
+func (*kafkaMirrorTopicClusterLinkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaMirrorTopicClusterLink)(nil)).Elem()
+}
+
+func (i *kafkaMirrorTopicClusterLinkPtrType) ToKafkaMirrorTopicClusterLinkPtrOutput() KafkaMirrorTopicClusterLinkPtrOutput {
+	return i.ToKafkaMirrorTopicClusterLinkPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaMirrorTopicClusterLinkPtrType) ToKafkaMirrorTopicClusterLinkPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicClusterLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicClusterLinkPtrOutput)
+}
+
+type KafkaMirrorTopicClusterLinkOutput struct{ *pulumi.OutputState }
+
+func (KafkaMirrorTopicClusterLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaMirrorTopicClusterLink)(nil)).Elem()
+}
+
+func (o KafkaMirrorTopicClusterLinkOutput) ToKafkaMirrorTopicClusterLinkOutput() KafkaMirrorTopicClusterLinkOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicClusterLinkOutput) ToKafkaMirrorTopicClusterLinkOutputWithContext(ctx context.Context) KafkaMirrorTopicClusterLinkOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicClusterLinkOutput) ToKafkaMirrorTopicClusterLinkPtrOutput() KafkaMirrorTopicClusterLinkPtrOutput {
+	return o.ToKafkaMirrorTopicClusterLinkPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaMirrorTopicClusterLinkOutput) ToKafkaMirrorTopicClusterLinkPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicClusterLinkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaMirrorTopicClusterLink) *KafkaMirrorTopicClusterLink {
+		return &v
+	}).(KafkaMirrorTopicClusterLinkPtrOutput)
+}
+
+// The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
+func (o KafkaMirrorTopicClusterLinkOutput) LinkName() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaMirrorTopicClusterLink) string { return v.LinkName }).(pulumi.StringOutput)
+}
+
+type KafkaMirrorTopicClusterLinkPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaMirrorTopicClusterLinkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaMirrorTopicClusterLink)(nil)).Elem()
+}
+
+func (o KafkaMirrorTopicClusterLinkPtrOutput) ToKafkaMirrorTopicClusterLinkPtrOutput() KafkaMirrorTopicClusterLinkPtrOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicClusterLinkPtrOutput) ToKafkaMirrorTopicClusterLinkPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicClusterLinkPtrOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicClusterLinkPtrOutput) Elem() KafkaMirrorTopicClusterLinkOutput {
+	return o.ApplyT(func(v *KafkaMirrorTopicClusterLink) KafkaMirrorTopicClusterLink {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaMirrorTopicClusterLink
+		return ret
+	}).(KafkaMirrorTopicClusterLinkOutput)
+}
+
+// The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
+func (o KafkaMirrorTopicClusterLinkPtrOutput) LinkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaMirrorTopicClusterLink) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkName
+	}).(pulumi.StringPtrOutput)
+}
+
+type KafkaMirrorTopicKafkaCluster struct {
+	Credentials *KafkaMirrorTopicKafkaClusterCredentials `pulumi:"credentials"`
+	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+	Id string `pulumi:"id"`
+	// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint *string `pulumi:"restEndpoint"`
+}
+
+// KafkaMirrorTopicKafkaClusterInput is an input type that accepts KafkaMirrorTopicKafkaClusterArgs and KafkaMirrorTopicKafkaClusterOutput values.
+// You can construct a concrete instance of `KafkaMirrorTopicKafkaClusterInput` via:
+//
+//	KafkaMirrorTopicKafkaClusterArgs{...}
+type KafkaMirrorTopicKafkaClusterInput interface {
+	pulumi.Input
+
+	ToKafkaMirrorTopicKafkaClusterOutput() KafkaMirrorTopicKafkaClusterOutput
+	ToKafkaMirrorTopicKafkaClusterOutputWithContext(context.Context) KafkaMirrorTopicKafkaClusterOutput
+}
+
+type KafkaMirrorTopicKafkaClusterArgs struct {
+	Credentials KafkaMirrorTopicKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
+	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint pulumi.StringPtrInput `pulumi:"restEndpoint"`
+}
+
+func (KafkaMirrorTopicKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaMirrorTopicKafkaCluster)(nil)).Elem()
+}
+
+func (i KafkaMirrorTopicKafkaClusterArgs) ToKafkaMirrorTopicKafkaClusterOutput() KafkaMirrorTopicKafkaClusterOutput {
+	return i.ToKafkaMirrorTopicKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i KafkaMirrorTopicKafkaClusterArgs) ToKafkaMirrorTopicKafkaClusterOutputWithContext(ctx context.Context) KafkaMirrorTopicKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicKafkaClusterOutput)
+}
+
+func (i KafkaMirrorTopicKafkaClusterArgs) ToKafkaMirrorTopicKafkaClusterPtrOutput() KafkaMirrorTopicKafkaClusterPtrOutput {
+	return i.ToKafkaMirrorTopicKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaMirrorTopicKafkaClusterArgs) ToKafkaMirrorTopicKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicKafkaClusterOutput).ToKafkaMirrorTopicKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// KafkaMirrorTopicKafkaClusterPtrInput is an input type that accepts KafkaMirrorTopicKafkaClusterArgs, KafkaMirrorTopicKafkaClusterPtr and KafkaMirrorTopicKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `KafkaMirrorTopicKafkaClusterPtrInput` via:
+//
+//	        KafkaMirrorTopicKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type KafkaMirrorTopicKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToKafkaMirrorTopicKafkaClusterPtrOutput() KafkaMirrorTopicKafkaClusterPtrOutput
+	ToKafkaMirrorTopicKafkaClusterPtrOutputWithContext(context.Context) KafkaMirrorTopicKafkaClusterPtrOutput
+}
+
+type kafkaMirrorTopicKafkaClusterPtrType KafkaMirrorTopicKafkaClusterArgs
+
+func KafkaMirrorTopicKafkaClusterPtr(v *KafkaMirrorTopicKafkaClusterArgs) KafkaMirrorTopicKafkaClusterPtrInput {
+	return (*kafkaMirrorTopicKafkaClusterPtrType)(v)
+}
+
+func (*kafkaMirrorTopicKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaMirrorTopicKafkaCluster)(nil)).Elem()
+}
+
+func (i *kafkaMirrorTopicKafkaClusterPtrType) ToKafkaMirrorTopicKafkaClusterPtrOutput() KafkaMirrorTopicKafkaClusterPtrOutput {
+	return i.ToKafkaMirrorTopicKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaMirrorTopicKafkaClusterPtrType) ToKafkaMirrorTopicKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicKafkaClusterPtrOutput)
+}
+
+type KafkaMirrorTopicKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (KafkaMirrorTopicKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaMirrorTopicKafkaCluster)(nil)).Elem()
+}
+
+func (o KafkaMirrorTopicKafkaClusterOutput) ToKafkaMirrorTopicKafkaClusterOutput() KafkaMirrorTopicKafkaClusterOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicKafkaClusterOutput) ToKafkaMirrorTopicKafkaClusterOutputWithContext(ctx context.Context) KafkaMirrorTopicKafkaClusterOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicKafkaClusterOutput) ToKafkaMirrorTopicKafkaClusterPtrOutput() KafkaMirrorTopicKafkaClusterPtrOutput {
+	return o.ToKafkaMirrorTopicKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaMirrorTopicKafkaClusterOutput) ToKafkaMirrorTopicKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaMirrorTopicKafkaCluster) *KafkaMirrorTopicKafkaCluster {
+		return &v
+	}).(KafkaMirrorTopicKafkaClusterPtrOutput)
+}
+
+func (o KafkaMirrorTopicKafkaClusterOutput) Credentials() KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
+	return o.ApplyT(func(v KafkaMirrorTopicKafkaCluster) *KafkaMirrorTopicKafkaClusterCredentials { return v.Credentials }).(KafkaMirrorTopicKafkaClusterCredentialsPtrOutput)
+}
+
+// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+func (o KafkaMirrorTopicKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaMirrorTopicKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o KafkaMirrorTopicKafkaClusterOutput) RestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaMirrorTopicKafkaCluster) *string { return v.RestEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type KafkaMirrorTopicKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaMirrorTopicKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaMirrorTopicKafkaCluster)(nil)).Elem()
+}
+
+func (o KafkaMirrorTopicKafkaClusterPtrOutput) ToKafkaMirrorTopicKafkaClusterPtrOutput() KafkaMirrorTopicKafkaClusterPtrOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicKafkaClusterPtrOutput) ToKafkaMirrorTopicKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicKafkaClusterPtrOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicKafkaClusterPtrOutput) Elem() KafkaMirrorTopicKafkaClusterOutput {
+	return o.ApplyT(func(v *KafkaMirrorTopicKafkaCluster) KafkaMirrorTopicKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaMirrorTopicKafkaCluster
+		return ret
+	}).(KafkaMirrorTopicKafkaClusterOutput)
+}
+
+func (o KafkaMirrorTopicKafkaClusterPtrOutput) Credentials() KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
+	return o.ApplyT(func(v *KafkaMirrorTopicKafkaCluster) *KafkaMirrorTopicKafkaClusterCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(KafkaMirrorTopicKafkaClusterCredentialsPtrOutput)
+}
+
+// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+func (o KafkaMirrorTopicKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaMirrorTopicKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o KafkaMirrorTopicKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaMirrorTopicKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type KafkaMirrorTopicKafkaClusterCredentials struct {
+	// The Kafka API Key.
+	Key string `pulumi:"key"`
+	// The Kafka API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// KafkaMirrorTopicKafkaClusterCredentialsInput is an input type that accepts KafkaMirrorTopicKafkaClusterCredentialsArgs and KafkaMirrorTopicKafkaClusterCredentialsOutput values.
+// You can construct a concrete instance of `KafkaMirrorTopicKafkaClusterCredentialsInput` via:
+//
+//	KafkaMirrorTopicKafkaClusterCredentialsArgs{...}
+type KafkaMirrorTopicKafkaClusterCredentialsInput interface {
+	pulumi.Input
+
+	ToKafkaMirrorTopicKafkaClusterCredentialsOutput() KafkaMirrorTopicKafkaClusterCredentialsOutput
+	ToKafkaMirrorTopicKafkaClusterCredentialsOutputWithContext(context.Context) KafkaMirrorTopicKafkaClusterCredentialsOutput
+}
+
+type KafkaMirrorTopicKafkaClusterCredentialsArgs struct {
+	// The Kafka API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Kafka API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (KafkaMirrorTopicKafkaClusterCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaMirrorTopicKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (i KafkaMirrorTopicKafkaClusterCredentialsArgs) ToKafkaMirrorTopicKafkaClusterCredentialsOutput() KafkaMirrorTopicKafkaClusterCredentialsOutput {
+	return i.ToKafkaMirrorTopicKafkaClusterCredentialsOutputWithContext(context.Background())
+}
+
+func (i KafkaMirrorTopicKafkaClusterCredentialsArgs) ToKafkaMirrorTopicKafkaClusterCredentialsOutputWithContext(ctx context.Context) KafkaMirrorTopicKafkaClusterCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicKafkaClusterCredentialsOutput)
+}
+
+func (i KafkaMirrorTopicKafkaClusterCredentialsArgs) ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutput() KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
+	return i.ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaMirrorTopicKafkaClusterCredentialsArgs) ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicKafkaClusterCredentialsOutput).ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutputWithContext(ctx)
+}
+
+// KafkaMirrorTopicKafkaClusterCredentialsPtrInput is an input type that accepts KafkaMirrorTopicKafkaClusterCredentialsArgs, KafkaMirrorTopicKafkaClusterCredentialsPtr and KafkaMirrorTopicKafkaClusterCredentialsPtrOutput values.
+// You can construct a concrete instance of `KafkaMirrorTopicKafkaClusterCredentialsPtrInput` via:
+//
+//	        KafkaMirrorTopicKafkaClusterCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type KafkaMirrorTopicKafkaClusterCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutput() KafkaMirrorTopicKafkaClusterCredentialsPtrOutput
+	ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutputWithContext(context.Context) KafkaMirrorTopicKafkaClusterCredentialsPtrOutput
+}
+
+type kafkaMirrorTopicKafkaClusterCredentialsPtrType KafkaMirrorTopicKafkaClusterCredentialsArgs
+
+func KafkaMirrorTopicKafkaClusterCredentialsPtr(v *KafkaMirrorTopicKafkaClusterCredentialsArgs) KafkaMirrorTopicKafkaClusterCredentialsPtrInput {
+	return (*kafkaMirrorTopicKafkaClusterCredentialsPtrType)(v)
+}
+
+func (*kafkaMirrorTopicKafkaClusterCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaMirrorTopicKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (i *kafkaMirrorTopicKafkaClusterCredentialsPtrType) ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutput() KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
+	return i.ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaMirrorTopicKafkaClusterCredentialsPtrType) ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicKafkaClusterCredentialsPtrOutput)
+}
+
+type KafkaMirrorTopicKafkaClusterCredentialsOutput struct{ *pulumi.OutputState }
+
+func (KafkaMirrorTopicKafkaClusterCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaMirrorTopicKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) ToKafkaMirrorTopicKafkaClusterCredentialsOutput() KafkaMirrorTopicKafkaClusterCredentialsOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) ToKafkaMirrorTopicKafkaClusterCredentialsOutputWithContext(ctx context.Context) KafkaMirrorTopicKafkaClusterCredentialsOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutput() KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
+	return o.ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaMirrorTopicKafkaClusterCredentials) *KafkaMirrorTopicKafkaClusterCredentials {
+		return &v
+	}).(KafkaMirrorTopicKafkaClusterCredentialsPtrOutput)
+}
+
+// The Kafka API Key.
+func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaMirrorTopicKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Kafka API Secret.
+func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaMirrorTopicKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type KafkaMirrorTopicKafkaClusterCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaMirrorTopicKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutput() KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) Elem() KafkaMirrorTopicKafkaClusterCredentialsOutput {
+	return o.ApplyT(func(v *KafkaMirrorTopicKafkaClusterCredentials) KafkaMirrorTopicKafkaClusterCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaMirrorTopicKafkaClusterCredentials
+		return ret
+	}).(KafkaMirrorTopicKafkaClusterCredentialsOutput)
+}
+
+// The Kafka API Key.
+func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaMirrorTopicKafkaClusterCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kafka API Secret.
+func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaMirrorTopicKafkaClusterCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type KafkaMirrorTopicSourceKafkaTopic struct {
+	// The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
+	TopicName string `pulumi:"topicName"`
+}
+
+// KafkaMirrorTopicSourceKafkaTopicInput is an input type that accepts KafkaMirrorTopicSourceKafkaTopicArgs and KafkaMirrorTopicSourceKafkaTopicOutput values.
+// You can construct a concrete instance of `KafkaMirrorTopicSourceKafkaTopicInput` via:
+//
+//	KafkaMirrorTopicSourceKafkaTopicArgs{...}
+type KafkaMirrorTopicSourceKafkaTopicInput interface {
+	pulumi.Input
+
+	ToKafkaMirrorTopicSourceKafkaTopicOutput() KafkaMirrorTopicSourceKafkaTopicOutput
+	ToKafkaMirrorTopicSourceKafkaTopicOutputWithContext(context.Context) KafkaMirrorTopicSourceKafkaTopicOutput
+}
+
+type KafkaMirrorTopicSourceKafkaTopicArgs struct {
+	// The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
+	TopicName pulumi.StringInput `pulumi:"topicName"`
+}
+
+func (KafkaMirrorTopicSourceKafkaTopicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaMirrorTopicSourceKafkaTopic)(nil)).Elem()
+}
+
+func (i KafkaMirrorTopicSourceKafkaTopicArgs) ToKafkaMirrorTopicSourceKafkaTopicOutput() KafkaMirrorTopicSourceKafkaTopicOutput {
+	return i.ToKafkaMirrorTopicSourceKafkaTopicOutputWithContext(context.Background())
+}
+
+func (i KafkaMirrorTopicSourceKafkaTopicArgs) ToKafkaMirrorTopicSourceKafkaTopicOutputWithContext(ctx context.Context) KafkaMirrorTopicSourceKafkaTopicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicSourceKafkaTopicOutput)
+}
+
+func (i KafkaMirrorTopicSourceKafkaTopicArgs) ToKafkaMirrorTopicSourceKafkaTopicPtrOutput() KafkaMirrorTopicSourceKafkaTopicPtrOutput {
+	return i.ToKafkaMirrorTopicSourceKafkaTopicPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaMirrorTopicSourceKafkaTopicArgs) ToKafkaMirrorTopicSourceKafkaTopicPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicSourceKafkaTopicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicSourceKafkaTopicOutput).ToKafkaMirrorTopicSourceKafkaTopicPtrOutputWithContext(ctx)
+}
+
+// KafkaMirrorTopicSourceKafkaTopicPtrInput is an input type that accepts KafkaMirrorTopicSourceKafkaTopicArgs, KafkaMirrorTopicSourceKafkaTopicPtr and KafkaMirrorTopicSourceKafkaTopicPtrOutput values.
+// You can construct a concrete instance of `KafkaMirrorTopicSourceKafkaTopicPtrInput` via:
+//
+//	        KafkaMirrorTopicSourceKafkaTopicArgs{...}
+//
+//	or:
+//
+//	        nil
+type KafkaMirrorTopicSourceKafkaTopicPtrInput interface {
+	pulumi.Input
+
+	ToKafkaMirrorTopicSourceKafkaTopicPtrOutput() KafkaMirrorTopicSourceKafkaTopicPtrOutput
+	ToKafkaMirrorTopicSourceKafkaTopicPtrOutputWithContext(context.Context) KafkaMirrorTopicSourceKafkaTopicPtrOutput
+}
+
+type kafkaMirrorTopicSourceKafkaTopicPtrType KafkaMirrorTopicSourceKafkaTopicArgs
+
+func KafkaMirrorTopicSourceKafkaTopicPtr(v *KafkaMirrorTopicSourceKafkaTopicArgs) KafkaMirrorTopicSourceKafkaTopicPtrInput {
+	return (*kafkaMirrorTopicSourceKafkaTopicPtrType)(v)
+}
+
+func (*kafkaMirrorTopicSourceKafkaTopicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaMirrorTopicSourceKafkaTopic)(nil)).Elem()
+}
+
+func (i *kafkaMirrorTopicSourceKafkaTopicPtrType) ToKafkaMirrorTopicSourceKafkaTopicPtrOutput() KafkaMirrorTopicSourceKafkaTopicPtrOutput {
+	return i.ToKafkaMirrorTopicSourceKafkaTopicPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaMirrorTopicSourceKafkaTopicPtrType) ToKafkaMirrorTopicSourceKafkaTopicPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicSourceKafkaTopicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicSourceKafkaTopicPtrOutput)
+}
+
+type KafkaMirrorTopicSourceKafkaTopicOutput struct{ *pulumi.OutputState }
+
+func (KafkaMirrorTopicSourceKafkaTopicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaMirrorTopicSourceKafkaTopic)(nil)).Elem()
+}
+
+func (o KafkaMirrorTopicSourceKafkaTopicOutput) ToKafkaMirrorTopicSourceKafkaTopicOutput() KafkaMirrorTopicSourceKafkaTopicOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicSourceKafkaTopicOutput) ToKafkaMirrorTopicSourceKafkaTopicOutputWithContext(ctx context.Context) KafkaMirrorTopicSourceKafkaTopicOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicSourceKafkaTopicOutput) ToKafkaMirrorTopicSourceKafkaTopicPtrOutput() KafkaMirrorTopicSourceKafkaTopicPtrOutput {
+	return o.ToKafkaMirrorTopicSourceKafkaTopicPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaMirrorTopicSourceKafkaTopicOutput) ToKafkaMirrorTopicSourceKafkaTopicPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicSourceKafkaTopicPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaMirrorTopicSourceKafkaTopic) *KafkaMirrorTopicSourceKafkaTopic {
+		return &v
+	}).(KafkaMirrorTopicSourceKafkaTopicPtrOutput)
+}
+
+// The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
+func (o KafkaMirrorTopicSourceKafkaTopicOutput) TopicName() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaMirrorTopicSourceKafkaTopic) string { return v.TopicName }).(pulumi.StringOutput)
+}
+
+type KafkaMirrorTopicSourceKafkaTopicPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaMirrorTopicSourceKafkaTopicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaMirrorTopicSourceKafkaTopic)(nil)).Elem()
+}
+
+func (o KafkaMirrorTopicSourceKafkaTopicPtrOutput) ToKafkaMirrorTopicSourceKafkaTopicPtrOutput() KafkaMirrorTopicSourceKafkaTopicPtrOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicSourceKafkaTopicPtrOutput) ToKafkaMirrorTopicSourceKafkaTopicPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicSourceKafkaTopicPtrOutput {
+	return o
+}
+
+func (o KafkaMirrorTopicSourceKafkaTopicPtrOutput) Elem() KafkaMirrorTopicSourceKafkaTopicOutput {
+	return o.ApplyT(func(v *KafkaMirrorTopicSourceKafkaTopic) KafkaMirrorTopicSourceKafkaTopic {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaMirrorTopicSourceKafkaTopic
+		return ret
+	}).(KafkaMirrorTopicSourceKafkaTopicOutput)
+}
+
+// The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
+func (o KafkaMirrorTopicSourceKafkaTopicPtrOutput) TopicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaMirrorTopicSourceKafkaTopic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TopicName
+	}).(pulumi.StringPtrOutput)
 }
 
 type KafkaTopicCredentials struct {
@@ -4536,6 +6554,306 @@ func (o GetIdentityPoolIdentityProviderOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIdentityPoolIdentityProvider) string { return v.Id }).(pulumi.StringOutput)
 }
 
+type GetKafkaClientQuotaEnvironment struct {
+	// The ID of the Kafka Client Quota (for example, `cq-abc123`).
+	Id string `pulumi:"id"`
+}
+
+// GetKafkaClientQuotaEnvironmentInput is an input type that accepts GetKafkaClientQuotaEnvironmentArgs and GetKafkaClientQuotaEnvironmentOutput values.
+// You can construct a concrete instance of `GetKafkaClientQuotaEnvironmentInput` via:
+//
+//	GetKafkaClientQuotaEnvironmentArgs{...}
+type GetKafkaClientQuotaEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetKafkaClientQuotaEnvironmentOutput() GetKafkaClientQuotaEnvironmentOutput
+	ToGetKafkaClientQuotaEnvironmentOutputWithContext(context.Context) GetKafkaClientQuotaEnvironmentOutput
+}
+
+type GetKafkaClientQuotaEnvironmentArgs struct {
+	// The ID of the Kafka Client Quota (for example, `cq-abc123`).
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetKafkaClientQuotaEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClientQuotaEnvironment)(nil)).Elem()
+}
+
+func (i GetKafkaClientQuotaEnvironmentArgs) ToGetKafkaClientQuotaEnvironmentOutput() GetKafkaClientQuotaEnvironmentOutput {
+	return i.ToGetKafkaClientQuotaEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClientQuotaEnvironmentArgs) ToGetKafkaClientQuotaEnvironmentOutputWithContext(ctx context.Context) GetKafkaClientQuotaEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClientQuotaEnvironmentOutput)
+}
+
+// GetKafkaClientQuotaEnvironmentArrayInput is an input type that accepts GetKafkaClientQuotaEnvironmentArray and GetKafkaClientQuotaEnvironmentArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClientQuotaEnvironmentArrayInput` via:
+//
+//	GetKafkaClientQuotaEnvironmentArray{ GetKafkaClientQuotaEnvironmentArgs{...} }
+type GetKafkaClientQuotaEnvironmentArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClientQuotaEnvironmentArrayOutput() GetKafkaClientQuotaEnvironmentArrayOutput
+	ToGetKafkaClientQuotaEnvironmentArrayOutputWithContext(context.Context) GetKafkaClientQuotaEnvironmentArrayOutput
+}
+
+type GetKafkaClientQuotaEnvironmentArray []GetKafkaClientQuotaEnvironmentInput
+
+func (GetKafkaClientQuotaEnvironmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClientQuotaEnvironment)(nil)).Elem()
+}
+
+func (i GetKafkaClientQuotaEnvironmentArray) ToGetKafkaClientQuotaEnvironmentArrayOutput() GetKafkaClientQuotaEnvironmentArrayOutput {
+	return i.ToGetKafkaClientQuotaEnvironmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClientQuotaEnvironmentArray) ToGetKafkaClientQuotaEnvironmentArrayOutputWithContext(ctx context.Context) GetKafkaClientQuotaEnvironmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClientQuotaEnvironmentArrayOutput)
+}
+
+type GetKafkaClientQuotaEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClientQuotaEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClientQuotaEnvironment)(nil)).Elem()
+}
+
+func (o GetKafkaClientQuotaEnvironmentOutput) ToGetKafkaClientQuotaEnvironmentOutput() GetKafkaClientQuotaEnvironmentOutput {
+	return o
+}
+
+func (o GetKafkaClientQuotaEnvironmentOutput) ToGetKafkaClientQuotaEnvironmentOutputWithContext(ctx context.Context) GetKafkaClientQuotaEnvironmentOutput {
+	return o
+}
+
+// The ID of the Kafka Client Quota (for example, `cq-abc123`).
+func (o GetKafkaClientQuotaEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClientQuotaEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetKafkaClientQuotaEnvironmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClientQuotaEnvironmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClientQuotaEnvironment)(nil)).Elem()
+}
+
+func (o GetKafkaClientQuotaEnvironmentArrayOutput) ToGetKafkaClientQuotaEnvironmentArrayOutput() GetKafkaClientQuotaEnvironmentArrayOutput {
+	return o
+}
+
+func (o GetKafkaClientQuotaEnvironmentArrayOutput) ToGetKafkaClientQuotaEnvironmentArrayOutputWithContext(ctx context.Context) GetKafkaClientQuotaEnvironmentArrayOutput {
+	return o
+}
+
+func (o GetKafkaClientQuotaEnvironmentArrayOutput) Index(i pulumi.IntInput) GetKafkaClientQuotaEnvironmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClientQuotaEnvironment {
+		return vs[0].([]GetKafkaClientQuotaEnvironment)[vs[1].(int)]
+	}).(GetKafkaClientQuotaEnvironmentOutput)
+}
+
+type GetKafkaClientQuotaKafkaCluster struct {
+	// The ID of the Kafka Client Quota (for example, `cq-abc123`).
+	Id string `pulumi:"id"`
+}
+
+// GetKafkaClientQuotaKafkaClusterInput is an input type that accepts GetKafkaClientQuotaKafkaClusterArgs and GetKafkaClientQuotaKafkaClusterOutput values.
+// You can construct a concrete instance of `GetKafkaClientQuotaKafkaClusterInput` via:
+//
+//	GetKafkaClientQuotaKafkaClusterArgs{...}
+type GetKafkaClientQuotaKafkaClusterInput interface {
+	pulumi.Input
+
+	ToGetKafkaClientQuotaKafkaClusterOutput() GetKafkaClientQuotaKafkaClusterOutput
+	ToGetKafkaClientQuotaKafkaClusterOutputWithContext(context.Context) GetKafkaClientQuotaKafkaClusterOutput
+}
+
+type GetKafkaClientQuotaKafkaClusterArgs struct {
+	// The ID of the Kafka Client Quota (for example, `cq-abc123`).
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetKafkaClientQuotaKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClientQuotaKafkaCluster)(nil)).Elem()
+}
+
+func (i GetKafkaClientQuotaKafkaClusterArgs) ToGetKafkaClientQuotaKafkaClusterOutput() GetKafkaClientQuotaKafkaClusterOutput {
+	return i.ToGetKafkaClientQuotaKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClientQuotaKafkaClusterArgs) ToGetKafkaClientQuotaKafkaClusterOutputWithContext(ctx context.Context) GetKafkaClientQuotaKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClientQuotaKafkaClusterOutput)
+}
+
+// GetKafkaClientQuotaKafkaClusterArrayInput is an input type that accepts GetKafkaClientQuotaKafkaClusterArray and GetKafkaClientQuotaKafkaClusterArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClientQuotaKafkaClusterArrayInput` via:
+//
+//	GetKafkaClientQuotaKafkaClusterArray{ GetKafkaClientQuotaKafkaClusterArgs{...} }
+type GetKafkaClientQuotaKafkaClusterArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClientQuotaKafkaClusterArrayOutput() GetKafkaClientQuotaKafkaClusterArrayOutput
+	ToGetKafkaClientQuotaKafkaClusterArrayOutputWithContext(context.Context) GetKafkaClientQuotaKafkaClusterArrayOutput
+}
+
+type GetKafkaClientQuotaKafkaClusterArray []GetKafkaClientQuotaKafkaClusterInput
+
+func (GetKafkaClientQuotaKafkaClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClientQuotaKafkaCluster)(nil)).Elem()
+}
+
+func (i GetKafkaClientQuotaKafkaClusterArray) ToGetKafkaClientQuotaKafkaClusterArrayOutput() GetKafkaClientQuotaKafkaClusterArrayOutput {
+	return i.ToGetKafkaClientQuotaKafkaClusterArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClientQuotaKafkaClusterArray) ToGetKafkaClientQuotaKafkaClusterArrayOutputWithContext(ctx context.Context) GetKafkaClientQuotaKafkaClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClientQuotaKafkaClusterArrayOutput)
+}
+
+type GetKafkaClientQuotaKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClientQuotaKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClientQuotaKafkaCluster)(nil)).Elem()
+}
+
+func (o GetKafkaClientQuotaKafkaClusterOutput) ToGetKafkaClientQuotaKafkaClusterOutput() GetKafkaClientQuotaKafkaClusterOutput {
+	return o
+}
+
+func (o GetKafkaClientQuotaKafkaClusterOutput) ToGetKafkaClientQuotaKafkaClusterOutputWithContext(ctx context.Context) GetKafkaClientQuotaKafkaClusterOutput {
+	return o
+}
+
+// The ID of the Kafka Client Quota (for example, `cq-abc123`).
+func (o GetKafkaClientQuotaKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClientQuotaKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetKafkaClientQuotaKafkaClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClientQuotaKafkaClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClientQuotaKafkaCluster)(nil)).Elem()
+}
+
+func (o GetKafkaClientQuotaKafkaClusterArrayOutput) ToGetKafkaClientQuotaKafkaClusterArrayOutput() GetKafkaClientQuotaKafkaClusterArrayOutput {
+	return o
+}
+
+func (o GetKafkaClientQuotaKafkaClusterArrayOutput) ToGetKafkaClientQuotaKafkaClusterArrayOutputWithContext(ctx context.Context) GetKafkaClientQuotaKafkaClusterArrayOutput {
+	return o
+}
+
+func (o GetKafkaClientQuotaKafkaClusterArrayOutput) Index(i pulumi.IntInput) GetKafkaClientQuotaKafkaClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClientQuotaKafkaCluster {
+		return vs[0].([]GetKafkaClientQuotaKafkaCluster)[vs[1].(int)]
+	}).(GetKafkaClientQuotaKafkaClusterOutput)
+}
+
+type GetKafkaClientQuotaThroughput struct {
+	// (Required String) The egress throughput limit in bytes per second.
+	EgressByteRate string `pulumi:"egressByteRate"`
+	// (Required String) The ingress throughput limit in bytes per second.
+	IngressByteRate string `pulumi:"ingressByteRate"`
+}
+
+// GetKafkaClientQuotaThroughputInput is an input type that accepts GetKafkaClientQuotaThroughputArgs and GetKafkaClientQuotaThroughputOutput values.
+// You can construct a concrete instance of `GetKafkaClientQuotaThroughputInput` via:
+//
+//	GetKafkaClientQuotaThroughputArgs{...}
+type GetKafkaClientQuotaThroughputInput interface {
+	pulumi.Input
+
+	ToGetKafkaClientQuotaThroughputOutput() GetKafkaClientQuotaThroughputOutput
+	ToGetKafkaClientQuotaThroughputOutputWithContext(context.Context) GetKafkaClientQuotaThroughputOutput
+}
+
+type GetKafkaClientQuotaThroughputArgs struct {
+	// (Required String) The egress throughput limit in bytes per second.
+	EgressByteRate pulumi.StringInput `pulumi:"egressByteRate"`
+	// (Required String) The ingress throughput limit in bytes per second.
+	IngressByteRate pulumi.StringInput `pulumi:"ingressByteRate"`
+}
+
+func (GetKafkaClientQuotaThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClientQuotaThroughput)(nil)).Elem()
+}
+
+func (i GetKafkaClientQuotaThroughputArgs) ToGetKafkaClientQuotaThroughputOutput() GetKafkaClientQuotaThroughputOutput {
+	return i.ToGetKafkaClientQuotaThroughputOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClientQuotaThroughputArgs) ToGetKafkaClientQuotaThroughputOutputWithContext(ctx context.Context) GetKafkaClientQuotaThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClientQuotaThroughputOutput)
+}
+
+// GetKafkaClientQuotaThroughputArrayInput is an input type that accepts GetKafkaClientQuotaThroughputArray and GetKafkaClientQuotaThroughputArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClientQuotaThroughputArrayInput` via:
+//
+//	GetKafkaClientQuotaThroughputArray{ GetKafkaClientQuotaThroughputArgs{...} }
+type GetKafkaClientQuotaThroughputArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClientQuotaThroughputArrayOutput() GetKafkaClientQuotaThroughputArrayOutput
+	ToGetKafkaClientQuotaThroughputArrayOutputWithContext(context.Context) GetKafkaClientQuotaThroughputArrayOutput
+}
+
+type GetKafkaClientQuotaThroughputArray []GetKafkaClientQuotaThroughputInput
+
+func (GetKafkaClientQuotaThroughputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClientQuotaThroughput)(nil)).Elem()
+}
+
+func (i GetKafkaClientQuotaThroughputArray) ToGetKafkaClientQuotaThroughputArrayOutput() GetKafkaClientQuotaThroughputArrayOutput {
+	return i.ToGetKafkaClientQuotaThroughputArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClientQuotaThroughputArray) ToGetKafkaClientQuotaThroughputArrayOutputWithContext(ctx context.Context) GetKafkaClientQuotaThroughputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClientQuotaThroughputArrayOutput)
+}
+
+type GetKafkaClientQuotaThroughputOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClientQuotaThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClientQuotaThroughput)(nil)).Elem()
+}
+
+func (o GetKafkaClientQuotaThroughputOutput) ToGetKafkaClientQuotaThroughputOutput() GetKafkaClientQuotaThroughputOutput {
+	return o
+}
+
+func (o GetKafkaClientQuotaThroughputOutput) ToGetKafkaClientQuotaThroughputOutputWithContext(ctx context.Context) GetKafkaClientQuotaThroughputOutput {
+	return o
+}
+
+// (Required String) The egress throughput limit in bytes per second.
+func (o GetKafkaClientQuotaThroughputOutput) EgressByteRate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClientQuotaThroughput) string { return v.EgressByteRate }).(pulumi.StringOutput)
+}
+
+// (Required String) The ingress throughput limit in bytes per second.
+func (o GetKafkaClientQuotaThroughputOutput) IngressByteRate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClientQuotaThroughput) string { return v.IngressByteRate }).(pulumi.StringOutput)
+}
+
+type GetKafkaClientQuotaThroughputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClientQuotaThroughputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClientQuotaThroughput)(nil)).Elem()
+}
+
+func (o GetKafkaClientQuotaThroughputArrayOutput) ToGetKafkaClientQuotaThroughputArrayOutput() GetKafkaClientQuotaThroughputArrayOutput {
+	return o
+}
+
+func (o GetKafkaClientQuotaThroughputArrayOutput) ToGetKafkaClientQuotaThroughputArrayOutputWithContext(ctx context.Context) GetKafkaClientQuotaThroughputArrayOutput {
+	return o
+}
+
+func (o GetKafkaClientQuotaThroughputArrayOutput) Index(i pulumi.IntInput) GetKafkaClientQuotaThroughputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClientQuotaThroughput {
+		return vs[0].([]GetKafkaClientQuotaThroughput)[vs[1].(int)]
+	}).(GetKafkaClientQuotaThroughputOutput)
+}
+
 type GetKafkaClusterBasic struct {
 }
 
@@ -6791,6 +9109,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyManagedResourceEnvironmentPtrInput)(nil)).Elem(), ApiKeyManagedResourceEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyOwnerInput)(nil)).Elem(), ApiKeyOwnerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyOwnerPtrInput)(nil)).Elem(), ApiKeyOwnerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterPtrInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterCredentialsInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterCredentialsPtrInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkSourceKafkaClusterInput)(nil)).Elem(), ClusterLinkSourceKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkSourceKafkaClusterPtrInput)(nil)).Elem(), ClusterLinkSourceKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkSourceKafkaClusterCredentialsInput)(nil)).Elem(), ClusterLinkSourceKafkaClusterCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkSourceKafkaClusterCredentialsPtrInput)(nil)).Elem(), ClusterLinkSourceKafkaClusterCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEnvironmentInput)(nil)).Elem(), ConnectorEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEnvironmentPtrInput)(nil)).Elem(), ConnectorEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterInput)(nil)).Elem(), ConnectorKafkaClusterArgs{})
@@ -6801,8 +9127,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaAclCredentialsPtrInput)(nil)).Elem(), KafkaAclCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaAclKafkaClusterInput)(nil)).Elem(), KafkaAclKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaAclKafkaClusterPtrInput)(nil)).Elem(), KafkaAclKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClientQuotaEnvironmentInput)(nil)).Elem(), KafkaClientQuotaEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClientQuotaEnvironmentPtrInput)(nil)).Elem(), KafkaClientQuotaEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClientQuotaKafkaClusterInput)(nil)).Elem(), KafkaClientQuotaKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClientQuotaKafkaClusterPtrInput)(nil)).Elem(), KafkaClientQuotaKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClientQuotaThroughputInput)(nil)).Elem(), KafkaClientQuotaThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClientQuotaThroughputPtrInput)(nil)).Elem(), KafkaClientQuotaThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterBasicInput)(nil)).Elem(), KafkaClusterBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterBasicArrayInput)(nil)).Elem(), KafkaClusterBasicArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterConfigCredentialsInput)(nil)).Elem(), KafkaClusterConfigCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterConfigCredentialsPtrInput)(nil)).Elem(), KafkaClusterConfigCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterConfigKafkaClusterInput)(nil)).Elem(), KafkaClusterConfigKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterConfigKafkaClusterPtrInput)(nil)).Elem(), KafkaClusterConfigKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterDedicatedInput)(nil)).Elem(), KafkaClusterDedicatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterDedicatedPtrInput)(nil)).Elem(), KafkaClusterDedicatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterEnvironmentInput)(nil)).Elem(), KafkaClusterEnvironmentArgs{})
@@ -6811,6 +9147,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterNetworkPtrInput)(nil)).Elem(), KafkaClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterStandardInput)(nil)).Elem(), KafkaClusterStandardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterStandardArrayInput)(nil)).Elem(), KafkaClusterStandardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaMirrorTopicClusterLinkInput)(nil)).Elem(), KafkaMirrorTopicClusterLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaMirrorTopicClusterLinkPtrInput)(nil)).Elem(), KafkaMirrorTopicClusterLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaMirrorTopicKafkaClusterInput)(nil)).Elem(), KafkaMirrorTopicKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaMirrorTopicKafkaClusterPtrInput)(nil)).Elem(), KafkaMirrorTopicKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaMirrorTopicKafkaClusterCredentialsInput)(nil)).Elem(), KafkaMirrorTopicKafkaClusterCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaMirrorTopicKafkaClusterCredentialsPtrInput)(nil)).Elem(), KafkaMirrorTopicKafkaClusterCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaMirrorTopicSourceKafkaTopicInput)(nil)).Elem(), KafkaMirrorTopicSourceKafkaTopicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaMirrorTopicSourceKafkaTopicPtrInput)(nil)).Elem(), KafkaMirrorTopicSourceKafkaTopicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaTopicCredentialsInput)(nil)).Elem(), KafkaTopicCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaTopicCredentialsPtrInput)(nil)).Elem(), KafkaTopicCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaTopicKafkaClusterInput)(nil)).Elem(), KafkaTopicKafkaClusterArgs{})
@@ -6850,6 +9194,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessNetworkInput)(nil)).Elem(), PrivateLinkAccessNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessNetworkPtrInput)(nil)).Elem(), PrivateLinkAccessNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolIdentityProviderInput)(nil)).Elem(), GetIdentityPoolIdentityProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaEnvironmentInput)(nil)).Elem(), GetKafkaClientQuotaEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaEnvironmentArrayInput)(nil)).Elem(), GetKafkaClientQuotaEnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaKafkaClusterInput)(nil)).Elem(), GetKafkaClientQuotaKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaKafkaClusterArrayInput)(nil)).Elem(), GetKafkaClientQuotaKafkaClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaThroughputInput)(nil)).Elem(), GetKafkaClientQuotaThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaThroughputArrayInput)(nil)).Elem(), GetKafkaClientQuotaThroughputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterBasicInput)(nil)).Elem(), GetKafkaClusterBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterBasicArrayInput)(nil)).Elem(), GetKafkaClusterBasicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterDedicatedInput)(nil)).Elem(), GetKafkaClusterDedicatedArgs{})
@@ -6898,6 +9248,14 @@ func init() {
 	pulumi.RegisterOutputType(ApiKeyManagedResourceEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ApiKeyOwnerOutput{})
 	pulumi.RegisterOutputType(ApiKeyOwnerPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterOutput{})
+	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterCredentialsOutput{})
+	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLinkSourceKafkaClusterOutput{})
+	pulumi.RegisterOutputType(ClusterLinkSourceKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLinkSourceKafkaClusterCredentialsOutput{})
+	pulumi.RegisterOutputType(ClusterLinkSourceKafkaClusterCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorEnvironmentOutput{})
 	pulumi.RegisterOutputType(ConnectorEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorKafkaClusterOutput{})
@@ -6908,8 +9266,18 @@ func init() {
 	pulumi.RegisterOutputType(KafkaAclCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(KafkaAclKafkaClusterOutput{})
 	pulumi.RegisterOutputType(KafkaAclKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClientQuotaEnvironmentOutput{})
+	pulumi.RegisterOutputType(KafkaClientQuotaEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClientQuotaKafkaClusterOutput{})
+	pulumi.RegisterOutputType(KafkaClientQuotaKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClientQuotaThroughputOutput{})
+	pulumi.RegisterOutputType(KafkaClientQuotaThroughputPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterBasicOutput{})
 	pulumi.RegisterOutputType(KafkaClusterBasicArrayOutput{})
+	pulumi.RegisterOutputType(KafkaClusterConfigCredentialsOutput{})
+	pulumi.RegisterOutputType(KafkaClusterConfigCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterConfigKafkaClusterOutput{})
+	pulumi.RegisterOutputType(KafkaClusterConfigKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterDedicatedOutput{})
 	pulumi.RegisterOutputType(KafkaClusterDedicatedPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterEnvironmentOutput{})
@@ -6918,6 +9286,14 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClusterNetworkPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterStandardOutput{})
 	pulumi.RegisterOutputType(KafkaClusterStandardArrayOutput{})
+	pulumi.RegisterOutputType(KafkaMirrorTopicClusterLinkOutput{})
+	pulumi.RegisterOutputType(KafkaMirrorTopicClusterLinkPtrOutput{})
+	pulumi.RegisterOutputType(KafkaMirrorTopicKafkaClusterOutput{})
+	pulumi.RegisterOutputType(KafkaMirrorTopicKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(KafkaMirrorTopicKafkaClusterCredentialsOutput{})
+	pulumi.RegisterOutputType(KafkaMirrorTopicKafkaClusterCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(KafkaMirrorTopicSourceKafkaTopicOutput{})
+	pulumi.RegisterOutputType(KafkaMirrorTopicSourceKafkaTopicPtrOutput{})
 	pulumi.RegisterOutputType(KafkaTopicCredentialsOutput{})
 	pulumi.RegisterOutputType(KafkaTopicCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(KafkaTopicKafkaClusterOutput{})
@@ -6957,6 +9333,12 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkAccessNetworkOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAccessNetworkPtrOutput{})
 	pulumi.RegisterOutputType(GetIdentityPoolIdentityProviderOutput{})
+	pulumi.RegisterOutputType(GetKafkaClientQuotaEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetKafkaClientQuotaEnvironmentArrayOutput{})
+	pulumi.RegisterOutputType(GetKafkaClientQuotaKafkaClusterOutput{})
+	pulumi.RegisterOutputType(GetKafkaClientQuotaKafkaClusterArrayOutput{})
+	pulumi.RegisterOutputType(GetKafkaClientQuotaThroughputOutput{})
+	pulumi.RegisterOutputType(GetKafkaClientQuotaThroughputArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterBasicOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterBasicArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterDedicatedOutput{})
