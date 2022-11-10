@@ -97,7 +97,6 @@ func Provider() tfbridge.ProviderInfo {
 			"confluent_ksql_cluster":               {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KsqlCluster")},
 			"confluent_stream_governance_cluster":  {Tok: tfbridge.MakeResource(mainPkg, mainMod, "StreamGovernanceCluster")},
 			"confluent_transit_gateway_attachment": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TransitGatewayAttachment")},
-			"confluent_stream_governance_region":   {Tok: tfbridge.MakeResource(mainPkg, mainMod, "StreamGovernanceRegion")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"confluent_environment":                {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getEnvironment")},
