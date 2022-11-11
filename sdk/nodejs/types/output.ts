@@ -45,7 +45,7 @@ export interface ApiKeyOwner {
 
 export interface ClusterLinkDestinationKafkaCluster {
     /**
-     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: string;
     credentials?: outputs.ClusterLinkDestinationKafkaClusterCredentials;
@@ -72,7 +72,7 @@ export interface ClusterLinkDestinationKafkaClusterCredentials {
 
 export interface ClusterLinkSourceKafkaCluster {
     /**
-     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: string;
     credentials?: outputs.ClusterLinkSourceKafkaClusterCredentials;
@@ -215,11 +215,15 @@ export interface GetKsqlClusterKafkaCluster {
 
 export interface GetNetworkAw {
     /**
-     * (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+     * (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+     */
+    account: string;
+    /**
+     * (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      */
     privateLinkEndpointService: string;
     /**
-     * (Required String) The AWS VPC ID for the network.
+     * (Required String) The Confluent Cloud VPC ID.
      */
     vpc: string;
 }
@@ -240,15 +244,15 @@ export interface GetNetworkEnvironment {
 
 export interface GetNetworkGcp {
     /**
-     * (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
      */
     privateServiceConnectServiceAttachments: {[key: string]: string};
     /**
-     * (Required String) The GCP project ID.
+     * (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
      */
     project: string;
     /**
-     * (Required String) The GCP VPC network name.
+     * (Required String) The network name of the Confluent Cloud VPC.
      */
     vpcNetwork: string;
 }
@@ -347,6 +351,57 @@ export interface GetPrivateLinkAccessGcp {
 export interface GetPrivateLinkAccessNetwork {
     /**
      * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetStreatGovernanceClusterEnvironment {
+    /**
+     * The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetStreatGovernanceClusterRegion {
+    /**
+     * The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetTransitGatewayAttachmentAw {
+    /**
+     * (Required String) Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+     */
+    enableCustomRoutes: boolean;
+    /**
+     * (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
+     */
+    ramResourceShareArn: string;
+    /**
+     * (Required List of String) List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+     */
+    routes: string[];
+    /**
+     * (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
+     */
+    transitGatewayAttachmentId: string;
+    /**
+     * (Required String) The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
+     */
+    transitGatewayId: string;
+}
+
+export interface GetTransitGatewayAttachmentEnvironment {
+    /**
+     * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetTransitGatewayAttachmentNetwork {
+    /**
+     * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
      */
     id: string;
 }
@@ -528,11 +583,15 @@ export interface KsqlClusterKafkaCluster {
 
 export interface NetworkAw {
     /**
-     * (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+     * (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+     */
+    account: string;
+    /**
+     * (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      */
     privateLinkEndpointService: string;
     /**
-     * (Required String) The AWS VPC ID for the network.
+     * (Required String) The Confluent Cloud VPC ID.
      */
     vpc: string;
 }
@@ -553,15 +612,15 @@ export interface NetworkEnvironment {
 
 export interface NetworkGcp {
     /**
-     * (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
      */
     privateServiceConnectServiceAttachments: {[key: string]: string};
     /**
-     * (Required String) The GCP project ID.
+     * (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
      */
     project: string;
     /**
-     * (Required String) The GCP VPC network name.
+     * (Required String) The network name of the Confluent Cloud VPC.
      */
     vpcNetwork: string;
 }
@@ -660,6 +719,57 @@ export interface PrivateLinkAccessGcp {
 export interface PrivateLinkAccessNetwork {
     /**
      * The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+     */
+    id: string;
+}
+
+export interface StreamGovernanceClusterEnvironment {
+    /**
+     * The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     */
+    id: string;
+}
+
+export interface StreamGovernanceClusterRegion {
+    /**
+     * The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     */
+    id: string;
+}
+
+export interface TransitGatewayAttachmentAws {
+    /**
+     * Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+     */
+    enableCustomRoutes?: boolean;
+    /**
+     * The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
+     */
+    ramResourceShareArn: string;
+    /**
+     * List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+     */
+    routes: string[];
+    /**
+     * (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
+     */
+    transitGatewayAttachmentId: string;
+    /**
+     * The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
+     */
+    transitGatewayId: string;
+}
+
+export interface TransitGatewayAttachmentEnvironment {
+    /**
+     * The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+     */
+    id: string;
+}
+
+export interface TransitGatewayAttachmentNetwork {
+    /**
+     * The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
      */
     id: string;
 }

@@ -80,14 +80,14 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
         return this.operation;
     }
     /**
-     * The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+     * The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
      * 
      */
     @Export(name="patternType", type=String.class, parameters={})
     private Output<String> patternType;
 
     /**
-     * @return The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+     * @return The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
      * 
      */
     public Output<String> patternType() {

@@ -44,11 +44,11 @@ export class Connector extends pulumi.CustomResource {
     }
 
     /**
-     * The custom connector _nonsensitive_ configuration settings to set:
+     * Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      */
     public readonly configNonsensitive!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The custom connector _sensitive_ configuration settings to set:
+     * Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      */
     public readonly configSensitive!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -108,11 +108,11 @@ export class Connector extends pulumi.CustomResource {
  */
 export interface ConnectorState {
     /**
-     * The custom connector _nonsensitive_ configuration settings to set:
+     * Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      */
     configNonsensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The custom connector _sensitive_ configuration settings to set:
+     * Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      */
     configSensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -131,11 +131,11 @@ export interface ConnectorState {
  */
 export interface ConnectorArgs {
     /**
-     * The custom connector _nonsensitive_ configuration settings to set:
+     * Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      */
     configNonsensitive: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The custom connector _sensitive_ configuration settings to set:
+     * Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      */
     configSensitive?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

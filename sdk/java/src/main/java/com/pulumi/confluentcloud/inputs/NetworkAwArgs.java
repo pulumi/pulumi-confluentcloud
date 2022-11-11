@@ -16,14 +16,29 @@ public final class NetworkAwArgs extends com.pulumi.resources.ResourceArgs {
     public static final NetworkAwArgs Empty = new NetworkAwArgs();
 
     /**
-     * (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+     * (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+     * 
+     */
+    @Import(name="account")
+    private @Nullable Output<String> account;
+
+    /**
+     * @return (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+     * 
+     */
+    public Optional<Output<String>> account() {
+        return Optional.ofNullable(this.account);
+    }
+
+    /**
+     * (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      * 
      */
     @Import(name="privateLinkEndpointService")
     private @Nullable Output<String> privateLinkEndpointService;
 
     /**
-     * @return (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+     * @return (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      * 
      */
     public Optional<Output<String>> privateLinkEndpointService() {
@@ -31,14 +46,14 @@ public final class NetworkAwArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required String) The AWS VPC ID for the network.
+     * (Required String) The Confluent Cloud VPC ID.
      * 
      */
     @Import(name="vpc")
     private @Nullable Output<String> vpc;
 
     /**
-     * @return (Required String) The AWS VPC ID for the network.
+     * @return (Required String) The Confluent Cloud VPC ID.
      * 
      */
     public Optional<Output<String>> vpc() {
@@ -48,6 +63,7 @@ public final class NetworkAwArgs extends com.pulumi.resources.ResourceArgs {
     private NetworkAwArgs() {}
 
     private NetworkAwArgs(NetworkAwArgs $) {
+        this.account = $.account;
         this.privateLinkEndpointService = $.privateLinkEndpointService;
         this.vpc = $.vpc;
     }
@@ -71,7 +87,28 @@ public final class NetworkAwArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateLinkEndpointService (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+         * @param account (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder account(@Nullable Output<String> account) {
+            $.account = account;
+            return this;
+        }
+
+        /**
+         * @param account (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder account(String account) {
+            return account(Output.of(account));
+        }
+
+        /**
+         * @param privateLinkEndpointService (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
          * 
          * @return builder
          * 
@@ -82,7 +119,7 @@ public final class NetworkAwArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateLinkEndpointService (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+         * @param privateLinkEndpointService (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
          * 
          * @return builder
          * 
@@ -92,7 +129,7 @@ public final class NetworkAwArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpc (Required String) The AWS VPC ID for the network.
+         * @param vpc (Required String) The Confluent Cloud VPC ID.
          * 
          * @return builder
          * 
@@ -103,7 +140,7 @@ public final class NetworkAwArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpc (Required String) The AWS VPC ID for the network.
+         * @param vpc (Required String) The Confluent Cloud VPC ID.
          * 
          * @return builder
          * 

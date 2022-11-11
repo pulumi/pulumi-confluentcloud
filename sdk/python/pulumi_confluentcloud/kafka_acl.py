@@ -30,7 +30,7 @@ class KafkaAclArgs:
         The set of arguments for constructing a KafkaAcl resource.
         :param pulumi.Input[str] host: The host for the ACL. Should be set to `*` for Confluent Cloud.
         :param pulumi.Input[str] operation: The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
-        :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+        :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         :param pulumi.Input[str] permission: The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
         :param pulumi.Input[str] principal: The principal for the ACL.
         :param pulumi.Input[str] resource_name: The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
@@ -88,7 +88,7 @@ class KafkaAclArgs:
     @pulumi.getter(name="patternType")
     def pattern_type(self) -> pulumi.Input[str]:
         """
-        The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+        The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         """
         return pulumi.get(self, "pattern_type")
 
@@ -187,7 +187,7 @@ class _KafkaAclState:
         :param pulumi.Input['KafkaAclCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] host: The host for the ACL. Should be set to `*` for Confluent Cloud.
         :param pulumi.Input[str] operation: The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
-        :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+        :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         :param pulumi.Input[str] permission: The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
         :param pulumi.Input[str] principal: The principal for the ACL.
         :param pulumi.Input[str] resource_name: The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
@@ -264,7 +264,7 @@ class _KafkaAclState:
     @pulumi.getter(name="patternType")
     def pattern_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+        The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         """
         return pulumi.get(self, "pattern_type")
 
@@ -365,7 +365,7 @@ class KafkaAcl(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KafkaAclCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] host: The host for the ACL. Should be set to `*` for Confluent Cloud.
         :param pulumi.Input[str] operation: The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
-        :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+        :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         :param pulumi.Input[str] permission: The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
         :param pulumi.Input[str] principal: The principal for the ACL.
         :param pulumi.Input[str] resource_name_: The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
@@ -481,7 +481,7 @@ class KafkaAcl(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KafkaAclCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] host: The host for the ACL. Should be set to `*` for Confluent Cloud.
         :param pulumi.Input[str] operation: The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
-        :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+        :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         :param pulumi.Input[str] permission: The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
         :param pulumi.Input[str] principal: The principal for the ACL.
         :param pulumi.Input[str] resource_name_: The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
@@ -537,7 +537,7 @@ class KafkaAcl(pulumi.CustomResource):
     @pulumi.getter(name="patternType")
     def pattern_type(self) -> pulumi.Output[str]:
         """
-        The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+        The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         """
         return pulumi.get(self, "pattern_type")
 

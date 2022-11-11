@@ -55,6 +55,11 @@ __all__ = [
     'PrivateLinkAccessEnvironmentArgs',
     'PrivateLinkAccessGcpArgs',
     'PrivateLinkAccessNetworkArgs',
+    'StreamGovernanceClusterEnvironmentArgs',
+    'StreamGovernanceClusterRegionArgs',
+    'TransitGatewayAttachmentAwsArgs',
+    'TransitGatewayAttachmentEnvironmentArgs',
+    'TransitGatewayAttachmentNetworkArgs',
     'GetIdentityPoolIdentityProviderArgs',
     'GetKafkaClusterBasicArgs',
     'GetKafkaClusterDedicatedArgs',
@@ -69,6 +74,8 @@ __all__ = [
     'GetNetworkGcpArgs',
     'GetPeeringEnvironmentArgs',
     'GetPrivateLinkAccessEnvironmentArgs',
+    'GetStreatGovernanceClusterEnvironmentArgs',
+    'GetTransitGatewayAttachmentEnvironmentArgs',
 ]
 
 @pulumi.input_type
@@ -217,7 +224,7 @@ class ClusterLinkDestinationKafkaClusterArgs:
                  rest_endpoint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
-        :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "id", id)
@@ -244,7 +251,7 @@ class ClusterLinkDestinationKafkaClusterArgs:
     @pulumi.getter(name="bootstrapEndpoint")
     def bootstrap_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
@@ -320,7 +327,7 @@ class ClusterLinkSourceKafkaClusterArgs:
                  rest_endpoint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
-        :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "id", id)
@@ -347,7 +354,7 @@ class ClusterLinkSourceKafkaClusterArgs:
     @pulumi.getter(name="bootstrapEndpoint")
     def bootstrap_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
@@ -1032,22 +1039,38 @@ class KsqlClusterKafkaClusterArgs:
 @pulumi.input_type
 class NetworkAwArgs:
     def __init__(__self__, *,
+                 account: Optional[pulumi.Input[str]] = None,
                  private_link_endpoint_service: Optional[pulumi.Input[str]] = None,
                  vpc: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] private_link_endpoint_service: (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
-        :param pulumi.Input[str] vpc: (Required String) The AWS VPC ID for the network.
+        :param pulumi.Input[str] account: (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+        :param pulumi.Input[str] private_link_endpoint_service: (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
+        :param pulumi.Input[str] vpc: (Required String) The Confluent Cloud VPC ID.
         """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
         if private_link_endpoint_service is not None:
             pulumi.set(__self__, "private_link_endpoint_service", private_link_endpoint_service)
         if vpc is not None:
             pulumi.set(__self__, "vpc", vpc)
 
     @property
+    @pulumi.getter
+    def account(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account", value)
+
+    @property
     @pulumi.getter(name="privateLinkEndpointService")
     def private_link_endpoint_service(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+        (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
         """
         return pulumi.get(self, "private_link_endpoint_service")
 
@@ -1059,7 +1082,7 @@ class NetworkAwArgs:
     @pulumi.getter
     def vpc(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required String) The AWS VPC ID for the network.
+        (Required String) The Confluent Cloud VPC ID.
         """
         return pulumi.get(self, "vpc")
 
@@ -1120,9 +1143,9 @@ class NetworkGcpArgs:
                  project: Optional[pulumi.Input[str]] = None,
                  vpc_network: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] private_service_connect_service_attachments: (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
-        :param pulumi.Input[str] project: (Required String) The GCP project ID.
-        :param pulumi.Input[str] vpc_network: (Required String) The GCP VPC network name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] private_service_connect_service_attachments: (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+        :param pulumi.Input[str] project: (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
+        :param pulumi.Input[str] vpc_network: (Required String) The network name of the Confluent Cloud VPC.
         """
         if private_service_connect_service_attachments is not None:
             pulumi.set(__self__, "private_service_connect_service_attachments", private_service_connect_service_attachments)
@@ -1135,7 +1158,7 @@ class NetworkGcpArgs:
     @pulumi.getter(name="privateServiceConnectServiceAttachments")
     def private_service_connect_service_attachments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+        (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
         """
         return pulumi.get(self, "private_service_connect_service_attachments")
 
@@ -1147,7 +1170,7 @@ class NetworkGcpArgs:
     @pulumi.getter
     def project(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required String) The GCP project ID.
+        (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
         """
         return pulumi.get(self, "project")
 
@@ -1159,7 +1182,7 @@ class NetworkGcpArgs:
     @pulumi.getter(name="vpcNetwork")
     def vpc_network(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required String) The GCP VPC network name.
+        (Required String) The network name of the Confluent Cloud VPC.
         """
         return pulumi.get(self, "vpc_network")
 
@@ -1495,6 +1518,179 @@ class PrivateLinkAccessNetworkArgs:
 
 
 @pulumi.input_type
+class StreamGovernanceClusterEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class StreamGovernanceClusterRegionArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class TransitGatewayAttachmentAwsArgs:
+    def __init__(__self__, *,
+                 ram_resource_share_arn: pulumi.Input[str],
+                 transit_gateway_id: pulumi.Input[str],
+                 enable_custom_routes: Optional[pulumi.Input[bool]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] ram_resource_share_arn: The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
+        :param pulumi.Input[str] transit_gateway_id: The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
+        :param pulumi.Input[bool] enable_custom_routes: Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] routes: List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+        :param pulumi.Input[str] transit_gateway_attachment_id: (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
+        """
+        pulumi.set(__self__, "ram_resource_share_arn", ram_resource_share_arn)
+        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if enable_custom_routes is not None:
+            pulumi.set(__self__, "enable_custom_routes", enable_custom_routes)
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+        if transit_gateway_attachment_id is not None:
+            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+
+    @property
+    @pulumi.getter(name="ramResourceShareArn")
+    def ram_resource_share_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
+        """
+        return pulumi.get(self, "ram_resource_share_arn")
+
+    @ram_resource_share_arn.setter
+    def ram_resource_share_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ram_resource_share_arn", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
+        """
+        return pulumi.get(self, "transit_gateway_id")
+
+    @transit_gateway_id.setter
+    def transit_gateway_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "transit_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="enableCustomRoutes")
+    def enable_custom_routes(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_custom_routes")
+
+    @enable_custom_routes.setter
+    def enable_custom_routes(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_custom_routes", value)
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+        """
+        return pulumi.get(self, "routes")
+
+    @routes.setter
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "routes", value)
+
+    @property
+    @pulumi.getter(name="transitGatewayAttachmentId")
+    def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_id")
+
+    @transit_gateway_attachment_id.setter
+    def transit_gateway_attachment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transit_gateway_attachment_id", value)
+
+
+@pulumi.input_type
+class TransitGatewayAttachmentEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class TransitGatewayAttachmentNetworkArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class GetIdentityPoolIdentityProviderArgs:
     def __init__(__self__, *,
                  id: str):
@@ -1671,20 +1867,35 @@ class GetKsqlClusterEnvironmentArgs:
 @pulumi.input_type
 class GetNetworkAwArgs:
     def __init__(__self__, *,
+                 account: str,
                  private_link_endpoint_service: str,
                  vpc: str):
         """
-        :param str private_link_endpoint_service: (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
-        :param str vpc: (Required String) The AWS VPC ID for the network.
+        :param str account: (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+        :param str private_link_endpoint_service: (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
+        :param str vpc: (Required String) The Confluent Cloud VPC ID.
         """
+        pulumi.set(__self__, "account", account)
         pulumi.set(__self__, "private_link_endpoint_service", private_link_endpoint_service)
         pulumi.set(__self__, "vpc", vpc)
+
+    @property
+    @pulumi.getter
+    def account(self) -> str:
+        """
+        (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: str):
+        pulumi.set(self, "account", value)
 
     @property
     @pulumi.getter(name="privateLinkEndpointService")
     def private_link_endpoint_service(self) -> str:
         """
-        (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+        (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
         """
         return pulumi.get(self, "private_link_endpoint_service")
 
@@ -1696,7 +1907,7 @@ class GetNetworkAwArgs:
     @pulumi.getter
     def vpc(self) -> str:
         """
-        (Required String) The AWS VPC ID for the network.
+        (Required String) The Confluent Cloud VPC ID.
         """
         return pulumi.get(self, "vpc")
 
@@ -1756,9 +1967,9 @@ class GetNetworkGcpArgs:
                  project: str,
                  vpc_network: str):
         """
-        :param Mapping[str, str] private_service_connect_service_attachments: (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
-        :param str project: (Required String) The GCP project ID.
-        :param str vpc_network: (Required String) The GCP VPC network name.
+        :param Mapping[str, str] private_service_connect_service_attachments: (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+        :param str project: (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
+        :param str vpc_network: (Required String) The network name of the Confluent Cloud VPC.
         """
         pulumi.set(__self__, "private_service_connect_service_attachments", private_service_connect_service_attachments)
         pulumi.set(__self__, "project", project)
@@ -1768,7 +1979,7 @@ class GetNetworkGcpArgs:
     @pulumi.getter(name="privateServiceConnectServiceAttachments")
     def private_service_connect_service_attachments(self) -> Mapping[str, str]:
         """
-        (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+        (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
         """
         return pulumi.get(self, "private_service_connect_service_attachments")
 
@@ -1780,7 +1991,7 @@ class GetNetworkGcpArgs:
     @pulumi.getter
     def project(self) -> str:
         """
-        (Required String) The GCP project ID.
+        (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
         """
         return pulumi.get(self, "project")
 
@@ -1792,7 +2003,7 @@ class GetNetworkGcpArgs:
     @pulumi.getter(name="vpcNetwork")
     def vpc_network(self) -> str:
         """
-        (Required String) The GCP VPC network name.
+        (Required String) The network name of the Confluent Cloud VPC.
         """
         return pulumi.get(self, "vpc_network")
 
@@ -1837,6 +2048,50 @@ class GetPrivateLinkAccessEnvironmentArgs:
     def id(self) -> str:
         """
         The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetStreatGovernanceClusterEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetTransitGatewayAttachmentEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
         """
         return pulumi.get(self, "id")
 

@@ -45,7 +45,7 @@ export interface ApiKeyOwner {
 
 export interface ClusterLinkDestinationKafkaCluster {
     /**
-     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: pulumi.Input<string>;
     credentials?: pulumi.Input<inputs.ClusterLinkDestinationKafkaClusterCredentials>;
@@ -72,7 +72,7 @@ export interface ClusterLinkDestinationKafkaClusterCredentials {
 
 export interface ClusterLinkSourceKafkaCluster {
     /**
-     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: pulumi.Input<string>;
     credentials?: pulumi.Input<inputs.ClusterLinkSourceKafkaClusterCredentials>;
@@ -167,21 +167,10 @@ export interface GetKafkaClusterEnvironmentArgs {
     id: pulumi.Input<string>;
 }
 
-export interface GetKafkaClusterStandardArgs {
-}
-
 export interface GetKafkaClusterStandard {
 }
 
-export interface GetKafkaTopicCredentials {
-    /**
-     * The Kafka API Key.
-     */
-    key: string;
-    /**
-     * The Kafka API Secret.
-     */
-    secret: string;
+export interface GetKafkaClusterStandardArgs {
 }
 
 export interface GetKafkaTopicCredentialsArgs {
@@ -195,11 +184,15 @@ export interface GetKafkaTopicCredentialsArgs {
     secret: pulumi.Input<string>;
 }
 
-export interface GetKafkaTopicKafkaCluster {
+export interface GetKafkaTopicCredentials {
     /**
-     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     * The Kafka API Key.
      */
-    id: string;
+    key: string;
+    /**
+     * The Kafka API Secret.
+     */
+    secret: string;
 }
 
 export interface GetKafkaTopicKafkaClusterArgs {
@@ -209,11 +202,11 @@ export interface GetKafkaTopicKafkaClusterArgs {
     id: pulumi.Input<string>;
 }
 
-export interface GetKsqlClusterEnvironmentArgs {
+export interface GetKafkaTopicKafkaCluster {
     /**
-     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
      */
-    id: pulumi.Input<string>;
+    id: string;
 }
 
 export interface GetKsqlClusterEnvironment {
@@ -223,24 +216,39 @@ export interface GetKsqlClusterEnvironment {
     id: string;
 }
 
+export interface GetKsqlClusterEnvironmentArgs {
+    /**
+     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface GetNetworkAw {
     /**
-     * (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+     * (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+     */
+    account?: string;
+    /**
+     * (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      */
     privateLinkEndpointService?: string;
     /**
-     * (Required String) The AWS VPC ID for the network.
+     * (Required String) The Confluent Cloud VPC ID.
      */
     vpc?: string;
 }
 
 export interface GetNetworkAwArgs {
     /**
-     * (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+     * (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+     */
+    account?: pulumi.Input<string>;
+    /**
+     * (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      */
     privateLinkEndpointService?: pulumi.Input<string>;
     /**
-     * (Required String) The AWS VPC ID for the network.
+     * (Required String) The Confluent Cloud VPC ID.
      */
     vpc?: pulumi.Input<string>;
 }
@@ -275,30 +283,30 @@ export interface GetNetworkEnvironmentArgs {
 
 export interface GetNetworkGcp {
     /**
-     * (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
      */
     privateServiceConnectServiceAttachments?: {[key: string]: string};
     /**
-     * (Required String) The GCP project ID.
+     * (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
      */
     project?: string;
     /**
-     * (Required String) The GCP VPC network name.
+     * (Required String) The network name of the Confluent Cloud VPC.
      */
     vpcNetwork?: string;
 }
 
 export interface GetNetworkGcpArgs {
     /**
-     * (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
      */
     privateServiceConnectServiceAttachments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * (Required String) The GCP project ID.
+     * (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
      */
     project?: pulumi.Input<string>;
     /**
-     * (Required String) The GCP VPC network name.
+     * (Required String) The network name of the Confluent Cloud VPC.
      */
     vpcNetwork?: pulumi.Input<string>;
 }
@@ -329,6 +337,34 @@ export interface GetPrivateLinkAccessEnvironmentArgs {
      * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
      */
     id: pulumi.Input<string>;
+}
+
+export interface GetStreatGovernanceClusterEnvironment {
+    /**
+     * The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetStreatGovernanceClusterEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetTransitGatewayAttachmentEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetTransitGatewayAttachmentEnvironment {
+    /**
+     * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+     */
+    id: string;
 }
 
 export interface IdentityPoolIdentityProvider {
@@ -508,11 +544,15 @@ export interface KsqlClusterKafkaCluster {
 
 export interface NetworkAw {
     /**
-     * (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+     * (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+     */
+    account?: pulumi.Input<string>;
+    /**
+     * (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      */
     privateLinkEndpointService?: pulumi.Input<string>;
     /**
-     * (Required String) The AWS VPC ID for the network.
+     * (Required String) The Confluent Cloud VPC ID.
      */
     vpc?: pulumi.Input<string>;
 }
@@ -533,15 +573,15 @@ export interface NetworkEnvironment {
 
 export interface NetworkGcp {
     /**
-     * (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
      */
     privateServiceConnectServiceAttachments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * (Required String) The GCP project ID.
+     * (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
      */
     project?: pulumi.Input<string>;
     /**
-     * (Required String) The GCP VPC network name.
+     * (Required String) The network name of the Confluent Cloud VPC.
      */
     vpcNetwork?: pulumi.Input<string>;
 }
@@ -640,6 +680,57 @@ export interface PrivateLinkAccessGcp {
 export interface PrivateLinkAccessNetwork {
     /**
      * The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface StreamGovernanceClusterEnvironment {
+    /**
+     * The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface StreamGovernanceClusterRegion {
+    /**
+     * The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface TransitGatewayAttachmentAws {
+    /**
+     * Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+     */
+    enableCustomRoutes?: pulumi.Input<boolean>;
+    /**
+     * The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
+     */
+    ramResourceShareArn: pulumi.Input<string>;
+    /**
+     * List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+     */
+    routes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
+     */
+    transitGatewayAttachmentId?: pulumi.Input<string>;
+    /**
+     * The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
+     */
+    transitGatewayId: pulumi.Input<string>;
+}
+
+export interface TransitGatewayAttachmentEnvironment {
+    /**
+     * The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface TransitGatewayAttachmentNetwork {
+    /**
+     * The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
      */
     id: pulumi.Input<string>;
 }

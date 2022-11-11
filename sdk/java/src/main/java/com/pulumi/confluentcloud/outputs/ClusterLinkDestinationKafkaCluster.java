@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterLinkDestinationKafkaCluster {
     /**
-     * @return The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * @return The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      * 
      */
     private @Nullable String bootstrapEndpoint;
@@ -31,7 +31,7 @@ public final class ClusterLinkDestinationKafkaCluster {
 
     private ClusterLinkDestinationKafkaCluster() {}
     /**
-     * @return The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * @return The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      * 
      */
     public Optional<String> bootstrapEndpoint() {

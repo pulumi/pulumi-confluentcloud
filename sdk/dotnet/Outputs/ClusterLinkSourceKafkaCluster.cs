@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class ClusterLinkSourceKafkaCluster
     {
         /// <summary>
-        /// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        /// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         /// </summary>
         public readonly string? BootstrapEndpoint;
         public readonly Outputs.ClusterLinkSourceKafkaClusterCredentials? Credentials;

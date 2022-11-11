@@ -22,6 +22,9 @@ from .get_peering import *
 from .get_private_link_access import *
 from .get_role_binding import *
 from .get_service_account import *
+from .get_stream_governance_region import *
+from .get_streat_governance_cluster import *
+from .get_transit_gateway_attachment import *
 from .get_user import *
 from .identity_pool import *
 from .identity_provider import *
@@ -38,6 +41,8 @@ from .private_link_access import *
 from .provider import *
 from .role_binding import *
 from .service_account import *
+from .stream_governance_cluster import *
+from .transit_gateway_attachment import *
 from ._inputs import *
 from . import outputs
 
@@ -193,6 +198,22 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/serviceAccount:ServiceAccount": "ServiceAccount"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/streamGovernanceCluster",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/streamGovernanceCluster:StreamGovernanceCluster": "StreamGovernanceCluster"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/transitGatewayAttachment",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment": "TransitGatewayAttachment"
   }
  }
 ]

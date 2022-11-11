@@ -14,15 +14,15 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetNetworkGcpResult
     {
         /// <summary>
-        /// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+        /// (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
         /// </summary>
         public readonly ImmutableDictionary<string, string> PrivateServiceConnectServiceAttachments;
         /// <summary>
-        /// (Required String) The GCP project ID.
+        /// (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
         /// </summary>
         public readonly string Project;
         /// <summary>
-        /// (Required String) The GCP VPC network name.
+        /// (Required String) The network name of the Confluent Cloud VPC.
         /// </summary>
         public readonly string VpcNetwork;
 

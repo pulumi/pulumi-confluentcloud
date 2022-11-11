@@ -30,28 +30,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="confluentcloud:index/connector:Connector")
 public class Connector extends com.pulumi.resources.CustomResource {
     /**
-     * The custom connector _nonsensitive_ configuration settings to set:
+     * Block for custom *nonsensitive* configuration properties that are *not* labelled with &#34;Type: password&#34; under &#34;Configuration Properties&#34; section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      * 
      */
     @Export(name="configNonsensitive", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> configNonsensitive;
 
     /**
-     * @return The custom connector _nonsensitive_ configuration settings to set:
+     * @return Block for custom *nonsensitive* configuration properties that are *not* labelled with &#34;Type: password&#34; under &#34;Configuration Properties&#34; section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      * 
      */
     public Output<Map<String,String>> configNonsensitive() {
         return this.configNonsensitive;
     }
     /**
-     * The custom connector _sensitive_ configuration settings to set:
+     * Block for custom *sensitive* configuration properties that are labelled with &#34;Type: password&#34; under &#34;Configuration Properties&#34; section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      * 
      */
     @Export(name="configSensitive", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> configSensitive;
 
     /**
-     * @return The custom connector _sensitive_ configuration settings to set:
+     * @return Block for custom *sensitive* configuration properties that are labelled with &#34;Type: password&#34; under &#34;Configuration Properties&#34; section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      * 
      */
     public Output<Map<String,String>> configSensitive() {

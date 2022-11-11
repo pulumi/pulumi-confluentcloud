@@ -11,38 +11,38 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkGcp {
     /**
-     * @return (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * @return (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
      * 
      */
     private Map<String,String> privateServiceConnectServiceAttachments;
     /**
-     * @return (Required String) The GCP project ID.
+     * @return (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
      * 
      */
     private String project;
     /**
-     * @return (Required String) The GCP VPC network name.
+     * @return (Required String) The network name of the Confluent Cloud VPC.
      * 
      */
     private String vpcNetwork;
 
     private GetNetworkGcp() {}
     /**
-     * @return (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * @return (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
      * 
      */
     public Map<String,String> privateServiceConnectServiceAttachments() {
         return this.privateServiceConnectServiceAttachments;
     }
     /**
-     * @return (Required String) The GCP project ID.
+     * @return (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
      * 
      */
     public String project() {
         return this.project;
     }
     /**
-     * @return (Required String) The GCP VPC network name.
+     * @return (Required String) The network name of the Confluent Cloud VPC.
      * 
      */
     public String vpcNetwork() {

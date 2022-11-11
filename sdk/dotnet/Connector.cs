@@ -22,13 +22,13 @@ namespace Pulumi.ConfluentCloud
     public partial class Connector : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The custom connector _nonsensitive_ configuration settings to set:
+        /// Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         /// </summary>
         [Output("configNonsensitive")]
         public Output<ImmutableDictionary<string, string>> ConfigNonsensitive { get; private set; } = null!;
 
         /// <summary>
-        /// The custom connector _sensitive_ configuration settings to set:
+        /// Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         /// </summary>
         [Output("configSensitive")]
         public Output<ImmutableDictionary<string, string>> ConfigSensitive { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.ConfluentCloud
         private InputMap<string>? _configNonsensitive;
 
         /// <summary>
-        /// The custom connector _nonsensitive_ configuration settings to set:
+        /// Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         /// </summary>
         public InputMap<string> ConfigNonsensitive
         {
@@ -114,7 +114,7 @@ namespace Pulumi.ConfluentCloud
         private InputMap<string>? _configSensitive;
 
         /// <summary>
-        /// The custom connector _sensitive_ configuration settings to set:
+        /// Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         /// </summary>
         public InputMap<string> ConfigSensitive
         {
@@ -153,7 +153,7 @@ namespace Pulumi.ConfluentCloud
         private InputMap<string>? _configNonsensitive;
 
         /// <summary>
-        /// The custom connector _nonsensitive_ configuration settings to set:
+        /// Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         /// </summary>
         public InputMap<string> ConfigNonsensitive
         {
@@ -165,7 +165,7 @@ namespace Pulumi.ConfluentCloud
         private InputMap<string>? _configSensitive;
 
         /// <summary>
-        /// The custom connector _sensitive_ configuration settings to set:
+        /// Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         /// </summary>
         public InputMap<string> ConfigSensitive
         {

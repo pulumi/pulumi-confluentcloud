@@ -10,26 +10,38 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkAw {
     /**
-     * @return (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+     * @return (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+     * 
+     */
+    private String account;
+    /**
+     * @return (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      * 
      */
     private String privateLinkEndpointService;
     /**
-     * @return (Required String) The AWS VPC ID for the network.
+     * @return (Required String) The Confluent Cloud VPC ID.
      * 
      */
     private String vpc;
 
     private GetNetworkAw() {}
     /**
-     * @return (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+     * @return (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+     * 
+     */
+    public String account() {
+        return this.account;
+    }
+    /**
+     * @return (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      * 
      */
     public String privateLinkEndpointService() {
         return this.privateLinkEndpointService;
     }
     /**
-     * @return (Required String) The AWS VPC ID for the network.
+     * @return (Required String) The Confluent Cloud VPC ID.
      * 
      */
     public String vpc() {
@@ -45,15 +57,22 @@ public final class GetNetworkAw {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String account;
         private String privateLinkEndpointService;
         private String vpc;
         public Builder() {}
         public Builder(GetNetworkAw defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.account = defaults.account;
     	      this.privateLinkEndpointService = defaults.privateLinkEndpointService;
     	      this.vpc = defaults.vpc;
         }
 
+        @CustomType.Setter
+        public Builder account(String account) {
+            this.account = Objects.requireNonNull(account);
+            return this;
+        }
         @CustomType.Setter
         public Builder privateLinkEndpointService(String privateLinkEndpointService) {
             this.privateLinkEndpointService = Objects.requireNonNull(privateLinkEndpointService);
@@ -66,6 +85,7 @@ public final class GetNetworkAw {
         }
         public GetNetworkAw build() {
             final var o = new GetNetworkAw();
+            o.account = account;
             o.privateLinkEndpointService = privateLinkEndpointService;
             o.vpc = vpc;
             return o;
