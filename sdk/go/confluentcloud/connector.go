@@ -23,9 +23,9 @@ import (
 type Connector struct {
 	pulumi.CustomResourceState
 
-	// The custom connector _nonsensitive_ configuration settings to set:
+	// Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
 	ConfigNonsensitive pulumi.StringMapOutput `pulumi:"configNonsensitive"`
-	// The custom connector _sensitive_ configuration settings to set:
+	// Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
 	ConfigSensitive pulumi.StringMapOutput `pulumi:"configSensitive"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironmentOutput  `pulumi:"environment"`
@@ -79,9 +79,9 @@ func GetConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connector resources.
 type connectorState struct {
-	// The custom connector _nonsensitive_ configuration settings to set:
+	// Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
 	ConfigNonsensitive map[string]string `pulumi:"configNonsensitive"`
-	// The custom connector _sensitive_ configuration settings to set:
+	// Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
 	ConfigSensitive map[string]string `pulumi:"configSensitive"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  *ConnectorEnvironment  `pulumi:"environment"`
@@ -91,9 +91,9 @@ type connectorState struct {
 }
 
 type ConnectorState struct {
-	// The custom connector _nonsensitive_ configuration settings to set:
+	// Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
 	ConfigNonsensitive pulumi.StringMapInput
-	// The custom connector _sensitive_ configuration settings to set:
+	// Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
 	ConfigSensitive pulumi.StringMapInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironmentPtrInput
@@ -107,9 +107,9 @@ func (ConnectorState) ElementType() reflect.Type {
 }
 
 type connectorArgs struct {
-	// The custom connector _nonsensitive_ configuration settings to set:
+	// Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
 	ConfigNonsensitive map[string]string `pulumi:"configNonsensitive"`
-	// The custom connector _sensitive_ configuration settings to set:
+	// Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
 	ConfigSensitive map[string]string `pulumi:"configSensitive"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironment  `pulumi:"environment"`
@@ -120,9 +120,9 @@ type connectorArgs struct {
 
 // The set of arguments for constructing a Connector resource.
 type ConnectorArgs struct {
-	// The custom connector _nonsensitive_ configuration settings to set:
+	// Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
 	ConfigNonsensitive pulumi.StringMapInput
-	// The custom connector _sensitive_ configuration settings to set:
+	// Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
 	ConfigSensitive pulumi.StringMapInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironmentInput
@@ -218,12 +218,12 @@ func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) Conne
 	return o
 }
 
-// The custom connector _nonsensitive_ configuration settings to set:
+// Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
 func (o ConnectorOutput) ConfigNonsensitive() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.ConfigNonsensitive }).(pulumi.StringMapOutput)
 }
 
-// The custom connector _sensitive_ configuration settings to set:
+// Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
 func (o ConnectorOutput) ConfigSensitive() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.ConfigSensitive }).(pulumi.StringMapOutput)
 }

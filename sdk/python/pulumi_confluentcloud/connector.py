@@ -23,9 +23,9 @@ class ConnectorArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Connector resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: The custom connector _nonsensitive_ configuration settings to set:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input['ConnectorEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: The custom connector _sensitive_ configuration settings to set:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
         """
         pulumi.set(__self__, "config_nonsensitive", config_nonsensitive)
@@ -40,7 +40,7 @@ class ConnectorArgs:
     @pulumi.getter(name="configNonsensitive")
     def config_nonsensitive(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
-        The custom connector _nonsensitive_ configuration settings to set:
+        Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         """
         return pulumi.get(self, "config_nonsensitive")
 
@@ -73,7 +73,7 @@ class ConnectorArgs:
     @pulumi.getter(name="configSensitive")
     def config_sensitive(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The custom connector _sensitive_ configuration settings to set:
+        Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         """
         return pulumi.get(self, "config_sensitive")
 
@@ -104,8 +104,8 @@ class _ConnectorState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Connector resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: The custom connector _nonsensitive_ configuration settings to set:
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: The custom connector _sensitive_ configuration settings to set:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input['ConnectorEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
         """
@@ -124,7 +124,7 @@ class _ConnectorState:
     @pulumi.getter(name="configNonsensitive")
     def config_nonsensitive(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The custom connector _nonsensitive_ configuration settings to set:
+        Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         """
         return pulumi.get(self, "config_nonsensitive")
 
@@ -136,7 +136,7 @@ class _ConnectorState:
     @pulumi.getter(name="configSensitive")
     def config_sensitive(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The custom connector _sensitive_ configuration settings to set:
+        Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         """
         return pulumi.get(self, "config_sensitive")
 
@@ -200,8 +200,8 @@ class Connector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: The custom connector _nonsensitive_ configuration settings to set:
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: The custom connector _sensitive_ configuration settings to set:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[pulumi.InputType['ConnectorEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
         """
@@ -284,8 +284,8 @@ class Connector(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: The custom connector _nonsensitive_ configuration settings to set:
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: The custom connector _sensitive_ configuration settings to set:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[pulumi.InputType['ConnectorEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
         """
@@ -304,7 +304,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter(name="configNonsensitive")
     def config_nonsensitive(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        The custom connector _nonsensitive_ configuration settings to set:
+        Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         """
         return pulumi.get(self, "config_nonsensitive")
 
@@ -312,7 +312,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter(name="configSensitive")
     def config_sensitive(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        The custom connector _sensitive_ configuration settings to set:
+        Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         """
         return pulumi.get(self, "config_sensitive")
 

@@ -17,14 +17,14 @@ public final class ClusterLinkDestinationKafkaClusterArgs extends com.pulumi.res
     public static final ClusterLinkDestinationKafkaClusterArgs Empty = new ClusterLinkDestinationKafkaClusterArgs();
 
     /**
-     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      * 
      */
     @Import(name="bootstrapEndpoint")
     private @Nullable Output<String> bootstrapEndpoint;
 
     /**
-     * @return The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * @return The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      * 
      */
     public Optional<Output<String>> bootstrapEndpoint() {
@@ -96,7 +96,7 @@ public final class ClusterLinkDestinationKafkaClusterArgs extends com.pulumi.res
         }
 
         /**
-         * @param bootstrapEndpoint The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+         * @param bootstrapEndpoint The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class ClusterLinkDestinationKafkaClusterArgs extends com.pulumi.res
         }
 
         /**
-         * @param bootstrapEndpoint The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+         * @param bootstrapEndpoint The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
          * 
          * @return builder
          * 

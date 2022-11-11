@@ -14,14 +14,14 @@ public final class GetNetworkGcp extends com.pulumi.resources.InvokeArgs {
     public static final GetNetworkGcp Empty = new GetNetworkGcp();
 
     /**
-     * (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
      * 
      */
     @Import(name="privateServiceConnectServiceAttachments", required=true)
     private Map<String,String> privateServiceConnectServiceAttachments;
 
     /**
-     * @return (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * @return (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
      * 
      */
     public Map<String,String> privateServiceConnectServiceAttachments() {
@@ -29,14 +29,14 @@ public final class GetNetworkGcp extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * (Required String) The GCP project ID.
+     * (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
      * 
      */
     @Import(name="project", required=true)
     private String project;
 
     /**
-     * @return (Required String) The GCP project ID.
+     * @return (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
      * 
      */
     public String project() {
@@ -44,14 +44,14 @@ public final class GetNetworkGcp extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * (Required String) The GCP VPC network name.
+     * (Required String) The network name of the Confluent Cloud VPC.
      * 
      */
     @Import(name="vpcNetwork", required=true)
     private String vpcNetwork;
 
     /**
-     * @return (Required String) The GCP VPC network name.
+     * @return (Required String) The network name of the Confluent Cloud VPC.
      * 
      */
     public String vpcNetwork() {
@@ -85,7 +85,7 @@ public final class GetNetworkGcp extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param privateServiceConnectServiceAttachments (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+         * @param privateServiceConnectServiceAttachments (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class GetNetworkGcp extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param project (Required String) The GCP project ID.
+         * @param project (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class GetNetworkGcp extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param vpcNetwork (Required String) The GCP VPC network name.
+         * @param vpcNetwork (Required String) The network name of the Confluent Cloud VPC.
          * 
          * @return builder
          * 

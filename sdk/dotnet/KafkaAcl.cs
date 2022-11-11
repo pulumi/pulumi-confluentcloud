@@ -45,7 +45,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Operation { get; private set; } = null!;
 
         /// <summary>
-        /// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+        /// The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         /// </summary>
         [Output("patternType")]
         public Output<string> PatternType { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string> Operation { get; set; } = null!;
 
         /// <summary>
-        /// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+        /// The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         /// </summary>
         [Input("patternType", required: true)]
         public Input<string> PatternType { get; set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Operation { get; set; }
 
         /// <summary>
-        /// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+        /// The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         /// </summary>
         [Input("patternType")]
         public Input<string>? PatternType { get; set; }

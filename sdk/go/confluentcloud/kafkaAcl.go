@@ -32,7 +32,7 @@ type KafkaAcl struct {
 	KafkaCluster KafkaAclKafkaClusterOutput `pulumi:"kafkaCluster"`
 	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	Operation pulumi.StringOutput `pulumi:"operation"`
-	// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+	// The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
 	PatternType pulumi.StringOutput `pulumi:"patternType"`
 	// The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
 	Permission pulumi.StringOutput `pulumi:"permission"`
@@ -113,7 +113,7 @@ type kafkaAclState struct {
 	KafkaCluster *KafkaAclKafkaCluster `pulumi:"kafkaCluster"`
 	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	Operation *string `pulumi:"operation"`
-	// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+	// The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
 	PatternType *string `pulumi:"patternType"`
 	// The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
 	Permission *string `pulumi:"permission"`
@@ -135,7 +135,7 @@ type KafkaAclState struct {
 	KafkaCluster KafkaAclKafkaClusterPtrInput
 	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	Operation pulumi.StringPtrInput
-	// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+	// The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
 	PatternType pulumi.StringPtrInput
 	// The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
 	Permission pulumi.StringPtrInput
@@ -161,7 +161,7 @@ type kafkaAclArgs struct {
 	KafkaCluster KafkaAclKafkaCluster `pulumi:"kafkaCluster"`
 	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	Operation string `pulumi:"operation"`
-	// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+	// The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
 	PatternType string `pulumi:"patternType"`
 	// The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
 	Permission string `pulumi:"permission"`
@@ -184,7 +184,7 @@ type KafkaAclArgs struct {
 	KafkaCluster KafkaAclKafkaClusterInput
 	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	Operation pulumi.StringInput
-	// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+	// The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
 	PatternType pulumi.StringInput
 	// The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
 	Permission pulumi.StringInput
@@ -304,7 +304,7 @@ func (o KafkaAclOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.Operation }).(pulumi.StringOutput)
 }
 
-// The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+// The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
 func (o KafkaAclOutput) PatternType() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.PatternType }).(pulumi.StringOutput)
 }

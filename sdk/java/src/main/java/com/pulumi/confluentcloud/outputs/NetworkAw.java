@@ -12,26 +12,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NetworkAw {
     /**
-     * @return (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+     * @return (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+     * 
+     */
+    private @Nullable String account;
+    /**
+     * @return (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      * 
      */
     private @Nullable String privateLinkEndpointService;
     /**
-     * @return (Required String) The AWS VPC ID for the network.
+     * @return (Required String) The Confluent Cloud VPC ID.
      * 
      */
     private @Nullable String vpc;
 
     private NetworkAw() {}
     /**
-     * @return (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+     * @return (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+     * 
+     */
+    public Optional<String> account() {
+        return Optional.ofNullable(this.account);
+    }
+    /**
+     * @return (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      * 
      */
     public Optional<String> privateLinkEndpointService() {
         return Optional.ofNullable(this.privateLinkEndpointService);
     }
     /**
-     * @return (Required String) The AWS VPC ID for the network.
+     * @return (Required String) The Confluent Cloud VPC ID.
      * 
      */
     public Optional<String> vpc() {
@@ -47,15 +59,22 @@ public final class NetworkAw {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String account;
         private @Nullable String privateLinkEndpointService;
         private @Nullable String vpc;
         public Builder() {}
         public Builder(NetworkAw defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.account = defaults.account;
     	      this.privateLinkEndpointService = defaults.privateLinkEndpointService;
     	      this.vpc = defaults.vpc;
         }
 
+        @CustomType.Setter
+        public Builder account(@Nullable String account) {
+            this.account = account;
+            return this;
+        }
         @CustomType.Setter
         public Builder privateLinkEndpointService(@Nullable String privateLinkEndpointService) {
             this.privateLinkEndpointService = privateLinkEndpointService;
@@ -68,6 +87,7 @@ public final class NetworkAw {
         }
         public NetworkAw build() {
             final var o = new NetworkAw();
+            o.account = account;
             o.privateLinkEndpointService = privateLinkEndpointService;
             o.vpc = vpc;
             return o;

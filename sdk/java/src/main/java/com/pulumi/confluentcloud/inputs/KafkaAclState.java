@@ -70,14 +70,14 @@ public final class KafkaAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+     * The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
      * 
      */
     @Import(name="patternType")
     private @Nullable Output<String> patternType;
 
     /**
-     * @return The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+     * @return The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
      * 
      */
     public Optional<Output<String>> patternType() {
@@ -265,7 +265,7 @@ public final class KafkaAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param patternType The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+         * @param patternType The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class KafkaAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param patternType The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+         * @param patternType The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
          * 
          * @return builder
          * 

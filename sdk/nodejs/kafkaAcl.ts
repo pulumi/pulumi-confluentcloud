@@ -59,7 +59,7 @@ export class KafkaAcl extends pulumi.CustomResource {
      */
     public readonly operation!: pulumi.Output<string>;
     /**
-     * The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+     * The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
      */
     public readonly patternType!: pulumi.Output<string>;
     /**
@@ -168,7 +168,7 @@ export interface KafkaAclState {
      */
     operation?: pulumi.Input<string>;
     /**
-     * The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+     * The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
      */
     patternType?: pulumi.Input<string>;
     /**
@@ -211,7 +211,7 @@ export interface KafkaAclArgs {
      */
     operation: pulumi.Input<string>;
     /**
-     * The pattern type for the ACL. Accepted values are: `UNKNOWN`, `MATCH`, `LITERAL`, and `PREFIXED`.
+     * The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
      */
     patternType: pulumi.Input<string>;
     /**

@@ -291,7 +291,7 @@ class KafkaTopic(pulumi.CustomResource):
 
         = confluent_kafka_cluster.basic-cluster.rest_endpoint
 
-        # https://docs.confluent.io/cloud/current/clusters/broker-config.html#custom-topic-settings-for-all-cluster-types
+        # https://docs.confluent.io/cloud/current/clusters/broker-config.html#custom-topic-settings-for-all-cluster-types-supported-by-kafka-rest-api-and-terraform-provider
 
          config = {
 
@@ -397,7 +397,7 @@ class KafkaTopic(pulumi.CustomResource):
 
         = confluent_kafka_cluster.basic-cluster.rest_endpoint
 
-        # https://docs.confluent.io/cloud/current/clusters/broker-config.html#custom-topic-settings-for-all-cluster-types
+        # https://docs.confluent.io/cloud/current/clusters/broker-config.html#custom-topic-settings-for-all-cluster-types-supported-by-kafka-rest-api-and-terraform-provider
 
          config = {
 

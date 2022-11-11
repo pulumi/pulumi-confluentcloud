@@ -13,13 +13,19 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class NetworkAwGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+        /// (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+        /// </summary>
+        [Input("account")]
+        public Input<string>? Account { get; set; }
+
+        /// <summary>
+        /// (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
         /// </summary>
         [Input("privateLinkEndpointService")]
         public Input<string>? PrivateLinkEndpointService { get; set; }
 
         /// <summary>
-        /// (Required String) The AWS VPC ID for the network.
+        /// (Required String) The Confluent Cloud VPC ID.
         /// </summary>
         [Input("vpc")]
         public Input<string>? Vpc { get; set; }

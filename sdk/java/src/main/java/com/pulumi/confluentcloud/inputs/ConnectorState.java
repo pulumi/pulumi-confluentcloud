@@ -19,14 +19,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     public static final ConnectorState Empty = new ConnectorState();
 
     /**
-     * The custom connector _nonsensitive_ configuration settings to set:
+     * Block for custom *nonsensitive* configuration properties that are *not* labelled with &#34;Type: password&#34; under &#34;Configuration Properties&#34; section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      * 
      */
     @Import(name="configNonsensitive")
     private @Nullable Output<Map<String,String>> configNonsensitive;
 
     /**
-     * @return The custom connector _nonsensitive_ configuration settings to set:
+     * @return Block for custom *nonsensitive* configuration properties that are *not* labelled with &#34;Type: password&#34; under &#34;Configuration Properties&#34; section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      * 
      */
     public Optional<Output<Map<String,String>>> configNonsensitive() {
@@ -34,14 +34,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The custom connector _sensitive_ configuration settings to set:
+     * Block for custom *sensitive* configuration properties that are labelled with &#34;Type: password&#34; under &#34;Configuration Properties&#34; section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      * 
      */
     @Import(name="configSensitive")
     private @Nullable Output<Map<String,String>> configSensitive;
 
     /**
-     * @return The custom connector _sensitive_ configuration settings to set:
+     * @return Block for custom *sensitive* configuration properties that are labelled with &#34;Type: password&#34; under &#34;Configuration Properties&#34; section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      * 
      */
     public Optional<Output<Map<String,String>>> configSensitive() {
@@ -114,7 +114,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configNonsensitive The custom connector _nonsensitive_ configuration settings to set:
+         * @param configNonsensitive Block for custom *nonsensitive* configuration properties that are *not* labelled with &#34;Type: password&#34; under &#34;Configuration Properties&#34; section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configNonsensitive The custom connector _nonsensitive_ configuration settings to set:
+         * @param configNonsensitive Block for custom *nonsensitive* configuration properties that are *not* labelled with &#34;Type: password&#34; under &#34;Configuration Properties&#34; section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configSensitive The custom connector _sensitive_ configuration settings to set:
+         * @param configSensitive Block for custom *sensitive* configuration properties that are labelled with &#34;Type: password&#34; under &#34;Configuration Properties&#34; section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configSensitive The custom connector _sensitive_ configuration settings to set:
+         * @param configSensitive Block for custom *sensitive* configuration properties that are labelled with &#34;Type: password&#34; under &#34;Configuration Properties&#34; section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
          * 
          * @return builder
          * 

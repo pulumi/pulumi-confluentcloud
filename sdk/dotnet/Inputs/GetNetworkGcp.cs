@@ -16,7 +16,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         private Dictionary<string, string>? _privateServiceConnectServiceAttachments;
 
         /// <summary>
-        /// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+        /// (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
         /// </summary>
         public Dictionary<string, string> PrivateServiceConnectServiceAttachments
         {
@@ -25,13 +25,13 @@ namespace Pulumi.ConfluentCloud.Inputs
         }
 
         /// <summary>
-        /// (Required String) The GCP project ID.
+        /// (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
         /// </summary>
         [Input("project", required: true)]
         public string Project { get; set; } = null!;
 
         /// <summary>
-        /// (Required String) The GCP VPC network name.
+        /// (Required String) The network name of the Confluent Cloud VPC.
         /// </summary>
         [Input("vpcNetwork", required: true)]
         public string VpcNetwork { get; set; } = null!;

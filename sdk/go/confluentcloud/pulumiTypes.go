@@ -513,7 +513,7 @@ func (o ApiKeyOwnerPtrOutput) Kind() pulumi.StringPtrOutput {
 }
 
 type ClusterLinkDestinationKafkaCluster struct {
-	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint *string                                        `pulumi:"bootstrapEndpoint"`
 	Credentials       *ClusterLinkDestinationKafkaClusterCredentials `pulumi:"credentials"`
 	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
@@ -534,7 +534,7 @@ type ClusterLinkDestinationKafkaClusterInput interface {
 }
 
 type ClusterLinkDestinationKafkaClusterArgs struct {
-	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringPtrInput                                 `pulumi:"bootstrapEndpoint"`
 	Credentials       ClusterLinkDestinationKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
 	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
@@ -620,7 +620,7 @@ func (o ClusterLinkDestinationKafkaClusterOutput) ToClusterLinkDestinationKafkaC
 	}).(ClusterLinkDestinationKafkaClusterPtrOutput)
 }
 
-// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o ClusterLinkDestinationKafkaClusterOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -665,7 +665,7 @@ func (o ClusterLinkDestinationKafkaClusterPtrOutput) Elem() ClusterLinkDestinati
 	}).(ClusterLinkDestinationKafkaClusterOutput)
 }
 
-// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o ClusterLinkDestinationKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkDestinationKafkaCluster) *string {
 		if v == nil {
@@ -861,7 +861,7 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Secret() pulumi.
 }
 
 type ClusterLinkSourceKafkaCluster struct {
-	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint *string                                   `pulumi:"bootstrapEndpoint"`
 	Credentials       *ClusterLinkSourceKafkaClusterCredentials `pulumi:"credentials"`
 	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
@@ -882,7 +882,7 @@ type ClusterLinkSourceKafkaClusterInput interface {
 }
 
 type ClusterLinkSourceKafkaClusterArgs struct {
-	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringPtrInput                            `pulumi:"bootstrapEndpoint"`
 	Credentials       ClusterLinkSourceKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
 	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
@@ -968,7 +968,7 @@ func (o ClusterLinkSourceKafkaClusterOutput) ToClusterLinkSourceKafkaClusterPtrO
 	}).(ClusterLinkSourceKafkaClusterPtrOutput)
 }
 
-// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o ClusterLinkSourceKafkaClusterOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -1011,7 +1011,7 @@ func (o ClusterLinkSourceKafkaClusterPtrOutput) Elem() ClusterLinkSourceKafkaClu
 	}).(ClusterLinkSourceKafkaClusterOutput)
 }
 
-// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o ClusterLinkSourceKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkSourceKafkaCluster) *string {
 		if v == nil {
@@ -4545,9 +4545,11 @@ func (o KsqlClusterKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type NetworkAw struct {
-	// (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+	// (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+	Account *string `pulumi:"account"`
+	// (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
 	PrivateLinkEndpointService *string `pulumi:"privateLinkEndpointService"`
-	// (Required String) The AWS VPC ID for the network.
+	// (Required String) The Confluent Cloud VPC ID.
 	Vpc *string `pulumi:"vpc"`
 }
 
@@ -4563,9 +4565,11 @@ type NetworkAwInput interface {
 }
 
 type NetworkAwArgs struct {
-	// (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+	// (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+	Account pulumi.StringPtrInput `pulumi:"account"`
+	// (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
 	PrivateLinkEndpointService pulumi.StringPtrInput `pulumi:"privateLinkEndpointService"`
-	// (Required String) The AWS VPC ID for the network.
+	// (Required String) The Confluent Cloud VPC ID.
 	Vpc pulumi.StringPtrInput `pulumi:"vpc"`
 }
 
@@ -4620,12 +4624,17 @@ func (o NetworkAwOutput) ToNetworkAwOutputWithContext(ctx context.Context) Netwo
 	return o
 }
 
-// (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+// (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+func (o NetworkAwOutput) Account() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAw) *string { return v.Account }).(pulumi.StringPtrOutput)
+}
+
+// (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
 func (o NetworkAwOutput) PrivateLinkEndpointService() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkAw) *string { return v.PrivateLinkEndpointService }).(pulumi.StringPtrOutput)
 }
 
-// (Required String) The AWS VPC ID for the network.
+// (Required String) The Confluent Cloud VPC ID.
 func (o NetworkAwOutput) Vpc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkAw) *string { return v.Vpc }).(pulumi.StringPtrOutput)
 }
@@ -4885,11 +4894,11 @@ func (o NetworkEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type NetworkGcp struct {
-	// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+	// (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
 	PrivateServiceConnectServiceAttachments map[string]string `pulumi:"privateServiceConnectServiceAttachments"`
-	// (Required String) The GCP project ID.
+	// (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
 	Project *string `pulumi:"project"`
-	// (Required String) The GCP VPC network name.
+	// (Required String) The network name of the Confluent Cloud VPC.
 	VpcNetwork *string `pulumi:"vpcNetwork"`
 }
 
@@ -4905,11 +4914,11 @@ type NetworkGcpInput interface {
 }
 
 type NetworkGcpArgs struct {
-	// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+	// (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
 	PrivateServiceConnectServiceAttachments pulumi.StringMapInput `pulumi:"privateServiceConnectServiceAttachments"`
-	// (Required String) The GCP project ID.
+	// (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
 	Project pulumi.StringPtrInput `pulumi:"project"`
-	// (Required String) The GCP VPC network name.
+	// (Required String) The network name of the Confluent Cloud VPC.
 	VpcNetwork pulumi.StringPtrInput `pulumi:"vpcNetwork"`
 }
 
@@ -4964,17 +4973,17 @@ func (o NetworkGcpOutput) ToNetworkGcpOutputWithContext(ctx context.Context) Net
 	return o
 }
 
-// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+// (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
 func (o NetworkGcpOutput) PrivateServiceConnectServiceAttachments() pulumi.StringMapOutput {
 	return o.ApplyT(func(v NetworkGcp) map[string]string { return v.PrivateServiceConnectServiceAttachments }).(pulumi.StringMapOutput)
 }
 
-// (Required String) The GCP project ID.
+// (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
 func (o NetworkGcpOutput) Project() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkGcp) *string { return v.Project }).(pulumi.StringPtrOutput)
 }
 
-// (Required String) The GCP VPC network name.
+// (Required String) The network name of the Confluent Cloud VPC.
 func (o NetworkGcpOutput) VpcNetwork() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkGcp) *string { return v.VpcNetwork }).(pulumi.StringPtrOutput)
 }
@@ -6502,6 +6511,767 @@ func (o PrivateLinkAccessNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type StreamGovernanceClusterEnvironment struct {
+	// The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+	Id string `pulumi:"id"`
+}
+
+// StreamGovernanceClusterEnvironmentInput is an input type that accepts StreamGovernanceClusterEnvironmentArgs and StreamGovernanceClusterEnvironmentOutput values.
+// You can construct a concrete instance of `StreamGovernanceClusterEnvironmentInput` via:
+//
+//	StreamGovernanceClusterEnvironmentArgs{...}
+type StreamGovernanceClusterEnvironmentInput interface {
+	pulumi.Input
+
+	ToStreamGovernanceClusterEnvironmentOutput() StreamGovernanceClusterEnvironmentOutput
+	ToStreamGovernanceClusterEnvironmentOutputWithContext(context.Context) StreamGovernanceClusterEnvironmentOutput
+}
+
+type StreamGovernanceClusterEnvironmentArgs struct {
+	// The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (StreamGovernanceClusterEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamGovernanceClusterEnvironment)(nil)).Elem()
+}
+
+func (i StreamGovernanceClusterEnvironmentArgs) ToStreamGovernanceClusterEnvironmentOutput() StreamGovernanceClusterEnvironmentOutput {
+	return i.ToStreamGovernanceClusterEnvironmentOutputWithContext(context.Background())
+}
+
+func (i StreamGovernanceClusterEnvironmentArgs) ToStreamGovernanceClusterEnvironmentOutputWithContext(ctx context.Context) StreamGovernanceClusterEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamGovernanceClusterEnvironmentOutput)
+}
+
+func (i StreamGovernanceClusterEnvironmentArgs) ToStreamGovernanceClusterEnvironmentPtrOutput() StreamGovernanceClusterEnvironmentPtrOutput {
+	return i.ToStreamGovernanceClusterEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i StreamGovernanceClusterEnvironmentArgs) ToStreamGovernanceClusterEnvironmentPtrOutputWithContext(ctx context.Context) StreamGovernanceClusterEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamGovernanceClusterEnvironmentOutput).ToStreamGovernanceClusterEnvironmentPtrOutputWithContext(ctx)
+}
+
+// StreamGovernanceClusterEnvironmentPtrInput is an input type that accepts StreamGovernanceClusterEnvironmentArgs, StreamGovernanceClusterEnvironmentPtr and StreamGovernanceClusterEnvironmentPtrOutput values.
+// You can construct a concrete instance of `StreamGovernanceClusterEnvironmentPtrInput` via:
+//
+//	        StreamGovernanceClusterEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamGovernanceClusterEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToStreamGovernanceClusterEnvironmentPtrOutput() StreamGovernanceClusterEnvironmentPtrOutput
+	ToStreamGovernanceClusterEnvironmentPtrOutputWithContext(context.Context) StreamGovernanceClusterEnvironmentPtrOutput
+}
+
+type streamGovernanceClusterEnvironmentPtrType StreamGovernanceClusterEnvironmentArgs
+
+func StreamGovernanceClusterEnvironmentPtr(v *StreamGovernanceClusterEnvironmentArgs) StreamGovernanceClusterEnvironmentPtrInput {
+	return (*streamGovernanceClusterEnvironmentPtrType)(v)
+}
+
+func (*streamGovernanceClusterEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamGovernanceClusterEnvironment)(nil)).Elem()
+}
+
+func (i *streamGovernanceClusterEnvironmentPtrType) ToStreamGovernanceClusterEnvironmentPtrOutput() StreamGovernanceClusterEnvironmentPtrOutput {
+	return i.ToStreamGovernanceClusterEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *streamGovernanceClusterEnvironmentPtrType) ToStreamGovernanceClusterEnvironmentPtrOutputWithContext(ctx context.Context) StreamGovernanceClusterEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamGovernanceClusterEnvironmentPtrOutput)
+}
+
+type StreamGovernanceClusterEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (StreamGovernanceClusterEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamGovernanceClusterEnvironment)(nil)).Elem()
+}
+
+func (o StreamGovernanceClusterEnvironmentOutput) ToStreamGovernanceClusterEnvironmentOutput() StreamGovernanceClusterEnvironmentOutput {
+	return o
+}
+
+func (o StreamGovernanceClusterEnvironmentOutput) ToStreamGovernanceClusterEnvironmentOutputWithContext(ctx context.Context) StreamGovernanceClusterEnvironmentOutput {
+	return o
+}
+
+func (o StreamGovernanceClusterEnvironmentOutput) ToStreamGovernanceClusterEnvironmentPtrOutput() StreamGovernanceClusterEnvironmentPtrOutput {
+	return o.ToStreamGovernanceClusterEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o StreamGovernanceClusterEnvironmentOutput) ToStreamGovernanceClusterEnvironmentPtrOutputWithContext(ctx context.Context) StreamGovernanceClusterEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamGovernanceClusterEnvironment) *StreamGovernanceClusterEnvironment {
+		return &v
+	}).(StreamGovernanceClusterEnvironmentPtrOutput)
+}
+
+// The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+func (o StreamGovernanceClusterEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamGovernanceClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type StreamGovernanceClusterEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamGovernanceClusterEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamGovernanceClusterEnvironment)(nil)).Elem()
+}
+
+func (o StreamGovernanceClusterEnvironmentPtrOutput) ToStreamGovernanceClusterEnvironmentPtrOutput() StreamGovernanceClusterEnvironmentPtrOutput {
+	return o
+}
+
+func (o StreamGovernanceClusterEnvironmentPtrOutput) ToStreamGovernanceClusterEnvironmentPtrOutputWithContext(ctx context.Context) StreamGovernanceClusterEnvironmentPtrOutput {
+	return o
+}
+
+func (o StreamGovernanceClusterEnvironmentPtrOutput) Elem() StreamGovernanceClusterEnvironmentOutput {
+	return o.ApplyT(func(v *StreamGovernanceClusterEnvironment) StreamGovernanceClusterEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret StreamGovernanceClusterEnvironment
+		return ret
+	}).(StreamGovernanceClusterEnvironmentOutput)
+}
+
+// The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+func (o StreamGovernanceClusterEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamGovernanceClusterEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamGovernanceClusterRegion struct {
+	// The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+	Id string `pulumi:"id"`
+}
+
+// StreamGovernanceClusterRegionInput is an input type that accepts StreamGovernanceClusterRegionArgs and StreamGovernanceClusterRegionOutput values.
+// You can construct a concrete instance of `StreamGovernanceClusterRegionInput` via:
+//
+//	StreamGovernanceClusterRegionArgs{...}
+type StreamGovernanceClusterRegionInput interface {
+	pulumi.Input
+
+	ToStreamGovernanceClusterRegionOutput() StreamGovernanceClusterRegionOutput
+	ToStreamGovernanceClusterRegionOutputWithContext(context.Context) StreamGovernanceClusterRegionOutput
+}
+
+type StreamGovernanceClusterRegionArgs struct {
+	// The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (StreamGovernanceClusterRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamGovernanceClusterRegion)(nil)).Elem()
+}
+
+func (i StreamGovernanceClusterRegionArgs) ToStreamGovernanceClusterRegionOutput() StreamGovernanceClusterRegionOutput {
+	return i.ToStreamGovernanceClusterRegionOutputWithContext(context.Background())
+}
+
+func (i StreamGovernanceClusterRegionArgs) ToStreamGovernanceClusterRegionOutputWithContext(ctx context.Context) StreamGovernanceClusterRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamGovernanceClusterRegionOutput)
+}
+
+func (i StreamGovernanceClusterRegionArgs) ToStreamGovernanceClusterRegionPtrOutput() StreamGovernanceClusterRegionPtrOutput {
+	return i.ToStreamGovernanceClusterRegionPtrOutputWithContext(context.Background())
+}
+
+func (i StreamGovernanceClusterRegionArgs) ToStreamGovernanceClusterRegionPtrOutputWithContext(ctx context.Context) StreamGovernanceClusterRegionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamGovernanceClusterRegionOutput).ToStreamGovernanceClusterRegionPtrOutputWithContext(ctx)
+}
+
+// StreamGovernanceClusterRegionPtrInput is an input type that accepts StreamGovernanceClusterRegionArgs, StreamGovernanceClusterRegionPtr and StreamGovernanceClusterRegionPtrOutput values.
+// You can construct a concrete instance of `StreamGovernanceClusterRegionPtrInput` via:
+//
+//	        StreamGovernanceClusterRegionArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamGovernanceClusterRegionPtrInput interface {
+	pulumi.Input
+
+	ToStreamGovernanceClusterRegionPtrOutput() StreamGovernanceClusterRegionPtrOutput
+	ToStreamGovernanceClusterRegionPtrOutputWithContext(context.Context) StreamGovernanceClusterRegionPtrOutput
+}
+
+type streamGovernanceClusterRegionPtrType StreamGovernanceClusterRegionArgs
+
+func StreamGovernanceClusterRegionPtr(v *StreamGovernanceClusterRegionArgs) StreamGovernanceClusterRegionPtrInput {
+	return (*streamGovernanceClusterRegionPtrType)(v)
+}
+
+func (*streamGovernanceClusterRegionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamGovernanceClusterRegion)(nil)).Elem()
+}
+
+func (i *streamGovernanceClusterRegionPtrType) ToStreamGovernanceClusterRegionPtrOutput() StreamGovernanceClusterRegionPtrOutput {
+	return i.ToStreamGovernanceClusterRegionPtrOutputWithContext(context.Background())
+}
+
+func (i *streamGovernanceClusterRegionPtrType) ToStreamGovernanceClusterRegionPtrOutputWithContext(ctx context.Context) StreamGovernanceClusterRegionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamGovernanceClusterRegionPtrOutput)
+}
+
+type StreamGovernanceClusterRegionOutput struct{ *pulumi.OutputState }
+
+func (StreamGovernanceClusterRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamGovernanceClusterRegion)(nil)).Elem()
+}
+
+func (o StreamGovernanceClusterRegionOutput) ToStreamGovernanceClusterRegionOutput() StreamGovernanceClusterRegionOutput {
+	return o
+}
+
+func (o StreamGovernanceClusterRegionOutput) ToStreamGovernanceClusterRegionOutputWithContext(ctx context.Context) StreamGovernanceClusterRegionOutput {
+	return o
+}
+
+func (o StreamGovernanceClusterRegionOutput) ToStreamGovernanceClusterRegionPtrOutput() StreamGovernanceClusterRegionPtrOutput {
+	return o.ToStreamGovernanceClusterRegionPtrOutputWithContext(context.Background())
+}
+
+func (o StreamGovernanceClusterRegionOutput) ToStreamGovernanceClusterRegionPtrOutputWithContext(ctx context.Context) StreamGovernanceClusterRegionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamGovernanceClusterRegion) *StreamGovernanceClusterRegion {
+		return &v
+	}).(StreamGovernanceClusterRegionPtrOutput)
+}
+
+// The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+func (o StreamGovernanceClusterRegionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamGovernanceClusterRegion) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type StreamGovernanceClusterRegionPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamGovernanceClusterRegionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamGovernanceClusterRegion)(nil)).Elem()
+}
+
+func (o StreamGovernanceClusterRegionPtrOutput) ToStreamGovernanceClusterRegionPtrOutput() StreamGovernanceClusterRegionPtrOutput {
+	return o
+}
+
+func (o StreamGovernanceClusterRegionPtrOutput) ToStreamGovernanceClusterRegionPtrOutputWithContext(ctx context.Context) StreamGovernanceClusterRegionPtrOutput {
+	return o
+}
+
+func (o StreamGovernanceClusterRegionPtrOutput) Elem() StreamGovernanceClusterRegionOutput {
+	return o.ApplyT(func(v *StreamGovernanceClusterRegion) StreamGovernanceClusterRegion {
+		if v != nil {
+			return *v
+		}
+		var ret StreamGovernanceClusterRegion
+		return ret
+	}).(StreamGovernanceClusterRegionOutput)
+}
+
+// The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+func (o StreamGovernanceClusterRegionPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamGovernanceClusterRegion) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayAttachmentAws struct {
+	// Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+	EnableCustomRoutes *bool `pulumi:"enableCustomRoutes"`
+	// The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
+	RamResourceShareArn string `pulumi:"ramResourceShareArn"`
+	// List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+	Routes []string `pulumi:"routes"`
+	// (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
+	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
+	// The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
+	TransitGatewayId string `pulumi:"transitGatewayId"`
+}
+
+// TransitGatewayAttachmentAwsInput is an input type that accepts TransitGatewayAttachmentAwsArgs and TransitGatewayAttachmentAwsOutput values.
+// You can construct a concrete instance of `TransitGatewayAttachmentAwsInput` via:
+//
+//	TransitGatewayAttachmentAwsArgs{...}
+type TransitGatewayAttachmentAwsInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentAwsOutput() TransitGatewayAttachmentAwsOutput
+	ToTransitGatewayAttachmentAwsOutputWithContext(context.Context) TransitGatewayAttachmentAwsOutput
+}
+
+type TransitGatewayAttachmentAwsArgs struct {
+	// Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+	EnableCustomRoutes pulumi.BoolPtrInput `pulumi:"enableCustomRoutes"`
+	// The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
+	RamResourceShareArn pulumi.StringInput `pulumi:"ramResourceShareArn"`
+	// List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+	Routes pulumi.StringArrayInput `pulumi:"routes"`
+	// (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
+	TransitGatewayAttachmentId pulumi.StringPtrInput `pulumi:"transitGatewayAttachmentId"`
+	// The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
+	TransitGatewayId pulumi.StringInput `pulumi:"transitGatewayId"`
+}
+
+func (TransitGatewayAttachmentAwsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentAws)(nil)).Elem()
+}
+
+func (i TransitGatewayAttachmentAwsArgs) ToTransitGatewayAttachmentAwsOutput() TransitGatewayAttachmentAwsOutput {
+	return i.ToTransitGatewayAttachmentAwsOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayAttachmentAwsArgs) ToTransitGatewayAttachmentAwsOutputWithContext(ctx context.Context) TransitGatewayAttachmentAwsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentAwsOutput)
+}
+
+func (i TransitGatewayAttachmentAwsArgs) ToTransitGatewayAttachmentAwsPtrOutput() TransitGatewayAttachmentAwsPtrOutput {
+	return i.ToTransitGatewayAttachmentAwsPtrOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayAttachmentAwsArgs) ToTransitGatewayAttachmentAwsPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentAwsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentAwsOutput).ToTransitGatewayAttachmentAwsPtrOutputWithContext(ctx)
+}
+
+// TransitGatewayAttachmentAwsPtrInput is an input type that accepts TransitGatewayAttachmentAwsArgs, TransitGatewayAttachmentAwsPtr and TransitGatewayAttachmentAwsPtrOutput values.
+// You can construct a concrete instance of `TransitGatewayAttachmentAwsPtrInput` via:
+//
+//	        TransitGatewayAttachmentAwsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransitGatewayAttachmentAwsPtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentAwsPtrOutput() TransitGatewayAttachmentAwsPtrOutput
+	ToTransitGatewayAttachmentAwsPtrOutputWithContext(context.Context) TransitGatewayAttachmentAwsPtrOutput
+}
+
+type transitGatewayAttachmentAwsPtrType TransitGatewayAttachmentAwsArgs
+
+func TransitGatewayAttachmentAwsPtr(v *TransitGatewayAttachmentAwsArgs) TransitGatewayAttachmentAwsPtrInput {
+	return (*transitGatewayAttachmentAwsPtrType)(v)
+}
+
+func (*transitGatewayAttachmentAwsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayAttachmentAws)(nil)).Elem()
+}
+
+func (i *transitGatewayAttachmentAwsPtrType) ToTransitGatewayAttachmentAwsPtrOutput() TransitGatewayAttachmentAwsPtrOutput {
+	return i.ToTransitGatewayAttachmentAwsPtrOutputWithContext(context.Background())
+}
+
+func (i *transitGatewayAttachmentAwsPtrType) ToTransitGatewayAttachmentAwsPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentAwsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentAwsPtrOutput)
+}
+
+type TransitGatewayAttachmentAwsOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentAwsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentAws)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentAwsOutput) ToTransitGatewayAttachmentAwsOutput() TransitGatewayAttachmentAwsOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentAwsOutput) ToTransitGatewayAttachmentAwsOutputWithContext(ctx context.Context) TransitGatewayAttachmentAwsOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentAwsOutput) ToTransitGatewayAttachmentAwsPtrOutput() TransitGatewayAttachmentAwsPtrOutput {
+	return o.ToTransitGatewayAttachmentAwsPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentAwsOutput) ToTransitGatewayAttachmentAwsPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentAwsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayAttachmentAws) *TransitGatewayAttachmentAws {
+		return &v
+	}).(TransitGatewayAttachmentAwsPtrOutput)
+}
+
+// Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+func (o TransitGatewayAttachmentAwsOutput) EnableCustomRoutes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TransitGatewayAttachmentAws) *bool { return v.EnableCustomRoutes }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
+func (o TransitGatewayAttachmentAwsOutput) RamResourceShareArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayAttachmentAws) string { return v.RamResourceShareArn }).(pulumi.StringOutput)
+}
+
+// List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+func (o TransitGatewayAttachmentAwsOutput) Routes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TransitGatewayAttachmentAws) []string { return v.Routes }).(pulumi.StringArrayOutput)
+}
+
+// (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
+func (o TransitGatewayAttachmentAwsOutput) TransitGatewayAttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayAttachmentAws) *string { return v.TransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
+func (o TransitGatewayAttachmentAwsOutput) TransitGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayAttachmentAws) string { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
+type TransitGatewayAttachmentAwsPtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentAwsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayAttachmentAws)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentAwsPtrOutput) ToTransitGatewayAttachmentAwsPtrOutput() TransitGatewayAttachmentAwsPtrOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentAwsPtrOutput) ToTransitGatewayAttachmentAwsPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentAwsPtrOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentAwsPtrOutput) Elem() TransitGatewayAttachmentAwsOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachmentAws) TransitGatewayAttachmentAws {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayAttachmentAws
+		return ret
+	}).(TransitGatewayAttachmentAwsOutput)
+}
+
+// Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+func (o TransitGatewayAttachmentAwsPtrOutput) EnableCustomRoutes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachmentAws) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableCustomRoutes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
+func (o TransitGatewayAttachmentAwsPtrOutput) RamResourceShareArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachmentAws) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RamResourceShareArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+func (o TransitGatewayAttachmentAwsPtrOutput) Routes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachmentAws) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Routes
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
+func (o TransitGatewayAttachmentAwsPtrOutput) TransitGatewayAttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachmentAws) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransitGatewayAttachmentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
+func (o TransitGatewayAttachmentAwsPtrOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachmentAws) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TransitGatewayId
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayAttachmentEnvironment struct {
+	// The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// TransitGatewayAttachmentEnvironmentInput is an input type that accepts TransitGatewayAttachmentEnvironmentArgs and TransitGatewayAttachmentEnvironmentOutput values.
+// You can construct a concrete instance of `TransitGatewayAttachmentEnvironmentInput` via:
+//
+//	TransitGatewayAttachmentEnvironmentArgs{...}
+type TransitGatewayAttachmentEnvironmentInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentEnvironmentOutput() TransitGatewayAttachmentEnvironmentOutput
+	ToTransitGatewayAttachmentEnvironmentOutputWithContext(context.Context) TransitGatewayAttachmentEnvironmentOutput
+}
+
+type TransitGatewayAttachmentEnvironmentArgs struct {
+	// The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (TransitGatewayAttachmentEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentEnvironment)(nil)).Elem()
+}
+
+func (i TransitGatewayAttachmentEnvironmentArgs) ToTransitGatewayAttachmentEnvironmentOutput() TransitGatewayAttachmentEnvironmentOutput {
+	return i.ToTransitGatewayAttachmentEnvironmentOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayAttachmentEnvironmentArgs) ToTransitGatewayAttachmentEnvironmentOutputWithContext(ctx context.Context) TransitGatewayAttachmentEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentEnvironmentOutput)
+}
+
+func (i TransitGatewayAttachmentEnvironmentArgs) ToTransitGatewayAttachmentEnvironmentPtrOutput() TransitGatewayAttachmentEnvironmentPtrOutput {
+	return i.ToTransitGatewayAttachmentEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayAttachmentEnvironmentArgs) ToTransitGatewayAttachmentEnvironmentPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentEnvironmentOutput).ToTransitGatewayAttachmentEnvironmentPtrOutputWithContext(ctx)
+}
+
+// TransitGatewayAttachmentEnvironmentPtrInput is an input type that accepts TransitGatewayAttachmentEnvironmentArgs, TransitGatewayAttachmentEnvironmentPtr and TransitGatewayAttachmentEnvironmentPtrOutput values.
+// You can construct a concrete instance of `TransitGatewayAttachmentEnvironmentPtrInput` via:
+//
+//	        TransitGatewayAttachmentEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransitGatewayAttachmentEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentEnvironmentPtrOutput() TransitGatewayAttachmentEnvironmentPtrOutput
+	ToTransitGatewayAttachmentEnvironmentPtrOutputWithContext(context.Context) TransitGatewayAttachmentEnvironmentPtrOutput
+}
+
+type transitGatewayAttachmentEnvironmentPtrType TransitGatewayAttachmentEnvironmentArgs
+
+func TransitGatewayAttachmentEnvironmentPtr(v *TransitGatewayAttachmentEnvironmentArgs) TransitGatewayAttachmentEnvironmentPtrInput {
+	return (*transitGatewayAttachmentEnvironmentPtrType)(v)
+}
+
+func (*transitGatewayAttachmentEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayAttachmentEnvironment)(nil)).Elem()
+}
+
+func (i *transitGatewayAttachmentEnvironmentPtrType) ToTransitGatewayAttachmentEnvironmentPtrOutput() TransitGatewayAttachmentEnvironmentPtrOutput {
+	return i.ToTransitGatewayAttachmentEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *transitGatewayAttachmentEnvironmentPtrType) ToTransitGatewayAttachmentEnvironmentPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentEnvironmentPtrOutput)
+}
+
+type TransitGatewayAttachmentEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentEnvironment)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentEnvironmentOutput) ToTransitGatewayAttachmentEnvironmentOutput() TransitGatewayAttachmentEnvironmentOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentEnvironmentOutput) ToTransitGatewayAttachmentEnvironmentOutputWithContext(ctx context.Context) TransitGatewayAttachmentEnvironmentOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentEnvironmentOutput) ToTransitGatewayAttachmentEnvironmentPtrOutput() TransitGatewayAttachmentEnvironmentPtrOutput {
+	return o.ToTransitGatewayAttachmentEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentEnvironmentOutput) ToTransitGatewayAttachmentEnvironmentPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayAttachmentEnvironment) *TransitGatewayAttachmentEnvironment {
+		return &v
+	}).(TransitGatewayAttachmentEnvironmentPtrOutput)
+}
+
+// The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+func (o TransitGatewayAttachmentEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayAttachmentEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type TransitGatewayAttachmentEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayAttachmentEnvironment)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentEnvironmentPtrOutput) ToTransitGatewayAttachmentEnvironmentPtrOutput() TransitGatewayAttachmentEnvironmentPtrOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentEnvironmentPtrOutput) ToTransitGatewayAttachmentEnvironmentPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentEnvironmentPtrOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentEnvironmentPtrOutput) Elem() TransitGatewayAttachmentEnvironmentOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachmentEnvironment) TransitGatewayAttachmentEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayAttachmentEnvironment
+		return ret
+	}).(TransitGatewayAttachmentEnvironmentOutput)
+}
+
+// The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+func (o TransitGatewayAttachmentEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachmentEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayAttachmentNetwork struct {
+	// The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// TransitGatewayAttachmentNetworkInput is an input type that accepts TransitGatewayAttachmentNetworkArgs and TransitGatewayAttachmentNetworkOutput values.
+// You can construct a concrete instance of `TransitGatewayAttachmentNetworkInput` via:
+//
+//	TransitGatewayAttachmentNetworkArgs{...}
+type TransitGatewayAttachmentNetworkInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentNetworkOutput() TransitGatewayAttachmentNetworkOutput
+	ToTransitGatewayAttachmentNetworkOutputWithContext(context.Context) TransitGatewayAttachmentNetworkOutput
+}
+
+type TransitGatewayAttachmentNetworkArgs struct {
+	// The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (TransitGatewayAttachmentNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentNetwork)(nil)).Elem()
+}
+
+func (i TransitGatewayAttachmentNetworkArgs) ToTransitGatewayAttachmentNetworkOutput() TransitGatewayAttachmentNetworkOutput {
+	return i.ToTransitGatewayAttachmentNetworkOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayAttachmentNetworkArgs) ToTransitGatewayAttachmentNetworkOutputWithContext(ctx context.Context) TransitGatewayAttachmentNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentNetworkOutput)
+}
+
+func (i TransitGatewayAttachmentNetworkArgs) ToTransitGatewayAttachmentNetworkPtrOutput() TransitGatewayAttachmentNetworkPtrOutput {
+	return i.ToTransitGatewayAttachmentNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayAttachmentNetworkArgs) ToTransitGatewayAttachmentNetworkPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentNetworkOutput).ToTransitGatewayAttachmentNetworkPtrOutputWithContext(ctx)
+}
+
+// TransitGatewayAttachmentNetworkPtrInput is an input type that accepts TransitGatewayAttachmentNetworkArgs, TransitGatewayAttachmentNetworkPtr and TransitGatewayAttachmentNetworkPtrOutput values.
+// You can construct a concrete instance of `TransitGatewayAttachmentNetworkPtrInput` via:
+//
+//	        TransitGatewayAttachmentNetworkArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransitGatewayAttachmentNetworkPtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentNetworkPtrOutput() TransitGatewayAttachmentNetworkPtrOutput
+	ToTransitGatewayAttachmentNetworkPtrOutputWithContext(context.Context) TransitGatewayAttachmentNetworkPtrOutput
+}
+
+type transitGatewayAttachmentNetworkPtrType TransitGatewayAttachmentNetworkArgs
+
+func TransitGatewayAttachmentNetworkPtr(v *TransitGatewayAttachmentNetworkArgs) TransitGatewayAttachmentNetworkPtrInput {
+	return (*transitGatewayAttachmentNetworkPtrType)(v)
+}
+
+func (*transitGatewayAttachmentNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayAttachmentNetwork)(nil)).Elem()
+}
+
+func (i *transitGatewayAttachmentNetworkPtrType) ToTransitGatewayAttachmentNetworkPtrOutput() TransitGatewayAttachmentNetworkPtrOutput {
+	return i.ToTransitGatewayAttachmentNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *transitGatewayAttachmentNetworkPtrType) ToTransitGatewayAttachmentNetworkPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentNetworkPtrOutput)
+}
+
+type TransitGatewayAttachmentNetworkOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentNetwork)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentNetworkOutput) ToTransitGatewayAttachmentNetworkOutput() TransitGatewayAttachmentNetworkOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNetworkOutput) ToTransitGatewayAttachmentNetworkOutputWithContext(ctx context.Context) TransitGatewayAttachmentNetworkOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNetworkOutput) ToTransitGatewayAttachmentNetworkPtrOutput() TransitGatewayAttachmentNetworkPtrOutput {
+	return o.ToTransitGatewayAttachmentNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayAttachmentNetworkOutput) ToTransitGatewayAttachmentNetworkPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNetworkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayAttachmentNetwork) *TransitGatewayAttachmentNetwork {
+		return &v
+	}).(TransitGatewayAttachmentNetworkPtrOutput)
+}
+
+// The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+func (o TransitGatewayAttachmentNetworkOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayAttachmentNetwork) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type TransitGatewayAttachmentNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayAttachmentNetwork)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentNetworkPtrOutput) ToTransitGatewayAttachmentNetworkPtrOutput() TransitGatewayAttachmentNetworkPtrOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNetworkPtrOutput) ToTransitGatewayAttachmentNetworkPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNetworkPtrOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentNetworkPtrOutput) Elem() TransitGatewayAttachmentNetworkOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachmentNetwork) TransitGatewayAttachmentNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayAttachmentNetwork
+		return ret
+	}).(TransitGatewayAttachmentNetworkOutput)
+}
+
+// The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+func (o TransitGatewayAttachmentNetworkPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachmentNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetIdentityPoolIdentityProvider struct {
 	// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
 	Id string `pulumi:"id"`
@@ -7790,9 +8560,11 @@ func (o GetKsqlClusterKafkaClusterArrayOutput) Index(i pulumi.IntInput) GetKsqlC
 }
 
 type GetNetworkAw struct {
-	// (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+	// (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+	Account string `pulumi:"account"`
+	// (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
 	PrivateLinkEndpointService string `pulumi:"privateLinkEndpointService"`
-	// (Required String) The AWS VPC ID for the network.
+	// (Required String) The Confluent Cloud VPC ID.
 	Vpc string `pulumi:"vpc"`
 }
 
@@ -7808,9 +8580,11 @@ type GetNetworkAwInput interface {
 }
 
 type GetNetworkAwArgs struct {
-	// (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+	// (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+	Account pulumi.StringInput `pulumi:"account"`
+	// (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
 	PrivateLinkEndpointService pulumi.StringInput `pulumi:"privateLinkEndpointService"`
-	// (Required String) The AWS VPC ID for the network.
+	// (Required String) The Confluent Cloud VPC ID.
 	Vpc pulumi.StringInput `pulumi:"vpc"`
 }
 
@@ -7865,12 +8639,17 @@ func (o GetNetworkAwOutput) ToGetNetworkAwOutputWithContext(ctx context.Context)
 	return o
 }
 
-// (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+// (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+func (o GetNetworkAwOutput) Account() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkAw) string { return v.Account }).(pulumi.StringOutput)
+}
+
+// (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
 func (o GetNetworkAwOutput) PrivateLinkEndpointService() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkAw) string { return v.PrivateLinkEndpointService }).(pulumi.StringOutput)
 }
 
-// (Required String) The AWS VPC ID for the network.
+// (Required String) The Confluent Cloud VPC ID.
 func (o GetNetworkAwOutput) Vpc() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkAw) string { return v.Vpc }).(pulumi.StringOutput)
 }
@@ -8045,11 +8824,11 @@ func (o GetNetworkEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetNetworkGcp struct {
-	// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+	// (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
 	PrivateServiceConnectServiceAttachments map[string]string `pulumi:"privateServiceConnectServiceAttachments"`
-	// (Required String) The GCP project ID.
+	// (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
 	Project string `pulumi:"project"`
-	// (Required String) The GCP VPC network name.
+	// (Required String) The network name of the Confluent Cloud VPC.
 	VpcNetwork string `pulumi:"vpcNetwork"`
 }
 
@@ -8065,11 +8844,11 @@ type GetNetworkGcpInput interface {
 }
 
 type GetNetworkGcpArgs struct {
-	// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+	// (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
 	PrivateServiceConnectServiceAttachments pulumi.StringMapInput `pulumi:"privateServiceConnectServiceAttachments"`
-	// (Required String) The GCP project ID.
+	// (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
 	Project pulumi.StringInput `pulumi:"project"`
-	// (Required String) The GCP VPC network name.
+	// (Required String) The network name of the Confluent Cloud VPC.
 	VpcNetwork pulumi.StringInput `pulumi:"vpcNetwork"`
 }
 
@@ -8124,17 +8903,17 @@ func (o GetNetworkGcpOutput) ToGetNetworkGcpOutputWithContext(ctx context.Contex
 	return o
 }
 
-// (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+// (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
 func (o GetNetworkGcpOutput) PrivateServiceConnectServiceAttachments() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetNetworkGcp) map[string]string { return v.PrivateServiceConnectServiceAttachments }).(pulumi.StringMapOutput)
 }
 
-// (Required String) The GCP project ID.
+// (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
 func (o GetNetworkGcpOutput) Project() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkGcp) string { return v.Project }).(pulumi.StringOutput)
 }
 
-// (Required String) The GCP VPC network name.
+// (Required String) The network name of the Confluent Cloud VPC.
 func (o GetNetworkGcpOutput) VpcNetwork() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkGcp) string { return v.VpcNetwork }).(pulumi.StringOutput)
 }
@@ -9102,6 +9881,437 @@ func (o GetPrivateLinkAccessNetworkArrayOutput) Index(i pulumi.IntInput) GetPriv
 	}).(GetPrivateLinkAccessNetworkOutput)
 }
 
+type GetStreatGovernanceClusterEnvironment struct {
+	// The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetStreatGovernanceClusterEnvironmentInput is an input type that accepts GetStreatGovernanceClusterEnvironmentArgs and GetStreatGovernanceClusterEnvironmentOutput values.
+// You can construct a concrete instance of `GetStreatGovernanceClusterEnvironmentInput` via:
+//
+//	GetStreatGovernanceClusterEnvironmentArgs{...}
+type GetStreatGovernanceClusterEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetStreatGovernanceClusterEnvironmentOutput() GetStreatGovernanceClusterEnvironmentOutput
+	ToGetStreatGovernanceClusterEnvironmentOutputWithContext(context.Context) GetStreatGovernanceClusterEnvironmentOutput
+}
+
+type GetStreatGovernanceClusterEnvironmentArgs struct {
+	// The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetStreatGovernanceClusterEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStreatGovernanceClusterEnvironment)(nil)).Elem()
+}
+
+func (i GetStreatGovernanceClusterEnvironmentArgs) ToGetStreatGovernanceClusterEnvironmentOutput() GetStreatGovernanceClusterEnvironmentOutput {
+	return i.ToGetStreatGovernanceClusterEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetStreatGovernanceClusterEnvironmentArgs) ToGetStreatGovernanceClusterEnvironmentOutputWithContext(ctx context.Context) GetStreatGovernanceClusterEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStreatGovernanceClusterEnvironmentOutput)
+}
+
+type GetStreatGovernanceClusterEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetStreatGovernanceClusterEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStreatGovernanceClusterEnvironment)(nil)).Elem()
+}
+
+func (o GetStreatGovernanceClusterEnvironmentOutput) ToGetStreatGovernanceClusterEnvironmentOutput() GetStreatGovernanceClusterEnvironmentOutput {
+	return o
+}
+
+func (o GetStreatGovernanceClusterEnvironmentOutput) ToGetStreatGovernanceClusterEnvironmentOutputWithContext(ctx context.Context) GetStreatGovernanceClusterEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
+func (o GetStreatGovernanceClusterEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStreatGovernanceClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetStreatGovernanceClusterRegion struct {
+	// The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetStreatGovernanceClusterRegionInput is an input type that accepts GetStreatGovernanceClusterRegionArgs and GetStreatGovernanceClusterRegionOutput values.
+// You can construct a concrete instance of `GetStreatGovernanceClusterRegionInput` via:
+//
+//	GetStreatGovernanceClusterRegionArgs{...}
+type GetStreatGovernanceClusterRegionInput interface {
+	pulumi.Input
+
+	ToGetStreatGovernanceClusterRegionOutput() GetStreatGovernanceClusterRegionOutput
+	ToGetStreatGovernanceClusterRegionOutputWithContext(context.Context) GetStreatGovernanceClusterRegionOutput
+}
+
+type GetStreatGovernanceClusterRegionArgs struct {
+	// The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetStreatGovernanceClusterRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStreatGovernanceClusterRegion)(nil)).Elem()
+}
+
+func (i GetStreatGovernanceClusterRegionArgs) ToGetStreatGovernanceClusterRegionOutput() GetStreatGovernanceClusterRegionOutput {
+	return i.ToGetStreatGovernanceClusterRegionOutputWithContext(context.Background())
+}
+
+func (i GetStreatGovernanceClusterRegionArgs) ToGetStreatGovernanceClusterRegionOutputWithContext(ctx context.Context) GetStreatGovernanceClusterRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStreatGovernanceClusterRegionOutput)
+}
+
+// GetStreatGovernanceClusterRegionArrayInput is an input type that accepts GetStreatGovernanceClusterRegionArray and GetStreatGovernanceClusterRegionArrayOutput values.
+// You can construct a concrete instance of `GetStreatGovernanceClusterRegionArrayInput` via:
+//
+//	GetStreatGovernanceClusterRegionArray{ GetStreatGovernanceClusterRegionArgs{...} }
+type GetStreatGovernanceClusterRegionArrayInput interface {
+	pulumi.Input
+
+	ToGetStreatGovernanceClusterRegionArrayOutput() GetStreatGovernanceClusterRegionArrayOutput
+	ToGetStreatGovernanceClusterRegionArrayOutputWithContext(context.Context) GetStreatGovernanceClusterRegionArrayOutput
+}
+
+type GetStreatGovernanceClusterRegionArray []GetStreatGovernanceClusterRegionInput
+
+func (GetStreatGovernanceClusterRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStreatGovernanceClusterRegion)(nil)).Elem()
+}
+
+func (i GetStreatGovernanceClusterRegionArray) ToGetStreatGovernanceClusterRegionArrayOutput() GetStreatGovernanceClusterRegionArrayOutput {
+	return i.ToGetStreatGovernanceClusterRegionArrayOutputWithContext(context.Background())
+}
+
+func (i GetStreatGovernanceClusterRegionArray) ToGetStreatGovernanceClusterRegionArrayOutputWithContext(ctx context.Context) GetStreatGovernanceClusterRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStreatGovernanceClusterRegionArrayOutput)
+}
+
+type GetStreatGovernanceClusterRegionOutput struct{ *pulumi.OutputState }
+
+func (GetStreatGovernanceClusterRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStreatGovernanceClusterRegion)(nil)).Elem()
+}
+
+func (o GetStreatGovernanceClusterRegionOutput) ToGetStreatGovernanceClusterRegionOutput() GetStreatGovernanceClusterRegionOutput {
+	return o
+}
+
+func (o GetStreatGovernanceClusterRegionOutput) ToGetStreatGovernanceClusterRegionOutputWithContext(ctx context.Context) GetStreatGovernanceClusterRegionOutput {
+	return o
+}
+
+// The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
+func (o GetStreatGovernanceClusterRegionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStreatGovernanceClusterRegion) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetStreatGovernanceClusterRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStreatGovernanceClusterRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStreatGovernanceClusterRegion)(nil)).Elem()
+}
+
+func (o GetStreatGovernanceClusterRegionArrayOutput) ToGetStreatGovernanceClusterRegionArrayOutput() GetStreatGovernanceClusterRegionArrayOutput {
+	return o
+}
+
+func (o GetStreatGovernanceClusterRegionArrayOutput) ToGetStreatGovernanceClusterRegionArrayOutputWithContext(ctx context.Context) GetStreatGovernanceClusterRegionArrayOutput {
+	return o
+}
+
+func (o GetStreatGovernanceClusterRegionArrayOutput) Index(i pulumi.IntInput) GetStreatGovernanceClusterRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStreatGovernanceClusterRegion {
+		return vs[0].([]GetStreatGovernanceClusterRegion)[vs[1].(int)]
+	}).(GetStreatGovernanceClusterRegionOutput)
+}
+
+type GetTransitGatewayAttachmentAw struct {
+	// (Required String) Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+	EnableCustomRoutes bool `pulumi:"enableCustomRoutes"`
+	// (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
+	RamResourceShareArn string `pulumi:"ramResourceShareArn"`
+	// (Required List of String) List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+	Routes []string `pulumi:"routes"`
+	// (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
+	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
+	// (Required String) The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
+	TransitGatewayId string `pulumi:"transitGatewayId"`
+}
+
+// GetTransitGatewayAttachmentAwInput is an input type that accepts GetTransitGatewayAttachmentAwArgs and GetTransitGatewayAttachmentAwOutput values.
+// You can construct a concrete instance of `GetTransitGatewayAttachmentAwInput` via:
+//
+//	GetTransitGatewayAttachmentAwArgs{...}
+type GetTransitGatewayAttachmentAwInput interface {
+	pulumi.Input
+
+	ToGetTransitGatewayAttachmentAwOutput() GetTransitGatewayAttachmentAwOutput
+	ToGetTransitGatewayAttachmentAwOutputWithContext(context.Context) GetTransitGatewayAttachmentAwOutput
+}
+
+type GetTransitGatewayAttachmentAwArgs struct {
+	// (Required String) Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+	EnableCustomRoutes pulumi.BoolInput `pulumi:"enableCustomRoutes"`
+	// (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
+	RamResourceShareArn pulumi.StringInput `pulumi:"ramResourceShareArn"`
+	// (Required List of String) List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+	Routes pulumi.StringArrayInput `pulumi:"routes"`
+	// (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
+	TransitGatewayAttachmentId pulumi.StringInput `pulumi:"transitGatewayAttachmentId"`
+	// (Required String) The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
+	TransitGatewayId pulumi.StringInput `pulumi:"transitGatewayId"`
+}
+
+func (GetTransitGatewayAttachmentAwArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTransitGatewayAttachmentAw)(nil)).Elem()
+}
+
+func (i GetTransitGatewayAttachmentAwArgs) ToGetTransitGatewayAttachmentAwOutput() GetTransitGatewayAttachmentAwOutput {
+	return i.ToGetTransitGatewayAttachmentAwOutputWithContext(context.Background())
+}
+
+func (i GetTransitGatewayAttachmentAwArgs) ToGetTransitGatewayAttachmentAwOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentAwOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayAttachmentAwOutput)
+}
+
+// GetTransitGatewayAttachmentAwArrayInput is an input type that accepts GetTransitGatewayAttachmentAwArray and GetTransitGatewayAttachmentAwArrayOutput values.
+// You can construct a concrete instance of `GetTransitGatewayAttachmentAwArrayInput` via:
+//
+//	GetTransitGatewayAttachmentAwArray{ GetTransitGatewayAttachmentAwArgs{...} }
+type GetTransitGatewayAttachmentAwArrayInput interface {
+	pulumi.Input
+
+	ToGetTransitGatewayAttachmentAwArrayOutput() GetTransitGatewayAttachmentAwArrayOutput
+	ToGetTransitGatewayAttachmentAwArrayOutputWithContext(context.Context) GetTransitGatewayAttachmentAwArrayOutput
+}
+
+type GetTransitGatewayAttachmentAwArray []GetTransitGatewayAttachmentAwInput
+
+func (GetTransitGatewayAttachmentAwArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTransitGatewayAttachmentAw)(nil)).Elem()
+}
+
+func (i GetTransitGatewayAttachmentAwArray) ToGetTransitGatewayAttachmentAwArrayOutput() GetTransitGatewayAttachmentAwArrayOutput {
+	return i.ToGetTransitGatewayAttachmentAwArrayOutputWithContext(context.Background())
+}
+
+func (i GetTransitGatewayAttachmentAwArray) ToGetTransitGatewayAttachmentAwArrayOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentAwArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayAttachmentAwArrayOutput)
+}
+
+type GetTransitGatewayAttachmentAwOutput struct{ *pulumi.OutputState }
+
+func (GetTransitGatewayAttachmentAwOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTransitGatewayAttachmentAw)(nil)).Elem()
+}
+
+func (o GetTransitGatewayAttachmentAwOutput) ToGetTransitGatewayAttachmentAwOutput() GetTransitGatewayAttachmentAwOutput {
+	return o
+}
+
+func (o GetTransitGatewayAttachmentAwOutput) ToGetTransitGatewayAttachmentAwOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentAwOutput {
+	return o
+}
+
+// (Required String) Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+func (o GetTransitGatewayAttachmentAwOutput) EnableCustomRoutes() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetTransitGatewayAttachmentAw) bool { return v.EnableCustomRoutes }).(pulumi.BoolOutput)
+}
+
+// (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
+func (o GetTransitGatewayAttachmentAwOutput) RamResourceShareArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTransitGatewayAttachmentAw) string { return v.RamResourceShareArn }).(pulumi.StringOutput)
+}
+
+// (Required List of String) List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+func (o GetTransitGatewayAttachmentAwOutput) Routes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTransitGatewayAttachmentAw) []string { return v.Routes }).(pulumi.StringArrayOutput)
+}
+
+// (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
+func (o GetTransitGatewayAttachmentAwOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTransitGatewayAttachmentAw) string { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
+}
+
+// (Required String) The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
+func (o GetTransitGatewayAttachmentAwOutput) TransitGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTransitGatewayAttachmentAw) string { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
+type GetTransitGatewayAttachmentAwArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTransitGatewayAttachmentAwArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTransitGatewayAttachmentAw)(nil)).Elem()
+}
+
+func (o GetTransitGatewayAttachmentAwArrayOutput) ToGetTransitGatewayAttachmentAwArrayOutput() GetTransitGatewayAttachmentAwArrayOutput {
+	return o
+}
+
+func (o GetTransitGatewayAttachmentAwArrayOutput) ToGetTransitGatewayAttachmentAwArrayOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentAwArrayOutput {
+	return o
+}
+
+func (o GetTransitGatewayAttachmentAwArrayOutput) Index(i pulumi.IntInput) GetTransitGatewayAttachmentAwOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTransitGatewayAttachmentAw {
+		return vs[0].([]GetTransitGatewayAttachmentAw)[vs[1].(int)]
+	}).(GetTransitGatewayAttachmentAwOutput)
+}
+
+type GetTransitGatewayAttachmentEnvironment struct {
+	// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetTransitGatewayAttachmentEnvironmentInput is an input type that accepts GetTransitGatewayAttachmentEnvironmentArgs and GetTransitGatewayAttachmentEnvironmentOutput values.
+// You can construct a concrete instance of `GetTransitGatewayAttachmentEnvironmentInput` via:
+//
+//	GetTransitGatewayAttachmentEnvironmentArgs{...}
+type GetTransitGatewayAttachmentEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetTransitGatewayAttachmentEnvironmentOutput() GetTransitGatewayAttachmentEnvironmentOutput
+	ToGetTransitGatewayAttachmentEnvironmentOutputWithContext(context.Context) GetTransitGatewayAttachmentEnvironmentOutput
+}
+
+type GetTransitGatewayAttachmentEnvironmentArgs struct {
+	// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetTransitGatewayAttachmentEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTransitGatewayAttachmentEnvironment)(nil)).Elem()
+}
+
+func (i GetTransitGatewayAttachmentEnvironmentArgs) ToGetTransitGatewayAttachmentEnvironmentOutput() GetTransitGatewayAttachmentEnvironmentOutput {
+	return i.ToGetTransitGatewayAttachmentEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetTransitGatewayAttachmentEnvironmentArgs) ToGetTransitGatewayAttachmentEnvironmentOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayAttachmentEnvironmentOutput)
+}
+
+type GetTransitGatewayAttachmentEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetTransitGatewayAttachmentEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTransitGatewayAttachmentEnvironment)(nil)).Elem()
+}
+
+func (o GetTransitGatewayAttachmentEnvironmentOutput) ToGetTransitGatewayAttachmentEnvironmentOutput() GetTransitGatewayAttachmentEnvironmentOutput {
+	return o
+}
+
+func (o GetTransitGatewayAttachmentEnvironmentOutput) ToGetTransitGatewayAttachmentEnvironmentOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+func (o GetTransitGatewayAttachmentEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTransitGatewayAttachmentEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetTransitGatewayAttachmentNetwork struct {
+	// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetTransitGatewayAttachmentNetworkInput is an input type that accepts GetTransitGatewayAttachmentNetworkArgs and GetTransitGatewayAttachmentNetworkOutput values.
+// You can construct a concrete instance of `GetTransitGatewayAttachmentNetworkInput` via:
+//
+//	GetTransitGatewayAttachmentNetworkArgs{...}
+type GetTransitGatewayAttachmentNetworkInput interface {
+	pulumi.Input
+
+	ToGetTransitGatewayAttachmentNetworkOutput() GetTransitGatewayAttachmentNetworkOutput
+	ToGetTransitGatewayAttachmentNetworkOutputWithContext(context.Context) GetTransitGatewayAttachmentNetworkOutput
+}
+
+type GetTransitGatewayAttachmentNetworkArgs struct {
+	// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetTransitGatewayAttachmentNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTransitGatewayAttachmentNetwork)(nil)).Elem()
+}
+
+func (i GetTransitGatewayAttachmentNetworkArgs) ToGetTransitGatewayAttachmentNetworkOutput() GetTransitGatewayAttachmentNetworkOutput {
+	return i.ToGetTransitGatewayAttachmentNetworkOutputWithContext(context.Background())
+}
+
+func (i GetTransitGatewayAttachmentNetworkArgs) ToGetTransitGatewayAttachmentNetworkOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayAttachmentNetworkOutput)
+}
+
+// GetTransitGatewayAttachmentNetworkArrayInput is an input type that accepts GetTransitGatewayAttachmentNetworkArray and GetTransitGatewayAttachmentNetworkArrayOutput values.
+// You can construct a concrete instance of `GetTransitGatewayAttachmentNetworkArrayInput` via:
+//
+//	GetTransitGatewayAttachmentNetworkArray{ GetTransitGatewayAttachmentNetworkArgs{...} }
+type GetTransitGatewayAttachmentNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGetTransitGatewayAttachmentNetworkArrayOutput() GetTransitGatewayAttachmentNetworkArrayOutput
+	ToGetTransitGatewayAttachmentNetworkArrayOutputWithContext(context.Context) GetTransitGatewayAttachmentNetworkArrayOutput
+}
+
+type GetTransitGatewayAttachmentNetworkArray []GetTransitGatewayAttachmentNetworkInput
+
+func (GetTransitGatewayAttachmentNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTransitGatewayAttachmentNetwork)(nil)).Elem()
+}
+
+func (i GetTransitGatewayAttachmentNetworkArray) ToGetTransitGatewayAttachmentNetworkArrayOutput() GetTransitGatewayAttachmentNetworkArrayOutput {
+	return i.ToGetTransitGatewayAttachmentNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GetTransitGatewayAttachmentNetworkArray) ToGetTransitGatewayAttachmentNetworkArrayOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayAttachmentNetworkArrayOutput)
+}
+
+type GetTransitGatewayAttachmentNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetTransitGatewayAttachmentNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTransitGatewayAttachmentNetwork)(nil)).Elem()
+}
+
+func (o GetTransitGatewayAttachmentNetworkOutput) ToGetTransitGatewayAttachmentNetworkOutput() GetTransitGatewayAttachmentNetworkOutput {
+	return o
+}
+
+func (o GetTransitGatewayAttachmentNetworkOutput) ToGetTransitGatewayAttachmentNetworkOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentNetworkOutput {
+	return o
+}
+
+// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+func (o GetTransitGatewayAttachmentNetworkOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTransitGatewayAttachmentNetwork) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetTransitGatewayAttachmentNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTransitGatewayAttachmentNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTransitGatewayAttachmentNetwork)(nil)).Elem()
+}
+
+func (o GetTransitGatewayAttachmentNetworkArrayOutput) ToGetTransitGatewayAttachmentNetworkArrayOutput() GetTransitGatewayAttachmentNetworkArrayOutput {
+	return o
+}
+
+func (o GetTransitGatewayAttachmentNetworkArrayOutput) ToGetTransitGatewayAttachmentNetworkArrayOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentNetworkArrayOutput {
+	return o
+}
+
+func (o GetTransitGatewayAttachmentNetworkArrayOutput) Index(i pulumi.IntInput) GetTransitGatewayAttachmentNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTransitGatewayAttachmentNetwork {
+		return vs[0].([]GetTransitGatewayAttachmentNetwork)[vs[1].(int)]
+	}).(GetTransitGatewayAttachmentNetworkOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyManagedResourceInput)(nil)).Elem(), ApiKeyManagedResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyManagedResourcePtrInput)(nil)).Elem(), ApiKeyManagedResourceArgs{})
@@ -9193,6 +10403,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessGcpPtrInput)(nil)).Elem(), PrivateLinkAccessGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessNetworkInput)(nil)).Elem(), PrivateLinkAccessNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessNetworkPtrInput)(nil)).Elem(), PrivateLinkAccessNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamGovernanceClusterEnvironmentInput)(nil)).Elem(), StreamGovernanceClusterEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamGovernanceClusterEnvironmentPtrInput)(nil)).Elem(), StreamGovernanceClusterEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamGovernanceClusterRegionInput)(nil)).Elem(), StreamGovernanceClusterRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamGovernanceClusterRegionPtrInput)(nil)).Elem(), StreamGovernanceClusterRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentAwsInput)(nil)).Elem(), TransitGatewayAttachmentAwsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentAwsPtrInput)(nil)).Elem(), TransitGatewayAttachmentAwsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentEnvironmentInput)(nil)).Elem(), TransitGatewayAttachmentEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentEnvironmentPtrInput)(nil)).Elem(), TransitGatewayAttachmentEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNetworkInput)(nil)).Elem(), TransitGatewayAttachmentNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNetworkPtrInput)(nil)).Elem(), TransitGatewayAttachmentNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolIdentityProviderInput)(nil)).Elem(), GetIdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaEnvironmentInput)(nil)).Elem(), GetKafkaClientQuotaEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaEnvironmentArrayInput)(nil)).Elem(), GetKafkaClientQuotaEnvironmentArray{})
@@ -9242,6 +10462,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessGcpArrayInput)(nil)).Elem(), GetPrivateLinkAccessGcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessNetworkInput)(nil)).Elem(), GetPrivateLinkAccessNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessNetworkArrayInput)(nil)).Elem(), GetPrivateLinkAccessNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStreatGovernanceClusterEnvironmentInput)(nil)).Elem(), GetStreatGovernanceClusterEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStreatGovernanceClusterRegionInput)(nil)).Elem(), GetStreatGovernanceClusterRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStreatGovernanceClusterRegionArrayInput)(nil)).Elem(), GetStreatGovernanceClusterRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentAwInput)(nil)).Elem(), GetTransitGatewayAttachmentAwArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentAwArrayInput)(nil)).Elem(), GetTransitGatewayAttachmentAwArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentEnvironmentInput)(nil)).Elem(), GetTransitGatewayAttachmentEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentNetworkInput)(nil)).Elem(), GetTransitGatewayAttachmentNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentNetworkArrayInput)(nil)).Elem(), GetTransitGatewayAttachmentNetworkArray{})
 	pulumi.RegisterOutputType(ApiKeyManagedResourceOutput{})
 	pulumi.RegisterOutputType(ApiKeyManagedResourcePtrOutput{})
 	pulumi.RegisterOutputType(ApiKeyManagedResourceEnvironmentOutput{})
@@ -9332,6 +10560,16 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkAccessGcpPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAccessNetworkOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAccessNetworkPtrOutput{})
+	pulumi.RegisterOutputType(StreamGovernanceClusterEnvironmentOutput{})
+	pulumi.RegisterOutputType(StreamGovernanceClusterEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(StreamGovernanceClusterRegionOutput{})
+	pulumi.RegisterOutputType(StreamGovernanceClusterRegionPtrOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentAwsOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentAwsPtrOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentEnvironmentOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentNetworkOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentNetworkPtrOutput{})
 	pulumi.RegisterOutputType(GetIdentityPoolIdentityProviderOutput{})
 	pulumi.RegisterOutputType(GetKafkaClientQuotaEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetKafkaClientQuotaEnvironmentArrayOutput{})
@@ -9381,4 +10619,12 @@ func init() {
 	pulumi.RegisterOutputType(GetPrivateLinkAccessGcpArrayOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAccessNetworkOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAccessNetworkArrayOutput{})
+	pulumi.RegisterOutputType(GetStreatGovernanceClusterEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetStreatGovernanceClusterRegionOutput{})
+	pulumi.RegisterOutputType(GetStreatGovernanceClusterRegionArrayOutput{})
+	pulumi.RegisterOutputType(GetTransitGatewayAttachmentAwOutput{})
+	pulumi.RegisterOutputType(GetTransitGatewayAttachmentAwArrayOutput{})
+	pulumi.RegisterOutputType(GetTransitGatewayAttachmentEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetTransitGatewayAttachmentNetworkOutput{})
+	pulumi.RegisterOutputType(GetTransitGatewayAttachmentNetworkArrayOutput{})
 }

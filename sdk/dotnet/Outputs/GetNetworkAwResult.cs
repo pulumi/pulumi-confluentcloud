@@ -14,20 +14,27 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetNetworkAwResult
     {
         /// <summary>
-        /// (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+        /// (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+        /// </summary>
+        public readonly string Account;
+        /// <summary>
+        /// (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
         /// </summary>
         public readonly string PrivateLinkEndpointService;
         /// <summary>
-        /// (Required String) The AWS VPC ID for the network.
+        /// (Required String) The Confluent Cloud VPC ID.
         /// </summary>
         public readonly string Vpc;
 
         [OutputConstructor]
         private GetNetworkAwResult(
+            string account,
+
             string privateLinkEndpointService,
 
             string vpc)
         {
+            Account = account;
             PrivateLinkEndpointService = privateLinkEndpointService;
             Vpc = vpc;
         }

@@ -13,14 +13,29 @@ public final class GetNetworkAw extends com.pulumi.resources.InvokeArgs {
     public static final GetNetworkAw Empty = new GetNetworkAw();
 
     /**
-     * (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+     * (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+     * 
+     */
+    @Import(name="account", required=true)
+    private String account;
+
+    /**
+     * @return (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+     * 
+     */
+    public String account() {
+        return this.account;
+    }
+
+    /**
+     * (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      * 
      */
     @Import(name="privateLinkEndpointService", required=true)
     private String privateLinkEndpointService;
 
     /**
-     * @return (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+     * @return (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
      * 
      */
     public String privateLinkEndpointService() {
@@ -28,14 +43,14 @@ public final class GetNetworkAw extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * (Required String) The AWS VPC ID for the network.
+     * (Required String) The Confluent Cloud VPC ID.
      * 
      */
     @Import(name="vpc", required=true)
     private String vpc;
 
     /**
-     * @return (Required String) The AWS VPC ID for the network.
+     * @return (Required String) The Confluent Cloud VPC ID.
      * 
      */
     public String vpc() {
@@ -45,6 +60,7 @@ public final class GetNetworkAw extends com.pulumi.resources.InvokeArgs {
     private GetNetworkAw() {}
 
     private GetNetworkAw(GetNetworkAw $) {
+        this.account = $.account;
         this.privateLinkEndpointService = $.privateLinkEndpointService;
         this.vpc = $.vpc;
     }
@@ -68,7 +84,18 @@ public final class GetNetworkAw extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param privateLinkEndpointService (Optional String) The AWS VPC endpoint service for the network (used for Private Link) if available.
+         * @param account (Required String) The AWS account ID associated with the Confluent Cloud VPC.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder account(String account) {
+            $.account = account;
+            return this;
+        }
+
+        /**
+         * @param privateLinkEndpointService (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
          * 
          * @return builder
          * 
@@ -79,7 +106,7 @@ public final class GetNetworkAw extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param vpc (Required String) The AWS VPC ID for the network.
+         * @param vpc (Required String) The Confluent Cloud VPC ID.
          * 
          * @return builder
          * 
@@ -90,6 +117,7 @@ public final class GetNetworkAw extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetNetworkAw build() {
+            $.account = Objects.requireNonNull($.account, "expected parameter 'account' to be non-null");
             $.privateLinkEndpointService = Objects.requireNonNull($.privateLinkEndpointService, "expected parameter 'privateLinkEndpointService' to be non-null");
             $.vpc = Objects.requireNonNull($.vpc, "expected parameter 'vpc' to be non-null");
             return $;

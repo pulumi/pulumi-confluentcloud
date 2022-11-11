@@ -17,14 +17,14 @@ public final class NetworkGcpArgs extends com.pulumi.resources.ResourceArgs {
     public static final NetworkGcpArgs Empty = new NetworkGcpArgs();
 
     /**
-     * (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
      * 
      */
     @Import(name="privateServiceConnectServiceAttachments")
     private @Nullable Output<Map<String,String>> privateServiceConnectServiceAttachments;
 
     /**
-     * @return (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+     * @return (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
      * 
      */
     public Optional<Output<Map<String,String>>> privateServiceConnectServiceAttachments() {
@@ -32,14 +32,14 @@ public final class NetworkGcpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required String) The GCP project ID.
+     * (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
      * 
      */
     @Import(name="project")
     private @Nullable Output<String> project;
 
     /**
-     * @return (Required String) The GCP project ID.
+     * @return (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
      * 
      */
     public Optional<Output<String>> project() {
@@ -47,14 +47,14 @@ public final class NetworkGcpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Required String) The GCP VPC network name.
+     * (Required String) The network name of the Confluent Cloud VPC.
      * 
      */
     @Import(name="vpcNetwork")
     private @Nullable Output<String> vpcNetwork;
 
     /**
-     * @return (Required String) The GCP VPC network name.
+     * @return (Required String) The network name of the Confluent Cloud VPC.
      * 
      */
     public Optional<Output<String>> vpcNetwork() {
@@ -88,7 +88,7 @@ public final class NetworkGcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateServiceConnectServiceAttachments (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+         * @param privateServiceConnectServiceAttachments (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class NetworkGcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateServiceConnectServiceAttachments (Optional Map) The mapping of zones to Private Service Connect service attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
+         * @param privateServiceConnectServiceAttachments (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class NetworkGcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param project (Required String) The GCP project ID.
+         * @param project (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class NetworkGcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param project (Required String) The GCP project ID.
+         * @param project (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class NetworkGcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcNetwork (Required String) The GCP VPC network name.
+         * @param vpcNetwork (Required String) The network name of the Confluent Cloud VPC.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class NetworkGcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcNetwork (Required String) The GCP VPC network name.
+         * @param vpcNetwork (Required String) The network name of the Confluent Cloud VPC.
          * 
          * @return builder
          * 
