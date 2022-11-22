@@ -38,8 +38,8 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The configuration of the Basic Kafka cluster.
         /// </summary>
-        [Output("basics")]
-        public Output<ImmutableArray<Outputs.KafkaClusterBasic>> Basics { get; private set; } = null!;
+        [Output("basic")]
+        public Output<Outputs.KafkaClusterBasic?> Basic { get; private set; } = null!;
 
         /// <summary>
         /// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -102,8 +102,8 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The configuration of the Standard Kafka cluster.
         /// </summary>
-        [Output("standards")]
-        public Output<ImmutableArray<Outputs.KafkaClusterStandard>> Standards { get; private set; } = null!;
+        [Output("standard")]
+        public Output<Outputs.KafkaClusterStandard?> Standard { get; private set; } = null!;
 
 
         /// <summary>
@@ -157,17 +157,11 @@ namespace Pulumi.ConfluentCloud
         [Input("availability", required: true)]
         public Input<string> Availability { get; set; } = null!;
 
-        [Input("basics")]
-        private InputList<Inputs.KafkaClusterBasicArgs>? _basics;
-
         /// <summary>
         /// The configuration of the Basic Kafka cluster.
         /// </summary>
-        public InputList<Inputs.KafkaClusterBasicArgs> Basics
-        {
-            get => _basics ?? (_basics = new InputList<Inputs.KafkaClusterBasicArgs>());
-            set => _basics = value;
-        }
+        [Input("basic")]
+        public Input<Inputs.KafkaClusterBasicArgs>? Basic { get; set; }
 
         /// <summary>
         /// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
@@ -203,17 +197,11 @@ namespace Pulumi.ConfluentCloud
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
-        [Input("standards")]
-        private InputList<Inputs.KafkaClusterStandardArgs>? _standards;
-
         /// <summary>
         /// The configuration of the Standard Kafka cluster.
         /// </summary>
-        public InputList<Inputs.KafkaClusterStandardArgs> Standards
-        {
-            get => _standards ?? (_standards = new InputList<Inputs.KafkaClusterStandardArgs>());
-            set => _standards = value;
-        }
+        [Input("standard")]
+        public Input<Inputs.KafkaClusterStandardArgs>? Standard { get; set; }
 
         public KafkaClusterArgs()
         {
@@ -235,17 +223,11 @@ namespace Pulumi.ConfluentCloud
         [Input("availability")]
         public Input<string>? Availability { get; set; }
 
-        [Input("basics")]
-        private InputList<Inputs.KafkaClusterBasicGetArgs>? _basics;
-
         /// <summary>
         /// The configuration of the Basic Kafka cluster.
         /// </summary>
-        public InputList<Inputs.KafkaClusterBasicGetArgs> Basics
-        {
-            get => _basics ?? (_basics = new InputList<Inputs.KafkaClusterBasicGetArgs>());
-            set => _basics = value;
-        }
+        [Input("basic")]
+        public Input<Inputs.KafkaClusterBasicGetArgs>? Basic { get; set; }
 
         /// <summary>
         /// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -305,17 +287,11 @@ namespace Pulumi.ConfluentCloud
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
 
-        [Input("standards")]
-        private InputList<Inputs.KafkaClusterStandardGetArgs>? _standards;
-
         /// <summary>
         /// The configuration of the Standard Kafka cluster.
         /// </summary>
-        public InputList<Inputs.KafkaClusterStandardGetArgs> Standards
-        {
-            get => _standards ?? (_standards = new InputList<Inputs.KafkaClusterStandardGetArgs>());
-            set => _standards = value;
-        }
+        [Input("standard")]
+        public Input<Inputs.KafkaClusterStandardGetArgs>? Standard { get; set; }
 
         public KafkaClusterState()
         {

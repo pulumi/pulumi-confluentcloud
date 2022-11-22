@@ -11,7 +11,6 @@ import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -40,15 +39,15 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
      * The configuration of the Basic Kafka cluster.
      * 
      */
-    @Import(name="basics")
-    private @Nullable Output<List<KafkaClusterBasicArgs>> basics;
+    @Import(name="basic")
+    private @Nullable Output<KafkaClusterBasicArgs> basic;
 
     /**
      * @return The configuration of the Basic Kafka cluster.
      * 
      */
-    public Optional<Output<List<KafkaClusterBasicArgs>>> basics() {
-        return Optional.ofNullable(this.basics);
+    public Optional<Output<KafkaClusterBasicArgs>> basic() {
+        return Optional.ofNullable(this.basic);
     }
 
     /**
@@ -139,29 +138,29 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
      * The configuration of the Standard Kafka cluster.
      * 
      */
-    @Import(name="standards")
-    private @Nullable Output<List<KafkaClusterStandardArgs>> standards;
+    @Import(name="standard")
+    private @Nullable Output<KafkaClusterStandardArgs> standard;
 
     /**
      * @return The configuration of the Standard Kafka cluster.
      * 
      */
-    public Optional<Output<List<KafkaClusterStandardArgs>>> standards() {
-        return Optional.ofNullable(this.standards);
+    public Optional<Output<KafkaClusterStandardArgs>> standard() {
+        return Optional.ofNullable(this.standard);
     }
 
     private KafkaClusterArgs() {}
 
     private KafkaClusterArgs(KafkaClusterArgs $) {
         this.availability = $.availability;
-        this.basics = $.basics;
+        this.basic = $.basic;
         this.cloud = $.cloud;
         this.dedicated = $.dedicated;
         this.displayName = $.displayName;
         this.environment = $.environment;
         this.network = $.network;
         this.region = $.region;
-        this.standards = $.standards;
+        this.standard = $.standard;
     }
 
     public static Builder builder() {
@@ -204,34 +203,24 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param basics The configuration of the Basic Kafka cluster.
+         * @param basic The configuration of the Basic Kafka cluster.
          * 
          * @return builder
          * 
          */
-        public Builder basics(@Nullable Output<List<KafkaClusterBasicArgs>> basics) {
-            $.basics = basics;
+        public Builder basic(@Nullable Output<KafkaClusterBasicArgs> basic) {
+            $.basic = basic;
             return this;
         }
 
         /**
-         * @param basics The configuration of the Basic Kafka cluster.
+         * @param basic The configuration of the Basic Kafka cluster.
          * 
          * @return builder
          * 
          */
-        public Builder basics(List<KafkaClusterBasicArgs> basics) {
-            return basics(Output.of(basics));
-        }
-
-        /**
-         * @param basics The configuration of the Basic Kafka cluster.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder basics(KafkaClusterBasicArgs... basics) {
-            return basics(List.of(basics));
+        public Builder basic(KafkaClusterBasicArgs basic) {
+            return basic(Output.of(basic));
         }
 
         /**
@@ -351,34 +340,24 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param standards The configuration of the Standard Kafka cluster.
+         * @param standard The configuration of the Standard Kafka cluster.
          * 
          * @return builder
          * 
          */
-        public Builder standards(@Nullable Output<List<KafkaClusterStandardArgs>> standards) {
-            $.standards = standards;
+        public Builder standard(@Nullable Output<KafkaClusterStandardArgs> standard) {
+            $.standard = standard;
             return this;
         }
 
         /**
-         * @param standards The configuration of the Standard Kafka cluster.
+         * @param standard The configuration of the Standard Kafka cluster.
          * 
          * @return builder
          * 
          */
-        public Builder standards(List<KafkaClusterStandardArgs> standards) {
-            return standards(Output.of(standards));
-        }
-
-        /**
-         * @param standards The configuration of the Standard Kafka cluster.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder standards(KafkaClusterStandardArgs... standards) {
-            return standards(List.of(standards));
+        public Builder standard(KafkaClusterStandardArgs standard) {
+            return standard(Output.of(standard));
         }
 
         public KafkaClusterArgs build() {

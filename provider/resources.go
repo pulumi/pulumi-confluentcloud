@@ -79,6 +79,9 @@ func Provider() tfbridge.ProviderInfo {
 			"confluent_kafka_cluster": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaCluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"display_name": tfbridge.AutoName("displayName", 255, "-"),
+					"standard":     {Name: "standard", MaxItemsOne: tfbridge.True()},
+					"basic":        {Name: "basic", MaxItemsOne: tfbridge.True()},
+					"dedicated":    {Name: "dedicated", MaxItemsOne: tfbridge.True()},
 				}},
 			"confluent_kafka_cluster_config": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaClusterConfig")},
 			"confluent_kafka_mirror_topic":   {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaMirrorTopic")},
