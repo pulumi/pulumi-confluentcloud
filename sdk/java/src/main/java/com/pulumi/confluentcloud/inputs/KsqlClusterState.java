@@ -87,21 +87,6 @@ public final class KsqlClusterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.environment);
     }
 
-    /**
-     * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-     * 
-     */
-    @Import(name="httpEndpoint")
-    private @Nullable Output<String> httpEndpoint;
-
-    /**
-     * @return (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-     * 
-     */
-    public Optional<Output<String>> httpEndpoint() {
-        return Optional.ofNullable(this.httpEndpoint);
-    }
-
     @Import(name="kafkaCluster")
     private @Nullable Output<KsqlClusterKafkaClusterArgs> kafkaCluster;
 
@@ -122,6 +107,21 @@ public final class KsqlClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> kind() {
         return Optional.ofNullable(this.kind);
+    }
+
+    /**
+     * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+     * 
+     */
+    @Import(name="restEndpoint")
+    private @Nullable Output<String> restEndpoint;
+
+    /**
+     * @return (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+     * 
+     */
+    public Optional<Output<String>> restEndpoint() {
+        return Optional.ofNullable(this.restEndpoint);
     }
 
     /**
@@ -177,9 +177,9 @@ public final class KsqlClusterState extends com.pulumi.resources.ResourceArgs {
         this.csu = $.csu;
         this.displayName = $.displayName;
         this.environment = $.environment;
-        this.httpEndpoint = $.httpEndpoint;
         this.kafkaCluster = $.kafkaCluster;
         this.kind = $.kind;
+        this.restEndpoint = $.restEndpoint;
         this.storage = $.storage;
         this.topicPrefix = $.topicPrefix;
         this.useDetailedProcessingLog = $.useDetailedProcessingLog;
@@ -296,27 +296,6 @@ public final class KsqlClusterState extends com.pulumi.resources.ResourceArgs {
             return environment(Output.of(environment));
         }
 
-        /**
-         * @param httpEndpoint (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder httpEndpoint(@Nullable Output<String> httpEndpoint) {
-            $.httpEndpoint = httpEndpoint;
-            return this;
-        }
-
-        /**
-         * @param httpEndpoint (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder httpEndpoint(String httpEndpoint) {
-            return httpEndpoint(Output.of(httpEndpoint));
-        }
-
         public Builder kafkaCluster(@Nullable Output<KsqlClusterKafkaClusterArgs> kafkaCluster) {
             $.kafkaCluster = kafkaCluster;
             return this;
@@ -345,6 +324,27 @@ public final class KsqlClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder kind(String kind) {
             return kind(Output.of(kind));
+        }
+
+        /**
+         * @param restEndpoint (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restEndpoint(@Nullable Output<String> restEndpoint) {
+            $.restEndpoint = restEndpoint;
+            return this;
+        }
+
+        /**
+         * @param restEndpoint (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restEndpoint(String restEndpoint) {
+            return restEndpoint(Output.of(restEndpoint));
         }
 
         /**

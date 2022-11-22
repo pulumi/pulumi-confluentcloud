@@ -180,11 +180,6 @@ namespace Pulumi.ConfluentCloud
         public readonly string DisplayName;
         public readonly Outputs.GetKsqlClusterEnvironmentResult Environment;
         /// <summary>
-        /// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-        /// - `kafka_cluster` (Optional Configuration Block) supports the following:
-        /// </summary>
-        public readonly string HttpEndpoint;
-        /// <summary>
         /// (Required String) The ID of the service or user account that the ksqlDB cluster belongs to, for example, `sa-abc123`.
         /// </summary>
         public readonly string Id;
@@ -193,6 +188,11 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
         /// </summary>
         public readonly string Kind;
+        /// <summary>
+        /// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+        /// - `kafka_cluster` (Optional Configuration Block) supports the following:
+        /// </summary>
+        public readonly string RestEndpoint;
         /// <summary>
         /// (Required Integer) The amount of storage (in GB) provisioned to this cluster.
         /// </summary>
@@ -215,13 +215,13 @@ namespace Pulumi.ConfluentCloud
 
             Outputs.GetKsqlClusterEnvironmentResult environment,
 
-            string httpEndpoint,
-
             string id,
 
             ImmutableArray<Outputs.GetKsqlClusterKafkaClusterResult> kafkaClusters,
 
             string kind,
+
+            string restEndpoint,
 
             int storage,
 
@@ -234,10 +234,10 @@ namespace Pulumi.ConfluentCloud
             Csu = csu;
             DisplayName = displayName;
             Environment = environment;
-            HttpEndpoint = httpEndpoint;
             Id = id;
             KafkaClusters = kafkaClusters;
             Kind = kind;
+            RestEndpoint = restEndpoint;
             Storage = storage;
             TopicPrefix = topicPrefix;
             UseDetailedProcessingLog = useDetailedProcessingLog;

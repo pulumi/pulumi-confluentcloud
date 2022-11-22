@@ -35,12 +35,12 @@ type KsqlCluster struct {
 	// The name of the ksqlDB cluster.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment KsqlClusterEnvironmentOutput `pulumi:"environment"`
-	// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-	HttpEndpoint pulumi.StringOutput           `pulumi:"httpEndpoint"`
+	Environment  KsqlClusterEnvironmentOutput  `pulumi:"environment"`
 	KafkaCluster KsqlClusterKafkaClusterOutput `pulumi:"kafkaCluster"`
 	// (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
 	Kind pulumi.StringOutput `pulumi:"kind"`
+	// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+	RestEndpoint pulumi.StringOutput `pulumi:"restEndpoint"`
 	// (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
 	Storage pulumi.IntOutput `pulumi:"storage"`
 	// (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
@@ -101,12 +101,12 @@ type ksqlClusterState struct {
 	// The name of the ksqlDB cluster.
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment *KsqlClusterEnvironment `pulumi:"environment"`
-	// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-	HttpEndpoint *string                  `pulumi:"httpEndpoint"`
+	Environment  *KsqlClusterEnvironment  `pulumi:"environment"`
 	KafkaCluster *KsqlClusterKafkaCluster `pulumi:"kafkaCluster"`
 	// (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
 	Kind *string `pulumi:"kind"`
+	// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+	RestEndpoint *string `pulumi:"restEndpoint"`
 	// (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
 	Storage *int `pulumi:"storage"`
 	// (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
@@ -124,12 +124,12 @@ type KsqlClusterState struct {
 	// The name of the ksqlDB cluster.
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment KsqlClusterEnvironmentPtrInput
-	// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-	HttpEndpoint pulumi.StringPtrInput
+	Environment  KsqlClusterEnvironmentPtrInput
 	KafkaCluster KsqlClusterKafkaClusterPtrInput
 	// (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
 	Kind pulumi.StringPtrInput
+	// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+	RestEndpoint pulumi.StringPtrInput
 	// (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
 	Storage pulumi.IntPtrInput
 	// (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
@@ -280,11 +280,6 @@ func (o KsqlClusterOutput) Environment() KsqlClusterEnvironmentOutput {
 	return o.ApplyT(func(v *KsqlCluster) KsqlClusterEnvironmentOutput { return v.Environment }).(KsqlClusterEnvironmentOutput)
 }
 
-// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-func (o KsqlClusterOutput) HttpEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *KsqlCluster) pulumi.StringOutput { return v.HttpEndpoint }).(pulumi.StringOutput)
-}
-
 func (o KsqlClusterOutput) KafkaCluster() KsqlClusterKafkaClusterOutput {
 	return o.ApplyT(func(v *KsqlCluster) KsqlClusterKafkaClusterOutput { return v.KafkaCluster }).(KsqlClusterKafkaClusterOutput)
 }
@@ -292,6 +287,11 @@ func (o KsqlClusterOutput) KafkaCluster() KsqlClusterKafkaClusterOutput {
 // (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
 func (o KsqlClusterOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *KsqlCluster) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+func (o KsqlClusterOutput) RestEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *KsqlCluster) pulumi.StringOutput { return v.RestEndpoint }).(pulumi.StringOutput)
 }
 
 // (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.

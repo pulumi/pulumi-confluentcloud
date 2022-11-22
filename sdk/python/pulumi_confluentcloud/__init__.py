@@ -21,6 +21,8 @@ from .get_organization import *
 from .get_peering import *
 from .get_private_link_access import *
 from .get_role_binding import *
+from .get_schema_registry_cluster import *
+from .get_schema_registry_region import *
 from .get_service_account import *
 from .get_stream_governance_region import *
 from .get_streat_governance_cluster import *
@@ -40,6 +42,7 @@ from .peering import *
 from .private_link_access import *
 from .provider import *
 from .role_binding import *
+from .schema_registry_cluster import *
 from .service_account import *
 from .stream_governance_cluster import *
 from .transit_gateway_attachment import *
@@ -190,6 +193,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/roleBinding:RoleBinding": "RoleBinding"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/schemaRegistryCluster",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster": "SchemaRegistryCluster"
   }
  },
  {

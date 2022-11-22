@@ -1,9 +1,9 @@
 module github.com/confluentinc/terraform-provider-confluent/shim
 
-go 1.18
+go 1.19
 
 require (
-	github.com/confluentinc/terraform-provider-confluent v1.1.0
+	github.com/confluentinc/terraform-provider-confluent v1.16.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.16.0
 )
 

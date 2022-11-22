@@ -23,7 +23,7 @@ class GetKsqlClusterResult:
     """
     A collection of values returned by getKsqlCluster.
     """
-    def __init__(__self__, api_version=None, credential_identities=None, csu=None, display_name=None, environment=None, http_endpoint=None, id=None, kafka_clusters=None, kind=None, storage=None, topic_prefix=None, use_detailed_processing_log=None):
+    def __init__(__self__, api_version=None, credential_identities=None, csu=None, display_name=None, environment=None, id=None, kafka_clusters=None, kind=None, rest_endpoint=None, storage=None, topic_prefix=None, use_detailed_processing_log=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
@@ -39,9 +39,6 @@ class GetKsqlClusterResult:
         if environment and not isinstance(environment, dict):
             raise TypeError("Expected argument 'environment' to be a dict")
         pulumi.set(__self__, "environment", environment)
-        if http_endpoint and not isinstance(http_endpoint, str):
-            raise TypeError("Expected argument 'http_endpoint' to be a str")
-        pulumi.set(__self__, "http_endpoint", http_endpoint)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -51,6 +48,13 @@ class GetKsqlClusterResult:
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
+        if rest_endpoint and not isinstance(rest_endpoint, str):
+            raise TypeError("Expected argument 'rest_endpoint' to be a str")
+        if rest_endpoint is not None:
+            warnings.warn("""use rest_endpoint instead""", DeprecationWarning)
+            pulumi.log.warn("""rest_endpoint is deprecated: use rest_endpoint instead""")
+
+        pulumi.set(__self__, "rest_endpoint", rest_endpoint)
         if storage and not isinstance(storage, int):
             raise TypeError("Expected argument 'storage' to be a int")
         pulumi.set(__self__, "storage", storage)
@@ -94,15 +98,6 @@ class GetKsqlClusterResult:
         return pulumi.get(self, "environment")
 
     @property
-    @pulumi.getter(name="httpEndpoint")
-    def http_endpoint(self) -> str:
-        """
-        (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-        - `kafka_cluster` (Optional Configuration Block) supports the following:
-        """
-        return pulumi.get(self, "http_endpoint")
-
-    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -122,6 +117,15 @@ class GetKsqlClusterResult:
         (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
         """
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> str:
+        """
+        (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+        - `kafka_cluster` (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "rest_endpoint")
 
     @property
     @pulumi.getter
@@ -156,10 +160,10 @@ class AwaitableGetKsqlClusterResult(GetKsqlClusterResult):
             csu=self.csu,
             display_name=self.display_name,
             environment=self.environment,
-            http_endpoint=self.http_endpoint,
             id=self.id,
             kafka_clusters=self.kafka_clusters,
             kind=self.kind,
+            rest_endpoint=self.rest_endpoint,
             storage=self.storage,
             topic_prefix=self.topic_prefix,
             use_detailed_processing_log=self.use_detailed_processing_log)
@@ -214,10 +218,10 @@ def get_ksql_cluster(display_name: Optional[str] = None,
         csu=__ret__.csu,
         display_name=__ret__.display_name,
         environment=__ret__.environment,
-        http_endpoint=__ret__.http_endpoint,
         id=__ret__.id,
         kafka_clusters=__ret__.kafka_clusters,
         kind=__ret__.kind,
+        rest_endpoint=__ret__.rest_endpoint,
         storage=__ret__.storage,
         topic_prefix=__ret__.topic_prefix,
         use_detailed_processing_log=__ret__.use_detailed_processing_log)

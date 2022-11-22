@@ -64,15 +64,15 @@ export class KsqlCluster extends pulumi.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     public readonly environment!: pulumi.Output<outputs.KsqlClusterEnvironment>;
-    /**
-     * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-     */
-    public /*out*/ readonly httpEndpoint!: pulumi.Output<string>;
     public readonly kafkaCluster!: pulumi.Output<outputs.KsqlClusterKafkaCluster>;
     /**
      * (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
+    /**
+     * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+     */
+    public /*out*/ readonly restEndpoint!: pulumi.Output<string>;
     /**
      * (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
      */
@@ -104,9 +104,9 @@ export class KsqlCluster extends pulumi.CustomResource {
             resourceInputs["csu"] = state ? state.csu : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["httpEndpoint"] = state ? state.httpEndpoint : undefined;
             resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
+            resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
             resourceInputs["storage"] = state ? state.storage : undefined;
             resourceInputs["topicPrefix"] = state ? state.topicPrefix : undefined;
             resourceInputs["useDetailedProcessingLog"] = state ? state.useDetailedProcessingLog : undefined;
@@ -134,8 +134,8 @@ export class KsqlCluster extends pulumi.CustomResource {
             resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
             resourceInputs["useDetailedProcessingLog"] = args ? args.useDetailedProcessingLog : undefined;
             resourceInputs["apiVersion"] = undefined /*out*/;
-            resourceInputs["httpEndpoint"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["restEndpoint"] = undefined /*out*/;
             resourceInputs["storage"] = undefined /*out*/;
             resourceInputs["topicPrefix"] = undefined /*out*/;
         }
@@ -165,15 +165,15 @@ export interface KsqlClusterState {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment?: pulumi.Input<inputs.KsqlClusterEnvironment>;
-    /**
-     * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-     */
-    httpEndpoint?: pulumi.Input<string>;
     kafkaCluster?: pulumi.Input<inputs.KsqlClusterKafkaCluster>;
     /**
      * (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
      */
     kind?: pulumi.Input<string>;
+    /**
+     * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+     */
+    restEndpoint?: pulumi.Input<string>;
     /**
      * (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
      */

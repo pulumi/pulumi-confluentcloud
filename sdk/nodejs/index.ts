@@ -68,6 +68,14 @@ export { GetRoleBindingArgs, GetRoleBindingResult, GetRoleBindingOutputArgs } fr
 export const getRoleBinding: typeof import("./getRoleBinding").getRoleBinding = null as any;
 export const getRoleBindingOutput: typeof import("./getRoleBinding").getRoleBindingOutput = null as any;
 
+export { GetSchemaRegistryClusterArgs, GetSchemaRegistryClusterResult, GetSchemaRegistryClusterOutputArgs } from "./getSchemaRegistryCluster";
+export const getSchemaRegistryCluster: typeof import("./getSchemaRegistryCluster").getSchemaRegistryCluster = null as any;
+export const getSchemaRegistryClusterOutput: typeof import("./getSchemaRegistryCluster").getSchemaRegistryClusterOutput = null as any;
+
+export { GetSchemaRegistryRegionArgs, GetSchemaRegistryRegionResult, GetSchemaRegistryRegionOutputArgs } from "./getSchemaRegistryRegion";
+export const getSchemaRegistryRegion: typeof import("./getSchemaRegistryRegion").getSchemaRegistryRegion = null as any;
+export const getSchemaRegistryRegionOutput: typeof import("./getSchemaRegistryRegion").getSchemaRegistryRegionOutput = null as any;
+
 export { GetServiceAccountArgs, GetServiceAccountResult, GetServiceAccountOutputArgs } from "./getServiceAccount";
 export const getServiceAccount: typeof import("./getServiceAccount").getServiceAccount = null as any;
 export const getServiceAccountOutput: typeof import("./getServiceAccount").getServiceAccountOutput = null as any;
@@ -144,6 +152,10 @@ export { RoleBindingArgs, RoleBindingState } from "./roleBinding";
 export type RoleBinding = import("./roleBinding").RoleBinding;
 export const RoleBinding: typeof import("./roleBinding").RoleBinding = null as any;
 
+export { SchemaRegistryClusterArgs, SchemaRegistryClusterState } from "./schemaRegistryCluster";
+export type SchemaRegistryCluster = import("./schemaRegistryCluster").SchemaRegistryCluster;
+export const SchemaRegistryCluster: typeof import("./schemaRegistryCluster").SchemaRegistryCluster = null as any;
+
 export { ServiceAccountArgs, ServiceAccountState } from "./serviceAccount";
 export type ServiceAccount = import("./serviceAccount").ServiceAccount;
 export const ServiceAccount: typeof import("./serviceAccount").ServiceAccount = null as any;
@@ -172,6 +184,8 @@ utilities.lazyLoad(exports, ["getOrganization"], () => require("./getOrganizatio
 utilities.lazyLoad(exports, ["getPeering","getPeeringOutput"], () => require("./getPeering"));
 utilities.lazyLoad(exports, ["getPrivateLinkAccess","getPrivateLinkAccessOutput"], () => require("./getPrivateLinkAccess"));
 utilities.lazyLoad(exports, ["getRoleBinding","getRoleBindingOutput"], () => require("./getRoleBinding"));
+utilities.lazyLoad(exports, ["getSchemaRegistryCluster","getSchemaRegistryClusterOutput"], () => require("./getSchemaRegistryCluster"));
+utilities.lazyLoad(exports, ["getSchemaRegistryRegion","getSchemaRegistryRegionOutput"], () => require("./getSchemaRegistryRegion"));
 utilities.lazyLoad(exports, ["getServiceAccount","getServiceAccountOutput"], () => require("./getServiceAccount"));
 utilities.lazyLoad(exports, ["getStreamGovernanceRegion","getStreamGovernanceRegionOutput"], () => require("./getStreamGovernanceRegion"));
 utilities.lazyLoad(exports, ["getStreatGovernanceCluster","getStreatGovernanceClusterOutput"], () => require("./getStreatGovernanceCluster"));
@@ -191,6 +205,7 @@ utilities.lazyLoad(exports, ["Peering"], () => require("./peering"));
 utilities.lazyLoad(exports, ["PrivateLinkAccess"], () => require("./privateLinkAccess"));
 utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 utilities.lazyLoad(exports, ["RoleBinding"], () => require("./roleBinding"));
+utilities.lazyLoad(exports, ["SchemaRegistryCluster"], () => require("./schemaRegistryCluster"));
 utilities.lazyLoad(exports, ["ServiceAccount"], () => require("./serviceAccount"));
 utilities.lazyLoad(exports, ["StreamGovernanceCluster"], () => require("./streamGovernanceCluster"));
 utilities.lazyLoad(exports, ["TransitGatewayAttachment"], () => require("./transitGatewayAttachment"));
@@ -242,6 +257,8 @@ const _module = {
                 return new PrivateLinkAccess(name, <any>undefined, { urn })
             case "confluentcloud:index/roleBinding:RoleBinding":
                 return new RoleBinding(name, <any>undefined, { urn })
+            case "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster":
+                return new SchemaRegistryCluster(name, <any>undefined, { urn })
             case "confluentcloud:index/serviceAccount:ServiceAccount":
                 return new ServiceAccount(name, <any>undefined, { urn })
             case "confluentcloud:index/streamGovernanceCluster:StreamGovernanceCluster":
@@ -270,6 +287,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/network", _module
 pulumi.runtime.registerResourceModule("confluentcloud", "index/peering", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAccess", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/roleBinding", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryCluster", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/serviceAccount", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/streamGovernanceCluster", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/transitGatewayAttachment", _module)

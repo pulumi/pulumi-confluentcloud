@@ -54,6 +54,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PrivateLinkAccess{}
 	case "confluentcloud:index/roleBinding:RoleBinding":
 		r = &RoleBinding{}
+	case "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster":
+		r = &SchemaRegistryCluster{}
 	case "confluentcloud:index/serviceAccount:ServiceAccount":
 		r = &ServiceAccount{}
 	case "confluentcloud:index/streamGovernanceCluster:StreamGovernanceCluster":
@@ -171,6 +173,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/roleBinding",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/schemaRegistryCluster",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

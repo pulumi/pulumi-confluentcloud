@@ -1214,6 +1214,42 @@
                 "id"
             ]
         },
+        "confluentcloud:index/SchemaRegistryClusterEnvironment:SchemaRegistryClusterEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/SchemaRegistryClusterRegion:SchemaRegistryClusterRegion": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/StreamGovernanceClusterEnvironment:StreamGovernanceClusterEnvironment": {
             "properties": {
                 "id": {
@@ -2029,6 +2065,45 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getSchemaRegistryClusterEnvironment:getSchemaRegistryClusterEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getSchemaRegistryClusterRegion:getSchemaRegistryClusterRegion": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2937,7 +3012,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of service accounts to apply the Kafka Client Quota to. Use the special name, \"default\",  to represent the default quota for all users and service accounts.\n"
+                    "description": "The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, \"default\", to represent the default quota for all users and service accounts.\n"
                 },
                 "throughput": {
                     "$ref": "#/types/confluentcloud:index/KafkaClientQuotaThroughput:KafkaClientQuotaThroughput",
@@ -2974,7 +3049,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of service accounts to apply the Kafka Client Quota to. Use the special name, \"default\",  to represent the default quota for all users and service accounts.\n"
+                    "description": "The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, \"default\", to represent the default quota for all users and service accounts.\n"
                 },
                 "throughput": {
                     "$ref": "#/types/confluentcloud:index/KafkaClientQuotaThroughput:KafkaClientQuotaThroughput",
@@ -3013,7 +3088,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "The list of service accounts to apply the Kafka Client Quota to. Use the special name, \"default\",  to represent the default quota for all users and service accounts.\n"
+                        "description": "The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, \"default\", to represent the default quota for all users and service accounts.\n"
                     },
                     "throughput": {
                         "$ref": "#/types/confluentcloud:index/KafkaClientQuotaThroughput:KafkaClientQuotaThroughput",
@@ -3227,7 +3302,7 @@
             }
         },
         "confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig": {
-            "description": "[![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.KafkaClusterConfig` resource is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.KafkaClusterConfig` provides a Kafka cluster config resource that enables updating configs on a Dedicated Kafka cluster on Confluent Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst orders = new confluentcloud.KafkaClusterConfig(\"orders\", {\n    kafkaCluster: {\n        id: confluent_kafka_cluster.dedicated.id,\n    },\n    restEndpoint: confluent_kafka_cluster.dedicated.rest_endpoint,\n    config: {\n        \"auto.create.topics.enable\": \"true\",\n        \"log.retention.ms\": \"604800123\",\n    },\n    credentials: {\n        key: confluent_api_key[\"app-manager-kafka-api-key\"].id,\n        secret: confluent_api_key[\"app-manager-kafka-api-key\"].secret,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\norders = confluentcloud.KafkaClusterConfig(\"orders\",\n    kafka_cluster=confluentcloud.KafkaClusterConfigKafkaClusterArgs(\n        id=confluent_kafka_cluster[\"dedicated\"][\"id\"],\n    ),\n    rest_endpoint=confluent_kafka_cluster[\"dedicated\"][\"rest_endpoint\"],\n    config={\n        \"auto.create.topics.enable\": \"true\",\n        \"log.retention.ms\": \"604800123\",\n    },\n    credentials=confluentcloud.KafkaClusterConfigCredentialsArgs(\n        key=confluent_api_key[\"app-manager-kafka-api-key\"][\"id\"],\n        secret=confluent_api_key[\"app-manager-kafka-api-key\"][\"secret\"],\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var orders = new ConfluentCloud.KafkaClusterConfig(\"orders\", new()\n    {\n        KafkaCluster = new ConfluentCloud.Inputs.KafkaClusterConfigKafkaClusterArgs\n        {\n            Id = confluent_kafka_cluster.Dedicated.Id,\n        },\n        RestEndpoint = confluent_kafka_cluster.Dedicated.Rest_endpoint,\n        Config = \n        {\n            { \"auto.create.topics.enable\", \"true\" },\n            { \"log.retention.ms\", \"604800123\" },\n        },\n        Credentials = new ConfluentCloud.Inputs.KafkaClusterConfigCredentialsArgs\n        {\n            Key = confluent_api_key.App_manager_kafka_api_key.Id,\n            Secret = confluent_api_key.App_manager_kafka_api_key.Secret,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewKafkaClusterConfig(ctx, \"orders\", \u0026confluentcloud.KafkaClusterConfigArgs{\n\t\t\tKafkaCluster: \u0026KafkaClusterConfigKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(confluent_kafka_cluster.Dedicated.Id),\n\t\t\t},\n\t\t\tRestEndpoint: pulumi.Any(confluent_kafka_cluster.Dedicated.Rest_endpoint),\n\t\t\tConfig: pulumi.StringMap{\n\t\t\t\t\"auto.create.topics.enable\": pulumi.String(\"true\"),\n\t\t\t\t\"log.retention.ms\":          pulumi.String(\"604800123\"),\n\t\t\t},\n\t\t\tCredentials: \u0026KafkaClusterConfigCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(confluent_api_key.App - manager - kafka - api - key.Id),\n\t\t\t\tSecret: pulumi.Any(confluent_api_key.App - manager - kafka - api - key.Secret),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.KafkaClusterConfig;\nimport com.pulumi.confluentcloud.KafkaClusterConfigArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClusterConfigKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClusterConfigCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var orders = new KafkaClusterConfig(\"orders\", KafkaClusterConfigArgs.builder()        \n            .kafkaCluster(KafkaClusterConfigKafkaClusterArgs.builder()\n                .id(confluent_kafka_cluster.dedicated().id())\n                .build())\n            .restEndpoint(confluent_kafka_cluster.dedicated().rest_endpoint())\n            .config(Map.ofEntries(\n                Map.entry(\"auto.create.topics.enable\", \"true\"),\n                Map.entry(\"log.retention.ms\", \"604800123\")\n            ))\n            .credentials(KafkaClusterConfigCredentialsArgs.builder()\n                .key(confluent_api_key.app-manager-kafka-api-key().id())\n                .secret(confluent_api_key.app-manager-kafka-api-key().secret())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  orders:\n    type: confluentcloud:KafkaClusterConfig\n    properties:\n      kafkaCluster:\n        id: ${confluent_kafka_cluster.dedicated.id}\n      restEndpoint: ${confluent_kafka_cluster.dedicated.rest_endpoint}\n      config:\n        auto.create.topics.enable: true\n        log.retention.ms: 604800123\n      credentials:\n        key: ${confluent_api_key\"app-manager-kafka-api-key\"[%!s(MISSING)].id}\n        secret: ${confluent_api_key\"app-manager-kafka-api-key\"[%!s(MISSING)].secret}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nYou can import a Kafka cluster config by using the Kafka cluster ID, for example$ export IMPORT_KAFKA_API_KEY=\"\u003ckafka_api_key\u003e\" $ export IMPORT_KAFKA_API_SECRET=\"\u003ckafka_api_secret\u003e\" $ export IMPORT_KAFKA_REST_ENDPOINT=\"\u003ckafka_rest_endpoint\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.KafkaClusterConfig` provides a Kafka cluster config resource that enables updating configs on a Dedicated Kafka cluster on Confluent Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst orders = new confluentcloud.KafkaClusterConfig(\"orders\", {\n    kafkaCluster: {\n        id: confluent_kafka_cluster.dedicated.id,\n    },\n    restEndpoint: confluent_kafka_cluster.dedicated.rest_endpoint,\n    config: {\n        \"auto.create.topics.enable\": \"true\",\n        \"log.retention.ms\": \"604800123\",\n    },\n    credentials: {\n        key: confluent_api_key[\"app-manager-kafka-api-key\"].id,\n        secret: confluent_api_key[\"app-manager-kafka-api-key\"].secret,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\norders = confluentcloud.KafkaClusterConfig(\"orders\",\n    kafka_cluster=confluentcloud.KafkaClusterConfigKafkaClusterArgs(\n        id=confluent_kafka_cluster[\"dedicated\"][\"id\"],\n    ),\n    rest_endpoint=confluent_kafka_cluster[\"dedicated\"][\"rest_endpoint\"],\n    config={\n        \"auto.create.topics.enable\": \"true\",\n        \"log.retention.ms\": \"604800123\",\n    },\n    credentials=confluentcloud.KafkaClusterConfigCredentialsArgs(\n        key=confluent_api_key[\"app-manager-kafka-api-key\"][\"id\"],\n        secret=confluent_api_key[\"app-manager-kafka-api-key\"][\"secret\"],\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var orders = new ConfluentCloud.KafkaClusterConfig(\"orders\", new()\n    {\n        KafkaCluster = new ConfluentCloud.Inputs.KafkaClusterConfigKafkaClusterArgs\n        {\n            Id = confluent_kafka_cluster.Dedicated.Id,\n        },\n        RestEndpoint = confluent_kafka_cluster.Dedicated.Rest_endpoint,\n        Config = \n        {\n            { \"auto.create.topics.enable\", \"true\" },\n            { \"log.retention.ms\", \"604800123\" },\n        },\n        Credentials = new ConfluentCloud.Inputs.KafkaClusterConfigCredentialsArgs\n        {\n            Key = confluent_api_key.App_manager_kafka_api_key.Id,\n            Secret = confluent_api_key.App_manager_kafka_api_key.Secret,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewKafkaClusterConfig(ctx, \"orders\", \u0026confluentcloud.KafkaClusterConfigArgs{\n\t\t\tKafkaCluster: \u0026KafkaClusterConfigKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(confluent_kafka_cluster.Dedicated.Id),\n\t\t\t},\n\t\t\tRestEndpoint: pulumi.Any(confluent_kafka_cluster.Dedicated.Rest_endpoint),\n\t\t\tConfig: pulumi.StringMap{\n\t\t\t\t\"auto.create.topics.enable\": pulumi.String(\"true\"),\n\t\t\t\t\"log.retention.ms\":          pulumi.String(\"604800123\"),\n\t\t\t},\n\t\t\tCredentials: \u0026KafkaClusterConfigCredentialsArgs{\n\t\t\t\tKey:    pulumi.Any(confluent_api_key.App - manager - kafka - api - key.Id),\n\t\t\t\tSecret: pulumi.Any(confluent_api_key.App - manager - kafka - api - key.Secret),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.KafkaClusterConfig;\nimport com.pulumi.confluentcloud.KafkaClusterConfigArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClusterConfigKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClusterConfigCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var orders = new KafkaClusterConfig(\"orders\", KafkaClusterConfigArgs.builder()        \n            .kafkaCluster(KafkaClusterConfigKafkaClusterArgs.builder()\n                .id(confluent_kafka_cluster.dedicated().id())\n                .build())\n            .restEndpoint(confluent_kafka_cluster.dedicated().rest_endpoint())\n            .config(Map.ofEntries(\n                Map.entry(\"auto.create.topics.enable\", \"true\"),\n                Map.entry(\"log.retention.ms\", \"604800123\")\n            ))\n            .credentials(KafkaClusterConfigCredentialsArgs.builder()\n                .key(confluent_api_key.app-manager-kafka-api-key().id())\n                .secret(confluent_api_key.app-manager-kafka-api-key().secret())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  orders:\n    type: confluentcloud:KafkaClusterConfig\n    properties:\n      kafkaCluster:\n        id: ${confluent_kafka_cluster.dedicated.id}\n      restEndpoint: ${confluent_kafka_cluster.dedicated.rest_endpoint}\n      config:\n        auto.create.topics.enable: true\n        log.retention.ms: 604800123\n      credentials:\n        key: ${confluent_api_key\"app-manager-kafka-api-key\"[%!s(MISSING)].id}\n        secret: ${confluent_api_key\"app-manager-kafka-api-key\"[%!s(MISSING)].secret}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nYou can import a Kafka cluster config by using the Kafka cluster ID, for example$ export IMPORT_KAFKA_API_KEY=\"\u003ckafka_api_key\u003e\" $ export IMPORT_KAFKA_API_SECRET=\"\u003ckafka_api_secret\u003e\" $ export IMPORT_KAFKA_REST_ENDPOINT=\"\u003ckafka_rest_endpoint\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
             "properties": {
                 "config": {
                     "type": "object",
@@ -3539,16 +3614,16 @@
                     "$ref": "#/types/confluentcloud:index/KsqlClusterEnvironment:KsqlClusterEnvironment",
                     "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
                 },
-                "httpEndpoint": {
-                    "type": "string",
-                    "description": "(Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.\n"
-                },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/KsqlClusterKafkaCluster:KsqlClusterKafkaCluster"
                 },
                 "kind": {
                     "type": "string",
                     "description": "(Required String) A kind of the ksqlDB cluster, for example, `Cluster`.\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "(Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.\n"
                 },
                 "storage": {
                     "type": "integer",
@@ -3569,9 +3644,9 @@
                 "csu",
                 "displayName",
                 "environment",
-                "httpEndpoint",
                 "kafkaCluster",
                 "kind",
+                "restEndpoint",
                 "storage",
                 "topicPrefix"
             ],
@@ -3638,10 +3713,6 @@
                         "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
                         "willReplaceOnChanges": true
                     },
-                    "httpEndpoint": {
-                        "type": "string",
-                        "description": "(Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.\n"
-                    },
                     "kafkaCluster": {
                         "$ref": "#/types/confluentcloud:index/KsqlClusterKafkaCluster:KsqlClusterKafkaCluster",
                         "willReplaceOnChanges": true
@@ -3649,6 +3720,10 @@
                     "kind": {
                         "type": "string",
                         "description": "(Required String) A kind of the ksqlDB cluster, for example, `Cluster`.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "(Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.\n"
                     },
                     "storage": {
                         "type": "integer",
@@ -4163,6 +4238,111 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {});\nconst example = confluentcloud.getSchemaRegistryRegion({\n    cloud: \"AWS\",\n    region: \"us-east-2\",\n    \"package\": \"ESSENTIALS\",\n});\nconst essentials = new confluentcloud.SchemaRegistryCluster(\"essentials\", {\n    \"package\": example.then(example =\u003e example[\"package\"]),\n    environment: {\n        id: development.id,\n    },\n    region: {\n        id: example.then(example =\u003e example.id),\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\")\nexample = confluentcloud.get_schema_registry_region(cloud=\"AWS\",\n    region=\"us-east-2\",\n    package=\"ESSENTIALS\")\nessentials = confluentcloud.SchemaRegistryCluster(\"essentials\",\n    package=example.package,\n    environment=confluentcloud.SchemaRegistryClusterEnvironmentArgs(\n        id=development.id,\n    ),\n    region=confluentcloud.SchemaRegistryClusterRegionArgs(\n        id=example.id,\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\");\n\n    var example = ConfluentCloud.GetSchemaRegistryRegion.Invoke(new()\n    {\n        Cloud = \"AWS\",\n        Region = \"us-east-2\",\n        Package = \"ESSENTIALS\",\n    });\n\n    var essentials = new ConfluentCloud.SchemaRegistryCluster(\"essentials\", new()\n    {\n        Package = example.Apply(getSchemaRegistryRegionResult =\u003e getSchemaRegistryRegionResult.Package),\n        Environment = new ConfluentCloud.Inputs.SchemaRegistryClusterEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Region = new ConfluentCloud.Inputs.SchemaRegistryClusterRegionArgs\n        {\n            Id = example.Apply(getSchemaRegistryRegionResult =\u003e getSchemaRegistryRegionResult.Id),\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texample, err := confluentcloud.GetSchemaRegistryRegion(ctx, \u0026GetSchemaRegistryRegionArgs{\n\t\t\tCloud:   \"AWS\",\n\t\t\tRegion:  \"us-east-2\",\n\t\t\tPackage: \"ESSENTIALS\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewSchemaRegistryCluster(ctx, \"essentials\", \u0026confluentcloud.SchemaRegistryClusterArgs{\n\t\t\tPackage: pulumi.String(example.Package),\n\t\t\tEnvironment: \u0026SchemaRegistryClusterEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t\tRegion: \u0026SchemaRegistryClusterRegionArgs{\n\t\t\t\tId: pulumi.String(example.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionArgs;\nimport com.pulumi.confluentcloud.SchemaRegistryCluster;\nimport com.pulumi.confluentcloud.SchemaRegistryClusterArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaRegistryClusterEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.SchemaRegistryClusterRegionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\");\n\n        final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()\n            .cloud(\"AWS\")\n            .region(\"us-east-2\")\n            .package_(\"ESSENTIALS\")\n            .build());\n\n        var essentials = new SchemaRegistryCluster(\"essentials\", SchemaRegistryClusterArgs.builder()        \n            .package_(example.applyValue(getSchemaRegistryRegionResult -\u003e getSchemaRegistryRegionResult.package()))\n            .environment(SchemaRegistryClusterEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .region(SchemaRegistryClusterRegionArgs.builder()\n                .id(example.applyValue(getSchemaRegistryRegionResult -\u003e getSchemaRegistryRegionResult.id()))\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n  essentials:\n    type: confluentcloud:SchemaRegistryCluster\n    properties:\n      package: ${example.package}\n      environment:\n        id: ${development.id}\n      region:\n        id: ${example.id}\nvariables:\n  example:\n    Fn::Invoke:\n      Function: confluentcloud:getSchemaRegistryRegion\n      Arguments:\n        cloud: AWS\n        region: us-east-2\n        package: ESSENTIALS\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nYou can import a Schema Registry cluster by using Environment ID and Schema Registry cluster ID, in the format `\u003cEnvironment ID\u003e/\u003cSchema Registry cluster ID\u003e`, for example$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster example env-abc123/lsrc-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "(Required String) An API Version of the schema version of the Schema Registry cluster, for example, `srcm/v2`.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "(Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterEnvironment:SchemaRegistryClusterEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Required String) A kind of the Schema Registry cluster, for example, `Cluster`.\n"
+                },
+                "package": {
+                    "type": "string",
+                    "description": "The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.\n"
+                },
+                "region": {
+                    "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterRegion:SchemaRegistryClusterRegion"
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "(Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "(Required String) The HTTP endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-west-2.aws.confluent.cloud`.\n"
+                }
+            },
+            "required": [
+                "apiVersion",
+                "displayName",
+                "environment",
+                "kind",
+                "package",
+                "region",
+                "resourceName",
+                "restEndpoint"
+            ],
+            "inputProperties": {
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterEnvironment:SchemaRegistryClusterEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "package": {
+                    "type": "string",
+                    "description": "The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.\n"
+                },
+                "region": {
+                    "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterRegion:SchemaRegistryClusterRegion",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "environment",
+                "package",
+                "region"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SchemaRegistryCluster resources.\n",
+                "properties": {
+                    "apiVersion": {
+                        "type": "string",
+                        "description": "(Required String) An API Version of the schema version of the Schema Registry cluster, for example, `srcm/v2`.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "(Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterEnvironment:SchemaRegistryClusterEnvironment",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "kind": {
+                        "type": "string",
+                        "description": "(Required String) A kind of the Schema Registry cluster, for example, `Cluster`.\n"
+                    },
+                    "package": {
+                        "type": "string",
+                        "description": "The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.\n"
+                    },
+                    "region": {
+                        "$ref": "#/types/confluentcloud:index/SchemaRegistryClusterRegion:SchemaRegistryClusterRegion",
+                        "willReplaceOnChanges": true
+                    },
+                    "resourceName": {
+                        "type": "string",
+                        "description": "(Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "(Required String) The HTTP endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-west-2.aws.confluent.cloud`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/serviceAccount:ServiceAccount": {
             "description": "\n\n\n## Import\n\nYou can import a Service Account by using Service Account ID, for example$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
             "properties": {
@@ -4603,7 +4783,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "(Required Set of Strings) The list of service accounts to apply the Kafka Client Quota to. Use the special name, \"default\", to represent the default quota for all users and service accounts.\n- `kafka_cluster` (Required Configuration Block) supports the following:\n"
+                        "description": "(Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, \"default\", to represent the default quota for all users and service accounts.\n- `kafka_cluster` (Required Configuration Block) supports the following:\n"
                     },
                     "throughputs": {
                         "type": "array",
@@ -4868,10 +5048,6 @@
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/getKsqlClusterEnvironment:getKsqlClusterEnvironment"
                     },
-                    "httpEndpoint": {
-                        "type": "string",
-                        "description": "(Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.\n- `kafka_cluster` (Optional Configuration Block) supports the following:\n"
-                    },
                     "id": {
                         "type": "string",
                         "description": "(Required String) The ID of the service or user account that the ksqlDB cluster belongs to, for example, `sa-abc123`.\n"
@@ -4885,6 +5061,11 @@
                     "kind": {
                         "type": "string",
                         "description": "(Required String) A kind of the ksqlDB cluster, for example, `Cluster`.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "(Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.\n- `kafka_cluster` (Optional Configuration Block) supports the following:\n",
+                        "deprecationMessage": "use rest_endpoint instead"
                     },
                     "storage": {
                         "type": "integer",
@@ -4905,10 +5086,10 @@
                     "csu",
                     "displayName",
                     "environment",
-                    "httpEndpoint",
                     "id",
                     "kafkaClusters",
                     "kind",
+                    "restEndpoint",
                     "storage",
                     "topicPrefix",
                     "useDetailedProcessingLog"
@@ -5268,6 +5449,133 @@
                 ]
             }
         },
+        "confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster": {
+            "description": "[![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.SchemaRegistryCluster` resource is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.SchemaRegistryCluster` describes a Schema Registry cluster data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleUsingIdSchemaRegistryCluster = confluentcloud.getSchemaRegistryCluster({\n    id: \"lsrc-abc123\",\n    environment: {\n        id: \"env-xyz456\",\n    },\n});\nexport const exampleUsingId = exampleUsingIdSchemaRegistryCluster;\nconst exampleUsingNameSchemaRegistryCluster = confluentcloud.getSchemaRegistryCluster({\n    displayName: \"Stream Governance Package\",\n    environment: {\n        id: \"env-xyz456\",\n    },\n});\nexport const exampleUsingName = exampleUsingNameSchemaRegistryCluster;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_using_id_schema_registry_cluster = confluentcloud.get_schema_registry_cluster(id=\"lsrc-abc123\",\n    environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(\n        id=\"env-xyz456\",\n    ))\npulumi.export(\"exampleUsingId\", example_using_id_schema_registry_cluster)\nexample_using_name_schema_registry_cluster = confluentcloud.get_schema_registry_cluster(display_name=\"Stream Governance Package\",\n    environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(\n        id=\"env-xyz456\",\n    ))\npulumi.export(\"exampleUsingName\", example_using_name_schema_registry_cluster)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleUsingIdSchemaRegistryCluster = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()\n    {\n        Id = \"lsrc-abc123\",\n        Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs\n        {\n            Id = \"env-xyz456\",\n        },\n    });\n\n    var exampleUsingNameSchemaRegistryCluster = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()\n    {\n        DisplayName = \"Stream Governance Package\",\n        Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs\n        {\n            Id = \"env-xyz456\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"exampleUsingId\"] = exampleUsingIdSchemaRegistryCluster.Apply(getSchemaRegistryClusterResult =\u003e getSchemaRegistryClusterResult),\n        [\"exampleUsingName\"] = exampleUsingNameSchemaRegistryCluster.Apply(getSchemaRegistryClusterResult =\u003e getSchemaRegistryClusterResult),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleUsingIdSchemaRegistryCluster, err := confluentcloud.LookupSchemaRegistryCluster(ctx, \u0026GetSchemaRegistryClusterArgs{\n\t\t\tId: pulumi.StringRef(\"lsrc-abc123\"),\n\t\t\tEnvironment: GetSchemaRegistryClusterEnvironment{\n\t\t\t\tId: \"env-xyz456\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingId\", exampleUsingIdSchemaRegistryCluster)\n\t\texampleUsingNameSchemaRegistryCluster, err := confluentcloud.LookupSchemaRegistryCluster(ctx, \u0026GetSchemaRegistryClusterArgs{\n\t\t\tDisplayName: pulumi.StringRef(\"Stream Governance Package\"),\n\t\t\tEnvironment: GetSchemaRegistryClusterEnvironment{\n\t\t\t\tId: \"env-xyz456\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingName\", exampleUsingNameSchemaRegistryCluster)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;\nimport com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleUsingIdSchemaRegistryCluster = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()\n            .id(\"lsrc-abc123\")\n            .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()\n                .id(\"env-xyz456\")\n                .build())\n            .build());\n\n        ctx.export(\"exampleUsingId\", exampleUsingIdSchemaRegistryCluster.applyValue(getSchemaRegistryClusterResult -\u003e getSchemaRegistryClusterResult));\n        final var exampleUsingNameSchemaRegistryCluster = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()\n            .displayName(\"Stream Governance Package\")\n            .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()\n                .id(\"env-xyz456\")\n                .build())\n            .build());\n\n        ctx.export(\"exampleUsingName\", exampleUsingNameSchemaRegistryCluster.applyValue(getSchemaRegistryClusterResult -\u003e getSchemaRegistryClusterResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleUsingIdSchemaRegistryCluster:\n    Fn::Invoke:\n      Function: confluentcloud:getSchemaRegistryCluster\n      Arguments:\n        id: lsrc-abc123\n        environment:\n          id: env-xyz456\n  exampleUsingNameSchemaRegistryCluster:\n    Fn::Invoke:\n      Function: confluentcloud:getSchemaRegistryCluster\n      Arguments:\n        displayName: Stream Governance Package\n        environment:\n          id: env-xyz456\noutputs:\n  exampleUsingId: ${exampleUsingIdSchemaRegistryCluster}\n  exampleUsingName: ${exampleUsingNameSchemaRegistryCluster}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSchemaRegistryCluster.\n",
+                "properties": {
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name for the Schema Registry cluster.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRegistryClusterEnvironment:getSchemaRegistryClusterEnvironment"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environment"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSchemaRegistryCluster.\n",
+                "properties": {
+                    "apiVersion": {
+                        "type": "string",
+                        "description": "(Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "(Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRegistryClusterEnvironment:getSchemaRegistryClusterEnvironment"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "kind": {
+                        "type": "string",
+                        "description": "(Required String) A kind of the Schema Registry cluster, for example, `Cluster`.\n"
+                    },
+                    "package": {
+                        "type": "string",
+                        "description": "(Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.\n- `region` (Required Configuration Block) supports the following:\n"
+                    },
+                    "regions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getSchemaRegistryClusterRegion:getSchemaRegistryClusterRegion"
+                        }
+                    },
+                    "resourceName": {
+                        "type": "string",
+                        "description": "(Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "(Required String) The HTTP endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-west-2.aws.confluent.cloud`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "apiVersion",
+                    "displayName",
+                    "environment",
+                    "id",
+                    "kind",
+                    "package",
+                    "regions",
+                    "resourceName",
+                    "restEndpoint"
+                ]
+            }
+        },
+        "confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion": {
+            "description": "[![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.getSchemaRegistryRegion` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleSchemaRegistryRegion = confluentcloud.getSchemaRegistryRegion({\n    cloud: \"AWS\",\n    region: \"us-east-2\",\n    \"package\": \"ESSENTIALS\",\n});\nexport const example = exampleSchemaRegistryRegion;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_schema_registry_region = confluentcloud.get_schema_registry_region(cloud=\"AWS\",\n    region=\"us-east-2\",\n    package=\"ESSENTIALS\")\npulumi.export(\"example\", example_schema_registry_region)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleSchemaRegistryRegion = ConfluentCloud.GetSchemaRegistryRegion.Invoke(new()\n    {\n        Cloud = \"AWS\",\n        Region = \"us-east-2\",\n        Package = \"ESSENTIALS\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = exampleSchemaRegistryRegion.Apply(getSchemaRegistryRegionResult =\u003e getSchemaRegistryRegionResult),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleSchemaRegistryRegion, err := confluentcloud.GetSchemaRegistryRegion(ctx, \u0026GetSchemaRegistryRegionArgs{\n\t\t\tCloud:   \"AWS\",\n\t\t\tRegion:  \"us-east-2\",\n\t\t\tPackage: \"ESSENTIALS\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", exampleSchemaRegistryRegion)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleSchemaRegistryRegion = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()\n            .cloud(\"AWS\")\n            .region(\"us-east-2\")\n            .package_(\"ESSENTIALS\")\n            .build());\n\n        ctx.export(\"example\", exampleSchemaRegistryRegion.applyValue(getSchemaRegistryRegionResult -\u003e getSchemaRegistryRegionResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleSchemaRegistryRegion:\n    Fn::Invoke:\n      Function: confluentcloud:getSchemaRegistryRegion\n      Arguments:\n        cloud: AWS\n        region: us-east-2\n        package: ESSENTIALS\noutputs:\n  example: ${exampleSchemaRegistryRegion}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSchemaRegistryRegion.\n",
+                "properties": {
+                    "cloud": {
+                        "type": "string",
+                        "description": "The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.\n"
+                    },
+                    "package": {
+                        "type": "string",
+                        "description": "The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.\n"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "The cloud service provider region, for example, `us-east-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "cloud",
+                    "package",
+                    "region"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSchemaRegistryRegion.\n",
+                "properties": {
+                    "cloud": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the Schema Registry region, for example, `sgreg-1`.\n"
+                    },
+                    "package": {
+                        "type": "string"
+                    },
+                    "region": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "cloud",
+                    "id",
+                    "package",
+                    "region"
+                ]
+            }
+        },
         "confluentcloud:index/getServiceAccount:getServiceAccount": {
             "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.ServiceAccount` describes a Service Account data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleUsingIdServiceAccount = confluentcloud.getServiceAccount({\n    id: \"sa-abc123\",\n});\nexport const exampleUsingId = exampleUsingIdServiceAccount;\nconst exampleUsingName = confluentcloud.getServiceAccount({\n    displayName: \"test_sa\",\n});\nconst test_env = new confluentcloud.Environment(\"test-env\", {});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_using_id_service_account = confluentcloud.get_service_account(id=\"sa-abc123\")\npulumi.export(\"exampleUsingId\", example_using_id_service_account)\nexample_using_name = confluentcloud.get_service_account(display_name=\"test_sa\")\ntest_env = confluentcloud.Environment(\"test-env\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleUsingIdServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()\n    {\n        Id = \"sa-abc123\",\n    });\n\n    var exampleUsingName = ConfluentCloud.GetServiceAccount.Invoke(new()\n    {\n        DisplayName = \"test_sa\",\n    });\n\n    var test_env = new ConfluentCloud.Environment(\"test-env\");\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"exampleUsingId\"] = exampleUsingIdServiceAccount.Apply(getServiceAccountResult =\u003e getServiceAccountResult),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleUsingIdServiceAccount, err := confluentcloud.LookupServiceAccount(ctx, \u0026GetServiceAccountArgs{\n\t\t\tId: pulumi.StringRef(\"sa-abc123\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingId\", exampleUsingIdServiceAccount)\n\t\t_, err = confluentcloud.LookupServiceAccount(ctx, \u0026GetServiceAccountArgs{\n\t\t\tDisplayName: pulumi.StringRef(\"test_sa\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewEnvironment(ctx, \"test-env\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;\nimport com.pulumi.confluentcloud.Environment;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleUsingIdServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()\n            .id(\"sa-abc123\")\n            .build());\n\n        ctx.export(\"exampleUsingId\", exampleUsingIdServiceAccount.applyValue(getServiceAccountResult -\u003e getServiceAccountResult));\n        final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()\n            .displayName(\"test_sa\")\n            .build());\n\n        var test_env = new Environment(\"test-env\");\n\n    }\n}\n```\n```yaml\nresources:\n  test-env:\n    type: confluentcloud:Environment\nvariables:\n  exampleUsingIdServiceAccount:\n    Fn::Invoke:\n      Function: confluentcloud:getServiceAccount\n      Arguments:\n        id: sa-abc123\n  exampleUsingName:\n    Fn::Invoke:\n      Function: confluentcloud:getServiceAccount\n      Arguments:\n        displayName: test_sa\noutputs:\n  exampleUsingId: ${exampleUsingIdServiceAccount}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -5319,7 +5627,7 @@
             }
         },
         "confluentcloud:index/getStreamGovernanceRegion:getStreamGovernanceRegion": {
-            "description": "[![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.getStreamGovernanceRegion` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.getStreamGovernanceRegion` describes a Stream Governance cluster data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleStreamGovernanceRegion = confluentcloud.getStreamGovernanceRegion({\n    cloud: \"AWS\",\n    region: \"us-east-2\",\n    \"package\": \"ESSENTIALS\",\n});\nexport const example = exampleStreamGovernanceRegion;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_stream_governance_region = confluentcloud.get_stream_governance_region(cloud=\"AWS\",\n    region=\"us-east-2\",\n    package=\"ESSENTIALS\")\npulumi.export(\"example\", example_stream_governance_region)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleStreamGovernanceRegion = ConfluentCloud.GetStreamGovernanceRegion.Invoke(new()\n    {\n        Cloud = \"AWS\",\n        Region = \"us-east-2\",\n        Package = \"ESSENTIALS\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = exampleStreamGovernanceRegion.Apply(getStreamGovernanceRegionResult =\u003e getStreamGovernanceRegionResult),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleStreamGovernanceRegion, err := confluentcloud.GetStreamGovernanceRegion(ctx, \u0026GetStreamGovernanceRegionArgs{\n\t\t\tCloud:   \"AWS\",\n\t\t\tRegion:  \"us-east-2\",\n\t\t\tPackage: \"ESSENTIALS\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", exampleStreamGovernanceRegion)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetStreamGovernanceRegionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleStreamGovernanceRegion = ConfluentcloudFunctions.getStreamGovernanceRegion(GetStreamGovernanceRegionArgs.builder()\n            .cloud(\"AWS\")\n            .region(\"us-east-2\")\n            .package_(\"ESSENTIALS\")\n            .build());\n\n        ctx.export(\"example\", exampleStreamGovernanceRegion.applyValue(getStreamGovernanceRegionResult -\u003e getStreamGovernanceRegionResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleStreamGovernanceRegion:\n    Fn::Invoke:\n      Function: confluentcloud:getStreamGovernanceRegion\n      Arguments:\n        cloud: AWS\n        region: us-east-2\n        package: ESSENTIALS\noutputs:\n  example: ${exampleStreamGovernanceRegion}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "[![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n!\u003e **WARNING:** `confluentcloud.getStreamGovernanceRegion` data source is deprecated and will be removed in the next version. Use `confluentcloud.getSchemaRegistryRegion` instead.\n\n\u003e **Note:** `confluentcloud.getStreamGovernanceRegion` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.getStreamGovernanceRegion` describes a Stream Governance cluster data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleStreamGovernanceRegion = confluentcloud.getStreamGovernanceRegion({\n    cloud: \"AWS\",\n    region: \"us-east-2\",\n    \"package\": \"ESSENTIALS\",\n});\nexport const example = exampleStreamGovernanceRegion;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_stream_governance_region = confluentcloud.get_stream_governance_region(cloud=\"AWS\",\n    region=\"us-east-2\",\n    package=\"ESSENTIALS\")\npulumi.export(\"example\", example_stream_governance_region)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleStreamGovernanceRegion = ConfluentCloud.GetStreamGovernanceRegion.Invoke(new()\n    {\n        Cloud = \"AWS\",\n        Region = \"us-east-2\",\n        Package = \"ESSENTIALS\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = exampleStreamGovernanceRegion.Apply(getStreamGovernanceRegionResult =\u003e getStreamGovernanceRegionResult),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleStreamGovernanceRegion, err := confluentcloud.GetStreamGovernanceRegion(ctx, \u0026GetStreamGovernanceRegionArgs{\n\t\t\tCloud:   \"AWS\",\n\t\t\tRegion:  \"us-east-2\",\n\t\t\tPackage: \"ESSENTIALS\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", exampleStreamGovernanceRegion)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetStreamGovernanceRegionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleStreamGovernanceRegion = ConfluentcloudFunctions.getStreamGovernanceRegion(GetStreamGovernanceRegionArgs.builder()\n            .cloud(\"AWS\")\n            .region(\"us-east-2\")\n            .package_(\"ESSENTIALS\")\n            .build());\n\n        ctx.export(\"example\", exampleStreamGovernanceRegion.applyValue(getStreamGovernanceRegionResult -\u003e getStreamGovernanceRegionResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleStreamGovernanceRegion:\n    Fn::Invoke:\n      Function: confluentcloud:getStreamGovernanceRegion\n      Arguments:\n        cloud: AWS\n        region: us-east-2\n        package: ESSENTIALS\noutputs:\n  example: ${exampleStreamGovernanceRegion}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getStreamGovernanceRegion.\n",
                 "properties": {
@@ -5370,7 +5678,7 @@
             }
         },
         "confluentcloud:index/getStreatGovernanceCluster:getStreatGovernanceCluster": {
-            "description": "[![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.StreamGovernanceCluster` resource is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.StreamGovernanceCluster` describes a Stream Governance cluster data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleUsingIdStreatGovernanceCluster = confluentcloud.getStreatGovernanceCluster({\n    id: \"lsrc-abc123\",\n    environment: {\n        id: \"env-xyz456\",\n    },\n});\nexport const exampleUsingId = exampleUsingIdStreatGovernanceCluster;\nconst exampleUsingNameStreatGovernanceCluster = confluentcloud.getStreatGovernanceCluster({\n    displayName: \"Stream Governance Package\",\n    environment: {\n        id: \"env-xyz456\",\n    },\n});\nexport const exampleUsingName = exampleUsingNameStreatGovernanceCluster;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_using_id_streat_governance_cluster = confluentcloud.get_streat_governance_cluster(id=\"lsrc-abc123\",\n    environment=confluentcloud.GetStreatGovernanceClusterEnvironmentArgs(\n        id=\"env-xyz456\",\n    ))\npulumi.export(\"exampleUsingId\", example_using_id_streat_governance_cluster)\nexample_using_name_streat_governance_cluster = confluentcloud.get_streat_governance_cluster(display_name=\"Stream Governance Package\",\n    environment=confluentcloud.GetStreatGovernanceClusterEnvironmentArgs(\n        id=\"env-xyz456\",\n    ))\npulumi.export(\"exampleUsingName\", example_using_name_streat_governance_cluster)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleUsingIdStreatGovernanceCluster = ConfluentCloud.GetStreatGovernanceCluster.Invoke(new()\n    {\n        Id = \"lsrc-abc123\",\n        Environment = new ConfluentCloud.Inputs.GetStreatGovernanceClusterEnvironmentInputArgs\n        {\n            Id = \"env-xyz456\",\n        },\n    });\n\n    var exampleUsingNameStreatGovernanceCluster = ConfluentCloud.GetStreatGovernanceCluster.Invoke(new()\n    {\n        DisplayName = \"Stream Governance Package\",\n        Environment = new ConfluentCloud.Inputs.GetStreatGovernanceClusterEnvironmentInputArgs\n        {\n            Id = \"env-xyz456\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"exampleUsingId\"] = exampleUsingIdStreatGovernanceCluster.Apply(getStreatGovernanceClusterResult =\u003e getStreatGovernanceClusterResult),\n        [\"exampleUsingName\"] = exampleUsingNameStreatGovernanceCluster.Apply(getStreatGovernanceClusterResult =\u003e getStreatGovernanceClusterResult),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleUsingIdStreatGovernanceCluster, err := confluentcloud.GetStreatGovernanceCluster(ctx, \u0026GetStreatGovernanceClusterArgs{\n\t\t\tId: pulumi.StringRef(\"lsrc-abc123\"),\n\t\t\tEnvironment: GetStreatGovernanceClusterEnvironment{\n\t\t\t\tId: \"env-xyz456\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingId\", exampleUsingIdStreatGovernanceCluster)\n\t\texampleUsingNameStreatGovernanceCluster, err := confluentcloud.GetStreatGovernanceCluster(ctx, \u0026GetStreatGovernanceClusterArgs{\n\t\t\tDisplayName: pulumi.StringRef(\"Stream Governance Package\"),\n\t\t\tEnvironment: GetStreatGovernanceClusterEnvironment{\n\t\t\t\tId: \"env-xyz456\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingName\", exampleUsingNameStreatGovernanceCluster)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetStreatGovernanceClusterArgs;\nimport com.pulumi.confluentcloud.inputs.GetStreatGovernanceClusterEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleUsingIdStreatGovernanceCluster = ConfluentcloudFunctions.getStreatGovernanceCluster(GetStreatGovernanceClusterArgs.builder()\n            .id(\"lsrc-abc123\")\n            .environment(GetStreatGovernanceClusterEnvironmentArgs.builder()\n                .id(\"env-xyz456\")\n                .build())\n            .build());\n\n        ctx.export(\"exampleUsingId\", exampleUsingIdStreatGovernanceCluster.applyValue(getStreatGovernanceClusterResult -\u003e getStreatGovernanceClusterResult));\n        final var exampleUsingNameStreatGovernanceCluster = ConfluentcloudFunctions.getStreatGovernanceCluster(GetStreatGovernanceClusterArgs.builder()\n            .displayName(\"Stream Governance Package\")\n            .environment(GetStreatGovernanceClusterEnvironmentArgs.builder()\n                .id(\"env-xyz456\")\n                .build())\n            .build());\n\n        ctx.export(\"exampleUsingName\", exampleUsingNameStreatGovernanceCluster.applyValue(getStreatGovernanceClusterResult -\u003e getStreatGovernanceClusterResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleUsingIdStreatGovernanceCluster:\n    Fn::Invoke:\n      Function: confluentcloud:getStreatGovernanceCluster\n      Arguments:\n        id: lsrc-abc123\n        environment:\n          id: env-xyz456\n  exampleUsingNameStreatGovernanceCluster:\n    Fn::Invoke:\n      Function: confluentcloud:getStreatGovernanceCluster\n      Arguments:\n        displayName: Stream Governance Package\n        environment:\n          id: env-xyz456\noutputs:\n  exampleUsingId: ${exampleUsingIdStreatGovernanceCluster}\n  exampleUsingName: ${exampleUsingNameStreatGovernanceCluster}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "[![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n!\u003e **WARNING:** `confluentcloud.StreamGovernanceCluster` data source is deprecated and will be removed in the next version. Use `confluentcloud.SchemaRegistryCluster` instead.\n\n\u003e **Note:** `confluentcloud.StreamGovernanceCluster` resource is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.StreamGovernanceCluster` describes a Stream Governance cluster data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleUsingIdStreatGovernanceCluster = confluentcloud.getStreatGovernanceCluster({\n    id: \"lsrc-abc123\",\n    environment: {\n        id: \"env-xyz456\",\n    },\n});\nexport const exampleUsingId = exampleUsingIdStreatGovernanceCluster;\nconst exampleUsingNameStreatGovernanceCluster = confluentcloud.getStreatGovernanceCluster({\n    displayName: \"Stream Governance Package\",\n    environment: {\n        id: \"env-xyz456\",\n    },\n});\nexport const exampleUsingName = exampleUsingNameStreatGovernanceCluster;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_using_id_streat_governance_cluster = confluentcloud.get_streat_governance_cluster(id=\"lsrc-abc123\",\n    environment=confluentcloud.GetStreatGovernanceClusterEnvironmentArgs(\n        id=\"env-xyz456\",\n    ))\npulumi.export(\"exampleUsingId\", example_using_id_streat_governance_cluster)\nexample_using_name_streat_governance_cluster = confluentcloud.get_streat_governance_cluster(display_name=\"Stream Governance Package\",\n    environment=confluentcloud.GetStreatGovernanceClusterEnvironmentArgs(\n        id=\"env-xyz456\",\n    ))\npulumi.export(\"exampleUsingName\", example_using_name_streat_governance_cluster)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleUsingIdStreatGovernanceCluster = ConfluentCloud.GetStreatGovernanceCluster.Invoke(new()\n    {\n        Id = \"lsrc-abc123\",\n        Environment = new ConfluentCloud.Inputs.GetStreatGovernanceClusterEnvironmentInputArgs\n        {\n            Id = \"env-xyz456\",\n        },\n    });\n\n    var exampleUsingNameStreatGovernanceCluster = ConfluentCloud.GetStreatGovernanceCluster.Invoke(new()\n    {\n        DisplayName = \"Stream Governance Package\",\n        Environment = new ConfluentCloud.Inputs.GetStreatGovernanceClusterEnvironmentInputArgs\n        {\n            Id = \"env-xyz456\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"exampleUsingId\"] = exampleUsingIdStreatGovernanceCluster.Apply(getStreatGovernanceClusterResult =\u003e getStreatGovernanceClusterResult),\n        [\"exampleUsingName\"] = exampleUsingNameStreatGovernanceCluster.Apply(getStreatGovernanceClusterResult =\u003e getStreatGovernanceClusterResult),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleUsingIdStreatGovernanceCluster, err := confluentcloud.GetStreatGovernanceCluster(ctx, \u0026GetStreatGovernanceClusterArgs{\n\t\t\tId: pulumi.StringRef(\"lsrc-abc123\"),\n\t\t\tEnvironment: GetStreatGovernanceClusterEnvironment{\n\t\t\t\tId: \"env-xyz456\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingId\", exampleUsingIdStreatGovernanceCluster)\n\t\texampleUsingNameStreatGovernanceCluster, err := confluentcloud.GetStreatGovernanceCluster(ctx, \u0026GetStreatGovernanceClusterArgs{\n\t\t\tDisplayName: pulumi.StringRef(\"Stream Governance Package\"),\n\t\t\tEnvironment: GetStreatGovernanceClusterEnvironment{\n\t\t\t\tId: \"env-xyz456\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingName\", exampleUsingNameStreatGovernanceCluster)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetStreatGovernanceClusterArgs;\nimport com.pulumi.confluentcloud.inputs.GetStreatGovernanceClusterEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleUsingIdStreatGovernanceCluster = ConfluentcloudFunctions.getStreatGovernanceCluster(GetStreatGovernanceClusterArgs.builder()\n            .id(\"lsrc-abc123\")\n            .environment(GetStreatGovernanceClusterEnvironmentArgs.builder()\n                .id(\"env-xyz456\")\n                .build())\n            .build());\n\n        ctx.export(\"exampleUsingId\", exampleUsingIdStreatGovernanceCluster.applyValue(getStreatGovernanceClusterResult -\u003e getStreatGovernanceClusterResult));\n        final var exampleUsingNameStreatGovernanceCluster = ConfluentcloudFunctions.getStreatGovernanceCluster(GetStreatGovernanceClusterArgs.builder()\n            .displayName(\"Stream Governance Package\")\n            .environment(GetStreatGovernanceClusterEnvironmentArgs.builder()\n                .id(\"env-xyz456\")\n                .build())\n            .build());\n\n        ctx.export(\"exampleUsingName\", exampleUsingNameStreatGovernanceCluster.applyValue(getStreatGovernanceClusterResult -\u003e getStreatGovernanceClusterResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleUsingIdStreatGovernanceCluster:\n    Fn::Invoke:\n      Function: confluentcloud:getStreatGovernanceCluster\n      Arguments:\n        id: lsrc-abc123\n        environment:\n          id: env-xyz456\n  exampleUsingNameStreatGovernanceCluster:\n    Fn::Invoke:\n      Function: confluentcloud:getStreatGovernanceCluster\n      Arguments:\n        displayName: Stream Governance Package\n        environment:\n          id: env-xyz456\noutputs:\n  exampleUsingId: ${exampleUsingIdStreatGovernanceCluster}\n  exampleUsingName: ${exampleUsingNameStreatGovernanceCluster}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getStreatGovernanceCluster.\n",
                 "properties": {

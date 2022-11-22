@@ -30,12 +30,6 @@ public final class GetKsqlClusterResult {
     private String displayName;
     private GetKsqlClusterEnvironment environment;
     /**
-     * @return (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-     * - `kafka_cluster` (Optional Configuration Block) supports the following:
-     * 
-     */
-    private String httpEndpoint;
-    /**
      * @return (Required String) The ID of the service or user account that the ksqlDB cluster belongs to, for example, `sa-abc123`.
      * 
      */
@@ -46,6 +40,16 @@ public final class GetKsqlClusterResult {
      * 
      */
     private String kind;
+    /**
+     * @return (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+     * - `kafka_cluster` (Optional Configuration Block) supports the following:
+     * 
+     * @deprecated
+     * use rest_endpoint instead
+     * 
+     */
+    @Deprecated /* use rest_endpoint instead */
+    private String restEndpoint;
     /**
      * @return (Required Integer) The amount of storage (in GB) provisioned to this cluster.
      * 
@@ -84,14 +88,6 @@ public final class GetKsqlClusterResult {
         return this.environment;
     }
     /**
-     * @return (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-     * - `kafka_cluster` (Optional Configuration Block) supports the following:
-     * 
-     */
-    public String httpEndpoint() {
-        return this.httpEndpoint;
-    }
-    /**
      * @return (Required String) The ID of the service or user account that the ksqlDB cluster belongs to, for example, `sa-abc123`.
      * 
      */
@@ -107,6 +103,18 @@ public final class GetKsqlClusterResult {
      */
     public String kind() {
         return this.kind;
+    }
+    /**
+     * @return (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+     * - `kafka_cluster` (Optional Configuration Block) supports the following:
+     * 
+     * @deprecated
+     * use rest_endpoint instead
+     * 
+     */
+    @Deprecated /* use rest_endpoint instead */
+    public String restEndpoint() {
+        return this.restEndpoint;
     }
     /**
      * @return (Required Integer) The amount of storage (in GB) provisioned to this cluster.
@@ -140,10 +148,10 @@ public final class GetKsqlClusterResult {
         private Integer csu;
         private String displayName;
         private GetKsqlClusterEnvironment environment;
-        private String httpEndpoint;
         private String id;
         private List<GetKsqlClusterKafkaCluster> kafkaClusters;
         private String kind;
+        private String restEndpoint;
         private Integer storage;
         private String topicPrefix;
         private Boolean useDetailedProcessingLog;
@@ -155,10 +163,10 @@ public final class GetKsqlClusterResult {
     	      this.csu = defaults.csu;
     	      this.displayName = defaults.displayName;
     	      this.environment = defaults.environment;
-    	      this.httpEndpoint = defaults.httpEndpoint;
     	      this.id = defaults.id;
     	      this.kafkaClusters = defaults.kafkaClusters;
     	      this.kind = defaults.kind;
+    	      this.restEndpoint = defaults.restEndpoint;
     	      this.storage = defaults.storage;
     	      this.topicPrefix = defaults.topicPrefix;
     	      this.useDetailedProcessingLog = defaults.useDetailedProcessingLog;
@@ -193,11 +201,6 @@ public final class GetKsqlClusterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder httpEndpoint(String httpEndpoint) {
-            this.httpEndpoint = Objects.requireNonNull(httpEndpoint);
-            return this;
-        }
-        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
@@ -213,6 +216,11 @@ public final class GetKsqlClusterResult {
         @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder restEndpoint(String restEndpoint) {
+            this.restEndpoint = Objects.requireNonNull(restEndpoint);
             return this;
         }
         @CustomType.Setter
@@ -237,10 +245,10 @@ public final class GetKsqlClusterResult {
             o.csu = csu;
             o.displayName = displayName;
             o.environment = environment;
-            o.httpEndpoint = httpEndpoint;
             o.id = id;
             o.kafkaClusters = kafkaClusters;
             o.kind = kind;
+            o.restEndpoint = restEndpoint;
             o.storage = storage;
             o.topicPrefix = topicPrefix;
             o.useDetailedProcessingLog = useDetailedProcessingLog;

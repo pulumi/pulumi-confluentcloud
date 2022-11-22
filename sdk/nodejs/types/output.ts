@@ -355,6 +355,20 @@ export interface GetPrivateLinkAccessNetwork {
     id: string;
 }
 
+export interface GetSchemaRegistryClusterEnvironment {
+    /**
+     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetSchemaRegistryClusterRegion {
+    /**
+     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
 export interface GetStreatGovernanceClusterEnvironment {
     /**
      * The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
@@ -719,6 +733,20 @@ export interface PrivateLinkAccessGcp {
 export interface PrivateLinkAccessNetwork {
     /**
      * The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+     */
+    id: string;
+}
+
+export interface SchemaRegistryClusterEnvironment {
+    /**
+     * The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     */
+    id: string;
+}
+
+export interface SchemaRegistryClusterRegion {
+    /**
+     * The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
      */
     id: string;
 }

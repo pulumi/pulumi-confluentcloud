@@ -83,11 +83,6 @@ export interface GetKsqlClusterResult {
     readonly displayName: string;
     readonly environment: outputs.GetKsqlClusterEnvironment;
     /**
-     * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-     * - `kafkaCluster` (Optional Configuration Block) supports the following:
-     */
-    readonly httpEndpoint: string;
-    /**
      * (Required String) The ID of the service or user account that the ksqlDB cluster belongs to, for example, `sa-abc123`.
      */
     readonly id: string;
@@ -96,6 +91,13 @@ export interface GetKsqlClusterResult {
      * (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
      */
     readonly kind: string;
+    /**
+     * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+     * - `kafkaCluster` (Optional Configuration Block) supports the following:
+     *
+     * @deprecated use rest_endpoint instead
+     */
+    readonly restEndpoint: string;
     /**
      * (Required Integer) The amount of storage (in GB) provisioned to this cluster.
      */

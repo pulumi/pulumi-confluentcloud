@@ -345,6 +345,8 @@ github.com/confluentinc/ccloud-sdk-go-v2/networking v0.4.0 h1:y9dsFQ6GATM+5r56Fk
 github.com/confluentinc/ccloud-sdk-go-v2/networking v0.4.0/go.mod h1:EcmHhRib8dDuO5ZsO+qS3scX9xEP5E/IXOVoItp5X2s=
 github.com/confluentinc/ccloud-sdk-go-v2/org v0.4.0 h1:WcJs6RbY8nU5HapaG0ZCH9ftFBtZyuKMIuNAkdVmc2o=
 github.com/confluentinc/ccloud-sdk-go-v2/org v0.4.0/go.mod h1:zREJ+OOZz0rEXCaPx0JbCVj2EfNnYs/c6qhPDfhldI0=
+github.com/confluentinc/ccloud-sdk-go-v2/srcm v0.2.0 h1:ezCzDCOOavjTPVKvdET0QjAXm1u9iRJjg2s5lkSMrps=
+github.com/confluentinc/ccloud-sdk-go-v2/srcm v0.2.0/go.mod h1:qY4Y/QCDKI0eR+HLVJWGFstsTAiI83+sowKOyoRFhF0=
 github.com/confluentinc/ccloud-sdk-go-v2/stream-governance v0.2.0 h1:wg+Nocg0LfsbgtyJ/xlkOFt7KBFnostVdjPNQuXO3Dk=
 github.com/confluentinc/ccloud-sdk-go-v2/stream-governance v0.2.0/go.mod h1:IitA7EBhH+W0WuecDiETuXApHTxAuiWzJEpotexhWjA=
 github.com/containerd/aufs v0.0.0-20200908144142-dab0cbea06f4/go.mod h1:nukgQABAEopAHvB6j7cnP5zJ+/3aVcE7hCYqvIwAHyE=
@@ -1258,8 +1260,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9 h1:JMw+t5I+6E8Lna7JF+ghAoOLOl23UIbshJyRNP+K1HU=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9/go.mod h1:mYPs/uchNcBq7AclQv9QUtSf9iNcfp1Ag21jqTlDf2M=
-github.com/pulumi/terraform-provider-confluent v0.0.0-20221109214506-bbfca8f3bcd9 h1:DuIom6FMTyg7YsteJ6A7WwthqK0HjngPEQ71pcv5oxo=
-github.com/pulumi/terraform-provider-confluent v0.0.0-20221109214506-bbfca8f3bcd9/go.mod h1:v6BWFLLzc573WdOh93hxN4YJFkR3LsAZ7mNYnbfyNEg=
+github.com/pulumi/terraform-provider-confluent v0.0.0-20221122221850-4dd4c9531d27 h1:8ezgAYkAzPAhzgboH7aYHiQymw4z7J6aKRZ32atPpPc=
+github.com/pulumi/terraform-provider-confluent v0.0.0-20221122221850-4dd4c9531d27/go.mod h1:OtfYM8judQRStPm8QT+qo4piMf0T90e+CcqSK52iRX8=
 github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af/go.mod h1:XWv6SoW27p1b0cqNHllgS5HIMJraePCO15w5zCzIWYg=
