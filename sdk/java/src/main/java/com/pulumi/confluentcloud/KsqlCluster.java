@@ -97,20 +97,6 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
     public Output<KsqlClusterEnvironment> environment() {
         return this.environment;
     }
-    /**
-     * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-     * 
-     */
-    @Export(name="httpEndpoint", type=String.class, parameters={})
-    private Output<String> httpEndpoint;
-
-    /**
-     * @return (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-     * 
-     */
-    public Output<String> httpEndpoint() {
-        return this.httpEndpoint;
-    }
     @Export(name="kafkaCluster", type=KsqlClusterKafkaCluster.class, parameters={})
     private Output<KsqlClusterKafkaCluster> kafkaCluster;
 
@@ -130,6 +116,20 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> kind() {
         return this.kind;
+    }
+    /**
+     * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+     * 
+     */
+    @Export(name="restEndpoint", type=String.class, parameters={})
+    private Output<String> restEndpoint;
+
+    /**
+     * @return (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+     * 
+     */
+    public Output<String> restEndpoint() {
+        return this.restEndpoint;
     }
     /**
      * (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.

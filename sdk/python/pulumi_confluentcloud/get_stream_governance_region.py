@@ -78,6 +78,8 @@ def get_stream_governance_region(cloud: Optional[str] = None,
     """
     [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
+    !> **WARNING:** `get_stream_governance_region` data source is deprecated and will be removed in the next version. Use `get_schema_registry_region` instead.
+
     > **Note:** `get_stream_governance_region` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\\
     **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
 
@@ -121,6 +123,8 @@ def get_stream_governance_region_output(cloud: Optional[pulumi.Input[str]] = Non
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamGovernanceRegionResult]:
     """
     [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    !> **WARNING:** `get_stream_governance_region` data source is deprecated and will be removed in the next version. Use `get_schema_registry_region` instead.
 
     > **Note:** `get_stream_governance_region` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\\
     **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.

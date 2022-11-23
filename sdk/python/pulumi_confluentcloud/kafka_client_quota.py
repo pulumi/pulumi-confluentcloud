@@ -26,7 +26,7 @@ class KafkaClientQuotaArgs:
         The set of arguments for constructing a KafkaClientQuota resource.
         :param pulumi.Input[str] display_name: The name of the Kafka Client Quota.
         :param pulumi.Input['KafkaClientQuotaEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: The list of service accounts to apply the Kafka Client Quota to. Use the special name, "default",  to represent the default quota for all users and service accounts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
         :param pulumi.Input['KafkaClientQuotaThroughputArgs'] throughput: Block for representing a Kafka Quota.
         :param pulumi.Input[str] description: The description of the Kafka Client Quota.
         """
@@ -75,7 +75,7 @@ class KafkaClientQuotaArgs:
     @pulumi.getter
     def principals(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The list of service accounts to apply the Kafka Client Quota to. Use the special name, "default",  to represent the default quota for all users and service accounts.
+        The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
         """
         return pulumi.get(self, "principals")
 
@@ -122,7 +122,7 @@ class _KafkaClientQuotaState:
         :param pulumi.Input[str] description: The description of the Kafka Client Quota.
         :param pulumi.Input[str] display_name: The name of the Kafka Client Quota.
         :param pulumi.Input['KafkaClientQuotaEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: The list of service accounts to apply the Kafka Client Quota to. Use the special name, "default",  to represent the default quota for all users and service accounts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
         :param pulumi.Input['KafkaClientQuotaThroughputArgs'] throughput: Block for representing a Kafka Quota.
         """
         if description is not None:
@@ -187,7 +187,7 @@ class _KafkaClientQuotaState:
     @pulumi.getter
     def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The list of service accounts to apply the Kafka Client Quota to. Use the special name, "default",  to represent the default quota for all users and service accounts.
+        The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
         """
         return pulumi.get(self, "principals")
 
@@ -261,7 +261,7 @@ class KafkaClientQuota(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Kafka Client Quota.
         :param pulumi.Input[str] display_name: The name of the Kafka Client Quota.
         :param pulumi.Input[pulumi.InputType['KafkaClientQuotaEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: The list of service accounts to apply the Kafka Client Quota to. Use the special name, "default",  to represent the default quota for all users and service accounts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
         :param pulumi.Input[pulumi.InputType['KafkaClientQuotaThroughputArgs']] throughput: Block for representing a Kafka Quota.
         """
         ...
@@ -378,7 +378,7 @@ class KafkaClientQuota(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Kafka Client Quota.
         :param pulumi.Input[str] display_name: The name of the Kafka Client Quota.
         :param pulumi.Input[pulumi.InputType['KafkaClientQuotaEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: The list of service accounts to apply the Kafka Client Quota to. Use the special name, "default",  to represent the default quota for all users and service accounts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
         :param pulumi.Input[pulumi.InputType['KafkaClientQuotaThroughputArgs']] throughput: Block for representing a Kafka Quota.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -426,7 +426,7 @@ class KafkaClientQuota(pulumi.CustomResource):
     @pulumi.getter
     def principals(self) -> pulumi.Output[Sequence[str]]:
         """
-        The list of service accounts to apply the Kafka Client Quota to. Use the special name, "default",  to represent the default quota for all users and service accounts.
+        The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
         """
         return pulumi.get(self, "principals")
 

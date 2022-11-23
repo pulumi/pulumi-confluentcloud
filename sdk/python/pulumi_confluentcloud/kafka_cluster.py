@@ -20,37 +20,37 @@ class KafkaClusterArgs:
                  cloud: pulumi.Input[str],
                  environment: pulumi.Input['KafkaClusterEnvironmentArgs'],
                  region: pulumi.Input[str],
-                 basics: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterBasicArgs']]]] = None,
+                 basic: Optional[pulumi.Input['KafkaClusterBasicArgs']] = None,
                  dedicated: Optional[pulumi.Input['KafkaClusterDedicatedArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['KafkaClusterNetworkArgs']] = None,
-                 standards: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterStandardArgs']]]] = None):
+                 standard: Optional[pulumi.Input['KafkaClusterStandardArgs']] = None):
         """
         The set of arguments for constructing a KafkaCluster resource.
         :param pulumi.Input[str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input['KafkaClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
-        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterBasicArgs']]] basics: The configuration of the Basic Kafka cluster.
+        :param pulumi.Input['KafkaClusterBasicArgs'] basic: The configuration of the Basic Kafka cluster.
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
         :param pulumi.Input['KafkaClusterNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
-        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterStandardArgs']]] standards: The configuration of the Standard Kafka cluster.
+        :param pulumi.Input['KafkaClusterStandardArgs'] standard: The configuration of the Standard Kafka cluster.
         """
         pulumi.set(__self__, "availability", availability)
         pulumi.set(__self__, "cloud", cloud)
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "region", region)
-        if basics is not None:
-            pulumi.set(__self__, "basics", basics)
+        if basic is not None:
+            pulumi.set(__self__, "basic", basic)
         if dedicated is not None:
             pulumi.set(__self__, "dedicated", dedicated)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if network is not None:
             pulumi.set(__self__, "network", network)
-        if standards is not None:
-            pulumi.set(__self__, "standards", standards)
+        if standard is not None:
+            pulumi.set(__self__, "standard", standard)
 
     @property
     @pulumi.getter
@@ -102,15 +102,15 @@ class KafkaClusterArgs:
 
     @property
     @pulumi.getter
-    def basics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterBasicArgs']]]]:
+    def basic(self) -> Optional[pulumi.Input['KafkaClusterBasicArgs']]:
         """
         The configuration of the Basic Kafka cluster.
         """
-        return pulumi.get(self, "basics")
+        return pulumi.get(self, "basic")
 
-    @basics.setter
-    def basics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterBasicArgs']]]]):
-        pulumi.set(self, "basics", value)
+    @basic.setter
+    def basic(self, value: Optional[pulumi.Input['KafkaClusterBasicArgs']]):
+        pulumi.set(self, "basic", value)
 
     @property
     @pulumi.getter
@@ -148,15 +148,15 @@ class KafkaClusterArgs:
 
     @property
     @pulumi.getter
-    def standards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterStandardArgs']]]]:
+    def standard(self) -> Optional[pulumi.Input['KafkaClusterStandardArgs']]:
         """
         The configuration of the Standard Kafka cluster.
         """
-        return pulumi.get(self, "standards")
+        return pulumi.get(self, "standard")
 
-    @standards.setter
-    def standards(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterStandardArgs']]]]):
-        pulumi.set(self, "standards", value)
+    @standard.setter
+    def standard(self, value: Optional[pulumi.Input['KafkaClusterStandardArgs']]):
+        pulumi.set(self, "standard", value)
 
 
 @pulumi.input_type
@@ -164,7 +164,7 @@ class _KafkaClusterState:
     def __init__(__self__, *,
                  api_version: Optional[pulumi.Input[str]] = None,
                  availability: Optional[pulumi.Input[str]] = None,
-                 basics: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterBasicArgs']]]] = None,
+                 basic: Optional[pulumi.Input['KafkaClusterBasicArgs']] = None,
                  bootstrap_endpoint: Optional[pulumi.Input[str]] = None,
                  cloud: Optional[pulumi.Input[str]] = None,
                  dedicated: Optional[pulumi.Input['KafkaClusterDedicatedArgs']] = None,
@@ -175,12 +175,12 @@ class _KafkaClusterState:
                  rbac_crn: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 standards: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterStandardArgs']]]] = None):
+                 standard: Optional[pulumi.Input['KafkaClusterStandardArgs']] = None):
         """
         Input properties used for looking up and filtering KafkaCluster resources.
         :param pulumi.Input[str] api_version: (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
         :param pulumi.Input[str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
-        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterBasicArgs']]] basics: The configuration of the Basic Kafka cluster.
+        :param pulumi.Input['KafkaClusterBasicArgs'] basic: The configuration of the Basic Kafka cluster.
         :param pulumi.Input[str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
@@ -191,14 +191,14 @@ class _KafkaClusterState:
         :param pulumi.Input[str] rbac_crn: (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
         :param pulumi.Input[str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
         :param pulumi.Input[str] rest_endpoint: (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterStandardArgs']]] standards: The configuration of the Standard Kafka cluster.
+        :param pulumi.Input['KafkaClusterStandardArgs'] standard: The configuration of the Standard Kafka cluster.
         """
         if api_version is not None:
             pulumi.set(__self__, "api_version", api_version)
         if availability is not None:
             pulumi.set(__self__, "availability", availability)
-        if basics is not None:
-            pulumi.set(__self__, "basics", basics)
+        if basic is not None:
+            pulumi.set(__self__, "basic", basic)
         if bootstrap_endpoint is not None:
             pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
         if cloud is not None:
@@ -219,8 +219,8 @@ class _KafkaClusterState:
             pulumi.set(__self__, "region", region)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
-        if standards is not None:
-            pulumi.set(__self__, "standards", standards)
+        if standard is not None:
+            pulumi.set(__self__, "standard", standard)
 
     @property
     @pulumi.getter(name="apiVersion")
@@ -248,15 +248,15 @@ class _KafkaClusterState:
 
     @property
     @pulumi.getter
-    def basics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterBasicArgs']]]]:
+    def basic(self) -> Optional[pulumi.Input['KafkaClusterBasicArgs']]:
         """
         The configuration of the Basic Kafka cluster.
         """
-        return pulumi.get(self, "basics")
+        return pulumi.get(self, "basic")
 
-    @basics.setter
-    def basics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterBasicArgs']]]]):
-        pulumi.set(self, "basics", value)
+    @basic.setter
+    def basic(self, value: Optional[pulumi.Input['KafkaClusterBasicArgs']]):
+        pulumi.set(self, "basic", value)
 
     @property
     @pulumi.getter(name="bootstrapEndpoint")
@@ -378,15 +378,15 @@ class _KafkaClusterState:
 
     @property
     @pulumi.getter
-    def standards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterStandardArgs']]]]:
+    def standard(self) -> Optional[pulumi.Input['KafkaClusterStandardArgs']]:
         """
         The configuration of the Standard Kafka cluster.
         """
-        return pulumi.get(self, "standards")
+        return pulumi.get(self, "standard")
 
-    @standards.setter
-    def standards(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterStandardArgs']]]]):
-        pulumi.set(self, "standards", value)
+    @standard.setter
+    def standard(self, value: Optional[pulumi.Input['KafkaClusterStandardArgs']]):
+        pulumi.set(self, "standard", value)
 
 
 class KafkaCluster(pulumi.CustomResource):
@@ -395,14 +395,14 @@ class KafkaCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability: Optional[pulumi.Input[str]] = None,
-                 basics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']]]]] = None,
+                 basic: Optional[pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']]] = None,
                  cloud: Optional[pulumi.Input[str]] = None,
                  dedicated: Optional[pulumi.Input[pulumi.InputType['KafkaClusterDedicatedArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']]] = None,
                  region: Optional[pulumi.Input[str]] = None,
-                 standards: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStandardArgs']]]]] = None,
+                 standard: Optional[pulumi.Input[pulumi.InputType['KafkaClusterStandardArgs']]] = None,
                  __props__=None):
         """
         ## Import
@@ -418,14 +418,14 @@ class KafkaCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']]]] basics: The configuration of the Basic Kafka cluster.
+        :param pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']] basic: The configuration of the Basic Kafka cluster.
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
         :param pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         :param pulumi.Input[str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStandardArgs']]]] standards: The configuration of the Standard Kafka cluster.
+        :param pulumi.Input[pulumi.InputType['KafkaClusterStandardArgs']] standard: The configuration of the Standard Kafka cluster.
         """
         ...
     @overload
@@ -460,14 +460,14 @@ class KafkaCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability: Optional[pulumi.Input[str]] = None,
-                 basics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']]]]] = None,
+                 basic: Optional[pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']]] = None,
                  cloud: Optional[pulumi.Input[str]] = None,
                  dedicated: Optional[pulumi.Input[pulumi.InputType['KafkaClusterDedicatedArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']]] = None,
                  region: Optional[pulumi.Input[str]] = None,
-                 standards: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStandardArgs']]]]] = None,
+                 standard: Optional[pulumi.Input[pulumi.InputType['KafkaClusterStandardArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -480,7 +480,7 @@ class KafkaCluster(pulumi.CustomResource):
             if availability is None and not opts.urn:
                 raise TypeError("Missing required property 'availability'")
             __props__.__dict__["availability"] = availability
-            __props__.__dict__["basics"] = basics
+            __props__.__dict__["basic"] = basic
             if cloud is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud'")
             __props__.__dict__["cloud"] = cloud
@@ -493,7 +493,7 @@ class KafkaCluster(pulumi.CustomResource):
             if region is None and not opts.urn:
                 raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region
-            __props__.__dict__["standards"] = standards
+            __props__.__dict__["standard"] = standard
             __props__.__dict__["api_version"] = None
             __props__.__dict__["bootstrap_endpoint"] = None
             __props__.__dict__["kind"] = None
@@ -511,7 +511,7 @@ class KafkaCluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_version: Optional[pulumi.Input[str]] = None,
             availability: Optional[pulumi.Input[str]] = None,
-            basics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']]]]] = None,
+            basic: Optional[pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']]] = None,
             bootstrap_endpoint: Optional[pulumi.Input[str]] = None,
             cloud: Optional[pulumi.Input[str]] = None,
             dedicated: Optional[pulumi.Input[pulumi.InputType['KafkaClusterDedicatedArgs']]] = None,
@@ -522,7 +522,7 @@ class KafkaCluster(pulumi.CustomResource):
             rbac_crn: Optional[pulumi.Input[str]] = None,
             region: Optional[pulumi.Input[str]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
-            standards: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStandardArgs']]]]] = None) -> 'KafkaCluster':
+            standard: Optional[pulumi.Input[pulumi.InputType['KafkaClusterStandardArgs']]] = None) -> 'KafkaCluster':
         """
         Get an existing KafkaCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -532,7 +532,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_version: (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
         :param pulumi.Input[str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']]]] basics: The configuration of the Basic Kafka cluster.
+        :param pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']] basic: The configuration of the Basic Kafka cluster.
         :param pulumi.Input[str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
@@ -543,7 +543,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[str] rbac_crn: (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
         :param pulumi.Input[str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
         :param pulumi.Input[str] rest_endpoint: (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterStandardArgs']]]] standards: The configuration of the Standard Kafka cluster.
+        :param pulumi.Input[pulumi.InputType['KafkaClusterStandardArgs']] standard: The configuration of the Standard Kafka cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -551,7 +551,7 @@ class KafkaCluster(pulumi.CustomResource):
 
         __props__.__dict__["api_version"] = api_version
         __props__.__dict__["availability"] = availability
-        __props__.__dict__["basics"] = basics
+        __props__.__dict__["basic"] = basic
         __props__.__dict__["bootstrap_endpoint"] = bootstrap_endpoint
         __props__.__dict__["cloud"] = cloud
         __props__.__dict__["dedicated"] = dedicated
@@ -562,7 +562,7 @@ class KafkaCluster(pulumi.CustomResource):
         __props__.__dict__["rbac_crn"] = rbac_crn
         __props__.__dict__["region"] = region
         __props__.__dict__["rest_endpoint"] = rest_endpoint
-        __props__.__dict__["standards"] = standards
+        __props__.__dict__["standard"] = standard
         return KafkaCluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -583,11 +583,11 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def basics(self) -> pulumi.Output[Optional[Sequence['outputs.KafkaClusterBasic']]]:
+    def basic(self) -> pulumi.Output[Optional['outputs.KafkaClusterBasic']]:
         """
         The configuration of the Basic Kafka cluster.
         """
-        return pulumi.get(self, "basics")
+        return pulumi.get(self, "basic")
 
     @property
     @pulumi.getter(name="bootstrapEndpoint")
@@ -669,9 +669,9 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def standards(self) -> pulumi.Output[Optional[Sequence['outputs.KafkaClusterStandard']]]:
+    def standard(self) -> pulumi.Output[Optional['outputs.KafkaClusterStandard']]:
         """
         The configuration of the Standard Kafka cluster.
         """
-        return pulumi.get(self, "standards")
+        return pulumi.get(self, "standard")
 

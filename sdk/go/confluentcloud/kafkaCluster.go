@@ -30,7 +30,7 @@ type KafkaCluster struct {
 	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
 	Availability pulumi.StringOutput `pulumi:"availability"`
 	// The configuration of the Basic Kafka cluster.
-	Basics KafkaClusterBasicArrayOutput `pulumi:"basics"`
+	Basic KafkaClusterBasicPtrOutput `pulumi:"basic"`
 	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringOutput `pulumi:"bootstrapEndpoint"`
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
@@ -52,7 +52,7 @@ type KafkaCluster struct {
 	// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint pulumi.StringOutput `pulumi:"restEndpoint"`
 	// The configuration of the Standard Kafka cluster.
-	Standards KafkaClusterStandardArrayOutput `pulumi:"standards"`
+	Standard KafkaClusterStandardPtrOutput `pulumi:"standard"`
 }
 
 // NewKafkaCluster registers a new resource with the given unique name, arguments, and options.
@@ -101,7 +101,7 @@ type kafkaClusterState struct {
 	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
 	Availability *string `pulumi:"availability"`
 	// The configuration of the Basic Kafka cluster.
-	Basics []KafkaClusterBasic `pulumi:"basics"`
+	Basic *KafkaClusterBasic `pulumi:"basic"`
 	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint *string `pulumi:"bootstrapEndpoint"`
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
@@ -123,7 +123,7 @@ type kafkaClusterState struct {
 	// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// The configuration of the Standard Kafka cluster.
-	Standards []KafkaClusterStandard `pulumi:"standards"`
+	Standard *KafkaClusterStandard `pulumi:"standard"`
 }
 
 type KafkaClusterState struct {
@@ -132,7 +132,7 @@ type KafkaClusterState struct {
 	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
 	Availability pulumi.StringPtrInput
 	// The configuration of the Basic Kafka cluster.
-	Basics KafkaClusterBasicArrayInput
+	Basic KafkaClusterBasicPtrInput
 	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringPtrInput
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
@@ -154,7 +154,7 @@ type KafkaClusterState struct {
 	// (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint pulumi.StringPtrInput
 	// The configuration of the Standard Kafka cluster.
-	Standards KafkaClusterStandardArrayInput
+	Standard KafkaClusterStandardPtrInput
 }
 
 func (KafkaClusterState) ElementType() reflect.Type {
@@ -165,7 +165,7 @@ type kafkaClusterArgs struct {
 	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
 	Availability string `pulumi:"availability"`
 	// The configuration of the Basic Kafka cluster.
-	Basics []KafkaClusterBasic `pulumi:"basics"`
+	Basic *KafkaClusterBasic `pulumi:"basic"`
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud     string                 `pulumi:"cloud"`
 	Dedicated *KafkaClusterDedicated `pulumi:"dedicated"`
@@ -179,7 +179,7 @@ type kafkaClusterArgs struct {
 	// The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 	Region string `pulumi:"region"`
 	// The configuration of the Standard Kafka cluster.
-	Standards []KafkaClusterStandard `pulumi:"standards"`
+	Standard *KafkaClusterStandard `pulumi:"standard"`
 }
 
 // The set of arguments for constructing a KafkaCluster resource.
@@ -187,7 +187,7 @@ type KafkaClusterArgs struct {
 	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
 	Availability pulumi.StringInput
 	// The configuration of the Basic Kafka cluster.
-	Basics KafkaClusterBasicArrayInput
+	Basic KafkaClusterBasicPtrInput
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud     pulumi.StringInput
 	Dedicated KafkaClusterDedicatedPtrInput
@@ -201,7 +201,7 @@ type KafkaClusterArgs struct {
 	// The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 	Region pulumi.StringInput
 	// The configuration of the Standard Kafka cluster.
-	Standards KafkaClusterStandardArrayInput
+	Standard KafkaClusterStandardPtrInput
 }
 
 func (KafkaClusterArgs) ElementType() reflect.Type {
@@ -302,8 +302,8 @@ func (o KafkaClusterOutput) Availability() pulumi.StringOutput {
 }
 
 // The configuration of the Basic Kafka cluster.
-func (o KafkaClusterOutput) Basics() KafkaClusterBasicArrayOutput {
-	return o.ApplyT(func(v *KafkaCluster) KafkaClusterBasicArrayOutput { return v.Basics }).(KafkaClusterBasicArrayOutput)
+func (o KafkaClusterOutput) Basic() KafkaClusterBasicPtrOutput {
+	return o.ApplyT(func(v *KafkaCluster) KafkaClusterBasicPtrOutput { return v.Basic }).(KafkaClusterBasicPtrOutput)
 }
 
 // (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -357,8 +357,8 @@ func (o KafkaClusterOutput) RestEndpoint() pulumi.StringOutput {
 }
 
 // The configuration of the Standard Kafka cluster.
-func (o KafkaClusterOutput) Standards() KafkaClusterStandardArrayOutput {
-	return o.ApplyT(func(v *KafkaCluster) KafkaClusterStandardArrayOutput { return v.Standards }).(KafkaClusterStandardArrayOutput)
+func (o KafkaClusterOutput) Standard() KafkaClusterStandardPtrOutput {
+	return o.ApplyT(func(v *KafkaCluster) KafkaClusterStandardPtrOutput { return v.Standard }).(KafkaClusterStandardPtrOutput)
 }
 
 type KafkaClusterArrayOutput struct{ *pulumi.OutputState }

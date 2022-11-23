@@ -56,7 +56,7 @@ export class KafkaCluster extends pulumi.CustomResource {
     /**
      * The configuration of the Basic Kafka cluster.
      */
-    public readonly basics!: pulumi.Output<outputs.KafkaClusterBasic[] | undefined>;
+    public readonly basic!: pulumi.Output<outputs.KafkaClusterBasic | undefined>;
     /**
      * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
@@ -98,7 +98,7 @@ export class KafkaCluster extends pulumi.CustomResource {
     /**
      * The configuration of the Standard Kafka cluster.
      */
-    public readonly standards!: pulumi.Output<outputs.KafkaClusterStandard[] | undefined>;
+    public readonly standard!: pulumi.Output<outputs.KafkaClusterStandard | undefined>;
 
     /**
      * Create a KafkaCluster resource with the given unique name, arguments, and options.
@@ -115,7 +115,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             const state = argsOrState as KafkaClusterState | undefined;
             resourceInputs["apiVersion"] = state ? state.apiVersion : undefined;
             resourceInputs["availability"] = state ? state.availability : undefined;
-            resourceInputs["basics"] = state ? state.basics : undefined;
+            resourceInputs["basic"] = state ? state.basic : undefined;
             resourceInputs["bootstrapEndpoint"] = state ? state.bootstrapEndpoint : undefined;
             resourceInputs["cloud"] = state ? state.cloud : undefined;
             resourceInputs["dedicated"] = state ? state.dedicated : undefined;
@@ -126,7 +126,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["rbacCrn"] = state ? state.rbacCrn : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
-            resourceInputs["standards"] = state ? state.standards : undefined;
+            resourceInputs["standard"] = state ? state.standard : undefined;
         } else {
             const args = argsOrState as KafkaClusterArgs | undefined;
             if ((!args || args.availability === undefined) && !opts.urn) {
@@ -142,14 +142,14 @@ export class KafkaCluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'region'");
             }
             resourceInputs["availability"] = args ? args.availability : undefined;
-            resourceInputs["basics"] = args ? args.basics : undefined;
+            resourceInputs["basic"] = args ? args.basic : undefined;
             resourceInputs["cloud"] = args ? args.cloud : undefined;
             resourceInputs["dedicated"] = args ? args.dedicated : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["network"] = args ? args.network : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["standards"] = args ? args.standards : undefined;
+            resourceInputs["standard"] = args ? args.standard : undefined;
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["bootstrapEndpoint"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -176,7 +176,7 @@ export interface KafkaClusterState {
     /**
      * The configuration of the Basic Kafka cluster.
      */
-    basics?: pulumi.Input<pulumi.Input<inputs.KafkaClusterBasic>[]>;
+    basic?: pulumi.Input<inputs.KafkaClusterBasic>;
     /**
      * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
@@ -218,7 +218,7 @@ export interface KafkaClusterState {
     /**
      * The configuration of the Standard Kafka cluster.
      */
-    standards?: pulumi.Input<pulumi.Input<inputs.KafkaClusterStandard>[]>;
+    standard?: pulumi.Input<inputs.KafkaClusterStandard>;
 }
 
 /**
@@ -232,7 +232,7 @@ export interface KafkaClusterArgs {
     /**
      * The configuration of the Basic Kafka cluster.
      */
-    basics?: pulumi.Input<pulumi.Input<inputs.KafkaClusterBasic>[]>;
+    basic?: pulumi.Input<inputs.KafkaClusterBasic>;
     /**
      * The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
@@ -258,5 +258,5 @@ export interface KafkaClusterArgs {
     /**
      * The configuration of the Standard Kafka cluster.
      */
-    standards?: pulumi.Input<pulumi.Input<inputs.KafkaClusterStandard>[]>;
+    standard?: pulumi.Input<inputs.KafkaClusterStandard>;
 }

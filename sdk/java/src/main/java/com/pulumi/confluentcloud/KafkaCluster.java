@@ -16,7 +16,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -66,15 +65,15 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * The configuration of the Basic Kafka cluster.
      * 
      */
-    @Export(name="basics", type=List.class, parameters={KafkaClusterBasic.class})
-    private Output</* @Nullable */ List<KafkaClusterBasic>> basics;
+    @Export(name="basic", type=KafkaClusterBasic.class, parameters={})
+    private Output</* @Nullable */ KafkaClusterBasic> basic;
 
     /**
      * @return The configuration of the Basic Kafka cluster.
      * 
      */
-    public Output<Optional<List<KafkaClusterBasic>>> basics() {
-        return Codegen.optional(this.basics);
+    public Output<Optional<KafkaClusterBasic>> basic() {
+        return Codegen.optional(this.basic);
     }
     /**
      * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -214,15 +213,15 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * The configuration of the Standard Kafka cluster.
      * 
      */
-    @Export(name="standards", type=List.class, parameters={KafkaClusterStandard.class})
-    private Output</* @Nullable */ List<KafkaClusterStandard>> standards;
+    @Export(name="standard", type=KafkaClusterStandard.class, parameters={})
+    private Output</* @Nullable */ KafkaClusterStandard> standard;
 
     /**
      * @return The configuration of the Standard Kafka cluster.
      * 
      */
-    public Output<Optional<List<KafkaClusterStandard>>> standards() {
-        return Codegen.optional(this.standards);
+    public Output<Optional<KafkaClusterStandard>> standard() {
+        return Codegen.optional(this.standard);
     }
 
     /**

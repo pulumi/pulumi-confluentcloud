@@ -112,9 +112,9 @@ class _KsqlClusterState:
                  csu: Optional[pulumi.Input[int]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input['KsqlClusterEnvironmentArgs']] = None,
-                 http_endpoint: Optional[pulumi.Input[str]] = None,
                  kafka_cluster: Optional[pulumi.Input['KsqlClusterKafkaClusterArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 rest_endpoint: Optional[pulumi.Input[str]] = None,
                  storage: Optional[pulumi.Input[int]] = None,
                  topic_prefix: Optional[pulumi.Input[str]] = None,
                  use_detailed_processing_log: Optional[pulumi.Input[bool]] = None):
@@ -124,8 +124,8 @@ class _KsqlClusterState:
         :param pulumi.Input[int] csu: The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.
         :param pulumi.Input[str] display_name: The name of the ksqlDB cluster.
         :param pulumi.Input['KsqlClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[str] http_endpoint: (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
         :param pulumi.Input[str] kind: (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
+        :param pulumi.Input[str] rest_endpoint: (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
         :param pulumi.Input[int] storage: (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
         :param pulumi.Input[str] topic_prefix: (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
         :param pulumi.Input[bool] use_detailed_processing_log: Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.
@@ -140,12 +140,12 @@ class _KsqlClusterState:
             pulumi.set(__self__, "display_name", display_name)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
-        if http_endpoint is not None:
-            pulumi.set(__self__, "http_endpoint", http_endpoint)
         if kafka_cluster is not None:
             pulumi.set(__self__, "kafka_cluster", kafka_cluster)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
+        if rest_endpoint is not None:
+            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
         if storage is not None:
             pulumi.set(__self__, "storage", storage)
         if topic_prefix is not None:
@@ -211,18 +211,6 @@ class _KsqlClusterState:
         pulumi.set(self, "environment", value)
 
     @property
-    @pulumi.getter(name="httpEndpoint")
-    def http_endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-        """
-        return pulumi.get(self, "http_endpoint")
-
-    @http_endpoint.setter
-    def http_endpoint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "http_endpoint", value)
-
-    @property
     @pulumi.getter(name="kafkaCluster")
     def kafka_cluster(self) -> Optional[pulumi.Input['KsqlClusterKafkaClusterArgs']]:
         return pulumi.get(self, "kafka_cluster")
@@ -242,6 +230,18 @@ class _KsqlClusterState:
     @kind.setter
     def kind(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+        """
+        return pulumi.get(self, "rest_endpoint")
+
+    @rest_endpoint.setter
+    def rest_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rest_endpoint", value)
 
     @property
     @pulumi.getter
@@ -378,8 +378,8 @@ class KsqlCluster(pulumi.CustomResource):
             __props__.__dict__["kafka_cluster"] = kafka_cluster
             __props__.__dict__["use_detailed_processing_log"] = use_detailed_processing_log
             __props__.__dict__["api_version"] = None
-            __props__.__dict__["http_endpoint"] = None
             __props__.__dict__["kind"] = None
+            __props__.__dict__["rest_endpoint"] = None
             __props__.__dict__["storage"] = None
             __props__.__dict__["topic_prefix"] = None
         super(KsqlCluster, __self__).__init__(
@@ -397,9 +397,9 @@ class KsqlCluster(pulumi.CustomResource):
             csu: Optional[pulumi.Input[int]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             environment: Optional[pulumi.Input[pulumi.InputType['KsqlClusterEnvironmentArgs']]] = None,
-            http_endpoint: Optional[pulumi.Input[str]] = None,
             kafka_cluster: Optional[pulumi.Input[pulumi.InputType['KsqlClusterKafkaClusterArgs']]] = None,
             kind: Optional[pulumi.Input[str]] = None,
+            rest_endpoint: Optional[pulumi.Input[str]] = None,
             storage: Optional[pulumi.Input[int]] = None,
             topic_prefix: Optional[pulumi.Input[str]] = None,
             use_detailed_processing_log: Optional[pulumi.Input[bool]] = None) -> 'KsqlCluster':
@@ -414,8 +414,8 @@ class KsqlCluster(pulumi.CustomResource):
         :param pulumi.Input[int] csu: The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.
         :param pulumi.Input[str] display_name: The name of the ksqlDB cluster.
         :param pulumi.Input[pulumi.InputType['KsqlClusterEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[str] http_endpoint: (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
         :param pulumi.Input[str] kind: (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
+        :param pulumi.Input[str] rest_endpoint: (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
         :param pulumi.Input[int] storage: (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
         :param pulumi.Input[str] topic_prefix: (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
         :param pulumi.Input[bool] use_detailed_processing_log: Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.
@@ -429,9 +429,9 @@ class KsqlCluster(pulumi.CustomResource):
         __props__.__dict__["csu"] = csu
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["environment"] = environment
-        __props__.__dict__["http_endpoint"] = http_endpoint
         __props__.__dict__["kafka_cluster"] = kafka_cluster
         __props__.__dict__["kind"] = kind
+        __props__.__dict__["rest_endpoint"] = rest_endpoint
         __props__.__dict__["storage"] = storage
         __props__.__dict__["topic_prefix"] = topic_prefix
         __props__.__dict__["use_detailed_processing_log"] = use_detailed_processing_log
@@ -475,14 +475,6 @@ class KsqlCluster(pulumi.CustomResource):
         return pulumi.get(self, "environment")
 
     @property
-    @pulumi.getter(name="httpEndpoint")
-    def http_endpoint(self) -> pulumi.Output[str]:
-        """
-        (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-        """
-        return pulumi.get(self, "http_endpoint")
-
-    @property
     @pulumi.getter(name="kafkaCluster")
     def kafka_cluster(self) -> pulumi.Output['outputs.KsqlClusterKafkaCluster']:
         return pulumi.get(self, "kafka_cluster")
@@ -494,6 +486,14 @@ class KsqlCluster(pulumi.CustomResource):
         (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
         """
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> pulumi.Output[str]:
+        """
+        (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+        """
+        return pulumi.get(self, "rest_endpoint")
 
     @property
     @pulumi.getter

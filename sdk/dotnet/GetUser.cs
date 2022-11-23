@@ -44,10 +44,7 @@ namespace Pulumi.ConfluentCloud
         ///         Availability = "SINGLE_ZONE",
         ///         Cloud = "AWS",
         ///         Region = "us-west-2",
-        ///         Standards = new[]
-        ///         {
-        ///             ,
-        ///         },
+        ///         Standard = ,
         ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
         ///         {
         ///             Id = test_env.Id,
@@ -111,10 +108,7 @@ namespace Pulumi.ConfluentCloud
         ///         Availability = "SINGLE_ZONE",
         ///         Cloud = "AWS",
         ///         Region = "us-west-2",
-        ///         Standards = new[]
-        ///         {
-        ///             ,
-        ///         },
+        ///         Standard = ,
         ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
         ///         {
         ///             Id = test_env.Id,

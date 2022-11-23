@@ -86,14 +86,16 @@ type LookupKsqlClusterResult struct {
 	Csu         int                       `pulumi:"csu"`
 	DisplayName string                    `pulumi:"displayName"`
 	Environment GetKsqlClusterEnvironment `pulumi:"environment"`
-	// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-	// - `kafkaCluster` (Optional Configuration Block) supports the following:
-	HttpEndpoint string `pulumi:"httpEndpoint"`
 	// (Required String) The ID of the service or user account that the ksqlDB cluster belongs to, for example, `sa-abc123`.
 	Id            string                       `pulumi:"id"`
 	KafkaClusters []GetKsqlClusterKafkaCluster `pulumi:"kafkaClusters"`
 	// (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
 	Kind string `pulumi:"kind"`
+	// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+	// - `kafkaCluster` (Optional Configuration Block) supports the following:
+	//
+	// Deprecated: use rest_endpoint instead
+	RestEndpoint string `pulumi:"restEndpoint"`
 	// (Required Integer) The amount of storage (in GB) provisioned to this cluster.
 	Storage int `pulumi:"storage"`
 	// (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
@@ -165,12 +167,6 @@ func (o LookupKsqlClusterResultOutput) Environment() GetKsqlClusterEnvironmentOu
 	return o.ApplyT(func(v LookupKsqlClusterResult) GetKsqlClusterEnvironment { return v.Environment }).(GetKsqlClusterEnvironmentOutput)
 }
 
-// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-// - `kafkaCluster` (Optional Configuration Block) supports the following:
-func (o LookupKsqlClusterResultOutput) HttpEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupKsqlClusterResult) string { return v.HttpEndpoint }).(pulumi.StringOutput)
-}
-
 // (Required String) The ID of the service or user account that the ksqlDB cluster belongs to, for example, `sa-abc123`.
 func (o LookupKsqlClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKsqlClusterResult) string { return v.Id }).(pulumi.StringOutput)
@@ -183,6 +179,14 @@ func (o LookupKsqlClusterResultOutput) KafkaClusters() GetKsqlClusterKafkaCluste
 // (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
 func (o LookupKsqlClusterResultOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKsqlClusterResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+// - `kafkaCluster` (Optional Configuration Block) supports the following:
+//
+// Deprecated: use rest_endpoint instead
+func (o LookupKsqlClusterResultOutput) RestEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKsqlClusterResult) string { return v.RestEndpoint }).(pulumi.StringOutput)
 }
 
 // (Required Integer) The amount of storage (in GB) provisioned to this cluster.

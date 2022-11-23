@@ -125,10 +125,10 @@ export interface GetIdentityPoolIdentityProvider {
     id: string;
 }
 
-export interface GetKafkaClusterBasic {
+export interface GetKafkaClusterBasicArgs {
 }
 
-export interface GetKafkaClusterBasicArgs {
+export interface GetKafkaClusterBasic {
 }
 
 export interface GetKafkaClusterDedicated {
@@ -195,18 +195,18 @@ export interface GetKafkaTopicCredentials {
     secret: string;
 }
 
-export interface GetKafkaTopicKafkaClusterArgs {
-    /**
-     * The ID of the Kafka cluster, for example, `lkc-abc123`.
-     */
-    id: pulumi.Input<string>;
-}
-
 export interface GetKafkaTopicKafkaCluster {
     /**
      * The ID of the Kafka cluster, for example, `lkc-abc123`.
      */
     id: string;
+}
+
+export interface GetKafkaTopicKafkaClusterArgs {
+    /**
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: pulumi.Input<string>;
 }
 
 export interface GetKsqlClusterEnvironment {
@@ -253,18 +253,18 @@ export interface GetNetworkAwArgs {
     vpc?: pulumi.Input<string>;
 }
 
-export interface GetNetworkAzureArgs {
-    /**
-     * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
-     */
-    privateLinkServiceAliases?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-}
-
 export interface GetNetworkAzure {
     /**
      * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
      */
     privateLinkServiceAliases?: {[key: string]: string};
+}
+
+export interface GetNetworkAzureArgs {
+    /**
+     * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
+     */
+    privateLinkServiceAliases?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 export interface GetNetworkEnvironment {
@@ -337,6 +337,20 @@ export interface GetPrivateLinkAccessEnvironmentArgs {
      * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
      */
     id: pulumi.Input<string>;
+}
+
+export interface GetSchemaRegistryClusterEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetSchemaRegistryClusterEnvironment {
+    /**
+     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     */
+    id: string;
 }
 
 export interface GetStreatGovernanceClusterEnvironment {
@@ -680,6 +694,20 @@ export interface PrivateLinkAccessGcp {
 export interface PrivateLinkAccessNetwork {
     /**
      * The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface SchemaRegistryClusterEnvironment {
+    /**
+     * The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface SchemaRegistryClusterRegion {
+    /**
+     * The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
      */
     id: pulumi.Input<string>;
 }

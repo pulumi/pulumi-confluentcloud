@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  *     availability: "SINGLE_ZONE",
  *     cloud: "AWS",
  *     region: "us-west-2",
- *     standards: [{}],
+ *     standard: {},
  *     environment: {
  *         id: test_env.id,
  *     },

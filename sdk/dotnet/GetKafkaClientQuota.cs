@@ -137,7 +137,7 @@ namespace Pulumi.ConfluentCloud
         public readonly string Id;
         public readonly ImmutableArray<Outputs.GetKafkaClientQuotaKafkaClusterResult> KafkaClusters;
         /// <summary>
-        /// (Required Set of Strings) The list of service accounts to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
+        /// (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
         /// - `kafka_cluster` (Required Configuration Block) supports the following:
         /// </summary>
         public readonly ImmutableArray<string> Principals;

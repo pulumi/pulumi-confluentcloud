@@ -69,7 +69,7 @@ export interface GetKafkaClientQuotaResult {
     readonly id: string;
     readonly kafkaClusters: outputs.GetKafkaClientQuotaKafkaCluster[];
     /**
-     * (Required Set of Strings) The list of service accounts to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
+     * (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
      * - `kafkaCluster` (Required Configuration Block) supports the following:
      */
     readonly principals: string[];

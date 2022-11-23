@@ -56,6 +56,8 @@ __all__ = [
     'PrivateLinkAccessEnvironment',
     'PrivateLinkAccessGcp',
     'PrivateLinkAccessNetwork',
+    'SchemaRegistryClusterEnvironment',
+    'SchemaRegistryClusterRegion',
     'StreamGovernanceClusterEnvironment',
     'StreamGovernanceClusterRegion',
     'TransitGatewayAttachmentAws',
@@ -89,6 +91,8 @@ __all__ = [
     'GetPrivateLinkAccessEnvironmentResult',
     'GetPrivateLinkAccessGcpResult',
     'GetPrivateLinkAccessNetworkResult',
+    'GetSchemaRegistryClusterEnvironmentResult',
+    'GetSchemaRegistryClusterRegionResult',
     'GetStreatGovernanceClusterEnvironmentResult',
     'GetStreatGovernanceClusterRegionResult',
     'GetTransitGatewayAttachmentAwResult',
@@ -1501,6 +1505,42 @@ class PrivateLinkAccessNetwork(dict):
 
 
 @pulumi.output_type
+class SchemaRegistryClusterEnvironment(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SchemaRegistryClusterRegion(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class StreamGovernanceClusterEnvironment(dict):
     def __init__(__self__, *,
                  id: str):
@@ -2290,6 +2330,42 @@ class GetPrivateLinkAccessNetworkResult(dict):
     def id(self) -> str:
         """
         The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetSchemaRegistryClusterEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetSchemaRegistryClusterRegionResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
         """
         return pulumi.get(self, "id")
 

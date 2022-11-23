@@ -52,12 +52,6 @@ namespace Pulumi.ConfluentCloud
         [Output("environment")]
         public Output<Outputs.KsqlClusterEnvironment> Environment { get; private set; } = null!;
 
-        /// <summary>
-        /// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-        /// </summary>
-        [Output("httpEndpoint")]
-        public Output<string> HttpEndpoint { get; private set; } = null!;
-
         [Output("kafkaCluster")]
         public Output<Outputs.KsqlClusterKafkaCluster> KafkaCluster { get; private set; } = null!;
 
@@ -66,6 +60,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+        /// </summary>
+        [Output("restEndpoint")]
+        public Output<string> RestEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
@@ -196,12 +196,6 @@ namespace Pulumi.ConfluentCloud
         [Input("environment")]
         public Input<Inputs.KsqlClusterEnvironmentGetArgs>? Environment { get; set; }
 
-        /// <summary>
-        /// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-        /// </summary>
-        [Input("httpEndpoint")]
-        public Input<string>? HttpEndpoint { get; set; }
-
         [Input("kafkaCluster")]
         public Input<Inputs.KsqlClusterKafkaClusterGetArgs>? KafkaCluster { get; set; }
 
@@ -210,6 +204,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
+
+        /// <summary>
+        /// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
+        /// </summary>
+        [Input("restEndpoint")]
+        public Input<string>? RestEndpoint { get; set; }
 
         /// <summary>
         /// (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
