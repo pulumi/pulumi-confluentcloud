@@ -13,7 +13,7 @@ cluster = confluent.KafkaCluster("basic-cluster",
                                  region="us-west-2",
                                  environment=confluent.KafkaClusterEnvironmentArgs(
                                      id=environment.id),
-                                 basics=[{}])
+                                 basic=[{}])
 
 cluster_managed_resource = confluent.ApiKeyManagedResourceArgs(id=cluster.id,
                                                                api_version=cluster.api_version,
