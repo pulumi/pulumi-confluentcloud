@@ -19,7 +19,8 @@ class ProviderArgs:
                  endpoint: Optional[pulumi.Input[str]] = None,
                  kafka_api_key: Optional[pulumi.Input[str]] = None,
                  kafka_api_secret: Optional[pulumi.Input[str]] = None,
-                 kafka_rest_endpoint: Optional[pulumi.Input[str]] = None):
+                 kafka_rest_endpoint: Optional[pulumi.Input[str]] = None,
+                 max_retries: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] cloud_api_key: The Confluent Cloud API Key.
@@ -28,6 +29,7 @@ class ProviderArgs:
         :param pulumi.Input[str] kafka_api_key: The Kafka Cluster API Key.
         :param pulumi.Input[str] kafka_api_secret: The Kafka Cluster API Secret.
         :param pulumi.Input[str] kafka_rest_endpoint: The Kafka Cluster REST Endpoint.
+        :param pulumi.Input[int] max_retries: Maximum number of retries of HTTP client. Defaults to 4.
         """
         if cloud_api_key is not None:
             pulumi.set(__self__, "cloud_api_key", cloud_api_key)
@@ -41,6 +43,8 @@ class ProviderArgs:
             pulumi.set(__self__, "kafka_api_secret", kafka_api_secret)
         if kafka_rest_endpoint is not None:
             pulumi.set(__self__, "kafka_rest_endpoint", kafka_rest_endpoint)
+        if max_retries is not None:
+            pulumi.set(__self__, "max_retries", max_retries)
 
     @property
     @pulumi.getter(name="cloudApiKey")
@@ -114,6 +118,18 @@ class ProviderArgs:
     def kafka_rest_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kafka_rest_endpoint", value)
 
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of retries of HTTP client. Defaults to 4.
+        """
+        return pulumi.get(self, "max_retries")
+
+    @max_retries.setter
+    def max_retries(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_retries", value)
+
 
 class Provider(pulumi.ProviderResource):
     @overload
@@ -126,6 +142,7 @@ class Provider(pulumi.ProviderResource):
                  kafka_api_key: Optional[pulumi.Input[str]] = None,
                  kafka_api_secret: Optional[pulumi.Input[str]] = None,
                  kafka_rest_endpoint: Optional[pulumi.Input[str]] = None,
+                 max_retries: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
         The provider type for the confluent package. By default, resources use package-wide configuration
@@ -141,6 +158,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] kafka_api_key: The Kafka Cluster API Key.
         :param pulumi.Input[str] kafka_api_secret: The Kafka Cluster API Secret.
         :param pulumi.Input[str] kafka_rest_endpoint: The Kafka Cluster REST Endpoint.
+        :param pulumi.Input[int] max_retries: Maximum number of retries of HTTP client. Defaults to 4.
         """
         ...
     @overload
@@ -175,6 +193,7 @@ class Provider(pulumi.ProviderResource):
                  kafka_api_key: Optional[pulumi.Input[str]] = None,
                  kafka_api_secret: Optional[pulumi.Input[str]] = None,
                  kafka_rest_endpoint: Optional[pulumi.Input[str]] = None,
+                 max_retries: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -190,6 +209,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["kafka_api_key"] = None if kafka_api_key is None else pulumi.Output.secret(kafka_api_key)
             __props__.__dict__["kafka_api_secret"] = None if kafka_api_secret is None else pulumi.Output.secret(kafka_api_secret)
             __props__.__dict__["kafka_rest_endpoint"] = kafka_rest_endpoint
+            __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["cloudApiKey", "cloudApiSecret", "kafkaApiKey", "kafkaApiSecret"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(

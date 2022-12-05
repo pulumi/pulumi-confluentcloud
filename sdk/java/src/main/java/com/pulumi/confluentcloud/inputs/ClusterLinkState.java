@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.inputs.ClusterLinkSourceKafkaClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class ClusterLinkState extends com.pulumi.resources.ResourceArgs {
 
     public static final ClusterLinkState Empty = new ClusterLinkState();
+
+    /**
+     * The custom cluster link settings to set:
+     * 
+     */
+    @Import(name="config")
+    private @Nullable Output<Map<String,String>> config;
+
+    /**
+     * @return The custom cluster link settings to set:
+     * 
+     */
+    public Optional<Output<Map<String,String>>> config() {
+        return Optional.ofNullable(this.config);
+    }
 
     /**
      * The connection mode of the cluster link. The supported values are `&#34;INBOUND&#34;` and `&#34;OUTBOUND&#34;`. Defaults to `&#34;OUTBOUND&#34;`.
@@ -79,6 +95,7 @@ public final class ClusterLinkState extends com.pulumi.resources.ResourceArgs {
     private ClusterLinkState() {}
 
     private ClusterLinkState(ClusterLinkState $) {
+        this.config = $.config;
         this.connectionMode = $.connectionMode;
         this.destinationKafkaCluster = $.destinationKafkaCluster;
         this.link = $.link;
@@ -102,6 +119,27 @@ public final class ClusterLinkState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ClusterLinkState defaults) {
             $ = new ClusterLinkState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param config The custom cluster link settings to set:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder config(@Nullable Output<Map<String,String>> config) {
+            $.config = config;
+            return this;
+        }
+
+        /**
+         * @param config The custom cluster link settings to set:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder config(Map<String,String> config) {
+            return config(Output.of(config));
         }
 
         /**

@@ -67,6 +67,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["kafkaApiKey"] = args?.kafkaApiKey ? pulumi.secret(args.kafkaApiKey) : undefined;
             resourceInputs["kafkaApiSecret"] = args?.kafkaApiSecret ? pulumi.secret(args.kafkaApiSecret) : undefined;
             resourceInputs["kafkaRestEndpoint"] = args ? args.kafkaRestEndpoint : undefined;
+            resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["cloudApiKey", "cloudApiSecret", "kafkaApiKey", "kafkaApiSecret"] };
@@ -103,4 +104,8 @@ export interface ProviderArgs {
      * The Kafka Cluster REST Endpoint.
      */
     kafkaRestEndpoint?: pulumi.Input<string>;
+    /**
+     * Maximum number of retries of HTTP client. Defaults to 4.
+     */
+    maxRetries?: pulumi.Input<number>;
 }

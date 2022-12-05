@@ -32,10 +32,6 @@ import com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
 import com.pulumi.confluentcloud.inputs.GetServiceAccountPlainArgs;
-import com.pulumi.confluentcloud.inputs.GetStreamGovernanceRegionArgs;
-import com.pulumi.confluentcloud.inputs.GetStreamGovernanceRegionPlainArgs;
-import com.pulumi.confluentcloud.inputs.GetStreatGovernanceClusterArgs;
-import com.pulumi.confluentcloud.inputs.GetStreatGovernanceClusterPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentArgs;
 import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetUserArgs;
@@ -55,8 +51,6 @@ import com.pulumi.confluentcloud.outputs.GetRoleBindingResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryRegionResult;
 import com.pulumi.confluentcloud.outputs.GetServiceAccountResult;
-import com.pulumi.confluentcloud.outputs.GetStreamGovernanceRegionResult;
-import com.pulumi.confluentcloud.outputs.GetStreatGovernanceClusterResult;
 import com.pulumi.confluentcloud.outputs.GetTransitGatewayAttachmentResult;
 import com.pulumi.confluentcloud.outputs.GetUserResult;
 import com.pulumi.core.Output;
@@ -1498,10 +1492,7 @@ public final class ConfluentcloudFunctions {
     /**
      * ## # confluentcloud.KsqlCluster Data Source
      * 
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.KsqlCluster` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
      * 
@@ -1555,10 +1546,7 @@ public final class ConfluentcloudFunctions {
     /**
      * ## # confluentcloud.KsqlCluster Data Source
      * 
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.KsqlCluster` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
      * 
@@ -1612,10 +1600,7 @@ public final class ConfluentcloudFunctions {
     /**
      * ## # confluentcloud.KsqlCluster Data Source
      * 
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.KsqlCluster` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
      * 
@@ -1669,10 +1654,7 @@ public final class ConfluentcloudFunctions {
     /**
      * ## # confluentcloud.KsqlCluster Data Source
      * 
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.KsqlCluster` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
      * 
@@ -2384,7 +2366,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * `confluentcloud.PrivateLinkAccess` describes a Network data source.
+     * `confluentcloud.PrivateLinkAccess` describes a Private Link Access data source.
      * 
      * ## Example Usage
      * ```java
@@ -2436,7 +2418,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * `confluentcloud.PrivateLinkAccess` describes a Network data source.
+     * `confluentcloud.PrivateLinkAccess` describes a Private Link Access data source.
      * 
      * ## Example Usage
      * ```java
@@ -2488,7 +2470,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * `confluentcloud.PrivateLinkAccess` describes a Network data source.
+     * `confluentcloud.PrivateLinkAccess` describes a Private Link Access data source.
      * 
      * ## Example Usage
      * ```java
@@ -2540,7 +2522,7 @@ public final class ConfluentcloudFunctions {
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
-     * `confluentcloud.PrivateLinkAccess` describes a Network data source.
+     * `confluentcloud.PrivateLinkAccess` describes a Private Link Access data source.
      * 
      * ## Example Usage
      * ```java
@@ -2750,10 +2732,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getRoleBinding:getRoleBinding", TypeShape.of(GetRoleBindingResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.SchemaRegistryCluster` resource is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.SchemaRegistryCluster` describes a Schema Registry cluster data source.
      * 
@@ -2805,10 +2784,7 @@ public final class ConfluentcloudFunctions {
         return getSchemaRegistryCluster(args, InvokeOptions.Empty);
     }
     /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.SchemaRegistryCluster` resource is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.SchemaRegistryCluster` describes a Schema Registry cluster data source.
      * 
@@ -2860,10 +2836,7 @@ public final class ConfluentcloudFunctions {
         return getSchemaRegistryClusterPlain(args, InvokeOptions.Empty);
     }
     /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.SchemaRegistryCluster` resource is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.SchemaRegistryCluster` describes a Schema Registry cluster data source.
      * 
@@ -2915,10 +2888,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", TypeShape.of(GetSchemaRegistryClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.SchemaRegistryCluster` resource is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.SchemaRegistryCluster` describes a Schema Registry cluster data source.
      * 
@@ -2970,10 +2940,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", TypeShape.of(GetSchemaRegistryClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.getSchemaRegistryRegion` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
      * 
@@ -3015,10 +2982,7 @@ public final class ConfluentcloudFunctions {
         return getSchemaRegistryRegion(args, InvokeOptions.Empty);
     }
     /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.getSchemaRegistryRegion` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
      * 
@@ -3060,10 +3024,7 @@ public final class ConfluentcloudFunctions {
         return getSchemaRegistryRegionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.getSchemaRegistryRegion` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
      * 
@@ -3105,10 +3066,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion", TypeShape.of(GetSchemaRegistryRegionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.getSchemaRegistryRegion` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
      * 
@@ -3430,422 +3388,6 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * !&gt; **WARNING:** `confluentcloud.getStreamGovernanceRegion` data source is deprecated and will be removed in the next version. Use `confluentcloud.getSchemaRegistryRegion` instead.
-     * 
-     * &gt; **Note:** `confluentcloud.getStreamGovernanceRegion` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
-     * 
-     * `confluentcloud.getStreamGovernanceRegion` describes a Stream Governance cluster data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetStreamGovernanceRegionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleStreamGovernanceRegion = ConfluentcloudFunctions.getStreamGovernanceRegion(GetStreamGovernanceRegionArgs.builder()
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-east-2&#34;)
-     *             .package_(&#34;ESSENTIALS&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleStreamGovernanceRegion.applyValue(getStreamGovernanceRegionResult -&gt; getStreamGovernanceRegionResult));
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static Output<GetStreamGovernanceRegionResult> getStreamGovernanceRegion(GetStreamGovernanceRegionArgs args) {
-        return getStreamGovernanceRegion(args, InvokeOptions.Empty);
-    }
-    /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * !&gt; **WARNING:** `confluentcloud.getStreamGovernanceRegion` data source is deprecated and will be removed in the next version. Use `confluentcloud.getSchemaRegistryRegion` instead.
-     * 
-     * &gt; **Note:** `confluentcloud.getStreamGovernanceRegion` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
-     * 
-     * `confluentcloud.getStreamGovernanceRegion` describes a Stream Governance cluster data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetStreamGovernanceRegionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleStreamGovernanceRegion = ConfluentcloudFunctions.getStreamGovernanceRegion(GetStreamGovernanceRegionArgs.builder()
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-east-2&#34;)
-     *             .package_(&#34;ESSENTIALS&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleStreamGovernanceRegion.applyValue(getStreamGovernanceRegionResult -&gt; getStreamGovernanceRegionResult));
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static CompletableFuture<GetStreamGovernanceRegionResult> getStreamGovernanceRegionPlain(GetStreamGovernanceRegionPlainArgs args) {
-        return getStreamGovernanceRegionPlain(args, InvokeOptions.Empty);
-    }
-    /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * !&gt; **WARNING:** `confluentcloud.getStreamGovernanceRegion` data source is deprecated and will be removed in the next version. Use `confluentcloud.getSchemaRegistryRegion` instead.
-     * 
-     * &gt; **Note:** `confluentcloud.getStreamGovernanceRegion` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
-     * 
-     * `confluentcloud.getStreamGovernanceRegion` describes a Stream Governance cluster data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetStreamGovernanceRegionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleStreamGovernanceRegion = ConfluentcloudFunctions.getStreamGovernanceRegion(GetStreamGovernanceRegionArgs.builder()
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-east-2&#34;)
-     *             .package_(&#34;ESSENTIALS&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleStreamGovernanceRegion.applyValue(getStreamGovernanceRegionResult -&gt; getStreamGovernanceRegionResult));
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static Output<GetStreamGovernanceRegionResult> getStreamGovernanceRegion(GetStreamGovernanceRegionArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("confluentcloud:index/getStreamGovernanceRegion:getStreamGovernanceRegion", TypeShape.of(GetStreamGovernanceRegionResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * !&gt; **WARNING:** `confluentcloud.getStreamGovernanceRegion` data source is deprecated and will be removed in the next version. Use `confluentcloud.getSchemaRegistryRegion` instead.
-     * 
-     * &gt; **Note:** `confluentcloud.getStreamGovernanceRegion` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
-     * 
-     * `confluentcloud.getStreamGovernanceRegion` describes a Stream Governance cluster data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetStreamGovernanceRegionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleStreamGovernanceRegion = ConfluentcloudFunctions.getStreamGovernanceRegion(GetStreamGovernanceRegionArgs.builder()
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-east-2&#34;)
-     *             .package_(&#34;ESSENTIALS&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleStreamGovernanceRegion.applyValue(getStreamGovernanceRegionResult -&gt; getStreamGovernanceRegionResult));
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static CompletableFuture<GetStreamGovernanceRegionResult> getStreamGovernanceRegionPlain(GetStreamGovernanceRegionPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("confluentcloud:index/getStreamGovernanceRegion:getStreamGovernanceRegion", TypeShape.of(GetStreamGovernanceRegionResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * !&gt; **WARNING:** `confluentcloud.StreamGovernanceCluster` data source is deprecated and will be removed in the next version. Use `confluentcloud.SchemaRegistryCluster` instead.
-     * 
-     * &gt; **Note:** `confluentcloud.StreamGovernanceCluster` resource is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
-     * 
-     * `confluentcloud.StreamGovernanceCluster` describes a Stream Governance cluster data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetStreatGovernanceClusterArgs;
-     * import com.pulumi.confluentcloud.inputs.GetStreatGovernanceClusterEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdStreatGovernanceCluster = ConfluentcloudFunctions.getStreatGovernanceCluster(GetStreatGovernanceClusterArgs.builder()
-     *             .id(&#34;lsrc-abc123&#34;)
-     *             .environment(GetStreatGovernanceClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdStreatGovernanceCluster.applyValue(getStreatGovernanceClusterResult -&gt; getStreatGovernanceClusterResult));
-     *         final var exampleUsingNameStreatGovernanceCluster = ConfluentcloudFunctions.getStreatGovernanceCluster(GetStreatGovernanceClusterArgs.builder()
-     *             .displayName(&#34;Stream Governance Package&#34;)
-     *             .environment(GetStreatGovernanceClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameStreatGovernanceCluster.applyValue(getStreatGovernanceClusterResult -&gt; getStreatGovernanceClusterResult));
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static Output<GetStreatGovernanceClusterResult> getStreatGovernanceCluster(GetStreatGovernanceClusterArgs args) {
-        return getStreatGovernanceCluster(args, InvokeOptions.Empty);
-    }
-    /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * !&gt; **WARNING:** `confluentcloud.StreamGovernanceCluster` data source is deprecated and will be removed in the next version. Use `confluentcloud.SchemaRegistryCluster` instead.
-     * 
-     * &gt; **Note:** `confluentcloud.StreamGovernanceCluster` resource is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
-     * 
-     * `confluentcloud.StreamGovernanceCluster` describes a Stream Governance cluster data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetStreatGovernanceClusterArgs;
-     * import com.pulumi.confluentcloud.inputs.GetStreatGovernanceClusterEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdStreatGovernanceCluster = ConfluentcloudFunctions.getStreatGovernanceCluster(GetStreatGovernanceClusterArgs.builder()
-     *             .id(&#34;lsrc-abc123&#34;)
-     *             .environment(GetStreatGovernanceClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdStreatGovernanceCluster.applyValue(getStreatGovernanceClusterResult -&gt; getStreatGovernanceClusterResult));
-     *         final var exampleUsingNameStreatGovernanceCluster = ConfluentcloudFunctions.getStreatGovernanceCluster(GetStreatGovernanceClusterArgs.builder()
-     *             .displayName(&#34;Stream Governance Package&#34;)
-     *             .environment(GetStreatGovernanceClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameStreatGovernanceCluster.applyValue(getStreatGovernanceClusterResult -&gt; getStreatGovernanceClusterResult));
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static CompletableFuture<GetStreatGovernanceClusterResult> getStreatGovernanceClusterPlain(GetStreatGovernanceClusterPlainArgs args) {
-        return getStreatGovernanceClusterPlain(args, InvokeOptions.Empty);
-    }
-    /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * !&gt; **WARNING:** `confluentcloud.StreamGovernanceCluster` data source is deprecated and will be removed in the next version. Use `confluentcloud.SchemaRegistryCluster` instead.
-     * 
-     * &gt; **Note:** `confluentcloud.StreamGovernanceCluster` resource is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
-     * 
-     * `confluentcloud.StreamGovernanceCluster` describes a Stream Governance cluster data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetStreatGovernanceClusterArgs;
-     * import com.pulumi.confluentcloud.inputs.GetStreatGovernanceClusterEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdStreatGovernanceCluster = ConfluentcloudFunctions.getStreatGovernanceCluster(GetStreatGovernanceClusterArgs.builder()
-     *             .id(&#34;lsrc-abc123&#34;)
-     *             .environment(GetStreatGovernanceClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdStreatGovernanceCluster.applyValue(getStreatGovernanceClusterResult -&gt; getStreatGovernanceClusterResult));
-     *         final var exampleUsingNameStreatGovernanceCluster = ConfluentcloudFunctions.getStreatGovernanceCluster(GetStreatGovernanceClusterArgs.builder()
-     *             .displayName(&#34;Stream Governance Package&#34;)
-     *             .environment(GetStreatGovernanceClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameStreatGovernanceCluster.applyValue(getStreatGovernanceClusterResult -&gt; getStreatGovernanceClusterResult));
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static Output<GetStreatGovernanceClusterResult> getStreatGovernanceCluster(GetStreatGovernanceClusterArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("confluentcloud:index/getStreatGovernanceCluster:getStreatGovernanceCluster", TypeShape.of(GetStreatGovernanceClusterResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * !&gt; **WARNING:** `confluentcloud.StreamGovernanceCluster` data source is deprecated and will be removed in the next version. Use `confluentcloud.SchemaRegistryCluster` instead.
-     * 
-     * &gt; **Note:** `confluentcloud.StreamGovernanceCluster` resource is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
-     * 
-     * `confluentcloud.StreamGovernanceCluster` describes a Stream Governance cluster data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetStreatGovernanceClusterArgs;
-     * import com.pulumi.confluentcloud.inputs.GetStreatGovernanceClusterEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdStreatGovernanceCluster = ConfluentcloudFunctions.getStreatGovernanceCluster(GetStreatGovernanceClusterArgs.builder()
-     *             .id(&#34;lsrc-abc123&#34;)
-     *             .environment(GetStreatGovernanceClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdStreatGovernanceCluster.applyValue(getStreatGovernanceClusterResult -&gt; getStreatGovernanceClusterResult));
-     *         final var exampleUsingNameStreatGovernanceCluster = ConfluentcloudFunctions.getStreatGovernanceCluster(GetStreatGovernanceClusterArgs.builder()
-     *             .displayName(&#34;Stream Governance Package&#34;)
-     *             .environment(GetStreatGovernanceClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameStreatGovernanceCluster.applyValue(getStreatGovernanceClusterResult -&gt; getStreatGovernanceClusterResult));
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static CompletableFuture<GetStreatGovernanceClusterResult> getStreatGovernanceClusterPlain(GetStreatGovernanceClusterPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("confluentcloud:index/getStreatGovernanceCluster:getStreatGovernanceCluster", TypeShape.of(GetStreatGovernanceClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-early-access@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Early%20Access&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)

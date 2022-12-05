@@ -57,3 +57,10 @@ class _ExportableConfig(types.ModuleType):
         """
         return __config__.get('kafkaRestEndpoint')
 
+    @property
+    def max_retries(self) -> Optional[int]:
+        """
+        Maximum number of retries of HTTP client. Defaults to 4.
+        """
+        return __config__.get_int('maxRetries')
+

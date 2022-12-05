@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
-        /// `confluentcloud.PrivateLinkAccess` describes a Network data source.
+        /// `confluentcloud.PrivateLinkAccess` describes a Private Link Access data source.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -61,7 +61,7 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
-        /// `confluentcloud.PrivateLinkAccess` describes a Network data source.
+        /// `confluentcloud.PrivateLinkAccess` describes a Private Link Access data source.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

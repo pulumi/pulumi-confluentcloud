@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud;
 
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 
@@ -51,5 +52,12 @@ public final class Config {
  */
     public Optional<String> kafkaRestEndpoint() {
         return Codegen.stringProp("kafkaRestEndpoint").config(config).get();
+    }
+/**
+ * Maximum number of retries of HTTP client. Defaults to 4.
+ * 
+ */
+    public Optional<Integer> maxRetries() {
+        return Codegen.integerProp("maxRetries").config(config).get();
     }
 }

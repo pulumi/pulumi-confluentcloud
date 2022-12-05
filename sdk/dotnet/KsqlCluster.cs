@@ -62,6 +62,12 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
+        /// (Required String) The Confluent Resource Name of the ksqlDB cluster.
+        /// </summary>
+        [Output("resourceName")]
+        public Output<string> ResourceName { get; private set; } = null!;
+
+        /// <summary>
         /// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
         /// </summary>
         [Output("restEndpoint")]
@@ -204,6 +210,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
+
+        /// <summary>
+        /// (Required String) The Confluent Resource Name of the ksqlDB cluster.
+        /// </summary>
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.

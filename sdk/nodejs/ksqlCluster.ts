@@ -70,6 +70,10 @@ export class KsqlCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
+     * (Required String) The Confluent Resource Name of the ksqlDB cluster.
+     */
+    public /*out*/ readonly resourceName!: pulumi.Output<string>;
+    /**
      * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
      */
     public /*out*/ readonly restEndpoint!: pulumi.Output<string>;
@@ -106,6 +110,7 @@ export class KsqlCluster extends pulumi.CustomResource {
             resourceInputs["environment"] = state ? state.environment : undefined;
             resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
+            resourceInputs["resourceName"] = state ? state.resourceName : undefined;
             resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
             resourceInputs["storage"] = state ? state.storage : undefined;
             resourceInputs["topicPrefix"] = state ? state.topicPrefix : undefined;
@@ -135,6 +140,7 @@ export class KsqlCluster extends pulumi.CustomResource {
             resourceInputs["useDetailedProcessingLog"] = args ? args.useDetailedProcessingLog : undefined;
             resourceInputs["apiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["resourceName"] = undefined /*out*/;
             resourceInputs["restEndpoint"] = undefined /*out*/;
             resourceInputs["storage"] = undefined /*out*/;
             resourceInputs["topicPrefix"] = undefined /*out*/;
@@ -170,6 +176,10 @@ export interface KsqlClusterState {
      * (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
      */
     kind?: pulumi.Input<string>;
+    /**
+     * (Required String) The Confluent Resource Name of the ksqlDB cluster.
+     */
+    resourceName?: pulumi.Input<string>;
     /**
      * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
      */

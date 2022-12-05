@@ -9,10 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## # confluentcloud.KsqlCluster Data Source
  *
- * [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
- *
- * > **Note:** `confluentcloud.KsqlCluster` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
- * **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
  *
@@ -91,6 +88,10 @@ export interface GetKsqlClusterResult {
      * (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
      */
     readonly kind: string;
+    /**
+     * (Required String) The Confluent Resource Name of the ksqlDB cluster.
+     */
+    readonly resourceName: string;
     /**
      * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
      * - `kafkaCluster` (Optional Configuration Block) supports the following:

@@ -25,6 +25,8 @@ import (
 type ClusterLink struct {
 	pulumi.CustomResourceState
 
+	// The custom cluster link settings to set:
+	Config pulumi.StringMapOutput `pulumi:"config"`
 	// The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
 	ConnectionMode          pulumi.StringPtrOutput                   `pulumi:"connectionMode"`
 	DestinationKafkaCluster ClusterLinkDestinationKafkaClusterOutput `pulumi:"destinationKafkaCluster"`
@@ -70,6 +72,8 @@ func GetClusterLink(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterLink resources.
 type clusterLinkState struct {
+	// The custom cluster link settings to set:
+	Config map[string]string `pulumi:"config"`
 	// The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
 	ConnectionMode          *string                             `pulumi:"connectionMode"`
 	DestinationKafkaCluster *ClusterLinkDestinationKafkaCluster `pulumi:"destinationKafkaCluster"`
@@ -81,6 +85,8 @@ type clusterLinkState struct {
 }
 
 type ClusterLinkState struct {
+	// The custom cluster link settings to set:
+	Config pulumi.StringMapInput
 	// The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
 	ConnectionMode          pulumi.StringPtrInput
 	DestinationKafkaCluster ClusterLinkDestinationKafkaClusterPtrInput
@@ -96,6 +102,8 @@ func (ClusterLinkState) ElementType() reflect.Type {
 }
 
 type clusterLinkArgs struct {
+	// The custom cluster link settings to set:
+	Config map[string]string `pulumi:"config"`
 	// The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
 	ConnectionMode          *string                            `pulumi:"connectionMode"`
 	DestinationKafkaCluster ClusterLinkDestinationKafkaCluster `pulumi:"destinationKafkaCluster"`
@@ -108,6 +116,8 @@ type clusterLinkArgs struct {
 
 // The set of arguments for constructing a ClusterLink resource.
 type ClusterLinkArgs struct {
+	// The custom cluster link settings to set:
+	Config pulumi.StringMapInput
 	// The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
 	ConnectionMode          pulumi.StringPtrInput
 	DestinationKafkaCluster ClusterLinkDestinationKafkaClusterInput
@@ -203,6 +213,11 @@ func (o ClusterLinkOutput) ToClusterLinkOutput() ClusterLinkOutput {
 
 func (o ClusterLinkOutput) ToClusterLinkOutputWithContext(ctx context.Context) ClusterLinkOutput {
 	return o
+}
+
+// The custom cluster link settings to set:
+func (o ClusterLinkOutput) Config() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterLink) pulumi.StringMapOutput { return v.Config }).(pulumi.StringMapOutput)
 }
 
 // The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.

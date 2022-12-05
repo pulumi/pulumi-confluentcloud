@@ -99,7 +99,6 @@ func Provider() tfbridge.ProviderInfo {
 			"confluent_identity_provider":          {Tok: tfbridge.MakeResource(mainPkg, mainMod, "IdentityProvider")},
 			"confluent_ksql_cluster":               {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KsqlCluster")},
 			"confluent_schema_registry_cluster":    {Tok: tfbridge.MakeResource(mainPkg, mainMod, "SchemaRegistryCluster")},
-			"confluent_stream_governance_cluster":  {Tok: tfbridge.MakeResource(mainPkg, mainMod, "StreamGovernanceCluster")},
 			"confluent_transit_gateway_attachment": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TransitGatewayAttachment")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
@@ -119,9 +118,7 @@ func Provider() tfbridge.ProviderInfo {
 			"confluent_ksql_cluster":               {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getKsqlCluster")},
 			"confluent_schema_registry_cluster":    {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getSchemaRegistryCluster")},
 			"confluent_schema_registry_region":     {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getSchemaRegistryRegion")},
-			"confluent_stream_governance_cluster":  {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getStreatGovernanceCluster")},
 			"confluent_transit_gateway_attachment": {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTransitGatewayAttachment")},
-			"confluent_stream_governance_region":   {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getStreamGovernanceRegion")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

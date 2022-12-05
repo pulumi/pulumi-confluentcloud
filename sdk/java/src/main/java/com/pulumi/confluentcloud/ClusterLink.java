@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -30,6 +31,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="confluentcloud:index/clusterLink:ClusterLink")
 public class ClusterLink extends com.pulumi.resources.CustomResource {
+    /**
+     * The custom cluster link settings to set:
+     * 
+     */
+    @Export(name="config", type=Map.class, parameters={String.class, String.class})
+    private Output<Map<String,String>> config;
+
+    /**
+     * @return The custom cluster link settings to set:
+     * 
+     */
+    public Output<Map<String,String>> config() {
+        return this.config;
+    }
     /**
      * The connection mode of the cluster link. The supported values are `&#34;INBOUND&#34;` and `&#34;OUTBOUND&#34;`. Defaults to `&#34;OUTBOUND&#34;`.
      * 

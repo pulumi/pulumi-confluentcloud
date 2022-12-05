@@ -3,11 +3,11 @@ module github.com/confluentinc/terraform-provider-confluent/shim
 go 1.19
 
 require (
-	github.com/confluentinc/terraform-provider-confluent v1.16.0
+	github.com/confluentinc/terraform-provider-confluent v1.19.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.16.0
 )
 
-replace github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20221109214506-bbfca8f3bcd9
+replace github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20221205182427-7f5cfa878b3e
 
 require (
 	github.com/Azure/go-ansiterm v0.0.0-20210617225240-d185dfc1b5a1 // indirect
@@ -27,7 +27,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/org v0.4.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/stream-governance v0.2.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/srcm v0.2.0 // indirect
 	github.com/containerd/cgroups v1.0.3 // indirect
 	github.com/containerd/containerd v1.6.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect

@@ -41,6 +41,11 @@ public final class GetKsqlClusterResult {
      */
     private String kind;
     /**
+     * @return (Required String) The Confluent Resource Name of the ksqlDB cluster.
+     * 
+     */
+    private String resourceName;
+    /**
      * @return (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
      * - `kafka_cluster` (Optional Configuration Block) supports the following:
      * 
@@ -105,6 +110,13 @@ public final class GetKsqlClusterResult {
         return this.kind;
     }
     /**
+     * @return (Required String) The Confluent Resource Name of the ksqlDB cluster.
+     * 
+     */
+    public String resourceName() {
+        return this.resourceName;
+    }
+    /**
      * @return (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
      * - `kafka_cluster` (Optional Configuration Block) supports the following:
      * 
@@ -151,6 +163,7 @@ public final class GetKsqlClusterResult {
         private String id;
         private List<GetKsqlClusterKafkaCluster> kafkaClusters;
         private String kind;
+        private String resourceName;
         private String restEndpoint;
         private Integer storage;
         private String topicPrefix;
@@ -166,6 +179,7 @@ public final class GetKsqlClusterResult {
     	      this.id = defaults.id;
     	      this.kafkaClusters = defaults.kafkaClusters;
     	      this.kind = defaults.kind;
+    	      this.resourceName = defaults.resourceName;
     	      this.restEndpoint = defaults.restEndpoint;
     	      this.storage = defaults.storage;
     	      this.topicPrefix = defaults.topicPrefix;
@@ -219,6 +233,11 @@ public final class GetKsqlClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder resourceName(String resourceName) {
+            this.resourceName = Objects.requireNonNull(resourceName);
+            return this;
+        }
+        @CustomType.Setter
         public Builder restEndpoint(String restEndpoint) {
             this.restEndpoint = Objects.requireNonNull(restEndpoint);
             return this;
@@ -248,6 +267,7 @@ public final class GetKsqlClusterResult {
             o.id = id;
             o.kafkaClusters = kafkaClusters;
             o.kind = kind;
+            o.resourceName = resourceName;
             o.restEndpoint = restEndpoint;
             o.storage = storage;
             o.topicPrefix = topicPrefix;

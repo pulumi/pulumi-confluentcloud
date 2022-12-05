@@ -120,7 +120,7 @@ def get_private_link_access(display_name: Optional[str] = None,
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
-    `PrivateLinkAccess` describes a Network data source.
+    `PrivateLinkAccess` describes a Private Link Access data source.
 
     ## Example Usage
 
@@ -169,7 +169,7 @@ def get_private_link_access_output(display_name: Optional[pulumi.Input[Optional[
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
-    `PrivateLinkAccess` describes a Network data source.
+    `PrivateLinkAccess` describes a Private Link Access data source.
 
     ## Example Usage
 

@@ -80,14 +80,6 @@ export { GetServiceAccountArgs, GetServiceAccountResult, GetServiceAccountOutput
 export const getServiceAccount: typeof import("./getServiceAccount").getServiceAccount = null as any;
 export const getServiceAccountOutput: typeof import("./getServiceAccount").getServiceAccountOutput = null as any;
 
-export { GetStreamGovernanceRegionArgs, GetStreamGovernanceRegionResult, GetStreamGovernanceRegionOutputArgs } from "./getStreamGovernanceRegion";
-export const getStreamGovernanceRegion: typeof import("./getStreamGovernanceRegion").getStreamGovernanceRegion = null as any;
-export const getStreamGovernanceRegionOutput: typeof import("./getStreamGovernanceRegion").getStreamGovernanceRegionOutput = null as any;
-
-export { GetStreatGovernanceClusterArgs, GetStreatGovernanceClusterResult, GetStreatGovernanceClusterOutputArgs } from "./getStreatGovernanceCluster";
-export const getStreatGovernanceCluster: typeof import("./getStreatGovernanceCluster").getStreatGovernanceCluster = null as any;
-export const getStreatGovernanceClusterOutput: typeof import("./getStreatGovernanceCluster").getStreatGovernanceClusterOutput = null as any;
-
 export { GetTransitGatewayAttachmentArgs, GetTransitGatewayAttachmentResult, GetTransitGatewayAttachmentOutputArgs } from "./getTransitGatewayAttachment";
 export const getTransitGatewayAttachment: typeof import("./getTransitGatewayAttachment").getTransitGatewayAttachment = null as any;
 export const getTransitGatewayAttachmentOutput: typeof import("./getTransitGatewayAttachment").getTransitGatewayAttachmentOutput = null as any;
@@ -160,10 +152,6 @@ export { ServiceAccountArgs, ServiceAccountState } from "./serviceAccount";
 export type ServiceAccount = import("./serviceAccount").ServiceAccount;
 export const ServiceAccount: typeof import("./serviceAccount").ServiceAccount = null as any;
 
-export { StreamGovernanceClusterArgs, StreamGovernanceClusterState } from "./streamGovernanceCluster";
-export type StreamGovernanceCluster = import("./streamGovernanceCluster").StreamGovernanceCluster;
-export const StreamGovernanceCluster: typeof import("./streamGovernanceCluster").StreamGovernanceCluster = null as any;
-
 export { TransitGatewayAttachmentArgs, TransitGatewayAttachmentState } from "./transitGatewayAttachment";
 export type TransitGatewayAttachment = import("./transitGatewayAttachment").TransitGatewayAttachment;
 export const TransitGatewayAttachment: typeof import("./transitGatewayAttachment").TransitGatewayAttachment = null as any;
@@ -187,8 +175,6 @@ utilities.lazyLoad(exports, ["getRoleBinding","getRoleBindingOutput"], () => req
 utilities.lazyLoad(exports, ["getSchemaRegistryCluster","getSchemaRegistryClusterOutput"], () => require("./getSchemaRegistryCluster"));
 utilities.lazyLoad(exports, ["getSchemaRegistryRegion","getSchemaRegistryRegionOutput"], () => require("./getSchemaRegistryRegion"));
 utilities.lazyLoad(exports, ["getServiceAccount","getServiceAccountOutput"], () => require("./getServiceAccount"));
-utilities.lazyLoad(exports, ["getStreamGovernanceRegion","getStreamGovernanceRegionOutput"], () => require("./getStreamGovernanceRegion"));
-utilities.lazyLoad(exports, ["getStreatGovernanceCluster","getStreatGovernanceClusterOutput"], () => require("./getStreatGovernanceCluster"));
 utilities.lazyLoad(exports, ["getTransitGatewayAttachment","getTransitGatewayAttachmentOutput"], () => require("./getTransitGatewayAttachment"));
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 utilities.lazyLoad(exports, ["IdentityPool"], () => require("./identityPool"));
@@ -207,7 +193,6 @@ utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 utilities.lazyLoad(exports, ["RoleBinding"], () => require("./roleBinding"));
 utilities.lazyLoad(exports, ["SchemaRegistryCluster"], () => require("./schemaRegistryCluster"));
 utilities.lazyLoad(exports, ["ServiceAccount"], () => require("./serviceAccount"));
-utilities.lazyLoad(exports, ["StreamGovernanceCluster"], () => require("./streamGovernanceCluster"));
 utilities.lazyLoad(exports, ["TransitGatewayAttachment"], () => require("./transitGatewayAttachment"));
 
 // Export sub-modules:
@@ -261,8 +246,6 @@ const _module = {
                 return new SchemaRegistryCluster(name, <any>undefined, { urn })
             case "confluentcloud:index/serviceAccount:ServiceAccount":
                 return new ServiceAccount(name, <any>undefined, { urn })
-            case "confluentcloud:index/streamGovernanceCluster:StreamGovernanceCluster":
-                return new StreamGovernanceCluster(name, <any>undefined, { urn })
             case "confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment":
                 return new TransitGatewayAttachment(name, <any>undefined, { urn })
             default:
@@ -289,7 +272,6 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAccess
 pulumi.runtime.registerResourceModule("confluentcloud", "index/roleBinding", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryCluster", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/serviceAccount", _module)
-pulumi.runtime.registerResourceModule("confluentcloud", "index/streamGovernanceCluster", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/transitGatewayAttachment", _module)
 pulumi.runtime.registerResourcePackage("confluentcloud", {
     version: utilities.getVersion(),

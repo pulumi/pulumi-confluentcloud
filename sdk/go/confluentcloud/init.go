@@ -58,8 +58,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SchemaRegistryCluster{}
 	case "confluentcloud:index/serviceAccount:ServiceAccount":
 		r = &ServiceAccount{}
-	case "confluentcloud:index/streamGovernanceCluster:StreamGovernanceCluster":
-		r = &StreamGovernanceCluster{}
 	case "confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment":
 		r = &TransitGatewayAttachment{}
 	default:
@@ -183,11 +181,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/serviceAccount",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"confluentcloud",
-		"index/streamGovernanceCluster",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

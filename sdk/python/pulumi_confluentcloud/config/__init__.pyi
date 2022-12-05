@@ -39,3 +39,8 @@ kafkaRestEndpoint: Optional[str]
 The Kafka Cluster REST Endpoint.
 """
 
+maxRetries: Optional[int]
+"""
+Maximum number of retries of HTTP client. Defaults to 4.
+"""
+

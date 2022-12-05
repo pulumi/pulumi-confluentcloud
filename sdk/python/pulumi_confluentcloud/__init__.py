@@ -24,8 +24,6 @@ from .get_role_binding import *
 from .get_schema_registry_cluster import *
 from .get_schema_registry_region import *
 from .get_service_account import *
-from .get_stream_governance_region import *
-from .get_streat_governance_cluster import *
 from .get_transit_gateway_attachment import *
 from .get_user import *
 from .identity_pool import *
@@ -44,7 +42,6 @@ from .provider import *
 from .role_binding import *
 from .schema_registry_cluster import *
 from .service_account import *
-from .stream_governance_cluster import *
 from .transit_gateway_attachment import *
 from ._inputs import *
 from . import outputs
@@ -209,14 +206,6 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/serviceAccount:ServiceAccount": "ServiceAccount"
-  }
- },
- {
-  "pkg": "confluentcloud",
-  "mod": "index/streamGovernanceCluster",
-  "fqn": "pulumi_confluentcloud",
-  "classes": {
-   "confluentcloud:index/streamGovernanceCluster:StreamGovernanceCluster": "StreamGovernanceCluster"
   }
  },
  {

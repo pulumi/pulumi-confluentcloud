@@ -78,6 +78,8 @@ type providerArgs struct {
 	KafkaApiSecret *string `pulumi:"kafkaApiSecret"`
 	// The Kafka Cluster REST Endpoint.
 	KafkaRestEndpoint *string `pulumi:"kafkaRestEndpoint"`
+	// Maximum number of retries of HTTP client. Defaults to 4.
+	MaxRetries *int `pulumi:"maxRetries"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -94,6 +96,8 @@ type ProviderArgs struct {
 	KafkaApiSecret pulumi.StringPtrInput
 	// The Kafka Cluster REST Endpoint.
 	KafkaRestEndpoint pulumi.StringPtrInput
+	// Maximum number of retries of HTTP client. Defaults to 4.
+	MaxRetries pulumi.IntPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
