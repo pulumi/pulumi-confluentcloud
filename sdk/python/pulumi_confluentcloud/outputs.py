@@ -58,8 +58,6 @@ __all__ = [
     'PrivateLinkAccessNetwork',
     'SchemaRegistryClusterEnvironment',
     'SchemaRegistryClusterRegion',
-    'StreamGovernanceClusterEnvironment',
-    'StreamGovernanceClusterRegion',
     'TransitGatewayAttachmentAws',
     'TransitGatewayAttachmentEnvironment',
     'TransitGatewayAttachmentNetwork',
@@ -93,8 +91,6 @@ __all__ = [
     'GetPrivateLinkAccessNetworkResult',
     'GetSchemaRegistryClusterEnvironmentResult',
     'GetSchemaRegistryClusterRegionResult',
-    'GetStreatGovernanceClusterEnvironmentResult',
-    'GetStreatGovernanceClusterRegionResult',
     'GetTransitGatewayAttachmentAwResult',
     'GetTransitGatewayAttachmentEnvironmentResult',
     'GetTransitGatewayAttachmentNetworkResult',
@@ -1541,42 +1537,6 @@ class SchemaRegistryClusterRegion(dict):
 
 
 @pulumi.output_type
-class StreamGovernanceClusterEnvironment(dict):
-    def __init__(__self__, *,
-                 id: str):
-        """
-        :param str id: The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class StreamGovernanceClusterRegion(dict):
-    def __init__(__self__, *,
-                 id: str):
-        """
-        :param str id: The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
 class TransitGatewayAttachmentAws(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2366,42 +2326,6 @@ class GetSchemaRegistryClusterRegionResult(dict):
     def id(self) -> str:
         """
         The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class GetStreatGovernanceClusterEnvironmentResult(dict):
-    def __init__(__self__, *,
-                 id: str):
-        """
-        :param str id: The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class GetStreatGovernanceClusterRegionResult(dict):
-    def __init__(__self__, *,
-                 id: str):
-        """
-        :param str id: The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
         """
         return pulumi.get(self, "id")
 

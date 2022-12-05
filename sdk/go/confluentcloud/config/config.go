@@ -37,3 +37,8 @@ func GetKafkaApiSecret(ctx *pulumi.Context) string {
 func GetKafkaRestEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "confluentcloud:kafkaRestEndpoint")
 }
+
+// Maximum number of retries of HTTP client. Defaults to 4.
+func GetMaxRetries(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "confluentcloud:maxRetries")
+}

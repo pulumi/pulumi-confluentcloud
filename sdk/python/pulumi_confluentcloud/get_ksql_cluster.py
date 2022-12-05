@@ -23,7 +23,7 @@ class GetKsqlClusterResult:
     """
     A collection of values returned by getKsqlCluster.
     """
-    def __init__(__self__, api_version=None, credential_identities=None, csu=None, display_name=None, environment=None, id=None, kafka_clusters=None, kind=None, rest_endpoint=None, storage=None, topic_prefix=None, use_detailed_processing_log=None):
+    def __init__(__self__, api_version=None, credential_identities=None, csu=None, display_name=None, environment=None, id=None, kafka_clusters=None, kind=None, resource_name=None, rest_endpoint=None, storage=None, topic_prefix=None, use_detailed_processing_log=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
@@ -48,6 +48,9 @@ class GetKsqlClusterResult:
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
+        if resource_name and not isinstance(resource_name, str):
+            raise TypeError("Expected argument 'resource_name' to be a str")
+        pulumi.set(__self__, "resource_name", resource_name)
         if rest_endpoint and not isinstance(rest_endpoint, str):
             raise TypeError("Expected argument 'rest_endpoint' to be a str")
         if rest_endpoint is not None:
@@ -119,6 +122,14 @@ class GetKsqlClusterResult:
         return pulumi.get(self, "kind")
 
     @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> str:
+        """
+        (Required String) The Confluent Resource Name of the ksqlDB cluster.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @property
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> str:
         """
@@ -163,6 +174,7 @@ class AwaitableGetKsqlClusterResult(GetKsqlClusterResult):
             id=self.id,
             kafka_clusters=self.kafka_clusters,
             kind=self.kind,
+            resource_name=self.resource_name,
             rest_endpoint=self.rest_endpoint,
             storage=self.storage,
             topic_prefix=self.topic_prefix,
@@ -176,10 +188,7 @@ def get_ksql_cluster(display_name: Optional[str] = None,
     """
     ## # KsqlCluster Data Source
 
-    [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-
-    > **Note:** `KsqlCluster` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\\
-    **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `KsqlCluster` describes a ksqlDB cluster data source.
 
@@ -221,6 +230,7 @@ def get_ksql_cluster(display_name: Optional[str] = None,
         id=__ret__.id,
         kafka_clusters=__ret__.kafka_clusters,
         kind=__ret__.kind,
+        resource_name=__ret__.resource_name,
         rest_endpoint=__ret__.rest_endpoint,
         storage=__ret__.storage,
         topic_prefix=__ret__.topic_prefix,
@@ -235,10 +245,7 @@ def get_ksql_cluster_output(display_name: Optional[pulumi.Input[Optional[str]]] 
     """
     ## # KsqlCluster Data Source
 
-    [![Open Preview](https://img.shields.io/badge/Lifecycle%20Stage-Open%20Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-
-    > **Note:** `KsqlCluster` data source is available in **Open Preview** for early adopters. Open Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\\
-    **Open Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Open Preview features. Open Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Open Preview features at any time in Confluent’s sole discretion.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `KsqlCluster` describes a ksqlDB cluster data source.
 

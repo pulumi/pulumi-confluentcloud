@@ -24,6 +24,12 @@ namespace Pulumi.ConfluentCloud
     public partial class ClusterLink : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The custom cluster link settings to set:
+        /// </summary>
+        [Output("config")]
+        public Output<ImmutableDictionary<string, string>> Config { get; private set; } = null!;
+
+        /// <summary>
         /// The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
         /// </summary>
         [Output("connectionMode")]
@@ -93,6 +99,18 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class ClusterLinkArgs : global::Pulumi.ResourceArgs
     {
+        [Input("config")]
+        private InputMap<string>? _config;
+
+        /// <summary>
+        /// The custom cluster link settings to set:
+        /// </summary>
+        public InputMap<string> Config
+        {
+            get => _config ?? (_config = new InputMap<string>());
+            set => _config = value;
+        }
+
         /// <summary>
         /// The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
         /// </summary>
@@ -125,6 +143,18 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class ClusterLinkState : global::Pulumi.ResourceArgs
     {
+        [Input("config")]
+        private InputMap<string>? _config;
+
+        /// <summary>
+        /// The custom cluster link settings to set:
+        /// </summary>
+        public InputMap<string> Config
+        {
+            get => _config ?? (_config = new InputMap<string>());
+            set => _config = value;
+        }
+
         /// <summary>
         /// The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
         /// </summary>

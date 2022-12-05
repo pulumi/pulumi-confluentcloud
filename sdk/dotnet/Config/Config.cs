@@ -92,5 +92,15 @@ namespace Pulumi.ConfluentCloud
             set => _kafkaRestEndpoint.Set(value);
         }
 
+        private static readonly __Value<int?> _maxRetries = new __Value<int?>(() => __config.GetInt32("maxRetries"));
+        /// <summary>
+        /// Maximum number of retries of HTTP client. Defaults to 4.
+        /// </summary>
+        public static int? MaxRetries
+        {
+            get => _maxRetries.Get();
+            set => _maxRetries.Set(value);
+        }
+
     }
 }

@@ -18,17 +18,21 @@ class ClusterLinkArgs:
     def __init__(__self__, *,
                  destination_kafka_cluster: pulumi.Input['ClusterLinkDestinationKafkaClusterArgs'],
                  source_kafka_cluster: pulumi.Input['ClusterLinkSourceKafkaClusterArgs'],
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
                  link: Optional[pulumi.Input[str]] = None,
                  link_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ClusterLink resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The custom cluster link settings to set:
         :param pulumi.Input[str] connection_mode: The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
         :param pulumi.Input[str] link: The name of the cluster link, for example, `my-cluster-link`.
         :param pulumi.Input[str] link_mode: The mode of the cluster link. The supported values are `"DESTINATION"` and `"SOURCE"`. Defaults to `"DESTINATION"`.
         """
         pulumi.set(__self__, "destination_kafka_cluster", destination_kafka_cluster)
         pulumi.set(__self__, "source_kafka_cluster", source_kafka_cluster)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
         if connection_mode is not None:
             pulumi.set(__self__, "connection_mode", connection_mode)
         if link is not None:
@@ -53,6 +57,18 @@ class ClusterLinkArgs:
     @source_kafka_cluster.setter
     def source_kafka_cluster(self, value: pulumi.Input['ClusterLinkSourceKafkaClusterArgs']):
         pulumi.set(self, "source_kafka_cluster", value)
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The custom cluster link settings to set:
+        """
+        return pulumi.get(self, "config")
+
+    @config.setter
+    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "config", value)
 
     @property
     @pulumi.getter(name="connectionMode")
@@ -94,6 +110,7 @@ class ClusterLinkArgs:
 @pulumi.input_type
 class _ClusterLinkState:
     def __init__(__self__, *,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
                  destination_kafka_cluster: Optional[pulumi.Input['ClusterLinkDestinationKafkaClusterArgs']] = None,
                  link: Optional[pulumi.Input[str]] = None,
@@ -101,10 +118,13 @@ class _ClusterLinkState:
                  source_kafka_cluster: Optional[pulumi.Input['ClusterLinkSourceKafkaClusterArgs']] = None):
         """
         Input properties used for looking up and filtering ClusterLink resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The custom cluster link settings to set:
         :param pulumi.Input[str] connection_mode: The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
         :param pulumi.Input[str] link: The name of the cluster link, for example, `my-cluster-link`.
         :param pulumi.Input[str] link_mode: The mode of the cluster link. The supported values are `"DESTINATION"` and `"SOURCE"`. Defaults to `"DESTINATION"`.
         """
+        if config is not None:
+            pulumi.set(__self__, "config", config)
         if connection_mode is not None:
             pulumi.set(__self__, "connection_mode", connection_mode)
         if destination_kafka_cluster is not None:
@@ -115,6 +135,18 @@ class _ClusterLinkState:
             pulumi.set(__self__, "link_mode", link_mode)
         if source_kafka_cluster is not None:
             pulumi.set(__self__, "source_kafka_cluster", source_kafka_cluster)
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The custom cluster link settings to set:
+        """
+        return pulumi.get(self, "config")
+
+    @config.setter
+    def config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "config", value)
 
     @property
     @pulumi.getter(name="connectionMode")
@@ -176,6 +208,7 @@ class ClusterLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
                  destination_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkDestinationKafkaClusterArgs']]] = None,
                  link: Optional[pulumi.Input[str]] = None,
@@ -195,6 +228,7 @@ class ClusterLink(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The custom cluster link settings to set:
         :param pulumi.Input[str] connection_mode: The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
         :param pulumi.Input[str] link: The name of the cluster link, for example, `my-cluster-link`.
         :param pulumi.Input[str] link_mode: The mode of the cluster link. The supported values are `"DESTINATION"` and `"SOURCE"`. Defaults to `"DESTINATION"`.
@@ -231,6 +265,7 @@ class ClusterLink(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
                  destination_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkDestinationKafkaClusterArgs']]] = None,
                  link: Optional[pulumi.Input[str]] = None,
@@ -245,6 +280,7 @@ class ClusterLink(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterLinkArgs.__new__(ClusterLinkArgs)
 
+            __props__.__dict__["config"] = config
             __props__.__dict__["connection_mode"] = connection_mode
             if destination_kafka_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_kafka_cluster'")
@@ -264,6 +300,7 @@ class ClusterLink(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             connection_mode: Optional[pulumi.Input[str]] = None,
             destination_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkDestinationKafkaClusterArgs']]] = None,
             link: Optional[pulumi.Input[str]] = None,
@@ -276,6 +313,7 @@ class ClusterLink(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config: The custom cluster link settings to set:
         :param pulumi.Input[str] connection_mode: The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
         :param pulumi.Input[str] link: The name of the cluster link, for example, `my-cluster-link`.
         :param pulumi.Input[str] link_mode: The mode of the cluster link. The supported values are `"DESTINATION"` and `"SOURCE"`. Defaults to `"DESTINATION"`.
@@ -284,12 +322,21 @@ class ClusterLink(pulumi.CustomResource):
 
         __props__ = _ClusterLinkState.__new__(_ClusterLinkState)
 
+        __props__.__dict__["config"] = config
         __props__.__dict__["connection_mode"] = connection_mode
         __props__.__dict__["destination_kafka_cluster"] = destination_kafka_cluster
         __props__.__dict__["link"] = link
         __props__.__dict__["link_mode"] = link_mode
         __props__.__dict__["source_kafka_cluster"] = source_kafka_cluster
         return ClusterLink(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def config(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        The custom cluster link settings to set:
+        """
+        return pulumi.get(self, "config")
 
     @property
     @pulumi.getter(name="connectionMode")

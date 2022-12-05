@@ -110,6 +110,21 @@ public final class KsqlClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * (Required String) The Confluent Resource Name of the ksqlDB cluster.
+     * 
+     */
+    @Import(name="resourceName")
+    private @Nullable Output<String> resourceName;
+
+    /**
+     * @return (Required String) The Confluent Resource Name of the ksqlDB cluster.
+     * 
+     */
+    public Optional<Output<String>> resourceName() {
+        return Optional.ofNullable(this.resourceName);
+    }
+
+    /**
      * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
      * 
      */
@@ -179,6 +194,7 @@ public final class KsqlClusterState extends com.pulumi.resources.ResourceArgs {
         this.environment = $.environment;
         this.kafkaCluster = $.kafkaCluster;
         this.kind = $.kind;
+        this.resourceName = $.resourceName;
         this.restEndpoint = $.restEndpoint;
         this.storage = $.storage;
         this.topicPrefix = $.topicPrefix;
@@ -324,6 +340,27 @@ public final class KsqlClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder kind(String kind) {
             return kind(Output.of(kind));
+        }
+
+        /**
+         * @param resourceName (Required String) The Confluent Resource Name of the ksqlDB cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceName(@Nullable Output<String> resourceName) {
+            $.resourceName = resourceName;
+            return this;
+        }
+
+        /**
+         * @param resourceName (Required String) The Confluent Resource Name of the ksqlDB cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceName(String resourceName) {
+            return resourceName(Output.of(resourceName));
         }
 
         /**

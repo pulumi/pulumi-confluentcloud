@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-confluentcloud/provider
 go 1.19
 
 replace (
-	github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20221122221850-4dd4c9531d27
+	github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20221205182427-7f5cfa878b3e
 	github.com/confluentinc/terraform-provider-confluent/shim => ./shim
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9
 )
@@ -75,8 +75,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/org v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/srcm v0.2.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/stream-governance v0.2.0 // indirect
-	github.com/confluentinc/terraform-provider-confluent v1.16.0 // indirect
+	github.com/confluentinc/terraform-provider-confluent v1.19.0 // indirect
 	github.com/containerd/cgroups v1.0.3 // indirect
 	github.com/containerd/containerd v1.6.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect

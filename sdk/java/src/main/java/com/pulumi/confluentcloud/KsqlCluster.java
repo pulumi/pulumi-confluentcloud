@@ -118,6 +118,20 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
         return this.kind;
     }
     /**
+     * (Required String) The Confluent Resource Name of the ksqlDB cluster.
+     * 
+     */
+    @Export(name="resourceName", type=String.class, parameters={})
+    private Output<String> resourceName;
+
+    /**
+     * @return (Required String) The Confluent Resource Name of the ksqlDB cluster.
+     * 
+     */
+    public Output<String> resourceName() {
+        return this.resourceName;
+    }
+    /**
      * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
      * 
      */

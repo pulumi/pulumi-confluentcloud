@@ -46,6 +46,10 @@ export class ClusterLink extends pulumi.CustomResource {
     }
 
     /**
+     * The custom cluster link settings to set:
+     */
+    public readonly config!: pulumi.Output<{[key: string]: string}>;
+    /**
      * The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
      */
     public readonly connectionMode!: pulumi.Output<string | undefined>;
@@ -73,6 +77,7 @@ export class ClusterLink extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterLinkState | undefined;
+            resourceInputs["config"] = state ? state.config : undefined;
             resourceInputs["connectionMode"] = state ? state.connectionMode : undefined;
             resourceInputs["destinationKafkaCluster"] = state ? state.destinationKafkaCluster : undefined;
             resourceInputs["link"] = state ? state.link : undefined;
@@ -86,6 +91,7 @@ export class ClusterLink extends pulumi.CustomResource {
             if ((!args || args.sourceKafkaCluster === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceKafkaCluster'");
             }
+            resourceInputs["config"] = args ? args.config : undefined;
             resourceInputs["connectionMode"] = args ? args.connectionMode : undefined;
             resourceInputs["destinationKafkaCluster"] = args ? args.destinationKafkaCluster : undefined;
             resourceInputs["link"] = args ? args.link : undefined;
@@ -101,6 +107,10 @@ export class ClusterLink extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ClusterLink resources.
  */
 export interface ClusterLinkState {
+    /**
+     * The custom cluster link settings to set:
+     */
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
      */
@@ -121,6 +131,10 @@ export interface ClusterLinkState {
  * The set of arguments for constructing a ClusterLink resource.
  */
 export interface ClusterLinkArgs {
+    /**
+     * The custom cluster link settings to set:
+     */
+    config?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
      */

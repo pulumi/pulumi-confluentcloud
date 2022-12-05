@@ -369,20 +369,6 @@ export interface GetSchemaRegistryClusterRegion {
     id: string;
 }
 
-export interface GetStreatGovernanceClusterEnvironment {
-    /**
-     * The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
-     */
-    id: string;
-}
-
-export interface GetStreatGovernanceClusterRegion {
-    /**
-     * The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
-     */
-    id: string;
-}
-
 export interface GetTransitGatewayAttachmentAw {
     /**
      * (Required String) Enable custom destination routes in Confluent Cloud. Defaults to `false`.
@@ -747,20 +733,6 @@ export interface SchemaRegistryClusterEnvironment {
 export interface SchemaRegistryClusterRegion {
     /**
      * The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
-     */
-    id: string;
-}
-
-export interface StreamGovernanceClusterEnvironment {
-    /**
-     * The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
-     */
-    id: string;
-}
-
-export interface StreamGovernanceClusterRegion {
-    /**
-     * The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
      */
     id: string;
 }

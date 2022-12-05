@@ -73,3 +73,14 @@ Object.defineProperty(exports, "kafkaRestEndpoint", {
     enumerable: true,
 });
 
+/**
+ * Maximum number of retries of HTTP client. Defaults to 4.
+ */
+export declare const maxRetries: number | undefined;
+Object.defineProperty(exports, "maxRetries", {
+    get() {
+        return __config.getObject<number>("maxRetries");
+    },
+    enumerable: true,
+});
+

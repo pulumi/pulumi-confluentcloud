@@ -114,6 +114,7 @@ class _KsqlClusterState:
                  environment: Optional[pulumi.Input['KsqlClusterEnvironmentArgs']] = None,
                  kafka_cluster: Optional[pulumi.Input['KsqlClusterKafkaClusterArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
+                 resource_name: Optional[pulumi.Input[str]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
                  storage: Optional[pulumi.Input[int]] = None,
                  topic_prefix: Optional[pulumi.Input[str]] = None,
@@ -125,6 +126,7 @@ class _KsqlClusterState:
         :param pulumi.Input[str] display_name: The name of the ksqlDB cluster.
         :param pulumi.Input['KsqlClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] kind: (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
+        :param pulumi.Input[str] resource_name: (Required String) The Confluent Resource Name of the ksqlDB cluster.
         :param pulumi.Input[str] rest_endpoint: (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
         :param pulumi.Input[int] storage: (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
         :param pulumi.Input[str] topic_prefix: (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
@@ -144,6 +146,8 @@ class _KsqlClusterState:
             pulumi.set(__self__, "kafka_cluster", kafka_cluster)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
         if storage is not None:
@@ -230,6 +234,18 @@ class _KsqlClusterState:
     @kind.setter
     def kind(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) The Confluent Resource Name of the ksqlDB cluster.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_name", value)
 
     @property
     @pulumi.getter(name="restEndpoint")
@@ -379,6 +395,7 @@ class KsqlCluster(pulumi.CustomResource):
             __props__.__dict__["use_detailed_processing_log"] = use_detailed_processing_log
             __props__.__dict__["api_version"] = None
             __props__.__dict__["kind"] = None
+            __props__.__dict__["resource_name"] = None
             __props__.__dict__["rest_endpoint"] = None
             __props__.__dict__["storage"] = None
             __props__.__dict__["topic_prefix"] = None
@@ -399,6 +416,7 @@ class KsqlCluster(pulumi.CustomResource):
             environment: Optional[pulumi.Input[pulumi.InputType['KsqlClusterEnvironmentArgs']]] = None,
             kafka_cluster: Optional[pulumi.Input[pulumi.InputType['KsqlClusterKafkaClusterArgs']]] = None,
             kind: Optional[pulumi.Input[str]] = None,
+            resource_name_: Optional[pulumi.Input[str]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
             storage: Optional[pulumi.Input[int]] = None,
             topic_prefix: Optional[pulumi.Input[str]] = None,
@@ -415,6 +433,7 @@ class KsqlCluster(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The name of the ksqlDB cluster.
         :param pulumi.Input[pulumi.InputType['KsqlClusterEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] kind: (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
+        :param pulumi.Input[str] resource_name_: (Required String) The Confluent Resource Name of the ksqlDB cluster.
         :param pulumi.Input[str] rest_endpoint: (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
         :param pulumi.Input[int] storage: (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
         :param pulumi.Input[str] topic_prefix: (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
@@ -431,6 +450,7 @@ class KsqlCluster(pulumi.CustomResource):
         __props__.__dict__["environment"] = environment
         __props__.__dict__["kafka_cluster"] = kafka_cluster
         __props__.__dict__["kind"] = kind
+        __props__.__dict__["resource_name"] = resource_name_
         __props__.__dict__["rest_endpoint"] = rest_endpoint
         __props__.__dict__["storage"] = storage
         __props__.__dict__["topic_prefix"] = topic_prefix
@@ -486,6 +506,14 @@ class KsqlCluster(pulumi.CustomResource):
         (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
         """
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Output[str]:
+        """
+        (Required String) The Confluent Resource Name of the ksqlDB cluster.
+        """
+        return pulumi.get(self, "resource_name")
 
     @property
     @pulumi.getter(name="restEndpoint")

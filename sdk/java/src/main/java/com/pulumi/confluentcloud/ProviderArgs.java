@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -105,6 +106,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.kafkaRestEndpoint);
     }
 
+    /**
+     * Maximum number of retries of HTTP client. Defaults to 4.
+     * 
+     */
+    @Import(name="maxRetries", json=true)
+    private @Nullable Output<Integer> maxRetries;
+
+    /**
+     * @return Maximum number of retries of HTTP client. Defaults to 4.
+     * 
+     */
+    public Optional<Output<Integer>> maxRetries() {
+        return Optional.ofNullable(this.maxRetries);
+    }
+
     private ProviderArgs() {}
 
     private ProviderArgs(ProviderArgs $) {
@@ -114,6 +130,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.kafkaApiKey = $.kafkaApiKey;
         this.kafkaApiSecret = $.kafkaApiSecret;
         this.kafkaRestEndpoint = $.kafkaRestEndpoint;
+        this.maxRetries = $.maxRetries;
     }
 
     public static Builder builder() {
@@ -258,6 +275,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder kafkaRestEndpoint(String kafkaRestEndpoint) {
             return kafkaRestEndpoint(Output.of(kafkaRestEndpoint));
+        }
+
+        /**
+         * @param maxRetries Maximum number of retries of HTTP client. Defaults to 4.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxRetries(@Nullable Output<Integer> maxRetries) {
+            $.maxRetries = maxRetries;
+            return this;
+        }
+
+        /**
+         * @param maxRetries Maximum number of retries of HTTP client. Defaults to 4.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxRetries(Integer maxRetries) {
+            return maxRetries(Output.of(maxRetries));
         }
 
         public ProviderArgs build() {

@@ -57,8 +57,6 @@ __all__ = [
     'PrivateLinkAccessNetworkArgs',
     'SchemaRegistryClusterEnvironmentArgs',
     'SchemaRegistryClusterRegionArgs',
-    'StreamGovernanceClusterEnvironmentArgs',
-    'StreamGovernanceClusterRegionArgs',
     'TransitGatewayAttachmentAwsArgs',
     'TransitGatewayAttachmentEnvironmentArgs',
     'TransitGatewayAttachmentNetworkArgs',
@@ -77,7 +75,6 @@ __all__ = [
     'GetPeeringEnvironmentArgs',
     'GetPrivateLinkAccessEnvironmentArgs',
     'GetSchemaRegistryClusterEnvironmentArgs',
-    'GetStreatGovernanceClusterEnvironmentArgs',
     'GetTransitGatewayAttachmentEnvironmentArgs',
 ]
 
@@ -1565,50 +1562,6 @@ class SchemaRegistryClusterRegionArgs:
 
 
 @pulumi.input_type
-class StreamGovernanceClusterEnvironmentArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] id: The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
-class StreamGovernanceClusterRegionArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] id: The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        The ID of the Stream Governance region that the Stream Governance cluster belongs to, for example, `sgreg-1`. See [Stream Governance Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
 class TransitGatewayAttachmentAwsArgs:
     def __init__(__self__, *,
                  ram_resource_share_arn: pulumi.Input[str],
@@ -2117,28 +2070,6 @@ class GetSchemaRegistryClusterEnvironmentArgs:
     def id(self) -> str:
         """
         The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: str):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
-class GetStreatGovernanceClusterEnvironmentArgs:
-    def __init__(__self__, *,
-                 id: str):
-        """
-        :param str id: The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The ID of the Environment that the Stream Governance cluster belongs to, for example, `env-xyz456`.
         """
         return pulumi.get(self, "id")
 
