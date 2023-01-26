@@ -28,9 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdPrivateLinkAccess, err := confluentcloud.LookupPrivateLinkAccess(ctx, &GetPrivateLinkAccessArgs{
+//			exampleUsingIdPrivateLinkAccess, err := confluentcloud.LookupPrivateLinkAccess(ctx, &confluentcloud.LookupPrivateLinkAccessArgs{
 //				Id: pulumi.StringRef("pla-abc123"),
-//				Environment: GetPrivateLinkAccessEnvironment{
+//				Environment: confluentcloud.GetPrivateLinkAccessEnvironment{
 //					Id: "env-xyz456",
 //				},
 //			}, nil)
@@ -38,9 +38,9 @@ import (
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingIdPrivateLinkAccess)
-//			exampleUsingNamePrivateLinkAccess, err := confluentcloud.LookupPrivateLinkAccess(ctx, &GetPrivateLinkAccessArgs{
+//			exampleUsingNamePrivateLinkAccess, err := confluentcloud.LookupPrivateLinkAccess(ctx, &confluentcloud.LookupPrivateLinkAccessArgs{
 //				DisplayName: pulumi.StringRef("my_pla"),
-//				Environment: GetPrivateLinkAccessEnvironment{
+//				Environment: confluentcloud.GetPrivateLinkAccessEnvironment{
 //					Id: "env-xyz456",
 //				},
 //			}, nil)
@@ -65,7 +65,8 @@ func LookupPrivateLinkAccess(ctx *pulumi.Context, args *LookupPrivateLinkAccessA
 // A collection of arguments for invoking getPrivateLinkAccess.
 type LookupPrivateLinkAccessArgs struct {
 	// A human-readable name for the Private Link Access.
-	DisplayName *string                         `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
+	// (Required Configuration Block) supports the following:
 	Environment GetPrivateLinkAccessEnvironment `pulumi:"environment"`
 	// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
 	Id *string `pulumi:"id"`
@@ -78,13 +79,14 @@ type LookupPrivateLinkAccessResult struct {
 	// (Optional Configuration Block) The Azure-specific Private Link Access details if available. It supports the following:
 	Azures []GetPrivateLinkAccessAzure `pulumi:"azures"`
 	// (Optional String) The name of the Private Link Access.
-	// - `environment` (Required Configuration Block) supports the following:
-	DisplayName string                          `pulumi:"displayName"`
+	DisplayName string `pulumi:"displayName"`
+	// (Required Configuration Block) supports the following:
 	Environment GetPrivateLinkAccessEnvironment `pulumi:"environment"`
 	// (Optional Configuration Block) The GCP-specific Private Service Connect details if available. It supports the following:
 	Gcps []GetPrivateLinkAccessGcp `pulumi:"gcps"`
 	// (Required String) The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
-	Id       string                        `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// (Required Configuration Block) supports the following:
 	Networks []GetPrivateLinkAccessNetwork `pulumi:"networks"`
 }
 
@@ -104,7 +106,8 @@ func LookupPrivateLinkAccessOutput(ctx *pulumi.Context, args LookupPrivateLinkAc
 // A collection of arguments for invoking getPrivateLinkAccess.
 type LookupPrivateLinkAccessOutputArgs struct {
 	// A human-readable name for the Private Link Access.
-	DisplayName pulumi.StringPtrInput                `pulumi:"displayName"`
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// (Required Configuration Block) supports the following:
 	Environment GetPrivateLinkAccessEnvironmentInput `pulumi:"environment"`
 	// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -140,11 +143,11 @@ func (o LookupPrivateLinkAccessResultOutput) Azures() GetPrivateLinkAccessAzureA
 }
 
 // (Optional String) The name of the Private Link Access.
-// - `environment` (Required Configuration Block) supports the following:
 func (o LookupPrivateLinkAccessResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateLinkAccessResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// (Required Configuration Block) supports the following:
 func (o LookupPrivateLinkAccessResultOutput) Environment() GetPrivateLinkAccessEnvironmentOutput {
 	return o.ApplyT(func(v LookupPrivateLinkAccessResult) GetPrivateLinkAccessEnvironment { return v.Environment }).(GetPrivateLinkAccessEnvironmentOutput)
 }
@@ -159,6 +162,7 @@ func (o LookupPrivateLinkAccessResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrivateLinkAccessResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// (Required Configuration Block) supports the following:
 func (o LookupPrivateLinkAccessResultOutput) Networks() GetPrivateLinkAccessNetworkArrayOutput {
 	return o.ApplyT(func(v LookupPrivateLinkAccessResult) []GetPrivateLinkAccessNetwork { return v.Networks }).(GetPrivateLinkAccessNetworkArrayOutput)
 }

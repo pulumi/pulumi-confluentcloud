@@ -11,89 +11,9 @@ namespace Pulumi.ConfluentCloud
 {
     public static class GetKafkaTopic
     {
-        /// <summary>
-        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-        /// 
-        /// `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using ConfluentCloud = Pulumi.ConfluentCloud;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var orders = ConfluentCloud.GetKafkaTopic.Invoke(new()
-        ///     {
-        ///         KafkaCluster = new ConfluentCloud.Inputs.GetKafkaTopicKafkaClusterInputArgs
-        ///         {
-        ///             Id = confluent_kafka_cluster.Basic_cluster.Id,
-        ///         },
-        ///         TopicName = "orders",
-        ///         RestEndpoint = confluent_kafka_cluster.Basic_cluster.Rest_endpoint,
-        ///         Credentials = new ConfluentCloud.Inputs.GetKafkaTopicCredentialsInputArgs
-        ///         {
-        ///             Key = "&lt;Kafka API Key for confluent_kafka_cluster.basic-cluster&gt;",
-        ///             Secret = "&lt;Kafka API Secret for confluent_kafka_cluster.basic-cluster&gt;",
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["config"] = orders.Apply(getKafkaTopicResult =&gt; getKafkaTopicResult.Config),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetKafkaTopicResult> InvokeAsync(GetKafkaTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKafkaTopicResult>("confluentcloud:index/getKafkaTopic:getKafkaTopic", args ?? new GetKafkaTopicArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-        /// 
-        /// `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using ConfluentCloud = Pulumi.ConfluentCloud;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var orders = ConfluentCloud.GetKafkaTopic.Invoke(new()
-        ///     {
-        ///         KafkaCluster = new ConfluentCloud.Inputs.GetKafkaTopicKafkaClusterInputArgs
-        ///         {
-        ///             Id = confluent_kafka_cluster.Basic_cluster.Id,
-        ///         },
-        ///         TopicName = "orders",
-        ///         RestEndpoint = confluent_kafka_cluster.Basic_cluster.Rest_endpoint,
-        ///         Credentials = new ConfluentCloud.Inputs.GetKafkaTopicCredentialsInputArgs
-        ///         {
-        ///             Key = "&lt;Kafka API Key for confluent_kafka_cluster.basic-cluster&gt;",
-        ///             Secret = "&lt;Kafka API Secret for confluent_kafka_cluster.basic-cluster&gt;",
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["config"] = orders.Apply(getKafkaTopicResult =&gt; getKafkaTopicResult.Config),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetKafkaTopicResult> Invoke(GetKafkaTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaTopicResult>("confluentcloud:index/getKafkaTopic:getKafkaTopic", args ?? new GetKafkaTopicInvokeArgs(), options.WithDefaults());
     }
@@ -109,8 +29,8 @@ namespace Pulumi.ConfluentCloud
             set => _credentials = value;
         }
 
-        [Input("kafkaCluster", required: true)]
-        public Inputs.GetKafkaTopicKafkaClusterArgs KafkaCluster { get; set; } = null!;
+        [Input("kafkaCluster")]
+        public Inputs.GetKafkaTopicKafkaClusterArgs? KafkaCluster { get; set; }
 
         /// <summary>
         /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -144,8 +64,8 @@ namespace Pulumi.ConfluentCloud
             }
         }
 
-        [Input("kafkaCluster", required: true)]
-        public Input<Inputs.GetKafkaTopicKafkaClusterInputArgs> KafkaCluster { get; set; } = null!;
+        [Input("kafkaCluster")]
+        public Input<Inputs.GetKafkaTopicKafkaClusterInputArgs>? KafkaCluster { get; set; }
 
         /// <summary>
         /// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -178,7 +98,7 @@ namespace Pulumi.ConfluentCloud
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly Outputs.GetKafkaTopicKafkaClusterResult KafkaCluster;
+        public readonly Outputs.GetKafkaTopicKafkaClusterResult? KafkaCluster;
         /// <summary>
         /// (Required Number) The number of partitions to create in the topic. Defaults to `6`.
         /// </summary>
@@ -194,7 +114,7 @@ namespace Pulumi.ConfluentCloud
 
             string id,
 
-            Outputs.GetKafkaTopicKafkaClusterResult kafkaCluster,
+            Outputs.GetKafkaTopicKafkaClusterResult? kafkaCluster,
 
             int partitionsCount,
 

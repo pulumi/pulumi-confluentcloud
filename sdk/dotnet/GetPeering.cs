@@ -115,6 +115,9 @@ namespace Pulumi.ConfluentCloud
         [Input("displayName")]
         public string? DisplayName { get; set; }
 
+        /// <summary>
+        /// (Required Configuration Block) supports the following:
+        /// </summary>
         [Input("environment", required: true)]
         public Inputs.GetPeeringEnvironmentArgs Environment { get; set; } = null!;
 
@@ -138,6 +141,9 @@ namespace Pulumi.ConfluentCloud
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// (Required Configuration Block) supports the following:
+        /// </summary>
         [Input("environment", required: true)]
         public Input<Inputs.GetPeeringEnvironmentInputArgs> Environment { get; set; } = null!;
 
@@ -167,9 +173,11 @@ namespace Pulumi.ConfluentCloud
         public readonly ImmutableArray<Outputs.GetPeeringAzureResult> Azures;
         /// <summary>
         /// (Optional String) The name of the Peering.
-        /// - `environment` (Required Configuration Block) supports the following:
         /// </summary>
         public readonly string DisplayName;
+        /// <summary>
+        /// (Required Configuration Block) supports the following:
+        /// </summary>
         public readonly Outputs.GetPeeringEnvironmentResult Environment;
         /// <summary>
         /// (Optional Configuration Block) The Azure-specific Peering details if available. It supports the following:
@@ -179,6 +187,9 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) The ID of the Network that the Peering belongs to, for example, `n-abc123`.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// (Required Configuration Block) supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetPeeringNetworkResult> Networks;
 
         [OutputConstructor]

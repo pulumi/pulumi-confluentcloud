@@ -30,9 +30,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdKsqlCluster, err := confluentcloud.LookupKsqlCluster(ctx, &GetKsqlClusterArgs{
+//			exampleUsingIdKsqlCluster, err := confluentcloud.LookupKsqlCluster(ctx, &confluentcloud.LookupKsqlClusterArgs{
 //				Id: pulumi.StringRef("lksqlc-abc123"),
-//				Environment: GetKsqlClusterEnvironment{
+//				Environment: confluentcloud.GetKsqlClusterEnvironment{
 //					Id: "env-xyz456",
 //				},
 //			}, nil)
@@ -40,9 +40,9 @@ import (
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingIdKsqlCluster)
-//			exampleUsingNameKsqlCluster, err := confluentcloud.LookupKsqlCluster(ctx, &GetKsqlClusterArgs{
+//			exampleUsingNameKsqlCluster, err := confluentcloud.LookupKsqlCluster(ctx, &confluentcloud.LookupKsqlClusterArgs{
 //				DisplayName: pulumi.StringRef("ksqldb_cluster"),
-//				Environment: GetKsqlClusterEnvironment{
+//				Environment: confluentcloud.GetKsqlClusterEnvironment{
 //					Id: "env-xyz456",
 //				},
 //			}, nil)
@@ -76,30 +76,29 @@ type LookupKsqlClusterArgs struct {
 // A collection of values returned by getKsqlCluster.
 type LookupKsqlClusterResult struct {
 	// (Required String) An API Version of the schema version of the ksqlDB cluster, for example, `ksqldbcm/v2`.
-	ApiVersion           string                             `pulumi:"apiVersion"`
+	ApiVersion string `pulumi:"apiVersion"`
+	// (Optional Configuration Block) supports the following:
 	CredentialIdentities []GetKsqlClusterCredentialIdentity `pulumi:"credentialIdentities"`
 	// (Required Number) The number of CSUs (Confluent Streaming Units) in the ksqlDB cluster.
-	// - `useDetailedProcessingLog` (Optional Boolean) Controls whether the row data should be included in the processing log topic.
 	Csu         int                       `pulumi:"csu"`
 	DisplayName string                    `pulumi:"displayName"`
 	Environment GetKsqlClusterEnvironment `pulumi:"environment"`
 	// (Required String) The ID of the service or user account that the ksqlDB cluster belongs to, for example, `sa-abc123`.
-	Id            string                       `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// (Optional Configuration Block) supports the following:
 	KafkaClusters []GetKsqlClusterKafkaCluster `pulumi:"kafkaClusters"`
 	// (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
 	Kind string `pulumi:"kind"`
 	// (Required String) The Confluent Resource Name of the ksqlDB cluster.
 	ResourceName string `pulumi:"resourceName"`
 	// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-	// - `kafkaCluster` (Optional Configuration Block) supports the following:
-	//
-	// Deprecated: use rest_endpoint instead
 	RestEndpoint string `pulumi:"restEndpoint"`
 	// (Required Integer) The amount of storage (in GB) provisioned to this cluster.
 	Storage int `pulumi:"storage"`
 	// (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
-	TopicPrefix              string `pulumi:"topicPrefix"`
-	UseDetailedProcessingLog bool   `pulumi:"useDetailedProcessingLog"`
+	TopicPrefix string `pulumi:"topicPrefix"`
+	// (Optional Boolean) Controls whether the row data should be included in the processing log topic.
+	UseDetailedProcessingLog bool `pulumi:"useDetailedProcessingLog"`
 }
 
 func LookupKsqlClusterOutput(ctx *pulumi.Context, args LookupKsqlClusterOutputArgs, opts ...pulumi.InvokeOption) LookupKsqlClusterResultOutput {
@@ -148,12 +147,12 @@ func (o LookupKsqlClusterResultOutput) ApiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKsqlClusterResult) string { return v.ApiVersion }).(pulumi.StringOutput)
 }
 
+// (Optional Configuration Block) supports the following:
 func (o LookupKsqlClusterResultOutput) CredentialIdentities() GetKsqlClusterCredentialIdentityArrayOutput {
 	return o.ApplyT(func(v LookupKsqlClusterResult) []GetKsqlClusterCredentialIdentity { return v.CredentialIdentities }).(GetKsqlClusterCredentialIdentityArrayOutput)
 }
 
 // (Required Number) The number of CSUs (Confluent Streaming Units) in the ksqlDB cluster.
-// - `useDetailedProcessingLog` (Optional Boolean) Controls whether the row data should be included in the processing log topic.
 func (o LookupKsqlClusterResultOutput) Csu() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupKsqlClusterResult) int { return v.Csu }).(pulumi.IntOutput)
 }
@@ -171,6 +170,7 @@ func (o LookupKsqlClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKsqlClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// (Optional Configuration Block) supports the following:
 func (o LookupKsqlClusterResultOutput) KafkaClusters() GetKsqlClusterKafkaClusterArrayOutput {
 	return o.ApplyT(func(v LookupKsqlClusterResult) []GetKsqlClusterKafkaCluster { return v.KafkaClusters }).(GetKsqlClusterKafkaClusterArrayOutput)
 }
@@ -186,9 +186,6 @@ func (o LookupKsqlClusterResultOutput) ResourceName() pulumi.StringOutput {
 }
 
 // (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-// - `kafkaCluster` (Optional Configuration Block) supports the following:
-//
-// Deprecated: use rest_endpoint instead
 func (o LookupKsqlClusterResultOutput) RestEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKsqlClusterResult) string { return v.RestEndpoint }).(pulumi.StringOutput)
 }
@@ -203,6 +200,7 @@ func (o LookupKsqlClusterResultOutput) TopicPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKsqlClusterResult) string { return v.TopicPrefix }).(pulumi.StringOutput)
 }
 
+// (Optional Boolean) Controls whether the row data should be included in the processing log topic.
 func (o LookupKsqlClusterResultOutput) UseDetailedProcessingLog() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKsqlClusterResult) bool { return v.UseDetailedProcessingLog }).(pulumi.BoolOutput)
 }

@@ -31,10 +31,13 @@ public final class GetSchemaRegistryClusterResult {
     private String kind;
     /**
      * @return (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
-     * - `region` (Required Configuration Block) supports the following:
      * 
      */
     private String package_;
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     private List<GetSchemaRegistryClusterRegion> regions;
     /**
      * @return (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
@@ -77,12 +80,15 @@ public final class GetSchemaRegistryClusterResult {
     }
     /**
      * @return (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
-     * - `region` (Required Configuration Block) supports the following:
      * 
      */
     public String package_() {
         return this.package_;
     }
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public List<GetSchemaRegistryClusterRegion> regions() {
         return this.regions;
     }

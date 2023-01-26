@@ -13,7 +13,15 @@ import (
 
 // ## Import
 //
-// You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for example$ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+// You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+//
+// ```sh
+//
+//	$ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
+//
+// ```
+//
+//	Option #2Manage a single Kafka cluster in the same Terraform workspace
 //
 // ```sh
 //
@@ -112,8 +120,8 @@ type KafkaTopic struct {
 	// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	//
 	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
-	HttpEndpoint pulumi.StringOutput          `pulumi:"httpEndpoint"`
-	KafkaCluster KafkaTopicKafkaClusterOutput `pulumi:"kafkaCluster"`
+	HttpEndpoint pulumi.StringOutput             `pulumi:"httpEndpoint"`
+	KafkaCluster KafkaTopicKafkaClusterPtrOutput `pulumi:"kafkaCluster"`
 	// The number of partitions to create in the topic. Defaults to `6`.
 	PartitionsCount pulumi.IntPtrOutput `pulumi:"partitionsCount"`
 	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -129,14 +137,11 @@ func NewKafkaTopic(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.KafkaCluster == nil {
-		return nil, errors.New("invalid value for required argument 'KafkaCluster'")
-	}
 	if args.TopicName == nil {
 		return nil, errors.New("invalid value for required argument 'TopicName'")
 	}
 	if args.Credentials != nil {
-		args.Credentials = pulumi.ToSecret(args.Credentials).(KafkaTopicCredentialsPtrOutput)
+		args.Credentials = pulumi.ToSecret(args.Credentials).(KafkaTopicCredentialsPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"credentials",
@@ -211,8 +216,8 @@ type kafkaTopicArgs struct {
 	// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	//
 	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
-	HttpEndpoint *string                `pulumi:"httpEndpoint"`
-	KafkaCluster KafkaTopicKafkaCluster `pulumi:"kafkaCluster"`
+	HttpEndpoint *string                 `pulumi:"httpEndpoint"`
+	KafkaCluster *KafkaTopicKafkaCluster `pulumi:"kafkaCluster"`
 	// The number of partitions to create in the topic. Defaults to `6`.
 	PartitionsCount *int `pulumi:"partitionsCount"`
 	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -231,7 +236,7 @@ type KafkaTopicArgs struct {
 	//
 	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
 	HttpEndpoint pulumi.StringPtrInput
-	KafkaCluster KafkaTopicKafkaClusterInput
+	KafkaCluster KafkaTopicKafkaClusterPtrInput
 	// The number of partitions to create in the topic. Defaults to `6`.
 	PartitionsCount pulumi.IntPtrInput
 	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -344,8 +349,8 @@ func (o KafkaTopicOutput) HttpEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaTopic) pulumi.StringOutput { return v.HttpEndpoint }).(pulumi.StringOutput)
 }
 
-func (o KafkaTopicOutput) KafkaCluster() KafkaTopicKafkaClusterOutput {
-	return o.ApplyT(func(v *KafkaTopic) KafkaTopicKafkaClusterOutput { return v.KafkaCluster }).(KafkaTopicKafkaClusterOutput)
+func (o KafkaTopicOutput) KafkaCluster() KafkaTopicKafkaClusterPtrOutput {
+	return o.ApplyT(func(v *KafkaTopic) KafkaTopicKafkaClusterPtrOutput { return v.KafkaCluster }).(KafkaTopicKafkaClusterPtrOutput)
 }
 
 // The number of partitions to create in the topic. Defaults to `6`.

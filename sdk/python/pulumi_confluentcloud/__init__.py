@@ -21,9 +21,14 @@ from .get_organization import *
 from .get_peering import *
 from .get_private_link_access import *
 from .get_role_binding import *
+from .get_schema import *
 from .get_schema_registry_cluster import *
+from .get_schema_registry_cluster_config import *
+from .get_schema_registry_cluster_mode import *
 from .get_schema_registry_region import *
 from .get_service_account import *
+from .get_subject_config import *
+from .get_subject_mode import *
 from .get_transit_gateway_attachment import *
 from .get_user import *
 from .identity_pool import *
@@ -40,8 +45,13 @@ from .peering import *
 from .private_link_access import *
 from .provider import *
 from .role_binding import *
+from .schema import *
 from .schema_registry_cluster import *
+from .schema_registry_cluster_config import *
+from .schema_registry_cluster_mode import *
 from .service_account import *
+from .subject_config import *
+from .subject_mode import *
 from .transit_gateway_attachment import *
 from ._inputs import *
 from . import outputs
@@ -194,6 +204,14 @@ _utilities.register(
  },
  {
   "pkg": "confluentcloud",
+  "mod": "index/schema",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/schema:Schema": "Schema"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
   "mod": "index/schemaRegistryCluster",
   "fqn": "pulumi_confluentcloud",
   "classes": {
@@ -202,10 +220,42 @@ _utilities.register(
  },
  {
   "pkg": "confluentcloud",
+  "mod": "index/schemaRegistryClusterConfig",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig": "SchemaRegistryClusterConfig"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/schemaRegistryClusterMode",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode": "SchemaRegistryClusterMode"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
   "mod": "index/serviceAccount",
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/serviceAccount:ServiceAccount": "ServiceAccount"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/subjectConfig",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/subjectConfig:SubjectConfig": "SubjectConfig"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/subjectMode",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/subjectMode:SubjectMode": "SubjectMode"
   }
  },
  {

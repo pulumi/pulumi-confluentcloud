@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.confluentcloud.inputs.GetNetworkAw;
 import com.pulumi.confluentcloud.inputs.GetNetworkAzure;
+import com.pulumi.confluentcloud.inputs.GetNetworkDnsConfig;
 import com.pulumi.confluentcloud.inputs.GetNetworkEnvironment;
 import com.pulumi.confluentcloud.inputs.GetNetworkGcp;
 import com.pulumi.core.annotations.Import;
@@ -64,6 +65,21 @@ public final class GetNetworkPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.displayName);
     }
 
+    /**
+     * (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+     * 
+     */
+    @Import(name="dnsConfigs")
+    private @Nullable List<GetNetworkDnsConfig> dnsConfigs;
+
+    /**
+     * @return (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+     * 
+     */
+    public Optional<List<GetNetworkDnsConfig>> dnsConfigs() {
+        return Optional.ofNullable(this.dnsConfigs);
+    }
+
     @Import(name="environment", required=true)
     private GetNetworkEnvironment environment;
 
@@ -107,6 +123,7 @@ public final class GetNetworkPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.aws = $.aws;
         this.azures = $.azures;
         this.displayName = $.displayName;
+        this.dnsConfigs = $.dnsConfigs;
         this.environment = $.environment;
         this.gcps = $.gcps;
         this.id = $.id;
@@ -181,6 +198,27 @@ public final class GetNetworkPlainArgs extends com.pulumi.resources.InvokeArgs {
         public Builder displayName(@Nullable String displayName) {
             $.displayName = displayName;
             return this;
+        }
+
+        /**
+         * @param dnsConfigs (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsConfigs(@Nullable List<GetNetworkDnsConfig> dnsConfigs) {
+            $.dnsConfigs = dnsConfigs;
+            return this;
+        }
+
+        /**
+         * @param dnsConfigs (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsConfigs(GetNetworkDnsConfig... dnsConfigs) {
+            return dnsConfigs(List.of(dnsConfigs));
         }
 
         public Builder environment(GetNetworkEnvironment environment) {

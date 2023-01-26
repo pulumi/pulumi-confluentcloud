@@ -33,6 +33,11 @@ func GetKafkaApiSecret(ctx *pulumi.Context) string {
 	return config.Get(ctx, "confluentcloud:kafkaApiSecret")
 }
 
+// The Kafka Cluster ID.
+func GetKafkaId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:kafkaId")
+}
+
 // The Kafka Cluster REST Endpoint.
 func GetKafkaRestEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "confluentcloud:kafkaRestEndpoint")
@@ -41,4 +46,24 @@ func GetKafkaRestEndpoint(ctx *pulumi.Context) string {
 // Maximum number of retries of HTTP client. Defaults to 4.
 func GetMaxRetries(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "confluentcloud:maxRetries")
+}
+
+// The Schema Registry Cluster API Key.
+func GetSchemaRegistryApiKey(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:schemaRegistryApiKey")
+}
+
+// The Schema Registry Cluster API Secret.
+func GetSchemaRegistryApiSecret(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:schemaRegistryApiSecret")
+}
+
+// The Schema Registry Cluster ID.
+func GetSchemaRegistryId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:schemaRegistryId")
+}
+
+// The Schema Registry Cluster REST Endpoint.
+func GetSchemaRegistryRestEndpoint(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:schemaRegistryRestEndpoint")
 }

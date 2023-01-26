@@ -34,15 +34,13 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getNetwork(args: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getNetwork:getNetwork", {
         "aws": args.aws,
         "azures": args.azures,
         "displayName": args.displayName,
+        "dnsConfigs": args.dnsConfigs,
         "environment": args.environment,
         "gcps": args.gcps,
         "id": args.id,
@@ -65,6 +63,10 @@ export interface GetNetworkArgs {
      * A human-readable name for the Network.
      */
     displayName?: string;
+    /**
+     * (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+     */
+    dnsConfigs?: inputs.GetNetworkDnsConfig[];
     environment: inputs.GetNetworkEnvironment;
     /**
      * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
@@ -104,6 +106,10 @@ export interface GetNetworkResult {
      * (Required String) The name of the Network.
      */
     readonly displayName: string;
+    /**
+     * (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+     */
+    readonly dnsConfigs: outputs.GetNetworkDnsConfig[];
     readonly dnsDomain: string;
     readonly environment: outputs.GetNetworkEnvironment;
     /**
@@ -125,16 +131,43 @@ export interface GetNetworkResult {
     readonly zonalSubdomains: {[key: string]: string};
     /**
      * (Optional List of String) The 3 availability zones for this network. They can optionally be specified for AWS networks
-     * used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+     * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+     * networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
      * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
      */
     readonly zones: string[];
 }
-
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.Network` describes a Network data source.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const exampleUsingId = confluentcloud.getNetwork({
+ *     id: "n-abc123",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * const test_sa = new confluentcloud.ServiceAccount("test-sa", {description: exampleUsingId.then(exampleUsingId => `test_sa for ${exampleUsingId.displayName}`)});
+ * const exampleUsingNameNetwork = confluentcloud.getNetwork({
+ *     displayName: "my_network",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * export const exampleUsingName = exampleUsingNameNetwork;
+ * ```
+ */
 export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {
-    return pulumi.output(args).apply(a => getNetwork(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetwork(a, opts))
 }
 
 /**
@@ -153,6 +186,10 @@ export interface GetNetworkOutputArgs {
      * A human-readable name for the Network.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+     */
+    dnsConfigs?: pulumi.Input<pulumi.Input<inputs.GetNetworkDnsConfigArgs>[]>;
     environment: pulumi.Input<inputs.GetNetworkEnvironmentArgs>;
     /**
      * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:

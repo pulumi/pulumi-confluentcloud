@@ -12,7 +12,13 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Import
     /// 
-    /// You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka topic name&gt;`, for example$ export IMPORT_KAFKA_API_KEY="&lt;kafka_api_key&gt;" $ export IMPORT_KAFKA_API_SECRET="&lt;kafka_api_secret&gt;" $ export IMPORT_KAFKA_REST_ENDPOINT="&lt;kafka_rest_endpoint&gt;"
+    /// You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka topic name&gt;`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY="&lt;kafka_api_key&gt;" $ export IMPORT_KAFKA_API_SECRET="&lt;kafka_api_secret&gt;" $ export IMPORT_KAFKA_REST_ENDPOINT="&lt;kafka_rest_endpoint&gt;"
+    /// 
+    /// ```sh
+    ///  $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
+    /// ```
+    /// 
+    ///  Option #2Manage a single Kafka cluster in the same Terraform workspace
     /// 
     /// ```sh
     ///  $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
@@ -122,7 +128,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> HttpEndpoint { get; private set; } = null!;
 
         [Output("kafkaCluster")]
-        public Output<Outputs.KafkaTopicKafkaCluster> KafkaCluster { get; private set; } = null!;
+        public Output<Outputs.KafkaTopicKafkaCluster?> KafkaCluster { get; private set; } = null!;
 
         /// <summary>
         /// The number of partitions to create in the topic. Defaults to `6`.
@@ -226,8 +232,8 @@ namespace Pulumi.ConfluentCloud
         [Input("httpEndpoint")]
         public Input<string>? HttpEndpoint { get; set; }
 
-        [Input("kafkaCluster", required: true)]
-        public Input<Inputs.KafkaTopicKafkaClusterArgs> KafkaCluster { get; set; } = null!;
+        [Input("kafkaCluster")]
+        public Input<Inputs.KafkaTopicKafkaClusterArgs>? KafkaCluster { get; set; }
 
         /// <summary>
         /// The number of partitions to create in the topic. Defaults to `6`.

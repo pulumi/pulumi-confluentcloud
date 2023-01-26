@@ -34,11 +34,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getPeering(args: GetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getPeering:getPeering", {
         "displayName": args.displayName,
         "environment": args.environment,
@@ -54,6 +51,9 @@ export interface GetPeeringArgs {
      * A human-readable name for the Peering.
      */
     displayName?: string;
+    /**
+     * (Required Configuration Block) supports the following:
+     */
     environment: inputs.GetPeeringEnvironment;
     /**
      * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
@@ -75,9 +75,11 @@ export interface GetPeeringResult {
     readonly azures: outputs.GetPeeringAzure[];
     /**
      * (Optional String) The name of the Peering.
-     * - `environment` (Required Configuration Block) supports the following:
      */
     readonly displayName: string;
+    /**
+     * (Required Configuration Block) supports the following:
+     */
     readonly environment: outputs.GetPeeringEnvironment;
     /**
      * (Optional Configuration Block) The Azure-specific Peering details if available. It supports the following:
@@ -87,11 +89,40 @@ export interface GetPeeringResult {
      * (Required String) The ID of the Network that the Peering belongs to, for example, `n-abc123`.
      */
     readonly id: string;
+    /**
+     * (Required Configuration Block) supports the following:
+     */
     readonly networks: outputs.GetPeeringNetwork[];
 }
-
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.Peering` describes a Peering data source.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const exampleUsingIdPeering = confluentcloud.getPeering({
+ *     id: "peer-abc123",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * export const exampleUsingId = exampleUsingIdPeering;
+ * const exampleUsingNamePeering = confluentcloud.getPeering({
+ *     displayName: "my_peering",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * export const exampleUsingName = exampleUsingNamePeering;
+ * ```
+ */
 export function getPeeringOutput(args: GetPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringResult> {
-    return pulumi.output(args).apply(a => getPeering(a, opts))
+    return pulumi.output(args).apply((a: any) => getPeering(a, opts))
 }
 
 /**
@@ -102,6 +133,9 @@ export interface GetPeeringOutputArgs {
      * A human-readable name for the Peering.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * (Required Configuration Block) supports the following:
+     */
     environment: pulumi.Input<inputs.GetPeeringEnvironmentArgs>;
     /**
      * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.

@@ -11,50 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+// ## Import
 //
-// `KafkaClusterConfig` provides a Kafka cluster config resource that enables updating configs on a Dedicated Kafka cluster on Confluent Cloud.
+// You can import a Kafka cluster config by using the Kafka cluster ID, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
 //
-// ## Example Usage
+// ```sh
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.NewKafkaClusterConfig(ctx, "orders", &confluentcloud.KafkaClusterConfigArgs{
-//				KafkaCluster: &KafkaClusterConfigKafkaClusterArgs{
-//					Id: pulumi.Any(confluent_kafka_cluster.Dedicated.Id),
-//				},
-//				RestEndpoint: pulumi.Any(confluent_kafka_cluster.Dedicated.Rest_endpoint),
-//				Config: pulumi.StringMap{
-//					"auto.create.topics.enable": pulumi.String("true"),
-//					"log.retention.ms":          pulumi.String("604800123"),
-//				},
-//				Credentials: &KafkaClusterConfigCredentialsArgs{
-//					Key:    pulumi.Any(confluent_api_key.App - manager - kafka - api - key.Id),
-//					Secret: pulumi.Any(confluent_api_key.App - manager - kafka - api - key.Secret),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
+//	$ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
 //
 // ```
 //
-// ## Import
-//
-// You can import a Kafka cluster config by using the Kafka cluster ID, for example$ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+//	Option #2Manage a single Kafka cluster in the same Terraform workspace
 //
 // ```sh
 //
@@ -69,8 +36,8 @@ type KafkaClusterConfig struct {
 	// The custom cluster settings to set:
 	Config pulumi.StringMapOutput `pulumi:"config"`
 	// The Cluster API Credentials.
-	Credentials  KafkaClusterConfigCredentialsPtrOutput `pulumi:"credentials"`
-	KafkaCluster KafkaClusterConfigKafkaClusterOutput   `pulumi:"kafkaCluster"`
+	Credentials  KafkaClusterConfigCredentialsPtrOutput  `pulumi:"credentials"`
+	KafkaCluster KafkaClusterConfigKafkaClusterPtrOutput `pulumi:"kafkaCluster"`
 	// The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
 }
@@ -85,11 +52,8 @@ func NewKafkaClusterConfig(ctx *pulumi.Context,
 	if args.Config == nil {
 		return nil, errors.New("invalid value for required argument 'Config'")
 	}
-	if args.KafkaCluster == nil {
-		return nil, errors.New("invalid value for required argument 'KafkaCluster'")
-	}
 	if args.Credentials != nil {
-		args.Credentials = pulumi.ToSecret(args.Credentials).(KafkaClusterConfigCredentialsPtrOutput)
+		args.Credentials = pulumi.ToSecret(args.Credentials).(KafkaClusterConfigCredentialsPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"credentials",
@@ -144,8 +108,8 @@ type kafkaClusterConfigArgs struct {
 	// The custom cluster settings to set:
 	Config map[string]string `pulumi:"config"`
 	// The Cluster API Credentials.
-	Credentials  *KafkaClusterConfigCredentials `pulumi:"credentials"`
-	KafkaCluster KafkaClusterConfigKafkaCluster `pulumi:"kafkaCluster"`
+	Credentials  *KafkaClusterConfigCredentials  `pulumi:"credentials"`
+	KafkaCluster *KafkaClusterConfigKafkaCluster `pulumi:"kafkaCluster"`
 	// The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 }
@@ -156,7 +120,7 @@ type KafkaClusterConfigArgs struct {
 	Config pulumi.StringMapInput
 	// The Cluster API Credentials.
 	Credentials  KafkaClusterConfigCredentialsPtrInput
-	KafkaCluster KafkaClusterConfigKafkaClusterInput
+	KafkaCluster KafkaClusterConfigKafkaClusterPtrInput
 	// The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint pulumi.StringPtrInput
 }
@@ -258,8 +222,8 @@ func (o KafkaClusterConfigOutput) Credentials() KafkaClusterConfigCredentialsPtr
 	return o.ApplyT(func(v *KafkaClusterConfig) KafkaClusterConfigCredentialsPtrOutput { return v.Credentials }).(KafkaClusterConfigCredentialsPtrOutput)
 }
 
-func (o KafkaClusterConfigOutput) KafkaCluster() KafkaClusterConfigKafkaClusterOutput {
-	return o.ApplyT(func(v *KafkaClusterConfig) KafkaClusterConfigKafkaClusterOutput { return v.KafkaCluster }).(KafkaClusterConfigKafkaClusterOutput)
+func (o KafkaClusterConfigOutput) KafkaCluster() KafkaClusterConfigKafkaClusterPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterConfig) KafkaClusterConfigKafkaClusterPtrOutput { return v.KafkaCluster }).(KafkaClusterConfigKafkaClusterPtrOutput)
 }
 
 // The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).

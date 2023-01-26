@@ -4816,6 +4816,151 @@ func (o NetworkAzureArrayOutput) Index(i pulumi.IntInput) NetworkAzureOutput {
 	}).(NetworkAzureOutput)
 }
 
+type NetworkDnsConfig struct {
+	// Network DNS resolution.
+	// When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+	// When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+	Resolution string `pulumi:"resolution"`
+}
+
+// NetworkDnsConfigInput is an input type that accepts NetworkDnsConfigArgs and NetworkDnsConfigOutput values.
+// You can construct a concrete instance of `NetworkDnsConfigInput` via:
+//
+//	NetworkDnsConfigArgs{...}
+type NetworkDnsConfigInput interface {
+	pulumi.Input
+
+	ToNetworkDnsConfigOutput() NetworkDnsConfigOutput
+	ToNetworkDnsConfigOutputWithContext(context.Context) NetworkDnsConfigOutput
+}
+
+type NetworkDnsConfigArgs struct {
+	// Network DNS resolution.
+	// When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+	// When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+	Resolution pulumi.StringInput `pulumi:"resolution"`
+}
+
+func (NetworkDnsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkDnsConfig)(nil)).Elem()
+}
+
+func (i NetworkDnsConfigArgs) ToNetworkDnsConfigOutput() NetworkDnsConfigOutput {
+	return i.ToNetworkDnsConfigOutputWithContext(context.Background())
+}
+
+func (i NetworkDnsConfigArgs) ToNetworkDnsConfigOutputWithContext(ctx context.Context) NetworkDnsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkDnsConfigOutput)
+}
+
+func (i NetworkDnsConfigArgs) ToNetworkDnsConfigPtrOutput() NetworkDnsConfigPtrOutput {
+	return i.ToNetworkDnsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkDnsConfigArgs) ToNetworkDnsConfigPtrOutputWithContext(ctx context.Context) NetworkDnsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkDnsConfigOutput).ToNetworkDnsConfigPtrOutputWithContext(ctx)
+}
+
+// NetworkDnsConfigPtrInput is an input type that accepts NetworkDnsConfigArgs, NetworkDnsConfigPtr and NetworkDnsConfigPtrOutput values.
+// You can construct a concrete instance of `NetworkDnsConfigPtrInput` via:
+//
+//	        NetworkDnsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkDnsConfigPtrInput interface {
+	pulumi.Input
+
+	ToNetworkDnsConfigPtrOutput() NetworkDnsConfigPtrOutput
+	ToNetworkDnsConfigPtrOutputWithContext(context.Context) NetworkDnsConfigPtrOutput
+}
+
+type networkDnsConfigPtrType NetworkDnsConfigArgs
+
+func NetworkDnsConfigPtr(v *NetworkDnsConfigArgs) NetworkDnsConfigPtrInput {
+	return (*networkDnsConfigPtrType)(v)
+}
+
+func (*networkDnsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkDnsConfig)(nil)).Elem()
+}
+
+func (i *networkDnsConfigPtrType) ToNetworkDnsConfigPtrOutput() NetworkDnsConfigPtrOutput {
+	return i.ToNetworkDnsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *networkDnsConfigPtrType) ToNetworkDnsConfigPtrOutputWithContext(ctx context.Context) NetworkDnsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkDnsConfigPtrOutput)
+}
+
+type NetworkDnsConfigOutput struct{ *pulumi.OutputState }
+
+func (NetworkDnsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkDnsConfig)(nil)).Elem()
+}
+
+func (o NetworkDnsConfigOutput) ToNetworkDnsConfigOutput() NetworkDnsConfigOutput {
+	return o
+}
+
+func (o NetworkDnsConfigOutput) ToNetworkDnsConfigOutputWithContext(ctx context.Context) NetworkDnsConfigOutput {
+	return o
+}
+
+func (o NetworkDnsConfigOutput) ToNetworkDnsConfigPtrOutput() NetworkDnsConfigPtrOutput {
+	return o.ToNetworkDnsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkDnsConfigOutput) ToNetworkDnsConfigPtrOutputWithContext(ctx context.Context) NetworkDnsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkDnsConfig) *NetworkDnsConfig {
+		return &v
+	}).(NetworkDnsConfigPtrOutput)
+}
+
+// Network DNS resolution.
+// When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+// When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+func (o NetworkDnsConfigOutput) Resolution() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkDnsConfig) string { return v.Resolution }).(pulumi.StringOutput)
+}
+
+type NetworkDnsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkDnsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkDnsConfig)(nil)).Elem()
+}
+
+func (o NetworkDnsConfigPtrOutput) ToNetworkDnsConfigPtrOutput() NetworkDnsConfigPtrOutput {
+	return o
+}
+
+func (o NetworkDnsConfigPtrOutput) ToNetworkDnsConfigPtrOutputWithContext(ctx context.Context) NetworkDnsConfigPtrOutput {
+	return o
+}
+
+func (o NetworkDnsConfigPtrOutput) Elem() NetworkDnsConfigOutput {
+	return o.ApplyT(func(v *NetworkDnsConfig) NetworkDnsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkDnsConfig
+		return ret
+	}).(NetworkDnsConfigOutput)
+}
+
+// Network DNS resolution.
+// When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+// When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+func (o NetworkDnsConfigPtrOutput) Resolution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkDnsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Resolution
+	}).(pulumi.StringPtrOutput)
+}
+
 type NetworkEnvironment struct {
 	// The ID of the Environment that the Network belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
@@ -6571,6 +6716,455 @@ func (o PrivateLinkAccessNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SchemaCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// SchemaCredentialsInput is an input type that accepts SchemaCredentialsArgs and SchemaCredentialsOutput values.
+// You can construct a concrete instance of `SchemaCredentialsInput` via:
+//
+//	SchemaCredentialsArgs{...}
+type SchemaCredentialsInput interface {
+	pulumi.Input
+
+	ToSchemaCredentialsOutput() SchemaCredentialsOutput
+	ToSchemaCredentialsOutputWithContext(context.Context) SchemaCredentialsOutput
+}
+
+type SchemaCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (SchemaCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaCredentials)(nil)).Elem()
+}
+
+func (i SchemaCredentialsArgs) ToSchemaCredentialsOutput() SchemaCredentialsOutput {
+	return i.ToSchemaCredentialsOutputWithContext(context.Background())
+}
+
+func (i SchemaCredentialsArgs) ToSchemaCredentialsOutputWithContext(ctx context.Context) SchemaCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaCredentialsOutput)
+}
+
+func (i SchemaCredentialsArgs) ToSchemaCredentialsPtrOutput() SchemaCredentialsPtrOutput {
+	return i.ToSchemaCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaCredentialsArgs) ToSchemaCredentialsPtrOutputWithContext(ctx context.Context) SchemaCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaCredentialsOutput).ToSchemaCredentialsPtrOutputWithContext(ctx)
+}
+
+// SchemaCredentialsPtrInput is an input type that accepts SchemaCredentialsArgs, SchemaCredentialsPtr and SchemaCredentialsPtrOutput values.
+// You can construct a concrete instance of `SchemaCredentialsPtrInput` via:
+//
+//	        SchemaCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchemaCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToSchemaCredentialsPtrOutput() SchemaCredentialsPtrOutput
+	ToSchemaCredentialsPtrOutputWithContext(context.Context) SchemaCredentialsPtrOutput
+}
+
+type schemaCredentialsPtrType SchemaCredentialsArgs
+
+func SchemaCredentialsPtr(v *SchemaCredentialsArgs) SchemaCredentialsPtrInput {
+	return (*schemaCredentialsPtrType)(v)
+}
+
+func (*schemaCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaCredentials)(nil)).Elem()
+}
+
+func (i *schemaCredentialsPtrType) ToSchemaCredentialsPtrOutput() SchemaCredentialsPtrOutput {
+	return i.ToSchemaCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaCredentialsPtrType) ToSchemaCredentialsPtrOutputWithContext(ctx context.Context) SchemaCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaCredentialsPtrOutput)
+}
+
+type SchemaCredentialsOutput struct{ *pulumi.OutputState }
+
+func (SchemaCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaCredentials)(nil)).Elem()
+}
+
+func (o SchemaCredentialsOutput) ToSchemaCredentialsOutput() SchemaCredentialsOutput {
+	return o
+}
+
+func (o SchemaCredentialsOutput) ToSchemaCredentialsOutputWithContext(ctx context.Context) SchemaCredentialsOutput {
+	return o
+}
+
+func (o SchemaCredentialsOutput) ToSchemaCredentialsPtrOutput() SchemaCredentialsPtrOutput {
+	return o.ToSchemaCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaCredentialsOutput) ToSchemaCredentialsPtrOutputWithContext(ctx context.Context) SchemaCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaCredentials) *SchemaCredentials {
+		return &v
+	}).(SchemaCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o SchemaCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o SchemaCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type SchemaCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaCredentials)(nil)).Elem()
+}
+
+func (o SchemaCredentialsPtrOutput) ToSchemaCredentialsPtrOutput() SchemaCredentialsPtrOutput {
+	return o
+}
+
+func (o SchemaCredentialsPtrOutput) ToSchemaCredentialsPtrOutputWithContext(ctx context.Context) SchemaCredentialsPtrOutput {
+	return o
+}
+
+func (o SchemaCredentialsPtrOutput) Elem() SchemaCredentialsOutput {
+	return o.ApplyT(func(v *SchemaCredentials) SchemaCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaCredentials
+		return ret
+	}).(SchemaCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o SchemaCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o SchemaCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type SchemaRegistryClusterConfigCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// SchemaRegistryClusterConfigCredentialsInput is an input type that accepts SchemaRegistryClusterConfigCredentialsArgs and SchemaRegistryClusterConfigCredentialsOutput values.
+// You can construct a concrete instance of `SchemaRegistryClusterConfigCredentialsInput` via:
+//
+//	SchemaRegistryClusterConfigCredentialsArgs{...}
+type SchemaRegistryClusterConfigCredentialsInput interface {
+	pulumi.Input
+
+	ToSchemaRegistryClusterConfigCredentialsOutput() SchemaRegistryClusterConfigCredentialsOutput
+	ToSchemaRegistryClusterConfigCredentialsOutputWithContext(context.Context) SchemaRegistryClusterConfigCredentialsOutput
+}
+
+type SchemaRegistryClusterConfigCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (SchemaRegistryClusterConfigCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRegistryClusterConfigCredentials)(nil)).Elem()
+}
+
+func (i SchemaRegistryClusterConfigCredentialsArgs) ToSchemaRegistryClusterConfigCredentialsOutput() SchemaRegistryClusterConfigCredentialsOutput {
+	return i.ToSchemaRegistryClusterConfigCredentialsOutputWithContext(context.Background())
+}
+
+func (i SchemaRegistryClusterConfigCredentialsArgs) ToSchemaRegistryClusterConfigCredentialsOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterConfigCredentialsOutput)
+}
+
+func (i SchemaRegistryClusterConfigCredentialsArgs) ToSchemaRegistryClusterConfigCredentialsPtrOutput() SchemaRegistryClusterConfigCredentialsPtrOutput {
+	return i.ToSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaRegistryClusterConfigCredentialsArgs) ToSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterConfigCredentialsOutput).ToSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(ctx)
+}
+
+// SchemaRegistryClusterConfigCredentialsPtrInput is an input type that accepts SchemaRegistryClusterConfigCredentialsArgs, SchemaRegistryClusterConfigCredentialsPtr and SchemaRegistryClusterConfigCredentialsPtrOutput values.
+// You can construct a concrete instance of `SchemaRegistryClusterConfigCredentialsPtrInput` via:
+//
+//	        SchemaRegistryClusterConfigCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchemaRegistryClusterConfigCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToSchemaRegistryClusterConfigCredentialsPtrOutput() SchemaRegistryClusterConfigCredentialsPtrOutput
+	ToSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(context.Context) SchemaRegistryClusterConfigCredentialsPtrOutput
+}
+
+type schemaRegistryClusterConfigCredentialsPtrType SchemaRegistryClusterConfigCredentialsArgs
+
+func SchemaRegistryClusterConfigCredentialsPtr(v *SchemaRegistryClusterConfigCredentialsArgs) SchemaRegistryClusterConfigCredentialsPtrInput {
+	return (*schemaRegistryClusterConfigCredentialsPtrType)(v)
+}
+
+func (*schemaRegistryClusterConfigCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaRegistryClusterConfigCredentials)(nil)).Elem()
+}
+
+func (i *schemaRegistryClusterConfigCredentialsPtrType) ToSchemaRegistryClusterConfigCredentialsPtrOutput() SchemaRegistryClusterConfigCredentialsPtrOutput {
+	return i.ToSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaRegistryClusterConfigCredentialsPtrType) ToSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterConfigCredentialsPtrOutput)
+}
+
+type SchemaRegistryClusterConfigCredentialsOutput struct{ *pulumi.OutputState }
+
+func (SchemaRegistryClusterConfigCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRegistryClusterConfigCredentials)(nil)).Elem()
+}
+
+func (o SchemaRegistryClusterConfigCredentialsOutput) ToSchemaRegistryClusterConfigCredentialsOutput() SchemaRegistryClusterConfigCredentialsOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterConfigCredentialsOutput) ToSchemaRegistryClusterConfigCredentialsOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigCredentialsOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterConfigCredentialsOutput) ToSchemaRegistryClusterConfigCredentialsPtrOutput() SchemaRegistryClusterConfigCredentialsPtrOutput {
+	return o.ToSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaRegistryClusterConfigCredentialsOutput) ToSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaRegistryClusterConfigCredentials) *SchemaRegistryClusterConfigCredentials {
+		return &v
+	}).(SchemaRegistryClusterConfigCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o SchemaRegistryClusterConfigCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRegistryClusterConfigCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o SchemaRegistryClusterConfigCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRegistryClusterConfigCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type SchemaRegistryClusterConfigCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaRegistryClusterConfigCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaRegistryClusterConfigCredentials)(nil)).Elem()
+}
+
+func (o SchemaRegistryClusterConfigCredentialsPtrOutput) ToSchemaRegistryClusterConfigCredentialsPtrOutput() SchemaRegistryClusterConfigCredentialsPtrOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterConfigCredentialsPtrOutput) ToSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigCredentialsPtrOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterConfigCredentialsPtrOutput) Elem() SchemaRegistryClusterConfigCredentialsOutput {
+	return o.ApplyT(func(v *SchemaRegistryClusterConfigCredentials) SchemaRegistryClusterConfigCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaRegistryClusterConfigCredentials
+		return ret
+	}).(SchemaRegistryClusterConfigCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o SchemaRegistryClusterConfigCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaRegistryClusterConfigCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o SchemaRegistryClusterConfigCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaRegistryClusterConfigCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type SchemaRegistryClusterConfigSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// SchemaRegistryClusterConfigSchemaRegistryClusterInput is an input type that accepts SchemaRegistryClusterConfigSchemaRegistryClusterArgs and SchemaRegistryClusterConfigSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `SchemaRegistryClusterConfigSchemaRegistryClusterInput` via:
+//
+//	SchemaRegistryClusterConfigSchemaRegistryClusterArgs{...}
+type SchemaRegistryClusterConfigSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToSchemaRegistryClusterConfigSchemaRegistryClusterOutput() SchemaRegistryClusterConfigSchemaRegistryClusterOutput
+	ToSchemaRegistryClusterConfigSchemaRegistryClusterOutputWithContext(context.Context) SchemaRegistryClusterConfigSchemaRegistryClusterOutput
+}
+
+type SchemaRegistryClusterConfigSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (SchemaRegistryClusterConfigSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRegistryClusterConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i SchemaRegistryClusterConfigSchemaRegistryClusterArgs) ToSchemaRegistryClusterConfigSchemaRegistryClusterOutput() SchemaRegistryClusterConfigSchemaRegistryClusterOutput {
+	return i.ToSchemaRegistryClusterConfigSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i SchemaRegistryClusterConfigSchemaRegistryClusterArgs) ToSchemaRegistryClusterConfigSchemaRegistryClusterOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterConfigSchemaRegistryClusterOutput)
+}
+
+func (i SchemaRegistryClusterConfigSchemaRegistryClusterArgs) ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput() SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return i.ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaRegistryClusterConfigSchemaRegistryClusterArgs) ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterConfigSchemaRegistryClusterOutput).ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// SchemaRegistryClusterConfigSchemaRegistryClusterPtrInput is an input type that accepts SchemaRegistryClusterConfigSchemaRegistryClusterArgs, SchemaRegistryClusterConfigSchemaRegistryClusterPtr and SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `SchemaRegistryClusterConfigSchemaRegistryClusterPtrInput` via:
+//
+//	        SchemaRegistryClusterConfigSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchemaRegistryClusterConfigSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput() SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput
+	ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(context.Context) SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput
+}
+
+type schemaRegistryClusterConfigSchemaRegistryClusterPtrType SchemaRegistryClusterConfigSchemaRegistryClusterArgs
+
+func SchemaRegistryClusterConfigSchemaRegistryClusterPtr(v *SchemaRegistryClusterConfigSchemaRegistryClusterArgs) SchemaRegistryClusterConfigSchemaRegistryClusterPtrInput {
+	return (*schemaRegistryClusterConfigSchemaRegistryClusterPtrType)(v)
+}
+
+func (*schemaRegistryClusterConfigSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaRegistryClusterConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *schemaRegistryClusterConfigSchemaRegistryClusterPtrType) ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput() SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return i.ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaRegistryClusterConfigSchemaRegistryClusterPtrType) ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput)
+}
+
+type SchemaRegistryClusterConfigSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (SchemaRegistryClusterConfigSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRegistryClusterConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o SchemaRegistryClusterConfigSchemaRegistryClusterOutput) ToSchemaRegistryClusterConfigSchemaRegistryClusterOutput() SchemaRegistryClusterConfigSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterConfigSchemaRegistryClusterOutput) ToSchemaRegistryClusterConfigSchemaRegistryClusterOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterConfigSchemaRegistryClusterOutput) ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput() SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return o.ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaRegistryClusterConfigSchemaRegistryClusterOutput) ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaRegistryClusterConfigSchemaRegistryCluster) *SchemaRegistryClusterConfigSchemaRegistryCluster {
+		return &v
+	}).(SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o SchemaRegistryClusterConfigSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRegistryClusterConfigSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaRegistryClusterConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput() SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) Elem() SchemaRegistryClusterConfigSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *SchemaRegistryClusterConfigSchemaRegistryCluster) SchemaRegistryClusterConfigSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaRegistryClusterConfigSchemaRegistryCluster
+		return ret
+	}).(SchemaRegistryClusterConfigSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaRegistryClusterConfigSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type SchemaRegistryClusterEnvironment struct {
 	// The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
 	Id string `pulumi:"id"`
@@ -6701,6 +7295,299 @@ func (o SchemaRegistryClusterEnvironmentPtrOutput) Elem() SchemaRegistryClusterE
 // The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
 func (o SchemaRegistryClusterEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryClusterEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type SchemaRegistryClusterModeCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// SchemaRegistryClusterModeCredentialsInput is an input type that accepts SchemaRegistryClusterModeCredentialsArgs and SchemaRegistryClusterModeCredentialsOutput values.
+// You can construct a concrete instance of `SchemaRegistryClusterModeCredentialsInput` via:
+//
+//	SchemaRegistryClusterModeCredentialsArgs{...}
+type SchemaRegistryClusterModeCredentialsInput interface {
+	pulumi.Input
+
+	ToSchemaRegistryClusterModeCredentialsOutput() SchemaRegistryClusterModeCredentialsOutput
+	ToSchemaRegistryClusterModeCredentialsOutputWithContext(context.Context) SchemaRegistryClusterModeCredentialsOutput
+}
+
+type SchemaRegistryClusterModeCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (SchemaRegistryClusterModeCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRegistryClusterModeCredentials)(nil)).Elem()
+}
+
+func (i SchemaRegistryClusterModeCredentialsArgs) ToSchemaRegistryClusterModeCredentialsOutput() SchemaRegistryClusterModeCredentialsOutput {
+	return i.ToSchemaRegistryClusterModeCredentialsOutputWithContext(context.Background())
+}
+
+func (i SchemaRegistryClusterModeCredentialsArgs) ToSchemaRegistryClusterModeCredentialsOutputWithContext(ctx context.Context) SchemaRegistryClusterModeCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterModeCredentialsOutput)
+}
+
+func (i SchemaRegistryClusterModeCredentialsArgs) ToSchemaRegistryClusterModeCredentialsPtrOutput() SchemaRegistryClusterModeCredentialsPtrOutput {
+	return i.ToSchemaRegistryClusterModeCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaRegistryClusterModeCredentialsArgs) ToSchemaRegistryClusterModeCredentialsPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterModeCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterModeCredentialsOutput).ToSchemaRegistryClusterModeCredentialsPtrOutputWithContext(ctx)
+}
+
+// SchemaRegistryClusterModeCredentialsPtrInput is an input type that accepts SchemaRegistryClusterModeCredentialsArgs, SchemaRegistryClusterModeCredentialsPtr and SchemaRegistryClusterModeCredentialsPtrOutput values.
+// You can construct a concrete instance of `SchemaRegistryClusterModeCredentialsPtrInput` via:
+//
+//	        SchemaRegistryClusterModeCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchemaRegistryClusterModeCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToSchemaRegistryClusterModeCredentialsPtrOutput() SchemaRegistryClusterModeCredentialsPtrOutput
+	ToSchemaRegistryClusterModeCredentialsPtrOutputWithContext(context.Context) SchemaRegistryClusterModeCredentialsPtrOutput
+}
+
+type schemaRegistryClusterModeCredentialsPtrType SchemaRegistryClusterModeCredentialsArgs
+
+func SchemaRegistryClusterModeCredentialsPtr(v *SchemaRegistryClusterModeCredentialsArgs) SchemaRegistryClusterModeCredentialsPtrInput {
+	return (*schemaRegistryClusterModeCredentialsPtrType)(v)
+}
+
+func (*schemaRegistryClusterModeCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaRegistryClusterModeCredentials)(nil)).Elem()
+}
+
+func (i *schemaRegistryClusterModeCredentialsPtrType) ToSchemaRegistryClusterModeCredentialsPtrOutput() SchemaRegistryClusterModeCredentialsPtrOutput {
+	return i.ToSchemaRegistryClusterModeCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaRegistryClusterModeCredentialsPtrType) ToSchemaRegistryClusterModeCredentialsPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterModeCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterModeCredentialsPtrOutput)
+}
+
+type SchemaRegistryClusterModeCredentialsOutput struct{ *pulumi.OutputState }
+
+func (SchemaRegistryClusterModeCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRegistryClusterModeCredentials)(nil)).Elem()
+}
+
+func (o SchemaRegistryClusterModeCredentialsOutput) ToSchemaRegistryClusterModeCredentialsOutput() SchemaRegistryClusterModeCredentialsOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterModeCredentialsOutput) ToSchemaRegistryClusterModeCredentialsOutputWithContext(ctx context.Context) SchemaRegistryClusterModeCredentialsOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterModeCredentialsOutput) ToSchemaRegistryClusterModeCredentialsPtrOutput() SchemaRegistryClusterModeCredentialsPtrOutput {
+	return o.ToSchemaRegistryClusterModeCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaRegistryClusterModeCredentialsOutput) ToSchemaRegistryClusterModeCredentialsPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterModeCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaRegistryClusterModeCredentials) *SchemaRegistryClusterModeCredentials {
+		return &v
+	}).(SchemaRegistryClusterModeCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o SchemaRegistryClusterModeCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRegistryClusterModeCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o SchemaRegistryClusterModeCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRegistryClusterModeCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type SchemaRegistryClusterModeCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaRegistryClusterModeCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaRegistryClusterModeCredentials)(nil)).Elem()
+}
+
+func (o SchemaRegistryClusterModeCredentialsPtrOutput) ToSchemaRegistryClusterModeCredentialsPtrOutput() SchemaRegistryClusterModeCredentialsPtrOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterModeCredentialsPtrOutput) ToSchemaRegistryClusterModeCredentialsPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterModeCredentialsPtrOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterModeCredentialsPtrOutput) Elem() SchemaRegistryClusterModeCredentialsOutput {
+	return o.ApplyT(func(v *SchemaRegistryClusterModeCredentials) SchemaRegistryClusterModeCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaRegistryClusterModeCredentials
+		return ret
+	}).(SchemaRegistryClusterModeCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o SchemaRegistryClusterModeCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaRegistryClusterModeCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o SchemaRegistryClusterModeCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaRegistryClusterModeCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type SchemaRegistryClusterModeSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// SchemaRegistryClusterModeSchemaRegistryClusterInput is an input type that accepts SchemaRegistryClusterModeSchemaRegistryClusterArgs and SchemaRegistryClusterModeSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `SchemaRegistryClusterModeSchemaRegistryClusterInput` via:
+//
+//	SchemaRegistryClusterModeSchemaRegistryClusterArgs{...}
+type SchemaRegistryClusterModeSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToSchemaRegistryClusterModeSchemaRegistryClusterOutput() SchemaRegistryClusterModeSchemaRegistryClusterOutput
+	ToSchemaRegistryClusterModeSchemaRegistryClusterOutputWithContext(context.Context) SchemaRegistryClusterModeSchemaRegistryClusterOutput
+}
+
+type SchemaRegistryClusterModeSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (SchemaRegistryClusterModeSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRegistryClusterModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i SchemaRegistryClusterModeSchemaRegistryClusterArgs) ToSchemaRegistryClusterModeSchemaRegistryClusterOutput() SchemaRegistryClusterModeSchemaRegistryClusterOutput {
+	return i.ToSchemaRegistryClusterModeSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i SchemaRegistryClusterModeSchemaRegistryClusterArgs) ToSchemaRegistryClusterModeSchemaRegistryClusterOutputWithContext(ctx context.Context) SchemaRegistryClusterModeSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterModeSchemaRegistryClusterOutput)
+}
+
+func (i SchemaRegistryClusterModeSchemaRegistryClusterArgs) ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput() SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return i.ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaRegistryClusterModeSchemaRegistryClusterArgs) ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterModeSchemaRegistryClusterOutput).ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// SchemaRegistryClusterModeSchemaRegistryClusterPtrInput is an input type that accepts SchemaRegistryClusterModeSchemaRegistryClusterArgs, SchemaRegistryClusterModeSchemaRegistryClusterPtr and SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `SchemaRegistryClusterModeSchemaRegistryClusterPtrInput` via:
+//
+//	        SchemaRegistryClusterModeSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchemaRegistryClusterModeSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput() SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput
+	ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(context.Context) SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput
+}
+
+type schemaRegistryClusterModeSchemaRegistryClusterPtrType SchemaRegistryClusterModeSchemaRegistryClusterArgs
+
+func SchemaRegistryClusterModeSchemaRegistryClusterPtr(v *SchemaRegistryClusterModeSchemaRegistryClusterArgs) SchemaRegistryClusterModeSchemaRegistryClusterPtrInput {
+	return (*schemaRegistryClusterModeSchemaRegistryClusterPtrType)(v)
+}
+
+func (*schemaRegistryClusterModeSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaRegistryClusterModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *schemaRegistryClusterModeSchemaRegistryClusterPtrType) ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput() SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return i.ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaRegistryClusterModeSchemaRegistryClusterPtrType) ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput)
+}
+
+type SchemaRegistryClusterModeSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (SchemaRegistryClusterModeSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRegistryClusterModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o SchemaRegistryClusterModeSchemaRegistryClusterOutput) ToSchemaRegistryClusterModeSchemaRegistryClusterOutput() SchemaRegistryClusterModeSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterModeSchemaRegistryClusterOutput) ToSchemaRegistryClusterModeSchemaRegistryClusterOutputWithContext(ctx context.Context) SchemaRegistryClusterModeSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterModeSchemaRegistryClusterOutput) ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput() SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return o.ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaRegistryClusterModeSchemaRegistryClusterOutput) ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaRegistryClusterModeSchemaRegistryCluster) *SchemaRegistryClusterModeSchemaRegistryCluster {
+		return &v
+	}).(SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o SchemaRegistryClusterModeSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaRegistryClusterModeSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaRegistryClusterModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput() SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) Elem() SchemaRegistryClusterModeSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *SchemaRegistryClusterModeSchemaRegistryCluster) SchemaRegistryClusterModeSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaRegistryClusterModeSchemaRegistryCluster
+		return ret
+	}).(SchemaRegistryClusterModeSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaRegistryClusterModeSchemaRegistryCluster) *string {
 		if v == nil {
 			return nil
 		}
@@ -6845,9 +7732,845 @@ func (o SchemaRegistryClusterRegionPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SchemaSchemaReference struct {
+	// The name of the subject, representing the subject under which the referenced schema is registered.
+	Name string `pulumi:"name"`
+	// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+	SubjectName string `pulumi:"subjectName"`
+	// The version, representing the exact version of the schema under the registered subject.
+	Version int `pulumi:"version"`
+}
+
+// SchemaSchemaReferenceInput is an input type that accepts SchemaSchemaReferenceArgs and SchemaSchemaReferenceOutput values.
+// You can construct a concrete instance of `SchemaSchemaReferenceInput` via:
+//
+//	SchemaSchemaReferenceArgs{...}
+type SchemaSchemaReferenceInput interface {
+	pulumi.Input
+
+	ToSchemaSchemaReferenceOutput() SchemaSchemaReferenceOutput
+	ToSchemaSchemaReferenceOutputWithContext(context.Context) SchemaSchemaReferenceOutput
+}
+
+type SchemaSchemaReferenceArgs struct {
+	// The name of the subject, representing the subject under which the referenced schema is registered.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+	SubjectName pulumi.StringInput `pulumi:"subjectName"`
+	// The version, representing the exact version of the schema under the registered subject.
+	Version pulumi.IntInput `pulumi:"version"`
+}
+
+func (SchemaSchemaReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaSchemaReference)(nil)).Elem()
+}
+
+func (i SchemaSchemaReferenceArgs) ToSchemaSchemaReferenceOutput() SchemaSchemaReferenceOutput {
+	return i.ToSchemaSchemaReferenceOutputWithContext(context.Background())
+}
+
+func (i SchemaSchemaReferenceArgs) ToSchemaSchemaReferenceOutputWithContext(ctx context.Context) SchemaSchemaReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaReferenceOutput)
+}
+
+// SchemaSchemaReferenceArrayInput is an input type that accepts SchemaSchemaReferenceArray and SchemaSchemaReferenceArrayOutput values.
+// You can construct a concrete instance of `SchemaSchemaReferenceArrayInput` via:
+//
+//	SchemaSchemaReferenceArray{ SchemaSchemaReferenceArgs{...} }
+type SchemaSchemaReferenceArrayInput interface {
+	pulumi.Input
+
+	ToSchemaSchemaReferenceArrayOutput() SchemaSchemaReferenceArrayOutput
+	ToSchemaSchemaReferenceArrayOutputWithContext(context.Context) SchemaSchemaReferenceArrayOutput
+}
+
+type SchemaSchemaReferenceArray []SchemaSchemaReferenceInput
+
+func (SchemaSchemaReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaSchemaReference)(nil)).Elem()
+}
+
+func (i SchemaSchemaReferenceArray) ToSchemaSchemaReferenceArrayOutput() SchemaSchemaReferenceArrayOutput {
+	return i.ToSchemaSchemaReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i SchemaSchemaReferenceArray) ToSchemaSchemaReferenceArrayOutputWithContext(ctx context.Context) SchemaSchemaReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaReferenceArrayOutput)
+}
+
+type SchemaSchemaReferenceOutput struct{ *pulumi.OutputState }
+
+func (SchemaSchemaReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaSchemaReference)(nil)).Elem()
+}
+
+func (o SchemaSchemaReferenceOutput) ToSchemaSchemaReferenceOutput() SchemaSchemaReferenceOutput {
+	return o
+}
+
+func (o SchemaSchemaReferenceOutput) ToSchemaSchemaReferenceOutputWithContext(ctx context.Context) SchemaSchemaReferenceOutput {
+	return o
+}
+
+// The name of the subject, representing the subject under which the referenced schema is registered.
+func (o SchemaSchemaReferenceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaSchemaReference) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+func (o SchemaSchemaReferenceOutput) SubjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaSchemaReference) string { return v.SubjectName }).(pulumi.StringOutput)
+}
+
+// The version, representing the exact version of the schema under the registered subject.
+func (o SchemaSchemaReferenceOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v SchemaSchemaReference) int { return v.Version }).(pulumi.IntOutput)
+}
+
+type SchemaSchemaReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (SchemaSchemaReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaSchemaReference)(nil)).Elem()
+}
+
+func (o SchemaSchemaReferenceArrayOutput) ToSchemaSchemaReferenceArrayOutput() SchemaSchemaReferenceArrayOutput {
+	return o
+}
+
+func (o SchemaSchemaReferenceArrayOutput) ToSchemaSchemaReferenceArrayOutputWithContext(ctx context.Context) SchemaSchemaReferenceArrayOutput {
+	return o
+}
+
+func (o SchemaSchemaReferenceArrayOutput) Index(i pulumi.IntInput) SchemaSchemaReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaSchemaReference {
+		return vs[0].([]SchemaSchemaReference)[vs[1].(int)]
+	}).(SchemaSchemaReferenceOutput)
+}
+
+type SchemaSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// SchemaSchemaRegistryClusterInput is an input type that accepts SchemaSchemaRegistryClusterArgs and SchemaSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `SchemaSchemaRegistryClusterInput` via:
+//
+//	SchemaSchemaRegistryClusterArgs{...}
+type SchemaSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToSchemaSchemaRegistryClusterOutput() SchemaSchemaRegistryClusterOutput
+	ToSchemaSchemaRegistryClusterOutputWithContext(context.Context) SchemaSchemaRegistryClusterOutput
+}
+
+type SchemaSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (SchemaSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i SchemaSchemaRegistryClusterArgs) ToSchemaSchemaRegistryClusterOutput() SchemaSchemaRegistryClusterOutput {
+	return i.ToSchemaSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i SchemaSchemaRegistryClusterArgs) ToSchemaSchemaRegistryClusterOutputWithContext(ctx context.Context) SchemaSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaRegistryClusterOutput)
+}
+
+func (i SchemaSchemaRegistryClusterArgs) ToSchemaSchemaRegistryClusterPtrOutput() SchemaSchemaRegistryClusterPtrOutput {
+	return i.ToSchemaSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaSchemaRegistryClusterArgs) ToSchemaSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaRegistryClusterOutput).ToSchemaSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// SchemaSchemaRegistryClusterPtrInput is an input type that accepts SchemaSchemaRegistryClusterArgs, SchemaSchemaRegistryClusterPtr and SchemaSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `SchemaSchemaRegistryClusterPtrInput` via:
+//
+//	        SchemaSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchemaSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToSchemaSchemaRegistryClusterPtrOutput() SchemaSchemaRegistryClusterPtrOutput
+	ToSchemaSchemaRegistryClusterPtrOutputWithContext(context.Context) SchemaSchemaRegistryClusterPtrOutput
+}
+
+type schemaSchemaRegistryClusterPtrType SchemaSchemaRegistryClusterArgs
+
+func SchemaSchemaRegistryClusterPtr(v *SchemaSchemaRegistryClusterArgs) SchemaSchemaRegistryClusterPtrInput {
+	return (*schemaSchemaRegistryClusterPtrType)(v)
+}
+
+func (*schemaSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *schemaSchemaRegistryClusterPtrType) ToSchemaSchemaRegistryClusterPtrOutput() SchemaSchemaRegistryClusterPtrOutput {
+	return i.ToSchemaSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaSchemaRegistryClusterPtrType) ToSchemaSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaRegistryClusterPtrOutput)
+}
+
+type SchemaSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (SchemaSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o SchemaSchemaRegistryClusterOutput) ToSchemaSchemaRegistryClusterOutput() SchemaSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o SchemaSchemaRegistryClusterOutput) ToSchemaSchemaRegistryClusterOutputWithContext(ctx context.Context) SchemaSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o SchemaSchemaRegistryClusterOutput) ToSchemaSchemaRegistryClusterPtrOutput() SchemaSchemaRegistryClusterPtrOutput {
+	return o.ToSchemaSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaSchemaRegistryClusterOutput) ToSchemaSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaSchemaRegistryCluster) *SchemaSchemaRegistryCluster {
+		return &v
+	}).(SchemaSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o SchemaSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type SchemaSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o SchemaSchemaRegistryClusterPtrOutput) ToSchemaSchemaRegistryClusterPtrOutput() SchemaSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o SchemaSchemaRegistryClusterPtrOutput) ToSchemaSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o SchemaSchemaRegistryClusterPtrOutput) Elem() SchemaSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *SchemaSchemaRegistryCluster) SchemaSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaSchemaRegistryCluster
+		return ret
+	}).(SchemaSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o SchemaSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type SubjectConfigCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// SubjectConfigCredentialsInput is an input type that accepts SubjectConfigCredentialsArgs and SubjectConfigCredentialsOutput values.
+// You can construct a concrete instance of `SubjectConfigCredentialsInput` via:
+//
+//	SubjectConfigCredentialsArgs{...}
+type SubjectConfigCredentialsInput interface {
+	pulumi.Input
+
+	ToSubjectConfigCredentialsOutput() SubjectConfigCredentialsOutput
+	ToSubjectConfigCredentialsOutputWithContext(context.Context) SubjectConfigCredentialsOutput
+}
+
+type SubjectConfigCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (SubjectConfigCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubjectConfigCredentials)(nil)).Elem()
+}
+
+func (i SubjectConfigCredentialsArgs) ToSubjectConfigCredentialsOutput() SubjectConfigCredentialsOutput {
+	return i.ToSubjectConfigCredentialsOutputWithContext(context.Background())
+}
+
+func (i SubjectConfigCredentialsArgs) ToSubjectConfigCredentialsOutputWithContext(ctx context.Context) SubjectConfigCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubjectConfigCredentialsOutput)
+}
+
+func (i SubjectConfigCredentialsArgs) ToSubjectConfigCredentialsPtrOutput() SubjectConfigCredentialsPtrOutput {
+	return i.ToSubjectConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i SubjectConfigCredentialsArgs) ToSubjectConfigCredentialsPtrOutputWithContext(ctx context.Context) SubjectConfigCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubjectConfigCredentialsOutput).ToSubjectConfigCredentialsPtrOutputWithContext(ctx)
+}
+
+// SubjectConfigCredentialsPtrInput is an input type that accepts SubjectConfigCredentialsArgs, SubjectConfigCredentialsPtr and SubjectConfigCredentialsPtrOutput values.
+// You can construct a concrete instance of `SubjectConfigCredentialsPtrInput` via:
+//
+//	        SubjectConfigCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SubjectConfigCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToSubjectConfigCredentialsPtrOutput() SubjectConfigCredentialsPtrOutput
+	ToSubjectConfigCredentialsPtrOutputWithContext(context.Context) SubjectConfigCredentialsPtrOutput
+}
+
+type subjectConfigCredentialsPtrType SubjectConfigCredentialsArgs
+
+func SubjectConfigCredentialsPtr(v *SubjectConfigCredentialsArgs) SubjectConfigCredentialsPtrInput {
+	return (*subjectConfigCredentialsPtrType)(v)
+}
+
+func (*subjectConfigCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubjectConfigCredentials)(nil)).Elem()
+}
+
+func (i *subjectConfigCredentialsPtrType) ToSubjectConfigCredentialsPtrOutput() SubjectConfigCredentialsPtrOutput {
+	return i.ToSubjectConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *subjectConfigCredentialsPtrType) ToSubjectConfigCredentialsPtrOutputWithContext(ctx context.Context) SubjectConfigCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubjectConfigCredentialsPtrOutput)
+}
+
+type SubjectConfigCredentialsOutput struct{ *pulumi.OutputState }
+
+func (SubjectConfigCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubjectConfigCredentials)(nil)).Elem()
+}
+
+func (o SubjectConfigCredentialsOutput) ToSubjectConfigCredentialsOutput() SubjectConfigCredentialsOutput {
+	return o
+}
+
+func (o SubjectConfigCredentialsOutput) ToSubjectConfigCredentialsOutputWithContext(ctx context.Context) SubjectConfigCredentialsOutput {
+	return o
+}
+
+func (o SubjectConfigCredentialsOutput) ToSubjectConfigCredentialsPtrOutput() SubjectConfigCredentialsPtrOutput {
+	return o.ToSubjectConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o SubjectConfigCredentialsOutput) ToSubjectConfigCredentialsPtrOutputWithContext(ctx context.Context) SubjectConfigCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubjectConfigCredentials) *SubjectConfigCredentials {
+		return &v
+	}).(SubjectConfigCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o SubjectConfigCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SubjectConfigCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o SubjectConfigCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v SubjectConfigCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type SubjectConfigCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (SubjectConfigCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubjectConfigCredentials)(nil)).Elem()
+}
+
+func (o SubjectConfigCredentialsPtrOutput) ToSubjectConfigCredentialsPtrOutput() SubjectConfigCredentialsPtrOutput {
+	return o
+}
+
+func (o SubjectConfigCredentialsPtrOutput) ToSubjectConfigCredentialsPtrOutputWithContext(ctx context.Context) SubjectConfigCredentialsPtrOutput {
+	return o
+}
+
+func (o SubjectConfigCredentialsPtrOutput) Elem() SubjectConfigCredentialsOutput {
+	return o.ApplyT(func(v *SubjectConfigCredentials) SubjectConfigCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret SubjectConfigCredentials
+		return ret
+	}).(SubjectConfigCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o SubjectConfigCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubjectConfigCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o SubjectConfigCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubjectConfigCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type SubjectConfigSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// SubjectConfigSchemaRegistryClusterInput is an input type that accepts SubjectConfigSchemaRegistryClusterArgs and SubjectConfigSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `SubjectConfigSchemaRegistryClusterInput` via:
+//
+//	SubjectConfigSchemaRegistryClusterArgs{...}
+type SubjectConfigSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToSubjectConfigSchemaRegistryClusterOutput() SubjectConfigSchemaRegistryClusterOutput
+	ToSubjectConfigSchemaRegistryClusterOutputWithContext(context.Context) SubjectConfigSchemaRegistryClusterOutput
+}
+
+type SubjectConfigSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (SubjectConfigSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubjectConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i SubjectConfigSchemaRegistryClusterArgs) ToSubjectConfigSchemaRegistryClusterOutput() SubjectConfigSchemaRegistryClusterOutput {
+	return i.ToSubjectConfigSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i SubjectConfigSchemaRegistryClusterArgs) ToSubjectConfigSchemaRegistryClusterOutputWithContext(ctx context.Context) SubjectConfigSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubjectConfigSchemaRegistryClusterOutput)
+}
+
+func (i SubjectConfigSchemaRegistryClusterArgs) ToSubjectConfigSchemaRegistryClusterPtrOutput() SubjectConfigSchemaRegistryClusterPtrOutput {
+	return i.ToSubjectConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i SubjectConfigSchemaRegistryClusterArgs) ToSubjectConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SubjectConfigSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubjectConfigSchemaRegistryClusterOutput).ToSubjectConfigSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// SubjectConfigSchemaRegistryClusterPtrInput is an input type that accepts SubjectConfigSchemaRegistryClusterArgs, SubjectConfigSchemaRegistryClusterPtr and SubjectConfigSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `SubjectConfigSchemaRegistryClusterPtrInput` via:
+//
+//	        SubjectConfigSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type SubjectConfigSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToSubjectConfigSchemaRegistryClusterPtrOutput() SubjectConfigSchemaRegistryClusterPtrOutput
+	ToSubjectConfigSchemaRegistryClusterPtrOutputWithContext(context.Context) SubjectConfigSchemaRegistryClusterPtrOutput
+}
+
+type subjectConfigSchemaRegistryClusterPtrType SubjectConfigSchemaRegistryClusterArgs
+
+func SubjectConfigSchemaRegistryClusterPtr(v *SubjectConfigSchemaRegistryClusterArgs) SubjectConfigSchemaRegistryClusterPtrInput {
+	return (*subjectConfigSchemaRegistryClusterPtrType)(v)
+}
+
+func (*subjectConfigSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubjectConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *subjectConfigSchemaRegistryClusterPtrType) ToSubjectConfigSchemaRegistryClusterPtrOutput() SubjectConfigSchemaRegistryClusterPtrOutput {
+	return i.ToSubjectConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *subjectConfigSchemaRegistryClusterPtrType) ToSubjectConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SubjectConfigSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubjectConfigSchemaRegistryClusterPtrOutput)
+}
+
+type SubjectConfigSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (SubjectConfigSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubjectConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o SubjectConfigSchemaRegistryClusterOutput) ToSubjectConfigSchemaRegistryClusterOutput() SubjectConfigSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o SubjectConfigSchemaRegistryClusterOutput) ToSubjectConfigSchemaRegistryClusterOutputWithContext(ctx context.Context) SubjectConfigSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o SubjectConfigSchemaRegistryClusterOutput) ToSubjectConfigSchemaRegistryClusterPtrOutput() SubjectConfigSchemaRegistryClusterPtrOutput {
+	return o.ToSubjectConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o SubjectConfigSchemaRegistryClusterOutput) ToSubjectConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SubjectConfigSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubjectConfigSchemaRegistryCluster) *SubjectConfigSchemaRegistryCluster {
+		return &v
+	}).(SubjectConfigSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o SubjectConfigSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SubjectConfigSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type SubjectConfigSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (SubjectConfigSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubjectConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o SubjectConfigSchemaRegistryClusterPtrOutput) ToSubjectConfigSchemaRegistryClusterPtrOutput() SubjectConfigSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o SubjectConfigSchemaRegistryClusterPtrOutput) ToSubjectConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SubjectConfigSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o SubjectConfigSchemaRegistryClusterPtrOutput) Elem() SubjectConfigSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *SubjectConfigSchemaRegistryCluster) SubjectConfigSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret SubjectConfigSchemaRegistryCluster
+		return ret
+	}).(SubjectConfigSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o SubjectConfigSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubjectConfigSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type SubjectModeCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// SubjectModeCredentialsInput is an input type that accepts SubjectModeCredentialsArgs and SubjectModeCredentialsOutput values.
+// You can construct a concrete instance of `SubjectModeCredentialsInput` via:
+//
+//	SubjectModeCredentialsArgs{...}
+type SubjectModeCredentialsInput interface {
+	pulumi.Input
+
+	ToSubjectModeCredentialsOutput() SubjectModeCredentialsOutput
+	ToSubjectModeCredentialsOutputWithContext(context.Context) SubjectModeCredentialsOutput
+}
+
+type SubjectModeCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (SubjectModeCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubjectModeCredentials)(nil)).Elem()
+}
+
+func (i SubjectModeCredentialsArgs) ToSubjectModeCredentialsOutput() SubjectModeCredentialsOutput {
+	return i.ToSubjectModeCredentialsOutputWithContext(context.Background())
+}
+
+func (i SubjectModeCredentialsArgs) ToSubjectModeCredentialsOutputWithContext(ctx context.Context) SubjectModeCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubjectModeCredentialsOutput)
+}
+
+func (i SubjectModeCredentialsArgs) ToSubjectModeCredentialsPtrOutput() SubjectModeCredentialsPtrOutput {
+	return i.ToSubjectModeCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i SubjectModeCredentialsArgs) ToSubjectModeCredentialsPtrOutputWithContext(ctx context.Context) SubjectModeCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubjectModeCredentialsOutput).ToSubjectModeCredentialsPtrOutputWithContext(ctx)
+}
+
+// SubjectModeCredentialsPtrInput is an input type that accepts SubjectModeCredentialsArgs, SubjectModeCredentialsPtr and SubjectModeCredentialsPtrOutput values.
+// You can construct a concrete instance of `SubjectModeCredentialsPtrInput` via:
+//
+//	        SubjectModeCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SubjectModeCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToSubjectModeCredentialsPtrOutput() SubjectModeCredentialsPtrOutput
+	ToSubjectModeCredentialsPtrOutputWithContext(context.Context) SubjectModeCredentialsPtrOutput
+}
+
+type subjectModeCredentialsPtrType SubjectModeCredentialsArgs
+
+func SubjectModeCredentialsPtr(v *SubjectModeCredentialsArgs) SubjectModeCredentialsPtrInput {
+	return (*subjectModeCredentialsPtrType)(v)
+}
+
+func (*subjectModeCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubjectModeCredentials)(nil)).Elem()
+}
+
+func (i *subjectModeCredentialsPtrType) ToSubjectModeCredentialsPtrOutput() SubjectModeCredentialsPtrOutput {
+	return i.ToSubjectModeCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *subjectModeCredentialsPtrType) ToSubjectModeCredentialsPtrOutputWithContext(ctx context.Context) SubjectModeCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubjectModeCredentialsPtrOutput)
+}
+
+type SubjectModeCredentialsOutput struct{ *pulumi.OutputState }
+
+func (SubjectModeCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubjectModeCredentials)(nil)).Elem()
+}
+
+func (o SubjectModeCredentialsOutput) ToSubjectModeCredentialsOutput() SubjectModeCredentialsOutput {
+	return o
+}
+
+func (o SubjectModeCredentialsOutput) ToSubjectModeCredentialsOutputWithContext(ctx context.Context) SubjectModeCredentialsOutput {
+	return o
+}
+
+func (o SubjectModeCredentialsOutput) ToSubjectModeCredentialsPtrOutput() SubjectModeCredentialsPtrOutput {
+	return o.ToSubjectModeCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o SubjectModeCredentialsOutput) ToSubjectModeCredentialsPtrOutputWithContext(ctx context.Context) SubjectModeCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubjectModeCredentials) *SubjectModeCredentials {
+		return &v
+	}).(SubjectModeCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o SubjectModeCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SubjectModeCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o SubjectModeCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v SubjectModeCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type SubjectModeCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (SubjectModeCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubjectModeCredentials)(nil)).Elem()
+}
+
+func (o SubjectModeCredentialsPtrOutput) ToSubjectModeCredentialsPtrOutput() SubjectModeCredentialsPtrOutput {
+	return o
+}
+
+func (o SubjectModeCredentialsPtrOutput) ToSubjectModeCredentialsPtrOutputWithContext(ctx context.Context) SubjectModeCredentialsPtrOutput {
+	return o
+}
+
+func (o SubjectModeCredentialsPtrOutput) Elem() SubjectModeCredentialsOutput {
+	return o.ApplyT(func(v *SubjectModeCredentials) SubjectModeCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret SubjectModeCredentials
+		return ret
+	}).(SubjectModeCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o SubjectModeCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubjectModeCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o SubjectModeCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubjectModeCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type SubjectModeSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// SubjectModeSchemaRegistryClusterInput is an input type that accepts SubjectModeSchemaRegistryClusterArgs and SubjectModeSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `SubjectModeSchemaRegistryClusterInput` via:
+//
+//	SubjectModeSchemaRegistryClusterArgs{...}
+type SubjectModeSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToSubjectModeSchemaRegistryClusterOutput() SubjectModeSchemaRegistryClusterOutput
+	ToSubjectModeSchemaRegistryClusterOutputWithContext(context.Context) SubjectModeSchemaRegistryClusterOutput
+}
+
+type SubjectModeSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (SubjectModeSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubjectModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i SubjectModeSchemaRegistryClusterArgs) ToSubjectModeSchemaRegistryClusterOutput() SubjectModeSchemaRegistryClusterOutput {
+	return i.ToSubjectModeSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i SubjectModeSchemaRegistryClusterArgs) ToSubjectModeSchemaRegistryClusterOutputWithContext(ctx context.Context) SubjectModeSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubjectModeSchemaRegistryClusterOutput)
+}
+
+func (i SubjectModeSchemaRegistryClusterArgs) ToSubjectModeSchemaRegistryClusterPtrOutput() SubjectModeSchemaRegistryClusterPtrOutput {
+	return i.ToSubjectModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i SubjectModeSchemaRegistryClusterArgs) ToSubjectModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SubjectModeSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubjectModeSchemaRegistryClusterOutput).ToSubjectModeSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// SubjectModeSchemaRegistryClusterPtrInput is an input type that accepts SubjectModeSchemaRegistryClusterArgs, SubjectModeSchemaRegistryClusterPtr and SubjectModeSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `SubjectModeSchemaRegistryClusterPtrInput` via:
+//
+//	        SubjectModeSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type SubjectModeSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToSubjectModeSchemaRegistryClusterPtrOutput() SubjectModeSchemaRegistryClusterPtrOutput
+	ToSubjectModeSchemaRegistryClusterPtrOutputWithContext(context.Context) SubjectModeSchemaRegistryClusterPtrOutput
+}
+
+type subjectModeSchemaRegistryClusterPtrType SubjectModeSchemaRegistryClusterArgs
+
+func SubjectModeSchemaRegistryClusterPtr(v *SubjectModeSchemaRegistryClusterArgs) SubjectModeSchemaRegistryClusterPtrInput {
+	return (*subjectModeSchemaRegistryClusterPtrType)(v)
+}
+
+func (*subjectModeSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubjectModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *subjectModeSchemaRegistryClusterPtrType) ToSubjectModeSchemaRegistryClusterPtrOutput() SubjectModeSchemaRegistryClusterPtrOutput {
+	return i.ToSubjectModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *subjectModeSchemaRegistryClusterPtrType) ToSubjectModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SubjectModeSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubjectModeSchemaRegistryClusterPtrOutput)
+}
+
+type SubjectModeSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (SubjectModeSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubjectModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o SubjectModeSchemaRegistryClusterOutput) ToSubjectModeSchemaRegistryClusterOutput() SubjectModeSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o SubjectModeSchemaRegistryClusterOutput) ToSubjectModeSchemaRegistryClusterOutputWithContext(ctx context.Context) SubjectModeSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o SubjectModeSchemaRegistryClusterOutput) ToSubjectModeSchemaRegistryClusterPtrOutput() SubjectModeSchemaRegistryClusterPtrOutput {
+	return o.ToSubjectModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o SubjectModeSchemaRegistryClusterOutput) ToSubjectModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SubjectModeSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubjectModeSchemaRegistryCluster) *SubjectModeSchemaRegistryCluster {
+		return &v
+	}).(SubjectModeSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o SubjectModeSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SubjectModeSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type SubjectModeSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (SubjectModeSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubjectModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o SubjectModeSchemaRegistryClusterPtrOutput) ToSubjectModeSchemaRegistryClusterPtrOutput() SubjectModeSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o SubjectModeSchemaRegistryClusterPtrOutput) ToSubjectModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SubjectModeSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o SubjectModeSchemaRegistryClusterPtrOutput) Elem() SubjectModeSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *SubjectModeSchemaRegistryCluster) SubjectModeSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret SubjectModeSchemaRegistryCluster
+		return ret
+	}).(SubjectModeSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o SubjectModeSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubjectModeSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type TransitGatewayAttachmentAws struct {
-	// Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-	EnableCustomRoutes *bool `pulumi:"enableCustomRoutes"`
 	// The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
 	RamResourceShareArn string `pulumi:"ramResourceShareArn"`
 	// List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
@@ -6870,8 +8593,6 @@ type TransitGatewayAttachmentAwsInput interface {
 }
 
 type TransitGatewayAttachmentAwsArgs struct {
-	// Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-	EnableCustomRoutes pulumi.BoolPtrInput `pulumi:"enableCustomRoutes"`
 	// The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
 	RamResourceShareArn pulumi.StringInput `pulumi:"ramResourceShareArn"`
 	// List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
@@ -6959,11 +8680,6 @@ func (o TransitGatewayAttachmentAwsOutput) ToTransitGatewayAttachmentAwsPtrOutpu
 	}).(TransitGatewayAttachmentAwsPtrOutput)
 }
 
-// Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-func (o TransitGatewayAttachmentAwsOutput) EnableCustomRoutes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TransitGatewayAttachmentAws) *bool { return v.EnableCustomRoutes }).(pulumi.BoolPtrOutput)
-}
-
 // The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
 func (o TransitGatewayAttachmentAwsOutput) RamResourceShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TransitGatewayAttachmentAws) string { return v.RamResourceShareArn }).(pulumi.StringOutput)
@@ -7006,16 +8722,6 @@ func (o TransitGatewayAttachmentAwsPtrOutput) Elem() TransitGatewayAttachmentAws
 		var ret TransitGatewayAttachmentAws
 		return ret
 	}).(TransitGatewayAttachmentAwsOutput)
-}
-
-// Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-func (o TransitGatewayAttachmentAwsPtrOutput) EnableCustomRoutes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *TransitGatewayAttachmentAws) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableCustomRoutes
-	}).(pulumi.BoolPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
@@ -8354,6 +10060,47 @@ func (i GetKafkaTopicKafkaClusterArgs) ToGetKafkaTopicKafkaClusterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaTopicKafkaClusterOutput)
 }
 
+func (i GetKafkaTopicKafkaClusterArgs) ToGetKafkaTopicKafkaClusterPtrOutput() GetKafkaTopicKafkaClusterPtrOutput {
+	return i.ToGetKafkaTopicKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i GetKafkaTopicKafkaClusterArgs) ToGetKafkaTopicKafkaClusterPtrOutputWithContext(ctx context.Context) GetKafkaTopicKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaTopicKafkaClusterOutput).ToGetKafkaTopicKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// GetKafkaTopicKafkaClusterPtrInput is an input type that accepts GetKafkaTopicKafkaClusterArgs, GetKafkaTopicKafkaClusterPtr and GetKafkaTopicKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `GetKafkaTopicKafkaClusterPtrInput` via:
+//
+//	        GetKafkaTopicKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetKafkaTopicKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToGetKafkaTopicKafkaClusterPtrOutput() GetKafkaTopicKafkaClusterPtrOutput
+	ToGetKafkaTopicKafkaClusterPtrOutputWithContext(context.Context) GetKafkaTopicKafkaClusterPtrOutput
+}
+
+type getKafkaTopicKafkaClusterPtrType GetKafkaTopicKafkaClusterArgs
+
+func GetKafkaTopicKafkaClusterPtr(v *GetKafkaTopicKafkaClusterArgs) GetKafkaTopicKafkaClusterPtrInput {
+	return (*getKafkaTopicKafkaClusterPtrType)(v)
+}
+
+func (*getKafkaTopicKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetKafkaTopicKafkaCluster)(nil)).Elem()
+}
+
+func (i *getKafkaTopicKafkaClusterPtrType) ToGetKafkaTopicKafkaClusterPtrOutput() GetKafkaTopicKafkaClusterPtrOutput {
+	return i.ToGetKafkaTopicKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *getKafkaTopicKafkaClusterPtrType) ToGetKafkaTopicKafkaClusterPtrOutputWithContext(ctx context.Context) GetKafkaTopicKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaTopicKafkaClusterPtrOutput)
+}
+
 type GetKafkaTopicKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaTopicKafkaClusterOutput) ElementType() reflect.Type {
@@ -8368,9 +10115,53 @@ func (o GetKafkaTopicKafkaClusterOutput) ToGetKafkaTopicKafkaClusterOutputWithCo
 	return o
 }
 
+func (o GetKafkaTopicKafkaClusterOutput) ToGetKafkaTopicKafkaClusterPtrOutput() GetKafkaTopicKafkaClusterPtrOutput {
+	return o.ToGetKafkaTopicKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o GetKafkaTopicKafkaClusterOutput) ToGetKafkaTopicKafkaClusterPtrOutputWithContext(ctx context.Context) GetKafkaTopicKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetKafkaTopicKafkaCluster) *GetKafkaTopicKafkaCluster {
+		return &v
+	}).(GetKafkaTopicKafkaClusterPtrOutput)
+}
+
 // The ID of the Kafka cluster, for example, `lkc-abc123`.
 func (o GetKafkaTopicKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaTopicKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetKafkaTopicKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaTopicKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetKafkaTopicKafkaCluster)(nil)).Elem()
+}
+
+func (o GetKafkaTopicKafkaClusterPtrOutput) ToGetKafkaTopicKafkaClusterPtrOutput() GetKafkaTopicKafkaClusterPtrOutput {
+	return o
+}
+
+func (o GetKafkaTopicKafkaClusterPtrOutput) ToGetKafkaTopicKafkaClusterPtrOutputWithContext(ctx context.Context) GetKafkaTopicKafkaClusterPtrOutput {
+	return o
+}
+
+func (o GetKafkaTopicKafkaClusterPtrOutput) Elem() GetKafkaTopicKafkaClusterOutput {
+	return o.ApplyT(func(v *GetKafkaTopicKafkaCluster) GetKafkaTopicKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret GetKafkaTopicKafkaCluster
+		return ret
+	}).(GetKafkaTopicKafkaClusterOutput)
+}
+
+// The ID of the Kafka cluster, for example, `lkc-abc123`.
+func (o GetKafkaTopicKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetKafkaTopicKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetKsqlClusterCredentialIdentity struct {
@@ -8829,6 +10620,109 @@ func (o GetNetworkAzureArrayOutput) Index(i pulumi.IntInput) GetNetworkAzureOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkAzure {
 		return vs[0].([]GetNetworkAzure)[vs[1].(int)]
 	}).(GetNetworkAzureOutput)
+}
+
+type GetNetworkDnsConfig struct {
+	// (Required String) Network DNS resolution.
+	// When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+	// When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+	Resolution string `pulumi:"resolution"`
+}
+
+// GetNetworkDnsConfigInput is an input type that accepts GetNetworkDnsConfigArgs and GetNetworkDnsConfigOutput values.
+// You can construct a concrete instance of `GetNetworkDnsConfigInput` via:
+//
+//	GetNetworkDnsConfigArgs{...}
+type GetNetworkDnsConfigInput interface {
+	pulumi.Input
+
+	ToGetNetworkDnsConfigOutput() GetNetworkDnsConfigOutput
+	ToGetNetworkDnsConfigOutputWithContext(context.Context) GetNetworkDnsConfigOutput
+}
+
+type GetNetworkDnsConfigArgs struct {
+	// (Required String) Network DNS resolution.
+	// When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+	// When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+	Resolution pulumi.StringInput `pulumi:"resolution"`
+}
+
+func (GetNetworkDnsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkDnsConfig)(nil)).Elem()
+}
+
+func (i GetNetworkDnsConfigArgs) ToGetNetworkDnsConfigOutput() GetNetworkDnsConfigOutput {
+	return i.ToGetNetworkDnsConfigOutputWithContext(context.Background())
+}
+
+func (i GetNetworkDnsConfigArgs) ToGetNetworkDnsConfigOutputWithContext(ctx context.Context) GetNetworkDnsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkDnsConfigOutput)
+}
+
+// GetNetworkDnsConfigArrayInput is an input type that accepts GetNetworkDnsConfigArray and GetNetworkDnsConfigArrayOutput values.
+// You can construct a concrete instance of `GetNetworkDnsConfigArrayInput` via:
+//
+//	GetNetworkDnsConfigArray{ GetNetworkDnsConfigArgs{...} }
+type GetNetworkDnsConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkDnsConfigArrayOutput() GetNetworkDnsConfigArrayOutput
+	ToGetNetworkDnsConfigArrayOutputWithContext(context.Context) GetNetworkDnsConfigArrayOutput
+}
+
+type GetNetworkDnsConfigArray []GetNetworkDnsConfigInput
+
+func (GetNetworkDnsConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkDnsConfig)(nil)).Elem()
+}
+
+func (i GetNetworkDnsConfigArray) ToGetNetworkDnsConfigArrayOutput() GetNetworkDnsConfigArrayOutput {
+	return i.ToGetNetworkDnsConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkDnsConfigArray) ToGetNetworkDnsConfigArrayOutputWithContext(ctx context.Context) GetNetworkDnsConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkDnsConfigArrayOutput)
+}
+
+type GetNetworkDnsConfigOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkDnsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkDnsConfig)(nil)).Elem()
+}
+
+func (o GetNetworkDnsConfigOutput) ToGetNetworkDnsConfigOutput() GetNetworkDnsConfigOutput {
+	return o
+}
+
+func (o GetNetworkDnsConfigOutput) ToGetNetworkDnsConfigOutputWithContext(ctx context.Context) GetNetworkDnsConfigOutput {
+	return o
+}
+
+// (Required String) Network DNS resolution.
+// When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+// When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+func (o GetNetworkDnsConfigOutput) Resolution() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkDnsConfig) string { return v.Resolution }).(pulumi.StringOutput)
+}
+
+type GetNetworkDnsConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkDnsConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkDnsConfig)(nil)).Elem()
+}
+
+func (o GetNetworkDnsConfigArrayOutput) ToGetNetworkDnsConfigArrayOutput() GetNetworkDnsConfigArrayOutput {
+	return o
+}
+
+func (o GetNetworkDnsConfigArrayOutput) ToGetNetworkDnsConfigArrayOutputWithContext(ctx context.Context) GetNetworkDnsConfigArrayOutput {
+	return o
+}
+
+func (o GetNetworkDnsConfigArrayOutput) Index(i pulumi.IntInput) GetNetworkDnsConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkDnsConfig {
+		return vs[0].([]GetNetworkDnsConfig)[vs[1].(int)]
+	}).(GetNetworkDnsConfigOutput)
 }
 
 type GetNetworkEnvironment struct {
@@ -9941,6 +11835,455 @@ func (o GetPrivateLinkAccessNetworkArrayOutput) Index(i pulumi.IntInput) GetPriv
 	}).(GetPrivateLinkAccessNetworkOutput)
 }
 
+type GetSchemaCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// GetSchemaCredentialsInput is an input type that accepts GetSchemaCredentialsArgs and GetSchemaCredentialsOutput values.
+// You can construct a concrete instance of `GetSchemaCredentialsInput` via:
+//
+//	GetSchemaCredentialsArgs{...}
+type GetSchemaCredentialsInput interface {
+	pulumi.Input
+
+	ToGetSchemaCredentialsOutput() GetSchemaCredentialsOutput
+	ToGetSchemaCredentialsOutputWithContext(context.Context) GetSchemaCredentialsOutput
+}
+
+type GetSchemaCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetSchemaCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaCredentials)(nil)).Elem()
+}
+
+func (i GetSchemaCredentialsArgs) ToGetSchemaCredentialsOutput() GetSchemaCredentialsOutput {
+	return i.ToGetSchemaCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetSchemaCredentialsArgs) ToGetSchemaCredentialsOutputWithContext(ctx context.Context) GetSchemaCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaCredentialsOutput)
+}
+
+func (i GetSchemaCredentialsArgs) ToGetSchemaCredentialsPtrOutput() GetSchemaCredentialsPtrOutput {
+	return i.ToGetSchemaCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetSchemaCredentialsArgs) ToGetSchemaCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaCredentialsOutput).ToGetSchemaCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetSchemaCredentialsPtrInput is an input type that accepts GetSchemaCredentialsArgs, GetSchemaCredentialsPtr and GetSchemaCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetSchemaCredentialsPtrInput` via:
+//
+//	        GetSchemaCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSchemaCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetSchemaCredentialsPtrOutput() GetSchemaCredentialsPtrOutput
+	ToGetSchemaCredentialsPtrOutputWithContext(context.Context) GetSchemaCredentialsPtrOutput
+}
+
+type getSchemaCredentialsPtrType GetSchemaCredentialsArgs
+
+func GetSchemaCredentialsPtr(v *GetSchemaCredentialsArgs) GetSchemaCredentialsPtrInput {
+	return (*getSchemaCredentialsPtrType)(v)
+}
+
+func (*getSchemaCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaCredentials)(nil)).Elem()
+}
+
+func (i *getSchemaCredentialsPtrType) ToGetSchemaCredentialsPtrOutput() GetSchemaCredentialsPtrOutput {
+	return i.ToGetSchemaCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getSchemaCredentialsPtrType) ToGetSchemaCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaCredentialsPtrOutput)
+}
+
+type GetSchemaCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaCredentials)(nil)).Elem()
+}
+
+func (o GetSchemaCredentialsOutput) ToGetSchemaCredentialsOutput() GetSchemaCredentialsOutput {
+	return o
+}
+
+func (o GetSchemaCredentialsOutput) ToGetSchemaCredentialsOutputWithContext(ctx context.Context) GetSchemaCredentialsOutput {
+	return o
+}
+
+func (o GetSchemaCredentialsOutput) ToGetSchemaCredentialsPtrOutput() GetSchemaCredentialsPtrOutput {
+	return o.ToGetSchemaCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetSchemaCredentialsOutput) ToGetSchemaCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSchemaCredentials) *GetSchemaCredentials {
+		return &v
+	}).(GetSchemaCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetSchemaCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetSchemaCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetSchemaCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaCredentials)(nil)).Elem()
+}
+
+func (o GetSchemaCredentialsPtrOutput) ToGetSchemaCredentialsPtrOutput() GetSchemaCredentialsPtrOutput {
+	return o
+}
+
+func (o GetSchemaCredentialsPtrOutput) ToGetSchemaCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaCredentialsPtrOutput {
+	return o
+}
+
+func (o GetSchemaCredentialsPtrOutput) Elem() GetSchemaCredentialsOutput {
+	return o.ApplyT(func(v *GetSchemaCredentials) GetSchemaCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetSchemaCredentials
+		return ret
+	}).(GetSchemaCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetSchemaCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSchemaCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetSchemaCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSchemaCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSchemaRegistryClusterConfigCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// GetSchemaRegistryClusterConfigCredentialsInput is an input type that accepts GetSchemaRegistryClusterConfigCredentialsArgs and GetSchemaRegistryClusterConfigCredentialsOutput values.
+// You can construct a concrete instance of `GetSchemaRegistryClusterConfigCredentialsInput` via:
+//
+//	GetSchemaRegistryClusterConfigCredentialsArgs{...}
+type GetSchemaRegistryClusterConfigCredentialsInput interface {
+	pulumi.Input
+
+	ToGetSchemaRegistryClusterConfigCredentialsOutput() GetSchemaRegistryClusterConfigCredentialsOutput
+	ToGetSchemaRegistryClusterConfigCredentialsOutputWithContext(context.Context) GetSchemaRegistryClusterConfigCredentialsOutput
+}
+
+type GetSchemaRegistryClusterConfigCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetSchemaRegistryClusterConfigCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClusterConfigCredentials)(nil)).Elem()
+}
+
+func (i GetSchemaRegistryClusterConfigCredentialsArgs) ToGetSchemaRegistryClusterConfigCredentialsOutput() GetSchemaRegistryClusterConfigCredentialsOutput {
+	return i.ToGetSchemaRegistryClusterConfigCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRegistryClusterConfigCredentialsArgs) ToGetSchemaRegistryClusterConfigCredentialsOutputWithContext(ctx context.Context) GetSchemaRegistryClusterConfigCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterConfigCredentialsOutput)
+}
+
+func (i GetSchemaRegistryClusterConfigCredentialsArgs) ToGetSchemaRegistryClusterConfigCredentialsPtrOutput() GetSchemaRegistryClusterConfigCredentialsPtrOutput {
+	return i.ToGetSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRegistryClusterConfigCredentialsArgs) ToGetSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterConfigCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterConfigCredentialsOutput).ToGetSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetSchemaRegistryClusterConfigCredentialsPtrInput is an input type that accepts GetSchemaRegistryClusterConfigCredentialsArgs, GetSchemaRegistryClusterConfigCredentialsPtr and GetSchemaRegistryClusterConfigCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetSchemaRegistryClusterConfigCredentialsPtrInput` via:
+//
+//	        GetSchemaRegistryClusterConfigCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSchemaRegistryClusterConfigCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetSchemaRegistryClusterConfigCredentialsPtrOutput() GetSchemaRegistryClusterConfigCredentialsPtrOutput
+	ToGetSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(context.Context) GetSchemaRegistryClusterConfigCredentialsPtrOutput
+}
+
+type getSchemaRegistryClusterConfigCredentialsPtrType GetSchemaRegistryClusterConfigCredentialsArgs
+
+func GetSchemaRegistryClusterConfigCredentialsPtr(v *GetSchemaRegistryClusterConfigCredentialsArgs) GetSchemaRegistryClusterConfigCredentialsPtrInput {
+	return (*getSchemaRegistryClusterConfigCredentialsPtrType)(v)
+}
+
+func (*getSchemaRegistryClusterConfigCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaRegistryClusterConfigCredentials)(nil)).Elem()
+}
+
+func (i *getSchemaRegistryClusterConfigCredentialsPtrType) ToGetSchemaRegistryClusterConfigCredentialsPtrOutput() GetSchemaRegistryClusterConfigCredentialsPtrOutput {
+	return i.ToGetSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getSchemaRegistryClusterConfigCredentialsPtrType) ToGetSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterConfigCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterConfigCredentialsPtrOutput)
+}
+
+type GetSchemaRegistryClusterConfigCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRegistryClusterConfigCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClusterConfigCredentials)(nil)).Elem()
+}
+
+func (o GetSchemaRegistryClusterConfigCredentialsOutput) ToGetSchemaRegistryClusterConfigCredentialsOutput() GetSchemaRegistryClusterConfigCredentialsOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterConfigCredentialsOutput) ToGetSchemaRegistryClusterConfigCredentialsOutputWithContext(ctx context.Context) GetSchemaRegistryClusterConfigCredentialsOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterConfigCredentialsOutput) ToGetSchemaRegistryClusterConfigCredentialsPtrOutput() GetSchemaRegistryClusterConfigCredentialsPtrOutput {
+	return o.ToGetSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetSchemaRegistryClusterConfigCredentialsOutput) ToGetSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterConfigCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSchemaRegistryClusterConfigCredentials) *GetSchemaRegistryClusterConfigCredentials {
+		return &v
+	}).(GetSchemaRegistryClusterConfigCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetSchemaRegistryClusterConfigCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterConfigCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetSchemaRegistryClusterConfigCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterConfigCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetSchemaRegistryClusterConfigCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRegistryClusterConfigCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaRegistryClusterConfigCredentials)(nil)).Elem()
+}
+
+func (o GetSchemaRegistryClusterConfigCredentialsPtrOutput) ToGetSchemaRegistryClusterConfigCredentialsPtrOutput() GetSchemaRegistryClusterConfigCredentialsPtrOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterConfigCredentialsPtrOutput) ToGetSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterConfigCredentialsPtrOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterConfigCredentialsPtrOutput) Elem() GetSchemaRegistryClusterConfigCredentialsOutput {
+	return o.ApplyT(func(v *GetSchemaRegistryClusterConfigCredentials) GetSchemaRegistryClusterConfigCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetSchemaRegistryClusterConfigCredentials
+		return ret
+	}).(GetSchemaRegistryClusterConfigCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetSchemaRegistryClusterConfigCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSchemaRegistryClusterConfigCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetSchemaRegistryClusterConfigCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSchemaRegistryClusterConfigCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSchemaRegistryClusterConfigSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetSchemaRegistryClusterConfigSchemaRegistryClusterInput is an input type that accepts GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs and GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `GetSchemaRegistryClusterConfigSchemaRegistryClusterInput` via:
+//
+//	GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs{...}
+type GetSchemaRegistryClusterConfigSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToGetSchemaRegistryClusterConfigSchemaRegistryClusterOutput() GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput
+	ToGetSchemaRegistryClusterConfigSchemaRegistryClusterOutputWithContext(context.Context) GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput
+}
+
+type GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClusterConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs) ToGetSchemaRegistryClusterConfigSchemaRegistryClusterOutput() GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput {
+	return i.ToGetSchemaRegistryClusterConfigSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs) ToGetSchemaRegistryClusterConfigSchemaRegistryClusterOutputWithContext(ctx context.Context) GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput)
+}
+
+func (i GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs) ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput() GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return i.ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs) ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput).ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrInput is an input type that accepts GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs, GetSchemaRegistryClusterConfigSchemaRegistryClusterPtr and GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrInput` via:
+//
+//	        GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput() GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput
+	ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(context.Context) GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput
+}
+
+type getSchemaRegistryClusterConfigSchemaRegistryClusterPtrType GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs
+
+func GetSchemaRegistryClusterConfigSchemaRegistryClusterPtr(v *GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs) GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrInput {
+	return (*getSchemaRegistryClusterConfigSchemaRegistryClusterPtrType)(v)
+}
+
+func (*getSchemaRegistryClusterConfigSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaRegistryClusterConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *getSchemaRegistryClusterConfigSchemaRegistryClusterPtrType) ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput() GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return i.ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *getSchemaRegistryClusterConfigSchemaRegistryClusterPtrType) ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput)
+}
+
+type GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClusterConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput) ToGetSchemaRegistryClusterConfigSchemaRegistryClusterOutput() GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput) ToGetSchemaRegistryClusterConfigSchemaRegistryClusterOutputWithContext(ctx context.Context) GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput) ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput() GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return o.ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput) ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSchemaRegistryClusterConfigSchemaRegistryCluster) *GetSchemaRegistryClusterConfigSchemaRegistryCluster {
+		return &v
+	}).(GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterConfigSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaRegistryClusterConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput() GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) Elem() GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *GetSchemaRegistryClusterConfigSchemaRegistryCluster) GetSchemaRegistryClusterConfigSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret GetSchemaRegistryClusterConfigSchemaRegistryCluster
+		return ret
+	}).(GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSchemaRegistryClusterConfigSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetSchemaRegistryClusterEnvironment struct {
 	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
 	Id string `pulumi:"id"`
@@ -9991,6 +12334,299 @@ func (o GetSchemaRegistryClusterEnvironmentOutput) ToGetSchemaRegistryClusterEnv
 // The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
 func (o GetSchemaRegistryClusterEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetSchemaRegistryClusterModeCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// GetSchemaRegistryClusterModeCredentialsInput is an input type that accepts GetSchemaRegistryClusterModeCredentialsArgs and GetSchemaRegistryClusterModeCredentialsOutput values.
+// You can construct a concrete instance of `GetSchemaRegistryClusterModeCredentialsInput` via:
+//
+//	GetSchemaRegistryClusterModeCredentialsArgs{...}
+type GetSchemaRegistryClusterModeCredentialsInput interface {
+	pulumi.Input
+
+	ToGetSchemaRegistryClusterModeCredentialsOutput() GetSchemaRegistryClusterModeCredentialsOutput
+	ToGetSchemaRegistryClusterModeCredentialsOutputWithContext(context.Context) GetSchemaRegistryClusterModeCredentialsOutput
+}
+
+type GetSchemaRegistryClusterModeCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetSchemaRegistryClusterModeCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClusterModeCredentials)(nil)).Elem()
+}
+
+func (i GetSchemaRegistryClusterModeCredentialsArgs) ToGetSchemaRegistryClusterModeCredentialsOutput() GetSchemaRegistryClusterModeCredentialsOutput {
+	return i.ToGetSchemaRegistryClusterModeCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRegistryClusterModeCredentialsArgs) ToGetSchemaRegistryClusterModeCredentialsOutputWithContext(ctx context.Context) GetSchemaRegistryClusterModeCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterModeCredentialsOutput)
+}
+
+func (i GetSchemaRegistryClusterModeCredentialsArgs) ToGetSchemaRegistryClusterModeCredentialsPtrOutput() GetSchemaRegistryClusterModeCredentialsPtrOutput {
+	return i.ToGetSchemaRegistryClusterModeCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRegistryClusterModeCredentialsArgs) ToGetSchemaRegistryClusterModeCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterModeCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterModeCredentialsOutput).ToGetSchemaRegistryClusterModeCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetSchemaRegistryClusterModeCredentialsPtrInput is an input type that accepts GetSchemaRegistryClusterModeCredentialsArgs, GetSchemaRegistryClusterModeCredentialsPtr and GetSchemaRegistryClusterModeCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetSchemaRegistryClusterModeCredentialsPtrInput` via:
+//
+//	        GetSchemaRegistryClusterModeCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSchemaRegistryClusterModeCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetSchemaRegistryClusterModeCredentialsPtrOutput() GetSchemaRegistryClusterModeCredentialsPtrOutput
+	ToGetSchemaRegistryClusterModeCredentialsPtrOutputWithContext(context.Context) GetSchemaRegistryClusterModeCredentialsPtrOutput
+}
+
+type getSchemaRegistryClusterModeCredentialsPtrType GetSchemaRegistryClusterModeCredentialsArgs
+
+func GetSchemaRegistryClusterModeCredentialsPtr(v *GetSchemaRegistryClusterModeCredentialsArgs) GetSchemaRegistryClusterModeCredentialsPtrInput {
+	return (*getSchemaRegistryClusterModeCredentialsPtrType)(v)
+}
+
+func (*getSchemaRegistryClusterModeCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaRegistryClusterModeCredentials)(nil)).Elem()
+}
+
+func (i *getSchemaRegistryClusterModeCredentialsPtrType) ToGetSchemaRegistryClusterModeCredentialsPtrOutput() GetSchemaRegistryClusterModeCredentialsPtrOutput {
+	return i.ToGetSchemaRegistryClusterModeCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getSchemaRegistryClusterModeCredentialsPtrType) ToGetSchemaRegistryClusterModeCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterModeCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterModeCredentialsPtrOutput)
+}
+
+type GetSchemaRegistryClusterModeCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRegistryClusterModeCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClusterModeCredentials)(nil)).Elem()
+}
+
+func (o GetSchemaRegistryClusterModeCredentialsOutput) ToGetSchemaRegistryClusterModeCredentialsOutput() GetSchemaRegistryClusterModeCredentialsOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterModeCredentialsOutput) ToGetSchemaRegistryClusterModeCredentialsOutputWithContext(ctx context.Context) GetSchemaRegistryClusterModeCredentialsOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterModeCredentialsOutput) ToGetSchemaRegistryClusterModeCredentialsPtrOutput() GetSchemaRegistryClusterModeCredentialsPtrOutput {
+	return o.ToGetSchemaRegistryClusterModeCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetSchemaRegistryClusterModeCredentialsOutput) ToGetSchemaRegistryClusterModeCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterModeCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSchemaRegistryClusterModeCredentials) *GetSchemaRegistryClusterModeCredentials {
+		return &v
+	}).(GetSchemaRegistryClusterModeCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetSchemaRegistryClusterModeCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterModeCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetSchemaRegistryClusterModeCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterModeCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetSchemaRegistryClusterModeCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRegistryClusterModeCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaRegistryClusterModeCredentials)(nil)).Elem()
+}
+
+func (o GetSchemaRegistryClusterModeCredentialsPtrOutput) ToGetSchemaRegistryClusterModeCredentialsPtrOutput() GetSchemaRegistryClusterModeCredentialsPtrOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterModeCredentialsPtrOutput) ToGetSchemaRegistryClusterModeCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterModeCredentialsPtrOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterModeCredentialsPtrOutput) Elem() GetSchemaRegistryClusterModeCredentialsOutput {
+	return o.ApplyT(func(v *GetSchemaRegistryClusterModeCredentials) GetSchemaRegistryClusterModeCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetSchemaRegistryClusterModeCredentials
+		return ret
+	}).(GetSchemaRegistryClusterModeCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetSchemaRegistryClusterModeCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSchemaRegistryClusterModeCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetSchemaRegistryClusterModeCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSchemaRegistryClusterModeCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSchemaRegistryClusterModeSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetSchemaRegistryClusterModeSchemaRegistryClusterInput is an input type that accepts GetSchemaRegistryClusterModeSchemaRegistryClusterArgs and GetSchemaRegistryClusterModeSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `GetSchemaRegistryClusterModeSchemaRegistryClusterInput` via:
+//
+//	GetSchemaRegistryClusterModeSchemaRegistryClusterArgs{...}
+type GetSchemaRegistryClusterModeSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToGetSchemaRegistryClusterModeSchemaRegistryClusterOutput() GetSchemaRegistryClusterModeSchemaRegistryClusterOutput
+	ToGetSchemaRegistryClusterModeSchemaRegistryClusterOutputWithContext(context.Context) GetSchemaRegistryClusterModeSchemaRegistryClusterOutput
+}
+
+type GetSchemaRegistryClusterModeSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetSchemaRegistryClusterModeSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClusterModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i GetSchemaRegistryClusterModeSchemaRegistryClusterArgs) ToGetSchemaRegistryClusterModeSchemaRegistryClusterOutput() GetSchemaRegistryClusterModeSchemaRegistryClusterOutput {
+	return i.ToGetSchemaRegistryClusterModeSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRegistryClusterModeSchemaRegistryClusterArgs) ToGetSchemaRegistryClusterModeSchemaRegistryClusterOutputWithContext(ctx context.Context) GetSchemaRegistryClusterModeSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterModeSchemaRegistryClusterOutput)
+}
+
+func (i GetSchemaRegistryClusterModeSchemaRegistryClusterArgs) ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput() GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return i.ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRegistryClusterModeSchemaRegistryClusterArgs) ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterModeSchemaRegistryClusterOutput).ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// GetSchemaRegistryClusterModeSchemaRegistryClusterPtrInput is an input type that accepts GetSchemaRegistryClusterModeSchemaRegistryClusterArgs, GetSchemaRegistryClusterModeSchemaRegistryClusterPtr and GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `GetSchemaRegistryClusterModeSchemaRegistryClusterPtrInput` via:
+//
+//	        GetSchemaRegistryClusterModeSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSchemaRegistryClusterModeSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput() GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput
+	ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(context.Context) GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput
+}
+
+type getSchemaRegistryClusterModeSchemaRegistryClusterPtrType GetSchemaRegistryClusterModeSchemaRegistryClusterArgs
+
+func GetSchemaRegistryClusterModeSchemaRegistryClusterPtr(v *GetSchemaRegistryClusterModeSchemaRegistryClusterArgs) GetSchemaRegistryClusterModeSchemaRegistryClusterPtrInput {
+	return (*getSchemaRegistryClusterModeSchemaRegistryClusterPtrType)(v)
+}
+
+func (*getSchemaRegistryClusterModeSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaRegistryClusterModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *getSchemaRegistryClusterModeSchemaRegistryClusterPtrType) ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput() GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return i.ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *getSchemaRegistryClusterModeSchemaRegistryClusterPtrType) ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput)
+}
+
+type GetSchemaRegistryClusterModeSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRegistryClusterModeSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClusterModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetSchemaRegistryClusterModeSchemaRegistryClusterOutput) ToGetSchemaRegistryClusterModeSchemaRegistryClusterOutput() GetSchemaRegistryClusterModeSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterModeSchemaRegistryClusterOutput) ToGetSchemaRegistryClusterModeSchemaRegistryClusterOutputWithContext(ctx context.Context) GetSchemaRegistryClusterModeSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterModeSchemaRegistryClusterOutput) ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput() GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return o.ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o GetSchemaRegistryClusterModeSchemaRegistryClusterOutput) ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSchemaRegistryClusterModeSchemaRegistryCluster) *GetSchemaRegistryClusterModeSchemaRegistryCluster {
+		return &v
+	}).(GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetSchemaRegistryClusterModeSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClusterModeSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaRegistryClusterModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput() GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) Elem() GetSchemaRegistryClusterModeSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *GetSchemaRegistryClusterModeSchemaRegistryCluster) GetSchemaRegistryClusterModeSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret GetSchemaRegistryClusterModeSchemaRegistryCluster
+		return ret
+	}).(GetSchemaRegistryClusterModeSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSchemaRegistryClusterModeSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetSchemaRegistryClusterRegion struct {
@@ -10090,9 +12726,845 @@ func (o GetSchemaRegistryClusterRegionArrayOutput) Index(i pulumi.IntInput) GetS
 	}).(GetSchemaRegistryClusterRegionOutput)
 }
 
+type GetSchemaSchemaReference struct {
+	// (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+	Name string `pulumi:"name"`
+	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
+	SubjectName string `pulumi:"subjectName"`
+	// (Required Integer) The version of the Schema, for example, `4`.
+	Version int `pulumi:"version"`
+}
+
+// GetSchemaSchemaReferenceInput is an input type that accepts GetSchemaSchemaReferenceArgs and GetSchemaSchemaReferenceOutput values.
+// You can construct a concrete instance of `GetSchemaSchemaReferenceInput` via:
+//
+//	GetSchemaSchemaReferenceArgs{...}
+type GetSchemaSchemaReferenceInput interface {
+	pulumi.Input
+
+	ToGetSchemaSchemaReferenceOutput() GetSchemaSchemaReferenceOutput
+	ToGetSchemaSchemaReferenceOutputWithContext(context.Context) GetSchemaSchemaReferenceOutput
+}
+
+type GetSchemaSchemaReferenceArgs struct {
+	// (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
+	SubjectName pulumi.StringInput `pulumi:"subjectName"`
+	// (Required Integer) The version of the Schema, for example, `4`.
+	Version pulumi.IntInput `pulumi:"version"`
+}
+
+func (GetSchemaSchemaReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaSchemaReference)(nil)).Elem()
+}
+
+func (i GetSchemaSchemaReferenceArgs) ToGetSchemaSchemaReferenceOutput() GetSchemaSchemaReferenceOutput {
+	return i.ToGetSchemaSchemaReferenceOutputWithContext(context.Background())
+}
+
+func (i GetSchemaSchemaReferenceArgs) ToGetSchemaSchemaReferenceOutputWithContext(ctx context.Context) GetSchemaSchemaReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaSchemaReferenceOutput)
+}
+
+// GetSchemaSchemaReferenceArrayInput is an input type that accepts GetSchemaSchemaReferenceArray and GetSchemaSchemaReferenceArrayOutput values.
+// You can construct a concrete instance of `GetSchemaSchemaReferenceArrayInput` via:
+//
+//	GetSchemaSchemaReferenceArray{ GetSchemaSchemaReferenceArgs{...} }
+type GetSchemaSchemaReferenceArrayInput interface {
+	pulumi.Input
+
+	ToGetSchemaSchemaReferenceArrayOutput() GetSchemaSchemaReferenceArrayOutput
+	ToGetSchemaSchemaReferenceArrayOutputWithContext(context.Context) GetSchemaSchemaReferenceArrayOutput
+}
+
+type GetSchemaSchemaReferenceArray []GetSchemaSchemaReferenceInput
+
+func (GetSchemaSchemaReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemaSchemaReference)(nil)).Elem()
+}
+
+func (i GetSchemaSchemaReferenceArray) ToGetSchemaSchemaReferenceArrayOutput() GetSchemaSchemaReferenceArrayOutput {
+	return i.ToGetSchemaSchemaReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i GetSchemaSchemaReferenceArray) ToGetSchemaSchemaReferenceArrayOutputWithContext(ctx context.Context) GetSchemaSchemaReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaSchemaReferenceArrayOutput)
+}
+
+type GetSchemaSchemaReferenceOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaSchemaReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaSchemaReference)(nil)).Elem()
+}
+
+func (o GetSchemaSchemaReferenceOutput) ToGetSchemaSchemaReferenceOutput() GetSchemaSchemaReferenceOutput {
+	return o
+}
+
+func (o GetSchemaSchemaReferenceOutput) ToGetSchemaSchemaReferenceOutputWithContext(ctx context.Context) GetSchemaSchemaReferenceOutput {
+	return o
+}
+
+// (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+func (o GetSchemaSchemaReferenceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaSchemaReference) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
+func (o GetSchemaSchemaReferenceOutput) SubjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaSchemaReference) string { return v.SubjectName }).(pulumi.StringOutput)
+}
+
+// (Required Integer) The version of the Schema, for example, `4`.
+func (o GetSchemaSchemaReferenceOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSchemaSchemaReference) int { return v.Version }).(pulumi.IntOutput)
+}
+
+type GetSchemaSchemaReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaSchemaReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemaSchemaReference)(nil)).Elem()
+}
+
+func (o GetSchemaSchemaReferenceArrayOutput) ToGetSchemaSchemaReferenceArrayOutput() GetSchemaSchemaReferenceArrayOutput {
+	return o
+}
+
+func (o GetSchemaSchemaReferenceArrayOutput) ToGetSchemaSchemaReferenceArrayOutputWithContext(ctx context.Context) GetSchemaSchemaReferenceArrayOutput {
+	return o
+}
+
+func (o GetSchemaSchemaReferenceArrayOutput) Index(i pulumi.IntInput) GetSchemaSchemaReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSchemaSchemaReference {
+		return vs[0].([]GetSchemaSchemaReference)[vs[1].(int)]
+	}).(GetSchemaSchemaReferenceOutput)
+}
+
+type GetSchemaSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetSchemaSchemaRegistryClusterInput is an input type that accepts GetSchemaSchemaRegistryClusterArgs and GetSchemaSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `GetSchemaSchemaRegistryClusterInput` via:
+//
+//	GetSchemaSchemaRegistryClusterArgs{...}
+type GetSchemaSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToGetSchemaSchemaRegistryClusterOutput() GetSchemaSchemaRegistryClusterOutput
+	ToGetSchemaSchemaRegistryClusterOutputWithContext(context.Context) GetSchemaSchemaRegistryClusterOutput
+}
+
+type GetSchemaSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetSchemaSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i GetSchemaSchemaRegistryClusterArgs) ToGetSchemaSchemaRegistryClusterOutput() GetSchemaSchemaRegistryClusterOutput {
+	return i.ToGetSchemaSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i GetSchemaSchemaRegistryClusterArgs) ToGetSchemaSchemaRegistryClusterOutputWithContext(ctx context.Context) GetSchemaSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaSchemaRegistryClusterOutput)
+}
+
+func (i GetSchemaSchemaRegistryClusterArgs) ToGetSchemaSchemaRegistryClusterPtrOutput() GetSchemaSchemaRegistryClusterPtrOutput {
+	return i.ToGetSchemaSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i GetSchemaSchemaRegistryClusterArgs) ToGetSchemaSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaSchemaRegistryClusterOutput).ToGetSchemaSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// GetSchemaSchemaRegistryClusterPtrInput is an input type that accepts GetSchemaSchemaRegistryClusterArgs, GetSchemaSchemaRegistryClusterPtr and GetSchemaSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `GetSchemaSchemaRegistryClusterPtrInput` via:
+//
+//	        GetSchemaSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSchemaSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToGetSchemaSchemaRegistryClusterPtrOutput() GetSchemaSchemaRegistryClusterPtrOutput
+	ToGetSchemaSchemaRegistryClusterPtrOutputWithContext(context.Context) GetSchemaSchemaRegistryClusterPtrOutput
+}
+
+type getSchemaSchemaRegistryClusterPtrType GetSchemaSchemaRegistryClusterArgs
+
+func GetSchemaSchemaRegistryClusterPtr(v *GetSchemaSchemaRegistryClusterArgs) GetSchemaSchemaRegistryClusterPtrInput {
+	return (*getSchemaSchemaRegistryClusterPtrType)(v)
+}
+
+func (*getSchemaSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *getSchemaSchemaRegistryClusterPtrType) ToGetSchemaSchemaRegistryClusterPtrOutput() GetSchemaSchemaRegistryClusterPtrOutput {
+	return i.ToGetSchemaSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *getSchemaSchemaRegistryClusterPtrType) ToGetSchemaSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaSchemaRegistryClusterPtrOutput)
+}
+
+type GetSchemaSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetSchemaSchemaRegistryClusterOutput) ToGetSchemaSchemaRegistryClusterOutput() GetSchemaSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetSchemaSchemaRegistryClusterOutput) ToGetSchemaSchemaRegistryClusterOutputWithContext(ctx context.Context) GetSchemaSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetSchemaSchemaRegistryClusterOutput) ToGetSchemaSchemaRegistryClusterPtrOutput() GetSchemaSchemaRegistryClusterPtrOutput {
+	return o.ToGetSchemaSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o GetSchemaSchemaRegistryClusterOutput) ToGetSchemaSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSchemaSchemaRegistryCluster) *GetSchemaSchemaRegistryCluster {
+		return &v
+	}).(GetSchemaSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetSchemaSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetSchemaSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetSchemaSchemaRegistryClusterPtrOutput) ToGetSchemaSchemaRegistryClusterPtrOutput() GetSchemaSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetSchemaSchemaRegistryClusterPtrOutput) ToGetSchemaSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetSchemaSchemaRegistryClusterPtrOutput) Elem() GetSchemaSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *GetSchemaSchemaRegistryCluster) GetSchemaSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret GetSchemaSchemaRegistryCluster
+		return ret
+	}).(GetSchemaSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetSchemaSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSchemaSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSubjectConfigCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// GetSubjectConfigCredentialsInput is an input type that accepts GetSubjectConfigCredentialsArgs and GetSubjectConfigCredentialsOutput values.
+// You can construct a concrete instance of `GetSubjectConfigCredentialsInput` via:
+//
+//	GetSubjectConfigCredentialsArgs{...}
+type GetSubjectConfigCredentialsInput interface {
+	pulumi.Input
+
+	ToGetSubjectConfigCredentialsOutput() GetSubjectConfigCredentialsOutput
+	ToGetSubjectConfigCredentialsOutputWithContext(context.Context) GetSubjectConfigCredentialsOutput
+}
+
+type GetSubjectConfigCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetSubjectConfigCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubjectConfigCredentials)(nil)).Elem()
+}
+
+func (i GetSubjectConfigCredentialsArgs) ToGetSubjectConfigCredentialsOutput() GetSubjectConfigCredentialsOutput {
+	return i.ToGetSubjectConfigCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetSubjectConfigCredentialsArgs) ToGetSubjectConfigCredentialsOutputWithContext(ctx context.Context) GetSubjectConfigCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectConfigCredentialsOutput)
+}
+
+func (i GetSubjectConfigCredentialsArgs) ToGetSubjectConfigCredentialsPtrOutput() GetSubjectConfigCredentialsPtrOutput {
+	return i.ToGetSubjectConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetSubjectConfigCredentialsArgs) ToGetSubjectConfigCredentialsPtrOutputWithContext(ctx context.Context) GetSubjectConfigCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectConfigCredentialsOutput).ToGetSubjectConfigCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetSubjectConfigCredentialsPtrInput is an input type that accepts GetSubjectConfigCredentialsArgs, GetSubjectConfigCredentialsPtr and GetSubjectConfigCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetSubjectConfigCredentialsPtrInput` via:
+//
+//	        GetSubjectConfigCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSubjectConfigCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetSubjectConfigCredentialsPtrOutput() GetSubjectConfigCredentialsPtrOutput
+	ToGetSubjectConfigCredentialsPtrOutputWithContext(context.Context) GetSubjectConfigCredentialsPtrOutput
+}
+
+type getSubjectConfigCredentialsPtrType GetSubjectConfigCredentialsArgs
+
+func GetSubjectConfigCredentialsPtr(v *GetSubjectConfigCredentialsArgs) GetSubjectConfigCredentialsPtrInput {
+	return (*getSubjectConfigCredentialsPtrType)(v)
+}
+
+func (*getSubjectConfigCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSubjectConfigCredentials)(nil)).Elem()
+}
+
+func (i *getSubjectConfigCredentialsPtrType) ToGetSubjectConfigCredentialsPtrOutput() GetSubjectConfigCredentialsPtrOutput {
+	return i.ToGetSubjectConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getSubjectConfigCredentialsPtrType) ToGetSubjectConfigCredentialsPtrOutputWithContext(ctx context.Context) GetSubjectConfigCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectConfigCredentialsPtrOutput)
+}
+
+type GetSubjectConfigCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetSubjectConfigCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubjectConfigCredentials)(nil)).Elem()
+}
+
+func (o GetSubjectConfigCredentialsOutput) ToGetSubjectConfigCredentialsOutput() GetSubjectConfigCredentialsOutput {
+	return o
+}
+
+func (o GetSubjectConfigCredentialsOutput) ToGetSubjectConfigCredentialsOutputWithContext(ctx context.Context) GetSubjectConfigCredentialsOutput {
+	return o
+}
+
+func (o GetSubjectConfigCredentialsOutput) ToGetSubjectConfigCredentialsPtrOutput() GetSubjectConfigCredentialsPtrOutput {
+	return o.ToGetSubjectConfigCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetSubjectConfigCredentialsOutput) ToGetSubjectConfigCredentialsPtrOutputWithContext(ctx context.Context) GetSubjectConfigCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSubjectConfigCredentials) *GetSubjectConfigCredentials {
+		return &v
+	}).(GetSubjectConfigCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetSubjectConfigCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubjectConfigCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetSubjectConfigCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubjectConfigCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetSubjectConfigCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSubjectConfigCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSubjectConfigCredentials)(nil)).Elem()
+}
+
+func (o GetSubjectConfigCredentialsPtrOutput) ToGetSubjectConfigCredentialsPtrOutput() GetSubjectConfigCredentialsPtrOutput {
+	return o
+}
+
+func (o GetSubjectConfigCredentialsPtrOutput) ToGetSubjectConfigCredentialsPtrOutputWithContext(ctx context.Context) GetSubjectConfigCredentialsPtrOutput {
+	return o
+}
+
+func (o GetSubjectConfigCredentialsPtrOutput) Elem() GetSubjectConfigCredentialsOutput {
+	return o.ApplyT(func(v *GetSubjectConfigCredentials) GetSubjectConfigCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetSubjectConfigCredentials
+		return ret
+	}).(GetSubjectConfigCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetSubjectConfigCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSubjectConfigCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetSubjectConfigCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSubjectConfigCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSubjectConfigSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetSubjectConfigSchemaRegistryClusterInput is an input type that accepts GetSubjectConfigSchemaRegistryClusterArgs and GetSubjectConfigSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `GetSubjectConfigSchemaRegistryClusterInput` via:
+//
+//	GetSubjectConfigSchemaRegistryClusterArgs{...}
+type GetSubjectConfigSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToGetSubjectConfigSchemaRegistryClusterOutput() GetSubjectConfigSchemaRegistryClusterOutput
+	ToGetSubjectConfigSchemaRegistryClusterOutputWithContext(context.Context) GetSubjectConfigSchemaRegistryClusterOutput
+}
+
+type GetSubjectConfigSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetSubjectConfigSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubjectConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i GetSubjectConfigSchemaRegistryClusterArgs) ToGetSubjectConfigSchemaRegistryClusterOutput() GetSubjectConfigSchemaRegistryClusterOutput {
+	return i.ToGetSubjectConfigSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i GetSubjectConfigSchemaRegistryClusterArgs) ToGetSubjectConfigSchemaRegistryClusterOutputWithContext(ctx context.Context) GetSubjectConfigSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectConfigSchemaRegistryClusterOutput)
+}
+
+func (i GetSubjectConfigSchemaRegistryClusterArgs) ToGetSubjectConfigSchemaRegistryClusterPtrOutput() GetSubjectConfigSchemaRegistryClusterPtrOutput {
+	return i.ToGetSubjectConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i GetSubjectConfigSchemaRegistryClusterArgs) ToGetSubjectConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSubjectConfigSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectConfigSchemaRegistryClusterOutput).ToGetSubjectConfigSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// GetSubjectConfigSchemaRegistryClusterPtrInput is an input type that accepts GetSubjectConfigSchemaRegistryClusterArgs, GetSubjectConfigSchemaRegistryClusterPtr and GetSubjectConfigSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `GetSubjectConfigSchemaRegistryClusterPtrInput` via:
+//
+//	        GetSubjectConfigSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSubjectConfigSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToGetSubjectConfigSchemaRegistryClusterPtrOutput() GetSubjectConfigSchemaRegistryClusterPtrOutput
+	ToGetSubjectConfigSchemaRegistryClusterPtrOutputWithContext(context.Context) GetSubjectConfigSchemaRegistryClusterPtrOutput
+}
+
+type getSubjectConfigSchemaRegistryClusterPtrType GetSubjectConfigSchemaRegistryClusterArgs
+
+func GetSubjectConfigSchemaRegistryClusterPtr(v *GetSubjectConfigSchemaRegistryClusterArgs) GetSubjectConfigSchemaRegistryClusterPtrInput {
+	return (*getSubjectConfigSchemaRegistryClusterPtrType)(v)
+}
+
+func (*getSubjectConfigSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSubjectConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *getSubjectConfigSchemaRegistryClusterPtrType) ToGetSubjectConfigSchemaRegistryClusterPtrOutput() GetSubjectConfigSchemaRegistryClusterPtrOutput {
+	return i.ToGetSubjectConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *getSubjectConfigSchemaRegistryClusterPtrType) ToGetSubjectConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSubjectConfigSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectConfigSchemaRegistryClusterPtrOutput)
+}
+
+type GetSubjectConfigSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (GetSubjectConfigSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubjectConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetSubjectConfigSchemaRegistryClusterOutput) ToGetSubjectConfigSchemaRegistryClusterOutput() GetSubjectConfigSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetSubjectConfigSchemaRegistryClusterOutput) ToGetSubjectConfigSchemaRegistryClusterOutputWithContext(ctx context.Context) GetSubjectConfigSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetSubjectConfigSchemaRegistryClusterOutput) ToGetSubjectConfigSchemaRegistryClusterPtrOutput() GetSubjectConfigSchemaRegistryClusterPtrOutput {
+	return o.ToGetSubjectConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o GetSubjectConfigSchemaRegistryClusterOutput) ToGetSubjectConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSubjectConfigSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSubjectConfigSchemaRegistryCluster) *GetSubjectConfigSchemaRegistryCluster {
+		return &v
+	}).(GetSubjectConfigSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetSubjectConfigSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubjectConfigSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetSubjectConfigSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSubjectConfigSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSubjectConfigSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetSubjectConfigSchemaRegistryClusterPtrOutput) ToGetSubjectConfigSchemaRegistryClusterPtrOutput() GetSubjectConfigSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetSubjectConfigSchemaRegistryClusterPtrOutput) ToGetSubjectConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSubjectConfigSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetSubjectConfigSchemaRegistryClusterPtrOutput) Elem() GetSubjectConfigSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *GetSubjectConfigSchemaRegistryCluster) GetSubjectConfigSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret GetSubjectConfigSchemaRegistryCluster
+		return ret
+	}).(GetSubjectConfigSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetSubjectConfigSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSubjectConfigSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSubjectModeCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// GetSubjectModeCredentialsInput is an input type that accepts GetSubjectModeCredentialsArgs and GetSubjectModeCredentialsOutput values.
+// You can construct a concrete instance of `GetSubjectModeCredentialsInput` via:
+//
+//	GetSubjectModeCredentialsArgs{...}
+type GetSubjectModeCredentialsInput interface {
+	pulumi.Input
+
+	ToGetSubjectModeCredentialsOutput() GetSubjectModeCredentialsOutput
+	ToGetSubjectModeCredentialsOutputWithContext(context.Context) GetSubjectModeCredentialsOutput
+}
+
+type GetSubjectModeCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetSubjectModeCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubjectModeCredentials)(nil)).Elem()
+}
+
+func (i GetSubjectModeCredentialsArgs) ToGetSubjectModeCredentialsOutput() GetSubjectModeCredentialsOutput {
+	return i.ToGetSubjectModeCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetSubjectModeCredentialsArgs) ToGetSubjectModeCredentialsOutputWithContext(ctx context.Context) GetSubjectModeCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectModeCredentialsOutput)
+}
+
+func (i GetSubjectModeCredentialsArgs) ToGetSubjectModeCredentialsPtrOutput() GetSubjectModeCredentialsPtrOutput {
+	return i.ToGetSubjectModeCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetSubjectModeCredentialsArgs) ToGetSubjectModeCredentialsPtrOutputWithContext(ctx context.Context) GetSubjectModeCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectModeCredentialsOutput).ToGetSubjectModeCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetSubjectModeCredentialsPtrInput is an input type that accepts GetSubjectModeCredentialsArgs, GetSubjectModeCredentialsPtr and GetSubjectModeCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetSubjectModeCredentialsPtrInput` via:
+//
+//	        GetSubjectModeCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSubjectModeCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetSubjectModeCredentialsPtrOutput() GetSubjectModeCredentialsPtrOutput
+	ToGetSubjectModeCredentialsPtrOutputWithContext(context.Context) GetSubjectModeCredentialsPtrOutput
+}
+
+type getSubjectModeCredentialsPtrType GetSubjectModeCredentialsArgs
+
+func GetSubjectModeCredentialsPtr(v *GetSubjectModeCredentialsArgs) GetSubjectModeCredentialsPtrInput {
+	return (*getSubjectModeCredentialsPtrType)(v)
+}
+
+func (*getSubjectModeCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSubjectModeCredentials)(nil)).Elem()
+}
+
+func (i *getSubjectModeCredentialsPtrType) ToGetSubjectModeCredentialsPtrOutput() GetSubjectModeCredentialsPtrOutput {
+	return i.ToGetSubjectModeCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getSubjectModeCredentialsPtrType) ToGetSubjectModeCredentialsPtrOutputWithContext(ctx context.Context) GetSubjectModeCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectModeCredentialsPtrOutput)
+}
+
+type GetSubjectModeCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetSubjectModeCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubjectModeCredentials)(nil)).Elem()
+}
+
+func (o GetSubjectModeCredentialsOutput) ToGetSubjectModeCredentialsOutput() GetSubjectModeCredentialsOutput {
+	return o
+}
+
+func (o GetSubjectModeCredentialsOutput) ToGetSubjectModeCredentialsOutputWithContext(ctx context.Context) GetSubjectModeCredentialsOutput {
+	return o
+}
+
+func (o GetSubjectModeCredentialsOutput) ToGetSubjectModeCredentialsPtrOutput() GetSubjectModeCredentialsPtrOutput {
+	return o.ToGetSubjectModeCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetSubjectModeCredentialsOutput) ToGetSubjectModeCredentialsPtrOutputWithContext(ctx context.Context) GetSubjectModeCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSubjectModeCredentials) *GetSubjectModeCredentials {
+		return &v
+	}).(GetSubjectModeCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetSubjectModeCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubjectModeCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetSubjectModeCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubjectModeCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetSubjectModeCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSubjectModeCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSubjectModeCredentials)(nil)).Elem()
+}
+
+func (o GetSubjectModeCredentialsPtrOutput) ToGetSubjectModeCredentialsPtrOutput() GetSubjectModeCredentialsPtrOutput {
+	return o
+}
+
+func (o GetSubjectModeCredentialsPtrOutput) ToGetSubjectModeCredentialsPtrOutputWithContext(ctx context.Context) GetSubjectModeCredentialsPtrOutput {
+	return o
+}
+
+func (o GetSubjectModeCredentialsPtrOutput) Elem() GetSubjectModeCredentialsOutput {
+	return o.ApplyT(func(v *GetSubjectModeCredentials) GetSubjectModeCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetSubjectModeCredentials
+		return ret
+	}).(GetSubjectModeCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetSubjectModeCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSubjectModeCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetSubjectModeCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSubjectModeCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSubjectModeSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetSubjectModeSchemaRegistryClusterInput is an input type that accepts GetSubjectModeSchemaRegistryClusterArgs and GetSubjectModeSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `GetSubjectModeSchemaRegistryClusterInput` via:
+//
+//	GetSubjectModeSchemaRegistryClusterArgs{...}
+type GetSubjectModeSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToGetSubjectModeSchemaRegistryClusterOutput() GetSubjectModeSchemaRegistryClusterOutput
+	ToGetSubjectModeSchemaRegistryClusterOutputWithContext(context.Context) GetSubjectModeSchemaRegistryClusterOutput
+}
+
+type GetSubjectModeSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetSubjectModeSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubjectModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i GetSubjectModeSchemaRegistryClusterArgs) ToGetSubjectModeSchemaRegistryClusterOutput() GetSubjectModeSchemaRegistryClusterOutput {
+	return i.ToGetSubjectModeSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i GetSubjectModeSchemaRegistryClusterArgs) ToGetSubjectModeSchemaRegistryClusterOutputWithContext(ctx context.Context) GetSubjectModeSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectModeSchemaRegistryClusterOutput)
+}
+
+func (i GetSubjectModeSchemaRegistryClusterArgs) ToGetSubjectModeSchemaRegistryClusterPtrOutput() GetSubjectModeSchemaRegistryClusterPtrOutput {
+	return i.ToGetSubjectModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i GetSubjectModeSchemaRegistryClusterArgs) ToGetSubjectModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSubjectModeSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectModeSchemaRegistryClusterOutput).ToGetSubjectModeSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// GetSubjectModeSchemaRegistryClusterPtrInput is an input type that accepts GetSubjectModeSchemaRegistryClusterArgs, GetSubjectModeSchemaRegistryClusterPtr and GetSubjectModeSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `GetSubjectModeSchemaRegistryClusterPtrInput` via:
+//
+//	        GetSubjectModeSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSubjectModeSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToGetSubjectModeSchemaRegistryClusterPtrOutput() GetSubjectModeSchemaRegistryClusterPtrOutput
+	ToGetSubjectModeSchemaRegistryClusterPtrOutputWithContext(context.Context) GetSubjectModeSchemaRegistryClusterPtrOutput
+}
+
+type getSubjectModeSchemaRegistryClusterPtrType GetSubjectModeSchemaRegistryClusterArgs
+
+func GetSubjectModeSchemaRegistryClusterPtr(v *GetSubjectModeSchemaRegistryClusterArgs) GetSubjectModeSchemaRegistryClusterPtrInput {
+	return (*getSubjectModeSchemaRegistryClusterPtrType)(v)
+}
+
+func (*getSubjectModeSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSubjectModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *getSubjectModeSchemaRegistryClusterPtrType) ToGetSubjectModeSchemaRegistryClusterPtrOutput() GetSubjectModeSchemaRegistryClusterPtrOutput {
+	return i.ToGetSubjectModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *getSubjectModeSchemaRegistryClusterPtrType) ToGetSubjectModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSubjectModeSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectModeSchemaRegistryClusterPtrOutput)
+}
+
+type GetSubjectModeSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (GetSubjectModeSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubjectModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetSubjectModeSchemaRegistryClusterOutput) ToGetSubjectModeSchemaRegistryClusterOutput() GetSubjectModeSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetSubjectModeSchemaRegistryClusterOutput) ToGetSubjectModeSchemaRegistryClusterOutputWithContext(ctx context.Context) GetSubjectModeSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetSubjectModeSchemaRegistryClusterOutput) ToGetSubjectModeSchemaRegistryClusterPtrOutput() GetSubjectModeSchemaRegistryClusterPtrOutput {
+	return o.ToGetSubjectModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o GetSubjectModeSchemaRegistryClusterOutput) ToGetSubjectModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSubjectModeSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSubjectModeSchemaRegistryCluster) *GetSubjectModeSchemaRegistryCluster {
+		return &v
+	}).(GetSubjectModeSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetSubjectModeSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubjectModeSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetSubjectModeSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSubjectModeSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSubjectModeSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetSubjectModeSchemaRegistryClusterPtrOutput) ToGetSubjectModeSchemaRegistryClusterPtrOutput() GetSubjectModeSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetSubjectModeSchemaRegistryClusterPtrOutput) ToGetSubjectModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSubjectModeSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetSubjectModeSchemaRegistryClusterPtrOutput) Elem() GetSubjectModeSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *GetSubjectModeSchemaRegistryCluster) GetSubjectModeSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret GetSubjectModeSchemaRegistryCluster
+		return ret
+	}).(GetSubjectModeSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetSubjectModeSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSubjectModeSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetTransitGatewayAttachmentAw struct {
-	// (Required String) Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-	EnableCustomRoutes bool `pulumi:"enableCustomRoutes"`
 	// (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
 	RamResourceShareArn string `pulumi:"ramResourceShareArn"`
 	// (Required List of String) List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
@@ -10115,8 +13587,6 @@ type GetTransitGatewayAttachmentAwInput interface {
 }
 
 type GetTransitGatewayAttachmentAwArgs struct {
-	// (Required String) Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-	EnableCustomRoutes pulumi.BoolInput `pulumi:"enableCustomRoutes"`
 	// (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
 	RamResourceShareArn pulumi.StringInput `pulumi:"ramResourceShareArn"`
 	// (Required List of String) List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
@@ -10176,11 +13646,6 @@ func (o GetTransitGatewayAttachmentAwOutput) ToGetTransitGatewayAttachmentAwOutp
 
 func (o GetTransitGatewayAttachmentAwOutput) ToGetTransitGatewayAttachmentAwOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentAwOutput {
 	return o
-}
-
-// (Required String) Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-func (o GetTransitGatewayAttachmentAwOutput) EnableCustomRoutes() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetTransitGatewayAttachmentAw) bool { return v.EnableCustomRoutes }).(pulumi.BoolOutput)
 }
 
 // (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
@@ -10439,6 +13904,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAwArrayInput)(nil)).Elem(), NetworkAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAzureInput)(nil)).Elem(), NetworkAzureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAzureArrayInput)(nil)).Elem(), NetworkAzureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkDnsConfigInput)(nil)).Elem(), NetworkDnsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkDnsConfigPtrInput)(nil)).Elem(), NetworkDnsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkEnvironmentInput)(nil)).Elem(), NetworkEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkEnvironmentPtrInput)(nil)).Elem(), NetworkEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkGcpInput)(nil)).Elem(), NetworkGcpArgs{})
@@ -10463,10 +13930,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessGcpPtrInput)(nil)).Elem(), PrivateLinkAccessGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessNetworkInput)(nil)).Elem(), PrivateLinkAccessNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessNetworkPtrInput)(nil)).Elem(), PrivateLinkAccessNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCredentialsInput)(nil)).Elem(), SchemaCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCredentialsPtrInput)(nil)).Elem(), SchemaCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterConfigCredentialsInput)(nil)).Elem(), SchemaRegistryClusterConfigCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterConfigCredentialsPtrInput)(nil)).Elem(), SchemaRegistryClusterConfigCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterConfigSchemaRegistryClusterInput)(nil)).Elem(), SchemaRegistryClusterConfigSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterConfigSchemaRegistryClusterPtrInput)(nil)).Elem(), SchemaRegistryClusterConfigSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterEnvironmentInput)(nil)).Elem(), SchemaRegistryClusterEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterEnvironmentPtrInput)(nil)).Elem(), SchemaRegistryClusterEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterModeCredentialsInput)(nil)).Elem(), SchemaRegistryClusterModeCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterModeCredentialsPtrInput)(nil)).Elem(), SchemaRegistryClusterModeCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterModeSchemaRegistryClusterInput)(nil)).Elem(), SchemaRegistryClusterModeSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterModeSchemaRegistryClusterPtrInput)(nil)).Elem(), SchemaRegistryClusterModeSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterRegionInput)(nil)).Elem(), SchemaRegistryClusterRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterRegionPtrInput)(nil)).Elem(), SchemaRegistryClusterRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaSchemaReferenceInput)(nil)).Elem(), SchemaSchemaReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaSchemaReferenceArrayInput)(nil)).Elem(), SchemaSchemaReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaSchemaRegistryClusterInput)(nil)).Elem(), SchemaSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaSchemaRegistryClusterPtrInput)(nil)).Elem(), SchemaSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubjectConfigCredentialsInput)(nil)).Elem(), SubjectConfigCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubjectConfigCredentialsPtrInput)(nil)).Elem(), SubjectConfigCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubjectConfigSchemaRegistryClusterInput)(nil)).Elem(), SubjectConfigSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubjectConfigSchemaRegistryClusterPtrInput)(nil)).Elem(), SubjectConfigSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeCredentialsInput)(nil)).Elem(), SubjectModeCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeCredentialsPtrInput)(nil)).Elem(), SubjectModeCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeSchemaRegistryClusterInput)(nil)).Elem(), SubjectModeSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeSchemaRegistryClusterPtrInput)(nil)).Elem(), SubjectModeSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentAwsInput)(nil)).Elem(), TransitGatewayAttachmentAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentAwsPtrInput)(nil)).Elem(), TransitGatewayAttachmentAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentEnvironmentInput)(nil)).Elem(), TransitGatewayAttachmentEnvironmentArgs{})
@@ -10492,6 +13981,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaTopicCredentialsInput)(nil)).Elem(), GetKafkaTopicCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaTopicCredentialsPtrInput)(nil)).Elem(), GetKafkaTopicCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaTopicKafkaClusterInput)(nil)).Elem(), GetKafkaTopicKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaTopicKafkaClusterPtrInput)(nil)).Elem(), GetKafkaTopicKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKsqlClusterCredentialIdentityInput)(nil)).Elem(), GetKsqlClusterCredentialIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKsqlClusterCredentialIdentityArrayInput)(nil)).Elem(), GetKsqlClusterCredentialIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKsqlClusterEnvironmentInput)(nil)).Elem(), GetKsqlClusterEnvironmentArgs{})
@@ -10501,6 +13991,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAwArrayInput)(nil)).Elem(), GetNetworkAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAzureInput)(nil)).Elem(), GetNetworkAzureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAzureArrayInput)(nil)).Elem(), GetNetworkAzureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkDnsConfigInput)(nil)).Elem(), GetNetworkDnsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkDnsConfigArrayInput)(nil)).Elem(), GetNetworkDnsConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkEnvironmentInput)(nil)).Elem(), GetNetworkEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkGcpInput)(nil)).Elem(), GetNetworkGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkGcpArrayInput)(nil)).Elem(), GetNetworkGcpArray{})
@@ -10522,9 +14014,31 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessGcpArrayInput)(nil)).Elem(), GetPrivateLinkAccessGcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessNetworkInput)(nil)).Elem(), GetPrivateLinkAccessNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessNetworkArrayInput)(nil)).Elem(), GetPrivateLinkAccessNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaCredentialsInput)(nil)).Elem(), GetSchemaCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaCredentialsPtrInput)(nil)).Elem(), GetSchemaCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterConfigCredentialsInput)(nil)).Elem(), GetSchemaRegistryClusterConfigCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterConfigCredentialsPtrInput)(nil)).Elem(), GetSchemaRegistryClusterConfigCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterConfigSchemaRegistryClusterInput)(nil)).Elem(), GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrInput)(nil)).Elem(), GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterEnvironmentInput)(nil)).Elem(), GetSchemaRegistryClusterEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterModeCredentialsInput)(nil)).Elem(), GetSchemaRegistryClusterModeCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterModeCredentialsPtrInput)(nil)).Elem(), GetSchemaRegistryClusterModeCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterModeSchemaRegistryClusterInput)(nil)).Elem(), GetSchemaRegistryClusterModeSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterModeSchemaRegistryClusterPtrInput)(nil)).Elem(), GetSchemaRegistryClusterModeSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterRegionInput)(nil)).Elem(), GetSchemaRegistryClusterRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterRegionArrayInput)(nil)).Elem(), GetSchemaRegistryClusterRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaSchemaReferenceInput)(nil)).Elem(), GetSchemaSchemaReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaSchemaReferenceArrayInput)(nil)).Elem(), GetSchemaSchemaReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaSchemaRegistryClusterInput)(nil)).Elem(), GetSchemaSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaSchemaRegistryClusterPtrInput)(nil)).Elem(), GetSchemaSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectConfigCredentialsInput)(nil)).Elem(), GetSubjectConfigCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectConfigCredentialsPtrInput)(nil)).Elem(), GetSubjectConfigCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectConfigSchemaRegistryClusterInput)(nil)).Elem(), GetSubjectConfigSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectConfigSchemaRegistryClusterPtrInput)(nil)).Elem(), GetSubjectConfigSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeCredentialsInput)(nil)).Elem(), GetSubjectModeCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeCredentialsPtrInput)(nil)).Elem(), GetSubjectModeCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeSchemaRegistryClusterInput)(nil)).Elem(), GetSubjectModeSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeSchemaRegistryClusterPtrInput)(nil)).Elem(), GetSubjectModeSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentAwInput)(nil)).Elem(), GetTransitGatewayAttachmentAwArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentAwArrayInput)(nil)).Elem(), GetTransitGatewayAttachmentAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentEnvironmentInput)(nil)).Elem(), GetTransitGatewayAttachmentEnvironmentArgs{})
@@ -10596,6 +14110,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkAwArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAzureOutput{})
 	pulumi.RegisterOutputType(NetworkAzureArrayOutput{})
+	pulumi.RegisterOutputType(NetworkDnsConfigOutput{})
+	pulumi.RegisterOutputType(NetworkDnsConfigPtrOutput{})
 	pulumi.RegisterOutputType(NetworkEnvironmentOutput{})
 	pulumi.RegisterOutputType(NetworkEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(NetworkGcpOutput{})
@@ -10620,10 +14136,32 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkAccessGcpPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAccessNetworkOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAccessNetworkPtrOutput{})
+	pulumi.RegisterOutputType(SchemaCredentialsOutput{})
+	pulumi.RegisterOutputType(SchemaCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(SchemaRegistryClusterConfigCredentialsOutput{})
+	pulumi.RegisterOutputType(SchemaRegistryClusterConfigCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(SchemaRegistryClusterConfigSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryClusterEnvironmentOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryClusterEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(SchemaRegistryClusterModeCredentialsOutput{})
+	pulumi.RegisterOutputType(SchemaRegistryClusterModeCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(SchemaRegistryClusterModeSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryClusterRegionOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryClusterRegionPtrOutput{})
+	pulumi.RegisterOutputType(SchemaSchemaReferenceOutput{})
+	pulumi.RegisterOutputType(SchemaSchemaReferenceArrayOutput{})
+	pulumi.RegisterOutputType(SchemaSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(SchemaSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(SubjectConfigCredentialsOutput{})
+	pulumi.RegisterOutputType(SubjectConfigCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(SubjectConfigSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(SubjectConfigSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(SubjectModeCredentialsOutput{})
+	pulumi.RegisterOutputType(SubjectModeCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(SubjectModeSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(SubjectModeSchemaRegistryClusterPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentAwsOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentAwsPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentEnvironmentOutput{})
@@ -10649,6 +14187,7 @@ func init() {
 	pulumi.RegisterOutputType(GetKafkaTopicCredentialsOutput{})
 	pulumi.RegisterOutputType(GetKafkaTopicCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetKafkaTopicKafkaClusterOutput{})
+	pulumi.RegisterOutputType(GetKafkaTopicKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(GetKsqlClusterCredentialIdentityOutput{})
 	pulumi.RegisterOutputType(GetKsqlClusterCredentialIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetKsqlClusterEnvironmentOutput{})
@@ -10658,6 +14197,8 @@ func init() {
 	pulumi.RegisterOutputType(GetNetworkAwArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkAzureOutput{})
 	pulumi.RegisterOutputType(GetNetworkAzureArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkDnsConfigOutput{})
+	pulumi.RegisterOutputType(GetNetworkDnsConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetNetworkGcpOutput{})
 	pulumi.RegisterOutputType(GetNetworkGcpArrayOutput{})
@@ -10679,9 +14220,31 @@ func init() {
 	pulumi.RegisterOutputType(GetPrivateLinkAccessGcpArrayOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAccessNetworkOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAccessNetworkArrayOutput{})
+	pulumi.RegisterOutputType(GetSchemaCredentialsOutput{})
+	pulumi.RegisterOutputType(GetSchemaCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetSchemaRegistryClusterConfigCredentialsOutput{})
+	pulumi.RegisterOutputType(GetSchemaRegistryClusterConfigCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput{})
 	pulumi.RegisterOutputType(GetSchemaRegistryClusterEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetSchemaRegistryClusterModeCredentialsOutput{})
+	pulumi.RegisterOutputType(GetSchemaRegistryClusterModeCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetSchemaRegistryClusterModeSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput{})
 	pulumi.RegisterOutputType(GetSchemaRegistryClusterRegionOutput{})
 	pulumi.RegisterOutputType(GetSchemaRegistryClusterRegionArrayOutput{})
+	pulumi.RegisterOutputType(GetSchemaSchemaReferenceOutput{})
+	pulumi.RegisterOutputType(GetSchemaSchemaReferenceArrayOutput{})
+	pulumi.RegisterOutputType(GetSchemaSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(GetSchemaSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(GetSubjectConfigCredentialsOutput{})
+	pulumi.RegisterOutputType(GetSubjectConfigCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetSubjectConfigSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(GetSubjectConfigSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(GetSubjectModeCredentialsOutput{})
+	pulumi.RegisterOutputType(GetSubjectModeCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetSubjectModeSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(GetSubjectModeSchemaRegistryClusterPtrOutput{})
 	pulumi.RegisterOutputType(GetTransitGatewayAttachmentAwOutput{})
 	pulumi.RegisterOutputType(GetTransitGatewayAttachmentAwArrayOutput{})
 	pulumi.RegisterOutputType(GetTransitGatewayAttachmentEnvironmentOutput{})

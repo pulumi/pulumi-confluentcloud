@@ -28,9 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdPeering, err := confluentcloud.LookupPeering(ctx, &GetPeeringArgs{
+//			exampleUsingIdPeering, err := confluentcloud.LookupPeering(ctx, &confluentcloud.LookupPeeringArgs{
 //				Id: pulumi.StringRef("peer-abc123"),
-//				Environment: GetPeeringEnvironment{
+//				Environment: confluentcloud.GetPeeringEnvironment{
 //					Id: "env-xyz456",
 //				},
 //			}, nil)
@@ -38,9 +38,9 @@ import (
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingIdPeering)
-//			exampleUsingNamePeering, err := confluentcloud.LookupPeering(ctx, &GetPeeringArgs{
+//			exampleUsingNamePeering, err := confluentcloud.LookupPeering(ctx, &confluentcloud.LookupPeeringArgs{
 //				DisplayName: pulumi.StringRef("my_peering"),
-//				Environment: GetPeeringEnvironment{
+//				Environment: confluentcloud.GetPeeringEnvironment{
 //					Id: "env-xyz456",
 //				},
 //			}, nil)
@@ -65,7 +65,8 @@ func LookupPeering(ctx *pulumi.Context, args *LookupPeeringArgs, opts ...pulumi.
 // A collection of arguments for invoking getPeering.
 type LookupPeeringArgs struct {
 	// A human-readable name for the Peering.
-	DisplayName *string               `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
+	// (Required Configuration Block) supports the following:
 	Environment GetPeeringEnvironment `pulumi:"environment"`
 	// The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
 	Id *string `pulumi:"id"`
@@ -78,13 +79,14 @@ type LookupPeeringResult struct {
 	// (Optional Configuration Block) The Azure-specific Peering details if available. It supports the following:
 	Azures []GetPeeringAzure `pulumi:"azures"`
 	// (Optional String) The name of the Peering.
-	// - `environment` (Required Configuration Block) supports the following:
-	DisplayName string                `pulumi:"displayName"`
+	DisplayName string `pulumi:"displayName"`
+	// (Required Configuration Block) supports the following:
 	Environment GetPeeringEnvironment `pulumi:"environment"`
 	// (Optional Configuration Block) The Azure-specific Peering details if available. It supports the following:
 	Gcps []GetPeeringGcp `pulumi:"gcps"`
 	// (Required String) The ID of the Network that the Peering belongs to, for example, `n-abc123`.
-	Id       string              `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// (Required Configuration Block) supports the following:
 	Networks []GetPeeringNetwork `pulumi:"networks"`
 }
 
@@ -104,7 +106,8 @@ func LookupPeeringOutput(ctx *pulumi.Context, args LookupPeeringOutputArgs, opts
 // A collection of arguments for invoking getPeering.
 type LookupPeeringOutputArgs struct {
 	// A human-readable name for the Peering.
-	DisplayName pulumi.StringPtrInput      `pulumi:"displayName"`
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// (Required Configuration Block) supports the following:
 	Environment GetPeeringEnvironmentInput `pulumi:"environment"`
 	// The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -140,11 +143,11 @@ func (o LookupPeeringResultOutput) Azures() GetPeeringAzureArrayOutput {
 }
 
 // (Optional String) The name of the Peering.
-// - `environment` (Required Configuration Block) supports the following:
 func (o LookupPeeringResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// (Required Configuration Block) supports the following:
 func (o LookupPeeringResultOutput) Environment() GetPeeringEnvironmentOutput {
 	return o.ApplyT(func(v LookupPeeringResult) GetPeeringEnvironment { return v.Environment }).(GetPeeringEnvironmentOutput)
 }
@@ -159,6 +162,7 @@ func (o LookupPeeringResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// (Required Configuration Block) supports the following:
 func (o LookupPeeringResultOutput) Networks() GetPeeringNetworkArrayOutput {
 	return o.ApplyT(func(v LookupPeeringResult) []GetPeeringNetwork { return v.Networks }).(GetPeeringNetworkArrayOutput)
 }

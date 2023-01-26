@@ -30,9 +30,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingId, err := confluentcloud.LookupNetwork(ctx, &GetNetworkArgs{
+//			exampleUsingId, err := confluentcloud.LookupNetwork(ctx, &confluentcloud.LookupNetworkArgs{
 //				Id: pulumi.StringRef("n-abc123"),
-//				Environment: GetNetworkEnvironment{
+//				Environment: confluentcloud.GetNetworkEnvironment{
 //					Id: "env-xyz456",
 //				},
 //			}, nil)
@@ -45,9 +45,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUsingNameNetwork, err := confluentcloud.LookupNetwork(ctx, &GetNetworkArgs{
+//			exampleUsingNameNetwork, err := confluentcloud.LookupNetwork(ctx, &confluentcloud.LookupNetworkArgs{
 //				DisplayName: pulumi.StringRef("my_network"),
-//				Environment: GetNetworkEnvironment{
+//				Environment: confluentcloud.GetNetworkEnvironment{
 //					Id: "env-xyz456",
 //				},
 //			}, nil)
@@ -76,7 +76,9 @@ type LookupNetworkArgs struct {
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures []GetNetworkAzure `pulumi:"azures"`
 	// A human-readable name for the Network.
-	DisplayName *string               `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
+	// (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+	DnsConfigs  []GetNetworkDnsConfig `pulumi:"dnsConfigs"`
 	Environment GetNetworkEnvironment `pulumi:"environment"`
 	// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
 	Gcps []GetNetworkGcp `pulumi:"gcps"`
@@ -97,7 +99,9 @@ type LookupNetworkResult struct {
 	// (Required List of String) The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
 	ConnectionTypes []string `pulumi:"connectionTypes"`
 	// (Required String) The name of the Network.
-	DisplayName string                `pulumi:"displayName"`
+	DisplayName string `pulumi:"displayName"`
+	// (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+	DnsConfigs  []GetNetworkDnsConfig `pulumi:"dnsConfigs"`
 	DnsDomain   string                `pulumi:"dnsDomain"`
 	Environment GetNetworkEnvironment `pulumi:"environment"`
 	// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
@@ -110,7 +114,8 @@ type LookupNetworkResult struct {
 	ResourceName    string            `pulumi:"resourceName"`
 	ZonalSubdomains map[string]string `pulumi:"zonalSubdomains"`
 	// (Optional List of String) The 3 availability zones for this network. They can optionally be specified for AWS networks
-	// used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+	// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+	// networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
 	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
 	// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
 	// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -137,8 +142,10 @@ type LookupNetworkOutputArgs struct {
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures GetNetworkAzureArrayInput `pulumi:"azures"`
 	// A human-readable name for the Network.
-	DisplayName pulumi.StringPtrInput      `pulumi:"displayName"`
-	Environment GetNetworkEnvironmentInput `pulumi:"environment"`
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+	DnsConfigs  GetNetworkDnsConfigArrayInput `pulumi:"dnsConfigs"`
+	Environment GetNetworkEnvironmentInput    `pulumi:"environment"`
 	// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
 	Gcps GetNetworkGcpArrayInput `pulumi:"gcps"`
 	// The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
@@ -194,6 +201,11 @@ func (o LookupNetworkResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+func (o LookupNetworkResultOutput) DnsConfigs() GetNetworkDnsConfigArrayOutput {
+	return o.ApplyT(func(v LookupNetworkResult) []GetNetworkDnsConfig { return v.DnsConfigs }).(GetNetworkDnsConfigArrayOutput)
+}
+
 func (o LookupNetworkResultOutput) DnsDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.DnsDomain }).(pulumi.StringOutput)
 }
@@ -227,7 +239,8 @@ func (o LookupNetworkResultOutput) ZonalSubdomains() pulumi.StringMapOutput {
 }
 
 // (Optional List of String) The 3 availability zones for this network. They can optionally be specified for AWS networks
-// used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+// networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
 // On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
 // On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
 // On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.

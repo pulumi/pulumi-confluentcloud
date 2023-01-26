@@ -17,8 +17,8 @@ __all__ = ['KafkaClusterConfigArgs', 'KafkaClusterConfig']
 class KafkaClusterConfigArgs:
     def __init__(__self__, *,
                  config: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-                 kafka_cluster: pulumi.Input['KafkaClusterConfigKafkaClusterArgs'],
                  credentials: Optional[pulumi.Input['KafkaClusterConfigCredentialsArgs']] = None,
+                 kafka_cluster: Optional[pulumi.Input['KafkaClusterConfigKafkaClusterArgs']] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a KafkaClusterConfig resource.
@@ -27,9 +27,10 @@ class KafkaClusterConfigArgs:
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "config", config)
-        pulumi.set(__self__, "kafka_cluster", kafka_cluster)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if kafka_cluster is not None:
+            pulumi.set(__self__, "kafka_cluster", kafka_cluster)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
 
@@ -46,15 +47,6 @@ class KafkaClusterConfigArgs:
         pulumi.set(self, "config", value)
 
     @property
-    @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> pulumi.Input['KafkaClusterConfigKafkaClusterArgs']:
-        return pulumi.get(self, "kafka_cluster")
-
-    @kafka_cluster.setter
-    def kafka_cluster(self, value: pulumi.Input['KafkaClusterConfigKafkaClusterArgs']):
-        pulumi.set(self, "kafka_cluster", value)
-
-    @property
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input['KafkaClusterConfigCredentialsArgs']]:
         """
@@ -65,6 +57,15 @@ class KafkaClusterConfigArgs:
     @credentials.setter
     def credentials(self, value: Optional[pulumi.Input['KafkaClusterConfigCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="kafkaCluster")
+    def kafka_cluster(self) -> Optional[pulumi.Input['KafkaClusterConfigKafkaClusterArgs']]:
+        return pulumi.get(self, "kafka_cluster")
+
+    @kafka_cluster.setter
+    def kafka_cluster(self, value: Optional[pulumi.Input['KafkaClusterConfigKafkaClusterArgs']]):
+        pulumi.set(self, "kafka_cluster", value)
 
     @property
     @pulumi.getter(name="restEndpoint")
@@ -158,34 +159,15 @@ class KafkaClusterConfig(pulumi.CustomResource):
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-
-        `KafkaClusterConfig` provides a Kafka cluster config resource that enables updating configs on a Dedicated Kafka cluster on Confluent Cloud.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_confluentcloud as confluentcloud
-
-        orders = confluentcloud.KafkaClusterConfig("orders",
-            kafka_cluster=confluentcloud.KafkaClusterConfigKafkaClusterArgs(
-                id=confluent_kafka_cluster["dedicated"]["id"],
-            ),
-            rest_endpoint=confluent_kafka_cluster["dedicated"]["rest_endpoint"],
-            config={
-                "auto.create.topics.enable": "true",
-                "log.retention.ms": "604800123",
-            },
-            credentials=confluentcloud.KafkaClusterConfigCredentialsArgs(
-                key=confluent_api_key["app-manager-kafka-api-key"]["id"],
-                secret=confluent_api_key["app-manager-kafka-api-key"]["secret"],
-            ))
-        ```
-
         ## Import
 
-        You can import a Kafka cluster config by using the Kafka cluster ID, for example$ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+        You can import a Kafka cluster config by using the Kafka cluster ID, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+
+        ```sh
+         $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
+        ```
+
+         Option #2Manage a single Kafka cluster in the same Terraform workspace
 
         ```sh
          $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
@@ -206,34 +188,15 @@ class KafkaClusterConfig(pulumi.CustomResource):
                  args: KafkaClusterConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-
-        `KafkaClusterConfig` provides a Kafka cluster config resource that enables updating configs on a Dedicated Kafka cluster on Confluent Cloud.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_confluentcloud as confluentcloud
-
-        orders = confluentcloud.KafkaClusterConfig("orders",
-            kafka_cluster=confluentcloud.KafkaClusterConfigKafkaClusterArgs(
-                id=confluent_kafka_cluster["dedicated"]["id"],
-            ),
-            rest_endpoint=confluent_kafka_cluster["dedicated"]["rest_endpoint"],
-            config={
-                "auto.create.topics.enable": "true",
-                "log.retention.ms": "604800123",
-            },
-            credentials=confluentcloud.KafkaClusterConfigCredentialsArgs(
-                key=confluent_api_key["app-manager-kafka-api-key"]["id"],
-                secret=confluent_api_key["app-manager-kafka-api-key"]["secret"],
-            ))
-        ```
-
         ## Import
 
-        You can import a Kafka cluster config by using the Kafka cluster ID, for example$ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+        You can import a Kafka cluster config by using the Kafka cluster ID, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+
+        ```sh
+         $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
+        ```
+
+         Option #2Manage a single Kafka cluster in the same Terraform workspace
 
         ```sh
          $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
@@ -273,8 +236,6 @@ class KafkaClusterConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'config'")
             __props__.__dict__["config"] = config
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
-            if kafka_cluster is None and not opts.urn:
-                raise TypeError("Missing required property 'kafka_cluster'")
             __props__.__dict__["kafka_cluster"] = kafka_cluster
             __props__.__dict__["rest_endpoint"] = rest_endpoint
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])
@@ -332,7 +293,7 @@ class KafkaClusterConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> pulumi.Output['outputs.KafkaClusterConfigKafkaCluster']:
+    def kafka_cluster(self) -> pulumi.Output[Optional['outputs.KafkaClusterConfigKafkaCluster']]:
         return pulumi.get(self, "kafka_cluster")
 
     @property

@@ -27,10 +27,13 @@ public final class GetPeeringResult {
     private List<GetPeeringAzure> azures;
     /**
      * @return (Optional String) The name of the Peering.
-     * - `environment` (Required Configuration Block) supports the following:
      * 
      */
     private String displayName;
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     private GetPeeringEnvironment environment;
     /**
      * @return (Optional Configuration Block) The Azure-specific Peering details if available. It supports the following:
@@ -42,6 +45,10 @@ public final class GetPeeringResult {
      * 
      */
     private String id;
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     private List<GetPeeringNetwork> networks;
 
     private GetPeeringResult() {}
@@ -61,12 +68,15 @@ public final class GetPeeringResult {
     }
     /**
      * @return (Optional String) The name of the Peering.
-     * - `environment` (Required Configuration Block) supports the following:
      * 
      */
     public String displayName() {
         return this.displayName;
     }
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public GetPeeringEnvironment environment() {
         return this.environment;
     }
@@ -84,6 +94,10 @@ public final class GetPeeringResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public List<GetPeeringNetwork> networks() {
         return this.networks;
     }

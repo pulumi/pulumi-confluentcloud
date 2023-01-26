@@ -50,7 +50,6 @@ class GetKafkaClientQuotaResult:
     def description(self) -> str:
         """
         (Required String) The description of the Kafka Client Quota.
-        - `throughput` (Required Configuration Block) supports the following:
         """
         return pulumi.get(self, "description")
 
@@ -65,6 +64,9 @@ class GetKafkaClientQuotaResult:
     @property
     @pulumi.getter
     def environments(self) -> Sequence['outputs.GetKafkaClientQuotaEnvironmentResult']:
+        """
+        (Required Configuration Block) supports the following:
+        """
         return pulumi.get(self, "environments")
 
     @property
@@ -78,6 +80,9 @@ class GetKafkaClientQuotaResult:
     @property
     @pulumi.getter(name="kafkaClusters")
     def kafka_clusters(self) -> Sequence['outputs.GetKafkaClientQuotaKafkaClusterResult']:
+        """
+        (Required Configuration Block) supports the following:
+        """
         return pulumi.get(self, "kafka_clusters")
 
     @property
@@ -85,13 +90,15 @@ class GetKafkaClientQuotaResult:
     def principals(self) -> Sequence[str]:
         """
         (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
-        - `kafka_cluster` (Required Configuration Block) supports the following:
         """
         return pulumi.get(self, "principals")
 
     @property
     @pulumi.getter
     def throughputs(self) -> Sequence['outputs.GetKafkaClientQuotaThroughputResult']:
+        """
+        (Required Configuration Block) supports the following:
+        """
         return pulumi.get(self, "throughputs")
 
 
@@ -113,10 +120,7 @@ class AwaitableGetKafkaClientQuotaResult(GetKafkaClientQuotaResult):
 def get_kafka_client_quota(id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKafkaClientQuotaResult:
     """
-    [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Client Quotas API](https://img.shields.io/badge/-Request%20Access%20To%20Clients%20Quotas-%23bc8540)](mailto:cloud-client-quotas-ea@confluent.io?subject=Request%20to%20join%20Kafka%20Quotas%20Management%20API%20Early%20Access&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20kafka-quotas/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-
-    > **Note:** `KafkaClientQuota` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\\
-    **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Early Access features at any time in Confluent’s sole discretion.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `KafkaClientQuota` describes a Kafka Client Quota.
 
@@ -154,10 +158,7 @@ def get_kafka_client_quota(id: Optional[str] = None,
 def get_kafka_client_quota_output(id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKafkaClientQuotaResult]:
     """
-    [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Client Quotas API](https://img.shields.io/badge/-Request%20Access%20To%20Clients%20Quotas-%23bc8540)](mailto:cloud-client-quotas-ea@confluent.io?subject=Request%20to%20join%20Kafka%20Quotas%20Management%20API%20Early%20Access&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20kafka-quotas/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-
-    > **Note:** `KafkaClientQuota` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\\
-    **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Early Access features at any time in Confluent’s sole discretion.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `KafkaClientQuota` describes a Kafka Client Quota.
 

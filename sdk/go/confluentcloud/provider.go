@@ -27,8 +27,18 @@ type Provider struct {
 	KafkaApiKey pulumi.StringPtrOutput `pulumi:"kafkaApiKey"`
 	// The Kafka Cluster API Secret.
 	KafkaApiSecret pulumi.StringPtrOutput `pulumi:"kafkaApiSecret"`
+	// The Kafka Cluster ID.
+	KafkaId pulumi.StringPtrOutput `pulumi:"kafkaId"`
 	// The Kafka Cluster REST Endpoint.
 	KafkaRestEndpoint pulumi.StringPtrOutput `pulumi:"kafkaRestEndpoint"`
+	// The Schema Registry Cluster API Key.
+	SchemaRegistryApiKey pulumi.StringPtrOutput `pulumi:"schemaRegistryApiKey"`
+	// The Schema Registry Cluster API Secret.
+	SchemaRegistryApiSecret pulumi.StringPtrOutput `pulumi:"schemaRegistryApiSecret"`
+	// The Schema Registry Cluster ID.
+	SchemaRegistryId pulumi.StringPtrOutput `pulumi:"schemaRegistryId"`
+	// The Schema Registry Cluster REST Endpoint.
+	SchemaRegistryRestEndpoint pulumi.StringPtrOutput `pulumi:"schemaRegistryRestEndpoint"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -39,22 +49,30 @@ func NewProvider(ctx *pulumi.Context,
 	}
 
 	if args.CloudApiKey != nil {
-		args.CloudApiKey = pulumi.ToSecret(args.CloudApiKey).(pulumi.StringPtrOutput)
+		args.CloudApiKey = pulumi.ToSecret(args.CloudApiKey).(pulumi.StringPtrInput)
 	}
 	if args.CloudApiSecret != nil {
-		args.CloudApiSecret = pulumi.ToSecret(args.CloudApiSecret).(pulumi.StringPtrOutput)
+		args.CloudApiSecret = pulumi.ToSecret(args.CloudApiSecret).(pulumi.StringPtrInput)
 	}
 	if args.KafkaApiKey != nil {
-		args.KafkaApiKey = pulumi.ToSecret(args.KafkaApiKey).(pulumi.StringPtrOutput)
+		args.KafkaApiKey = pulumi.ToSecret(args.KafkaApiKey).(pulumi.StringPtrInput)
 	}
 	if args.KafkaApiSecret != nil {
-		args.KafkaApiSecret = pulumi.ToSecret(args.KafkaApiSecret).(pulumi.StringPtrOutput)
+		args.KafkaApiSecret = pulumi.ToSecret(args.KafkaApiSecret).(pulumi.StringPtrInput)
+	}
+	if args.SchemaRegistryApiKey != nil {
+		args.SchemaRegistryApiKey = pulumi.ToSecret(args.SchemaRegistryApiKey).(pulumi.StringPtrInput)
+	}
+	if args.SchemaRegistryApiSecret != nil {
+		args.SchemaRegistryApiSecret = pulumi.ToSecret(args.SchemaRegistryApiSecret).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"cloudApiKey",
 		"cloudApiSecret",
 		"kafkaApiKey",
 		"kafkaApiSecret",
+		"schemaRegistryApiKey",
+		"schemaRegistryApiSecret",
 	})
 	opts = append(opts, secrets)
 	var resource Provider
@@ -76,10 +94,20 @@ type providerArgs struct {
 	KafkaApiKey *string `pulumi:"kafkaApiKey"`
 	// The Kafka Cluster API Secret.
 	KafkaApiSecret *string `pulumi:"kafkaApiSecret"`
+	// The Kafka Cluster ID.
+	KafkaId *string `pulumi:"kafkaId"`
 	// The Kafka Cluster REST Endpoint.
 	KafkaRestEndpoint *string `pulumi:"kafkaRestEndpoint"`
 	// Maximum number of retries of HTTP client. Defaults to 4.
 	MaxRetries *int `pulumi:"maxRetries"`
+	// The Schema Registry Cluster API Key.
+	SchemaRegistryApiKey *string `pulumi:"schemaRegistryApiKey"`
+	// The Schema Registry Cluster API Secret.
+	SchemaRegistryApiSecret *string `pulumi:"schemaRegistryApiSecret"`
+	// The Schema Registry Cluster ID.
+	SchemaRegistryId *string `pulumi:"schemaRegistryId"`
+	// The Schema Registry Cluster REST Endpoint.
+	SchemaRegistryRestEndpoint *string `pulumi:"schemaRegistryRestEndpoint"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -94,10 +122,20 @@ type ProviderArgs struct {
 	KafkaApiKey pulumi.StringPtrInput
 	// The Kafka Cluster API Secret.
 	KafkaApiSecret pulumi.StringPtrInput
+	// The Kafka Cluster ID.
+	KafkaId pulumi.StringPtrInput
 	// The Kafka Cluster REST Endpoint.
 	KafkaRestEndpoint pulumi.StringPtrInput
 	// Maximum number of retries of HTTP client. Defaults to 4.
 	MaxRetries pulumi.IntPtrInput
+	// The Schema Registry Cluster API Key.
+	SchemaRegistryApiKey pulumi.StringPtrInput
+	// The Schema Registry Cluster API Secret.
+	SchemaRegistryApiSecret pulumi.StringPtrInput
+	// The Schema Registry Cluster ID.
+	SchemaRegistryId pulumi.StringPtrInput
+	// The Schema Registry Cluster REST Endpoint.
+	SchemaRegistryRestEndpoint pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -162,9 +200,34 @@ func (o ProviderOutput) KafkaApiSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.KafkaApiSecret }).(pulumi.StringPtrOutput)
 }
 
+// The Kafka Cluster ID.
+func (o ProviderOutput) KafkaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.KafkaId }).(pulumi.StringPtrOutput)
+}
+
 // The Kafka Cluster REST Endpoint.
 func (o ProviderOutput) KafkaRestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.KafkaRestEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry Cluster API Key.
+func (o ProviderOutput) SchemaRegistryApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SchemaRegistryApiKey }).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry Cluster API Secret.
+func (o ProviderOutput) SchemaRegistryApiSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SchemaRegistryApiSecret }).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry Cluster ID.
+func (o ProviderOutput) SchemaRegistryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SchemaRegistryId }).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry Cluster REST Endpoint.
+func (o ProviderOutput) SchemaRegistryRestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SchemaRegistryRestEndpoint }).(pulumi.StringPtrOutput)
 }
 
 func init() {

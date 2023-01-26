@@ -44,6 +44,7 @@ __all__ = [
     'KsqlClusterKafkaCluster',
     'NetworkAw',
     'NetworkAzure',
+    'NetworkDnsConfig',
     'NetworkEnvironment',
     'NetworkGcp',
     'PeeringAws',
@@ -56,8 +57,19 @@ __all__ = [
     'PrivateLinkAccessEnvironment',
     'PrivateLinkAccessGcp',
     'PrivateLinkAccessNetwork',
+    'SchemaCredentials',
+    'SchemaRegistryClusterConfigCredentials',
+    'SchemaRegistryClusterConfigSchemaRegistryCluster',
     'SchemaRegistryClusterEnvironment',
+    'SchemaRegistryClusterModeCredentials',
+    'SchemaRegistryClusterModeSchemaRegistryCluster',
     'SchemaRegistryClusterRegion',
+    'SchemaSchemaReference',
+    'SchemaSchemaRegistryCluster',
+    'SubjectConfigCredentials',
+    'SubjectConfigSchemaRegistryCluster',
+    'SubjectModeCredentials',
+    'SubjectModeSchemaRegistryCluster',
     'TransitGatewayAttachmentAws',
     'TransitGatewayAttachmentEnvironment',
     'TransitGatewayAttachmentNetwork',
@@ -77,6 +89,7 @@ __all__ = [
     'GetKsqlClusterKafkaClusterResult',
     'GetNetworkAwResult',
     'GetNetworkAzureResult',
+    'GetNetworkDnsConfigResult',
     'GetNetworkEnvironmentResult',
     'GetNetworkGcpResult',
     'GetPeeringAwResult',
@@ -89,8 +102,19 @@ __all__ = [
     'GetPrivateLinkAccessEnvironmentResult',
     'GetPrivateLinkAccessGcpResult',
     'GetPrivateLinkAccessNetworkResult',
+    'GetSchemaCredentialsResult',
+    'GetSchemaRegistryClusterConfigCredentialsResult',
+    'GetSchemaRegistryClusterConfigSchemaRegistryClusterResult',
     'GetSchemaRegistryClusterEnvironmentResult',
+    'GetSchemaRegistryClusterModeCredentialsResult',
+    'GetSchemaRegistryClusterModeSchemaRegistryClusterResult',
     'GetSchemaRegistryClusterRegionResult',
+    'GetSchemaSchemaReferenceResult',
+    'GetSchemaSchemaRegistryClusterResult',
+    'GetSubjectConfigCredentialsResult',
+    'GetSubjectConfigSchemaRegistryClusterResult',
+    'GetSubjectModeCredentialsResult',
+    'GetSubjectModeSchemaRegistryClusterResult',
     'GetTransitGatewayAttachmentAwResult',
     'GetTransitGatewayAttachmentEnvironmentResult',
     'GetTransitGatewayAttachmentNetworkResult',
@@ -1110,6 +1134,28 @@ class NetworkAzure(dict):
 
 
 @pulumi.output_type
+class NetworkDnsConfig(dict):
+    def __init__(__self__, *,
+                 resolution: str):
+        """
+        :param str resolution: Network DNS resolution.
+               When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+               When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+        """
+        pulumi.set(__self__, "resolution", resolution)
+
+    @property
+    @pulumi.getter
+    def resolution(self) -> str:
+        """
+        Network DNS resolution.
+        When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+        When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+        """
+        return pulumi.get(self, "resolution")
+
+
+@pulumi.output_type
 class NetworkEnvironment(dict):
     def __init__(__self__, *,
                  id: str):
@@ -1501,6 +1547,82 @@ class PrivateLinkAccessNetwork(dict):
 
 
 @pulumi.output_type
+class SchemaCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class SchemaRegistryClusterConfigCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class SchemaRegistryClusterConfigSchemaRegistryCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class SchemaRegistryClusterEnvironment(dict):
     def __init__(__self__, *,
                  id: str):
@@ -1514,6 +1636,53 @@ class SchemaRegistryClusterEnvironment(dict):
     def id(self) -> str:
         """
         The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SchemaRegistryClusterModeCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class SchemaRegistryClusterModeSchemaRegistryCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -1537,6 +1706,175 @@ class SchemaRegistryClusterRegion(dict):
 
 
 @pulumi.output_type
+class SchemaSchemaReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subjectName":
+            suggest = "subject_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchemaSchemaReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchemaSchemaReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchemaSchemaReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 subject_name: str,
+                 version: int):
+        """
+        :param str name: The name of the subject, representing the subject under which the referenced schema is registered.
+        :param str subject_name: The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        :param int version: The version, representing the exact version of the schema under the registered subject.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "subject_name", subject_name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the subject, representing the subject under which the referenced schema is registered.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subjectName")
+    def subject_name(self) -> str:
+        """
+        The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        """
+        return pulumi.get(self, "subject_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> int:
+        """
+        The version, representing the exact version of the schema under the registered subject.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class SchemaSchemaRegistryCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SubjectConfigCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class SubjectConfigSchemaRegistryCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SubjectModeCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class SubjectModeSchemaRegistryCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class TransitGatewayAttachmentAws(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1545,8 +1883,6 @@ class TransitGatewayAttachmentAws(dict):
             suggest = "ram_resource_share_arn"
         elif key == "transitGatewayId":
             suggest = "transit_gateway_id"
-        elif key == "enableCustomRoutes":
-            suggest = "enable_custom_routes"
         elif key == "transitGatewayAttachmentId":
             suggest = "transit_gateway_attachment_id"
 
@@ -1563,23 +1899,18 @@ class TransitGatewayAttachmentAws(dict):
 
     def __init__(__self__, *,
                  ram_resource_share_arn: str,
+                 routes: Sequence[str],
                  transit_gateway_id: str,
-                 enable_custom_routes: Optional[bool] = None,
-                 routes: Optional[Sequence[str]] = None,
                  transit_gateway_attachment_id: Optional[str] = None):
         """
         :param str ram_resource_share_arn: The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
-        :param str transit_gateway_id: The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
-        :param bool enable_custom_routes: Enable custom destination routes in Confluent Cloud. Defaults to `false`.
         :param Sequence[str] routes: List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+        :param str transit_gateway_id: The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
         :param str transit_gateway_attachment_id: (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
         """
         pulumi.set(__self__, "ram_resource_share_arn", ram_resource_share_arn)
+        pulumi.set(__self__, "routes", routes)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
-        if enable_custom_routes is not None:
-            pulumi.set(__self__, "enable_custom_routes", enable_custom_routes)
-        if routes is not None:
-            pulumi.set(__self__, "routes", routes)
         if transit_gateway_attachment_id is not None:
             pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
 
@@ -1592,28 +1923,20 @@ class TransitGatewayAttachmentAws(dict):
         return pulumi.get(self, "ram_resource_share_arn")
 
     @property
+    @pulumi.getter
+    def routes(self) -> Sequence[str]:
+        """
+        List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+        """
+        return pulumi.get(self, "routes")
+
+    @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> str:
         """
         The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
         """
         return pulumi.get(self, "transit_gateway_id")
-
-    @property
-    @pulumi.getter(name="enableCustomRoutes")
-    def enable_custom_routes(self) -> Optional[bool]:
-        """
-        Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-        """
-        return pulumi.get(self, "enable_custom_routes")
-
-    @property
-    @pulumi.getter
-    def routes(self) -> Optional[Sequence[str]]:
-        """
-        List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
-        """
-        return pulumi.get(self, "routes")
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
@@ -1980,6 +2303,28 @@ class GetNetworkAzureResult(dict):
 
 
 @pulumi.output_type
+class GetNetworkDnsConfigResult(dict):
+    def __init__(__self__, *,
+                 resolution: str):
+        """
+        :param str resolution: (Required String) Network DNS resolution.
+               When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+               When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+        """
+        pulumi.set(__self__, "resolution", resolution)
+
+    @property
+    @pulumi.getter
+    def resolution(self) -> str:
+        """
+        (Required String) Network DNS resolution.
+        When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+        When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+        """
+        return pulumi.get(self, "resolution")
+
+
+@pulumi.output_type
 class GetNetworkEnvironmentResult(dict):
     def __init__(__self__, *,
                  id: str):
@@ -2295,6 +2640,82 @@ class GetPrivateLinkAccessNetworkResult(dict):
 
 
 @pulumi.output_type
+class GetSchemaCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetSchemaRegistryClusterConfigCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetSchemaRegistryClusterConfigSchemaRegistryClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class GetSchemaRegistryClusterEnvironmentResult(dict):
     def __init__(__self__, *,
                  id: str):
@@ -2308,6 +2729,53 @@ class GetSchemaRegistryClusterEnvironmentResult(dict):
     def id(self) -> str:
         """
         The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetSchemaRegistryClusterModeCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetSchemaRegistryClusterModeSchemaRegistryClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -2331,33 +2799,174 @@ class GetSchemaRegistryClusterRegionResult(dict):
 
 
 @pulumi.output_type
+class GetSchemaSchemaReferenceResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 subject_name: str,
+                 version: int):
+        """
+        :param str name: (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+        :param str subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
+        :param int version: (Required Integer) The version of the Schema, for example, `4`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "subject_name", subject_name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subjectName")
+    def subject_name(self) -> str:
+        """
+        The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
+        """
+        return pulumi.get(self, "subject_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> int:
+        """
+        (Required Integer) The version of the Schema, for example, `4`.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class GetSchemaSchemaRegistryClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetSubjectConfigCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetSubjectConfigSchemaRegistryClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetSubjectModeCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetSubjectModeSchemaRegistryClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class GetTransitGatewayAttachmentAwResult(dict):
     def __init__(__self__, *,
-                 enable_custom_routes: bool,
                  ram_resource_share_arn: str,
                  routes: Sequence[str],
                  transit_gateway_attachment_id: str,
                  transit_gateway_id: str):
         """
-        :param bool enable_custom_routes: (Required String) Enable custom destination routes in Confluent Cloud. Defaults to `false`.
         :param str ram_resource_share_arn: (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
         :param Sequence[str] routes: (Required List of String) List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
         :param str transit_gateway_attachment_id: (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
         :param str transit_gateway_id: (Required String) The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
         """
-        pulumi.set(__self__, "enable_custom_routes", enable_custom_routes)
         pulumi.set(__self__, "ram_resource_share_arn", ram_resource_share_arn)
         pulumi.set(__self__, "routes", routes)
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
-
-    @property
-    @pulumi.getter(name="enableCustomRoutes")
-    def enable_custom_routes(self) -> bool:
-        """
-        (Required String) Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-        """
-        return pulumi.get(self, "enable_custom_routes")
 
     @property
     @pulumi.getter(name="ramResourceShareArn")

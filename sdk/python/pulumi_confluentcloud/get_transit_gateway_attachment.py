@@ -53,13 +53,15 @@ class GetTransitGatewayAttachmentResult:
     def display_name(self) -> str:
         """
         (Required String) The name of the Transit Gateway Attachment.
-        - `environment` (Required Configuration Block) supports the following:
         """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def environment(self) -> 'outputs.GetTransitGatewayAttachmentEnvironmentResult':
+        """
+        (Required Configuration Block) supports the following:
+        """
         return pulumi.get(self, "environment")
 
     @property
@@ -73,6 +75,9 @@ class GetTransitGatewayAttachmentResult:
     @property
     @pulumi.getter
     def networks(self) -> Sequence['outputs.GetTransitGatewayAttachmentNetworkResult']:
+        """
+        (Required Configuration Block) supports the following:
+        """
         return pulumi.get(self, "networks")
 
 
@@ -94,10 +99,7 @@ def get_transit_gateway_attachment(display_name: Optional[str] = None,
                                    id: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransitGatewayAttachmentResult:
     """
-    [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-early-access@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-
-    > **Note:** `TransitGatewayAttachment` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\\
-    **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Early Access features at any time in Confluent’s sole discretion.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `TransitGatewayAttachment` describes a Transit Gateway Attachment data source.
 
@@ -121,6 +123,7 @@ def get_transit_gateway_attachment(display_name: Optional[str] = None,
 
 
     :param str display_name: A human-readable name for the Transit Gateway Attachment.
+    :param pulumi.InputType['GetTransitGatewayAttachmentEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
     """
     __args__ = dict()
@@ -144,10 +147,7 @@ def get_transit_gateway_attachment_output(display_name: Optional[pulumi.Input[Op
                                           id: Optional[pulumi.Input[Optional[str]]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayAttachmentResult]:
     """
-    [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-early-access@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-
-    > **Note:** `TransitGatewayAttachment` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\\
-    **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Early Access features at any time in Confluent’s sole discretion.
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `TransitGatewayAttachment` describes a Transit Gateway Attachment data source.
 
@@ -171,6 +171,7 @@ def get_transit_gateway_attachment_output(display_name: Optional[pulumi.Input[Op
 
 
     :param str display_name: A human-readable name for the Transit Gateway Attachment.
+    :param pulumi.InputType['GetTransitGatewayAttachmentEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
     """
     ...

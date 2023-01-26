@@ -49,10 +49,40 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> KafkaApiSecret { get; private set; } = null!;
 
         /// <summary>
+        /// The Kafka Cluster ID.
+        /// </summary>
+        [Output("kafkaId")]
+        public Output<string?> KafkaId { get; private set; } = null!;
+
+        /// <summary>
         /// The Kafka Cluster REST Endpoint.
         /// </summary>
         [Output("kafkaRestEndpoint")]
         public Output<string?> KafkaRestEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The Schema Registry Cluster API Key.
+        /// </summary>
+        [Output("schemaRegistryApiKey")]
+        public Output<string?> SchemaRegistryApiKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The Schema Registry Cluster API Secret.
+        /// </summary>
+        [Output("schemaRegistryApiSecret")]
+        public Output<string?> SchemaRegistryApiSecret { get; private set; } = null!;
+
+        /// <summary>
+        /// The Schema Registry Cluster ID.
+        /// </summary>
+        [Output("schemaRegistryId")]
+        public Output<string?> SchemaRegistryId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Schema Registry Cluster REST Endpoint.
+        /// </summary>
+        [Output("schemaRegistryRestEndpoint")]
+        public Output<string?> SchemaRegistryRestEndpoint { get; private set; } = null!;
 
 
         /// <summary>
@@ -78,6 +108,8 @@ namespace Pulumi.ConfluentCloud
                     "cloudApiSecret",
                     "kafkaApiKey",
                     "kafkaApiSecret",
+                    "schemaRegistryApiKey",
+                    "schemaRegistryApiSecret",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -160,6 +192,12 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
+        /// The Kafka Cluster ID.
+        /// </summary>
+        [Input("kafkaId")]
+        public Input<string>? KafkaId { get; set; }
+
+        /// <summary>
         /// The Kafka Cluster REST Endpoint.
         /// </summary>
         [Input("kafkaRestEndpoint")]
@@ -170,6 +208,50 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("maxRetries", json: true)]
         public Input<int>? MaxRetries { get; set; }
+
+        [Input("schemaRegistryApiKey")]
+        private Input<string>? _schemaRegistryApiKey;
+
+        /// <summary>
+        /// The Schema Registry Cluster API Key.
+        /// </summary>
+        public Input<string>? SchemaRegistryApiKey
+        {
+            get => _schemaRegistryApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _schemaRegistryApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("schemaRegistryApiSecret")]
+        private Input<string>? _schemaRegistryApiSecret;
+
+        /// <summary>
+        /// The Schema Registry Cluster API Secret.
+        /// </summary>
+        public Input<string>? SchemaRegistryApiSecret
+        {
+            get => _schemaRegistryApiSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _schemaRegistryApiSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// The Schema Registry Cluster ID.
+        /// </summary>
+        [Input("schemaRegistryId")]
+        public Input<string>? SchemaRegistryId { get; set; }
+
+        /// <summary>
+        /// The Schema Registry Cluster REST Endpoint.
+        /// </summary>
+        [Input("schemaRegistryRestEndpoint")]
+        public Input<string>? SchemaRegistryRestEndpoint { get; set; }
 
         public ProviderArgs()
         {

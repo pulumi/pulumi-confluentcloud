@@ -30,9 +30,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingId, err := confluentcloud.LookupKafkaCluster(ctx, &GetKafkaClusterArgs{
+//			exampleUsingId, err := confluentcloud.LookupKafkaCluster(ctx, &confluentcloud.LookupKafkaClusterArgs{
 //				Id: pulumi.StringRef("lkc-abc123"),
-//				Environment: GetKafkaClusterEnvironment{
+//				Environment: confluentcloud.GetKafkaClusterEnvironment{
 //					Id: "env-xyz456",
 //				},
 //			}, nil)
@@ -45,9 +45,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUsingNameKafkaCluster, err := confluentcloud.LookupKafkaCluster(ctx, &GetKafkaClusterArgs{
+//			exampleUsingNameKafkaCluster, err := confluentcloud.LookupKafkaCluster(ctx, &confluentcloud.LookupKafkaClusterArgs{
 //				DisplayName: pulumi.StringRef("basic_kafka_cluster"),
-//				Environment: GetKafkaClusterEnvironment{
+//				Environment: confluentcloud.GetKafkaClusterEnvironment{
 //					Id: "env-xyz456",
 //				},
 //			}, nil)
@@ -104,7 +104,8 @@ type LookupKafkaClusterResult struct {
 	// (Required String) The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
 	Id string `pulumi:"id"`
 	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
-	Kind     string                   `pulumi:"kind"`
+	Kind string `pulumi:"kind"`
+	// (Optional Configuration Block) supports the following:
 	Networks []GetKafkaClusterNetwork `pulumi:"networks"`
 	// (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
 	RbacCrn string `pulumi:"rbacCrn"`
@@ -212,6 +213,7 @@ func (o LookupKafkaClusterResultOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKafkaClusterResult) string { return v.Kind }).(pulumi.StringOutput)
 }
 
+// (Optional Configuration Block) supports the following:
 func (o LookupKafkaClusterResultOutput) Networks() GetKafkaClusterNetworkArrayOutput {
 	return o.ApplyT(func(v LookupKafkaClusterResult) []GetKafkaClusterNetwork { return v.Networks }).(GetKafkaClusterNetworkArrayOutput)
 }

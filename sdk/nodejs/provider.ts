@@ -46,9 +46,29 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly kafkaApiSecret!: pulumi.Output<string | undefined>;
     /**
+     * The Kafka Cluster ID.
+     */
+    public readonly kafkaId!: pulumi.Output<string | undefined>;
+    /**
      * The Kafka Cluster REST Endpoint.
      */
     public readonly kafkaRestEndpoint!: pulumi.Output<string | undefined>;
+    /**
+     * The Schema Registry Cluster API Key.
+     */
+    public readonly schemaRegistryApiKey!: pulumi.Output<string | undefined>;
+    /**
+     * The Schema Registry Cluster API Secret.
+     */
+    public readonly schemaRegistryApiSecret!: pulumi.Output<string | undefined>;
+    /**
+     * The Schema Registry Cluster ID.
+     */
+    public readonly schemaRegistryId!: pulumi.Output<string | undefined>;
+    /**
+     * The Schema Registry Cluster REST Endpoint.
+     */
+    public readonly schemaRegistryRestEndpoint!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -66,11 +86,16 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
             resourceInputs["kafkaApiKey"] = args?.kafkaApiKey ? pulumi.secret(args.kafkaApiKey) : undefined;
             resourceInputs["kafkaApiSecret"] = args?.kafkaApiSecret ? pulumi.secret(args.kafkaApiSecret) : undefined;
+            resourceInputs["kafkaId"] = args ? args.kafkaId : undefined;
             resourceInputs["kafkaRestEndpoint"] = args ? args.kafkaRestEndpoint : undefined;
             resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
+            resourceInputs["schemaRegistryApiKey"] = args?.schemaRegistryApiKey ? pulumi.secret(args.schemaRegistryApiKey) : undefined;
+            resourceInputs["schemaRegistryApiSecret"] = args?.schemaRegistryApiSecret ? pulumi.secret(args.schemaRegistryApiSecret) : undefined;
+            resourceInputs["schemaRegistryId"] = args ? args.schemaRegistryId : undefined;
+            resourceInputs["schemaRegistryRestEndpoint"] = args ? args.schemaRegistryRestEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["cloudApiKey", "cloudApiSecret", "kafkaApiKey", "kafkaApiSecret"] };
+        const secretOpts = { additionalSecretOutputs: ["cloudApiKey", "cloudApiSecret", "kafkaApiKey", "kafkaApiSecret", "schemaRegistryApiKey", "schemaRegistryApiSecret"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
@@ -101,6 +126,10 @@ export interface ProviderArgs {
      */
     kafkaApiSecret?: pulumi.Input<string>;
     /**
+     * The Kafka Cluster ID.
+     */
+    kafkaId?: pulumi.Input<string>;
+    /**
      * The Kafka Cluster REST Endpoint.
      */
     kafkaRestEndpoint?: pulumi.Input<string>;
@@ -108,4 +137,20 @@ export interface ProviderArgs {
      * Maximum number of retries of HTTP client. Defaults to 4.
      */
     maxRetries?: pulumi.Input<number>;
+    /**
+     * The Schema Registry Cluster API Key.
+     */
+    schemaRegistryApiKey?: pulumi.Input<string>;
+    /**
+     * The Schema Registry Cluster API Secret.
+     */
+    schemaRegistryApiSecret?: pulumi.Input<string>;
+    /**
+     * The Schema Registry Cluster ID.
+     */
+    schemaRegistryId?: pulumi.Input<string>;
+    /**
+     * The Schema Registry Cluster REST Endpoint.
+     */
+    schemaRegistryRestEndpoint?: pulumi.Input<string>;
 }

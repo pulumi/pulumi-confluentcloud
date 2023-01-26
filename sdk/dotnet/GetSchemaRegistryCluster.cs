@@ -173,9 +173,11 @@ namespace Pulumi.ConfluentCloud
         public readonly string Kind;
         /// <summary>
         /// (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
-        /// - `region` (Required Configuration Block) supports the following:
         /// </summary>
         public readonly string Package;
+        /// <summary>
+        /// (Required Configuration Block) supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetSchemaRegistryClusterRegionResult> Regions;
         /// <summary>
         /// (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.

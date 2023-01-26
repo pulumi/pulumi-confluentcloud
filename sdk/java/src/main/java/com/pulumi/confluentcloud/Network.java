@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.NetworkState;
 import com.pulumi.confluentcloud.outputs.NetworkAw;
 import com.pulumi.confluentcloud.outputs.NetworkAzure;
+import com.pulumi.confluentcloud.outputs.NetworkDnsConfig;
 import com.pulumi.confluentcloud.outputs.NetworkEnvironment;
 import com.pulumi.confluentcloud.outputs.NetworkGcp;
 import com.pulumi.core.Output;
@@ -118,6 +119,20 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
+     * Network DNS config. It applies only to the PRIVATELINK network connection type.
+     * 
+     */
+    @Export(name="dnsConfig", type=NetworkDnsConfig.class, parameters={})
+    private Output<NetworkDnsConfig> dnsConfig;
+
+    /**
+     * @return Network DNS config. It applies only to the PRIVATELINK network connection type.
+     * 
+     */
+    public Output<NetworkDnsConfig> dnsConfig() {
+        return this.dnsConfig;
+    }
+    /**
      * (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
      * 
      */
@@ -203,7 +218,8 @@ public class Network extends com.pulumi.resources.CustomResource {
     }
     /**
      * The 3 availability zones for this network. They can optionally be specified for AWS networks
-     * used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
+     * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+     * networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
      * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -214,7 +230,8 @@ public class Network extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The 3 availability zones for this network. They can optionally be specified for AWS networks
-     * used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
+     * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+     * networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
      * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.

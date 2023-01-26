@@ -48,11 +48,11 @@ public final class KafkaClusterConfigArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.credentials);
     }
 
-    @Import(name="kafkaCluster", required=true)
-    private Output<KafkaClusterConfigKafkaClusterArgs> kafkaCluster;
+    @Import(name="kafkaCluster")
+    private @Nullable Output<KafkaClusterConfigKafkaClusterArgs> kafkaCluster;
 
-    public Output<KafkaClusterConfigKafkaClusterArgs> kafkaCluster() {
-        return this.kafkaCluster;
+    public Optional<Output<KafkaClusterConfigKafkaClusterArgs>> kafkaCluster() {
+        return Optional.ofNullable(this.kafkaCluster);
     }
 
     /**
@@ -139,7 +139,7 @@ public final class KafkaClusterConfigArgs extends com.pulumi.resources.ResourceA
             return credentials(Output.of(credentials));
         }
 
-        public Builder kafkaCluster(Output<KafkaClusterConfigKafkaClusterArgs> kafkaCluster) {
+        public Builder kafkaCluster(@Nullable Output<KafkaClusterConfigKafkaClusterArgs> kafkaCluster) {
             $.kafkaCluster = kafkaCluster;
             return this;
         }
@@ -171,7 +171,6 @@ public final class KafkaClusterConfigArgs extends com.pulumi.resources.ResourceA
 
         public KafkaClusterConfigArgs build() {
             $.config = Objects.requireNonNull($.config, "expected parameter 'config' to be non-null");
-            $.kafkaCluster = Objects.requireNonNull($.kafkaCluster, "expected parameter 'kafkaCluster' to be non-null");
             return $;
         }
     }

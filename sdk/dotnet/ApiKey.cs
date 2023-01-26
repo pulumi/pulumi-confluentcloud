@@ -12,7 +12,7 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Import
     /// 
-    /// You can import a Kafka API Key by using the Environment ID and Kafka API Key ID in the format `&lt;Environment ID&gt;/&lt;Kafka API Key ID&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;" $ export API_KEY_SECRET="&lt;api_key_secret&gt;" Option #1Kafka API Key
+    /// You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `&lt;Environment ID&gt;/&lt;Cluster API Key ID&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;" $ export API_KEY_SECRET="&lt;api_key_secret&gt;" Option #1Cluster API Key
     /// 
     /// ```sh
     ///  $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key "env-abc123/UTT6WDRXX7FHD2GV"
@@ -48,7 +48,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+        /// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
         /// </summary>
         [Output("managedResource")]
         public Output<Outputs.ApiKeyManagedResource?> ManagedResource { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+        /// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
         /// </summary>
         [Input("managedResource")]
         public Input<Inputs.ApiKeyManagedResourceArgs>? ManagedResource { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+        /// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
         /// </summary>
         [Input("managedResource")]
         public Input<Inputs.ApiKeyManagedResourceGetArgs>? ManagedResource { get; set; }

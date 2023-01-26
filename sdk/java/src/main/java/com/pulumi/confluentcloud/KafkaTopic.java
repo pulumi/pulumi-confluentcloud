@@ -22,7 +22,13 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka topic name&gt;`, for example$ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34; $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34; $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;
+ * You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka topic name&gt;`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34; $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34; $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;
+ * 
+ * ```sh
+ *  $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
+ * ```
+ * 
+ *  Option #2Manage a single Kafka cluster in the same Terraform workspace
  * 
  * ```sh
  *  $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
@@ -160,10 +166,10 @@ public class KafkaTopic extends com.pulumi.resources.CustomResource {
         return this.httpEndpoint;
     }
     @Export(name="kafkaCluster", type=KafkaTopicKafkaCluster.class, parameters={})
-    private Output<KafkaTopicKafkaCluster> kafkaCluster;
+    private Output</* @Nullable */ KafkaTopicKafkaCluster> kafkaCluster;
 
-    public Output<KafkaTopicKafkaCluster> kafkaCluster() {
-        return this.kafkaCluster;
+    public Output<Optional<KafkaTopicKafkaCluster>> kafkaCluster() {
+        return Codegen.optional(this.kafkaCluster);
     }
     /**
      * The number of partitions to create in the topic. Defaults to `6`.

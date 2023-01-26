@@ -53,10 +53,6 @@ class GetKsqlClusterResult:
         pulumi.set(__self__, "resource_name", resource_name)
         if rest_endpoint and not isinstance(rest_endpoint, str):
             raise TypeError("Expected argument 'rest_endpoint' to be a str")
-        if rest_endpoint is not None:
-            warnings.warn("""use rest_endpoint instead""", DeprecationWarning)
-            pulumi.log.warn("""rest_endpoint is deprecated: use rest_endpoint instead""")
-
         pulumi.set(__self__, "rest_endpoint", rest_endpoint)
         if storage and not isinstance(storage, int):
             raise TypeError("Expected argument 'storage' to be a int")
@@ -79,6 +75,9 @@ class GetKsqlClusterResult:
     @property
     @pulumi.getter(name="credentialIdentities")
     def credential_identities(self) -> Sequence['outputs.GetKsqlClusterCredentialIdentityResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
         return pulumi.get(self, "credential_identities")
 
     @property
@@ -86,7 +85,6 @@ class GetKsqlClusterResult:
     def csu(self) -> int:
         """
         (Required Number) The number of CSUs (Confluent Streaming Units) in the ksqlDB cluster.
-        - `use_detailed_processing_log` (Optional Boolean) Controls whether the row data should be included in the processing log topic.
         """
         return pulumi.get(self, "csu")
 
@@ -111,6 +109,9 @@ class GetKsqlClusterResult:
     @property
     @pulumi.getter(name="kafkaClusters")
     def kafka_clusters(self) -> Sequence['outputs.GetKsqlClusterKafkaClusterResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
         return pulumi.get(self, "kafka_clusters")
 
     @property
@@ -134,7 +135,6 @@ class GetKsqlClusterResult:
     def rest_endpoint(self) -> str:
         """
         (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-        - `kafka_cluster` (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -157,6 +157,9 @@ class GetKsqlClusterResult:
     @property
     @pulumi.getter(name="useDetailedProcessingLog")
     def use_detailed_processing_log(self) -> bool:
+        """
+        (Optional Boolean) Controls whether the row data should be included in the processing log topic.
+        """
         return pulumi.get(self, "use_detailed_processing_log")
 
 

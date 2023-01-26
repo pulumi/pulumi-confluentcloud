@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * You can import a Kafka API Key by using the Environment ID and Kafka API Key ID in the format `&lt;Environment ID&gt;/&lt;Kafka API Key ID&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34; $ export API_KEY_SECRET=&#34;&lt;api_key_secret&gt;&#34; Option #1Kafka API Key
+ * You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `&lt;Environment ID&gt;/&lt;Cluster API Key ID&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34; $ export API_KEY_SECRET=&#34;&lt;api_key_secret&gt;&#34; Option #1Cluster API Key
  * 
  * ```sh
  *  $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key &#34;env-abc123/UTT6WDRXX7FHD2GV&#34;
@@ -81,14 +81,14 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
-     * The resource associated with this object. The only resource that is supported is &#39;cmk.v2.KafkaCluster&#39;.
+     * The resource associated with this object. The only resource that is supported is &#39;cmk.v2.Cluster&#39;, &#39;srcm.v2.Cluster&#39;.
      * 
      */
     @Export(name="managedResource", type=ApiKeyManagedResource.class, parameters={})
     private Output</* @Nullable */ ApiKeyManagedResource> managedResource;
 
     /**
-     * @return The resource associated with this object. The only resource that is supported is &#39;cmk.v2.KafkaCluster&#39;.
+     * @return The resource associated with this object. The only resource that is supported is &#39;cmk.v2.Cluster&#39;, &#39;srcm.v2.Cluster&#39;.
      * 
      */
     public Output<Optional<ApiKeyManagedResource>> managedResource() {

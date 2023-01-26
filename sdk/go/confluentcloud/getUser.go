@@ -30,14 +30,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdUser, err := confluentcloud.GetUser(ctx, &GetUserArgs{
+//			exampleUsingIdUser, err := confluentcloud.GetUser(ctx, &confluentcloud.GetUserArgs{
 //				Id: pulumi.StringRef("u-abc123"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingIdUser)
-//			exampleUsingEmail, err := confluentcloud.GetUser(ctx, &GetUserArgs{
+//			exampleUsingEmail, err := confluentcloud.GetUser(ctx, &confluentcloud.GetUserArgs{
 //				Email: pulumi.StringRef("test123@gmail.com"),
 //			}, nil)
 //			if err != nil {
@@ -52,7 +52,7 @@ import (
 //				Cloud:        pulumi.String("AWS"),
 //				Region:       pulumi.String("us-west-2"),
 //				Standard:     nil,
-//				Environment: &KafkaClusterEnvironmentArgs{
+//				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
 //					Id: test_env.ID(),
 //				},
 //			})
@@ -67,7 +67,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.GetUser(ctx, &GetUserArgs{
+//			_, err = confluentcloud.GetUser(ctx, &confluentcloud.GetUserArgs{
 //				FullName: pulumi.StringRef("John Doe"),
 //			}, nil)
 //			if err != nil {

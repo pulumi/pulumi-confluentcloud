@@ -20,16 +20,23 @@ public final class GetTransitGatewayAttachmentResult {
     private List<GetTransitGatewayAttachmentAw> aws;
     /**
      * @return (Required String) The name of the Transit Gateway Attachment.
-     * - `environment` (Required Configuration Block) supports the following:
      * 
      */
     private String displayName;
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     private GetTransitGatewayAttachmentEnvironment environment;
     /**
      * @return (Required String) The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
      * 
      */
     private String id;
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     private List<GetTransitGatewayAttachmentNetwork> networks;
 
     private GetTransitGatewayAttachmentResult() {}
@@ -42,12 +49,15 @@ public final class GetTransitGatewayAttachmentResult {
     }
     /**
      * @return (Required String) The name of the Transit Gateway Attachment.
-     * - `environment` (Required Configuration Block) supports the following:
      * 
      */
     public String displayName() {
         return this.displayName;
     }
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public GetTransitGatewayAttachmentEnvironment environment() {
         return this.environment;
     }
@@ -58,6 +68,10 @@ public final class GetTransitGatewayAttachmentResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public List<GetTransitGatewayAttachmentNetwork> networks() {
         return this.networks;
     }

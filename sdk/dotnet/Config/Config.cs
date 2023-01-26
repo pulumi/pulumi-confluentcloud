@@ -82,6 +82,16 @@ namespace Pulumi.ConfluentCloud
             set => _kafkaApiSecret.Set(value);
         }
 
+        private static readonly __Value<string?> _kafkaId = new __Value<string?>(() => __config.Get("kafkaId"));
+        /// <summary>
+        /// The Kafka Cluster ID.
+        /// </summary>
+        public static string? KafkaId
+        {
+            get => _kafkaId.Get();
+            set => _kafkaId.Set(value);
+        }
+
         private static readonly __Value<string?> _kafkaRestEndpoint = new __Value<string?>(() => __config.Get("kafkaRestEndpoint"));
         /// <summary>
         /// The Kafka Cluster REST Endpoint.
@@ -100,6 +110,46 @@ namespace Pulumi.ConfluentCloud
         {
             get => _maxRetries.Get();
             set => _maxRetries.Set(value);
+        }
+
+        private static readonly __Value<string?> _schemaRegistryApiKey = new __Value<string?>(() => __config.Get("schemaRegistryApiKey"));
+        /// <summary>
+        /// The Schema Registry Cluster API Key.
+        /// </summary>
+        public static string? SchemaRegistryApiKey
+        {
+            get => _schemaRegistryApiKey.Get();
+            set => _schemaRegistryApiKey.Set(value);
+        }
+
+        private static readonly __Value<string?> _schemaRegistryApiSecret = new __Value<string?>(() => __config.Get("schemaRegistryApiSecret"));
+        /// <summary>
+        /// The Schema Registry Cluster API Secret.
+        /// </summary>
+        public static string? SchemaRegistryApiSecret
+        {
+            get => _schemaRegistryApiSecret.Get();
+            set => _schemaRegistryApiSecret.Set(value);
+        }
+
+        private static readonly __Value<string?> _schemaRegistryId = new __Value<string?>(() => __config.Get("schemaRegistryId"));
+        /// <summary>
+        /// The Schema Registry Cluster ID.
+        /// </summary>
+        public static string? SchemaRegistryId
+        {
+            get => _schemaRegistryId.Get();
+            set => _schemaRegistryId.Set(value);
+        }
+
+        private static readonly __Value<string?> _schemaRegistryRestEndpoint = new __Value<string?>(() => __config.Get("schemaRegistryRestEndpoint"));
+        /// <summary>
+        /// The Schema Registry Cluster REST Endpoint.
+        /// </summary>
+        public static string? SchemaRegistryRestEndpoint
+        {
+            get => _schemaRegistryRestEndpoint.Get();
+            set => _schemaRegistryRestEndpoint.Set(value);
         }
 
     }

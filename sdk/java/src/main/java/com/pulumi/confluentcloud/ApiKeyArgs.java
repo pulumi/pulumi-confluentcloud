@@ -64,14 +64,14 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The resource associated with this object. The only resource that is supported is &#39;cmk.v2.KafkaCluster&#39;.
+     * The resource associated with this object. The only resource that is supported is &#39;cmk.v2.Cluster&#39;, &#39;srcm.v2.Cluster&#39;.
      * 
      */
     @Import(name="managedResource")
     private @Nullable Output<ApiKeyManagedResourceArgs> managedResource;
 
     /**
-     * @return The resource associated with this object. The only resource that is supported is &#39;cmk.v2.KafkaCluster&#39;.
+     * @return The resource associated with this object. The only resource that is supported is &#39;cmk.v2.Cluster&#39;, &#39;srcm.v2.Cluster&#39;.
      * 
      */
     public Optional<Output<ApiKeyManagedResourceArgs>> managedResource() {
@@ -185,7 +185,7 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedResource The resource associated with this object. The only resource that is supported is &#39;cmk.v2.KafkaCluster&#39;.
+         * @param managedResource The resource associated with this object. The only resource that is supported is &#39;cmk.v2.Cluster&#39;, &#39;srcm.v2.Cluster&#39;.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedResource The resource associated with this object. The only resource that is supported is &#39;cmk.v2.KafkaCluster&#39;.
+         * @param managedResource The resource associated with this object. The only resource that is supported is &#39;cmk.v2.Cluster&#39;, &#39;srcm.v2.Cluster&#39;.
          * 
          * @return builder
          * 

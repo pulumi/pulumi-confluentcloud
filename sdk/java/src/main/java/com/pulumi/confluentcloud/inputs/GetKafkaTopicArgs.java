@@ -24,11 +24,11 @@ public final class GetKafkaTopicArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.credentials);
     }
 
-    @Import(name="kafkaCluster", required=true)
-    private Output<GetKafkaTopicKafkaClusterArgs> kafkaCluster;
+    @Import(name="kafkaCluster")
+    private @Nullable Output<GetKafkaTopicKafkaClusterArgs> kafkaCluster;
 
-    public Output<GetKafkaTopicKafkaClusterArgs> kafkaCluster() {
-        return this.kafkaCluster;
+    public Optional<Output<GetKafkaTopicKafkaClusterArgs>> kafkaCluster() {
+        return Optional.ofNullable(this.kafkaCluster);
     }
 
     /**
@@ -97,7 +97,7 @@ public final class GetKafkaTopicArgs extends com.pulumi.resources.InvokeArgs {
             return credentials(Output.of(credentials));
         }
 
-        public Builder kafkaCluster(Output<GetKafkaTopicKafkaClusterArgs> kafkaCluster) {
+        public Builder kafkaCluster(@Nullable Output<GetKafkaTopicKafkaClusterArgs> kafkaCluster) {
             $.kafkaCluster = kafkaCluster;
             return this;
         }
@@ -149,7 +149,6 @@ public final class GetKafkaTopicArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetKafkaTopicArgs build() {
-            $.kafkaCluster = Objects.requireNonNull($.kafkaCluster, "expected parameter 'kafkaCluster' to be non-null");
             $.restEndpoint = Objects.requireNonNull($.restEndpoint, "expected parameter 'restEndpoint' to be non-null");
             $.topicName = Objects.requireNonNull($.topicName, "expected parameter 'topicName' to be non-null");
             return $;

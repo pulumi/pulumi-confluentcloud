@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud;
 
 import com.pulumi.confluentcloud.inputs.NetworkAwArgs;
 import com.pulumi.confluentcloud.inputs.NetworkAzureArgs;
+import com.pulumi.confluentcloud.inputs.NetworkDnsConfigArgs;
 import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.NetworkGcpArgs;
 import com.pulumi.core.Output;
@@ -111,6 +112,21 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Network DNS config. It applies only to the PRIVATELINK network connection type.
+     * 
+     */
+    @Import(name="dnsConfig")
+    private @Nullable Output<NetworkDnsConfigArgs> dnsConfig;
+
+    /**
+     * @return Network DNS config. It applies only to the PRIVATELINK network connection type.
+     * 
+     */
+    public Optional<Output<NetworkDnsConfigArgs>> dnsConfig() {
+        return Optional.ofNullable(this.dnsConfig);
+    }
+
+    /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
@@ -157,7 +173,8 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The 3 availability zones for this network. They can optionally be specified for AWS networks
-     * used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
+     * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+     * networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
      * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -168,7 +185,8 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The 3 availability zones for this network. They can optionally be specified for AWS networks
-     * used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
+     * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+     * networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
      * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -187,6 +205,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         this.cloud = $.cloud;
         this.connectionTypes = $.connectionTypes;
         this.displayName = $.displayName;
+        this.dnsConfig = $.dnsConfig;
         this.environment = $.environment;
         this.gcps = $.gcps;
         this.region = $.region;
@@ -368,6 +387,27 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param dnsConfig Network DNS config. It applies only to the PRIVATELINK network connection type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsConfig(@Nullable Output<NetworkDnsConfigArgs> dnsConfig) {
+            $.dnsConfig = dnsConfig;
+            return this;
+        }
+
+        /**
+         * @param dnsConfig Network DNS config. It applies only to the PRIVATELINK network connection type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsConfig(NetworkDnsConfigArgs dnsConfig) {
+            return dnsConfig(Output.of(dnsConfig));
+        }
+
+        /**
          * @param environment Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
          * 
          * @return builder
@@ -442,7 +482,8 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zones The 3 availability zones for this network. They can optionally be specified for AWS networks
-         * used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
+         * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+         * networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
          * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
          * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
          * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -457,7 +498,8 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zones The 3 availability zones for this network. They can optionally be specified for AWS networks
-         * used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
+         * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+         * networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
          * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
          * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
          * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -471,7 +513,8 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zones The 3 availability zones for this network. They can optionally be specified for AWS networks
-         * used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
+         * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+         * networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
          * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
          * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
          * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.

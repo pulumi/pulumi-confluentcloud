@@ -28,14 +28,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdServiceAccount, err := confluentcloud.LookupServiceAccount(ctx, &GetServiceAccountArgs{
+//			exampleUsingIdServiceAccount, err := confluentcloud.LookupServiceAccount(ctx, &confluentcloud.LookupServiceAccountArgs{
 //				Id: pulumi.StringRef("sa-abc123"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingIdServiceAccount)
-//			_, err = confluentcloud.LookupServiceAccount(ctx, &GetServiceAccountArgs{
+//			_, err = confluentcloud.LookupServiceAccount(ctx, &confluentcloud.LookupServiceAccountArgs{
 //				DisplayName: pulumi.StringRef("test_sa"),
 //			}, nil)
 //			if err != nil {

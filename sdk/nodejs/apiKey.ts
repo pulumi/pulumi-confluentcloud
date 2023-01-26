@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Import
  *
- * You can import a Kafka API Key by using the Environment ID and Kafka API Key ID in the format `<Environment ID>/<Kafka API Key ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export API_KEY_SECRET="<api_key_secret>" Option #1Kafka API Key
+ * You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `<Environment ID>/<Cluster API Key ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export API_KEY_SECRET="<api_key_secret>" Option #1Cluster API Key
  *
  * ```sh
  *  $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key "env-abc123/UTT6WDRXX7FHD2GV"
@@ -64,7 +64,7 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
      */
     public readonly managedResource!: pulumi.Output<outputs.ApiKeyManagedResource | undefined>;
     /**
@@ -131,7 +131,7 @@ export interface ApiKeyState {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
      */
     managedResource?: pulumi.Input<inputs.ApiKeyManagedResource>;
     /**
@@ -161,7 +161,7 @@ export interface ApiKeyArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+     * The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
      */
     managedResource?: pulumi.Input<inputs.ApiKeyManagedResource>;
     /**

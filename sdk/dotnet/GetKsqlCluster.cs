@@ -165,10 +165,12 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) An API Version of the schema version of the ksqlDB cluster, for example, `ksqldbcm/v2`.
         /// </summary>
         public readonly string ApiVersion;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetKsqlClusterCredentialIdentityResult> CredentialIdentities;
         /// <summary>
         /// (Required Number) The number of CSUs (Confluent Streaming Units) in the ksqlDB cluster.
-        /// - `use_detailed_processing_log` (Optional Boolean) Controls whether the row data should be included in the processing log topic.
         /// </summary>
         public readonly int Csu;
         public readonly string DisplayName;
@@ -177,6 +179,9 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) The ID of the service or user account that the ksqlDB cluster belongs to, for example, `sa-abc123`.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetKsqlClusterKafkaClusterResult> KafkaClusters;
         /// <summary>
         /// (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
@@ -188,7 +193,6 @@ namespace Pulumi.ConfluentCloud
         public readonly string ResourceName;
         /// <summary>
         /// (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-        /// - `kafka_cluster` (Optional Configuration Block) supports the following:
         /// </summary>
         public readonly string RestEndpoint;
         /// <summary>
@@ -199,6 +203,9 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
         /// </summary>
         public readonly string TopicPrefix;
+        /// <summary>
+        /// (Optional Boolean) Controls whether the row data should be included in the processing log topic.
+        /// </summary>
         public readonly bool UseDetailedProcessingLog;
 
         [OutputConstructor]

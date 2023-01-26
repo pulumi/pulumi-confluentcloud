@@ -5,7 +5,6 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -16,21 +15,6 @@ import javax.annotation.Nullable;
 public final class TransitGatewayAttachmentAwsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TransitGatewayAttachmentAwsArgs Empty = new TransitGatewayAttachmentAwsArgs();
-
-    /**
-     * Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-     * 
-     */
-    @Import(name="enableCustomRoutes")
-    private @Nullable Output<Boolean> enableCustomRoutes;
-
-    /**
-     * @return Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> enableCustomRoutes() {
-        return Optional.ofNullable(this.enableCustomRoutes);
-    }
 
     /**
      * The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
@@ -51,15 +35,15 @@ public final class TransitGatewayAttachmentAwsArgs extends com.pulumi.resources.
      * List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
      * 
      */
-    @Import(name="routes")
-    private @Nullable Output<List<String>> routes;
+    @Import(name="routes", required=true)
+    private Output<List<String>> routes;
 
     /**
      * @return List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
      * 
      */
-    public Optional<Output<List<String>>> routes() {
-        return Optional.ofNullable(this.routes);
+    public Output<List<String>> routes() {
+        return this.routes;
     }
 
     /**
@@ -95,7 +79,6 @@ public final class TransitGatewayAttachmentAwsArgs extends com.pulumi.resources.
     private TransitGatewayAttachmentAwsArgs() {}
 
     private TransitGatewayAttachmentAwsArgs(TransitGatewayAttachmentAwsArgs $) {
-        this.enableCustomRoutes = $.enableCustomRoutes;
         this.ramResourceShareArn = $.ramResourceShareArn;
         this.routes = $.routes;
         this.transitGatewayAttachmentId = $.transitGatewayAttachmentId;
@@ -118,27 +101,6 @@ public final class TransitGatewayAttachmentAwsArgs extends com.pulumi.resources.
 
         public Builder(TransitGatewayAttachmentAwsArgs defaults) {
             $ = new TransitGatewayAttachmentAwsArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param enableCustomRoutes Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableCustomRoutes(@Nullable Output<Boolean> enableCustomRoutes) {
-            $.enableCustomRoutes = enableCustomRoutes;
-            return this;
-        }
-
-        /**
-         * @param enableCustomRoutes Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableCustomRoutes(Boolean enableCustomRoutes) {
-            return enableCustomRoutes(Output.of(enableCustomRoutes));
         }
 
         /**
@@ -168,7 +130,7 @@ public final class TransitGatewayAttachmentAwsArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder routes(@Nullable Output<List<String>> routes) {
+        public Builder routes(Output<List<String>> routes) {
             $.routes = routes;
             return this;
         }
@@ -237,6 +199,7 @@ public final class TransitGatewayAttachmentAwsArgs extends com.pulumi.resources.
 
         public TransitGatewayAttachmentAwsArgs build() {
             $.ramResourceShareArn = Objects.requireNonNull($.ramResourceShareArn, "expected parameter 'ramResourceShareArn' to be non-null");
+            $.routes = Objects.requireNonNull($.routes, "expected parameter 'routes' to be non-null");
             $.transitGatewayId = Objects.requireNonNull($.transitGatewayId, "expected parameter 'transitGatewayId' to be non-null");
             return $;
         }

@@ -19,56 +19,15 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
- * 
- * `confluentcloud.KafkaClusterConfig` provides a Kafka cluster config resource that enables updating configs on a Dedicated Kafka cluster on Confluent Cloud.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.confluentcloud.KafkaClusterConfig;
- * import com.pulumi.confluentcloud.KafkaClusterConfigArgs;
- * import com.pulumi.confluentcloud.inputs.KafkaClusterConfigKafkaClusterArgs;
- * import com.pulumi.confluentcloud.inputs.KafkaClusterConfigCredentialsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var orders = new KafkaClusterConfig(&#34;orders&#34;, KafkaClusterConfigArgs.builder()        
- *             .kafkaCluster(KafkaClusterConfigKafkaClusterArgs.builder()
- *                 .id(confluent_kafka_cluster.dedicated().id())
- *                 .build())
- *             .restEndpoint(confluent_kafka_cluster.dedicated().rest_endpoint())
- *             .config(Map.ofEntries(
- *                 Map.entry(&#34;auto.create.topics.enable&#34;, &#34;true&#34;),
- *                 Map.entry(&#34;log.retention.ms&#34;, &#34;604800123&#34;)
- *             ))
- *             .credentials(KafkaClusterConfigCredentialsArgs.builder()
- *                 .key(confluent_api_key.app-manager-kafka-api-key().id())
- *                 .secret(confluent_api_key.app-manager-kafka-api-key().secret())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
- * You can import a Kafka cluster config by using the Kafka cluster ID, for example$ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34; $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34; $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;
+ * You can import a Kafka cluster config by using the Kafka cluster ID, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34; $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34; $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;
+ * 
+ * ```sh
+ *  $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
+ * ```
+ * 
+ *  Option #2Manage a single Kafka cluster in the same Terraform workspace
  * 
  * ```sh
  *  $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
@@ -108,10 +67,10 @@ public class KafkaClusterConfig extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.credentials);
     }
     @Export(name="kafkaCluster", type=KafkaClusterConfigKafkaCluster.class, parameters={})
-    private Output<KafkaClusterConfigKafkaCluster> kafkaCluster;
+    private Output</* @Nullable */ KafkaClusterConfigKafkaCluster> kafkaCluster;
 
-    public Output<KafkaClusterConfigKafkaCluster> kafkaCluster() {
-        return this.kafkaCluster;
+    public Output<Optional<KafkaClusterConfigKafkaCluster>> kafkaCluster() {
+        return Codegen.optional(this.kafkaCluster);
     }
     /**
      * The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).

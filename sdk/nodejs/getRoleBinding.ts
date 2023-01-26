@@ -22,11 +22,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getRoleBinding(args: GetRoleBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleBindingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getRoleBinding:getRoleBinding", {
         "id": args.id,
     }, opts);
@@ -60,9 +57,25 @@ export interface GetRoleBindingResult {
      */
     readonly roleName: string;
 }
-
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.RoleBinding` describes a Role Binding.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const exampleRoleBinding = confluentcloud.getRoleBinding({
+ *     id: "rb-abc123",
+ * });
+ * export const example = exampleRoleBinding;
+ * ```
+ */
 export function getRoleBindingOutput(args: GetRoleBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleBindingResult> {
-    return pulumi.output(args).apply(a => getRoleBinding(a, opts))
+    return pulumi.output(args).apply((a: any) => getRoleBinding(a, opts))
 }
 
 /**

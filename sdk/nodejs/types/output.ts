@@ -235,6 +235,15 @@ export interface GetNetworkAzure {
     privateLinkServiceAliases: {[key: string]: string};
 }
 
+export interface GetNetworkDnsConfig {
+    /**
+     * (Required String) Network DNS resolution.
+     * When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+     * When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+     */
+    resolution: string;
+}
+
 export interface GetNetworkEnvironment {
     /**
      * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
@@ -355,9 +364,56 @@ export interface GetPrivateLinkAccessNetwork {
     id: string;
 }
 
+export interface GetSchemaCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetSchemaRegistryClusterConfigCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetSchemaRegistryClusterConfigSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
 export interface GetSchemaRegistryClusterEnvironment {
     /**
      * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetSchemaRegistryClusterModeCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetSchemaRegistryClusterModeSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: string;
 }
@@ -369,11 +425,65 @@ export interface GetSchemaRegistryClusterRegion {
     id: string;
 }
 
-export interface GetTransitGatewayAttachmentAw {
+export interface GetSchemaSchemaReference {
     /**
-     * (Required String) Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+     * (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
      */
-    enableCustomRoutes: boolean;
+    name: string;
+    /**
+     * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
+     */
+    subjectName: string;
+    /**
+     * (Required Integer) The version of the Schema, for example, `4`.
+     */
+    version: number;
+}
+
+export interface GetSchemaSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetSubjectConfigCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetSubjectConfigSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetSubjectModeCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetSubjectModeSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetTransitGatewayAttachmentAw {
     /**
      * (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
      */
@@ -603,6 +713,15 @@ export interface NetworkAzure {
     privateLinkServiceAliases: {[key: string]: string};
 }
 
+export interface NetworkDnsConfig {
+    /**
+     * Network DNS resolution.
+     * When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+     * When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+     */
+    resolution: string;
+}
+
 export interface NetworkEnvironment {
     /**
      * The ID of the Environment that the Network belongs to, for example, `env-abc123`.
@@ -723,9 +842,56 @@ export interface PrivateLinkAccessNetwork {
     id: string;
 }
 
+export interface SchemaCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface SchemaRegistryClusterConfigCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface SchemaRegistryClusterConfigSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
 export interface SchemaRegistryClusterEnvironment {
     /**
      * The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     */
+    id: string;
+}
+
+export interface SchemaRegistryClusterModeCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface SchemaRegistryClusterModeSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: string;
 }
@@ -737,11 +903,65 @@ export interface SchemaRegistryClusterRegion {
     id: string;
 }
 
-export interface TransitGatewayAttachmentAws {
+export interface SchemaSchemaReference {
     /**
-     * Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+     * The name of the subject, representing the subject under which the referenced schema is registered.
      */
-    enableCustomRoutes?: boolean;
+    name: string;
+    /**
+     * The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     */
+    subjectName: string;
+    /**
+     * The version, representing the exact version of the schema under the registered subject.
+     */
+    version: number;
+}
+
+export interface SchemaSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface SubjectConfigCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface SubjectConfigSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface SubjectModeCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface SubjectModeSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface TransitGatewayAttachmentAws {
     /**
      * The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
      */
@@ -773,3 +993,4 @@ export interface TransitGatewayAttachmentNetwork {
      */
     id: string;
 }
+

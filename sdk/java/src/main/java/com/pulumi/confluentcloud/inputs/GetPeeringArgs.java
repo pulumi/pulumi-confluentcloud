@@ -31,9 +31,17 @@ public final class GetPeeringArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.displayName);
     }
 
+    /**
+     * (Required Configuration Block) supports the following:
+     * 
+     */
     @Import(name="environment", required=true)
     private Output<GetPeeringEnvironmentArgs> environment;
 
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public Output<GetPeeringEnvironmentArgs> environment() {
         return this.environment;
     }
@@ -100,11 +108,23 @@ public final class GetPeeringArgs extends com.pulumi.resources.InvokeArgs {
             return displayName(Output.of(displayName));
         }
 
+        /**
+         * @param environment (Required Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(Output<GetPeeringEnvironmentArgs> environment) {
             $.environment = environment;
             return this;
         }
 
+        /**
+         * @param environment (Required Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(GetPeeringEnvironmentArgs environment) {
             return environment(Output.of(environment));
         }

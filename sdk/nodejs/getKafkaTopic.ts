@@ -6,37 +6,9 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
- *
- * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as confluentcloud from "@pulumi/confluentcloud";
- *
- * const orders = confluentcloud.getKafkaTopic({
- *     kafkaCluster: {
- *         id: confluent_kafka_cluster["basic-cluster"].id,
- *     },
- *     topicName: "orders",
- *     restEndpoint: confluent_kafka_cluster["basic-cluster"].rest_endpoint,
- *     credentials: {
- *         key: "<Kafka API Key for confluent_kafka_cluster.basic-cluster>",
- *         secret: "<Kafka API Secret for confluent_kafka_cluster.basic-cluster>",
- *     },
- * });
- * export const config = orders.then(orders => orders.config);
- * ```
- */
 export function getKafkaTopic(args: GetKafkaTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaTopicResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getKafkaTopic:getKafkaTopic", {
         "credentials": args.credentials,
         "kafkaCluster": args.kafkaCluster,
@@ -50,7 +22,7 @@ export function getKafkaTopic(args: GetKafkaTopicArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetKafkaTopicArgs {
     credentials?: inputs.GetKafkaTopicCredentials;
-    kafkaCluster: inputs.GetKafkaTopicKafkaCluster;
+    kafkaCluster?: inputs.GetKafkaTopicKafkaCluster;
     /**
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
@@ -74,7 +46,7 @@ export interface GetKafkaTopicResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly kafkaCluster: outputs.GetKafkaTopicKafkaCluster;
+    readonly kafkaCluster?: outputs.GetKafkaTopicKafkaCluster;
     /**
      * (Required Number) The number of partitions to create in the topic. Defaults to `6`.
      */
@@ -82,9 +54,8 @@ export interface GetKafkaTopicResult {
     readonly restEndpoint: string;
     readonly topicName: string;
 }
-
 export function getKafkaTopicOutput(args: GetKafkaTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaTopicResult> {
-    return pulumi.output(args).apply(a => getKafkaTopic(a, opts))
+    return pulumi.output(args).apply((a: any) => getKafkaTopic(a, opts))
 }
 
 /**
@@ -92,7 +63,7 @@ export function getKafkaTopicOutput(args: GetKafkaTopicOutputArgs, opts?: pulumi
  */
 export interface GetKafkaTopicOutputArgs {
     credentials?: pulumi.Input<inputs.GetKafkaTopicCredentialsArgs>;
-    kafkaCluster: pulumi.Input<inputs.GetKafkaTopicKafkaClusterArgs>;
+    kafkaCluster?: pulumi.Input<inputs.GetKafkaTopicKafkaClusterArgs>;
     /**
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */

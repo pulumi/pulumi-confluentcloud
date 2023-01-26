@@ -147,6 +147,18 @@ namespace Pulumi.ConfluentCloud
         [Input("displayName")]
         public string? DisplayName { get; set; }
 
+        [Input("dnsConfigs")]
+        private List<Inputs.GetNetworkDnsConfigArgs>? _dnsConfigs;
+
+        /// <summary>
+        /// (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+        /// </summary>
+        public List<Inputs.GetNetworkDnsConfigArgs> DnsConfigs
+        {
+            get => _dnsConfigs ?? (_dnsConfigs = new List<Inputs.GetNetworkDnsConfigArgs>());
+            set => _dnsConfigs = value;
+        }
+
         [Input("environment", required: true)]
         public Inputs.GetNetworkEnvironmentArgs Environment { get; set; } = null!;
 
@@ -206,6 +218,18 @@ namespace Pulumi.ConfluentCloud
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        [Input("dnsConfigs")]
+        private InputList<Inputs.GetNetworkDnsConfigInputArgs>? _dnsConfigs;
+
+        /// <summary>
+        /// (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+        /// </summary>
+        public InputList<Inputs.GetNetworkDnsConfigInputArgs> DnsConfigs
+        {
+            get => _dnsConfigs ?? (_dnsConfigs = new InputList<Inputs.GetNetworkDnsConfigInputArgs>());
+            set => _dnsConfigs = value;
+        }
+
         [Input("environment", required: true)]
         public Input<Inputs.GetNetworkEnvironmentInputArgs> Environment { get; set; } = null!;
 
@@ -261,6 +285,10 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) The name of the Network.
         /// </summary>
         public readonly string DisplayName;
+        /// <summary>
+        /// (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetNetworkDnsConfigResult> DnsConfigs;
         public readonly string DnsDomain;
         public readonly Outputs.GetNetworkEnvironmentResult Environment;
         /// <summary>
@@ -282,7 +310,8 @@ namespace Pulumi.ConfluentCloud
         public readonly ImmutableDictionary<string, string> ZonalSubdomains;
         /// <summary>
         /// (Optional List of String) The 3 availability zones for this network. They can optionally be specified for AWS networks
-        /// used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+        /// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+        /// networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
         /// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         /// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
         /// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -302,6 +331,8 @@ namespace Pulumi.ConfluentCloud
             ImmutableArray<string> connectionTypes,
 
             string displayName,
+
+            ImmutableArray<Outputs.GetNetworkDnsConfigResult> dnsConfigs,
 
             string dnsDomain,
 
@@ -325,6 +356,7 @@ namespace Pulumi.ConfluentCloud
             Cloud = cloud;
             ConnectionTypes = connectionTypes;
             DisplayName = displayName;
+            DnsConfigs = dnsConfigs;
             DnsDomain = dnsDomain;
             Environment = environment;
             Gcps = gcps;

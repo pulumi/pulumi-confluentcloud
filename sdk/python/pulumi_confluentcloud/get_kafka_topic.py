@@ -69,7 +69,7 @@ class GetKafkaTopicResult:
 
     @property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> 'outputs.GetKafkaTopicKafkaClusterResult':
+    def kafka_cluster(self) -> Optional['outputs.GetKafkaTopicKafkaClusterResult']:
         return pulumi.get(self, "kafka_cluster")
 
     @property
@@ -112,28 +112,7 @@ def get_kafka_topic(credentials: Optional[pulumi.InputType['GetKafkaTopicCredent
                     topic_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKafkaTopicResult:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-
-    `KafkaTopic` describes a Kafka Topic data source.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_confluentcloud as confluentcloud
-
-    orders = confluentcloud.get_kafka_topic(kafka_cluster=confluentcloud.GetKafkaTopicKafkaClusterArgs(
-            id=confluent_kafka_cluster["basic-cluster"]["id"],
-        ),
-        topic_name="orders",
-        rest_endpoint=confluent_kafka_cluster["basic-cluster"]["rest_endpoint"],
-        credentials=confluentcloud.GetKafkaTopicCredentialsArgs(
-            key="<Kafka API Key for confluent_kafka_cluster.basic-cluster>",
-            secret="<Kafka API Secret for confluent_kafka_cluster.basic-cluster>",
-        ))
-    pulumi.export("config", orders.config)
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
     :param str topic_name: The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length and can contain only alphanumeric characters, hyphens, and underscores.
@@ -158,33 +137,12 @@ def get_kafka_topic(credentials: Optional[pulumi.InputType['GetKafkaTopicCredent
 
 @_utilities.lift_output_func(get_kafka_topic)
 def get_kafka_topic_output(credentials: Optional[pulumi.Input[Optional[pulumi.InputType['GetKafkaTopicCredentialsArgs']]]] = None,
-                           kafka_cluster: Optional[pulumi.Input[pulumi.InputType['GetKafkaTopicKafkaClusterArgs']]] = None,
+                           kafka_cluster: Optional[pulumi.Input[Optional[pulumi.InputType['GetKafkaTopicKafkaClusterArgs']]]] = None,
                            rest_endpoint: Optional[pulumi.Input[str]] = None,
                            topic_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKafkaTopicResult]:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-
-    `KafkaTopic` describes a Kafka Topic data source.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_confluentcloud as confluentcloud
-
-    orders = confluentcloud.get_kafka_topic(kafka_cluster=confluentcloud.GetKafkaTopicKafkaClusterArgs(
-            id=confluent_kafka_cluster["basic-cluster"]["id"],
-        ),
-        topic_name="orders",
-        rest_endpoint=confluent_kafka_cluster["basic-cluster"]["rest_endpoint"],
-        credentials=confluentcloud.GetKafkaTopicCredentialsArgs(
-            key="<Kafka API Key for confluent_kafka_cluster.basic-cluster>",
-            secret="<Kafka API Secret for confluent_kafka_cluster.basic-cluster>",
-        ))
-    pulumi.export("config", orders.config)
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
     :param str topic_name: The name of the topic, for example, `orders-1`. The topic name can be up to 255 characters in length and can contain only alphanumeric characters, hyphens, and underscores.

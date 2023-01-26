@@ -4,7 +4,6 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -14,11 +13,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TransitGatewayAttachmentAws {
     /**
-     * @return Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-     * 
-     */
-    private @Nullable Boolean enableCustomRoutes;
-    /**
      * @return The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
      * 
      */
@@ -27,7 +21,7 @@ public final class TransitGatewayAttachmentAws {
      * @return List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
      * 
      */
-    private @Nullable List<String> routes;
+    private List<String> routes;
     /**
      * @return (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
      * 
@@ -41,13 +35,6 @@ public final class TransitGatewayAttachmentAws {
 
     private TransitGatewayAttachmentAws() {}
     /**
-     * @return Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-     * 
-     */
-    public Optional<Boolean> enableCustomRoutes() {
-        return Optional.ofNullable(this.enableCustomRoutes);
-    }
-    /**
      * @return The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
      * 
      */
@@ -59,7 +46,7 @@ public final class TransitGatewayAttachmentAws {
      * 
      */
     public List<String> routes() {
-        return this.routes == null ? List.of() : this.routes;
+        return this.routes;
     }
     /**
      * @return (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
@@ -85,15 +72,13 @@ public final class TransitGatewayAttachmentAws {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Boolean enableCustomRoutes;
         private String ramResourceShareArn;
-        private @Nullable List<String> routes;
+        private List<String> routes;
         private @Nullable String transitGatewayAttachmentId;
         private String transitGatewayId;
         public Builder() {}
         public Builder(TransitGatewayAttachmentAws defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.enableCustomRoutes = defaults.enableCustomRoutes;
     	      this.ramResourceShareArn = defaults.ramResourceShareArn;
     	      this.routes = defaults.routes;
     	      this.transitGatewayAttachmentId = defaults.transitGatewayAttachmentId;
@@ -101,18 +86,13 @@ public final class TransitGatewayAttachmentAws {
         }
 
         @CustomType.Setter
-        public Builder enableCustomRoutes(@Nullable Boolean enableCustomRoutes) {
-            this.enableCustomRoutes = enableCustomRoutes;
-            return this;
-        }
-        @CustomType.Setter
         public Builder ramResourceShareArn(String ramResourceShareArn) {
             this.ramResourceShareArn = Objects.requireNonNull(ramResourceShareArn);
             return this;
         }
         @CustomType.Setter
-        public Builder routes(@Nullable List<String> routes) {
-            this.routes = routes;
+        public Builder routes(List<String> routes) {
+            this.routes = Objects.requireNonNull(routes);
             return this;
         }
         public Builder routes(String... routes) {
@@ -130,7 +110,6 @@ public final class TransitGatewayAttachmentAws {
         }
         public TransitGatewayAttachmentAws build() {
             final var o = new TransitGatewayAttachmentAws();
-            o.enableCustomRoutes = enableCustomRoutes;
             o.ramResourceShareArn = ramResourceShareArn;
             o.routes = routes;
             o.transitGatewayAttachmentId = transitGatewayAttachmentId;

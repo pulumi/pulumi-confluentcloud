@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.IdentityProvider` provides an Identity Provider resource that enables creating, editing, and deleting identity providers on Confluent Cloud.
  *
@@ -14,9 +14,9 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as confluent from "@pulumi/confluent";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const azure = new confluent.IdentityProvider("azure", {
+ * const azure = new confluentcloud.IdentityProvider("azure", {
  *     description: "My description",
  *     displayName: "My OIDC Provider: Azure AD",
  *     issuer: "https://login.microsoftonline.com/{tenant_id}/v2.0",
@@ -27,9 +27,9 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as confluent from "@pulumi/confluent";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const okta = new confluent.IdentityProvider("okta", {
+ * const okta = new confluentcloud.IdentityProvider("okta", {
  *     description: "My description",
  *     displayName: "My OIDC Provider: Okta",
  *     issuer: "https://mycompany.okta.com/oauth2/default",

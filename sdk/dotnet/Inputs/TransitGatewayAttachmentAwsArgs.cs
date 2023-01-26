@@ -13,18 +13,12 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class TransitGatewayAttachmentAwsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-        /// </summary>
-        [Input("enableCustomRoutes")]
-        public Input<bool>? EnableCustomRoutes { get; set; }
-
-        /// <summary>
         /// The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
         /// </summary>
         [Input("ramResourceShareArn", required: true)]
         public Input<string> RamResourceShareArn { get; set; } = null!;
 
-        [Input("routes")]
+        [Input("routes", required: true)]
         private InputList<string>? _routes;
 
         /// <summary>

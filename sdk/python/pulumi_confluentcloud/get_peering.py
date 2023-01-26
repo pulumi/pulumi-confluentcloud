@@ -67,13 +67,15 @@ class GetPeeringResult:
     def display_name(self) -> str:
         """
         (Optional String) The name of the Peering.
-        - `environment` (Required Configuration Block) supports the following:
         """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def environment(self) -> 'outputs.GetPeeringEnvironmentResult':
+        """
+        (Required Configuration Block) supports the following:
+        """
         return pulumi.get(self, "environment")
 
     @property
@@ -95,6 +97,9 @@ class GetPeeringResult:
     @property
     @pulumi.getter
     def networks(self) -> Sequence['outputs.GetPeeringNetworkResult']:
+        """
+        (Required Configuration Block) supports the following:
+        """
         return pulumi.get(self, "networks")
 
 
@@ -142,6 +147,7 @@ def get_peering(display_name: Optional[str] = None,
 
 
     :param str display_name: A human-readable name for the Peering.
+    :param pulumi.InputType['GetPeeringEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
     """
     __args__ = dict()
@@ -191,6 +197,7 @@ def get_peering_output(display_name: Optional[pulumi.Input[Optional[str]]] = Non
 
 
     :param str display_name: A human-readable name for the Peering.
+    :param pulumi.InputType['GetPeeringEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
     """
     ...

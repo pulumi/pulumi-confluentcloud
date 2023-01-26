@@ -17,7 +17,6 @@ __all__ = ['KafkaAclArgs', 'KafkaAcl']
 class KafkaAclArgs:
     def __init__(__self__, *,
                  host: pulumi.Input[str],
-                 kafka_cluster: pulumi.Input['KafkaAclKafkaClusterArgs'],
                  operation: pulumi.Input[str],
                  pattern_type: pulumi.Input[str],
                  permission: pulumi.Input[str],
@@ -25,6 +24,7 @@ class KafkaAclArgs:
                  resource_name: pulumi.Input[str],
                  resource_type: pulumi.Input[str],
                  credentials: Optional[pulumi.Input['KafkaAclCredentialsArgs']] = None,
+                 kafka_cluster: Optional[pulumi.Input['KafkaAclKafkaClusterArgs']] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a KafkaAcl resource.
@@ -39,7 +39,6 @@ class KafkaAclArgs:
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
         """
         pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "kafka_cluster", kafka_cluster)
         pulumi.set(__self__, "operation", operation)
         pulumi.set(__self__, "pattern_type", pattern_type)
         pulumi.set(__self__, "permission", permission)
@@ -48,6 +47,8 @@ class KafkaAclArgs:
         pulumi.set(__self__, "resource_type", resource_type)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if kafka_cluster is not None:
+            pulumi.set(__self__, "kafka_cluster", kafka_cluster)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
 
@@ -62,15 +63,6 @@ class KafkaAclArgs:
     @host.setter
     def host(self, value: pulumi.Input[str]):
         pulumi.set(self, "host", value)
-
-    @property
-    @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> pulumi.Input['KafkaAclKafkaClusterArgs']:
-        return pulumi.get(self, "kafka_cluster")
-
-    @kafka_cluster.setter
-    def kafka_cluster(self, value: pulumi.Input['KafkaAclKafkaClusterArgs']):
-        pulumi.set(self, "kafka_cluster", value)
 
     @property
     @pulumi.getter
@@ -155,6 +147,15 @@ class KafkaAclArgs:
     @credentials.setter
     def credentials(self, value: Optional[pulumi.Input['KafkaAclCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="kafkaCluster")
+    def kafka_cluster(self) -> Optional[pulumi.Input['KafkaAclKafkaClusterArgs']]:
+        return pulumi.get(self, "kafka_cluster")
+
+    @kafka_cluster.setter
+    def kafka_cluster(self, value: Optional[pulumi.Input['KafkaAclKafkaClusterArgs']]):
+        pulumi.set(self, "kafka_cluster", value)
 
     @property
     @pulumi.getter(name="restEndpoint")
@@ -352,7 +353,13 @@ class KafkaAcl(pulumi.CustomResource):
         """
         ## Import
 
-        You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+        You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+
+        ```sh
+         $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
+        ```
+
+         Option #2Manage a single Kafka cluster in the same Terraform workspace $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
          $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
@@ -381,7 +388,13 @@ class KafkaAcl(pulumi.CustomResource):
         """
         ## Import
 
-        You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+        You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+
+        ```sh
+         $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
+        ```
+
+         Option #2Manage a single Kafka cluster in the same Terraform workspace $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
          $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
@@ -427,8 +440,6 @@ class KafkaAcl(pulumi.CustomResource):
             if host is None and not opts.urn:
                 raise TypeError("Missing required property 'host'")
             __props__.__dict__["host"] = host
-            if kafka_cluster is None and not opts.urn:
-                raise TypeError("Missing required property 'kafka_cluster'")
             __props__.__dict__["kafka_cluster"] = kafka_cluster
             if operation is None and not opts.urn:
                 raise TypeError("Missing required property 'operation'")
@@ -522,7 +533,7 @@ class KafkaAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> pulumi.Output['outputs.KafkaAclKafkaCluster']:
+    def kafka_cluster(self) -> pulumi.Output[Optional['outputs.KafkaAclKafkaCluster']]:
         return pulumi.get(self, "kafka_cluster")
 
     @property

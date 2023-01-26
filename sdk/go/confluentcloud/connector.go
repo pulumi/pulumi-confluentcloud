@@ -51,7 +51,7 @@ func NewConnector(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'KafkaCluster'")
 	}
 	if args.ConfigSensitive != nil {
-		args.ConfigSensitive = pulumi.ToSecret(args.ConfigSensitive).(pulumi.StringMapOutput)
+		args.ConfigSensitive = pulumi.ToSecret(args.ConfigSensitive).(pulumi.StringMapInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"configSensitive",

@@ -16,11 +16,11 @@ __all__ = ['KafkaTopicArgs', 'KafkaTopic']
 @pulumi.input_type
 class KafkaTopicArgs:
     def __init__(__self__, *,
-                 kafka_cluster: pulumi.Input['KafkaTopicKafkaClusterArgs'],
                  topic_name: pulumi.Input[str],
                  config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  credentials: Optional[pulumi.Input['KafkaTopicCredentialsArgs']] = None,
                  http_endpoint: Optional[pulumi.Input[str]] = None,
+                 kafka_cluster: Optional[pulumi.Input['KafkaTopicKafkaClusterArgs']] = None,
                  partitions_count: Optional[pulumi.Input[int]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None):
         """
@@ -32,7 +32,6 @@ class KafkaTopicArgs:
         :param pulumi.Input[int] partitions_count: The number of partitions to create in the topic. Defaults to `6`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
-        pulumi.set(__self__, "kafka_cluster", kafka_cluster)
         pulumi.set(__self__, "topic_name", topic_name)
         if config is not None:
             pulumi.set(__self__, "config", config)
@@ -43,19 +42,12 @@ class KafkaTopicArgs:
             pulumi.log.warn("""http_endpoint is deprecated: This parameter has been deprecated in favour of Rest Endpoint""")
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if kafka_cluster is not None:
+            pulumi.set(__self__, "kafka_cluster", kafka_cluster)
         if partitions_count is not None:
             pulumi.set(__self__, "partitions_count", partitions_count)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
-
-    @property
-    @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> pulumi.Input['KafkaTopicKafkaClusterArgs']:
-        return pulumi.get(self, "kafka_cluster")
-
-    @kafka_cluster.setter
-    def kafka_cluster(self, value: pulumi.Input['KafkaTopicKafkaClusterArgs']):
-        pulumi.set(self, "kafka_cluster", value)
 
     @property
     @pulumi.getter(name="topicName")
@@ -104,6 +96,15 @@ class KafkaTopicArgs:
     @http_endpoint.setter
     def http_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "http_endpoint", value)
+
+    @property
+    @pulumi.getter(name="kafkaCluster")
+    def kafka_cluster(self) -> Optional[pulumi.Input['KafkaTopicKafkaClusterArgs']]:
+        return pulumi.get(self, "kafka_cluster")
+
+    @kafka_cluster.setter
+    def kafka_cluster(self, value: Optional[pulumi.Input['KafkaTopicKafkaClusterArgs']]):
+        pulumi.set(self, "kafka_cluster", value)
 
     @property
     @pulumi.getter(name="partitionsCount")
@@ -265,7 +266,13 @@ class KafkaTopic(pulumi.CustomResource):
         """
         ## Import
 
-        You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for example$ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+        You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+
+        ```sh
+         $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
+        ```
+
+         Option #2Manage a single Kafka cluster in the same Terraform workspace
 
         ```sh
          $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
@@ -371,7 +378,13 @@ class KafkaTopic(pulumi.CustomResource):
         """
         ## Import
 
-        You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for example$ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+        You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+
+        ```sh
+         $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
+        ```
+
+         Option #2Manage a single Kafka cluster in the same Terraform workspace
 
         ```sh
          $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
@@ -496,8 +509,6 @@ class KafkaTopic(pulumi.CustomResource):
                 warnings.warn("""This parameter has been deprecated in favour of Rest Endpoint""", DeprecationWarning)
                 pulumi.log.warn("""http_endpoint is deprecated: This parameter has been deprecated in favour of Rest Endpoint""")
             __props__.__dict__["http_endpoint"] = http_endpoint
-            if kafka_cluster is None and not opts.urn:
-                raise TypeError("Missing required property 'kafka_cluster'")
             __props__.__dict__["kafka_cluster"] = kafka_cluster
             __props__.__dict__["partitions_count"] = partitions_count
             __props__.__dict__["rest_endpoint"] = rest_endpoint
@@ -576,7 +587,7 @@ class KafkaTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kafkaCluster")
-    def kafka_cluster(self) -> pulumi.Output['outputs.KafkaTopicKafkaCluster']:
+    def kafka_cluster(self) -> pulumi.Output[Optional['outputs.KafkaTopicKafkaCluster']]:
         return pulumi.get(self, "kafka_cluster")
 
     @property

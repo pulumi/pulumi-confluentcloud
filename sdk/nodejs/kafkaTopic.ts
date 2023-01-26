@@ -9,7 +9,13 @@ import * as utilities from "./utilities";
 /**
  * ## Import
  *
- * You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for example$ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+ * You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+ *
+ * ```sh
+ *  $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
+ * ```
+ *
+ *  Option #2Manage a single Kafka cluster in the same Terraform workspace
  *
  * ```sh
  *  $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
@@ -139,7 +145,7 @@ export class KafkaTopic extends pulumi.CustomResource {
      * @deprecated This parameter has been deprecated in favour of Rest Endpoint
      */
     public readonly httpEndpoint!: pulumi.Output<string>;
-    public readonly kafkaCluster!: pulumi.Output<outputs.KafkaTopicKafkaCluster>;
+    public readonly kafkaCluster!: pulumi.Output<outputs.KafkaTopicKafkaCluster | undefined>;
     /**
      * The number of partitions to create in the topic. Defaults to `6`.
      */
@@ -175,9 +181,6 @@ export class KafkaTopic extends pulumi.CustomResource {
             resourceInputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as KafkaTopicArgs | undefined;
-            if ((!args || args.kafkaCluster === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'kafkaCluster'");
-            }
             if ((!args || args.topicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
@@ -247,7 +250,7 @@ export interface KafkaTopicArgs {
      * @deprecated This parameter has been deprecated in favour of Rest Endpoint
      */
     httpEndpoint?: pulumi.Input<string>;
-    kafkaCluster: pulumi.Input<inputs.KafkaTopicKafkaCluster>;
+    kafkaCluster?: pulumi.Input<inputs.KafkaTopicKafkaCluster>;
     /**
      * The number of partitions to create in the topic. Defaults to `6`.
      */

@@ -31,9 +31,17 @@ public final class GetPrivateLinkAccessArgs extends com.pulumi.resources.InvokeA
         return Optional.ofNullable(this.displayName);
     }
 
+    /**
+     * (Required Configuration Block) supports the following:
+     * 
+     */
     @Import(name="environment", required=true)
     private Output<GetPrivateLinkAccessEnvironmentArgs> environment;
 
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public Output<GetPrivateLinkAccessEnvironmentArgs> environment() {
         return this.environment;
     }
@@ -100,11 +108,23 @@ public final class GetPrivateLinkAccessArgs extends com.pulumi.resources.InvokeA
             return displayName(Output.of(displayName));
         }
 
+        /**
+         * @param environment (Required Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(Output<GetPrivateLinkAccessEnvironmentArgs> environment) {
             $.environment = environment;
             return this;
         }
 
+        /**
+         * @param environment (Required Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(GetPrivateLinkAccessEnvironmentArgs environment) {
             return environment(Output.of(environment));
         }

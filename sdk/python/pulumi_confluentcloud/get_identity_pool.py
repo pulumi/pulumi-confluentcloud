@@ -86,6 +86,9 @@ class GetIdentityPoolResult:
     @property
     @pulumi.getter(name="identityProvider")
     def identity_provider(self) -> 'outputs.GetIdentityPoolIdentityProviderResult':
+        """
+        (Required Configuration Block) supports the following:
+        """
         return pulumi.get(self, "identity_provider")
 
 
@@ -108,7 +111,7 @@ def get_identity_pool(display_name: Optional[str] = None,
                       identity_provider: Optional[pulumi.InputType['GetIdentityPoolIdentityProviderArgs']] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentityPoolResult:
     """
-    [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `IdentityPool` describes an Identity Pool data source.
 
@@ -133,6 +136,7 @@ def get_identity_pool(display_name: Optional[str] = None,
 
     :param str display_name: A human-readable name for the Identity Pool.
     :param str id: The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+    :param pulumi.InputType['GetIdentityPoolIdentityProviderArgs'] identity_provider: (Required Configuration Block) supports the following:
     """
     __args__ = dict()
     __args__['displayName'] = display_name
@@ -156,7 +160,7 @@ def get_identity_pool_output(display_name: Optional[pulumi.Input[Optional[str]]]
                              identity_provider: Optional[pulumi.Input[pulumi.InputType['GetIdentityPoolIdentityProviderArgs']]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityPoolResult]:
     """
-    [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `IdentityPool` describes an Identity Pool data source.
 
@@ -181,5 +185,6 @@ def get_identity_pool_output(display_name: Optional[pulumi.Input[Optional[str]]]
 
     :param str display_name: A human-readable name for the Identity Pool.
     :param str id: The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+    :param pulumi.InputType['GetIdentityPoolIdentityProviderArgs'] identity_provider: (Required Configuration Block) supports the following:
     """
     ...

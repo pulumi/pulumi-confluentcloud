@@ -60,6 +60,12 @@ namespace Pulumi.ConfluentCloud
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// Network DNS config. It applies only to the PRIVATELINK network connection type.
+        /// </summary>
+        [Output("dnsConfig")]
+        public Output<Outputs.NetworkDnsConfig> DnsConfig { get; private set; } = null!;
+
+        /// <summary>
         /// (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
         /// </summary>
         [Output("dnsDomain")]
@@ -97,7 +103,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The 3 availability zones for this network. They can optionally be specified for AWS networks
-        /// used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
+        /// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+        /// networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
         /// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         /// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
         /// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -206,6 +213,12 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
+        /// Network DNS config. It applies only to the PRIVATELINK network connection type.
+        /// </summary>
+        [Input("dnsConfig")]
+        public Input<Inputs.NetworkDnsConfigArgs>? DnsConfig { get; set; }
+
+        /// <summary>
         /// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         /// </summary>
         [Input("environment", required: true)]
@@ -234,7 +247,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The 3 availability zones for this network. They can optionally be specified for AWS networks
-        /// used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
+        /// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+        /// networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
         /// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         /// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
         /// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -308,6 +322,12 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
+        /// Network DNS config. It applies only to the PRIVATELINK network connection type.
+        /// </summary>
+        [Input("dnsConfig")]
+        public Input<Inputs.NetworkDnsConfigGetArgs>? DnsConfig { get; set; }
+
+        /// <summary>
         /// (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
         /// </summary>
         [Input("dnsDomain")]
@@ -360,7 +380,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The 3 availability zones for this network. They can optionally be specified for AWS networks
-        /// used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
+        /// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+        /// networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
         /// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         /// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
         /// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
