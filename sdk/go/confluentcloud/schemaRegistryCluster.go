@@ -29,7 +29,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example, err := confluentcloud.GetSchemaRegistryRegion(ctx, &GetSchemaRegistryRegionArgs{
+//			example, err := confluentcloud.GetSchemaRegistryRegion(ctx, &confluentcloud.GetSchemaRegistryRegionArgs{
 //				Cloud:   "AWS",
 //				Region:  "us-east-2",
 //				Package: "ESSENTIALS",
@@ -38,12 +38,12 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewSchemaRegistryCluster(ctx, "essentials", &confluentcloud.SchemaRegistryClusterArgs{
-//				Package: pulumi.String(example.Package),
-//				Environment: &SchemaRegistryClusterEnvironmentArgs{
+//				Package: *pulumi.String(example.Package),
+//				Environment: &confluentcloud.SchemaRegistryClusterEnvironmentArgs{
 //					Id: development.ID(),
 //				},
-//				Region: &SchemaRegistryClusterRegionArgs{
-//					Id: pulumi.String(example.Id),
+//				Region: &confluentcloud.SchemaRegistryClusterRegionArgs{
+//					Id: *pulumi.String(example.Id),
 //				},
 //			})
 //			if err != nil {

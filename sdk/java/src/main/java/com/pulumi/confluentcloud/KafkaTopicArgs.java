@@ -72,11 +72,11 @@ public final class KafkaTopicArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.httpEndpoint);
     }
 
-    @Import(name="kafkaCluster", required=true)
-    private Output<KafkaTopicKafkaClusterArgs> kafkaCluster;
+    @Import(name="kafkaCluster")
+    private @Nullable Output<KafkaTopicKafkaClusterArgs> kafkaCluster;
 
-    public Output<KafkaTopicKafkaClusterArgs> kafkaCluster() {
-        return this.kafkaCluster;
+    public Optional<Output<KafkaTopicKafkaClusterArgs>> kafkaCluster() {
+        return Optional.ofNullable(this.kafkaCluster);
     }
 
     /**
@@ -225,7 +225,7 @@ public final class KafkaTopicArgs extends com.pulumi.resources.ResourceArgs {
             return httpEndpoint(Output.of(httpEndpoint));
         }
 
-        public Builder kafkaCluster(Output<KafkaTopicKafkaClusterArgs> kafkaCluster) {
+        public Builder kafkaCluster(@Nullable Output<KafkaTopicKafkaClusterArgs> kafkaCluster) {
             $.kafkaCluster = kafkaCluster;
             return this;
         }
@@ -298,7 +298,6 @@ public final class KafkaTopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KafkaTopicArgs build() {
-            $.kafkaCluster = Objects.requireNonNull($.kafkaCluster, "expected parameter 'kafkaCluster' to be non-null");
             $.topicName = Objects.requireNonNull($.topicName, "expected parameter 'topicName' to be non-null");
             return $;
         }

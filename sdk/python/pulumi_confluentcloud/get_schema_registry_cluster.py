@@ -91,13 +91,15 @@ class GetSchemaRegistryClusterResult:
     def package(self) -> str:
         """
         (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
-        - `region` (Required Configuration Block) supports the following:
         """
         return pulumi.get(self, "package")
 
     @property
     @pulumi.getter
     def regions(self) -> Sequence['outputs.GetSchemaRegistryClusterRegionResult']:
+        """
+        (Required Configuration Block) supports the following:
+        """
         return pulumi.get(self, "regions")
 
     @property

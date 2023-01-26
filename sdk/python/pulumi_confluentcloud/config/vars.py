@@ -51,6 +51,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('kafkaApiSecret')
 
     @property
+    def kafka_id(self) -> Optional[str]:
+        """
+        The Kafka Cluster ID.
+        """
+        return __config__.get('kafkaId')
+
+    @property
     def kafka_rest_endpoint(self) -> Optional[str]:
         """
         The Kafka Cluster REST Endpoint.
@@ -63,4 +70,32 @@ class _ExportableConfig(types.ModuleType):
         Maximum number of retries of HTTP client. Defaults to 4.
         """
         return __config__.get_int('maxRetries')
+
+    @property
+    def schema_registry_api_key(self) -> Optional[str]:
+        """
+        The Schema Registry Cluster API Key.
+        """
+        return __config__.get('schemaRegistryApiKey')
+
+    @property
+    def schema_registry_api_secret(self) -> Optional[str]:
+        """
+        The Schema Registry Cluster API Secret.
+        """
+        return __config__.get('schemaRegistryApiSecret')
+
+    @property
+    def schema_registry_id(self) -> Optional[str]:
+        """
+        The Schema Registry Cluster ID.
+        """
+        return __config__.get('schemaRegistryId')
+
+    @property
+    def schema_registry_rest_endpoint(self) -> Optional[str]:
+        """
+        The Schema Registry Cluster REST Endpoint.
+        """
+        return __config__.get('schemaRegistryRestEndpoint')
 

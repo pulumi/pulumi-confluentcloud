@@ -34,11 +34,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getSchemaRegistryCluster(args: GetSchemaRegistryClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", {
         "displayName": args.displayName,
         "environment": args.environment,
@@ -81,9 +78,11 @@ export interface GetSchemaRegistryClusterResult {
     readonly kind: string;
     /**
      * (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
-     * - `region` (Required Configuration Block) supports the following:
      */
     readonly package: string;
+    /**
+     * (Required Configuration Block) supports the following:
+     */
     readonly regions: outputs.GetSchemaRegistryClusterRegion[];
     /**
      * (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
@@ -94,9 +93,35 @@ export interface GetSchemaRegistryClusterResult {
      */
     readonly restEndpoint: string;
 }
-
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.SchemaRegistryCluster` describes a Schema Registry cluster data source.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const exampleUsingIdSchemaRegistryCluster = confluentcloud.getSchemaRegistryCluster({
+ *     id: "lsrc-abc123",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * export const exampleUsingId = exampleUsingIdSchemaRegistryCluster;
+ * const exampleUsingNameSchemaRegistryCluster = confluentcloud.getSchemaRegistryCluster({
+ *     displayName: "Stream Governance Package",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * export const exampleUsingName = exampleUsingNameSchemaRegistryCluster;
+ * ```
+ */
 export function getSchemaRegistryClusterOutput(args: GetSchemaRegistryClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryClusterResult> {
-    return pulumi.output(args).apply(a => getSchemaRegistryCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getSchemaRegistryCluster(a, opts))
 }
 
 /**

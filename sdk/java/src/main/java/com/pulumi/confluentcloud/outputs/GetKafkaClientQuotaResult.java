@@ -15,7 +15,6 @@ import java.util.Objects;
 public final class GetKafkaClientQuotaResult {
     /**
      * @return (Required String) The description of the Kafka Client Quota.
-     * - `throughput` (Required Configuration Block) supports the following:
      * 
      */
     private String description;
@@ -24,25 +23,35 @@ public final class GetKafkaClientQuotaResult {
      * 
      */
     private String displayName;
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     private List<GetKafkaClientQuotaEnvironment> environments;
     /**
      * @return (Required String) The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
      * 
      */
     private String id;
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     private List<GetKafkaClientQuotaKafkaCluster> kafkaClusters;
     /**
      * @return (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, &#34;default&#34;, to represent the default quota for all users and service accounts.
-     * - `kafka_cluster` (Required Configuration Block) supports the following:
      * 
      */
     private List<String> principals;
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     private List<GetKafkaClientQuotaThroughput> throughputs;
 
     private GetKafkaClientQuotaResult() {}
     /**
      * @return (Required String) The description of the Kafka Client Quota.
-     * - `throughput` (Required Configuration Block) supports the following:
      * 
      */
     public String description() {
@@ -55,6 +64,10 @@ public final class GetKafkaClientQuotaResult {
     public String displayName() {
         return this.displayName;
     }
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public List<GetKafkaClientQuotaEnvironment> environments() {
         return this.environments;
     }
@@ -65,17 +78,24 @@ public final class GetKafkaClientQuotaResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public List<GetKafkaClientQuotaKafkaCluster> kafkaClusters() {
         return this.kafkaClusters;
     }
     /**
      * @return (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, &#34;default&#34;, to represent the default quota for all users and service accounts.
-     * - `kafka_cluster` (Required Configuration Block) supports the following:
      * 
      */
     public List<String> principals() {
         return this.principals;
     }
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public List<GetKafkaClientQuotaThroughput> throughputs() {
         return this.throughputs;
     }

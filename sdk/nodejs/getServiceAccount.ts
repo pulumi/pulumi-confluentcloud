@@ -27,11 +27,8 @@ import * as utilities from "./utilities";
  */
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getServiceAccount:getServiceAccount", {
         "displayName": args.displayName,
         "id": args.id,
@@ -77,9 +74,29 @@ export interface GetServiceAccountResult {
      */
     readonly kind: string;
 }
-
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.ServiceAccount` describes a Service Account data source.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const exampleUsingIdServiceAccount = confluentcloud.getServiceAccount({
+ *     id: "sa-abc123",
+ * });
+ * export const exampleUsingId = exampleUsingIdServiceAccount;
+ * const exampleUsingName = confluentcloud.getServiceAccount({
+ *     displayName: "test_sa",
+ * });
+ * const test_env = new confluentcloud.Environment("test-env", {});
+ * ```
+ */
 export function getServiceAccountOutput(args?: GetServiceAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceAccountResult> {
-    return pulumi.output(args).apply(a => getServiceAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getServiceAccount(a, opts))
 }
 
 /**

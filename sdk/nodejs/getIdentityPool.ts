@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.IdentityPool` describes an Identity Pool data source.
  *
@@ -34,11 +34,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getIdentityPool(args: GetIdentityPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityPoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getIdentityPool:getIdentityPool", {
         "displayName": args.displayName,
         "id": args.id,
@@ -58,6 +55,9 @@ export interface GetIdentityPoolArgs {
      * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
      */
     id?: string;
+    /**
+     * (Required Configuration Block) supports the following:
+     */
     identityProvider: inputs.GetIdentityPoolIdentityProvider;
 }
 
@@ -85,11 +85,40 @@ export interface GetIdentityPoolResult {
      * (Required String) The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
      */
     readonly identityClaim: string;
+    /**
+     * (Required Configuration Block) supports the following:
+     */
     readonly identityProvider: outputs.GetIdentityPoolIdentityProvider;
 }
-
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.IdentityPool` describes an Identity Pool data source.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const exampleUsingIdIdentityPool = confluentcloud.getIdentityPool({
+ *     id: "pool-xyz456",
+ *     identityProvider: {
+ *         id: "op-abc123",
+ *     },
+ * });
+ * export const exampleUsingId = exampleUsingIdIdentityPool;
+ * const exampleUsingNameIdentityPool = confluentcloud.getIdentityPool({
+ *     displayName: "My Identity Pool",
+ *     identityProvider: {
+ *         id: "op-abc123",
+ *     },
+ * });
+ * export const exampleUsingName = exampleUsingNameIdentityPool;
+ * ```
+ */
 export function getIdentityPoolOutput(args: GetIdentityPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityPoolResult> {
-    return pulumi.output(args).apply(a => getIdentityPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getIdentityPool(a, opts))
 }
 
 /**
@@ -104,5 +133,8 @@ export interface GetIdentityPoolOutputArgs {
      * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
      */
     id?: pulumi.Input<string>;
+    /**
+     * (Required Configuration Block) supports the following:
+     */
     identityProvider: pulumi.Input<inputs.GetIdentityPoolIdentityProviderArgs>;
 }

@@ -14,10 +14,6 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetTransitGatewayAttachmentAwResult
     {
         /// <summary>
-        /// (Required String) Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-        /// </summary>
-        public readonly bool EnableCustomRoutes;
-        /// <summary>
         /// (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
         /// </summary>
         public readonly string RamResourceShareArn;
@@ -36,8 +32,6 @@ namespace Pulumi.ConfluentCloud.Outputs
 
         [OutputConstructor]
         private GetTransitGatewayAttachmentAwResult(
-            bool enableCustomRoutes,
-
             string ramResourceShareArn,
 
             ImmutableArray<string> routes,
@@ -46,7 +40,6 @@ namespace Pulumi.ConfluentCloud.Outputs
 
             string transitGatewayId)
         {
-            EnableCustomRoutes = enableCustomRoutes;
             RamResourceShareArn = ramResourceShareArn;
             Routes = routes;
             TransitGatewayAttachmentId = transitGatewayAttachmentId;

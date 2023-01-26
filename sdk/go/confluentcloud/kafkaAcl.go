@@ -13,7 +13,15 @@ import (
 
 // ## Import
 //
-// You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+// You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+//
+// ```sh
+//
+//	$ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
+//
+// ```
+//
+//	Option #2Manage a single Kafka cluster in the same Terraform workspace $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
 //
@@ -28,8 +36,8 @@ type KafkaAcl struct {
 	// The Cluster API Credentials.
 	Credentials KafkaAclCredentialsPtrOutput `pulumi:"credentials"`
 	// The host for the ACL. Should be set to `*` for Confluent Cloud.
-	Host         pulumi.StringOutput        `pulumi:"host"`
-	KafkaCluster KafkaAclKafkaClusterOutput `pulumi:"kafkaCluster"`
+	Host         pulumi.StringOutput           `pulumi:"host"`
+	KafkaCluster KafkaAclKafkaClusterPtrOutput `pulumi:"kafkaCluster"`
 	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	Operation pulumi.StringOutput `pulumi:"operation"`
 	// The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
@@ -56,9 +64,6 @@ func NewKafkaAcl(ctx *pulumi.Context,
 	if args.Host == nil {
 		return nil, errors.New("invalid value for required argument 'Host'")
 	}
-	if args.KafkaCluster == nil {
-		return nil, errors.New("invalid value for required argument 'KafkaCluster'")
-	}
 	if args.Operation == nil {
 		return nil, errors.New("invalid value for required argument 'Operation'")
 	}
@@ -78,7 +83,7 @@ func NewKafkaAcl(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
 	if args.Credentials != nil {
-		args.Credentials = pulumi.ToSecret(args.Credentials).(KafkaAclCredentialsPtrOutput)
+		args.Credentials = pulumi.ToSecret(args.Credentials).(KafkaAclCredentialsPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"credentials",
@@ -157,8 +162,8 @@ type kafkaAclArgs struct {
 	// The Cluster API Credentials.
 	Credentials *KafkaAclCredentials `pulumi:"credentials"`
 	// The host for the ACL. Should be set to `*` for Confluent Cloud.
-	Host         string               `pulumi:"host"`
-	KafkaCluster KafkaAclKafkaCluster `pulumi:"kafkaCluster"`
+	Host         string                `pulumi:"host"`
+	KafkaCluster *KafkaAclKafkaCluster `pulumi:"kafkaCluster"`
 	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	Operation string `pulumi:"operation"`
 	// The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
@@ -181,7 +186,7 @@ type KafkaAclArgs struct {
 	Credentials KafkaAclCredentialsPtrInput
 	// The host for the ACL. Should be set to `*` for Confluent Cloud.
 	Host         pulumi.StringInput
-	KafkaCluster KafkaAclKafkaClusterInput
+	KafkaCluster KafkaAclKafkaClusterPtrInput
 	// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
 	Operation pulumi.StringInput
 	// The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
@@ -295,8 +300,8 @@ func (o KafkaAclOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.Host }).(pulumi.StringOutput)
 }
 
-func (o KafkaAclOutput) KafkaCluster() KafkaAclKafkaClusterOutput {
-	return o.ApplyT(func(v *KafkaAcl) KafkaAclKafkaClusterOutput { return v.KafkaCluster }).(KafkaAclKafkaClusterOutput)
+func (o KafkaAclOutput) KafkaCluster() KafkaAclKafkaClusterPtrOutput {
+	return o.ApplyT(func(v *KafkaAcl) KafkaAclKafkaClusterPtrOutput { return v.KafkaCluster }).(KafkaAclKafkaClusterPtrOutput)
 }
 
 // The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.

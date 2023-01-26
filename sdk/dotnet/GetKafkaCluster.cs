@@ -262,6 +262,9 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
         /// </summary>
         public readonly string Kind;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetKafkaClusterNetworkResult> Networks;
         /// <summary>
         /// (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.

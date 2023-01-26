@@ -28,18 +28,18 @@ import (
 //			_, err := confluentcloud.NewKafkaClientQuota(ctx, "example", &confluentcloud.KafkaClientQuotaArgs{
 //				DisplayName: pulumi.String("test-quota"),
 //				Description: pulumi.String("Test Quota"),
-//				Throughput: &KafkaClientQuotaThroughputArgs{
+//				Throughput: &confluentcloud.KafkaClientQuotaThroughputArgs{
 //					IngressByteRate: pulumi.String("100"),
 //					EgressByteRate:  pulumi.String("200"),
 //				},
 //				Principals: pulumi.StringArray{
-//					pulumi.Any(confluent_service_account.App_manager.Id),
-//					pulumi.Any(confluent_service_account.App_manager_2.Id),
+//					confluent_service_account.App_manager.Id,
+//					confluent_service_account.App_manager_2.Id,
 //				},
-//				KafkaCluster: &KafkaClientQuotaKafkaClusterArgs{
+//				KafkaCluster: &confluentcloud.KafkaClientQuotaKafkaClusterArgs{
 //					Id: pulumi.Any(confluent_kafka_cluster.Dedicated.Id),
 //				},
-//				Environment: &KafkaClientQuotaEnvironmentArgs{
+//				Environment: &confluentcloud.KafkaClientQuotaEnvironmentArgs{
 //					Id: pulumi.Any(confluent_environment.Development.Id),
 //				},
 //			})

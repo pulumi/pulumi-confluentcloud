@@ -31,9 +31,17 @@ public final class GetTransitGatewayAttachmentArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.displayName);
     }
 
+    /**
+     * (Required Configuration Block) supports the following:
+     * 
+     */
     @Import(name="environment", required=true)
     private Output<GetTransitGatewayAttachmentEnvironmentArgs> environment;
 
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public Output<GetTransitGatewayAttachmentEnvironmentArgs> environment() {
         return this.environment;
     }
@@ -100,11 +108,23 @@ public final class GetTransitGatewayAttachmentArgs extends com.pulumi.resources.
             return displayName(Output.of(displayName));
         }
 
+        /**
+         * @param environment (Required Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(Output<GetTransitGatewayAttachmentEnvironmentArgs> environment) {
             $.environment = environment;
             return this;
         }
 
+        /**
+         * @param environment (Required Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(GetTransitGatewayAttachmentEnvironmentArgs environment) {
             return environment(Output.of(environment));
         }

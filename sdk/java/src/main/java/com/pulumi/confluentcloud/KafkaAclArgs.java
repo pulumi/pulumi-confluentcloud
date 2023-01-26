@@ -47,11 +47,11 @@ public final class KafkaAclArgs extends com.pulumi.resources.ResourceArgs {
         return this.host;
     }
 
-    @Import(name="kafkaCluster", required=true)
-    private Output<KafkaAclKafkaClusterArgs> kafkaCluster;
+    @Import(name="kafkaCluster")
+    private @Nullable Output<KafkaAclKafkaClusterArgs> kafkaCluster;
 
-    public Output<KafkaAclKafkaClusterArgs> kafkaCluster() {
-        return this.kafkaCluster;
+    public Optional<Output<KafkaAclKafkaClusterArgs>> kafkaCluster() {
+        return Optional.ofNullable(this.kafkaCluster);
     }
 
     /**
@@ -234,7 +234,7 @@ public final class KafkaAclArgs extends com.pulumi.resources.ResourceArgs {
             return host(Output.of(host));
         }
 
-        public Builder kafkaCluster(Output<KafkaAclKafkaClusterArgs> kafkaCluster) {
+        public Builder kafkaCluster(@Nullable Output<KafkaAclKafkaClusterArgs> kafkaCluster) {
             $.kafkaCluster = kafkaCluster;
             return this;
         }
@@ -392,7 +392,6 @@ public final class KafkaAclArgs extends com.pulumi.resources.ResourceArgs {
 
         public KafkaAclArgs build() {
             $.host = Objects.requireNonNull($.host, "expected parameter 'host' to be non-null");
-            $.kafkaCluster = Objects.requireNonNull($.kafkaCluster, "expected parameter 'kafkaCluster' to be non-null");
             $.operation = Objects.requireNonNull($.operation, "expected parameter 'operation' to be non-null");
             $.patternType = Objects.requireNonNull($.patternType, "expected parameter 'patternType' to be non-null");
             $.permission = Objects.requireNonNull($.permission, "expected parameter 'permission' to be non-null");

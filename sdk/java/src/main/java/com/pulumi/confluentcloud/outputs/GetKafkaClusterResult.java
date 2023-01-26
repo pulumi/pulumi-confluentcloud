@@ -63,6 +63,10 @@ public final class GetKafkaClusterResult {
      * 
      */
     private String kind;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     private List<GetKafkaClusterNetwork> networks;
     /**
      * @return (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
@@ -152,6 +156,10 @@ public final class GetKafkaClusterResult {
     public String kind() {
         return this.kind;
     }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     public List<GetKafkaClusterNetwork> networks() {
         return this.networks;
     }

@@ -19,8 +19,13 @@ class ProviderArgs:
                  endpoint: Optional[pulumi.Input[str]] = None,
                  kafka_api_key: Optional[pulumi.Input[str]] = None,
                  kafka_api_secret: Optional[pulumi.Input[str]] = None,
+                 kafka_id: Optional[pulumi.Input[str]] = None,
                  kafka_rest_endpoint: Optional[pulumi.Input[str]] = None,
-                 max_retries: Optional[pulumi.Input[int]] = None):
+                 max_retries: Optional[pulumi.Input[int]] = None,
+                 schema_registry_api_key: Optional[pulumi.Input[str]] = None,
+                 schema_registry_api_secret: Optional[pulumi.Input[str]] = None,
+                 schema_registry_id: Optional[pulumi.Input[str]] = None,
+                 schema_registry_rest_endpoint: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] cloud_api_key: The Confluent Cloud API Key.
@@ -28,8 +33,13 @@ class ProviderArgs:
         :param pulumi.Input[str] endpoint: The base endpoint of Confluent Cloud API.
         :param pulumi.Input[str] kafka_api_key: The Kafka Cluster API Key.
         :param pulumi.Input[str] kafka_api_secret: The Kafka Cluster API Secret.
+        :param pulumi.Input[str] kafka_id: The Kafka Cluster ID.
         :param pulumi.Input[str] kafka_rest_endpoint: The Kafka Cluster REST Endpoint.
         :param pulumi.Input[int] max_retries: Maximum number of retries of HTTP client. Defaults to 4.
+        :param pulumi.Input[str] schema_registry_api_key: The Schema Registry Cluster API Key.
+        :param pulumi.Input[str] schema_registry_api_secret: The Schema Registry Cluster API Secret.
+        :param pulumi.Input[str] schema_registry_id: The Schema Registry Cluster ID.
+        :param pulumi.Input[str] schema_registry_rest_endpoint: The Schema Registry Cluster REST Endpoint.
         """
         if cloud_api_key is not None:
             pulumi.set(__self__, "cloud_api_key", cloud_api_key)
@@ -41,10 +51,20 @@ class ProviderArgs:
             pulumi.set(__self__, "kafka_api_key", kafka_api_key)
         if kafka_api_secret is not None:
             pulumi.set(__self__, "kafka_api_secret", kafka_api_secret)
+        if kafka_id is not None:
+            pulumi.set(__self__, "kafka_id", kafka_id)
         if kafka_rest_endpoint is not None:
             pulumi.set(__self__, "kafka_rest_endpoint", kafka_rest_endpoint)
         if max_retries is not None:
             pulumi.set(__self__, "max_retries", max_retries)
+        if schema_registry_api_key is not None:
+            pulumi.set(__self__, "schema_registry_api_key", schema_registry_api_key)
+        if schema_registry_api_secret is not None:
+            pulumi.set(__self__, "schema_registry_api_secret", schema_registry_api_secret)
+        if schema_registry_id is not None:
+            pulumi.set(__self__, "schema_registry_id", schema_registry_id)
+        if schema_registry_rest_endpoint is not None:
+            pulumi.set(__self__, "schema_registry_rest_endpoint", schema_registry_rest_endpoint)
 
     @property
     @pulumi.getter(name="cloudApiKey")
@@ -107,6 +127,18 @@ class ProviderArgs:
         pulumi.set(self, "kafka_api_secret", value)
 
     @property
+    @pulumi.getter(name="kafkaId")
+    def kafka_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Kafka Cluster ID.
+        """
+        return pulumi.get(self, "kafka_id")
+
+    @kafka_id.setter
+    def kafka_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kafka_id", value)
+
+    @property
     @pulumi.getter(name="kafkaRestEndpoint")
     def kafka_rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -130,6 +162,54 @@ class ProviderArgs:
     def max_retries(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_retries", value)
 
+    @property
+    @pulumi.getter(name="schemaRegistryApiKey")
+    def schema_registry_api_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Schema Registry Cluster API Key.
+        """
+        return pulumi.get(self, "schema_registry_api_key")
+
+    @schema_registry_api_key.setter
+    def schema_registry_api_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_registry_api_key", value)
+
+    @property
+    @pulumi.getter(name="schemaRegistryApiSecret")
+    def schema_registry_api_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Schema Registry Cluster API Secret.
+        """
+        return pulumi.get(self, "schema_registry_api_secret")
+
+    @schema_registry_api_secret.setter
+    def schema_registry_api_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_registry_api_secret", value)
+
+    @property
+    @pulumi.getter(name="schemaRegistryId")
+    def schema_registry_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Schema Registry Cluster ID.
+        """
+        return pulumi.get(self, "schema_registry_id")
+
+    @schema_registry_id.setter
+    def schema_registry_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_registry_id", value)
+
+    @property
+    @pulumi.getter(name="schemaRegistryRestEndpoint")
+    def schema_registry_rest_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Schema Registry Cluster REST Endpoint.
+        """
+        return pulumi.get(self, "schema_registry_rest_endpoint")
+
+    @schema_registry_rest_endpoint.setter
+    def schema_registry_rest_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_registry_rest_endpoint", value)
+
 
 class Provider(pulumi.ProviderResource):
     @overload
@@ -141,8 +221,13 @@ class Provider(pulumi.ProviderResource):
                  endpoint: Optional[pulumi.Input[str]] = None,
                  kafka_api_key: Optional[pulumi.Input[str]] = None,
                  kafka_api_secret: Optional[pulumi.Input[str]] = None,
+                 kafka_id: Optional[pulumi.Input[str]] = None,
                  kafka_rest_endpoint: Optional[pulumi.Input[str]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
+                 schema_registry_api_key: Optional[pulumi.Input[str]] = None,
+                 schema_registry_api_secret: Optional[pulumi.Input[str]] = None,
+                 schema_registry_id: Optional[pulumi.Input[str]] = None,
+                 schema_registry_rest_endpoint: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The provider type for the confluent package. By default, resources use package-wide configuration
@@ -157,8 +242,13 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] endpoint: The base endpoint of Confluent Cloud API.
         :param pulumi.Input[str] kafka_api_key: The Kafka Cluster API Key.
         :param pulumi.Input[str] kafka_api_secret: The Kafka Cluster API Secret.
+        :param pulumi.Input[str] kafka_id: The Kafka Cluster ID.
         :param pulumi.Input[str] kafka_rest_endpoint: The Kafka Cluster REST Endpoint.
         :param pulumi.Input[int] max_retries: Maximum number of retries of HTTP client. Defaults to 4.
+        :param pulumi.Input[str] schema_registry_api_key: The Schema Registry Cluster API Key.
+        :param pulumi.Input[str] schema_registry_api_secret: The Schema Registry Cluster API Secret.
+        :param pulumi.Input[str] schema_registry_id: The Schema Registry Cluster ID.
+        :param pulumi.Input[str] schema_registry_rest_endpoint: The Schema Registry Cluster REST Endpoint.
         """
         ...
     @overload
@@ -192,8 +282,13 @@ class Provider(pulumi.ProviderResource):
                  endpoint: Optional[pulumi.Input[str]] = None,
                  kafka_api_key: Optional[pulumi.Input[str]] = None,
                  kafka_api_secret: Optional[pulumi.Input[str]] = None,
+                 kafka_id: Optional[pulumi.Input[str]] = None,
                  kafka_rest_endpoint: Optional[pulumi.Input[str]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
+                 schema_registry_api_key: Optional[pulumi.Input[str]] = None,
+                 schema_registry_api_secret: Optional[pulumi.Input[str]] = None,
+                 schema_registry_id: Optional[pulumi.Input[str]] = None,
+                 schema_registry_rest_endpoint: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -208,9 +303,14 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["kafka_api_key"] = None if kafka_api_key is None else pulumi.Output.secret(kafka_api_key)
             __props__.__dict__["kafka_api_secret"] = None if kafka_api_secret is None else pulumi.Output.secret(kafka_api_secret)
+            __props__.__dict__["kafka_id"] = kafka_id
             __props__.__dict__["kafka_rest_endpoint"] = kafka_rest_endpoint
             __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["cloudApiKey", "cloudApiSecret", "kafkaApiKey", "kafkaApiSecret"])
+            __props__.__dict__["schema_registry_api_key"] = None if schema_registry_api_key is None else pulumi.Output.secret(schema_registry_api_key)
+            __props__.__dict__["schema_registry_api_secret"] = None if schema_registry_api_secret is None else pulumi.Output.secret(schema_registry_api_secret)
+            __props__.__dict__["schema_registry_id"] = schema_registry_id
+            __props__.__dict__["schema_registry_rest_endpoint"] = schema_registry_rest_endpoint
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["cloudApiKey", "cloudApiSecret", "kafkaApiKey", "kafkaApiSecret", "schemaRegistryApiKey", "schemaRegistryApiSecret"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'confluentcloud',
@@ -259,10 +359,50 @@ class Provider(pulumi.ProviderResource):
         return pulumi.get(self, "kafka_api_secret")
 
     @property
+    @pulumi.getter(name="kafkaId")
+    def kafka_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Kafka Cluster ID.
+        """
+        return pulumi.get(self, "kafka_id")
+
+    @property
     @pulumi.getter(name="kafkaRestEndpoint")
     def kafka_rest_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The Kafka Cluster REST Endpoint.
         """
         return pulumi.get(self, "kafka_rest_endpoint")
+
+    @property
+    @pulumi.getter(name="schemaRegistryApiKey")
+    def schema_registry_api_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Schema Registry Cluster API Key.
+        """
+        return pulumi.get(self, "schema_registry_api_key")
+
+    @property
+    @pulumi.getter(name="schemaRegistryApiSecret")
+    def schema_registry_api_secret(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Schema Registry Cluster API Secret.
+        """
+        return pulumi.get(self, "schema_registry_api_secret")
+
+    @property
+    @pulumi.getter(name="schemaRegistryId")
+    def schema_registry_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Schema Registry Cluster ID.
+        """
+        return pulumi.get(self, "schema_registry_id")
+
+    @property
+    @pulumi.getter(name="schemaRegistryRestEndpoint")
+    def schema_registry_rest_endpoint(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Schema Registry Cluster REST Endpoint.
+        """
+        return pulumi.get(self, "schema_registry_rest_endpoint")
 

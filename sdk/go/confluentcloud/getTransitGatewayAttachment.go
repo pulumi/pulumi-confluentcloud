@@ -10,10 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-early-access@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-//
-// > **Note:** `TransitGatewayAttachment` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-// **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Early Access features at any time in Confluent’s sole discretion.
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 //
 // `TransitGatewayAttachment` describes a Transit Gateway Attachment data source.
 //
@@ -31,9 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdTransitGatewayAttachment, err := confluentcloud.LookupTransitGatewayAttachment(ctx, &GetTransitGatewayAttachmentArgs{
+//			exampleUsingIdTransitGatewayAttachment, err := confluentcloud.LookupTransitGatewayAttachment(ctx, &confluentcloud.LookupTransitGatewayAttachmentArgs{
 //				Id: pulumi.StringRef("tgwa-abc123"),
-//				Environment: GetTransitGatewayAttachmentEnvironment{
+//				Environment: confluentcloud.GetTransitGatewayAttachmentEnvironment{
 //					Id: "env-xyz456",
 //				},
 //			}, nil)
@@ -41,9 +38,9 @@ import (
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingIdTransitGatewayAttachment)
-//			exampleUsingNameTransitGatewayAttachment, err := confluentcloud.LookupTransitGatewayAttachment(ctx, &GetTransitGatewayAttachmentArgs{
+//			exampleUsingNameTransitGatewayAttachment, err := confluentcloud.LookupTransitGatewayAttachment(ctx, &confluentcloud.LookupTransitGatewayAttachmentArgs{
 //				DisplayName: pulumi.StringRef("my_tgwa"),
-//				Environment: GetTransitGatewayAttachmentEnvironment{
+//				Environment: confluentcloud.GetTransitGatewayAttachmentEnvironment{
 //					Id: "env-xyz456",
 //				},
 //			}, nil)
@@ -68,7 +65,8 @@ func LookupTransitGatewayAttachment(ctx *pulumi.Context, args *LookupTransitGate
 // A collection of arguments for invoking getTransitGatewayAttachment.
 type LookupTransitGatewayAttachmentArgs struct {
 	// A human-readable name for the Transit Gateway Attachment.
-	DisplayName *string                                `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
+	// (Required Configuration Block) supports the following:
 	Environment GetTransitGatewayAttachmentEnvironment `pulumi:"environment"`
 	// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
 	Id *string `pulumi:"id"`
@@ -79,11 +77,12 @@ type LookupTransitGatewayAttachmentResult struct {
 	// (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
 	Aws []GetTransitGatewayAttachmentAw `pulumi:"aws"`
 	// (Required String) The name of the Transit Gateway Attachment.
-	// - `environment` (Required Configuration Block) supports the following:
-	DisplayName string                                 `pulumi:"displayName"`
+	DisplayName string `pulumi:"displayName"`
+	// (Required Configuration Block) supports the following:
 	Environment GetTransitGatewayAttachmentEnvironment `pulumi:"environment"`
 	// (Required String) The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
-	Id       string                               `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// (Required Configuration Block) supports the following:
 	Networks []GetTransitGatewayAttachmentNetwork `pulumi:"networks"`
 }
 
@@ -103,7 +102,8 @@ func LookupTransitGatewayAttachmentOutput(ctx *pulumi.Context, args LookupTransi
 // A collection of arguments for invoking getTransitGatewayAttachment.
 type LookupTransitGatewayAttachmentOutputArgs struct {
 	// A human-readable name for the Transit Gateway Attachment.
-	DisplayName pulumi.StringPtrInput                       `pulumi:"displayName"`
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// (Required Configuration Block) supports the following:
 	Environment GetTransitGatewayAttachmentEnvironmentInput `pulumi:"environment"`
 	// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -134,11 +134,11 @@ func (o LookupTransitGatewayAttachmentResultOutput) Aws() GetTransitGatewayAttac
 }
 
 // (Required String) The name of the Transit Gateway Attachment.
-// - `environment` (Required Configuration Block) supports the following:
 func (o LookupTransitGatewayAttachmentResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// (Required Configuration Block) supports the following:
 func (o LookupTransitGatewayAttachmentResultOutput) Environment() GetTransitGatewayAttachmentEnvironmentOutput {
 	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) GetTransitGatewayAttachmentEnvironment {
 		return v.Environment
@@ -150,6 +150,7 @@ func (o LookupTransitGatewayAttachmentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// (Required Configuration Block) supports the following:
 func (o LookupTransitGatewayAttachmentResultOutput) Networks() GetTransitGatewayAttachmentNetworkArrayOutput {
 	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) []GetTransitGatewayAttachmentNetwork { return v.Networks }).(GetTransitGatewayAttachmentNetworkArrayOutput)
 }

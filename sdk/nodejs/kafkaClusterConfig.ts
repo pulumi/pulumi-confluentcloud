@@ -7,35 +7,15 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
- *
- * `confluentcloud.KafkaClusterConfig` provides a Kafka cluster config resource that enables updating configs on a Dedicated Kafka cluster on Confluent Cloud.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as confluentcloud from "@pulumi/confluentcloud";
- *
- * const orders = new confluentcloud.KafkaClusterConfig("orders", {
- *     kafkaCluster: {
- *         id: confluent_kafka_cluster.dedicated.id,
- *     },
- *     restEndpoint: confluent_kafka_cluster.dedicated.rest_endpoint,
- *     config: {
- *         "auto.create.topics.enable": "true",
- *         "log.retention.ms": "604800123",
- *     },
- *     credentials: {
- *         key: confluent_api_key["app-manager-kafka-api-key"].id,
- *         secret: confluent_api_key["app-manager-kafka-api-key"].secret,
- *     },
- * });
- * ```
- *
  * ## Import
  *
- * You can import a Kafka cluster config by using the Kafka cluster ID, for example$ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+ * You can import a Kafka cluster config by using the Kafka cluster ID, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+ *
+ * ```sh
+ *  $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
+ * ```
+ *
+ *  Option #2Manage a single Kafka cluster in the same Terraform workspace
  *
  * ```sh
  *  $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
@@ -79,7 +59,7 @@ export class KafkaClusterConfig extends pulumi.CustomResource {
      * The Cluster API Credentials.
      */
     public readonly credentials!: pulumi.Output<outputs.KafkaClusterConfigCredentials | undefined>;
-    public readonly kafkaCluster!: pulumi.Output<outputs.KafkaClusterConfigKafkaCluster>;
+    public readonly kafkaCluster!: pulumi.Output<outputs.KafkaClusterConfigKafkaCluster | undefined>;
     /**
      * The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
@@ -106,9 +86,6 @@ export class KafkaClusterConfig extends pulumi.CustomResource {
             const args = argsOrState as KafkaClusterConfigArgs | undefined;
             if ((!args || args.config === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'config'");
-            }
-            if ((!args || args.kafkaCluster === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'kafkaCluster'");
             }
             resourceInputs["config"] = args ? args.config : undefined;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
@@ -153,7 +130,7 @@ export interface KafkaClusterConfigArgs {
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.KafkaClusterConfigCredentials>;
-    kafkaCluster: pulumi.Input<inputs.KafkaClusterConfigKafkaCluster>;
+    kafkaCluster?: pulumi.Input<inputs.KafkaClusterConfigKafkaCluster>;
     /**
      * The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */

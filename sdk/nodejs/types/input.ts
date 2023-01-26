@@ -111,18 +111,18 @@ export interface ConnectorKafkaCluster {
     id: pulumi.Input<string>;
 }
 
-export interface GetIdentityPoolIdentityProviderArgs {
-    /**
-     * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
-     */
-    id: pulumi.Input<string>;
-}
-
 export interface GetIdentityPoolIdentityProvider {
     /**
      * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
      */
     id: string;
+}
+
+export interface GetIdentityPoolIdentityProviderArgs {
+    /**
+     * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+     */
+    id: pulumi.Input<string>;
 }
 
 export interface GetKafkaClusterBasic {
@@ -173,17 +173,6 @@ export interface GetKafkaClusterStandard {
 export interface GetKafkaClusterStandardArgs {
 }
 
-export interface GetKafkaTopicCredentialsArgs {
-    /**
-     * The Kafka API Key.
-     */
-    key: pulumi.Input<string>;
-    /**
-     * The Kafka API Secret.
-     */
-    secret: pulumi.Input<string>;
-}
-
 export interface GetKafkaTopicCredentials {
     /**
      * The Kafka API Key.
@@ -195,11 +184,15 @@ export interface GetKafkaTopicCredentials {
     secret: string;
 }
 
-export interface GetKafkaTopicKafkaClusterArgs {
+export interface GetKafkaTopicCredentialsArgs {
     /**
-     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     * The Kafka API Key.
      */
-    id: pulumi.Input<string>;
+    key: pulumi.Input<string>;
+    /**
+     * The Kafka API Secret.
+     */
+    secret: pulumi.Input<string>;
 }
 
 export interface GetKafkaTopicKafkaCluster {
@@ -207,6 +200,13 @@ export interface GetKafkaTopicKafkaCluster {
      * The ID of the Kafka cluster, for example, `lkc-abc123`.
      */
     id: string;
+}
+
+export interface GetKafkaTopicKafkaClusterArgs {
+    /**
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: pulumi.Input<string>;
 }
 
 export interface GetKsqlClusterEnvironment {
@@ -253,6 +253,13 @@ export interface GetNetworkAwArgs {
     vpc?: pulumi.Input<string>;
 }
 
+export interface GetNetworkAzure {
+    /**
+     * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
+     */
+    privateLinkServiceAliases?: {[key: string]: string};
+}
+
 export interface GetNetworkAzureArgs {
     /**
      * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
@@ -260,11 +267,22 @@ export interface GetNetworkAzureArgs {
     privateLinkServiceAliases?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
-export interface GetNetworkAzure {
+export interface GetNetworkDnsConfig {
     /**
-     * (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
+     * (Required String) Network DNS resolution.
+     * When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+     * When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
      */
-    privateLinkServiceAliases?: {[key: string]: string};
+    resolution?: string;
+}
+
+export interface GetNetworkDnsConfigArgs {
+    /**
+     * (Required String) Network DNS resolution.
+     * When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+     * When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+     */
+    resolution?: pulumi.Input<string>;
 }
 
 export interface GetNetworkEnvironment {
@@ -339,6 +357,64 @@ export interface GetPrivateLinkAccessEnvironmentArgs {
     id: pulumi.Input<string>;
 }
 
+export interface GetSchemaCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetSchemaCredentialsArgs {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetSchemaRegistryClusterConfigCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetSchemaRegistryClusterConfigCredentialsArgs {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetSchemaRegistryClusterConfigSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface GetSchemaRegistryClusterEnvironment {
     /**
      * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
@@ -353,9 +429,124 @@ export interface GetSchemaRegistryClusterEnvironmentArgs {
     id: pulumi.Input<string>;
 }
 
-export interface GetTransitGatewayAttachmentEnvironmentArgs {
+export interface GetSchemaRegistryClusterModeCredentials {
     /**
-     * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetSchemaRegistryClusterModeCredentialsArgs {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetSchemaRegistryClusterModeSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetSchemaRegistryClusterModeSchemaRegistryClusterArgs {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetSchemaSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetSchemaSchemaRegistryClusterArgs {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetSubjectConfigCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetSubjectConfigCredentialsArgs {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetSubjectConfigSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetSubjectConfigSchemaRegistryClusterArgs {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetSubjectModeCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetSubjectModeCredentialsArgs {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetSubjectModeSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetSubjectModeSchemaRegistryClusterArgs {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -365,6 +556,13 @@ export interface GetTransitGatewayAttachmentEnvironment {
      * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
      */
     id: string;
+}
+
+export interface GetTransitGatewayAttachmentEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
 }
 
 export interface IdentityPoolIdentityProvider {
@@ -564,6 +762,15 @@ export interface NetworkAzure {
     privateLinkServiceAliases?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
+export interface NetworkDnsConfig {
+    /**
+     * Network DNS resolution.
+     * When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+     * When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+     */
+    resolution: pulumi.Input<string>;
+}
+
 export interface NetworkEnvironment {
     /**
      * The ID of the Environment that the Network belongs to, for example, `env-abc123`.
@@ -684,9 +891,56 @@ export interface PrivateLinkAccessNetwork {
     id: pulumi.Input<string>;
 }
 
+export interface SchemaCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface SchemaRegistryClusterConfigCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface SchemaRegistryClusterConfigSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface SchemaRegistryClusterEnvironment {
     /**
      * The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface SchemaRegistryClusterModeCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface SchemaRegistryClusterModeSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -698,11 +952,65 @@ export interface SchemaRegistryClusterRegion {
     id: pulumi.Input<string>;
 }
 
-export interface TransitGatewayAttachmentAws {
+export interface SchemaSchemaReference {
     /**
-     * Enable custom destination routes in Confluent Cloud. Defaults to `false`.
+     * The name of the subject, representing the subject under which the referenced schema is registered.
      */
-    enableCustomRoutes?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    /**
+     * The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     */
+    subjectName: pulumi.Input<string>;
+    /**
+     * The version, representing the exact version of the schema under the registered subject.
+     */
+    version: pulumi.Input<number>;
+}
+
+export interface SchemaSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface SubjectConfigCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface SubjectConfigSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface SubjectModeCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface SubjectModeSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface TransitGatewayAttachmentAws {
     /**
      * The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
      */
@@ -710,7 +1018,7 @@ export interface TransitGatewayAttachmentAws {
     /**
      * List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
      */
-    routes?: pulumi.Input<pulumi.Input<string>[]>;
+    routes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
      */
@@ -734,4 +1042,3 @@ export interface TransitGatewayAttachmentNetwork {
      */
     id: pulumi.Input<string>;
 }
-

@@ -26,12 +26,22 @@ import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessArgs;
 import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetRoleBindingArgs;
 import com.pulumi.confluentcloud.inputs.GetRoleBindingPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
+import com.pulumi.confluentcloud.inputs.GetSchemaPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterArgs;
+import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigArgs;
+import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterConfigPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModeArgs;
+import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModePlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
 import com.pulumi.confluentcloud.inputs.GetServiceAccountPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
+import com.pulumi.confluentcloud.inputs.GetSubjectConfigPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
+import com.pulumi.confluentcloud.inputs.GetSubjectModePlainArgs;
 import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentArgs;
 import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetUserArgs;
@@ -48,9 +58,14 @@ import com.pulumi.confluentcloud.outputs.GetOrganizationResult;
 import com.pulumi.confluentcloud.outputs.GetPeeringResult;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAccessResult;
 import com.pulumi.confluentcloud.outputs.GetRoleBindingResult;
+import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterConfigResult;
+import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterModeResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryRegionResult;
+import com.pulumi.confluentcloud.outputs.GetSchemaResult;
 import com.pulumi.confluentcloud.outputs.GetServiceAccountResult;
+import com.pulumi.confluentcloud.outputs.GetSubjectConfigResult;
+import com.pulumi.confluentcloud.outputs.GetSubjectModeResult;
 import com.pulumi.confluentcloud.outputs.GetTransitGatewayAttachmentResult;
 import com.pulumi.confluentcloud.outputs.GetUserResult;
 import com.pulumi.core.Output;
@@ -404,7 +419,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.IdentityPool` describes an Identity Pool data source.
      * 
@@ -456,7 +471,7 @@ public final class ConfluentcloudFunctions {
         return getIdentityPool(args, InvokeOptions.Empty);
     }
     /**
-     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.IdentityPool` describes an Identity Pool data source.
      * 
@@ -508,7 +523,7 @@ public final class ConfluentcloudFunctions {
         return getIdentityPoolPlain(args, InvokeOptions.Empty);
     }
     /**
-     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.IdentityPool` describes an Identity Pool data source.
      * 
@@ -560,7 +575,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getIdentityPool:getIdentityPool", TypeShape.of(GetIdentityPoolResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.IdentityPool` describes an Identity Pool data source.
      * 
@@ -612,7 +627,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getIdentityPool:getIdentityPool", TypeShape.of(GetIdentityPoolResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.IdentityProvider` describes an Identity Provider data source.
      * 
@@ -657,7 +672,7 @@ public final class ConfluentcloudFunctions {
         return getIdentityProvider(GetIdentityProviderArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.IdentityProvider` describes an Identity Provider data source.
      * 
@@ -702,7 +717,7 @@ public final class ConfluentcloudFunctions {
         return getIdentityProviderPlain(GetIdentityProviderPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.IdentityProvider` describes an Identity Provider data source.
      * 
@@ -747,7 +762,7 @@ public final class ConfluentcloudFunctions {
         return getIdentityProvider(args, InvokeOptions.Empty);
     }
     /**
-     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.IdentityProvider` describes an Identity Provider data source.
      * 
@@ -792,7 +807,7 @@ public final class ConfluentcloudFunctions {
         return getIdentityProviderPlain(args, InvokeOptions.Empty);
     }
     /**
-     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.IdentityProvider` describes an Identity Provider data source.
      * 
@@ -837,7 +852,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getIdentityProvider:getIdentityProvider", TypeShape.of(GetIdentityProviderResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.IdentityProvider` describes an Identity Provider data source.
      * 
@@ -882,10 +897,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getIdentityProvider:getIdentityProvider", TypeShape.of(GetIdentityProviderResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Client Quotas API](https://img.shields.io/badge/-Request%20Access%20To%20Clients%20Quotas-%23bc8540)](mailto:cloud-client-quotas-ea@confluent.io?subject=Request%20to%20join%20Kafka%20Quotas%20Management%20API%20Early%20Access&amp;amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20kafka-quotas/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-     * 
-     * &gt; **Note:** `confluentcloud.KafkaClientQuota` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Early Access features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KafkaClientQuota` describes a Kafka Client Quota.
      * 
@@ -927,10 +939,7 @@ public final class ConfluentcloudFunctions {
         return getKafkaClientQuota(args, InvokeOptions.Empty);
     }
     /**
-     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Client Quotas API](https://img.shields.io/badge/-Request%20Access%20To%20Clients%20Quotas-%23bc8540)](mailto:cloud-client-quotas-ea@confluent.io?subject=Request%20to%20join%20Kafka%20Quotas%20Management%20API%20Early%20Access&amp;amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20kafka-quotas/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-     * 
-     * &gt; **Note:** `confluentcloud.KafkaClientQuota` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Early Access features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KafkaClientQuota` describes a Kafka Client Quota.
      * 
@@ -972,10 +981,7 @@ public final class ConfluentcloudFunctions {
         return getKafkaClientQuotaPlain(args, InvokeOptions.Empty);
     }
     /**
-     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Client Quotas API](https://img.shields.io/badge/-Request%20Access%20To%20Clients%20Quotas-%23bc8540)](mailto:cloud-client-quotas-ea@confluent.io?subject=Request%20to%20join%20Kafka%20Quotas%20Management%20API%20Early%20Access&amp;amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20kafka-quotas/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-     * 
-     * &gt; **Note:** `confluentcloud.KafkaClientQuota` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Early Access features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KafkaClientQuota` describes a Kafka Client Quota.
      * 
@@ -1017,10 +1023,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota", TypeShape.of(GetKafkaClientQuotaResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Client Quotas API](https://img.shields.io/badge/-Request%20Access%20To%20Clients%20Quotas-%23bc8540)](mailto:cloud-client-quotas-ea@confluent.io?subject=Request%20to%20join%20Kafka%20Quotas%20Management%20API%20Early%20Access&amp;amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20kafka-quotas/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-     * 
-     * &gt; **Note:** `confluentcloud.KafkaClientQuota` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Early Access features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.KafkaClientQuota` describes a Kafka Client Quota.
      * 
@@ -1289,203 +1292,15 @@ public final class ConfluentcloudFunctions {
     public static CompletableFuture<GetKafkaClusterResult> getKafkaClusterPlain(GetKafkaClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getKafkaCluster:getKafkaCluster", TypeShape.of(GetKafkaClusterResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
-     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
-     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
-     *             .kafkaCluster(GetKafkaTopicKafkaClusterArgs.builder()
-     *                 .id(confluent_kafka_cluster.basic-cluster().id())
-     *                 .build())
-     *             .topicName(&#34;orders&#34;)
-     *             .restEndpoint(confluent_kafka_cluster.basic-cluster().rest_endpoint())
-     *             .credentials(GetKafkaTopicCredentialsArgs.builder()
-     *                 .key(&#34;&lt;Kafka API Key for confluent_kafka_cluster.basic-cluster&gt;&#34;)
-     *                 .secret(&#34;&lt;Kafka API Secret for confluent_kafka_cluster.basic-cluster&gt;&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;config&#34;, orders.applyValue(getKafkaTopicResult -&gt; getKafkaTopicResult.config()));
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetKafkaTopicResult> getKafkaTopic(GetKafkaTopicArgs args) {
         return getKafkaTopic(args, InvokeOptions.Empty);
     }
-    /**
-     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
-     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
-     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
-     *             .kafkaCluster(GetKafkaTopicKafkaClusterArgs.builder()
-     *                 .id(confluent_kafka_cluster.basic-cluster().id())
-     *                 .build())
-     *             .topicName(&#34;orders&#34;)
-     *             .restEndpoint(confluent_kafka_cluster.basic-cluster().rest_endpoint())
-     *             .credentials(GetKafkaTopicCredentialsArgs.builder()
-     *                 .key(&#34;&lt;Kafka API Key for confluent_kafka_cluster.basic-cluster&gt;&#34;)
-     *                 .secret(&#34;&lt;Kafka API Secret for confluent_kafka_cluster.basic-cluster&gt;&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;config&#34;, orders.applyValue(getKafkaTopicResult -&gt; getKafkaTopicResult.config()));
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetKafkaTopicResult> getKafkaTopicPlain(GetKafkaTopicPlainArgs args) {
         return getKafkaTopicPlain(args, InvokeOptions.Empty);
     }
-    /**
-     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
-     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
-     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
-     *             .kafkaCluster(GetKafkaTopicKafkaClusterArgs.builder()
-     *                 .id(confluent_kafka_cluster.basic-cluster().id())
-     *                 .build())
-     *             .topicName(&#34;orders&#34;)
-     *             .restEndpoint(confluent_kafka_cluster.basic-cluster().rest_endpoint())
-     *             .credentials(GetKafkaTopicCredentialsArgs.builder()
-     *                 .key(&#34;&lt;Kafka API Key for confluent_kafka_cluster.basic-cluster&gt;&#34;)
-     *                 .secret(&#34;&lt;Kafka API Secret for confluent_kafka_cluster.basic-cluster&gt;&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;config&#34;, orders.applyValue(getKafkaTopicResult -&gt; getKafkaTopicResult.config()));
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetKafkaTopicResult> getKafkaTopic(GetKafkaTopicArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getKafkaTopic:getKafkaTopic", TypeShape.of(GetKafkaTopicResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * `confluentcloud.KafkaTopic` describes a Kafka Topic data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
-     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicArgs;
-     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
-     * import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var orders = ConfluentcloudFunctions.getKafkaTopic(GetKafkaTopicArgs.builder()
-     *             .kafkaCluster(GetKafkaTopicKafkaClusterArgs.builder()
-     *                 .id(confluent_kafka_cluster.basic-cluster().id())
-     *                 .build())
-     *             .topicName(&#34;orders&#34;)
-     *             .restEndpoint(confluent_kafka_cluster.basic-cluster().rest_endpoint())
-     *             .credentials(GetKafkaTopicCredentialsArgs.builder()
-     *                 .key(&#34;&lt;Kafka API Key for confluent_kafka_cluster.basic-cluster&gt;&#34;)
-     *                 .secret(&#34;&lt;Kafka API Secret for confluent_kafka_cluster.basic-cluster&gt;&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;config&#34;, orders.applyValue(getKafkaTopicResult -&gt; getKafkaTopicResult.config()));
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetKafkaTopicResult> getKafkaTopicPlain(GetKafkaTopicPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getKafkaTopic:getKafkaTopic", TypeShape.of(GetKafkaTopicResult.class), args, Utilities.withVersion(options));
     }
@@ -2731,6 +2546,18 @@ public final class ConfluentcloudFunctions {
     public static CompletableFuture<GetRoleBindingResult> getRoleBindingPlain(GetRoleBindingPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getRoleBinding:getRoleBinding", TypeShape.of(GetRoleBindingResult.class), args, Utilities.withVersion(options));
     }
+    public static Output<GetSchemaResult> getSchema(GetSchemaArgs args) {
+        return getSchema(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetSchemaResult> getSchemaPlain(GetSchemaPlainArgs args) {
+        return getSchemaPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetSchemaResult> getSchema(GetSchemaArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSchema:getSchema", TypeShape.of(GetSchemaResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetSchemaResult> getSchemaPlain(GetSchemaPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchema:getSchema", TypeShape.of(GetSchemaResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
@@ -2938,6 +2765,42 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetSchemaRegistryClusterResult> getSchemaRegistryClusterPlain(GetSchemaRegistryClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", TypeShape.of(GetSchemaRegistryClusterResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetSchemaRegistryClusterConfigResult> getSchemaRegistryClusterConfig() {
+        return getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetSchemaRegistryClusterConfigResult> getSchemaRegistryClusterConfigPlain() {
+        return getSchemaRegistryClusterConfigPlain(GetSchemaRegistryClusterConfigPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetSchemaRegistryClusterConfigResult> getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs args) {
+        return getSchemaRegistryClusterConfig(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetSchemaRegistryClusterConfigResult> getSchemaRegistryClusterConfigPlain(GetSchemaRegistryClusterConfigPlainArgs args) {
+        return getSchemaRegistryClusterConfigPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetSchemaRegistryClusterConfigResult> getSchemaRegistryClusterConfig(GetSchemaRegistryClusterConfigArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig", TypeShape.of(GetSchemaRegistryClusterConfigResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetSchemaRegistryClusterConfigResult> getSchemaRegistryClusterConfigPlain(GetSchemaRegistryClusterConfigPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig", TypeShape.of(GetSchemaRegistryClusterConfigResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetSchemaRegistryClusterModeResult> getSchemaRegistryClusterMode() {
+        return getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetSchemaRegistryClusterModeResult> getSchemaRegistryClusterModePlain() {
+        return getSchemaRegistryClusterModePlain(GetSchemaRegistryClusterModePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetSchemaRegistryClusterModeResult> getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs args) {
+        return getSchemaRegistryClusterMode(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetSchemaRegistryClusterModeResult> getSchemaRegistryClusterModePlain(GetSchemaRegistryClusterModePlainArgs args) {
+        return getSchemaRegistryClusterModePlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetSchemaRegistryClusterModeResult> getSchemaRegistryClusterMode(GetSchemaRegistryClusterModeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode", TypeShape.of(GetSchemaRegistryClusterModeResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetSchemaRegistryClusterModeResult> getSchemaRegistryClusterModePlain(GetSchemaRegistryClusterModePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode", TypeShape.of(GetSchemaRegistryClusterModeResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -3389,11 +3252,32 @@ public final class ConfluentcloudFunctions {
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
     }
+    public static Output<GetSubjectConfigResult> getSubjectConfig(GetSubjectConfigArgs args) {
+        return getSubjectConfig(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetSubjectConfigResult> getSubjectConfigPlain(GetSubjectConfigPlainArgs args) {
+        return getSubjectConfigPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetSubjectConfigResult> getSubjectConfig(GetSubjectConfigArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSubjectConfig:getSubjectConfig", TypeShape.of(GetSubjectConfigResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetSubjectConfigResult> getSubjectConfigPlain(GetSubjectConfigPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getSubjectConfig:getSubjectConfig", TypeShape.of(GetSubjectConfigResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetSubjectModeResult> getSubjectMode(GetSubjectModeArgs args) {
+        return getSubjectMode(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetSubjectModeResult> getSubjectModePlain(GetSubjectModePlainArgs args) {
+        return getSubjectModePlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetSubjectModeResult> getSubjectMode(GetSubjectModeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSubjectMode:getSubjectMode", TypeShape.of(GetSubjectModeResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetSubjectModeResult> getSubjectModePlain(GetSubjectModePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getSubjectMode:getSubjectMode", TypeShape.of(GetSubjectModeResult.class), args, Utilities.withVersion(options));
+    }
     /**
-     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-early-access@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Early%20Access&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-     * 
-     * &gt; **Note:** `confluentcloud.TransitGatewayAttachment` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Early Access features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.TransitGatewayAttachment` describes a Transit Gateway Attachment data source.
      * 
@@ -3445,10 +3329,7 @@ public final class ConfluentcloudFunctions {
         return getTransitGatewayAttachment(args, InvokeOptions.Empty);
     }
     /**
-     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-early-access@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Early%20Access&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-     * 
-     * &gt; **Note:** `confluentcloud.TransitGatewayAttachment` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Early Access features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.TransitGatewayAttachment` describes a Transit Gateway Attachment data source.
      * 
@@ -3500,10 +3381,7 @@ public final class ConfluentcloudFunctions {
         return getTransitGatewayAttachmentPlain(args, InvokeOptions.Empty);
     }
     /**
-     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-early-access@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Early%20Access&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-     * 
-     * &gt; **Note:** `confluentcloud.TransitGatewayAttachment` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Early Access features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.TransitGatewayAttachment` describes a Transit Gateway Attachment data source.
      * 
@@ -3555,10 +3433,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment", TypeShape.of(GetTransitGatewayAttachmentResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-early-access@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Early%20Access&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-     * 
-     * &gt; **Note:** `confluentcloud.TransitGatewayAttachment` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Early Access features at any time in Confluent’s sole discretion.
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.TransitGatewayAttachment` describes a Transit Gateway Attachment data source.
      * 

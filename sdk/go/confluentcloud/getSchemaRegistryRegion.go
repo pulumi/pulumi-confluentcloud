@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSchemaRegistryRegion, err := confluentcloud.GetSchemaRegistryRegion(ctx, &GetSchemaRegistryRegionArgs{
+//			exampleSchemaRegistryRegion, err := confluentcloud.GetSchemaRegistryRegion(ctx, &confluentcloud.GetSchemaRegistryRegionArgs{
 //				Cloud:   "AWS",
 //				Region:  "us-east-2",
 //				Package: "ESSENTIALS",

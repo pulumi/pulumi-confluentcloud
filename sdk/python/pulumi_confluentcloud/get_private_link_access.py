@@ -67,13 +67,15 @@ class GetPrivateLinkAccessResult:
     def display_name(self) -> str:
         """
         (Optional String) The name of the Private Link Access.
-        - `environment` (Required Configuration Block) supports the following:
         """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def environment(self) -> 'outputs.GetPrivateLinkAccessEnvironmentResult':
+        """
+        (Required Configuration Block) supports the following:
+        """
         return pulumi.get(self, "environment")
 
     @property
@@ -95,6 +97,9 @@ class GetPrivateLinkAccessResult:
     @property
     @pulumi.getter
     def networks(self) -> Sequence['outputs.GetPrivateLinkAccessNetworkResult']:
+        """
+        (Required Configuration Block) supports the following:
+        """
         return pulumi.get(self, "networks")
 
 
@@ -142,6 +147,7 @@ def get_private_link_access(display_name: Optional[str] = None,
 
 
     :param str display_name: A human-readable name for the Private Link Access.
+    :param pulumi.InputType['GetPrivateLinkAccessEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
     """
     __args__ = dict()
@@ -191,6 +197,7 @@ def get_private_link_access_output(display_name: Optional[pulumi.Input[Optional[
 
 
     :param str display_name: A human-readable name for the Private Link Access.
+    :param pulumi.InputType['GetPrivateLinkAccessEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
     """
     ...

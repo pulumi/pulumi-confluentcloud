@@ -150,6 +150,9 @@ class GetKafkaClusterResult:
     @property
     @pulumi.getter
     def networks(self) -> Sequence['outputs.GetKafkaClusterNetworkResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
         return pulumi.get(self, "networks")
 
     @property

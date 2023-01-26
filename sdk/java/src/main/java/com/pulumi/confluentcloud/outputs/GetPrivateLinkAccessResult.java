@@ -27,10 +27,13 @@ public final class GetPrivateLinkAccessResult {
     private List<GetPrivateLinkAccessAzure> azures;
     /**
      * @return (Optional String) The name of the Private Link Access.
-     * - `environment` (Required Configuration Block) supports the following:
      * 
      */
     private String displayName;
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     private GetPrivateLinkAccessEnvironment environment;
     /**
      * @return (Optional Configuration Block) The GCP-specific Private Service Connect details if available. It supports the following:
@@ -42,6 +45,10 @@ public final class GetPrivateLinkAccessResult {
      * 
      */
     private String id;
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     private List<GetPrivateLinkAccessNetwork> networks;
 
     private GetPrivateLinkAccessResult() {}
@@ -61,12 +68,15 @@ public final class GetPrivateLinkAccessResult {
     }
     /**
      * @return (Optional String) The name of the Private Link Access.
-     * - `environment` (Required Configuration Block) supports the following:
      * 
      */
     public String displayName() {
         return this.displayName;
     }
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public GetPrivateLinkAccessEnvironment environment() {
         return this.environment;
     }
@@ -84,6 +94,10 @@ public final class GetPrivateLinkAccessResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public List<GetPrivateLinkAccessNetwork> networks() {
         return this.networks;
     }

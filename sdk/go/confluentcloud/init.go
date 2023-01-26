@@ -54,10 +54,20 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PrivateLinkAccess{}
 	case "confluentcloud:index/roleBinding:RoleBinding":
 		r = &RoleBinding{}
+	case "confluentcloud:index/schema:Schema":
+		r = &Schema{}
 	case "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster":
 		r = &SchemaRegistryCluster{}
+	case "confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig":
+		r = &SchemaRegistryClusterConfig{}
+	case "confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode":
+		r = &SchemaRegistryClusterMode{}
 	case "confluentcloud:index/serviceAccount:ServiceAccount":
 		r = &ServiceAccount{}
+	case "confluentcloud:index/subjectConfig:SubjectConfig":
+		r = &SubjectConfig{}
+	case "confluentcloud:index/subjectMode:SubjectMode":
+		r = &SubjectMode{}
 	case "confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment":
 		r = &TransitGatewayAttachment{}
 	default:
@@ -175,12 +185,37 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
+		"index/schema",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
 		"index/schemaRegistryCluster",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
+		"index/schemaRegistryClusterConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/schemaRegistryClusterMode",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
 		"index/serviceAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/subjectConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/subjectMode",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

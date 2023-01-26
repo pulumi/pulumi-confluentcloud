@@ -12,7 +12,13 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Import
     /// 
-    /// You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka ACL resource type&gt;#&lt;Kafka ACL resource name&gt;#&lt;Kafka ACL pattern type&gt;#&lt;Kafka ACL principal&gt;#&lt;Kafka ACL host&gt;#&lt;Kafka ACL operation&gt;#&lt;Kafka ACL permission&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;" $ export IMPORT_KAFKA_API_KEY="&lt;kafka_api_key&gt;" $ export IMPORT_KAFKA_API_SECRET="&lt;kafka_api_secret&gt;" $ export IMPORT_KAFKA_REST_ENDPOINT="&lt;kafka_rest_endpoint&gt;"
+    /// You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka ACL resource type&gt;#&lt;Kafka ACL resource name&gt;#&lt;Kafka ACL pattern type&gt;#&lt;Kafka ACL principal&gt;#&lt;Kafka ACL host&gt;#&lt;Kafka ACL operation&gt;#&lt;Kafka ACL permission&gt;`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;" $ export IMPORT_KAFKA_API_KEY="&lt;kafka_api_key&gt;" $ export IMPORT_KAFKA_API_SECRET="&lt;kafka_api_secret&gt;" $ export IMPORT_KAFKA_REST_ENDPOINT="&lt;kafka_rest_endpoint&gt;"
+    /// 
+    /// ```sh
+    ///  $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
+    /// ```
+    /// 
+    ///  Option #2Manage a single Kafka cluster in the same Terraform workspace $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// 
     /// ```sh
     ///  $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
@@ -36,7 +42,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Host { get; private set; } = null!;
 
         [Output("kafkaCluster")]
-        public Output<Outputs.KafkaAclKafkaCluster> KafkaCluster { get; private set; } = null!;
+        public Output<Outputs.KafkaAclKafkaCluster?> KafkaCluster { get; private set; } = null!;
 
         /// <summary>
         /// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
@@ -152,8 +158,8 @@ namespace Pulumi.ConfluentCloud
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
 
-        [Input("kafkaCluster", required: true)]
-        public Input<Inputs.KafkaAclKafkaClusterArgs> KafkaCluster { get; set; } = null!;
+        [Input("kafkaCluster")]
+        public Input<Inputs.KafkaAclKafkaClusterArgs>? KafkaCluster { get; set; }
 
         /// <summary>
         /// The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.

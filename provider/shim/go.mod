@@ -7,12 +7,12 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.16.0
 )
 
-replace github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20221205182427-7f5cfa878b3e
+replace github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20230125231056-4dd6eb473c79
 
 require (
 	github.com/Azure/go-ansiterm v0.0.0-20210617225240-d185dfc1b5a1 // indirect
-	github.com/Microsoft/go-winio v0.5.1 // indirect
-	github.com/Microsoft/hcsshim v0.9.3 // indirect
+	github.com/Microsoft/go-winio v0.5.2 // indirect
+	github.com/Microsoft/hcsshim v0.9.5 // indirect
 	github.com/agext/levenshtein v1.2.2 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/cenkalti/backoff/v4 v4.1.2 // indirect
@@ -25,13 +25,14 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.8.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.4.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.5.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/org v0.4.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/schema-registry v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/srcm v0.2.0 // indirect
 	github.com/containerd/cgroups v1.0.3 // indirect
-	github.com/containerd/containerd v1.6.1 // indirect
+	github.com/containerd/containerd v1.6.12 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/docker/distribution v2.7.1+incompatible // indirect
+	github.com/docker/distribution v2.8.0+incompatible // indirect
 	github.com/docker/docker v20.10.11+incompatible // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.4.0 // indirect
@@ -87,15 +88,15 @@ require (
 	github.com/walkerus/go-wiremock v1.2.0 // indirect
 	github.com/zclconf/go-cty v1.10.0 // indirect
 	go.opencensus.io v0.23.0 // indirect
-	golang.org/x/crypto v0.0.0-20210817164053-32db794688a5 // indirect
+	golang.org/x/crypto v0.0.0-20220315160706-3147a52a75dd // indirect
 	golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17 // indirect
-	golang.org/x/net v0.0.0-20211216030914-fe4d6282115f // indirect
+	golang.org/x/net v0.0.0-20220722155237-a158d28d115b // indirect
 	golang.org/x/oauth2 v0.0.0-20210819190943-2bc19b11175f // indirect
-	golang.org/x/sys v0.0.0-20220412211240-33da011f77ad // indirect
+	golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20211208223120-3a66f561d7aa // indirect
-	google.golang.org/grpc v1.45.0 // indirect
+	google.golang.org/genproto v0.0.0-20220502173005-c8bf987b8c21 // indirect
+	google.golang.org/grpc v1.47.0 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

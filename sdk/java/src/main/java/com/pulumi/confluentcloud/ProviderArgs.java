@@ -92,6 +92,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Kafka Cluster ID.
+     * 
+     */
+    @Import(name="kafkaId")
+    private @Nullable Output<String> kafkaId;
+
+    /**
+     * @return The Kafka Cluster ID.
+     * 
+     */
+    public Optional<Output<String>> kafkaId() {
+        return Optional.ofNullable(this.kafkaId);
+    }
+
+    /**
      * The Kafka Cluster REST Endpoint.
      * 
      */
@@ -121,6 +136,66 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.maxRetries);
     }
 
+    /**
+     * The Schema Registry Cluster API Key.
+     * 
+     */
+    @Import(name="schemaRegistryApiKey")
+    private @Nullable Output<String> schemaRegistryApiKey;
+
+    /**
+     * @return The Schema Registry Cluster API Key.
+     * 
+     */
+    public Optional<Output<String>> schemaRegistryApiKey() {
+        return Optional.ofNullable(this.schemaRegistryApiKey);
+    }
+
+    /**
+     * The Schema Registry Cluster API Secret.
+     * 
+     */
+    @Import(name="schemaRegistryApiSecret")
+    private @Nullable Output<String> schemaRegistryApiSecret;
+
+    /**
+     * @return The Schema Registry Cluster API Secret.
+     * 
+     */
+    public Optional<Output<String>> schemaRegistryApiSecret() {
+        return Optional.ofNullable(this.schemaRegistryApiSecret);
+    }
+
+    /**
+     * The Schema Registry Cluster ID.
+     * 
+     */
+    @Import(name="schemaRegistryId")
+    private @Nullable Output<String> schemaRegistryId;
+
+    /**
+     * @return The Schema Registry Cluster ID.
+     * 
+     */
+    public Optional<Output<String>> schemaRegistryId() {
+        return Optional.ofNullable(this.schemaRegistryId);
+    }
+
+    /**
+     * The Schema Registry Cluster REST Endpoint.
+     * 
+     */
+    @Import(name="schemaRegistryRestEndpoint")
+    private @Nullable Output<String> schemaRegistryRestEndpoint;
+
+    /**
+     * @return The Schema Registry Cluster REST Endpoint.
+     * 
+     */
+    public Optional<Output<String>> schemaRegistryRestEndpoint() {
+        return Optional.ofNullable(this.schemaRegistryRestEndpoint);
+    }
+
     private ProviderArgs() {}
 
     private ProviderArgs(ProviderArgs $) {
@@ -129,8 +204,13 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.endpoint = $.endpoint;
         this.kafkaApiKey = $.kafkaApiKey;
         this.kafkaApiSecret = $.kafkaApiSecret;
+        this.kafkaId = $.kafkaId;
         this.kafkaRestEndpoint = $.kafkaRestEndpoint;
         this.maxRetries = $.maxRetries;
+        this.schemaRegistryApiKey = $.schemaRegistryApiKey;
+        this.schemaRegistryApiSecret = $.schemaRegistryApiSecret;
+        this.schemaRegistryId = $.schemaRegistryId;
+        this.schemaRegistryRestEndpoint = $.schemaRegistryRestEndpoint;
     }
 
     public static Builder builder() {
@@ -257,6 +337,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param kafkaId The Kafka Cluster ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kafkaId(@Nullable Output<String> kafkaId) {
+            $.kafkaId = kafkaId;
+            return this;
+        }
+
+        /**
+         * @param kafkaId The Kafka Cluster ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kafkaId(String kafkaId) {
+            return kafkaId(Output.of(kafkaId));
+        }
+
+        /**
          * @param kafkaRestEndpoint The Kafka Cluster REST Endpoint.
          * 
          * @return builder
@@ -296,6 +397,90 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder maxRetries(Integer maxRetries) {
             return maxRetries(Output.of(maxRetries));
+        }
+
+        /**
+         * @param schemaRegistryApiKey The Schema Registry Cluster API Key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaRegistryApiKey(@Nullable Output<String> schemaRegistryApiKey) {
+            $.schemaRegistryApiKey = schemaRegistryApiKey;
+            return this;
+        }
+
+        /**
+         * @param schemaRegistryApiKey The Schema Registry Cluster API Key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaRegistryApiKey(String schemaRegistryApiKey) {
+            return schemaRegistryApiKey(Output.of(schemaRegistryApiKey));
+        }
+
+        /**
+         * @param schemaRegistryApiSecret The Schema Registry Cluster API Secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaRegistryApiSecret(@Nullable Output<String> schemaRegistryApiSecret) {
+            $.schemaRegistryApiSecret = schemaRegistryApiSecret;
+            return this;
+        }
+
+        /**
+         * @param schemaRegistryApiSecret The Schema Registry Cluster API Secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaRegistryApiSecret(String schemaRegistryApiSecret) {
+            return schemaRegistryApiSecret(Output.of(schemaRegistryApiSecret));
+        }
+
+        /**
+         * @param schemaRegistryId The Schema Registry Cluster ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaRegistryId(@Nullable Output<String> schemaRegistryId) {
+            $.schemaRegistryId = schemaRegistryId;
+            return this;
+        }
+
+        /**
+         * @param schemaRegistryId The Schema Registry Cluster ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaRegistryId(String schemaRegistryId) {
+            return schemaRegistryId(Output.of(schemaRegistryId));
+        }
+
+        /**
+         * @param schemaRegistryRestEndpoint The Schema Registry Cluster REST Endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaRegistryRestEndpoint(@Nullable Output<String> schemaRegistryRestEndpoint) {
+            $.schemaRegistryRestEndpoint = schemaRegistryRestEndpoint;
+            return this;
+        }
+
+        /**
+         * @param schemaRegistryRestEndpoint The Schema Registry Cluster REST Endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaRegistryRestEndpoint(String schemaRegistryRestEndpoint) {
+            return schemaRegistryRestEndpoint(Output.of(schemaRegistryRestEndpoint));
         }
 
         public ProviderArgs build() {

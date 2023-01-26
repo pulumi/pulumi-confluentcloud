@@ -20,10 +20,13 @@ public final class GetKsqlClusterResult {
      * 
      */
     private String apiVersion;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     private List<GetKsqlClusterCredentialIdentity> credentialIdentities;
     /**
      * @return (Required Number) The number of CSUs (Confluent Streaming Units) in the ksqlDB cluster.
-     * - `use_detailed_processing_log` (Optional Boolean) Controls whether the row data should be included in the processing log topic.
      * 
      */
     private Integer csu;
@@ -34,6 +37,10 @@ public final class GetKsqlClusterResult {
      * 
      */
     private String id;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     private List<GetKsqlClusterKafkaCluster> kafkaClusters;
     /**
      * @return (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
@@ -47,13 +54,8 @@ public final class GetKsqlClusterResult {
     private String resourceName;
     /**
      * @return (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-     * - `kafka_cluster` (Optional Configuration Block) supports the following:
-     * 
-     * @deprecated
-     * use rest_endpoint instead
      * 
      */
-    @Deprecated /* use rest_endpoint instead */
     private String restEndpoint;
     /**
      * @return (Required Integer) The amount of storage (in GB) provisioned to this cluster.
@@ -65,6 +67,10 @@ public final class GetKsqlClusterResult {
      * 
      */
     private String topicPrefix;
+    /**
+     * @return (Optional Boolean) Controls whether the row data should be included in the processing log topic.
+     * 
+     */
     private Boolean useDetailedProcessingLog;
 
     private GetKsqlClusterResult() {}
@@ -75,12 +81,15 @@ public final class GetKsqlClusterResult {
     public String apiVersion() {
         return this.apiVersion;
     }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     public List<GetKsqlClusterCredentialIdentity> credentialIdentities() {
         return this.credentialIdentities;
     }
     /**
      * @return (Required Number) The number of CSUs (Confluent Streaming Units) in the ksqlDB cluster.
-     * - `use_detailed_processing_log` (Optional Boolean) Controls whether the row data should be included in the processing log topic.
      * 
      */
     public Integer csu() {
@@ -99,6 +108,10 @@ public final class GetKsqlClusterResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     public List<GetKsqlClusterKafkaCluster> kafkaClusters() {
         return this.kafkaClusters;
     }
@@ -118,13 +131,8 @@ public final class GetKsqlClusterResult {
     }
     /**
      * @return (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-     * - `kafka_cluster` (Optional Configuration Block) supports the following:
-     * 
-     * @deprecated
-     * use rest_endpoint instead
      * 
      */
-    @Deprecated /* use rest_endpoint instead */
     public String restEndpoint() {
         return this.restEndpoint;
     }
@@ -142,6 +150,10 @@ public final class GetKsqlClusterResult {
     public String topicPrefix() {
         return this.topicPrefix;
     }
+    /**
+     * @return (Optional Boolean) Controls whether the row data should be included in the processing log topic.
+     * 
+     */
     public Boolean useDetailedProcessingLog() {
         return this.useDetailedProcessingLog;
     }

@@ -27,7 +27,7 @@ class ApiKeyArgs:
         :param pulumi.Input[str] description: A free-form description of the API Account.
         :param pulumi.Input[bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         :param pulumi.Input[str] display_name: A human-readable name for the API Key.
-        :param pulumi.Input['ApiKeyManagedResourceArgs'] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+        :param pulumi.Input['ApiKeyManagedResourceArgs'] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
         """
         pulumi.set(__self__, "owner", owner)
         if description is not None:
@@ -91,7 +91,7 @@ class ApiKeyArgs:
     @pulumi.getter(name="managedResource")
     def managed_resource(self) -> Optional[pulumi.Input['ApiKeyManagedResourceArgs']]:
         """
-        The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+        The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
         """
         return pulumi.get(self, "managed_resource")
 
@@ -114,7 +114,7 @@ class _ApiKeyState:
         :param pulumi.Input[str] description: A free-form description of the API Account.
         :param pulumi.Input[bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         :param pulumi.Input[str] display_name: A human-readable name for the API Key.
-        :param pulumi.Input['ApiKeyManagedResourceArgs'] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+        :param pulumi.Input['ApiKeyManagedResourceArgs'] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
         :param pulumi.Input['ApiKeyOwnerArgs'] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
         :param pulumi.Input[str] secret: (Required String, Sensitive) The secret of the API Key.
         """
@@ -171,7 +171,7 @@ class _ApiKeyState:
     @pulumi.getter(name="managedResource")
     def managed_resource(self) -> Optional[pulumi.Input['ApiKeyManagedResourceArgs']]:
         """
-        The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+        The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
         """
         return pulumi.get(self, "managed_resource")
 
@@ -218,7 +218,7 @@ class ApiKey(pulumi.CustomResource):
         """
         ## Import
 
-        You can import a Kafka API Key by using the Environment ID and Kafka API Key ID in the format `<Environment ID>/<Kafka API Key ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export API_KEY_SECRET="<api_key_secret>" Option #1Kafka API Key
+        You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `<Environment ID>/<Cluster API Key ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export API_KEY_SECRET="<api_key_secret>" Option #1Cluster API Key
 
         ```sh
          $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key "env-abc123/UTT6WDRXX7FHD2GV"
@@ -237,7 +237,7 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[str] description: A free-form description of the API Account.
         :param pulumi.Input[bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         :param pulumi.Input[str] display_name: A human-readable name for the API Key.
-        :param pulumi.Input[pulumi.InputType['ApiKeyManagedResourceArgs']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+        :param pulumi.Input[pulumi.InputType['ApiKeyManagedResourceArgs']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
         :param pulumi.Input[pulumi.InputType['ApiKeyOwnerArgs']] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
         """
         ...
@@ -249,7 +249,7 @@ class ApiKey(pulumi.CustomResource):
         """
         ## Import
 
-        You can import a Kafka API Key by using the Environment ID and Kafka API Key ID in the format `<Environment ID>/<Kafka API Key ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export API_KEY_SECRET="<api_key_secret>" Option #1Kafka API Key
+        You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `<Environment ID>/<Cluster API Key ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export API_KEY_SECRET="<api_key_secret>" Option #1Cluster API Key
 
         ```sh
          $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key "env-abc123/UTT6WDRXX7FHD2GV"
@@ -328,7 +328,7 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[str] description: A free-form description of the API Account.
         :param pulumi.Input[bool] disable_wait_for_ready: An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
         :param pulumi.Input[str] display_name: A human-readable name for the API Key.
-        :param pulumi.Input[pulumi.InputType['ApiKeyManagedResourceArgs']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+        :param pulumi.Input[pulumi.InputType['ApiKeyManagedResourceArgs']] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
         :param pulumi.Input[pulumi.InputType['ApiKeyOwnerArgs']] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
         :param pulumi.Input[str] secret: (Required String, Sensitive) The secret of the API Key.
         """
@@ -372,7 +372,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter(name="managedResource")
     def managed_resource(self) -> pulumi.Output[Optional['outputs.ApiKeyManagedResource']]:
         """
-        The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+        The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
         """
         return pulumi.get(self, "managed_resource")
 

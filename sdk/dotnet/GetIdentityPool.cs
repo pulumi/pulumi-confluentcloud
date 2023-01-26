@@ -12,7 +12,7 @@ namespace Pulumi.ConfluentCloud
     public static class GetIdentityPool
     {
         /// <summary>
-        /// [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.IdentityPool` describes an Identity Pool data source.
         /// 
@@ -59,7 +59,7 @@ namespace Pulumi.ConfluentCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentityPoolResult>("confluentcloud:index/getIdentityPool:getIdentityPool", args ?? new GetIdentityPoolArgs(), options.WithDefaults());
 
         /// <summary>
-        /// [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.IdentityPool` describes an Identity Pool data source.
         /// 
@@ -121,6 +121,9 @@ namespace Pulumi.ConfluentCloud
         [Input("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// (Required Configuration Block) supports the following:
+        /// </summary>
         [Input("identityProvider", required: true)]
         public Inputs.GetIdentityPoolIdentityProviderArgs IdentityProvider { get; set; } = null!;
 
@@ -144,6 +147,9 @@ namespace Pulumi.ConfluentCloud
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// (Required Configuration Block) supports the following:
+        /// </summary>
         [Input("identityProvider", required: true)]
         public Input<Inputs.GetIdentityPoolIdentityProviderInputArgs> IdentityProvider { get; set; } = null!;
 
@@ -177,6 +183,9 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
         /// </summary>
         public readonly string IdentityClaim;
+        /// <summary>
+        /// (Required Configuration Block) supports the following:
+        /// </summary>
         public readonly Outputs.GetIdentityPoolIdentityProviderResult IdentityProvider;
 
         [OutputConstructor]

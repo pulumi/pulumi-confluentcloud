@@ -23,7 +23,7 @@ class GetNetworkResult:
     """
     A collection of values returned by getNetwork.
     """
-    def __init__(__self__, aws=None, azures=None, cidr=None, cloud=None, connection_types=None, display_name=None, dns_domain=None, environment=None, gcps=None, id=None, region=None, resource_name=None, zonal_subdomains=None, zones=None):
+    def __init__(__self__, aws=None, azures=None, cidr=None, cloud=None, connection_types=None, display_name=None, dns_configs=None, dns_domain=None, environment=None, gcps=None, id=None, region=None, resource_name=None, zonal_subdomains=None, zones=None):
         if aws and not isinstance(aws, list):
             raise TypeError("Expected argument 'aws' to be a list")
         pulumi.set(__self__, "aws", aws)
@@ -42,6 +42,9 @@ class GetNetworkResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if dns_configs and not isinstance(dns_configs, list):
+            raise TypeError("Expected argument 'dns_configs' to be a list")
+        pulumi.set(__self__, "dns_configs", dns_configs)
         if dns_domain and not isinstance(dns_domain, str):
             raise TypeError("Expected argument 'dns_domain' to be a str")
         pulumi.set(__self__, "dns_domain", dns_domain)
@@ -116,6 +119,14 @@ class GetNetworkResult:
         return pulumi.get(self, "display_name")
 
     @property
+    @pulumi.getter(name="dnsConfigs")
+    def dns_configs(self) -> Sequence['outputs.GetNetworkDnsConfigResult']:
+        """
+        (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+        """
+        return pulumi.get(self, "dns_configs")
+
+    @property
     @pulumi.getter(name="dnsDomain")
     def dns_domain(self) -> str:
         return pulumi.get(self, "dns_domain")
@@ -167,7 +178,8 @@ class GetNetworkResult:
     def zones(self) -> Sequence[str]:
         """
         (Optional List of String) The 3 availability zones for this network. They can optionally be specified for AWS networks
-        used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+        used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+        networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
         On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
         On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
         On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -187,6 +199,7 @@ class AwaitableGetNetworkResult(GetNetworkResult):
             cloud=self.cloud,
             connection_types=self.connection_types,
             display_name=self.display_name,
+            dns_configs=self.dns_configs,
             dns_domain=self.dns_domain,
             environment=self.environment,
             gcps=self.gcps,
@@ -200,6 +213,7 @@ class AwaitableGetNetworkResult(GetNetworkResult):
 def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = None,
                 azures: Optional[Sequence[pulumi.InputType['GetNetworkAzureArgs']]] = None,
                 display_name: Optional[str] = None,
+                dns_configs: Optional[Sequence[pulumi.InputType['GetNetworkDnsConfigArgs']]] = None,
                 environment: Optional[pulumi.InputType['GetNetworkEnvironmentArgs']] = None,
                 gcps: Optional[Sequence[pulumi.InputType['GetNetworkGcpArgs']]] = None,
                 id: Optional[str] = None,
@@ -231,6 +245,7 @@ def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = 
     :param Sequence[pulumi.InputType['GetNetworkAwArgs']] aws: (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
     :param Sequence[pulumi.InputType['GetNetworkAzureArgs']] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
     :param str display_name: A human-readable name for the Network.
+    :param Sequence[pulumi.InputType['GetNetworkDnsConfigArgs']] dns_configs: (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
     :param Sequence[pulumi.InputType['GetNetworkGcpArgs']] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
     :param str id: The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
     """
@@ -238,6 +253,7 @@ def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = 
     __args__['aws'] = aws
     __args__['azures'] = azures
     __args__['displayName'] = display_name
+    __args__['dnsConfigs'] = dns_configs
     __args__['environment'] = environment
     __args__['gcps'] = gcps
     __args__['id'] = id
@@ -251,6 +267,7 @@ def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = 
         cloud=__ret__.cloud,
         connection_types=__ret__.connection_types,
         display_name=__ret__.display_name,
+        dns_configs=__ret__.dns_configs,
         dns_domain=__ret__.dns_domain,
         environment=__ret__.environment,
         gcps=__ret__.gcps,
@@ -265,6 +282,7 @@ def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = 
 def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]]]] = None,
                        azures: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkAzureArgs']]]]] = None,
                        display_name: Optional[pulumi.Input[Optional[str]]] = None,
+                       dns_configs: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkDnsConfigArgs']]]]] = None,
                        environment: Optional[pulumi.Input[pulumi.InputType['GetNetworkEnvironmentArgs']]] = None,
                        gcps: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkGcpArgs']]]]] = None,
                        id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -296,6 +314,7 @@ def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[pulumi.Input
     :param Sequence[pulumi.InputType['GetNetworkAwArgs']] aws: (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
     :param Sequence[pulumi.InputType['GetNetworkAzureArgs']] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
     :param str display_name: A human-readable name for the Network.
+    :param Sequence[pulumi.InputType['GetNetworkDnsConfigArgs']] dns_configs: (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
     :param Sequence[pulumi.InputType['GetNetworkGcpArgs']] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
     :param str id: The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
     """

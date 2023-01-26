@@ -26,7 +26,7 @@ public final class GetKafkaTopicResult {
      * 
      */
     private String id;
-    private GetKafkaTopicKafkaCluster kafkaCluster;
+    private @Nullable GetKafkaTopicKafkaCluster kafkaCluster;
     /**
      * @return (Required Number) The number of partitions to create in the topic. Defaults to `6`.
      * 
@@ -53,8 +53,8 @@ public final class GetKafkaTopicResult {
     public String id() {
         return this.id;
     }
-    public GetKafkaTopicKafkaCluster kafkaCluster() {
-        return this.kafkaCluster;
+    public Optional<GetKafkaTopicKafkaCluster> kafkaCluster() {
+        return Optional.ofNullable(this.kafkaCluster);
     }
     /**
      * @return (Required Number) The number of partitions to create in the topic. Defaults to `6`.
@@ -82,7 +82,7 @@ public final class GetKafkaTopicResult {
         private Map<String,String> config;
         private @Nullable GetKafkaTopicCredentials credentials;
         private String id;
-        private GetKafkaTopicKafkaCluster kafkaCluster;
+        private @Nullable GetKafkaTopicKafkaCluster kafkaCluster;
         private Integer partitionsCount;
         private String restEndpoint;
         private String topicName;
@@ -114,8 +114,8 @@ public final class GetKafkaTopicResult {
             return this;
         }
         @CustomType.Setter
-        public Builder kafkaCluster(GetKafkaTopicKafkaCluster kafkaCluster) {
-            this.kafkaCluster = Objects.requireNonNull(kafkaCluster);
+        public Builder kafkaCluster(@Nullable GetKafkaTopicKafkaCluster kafkaCluster) {
+            this.kafkaCluster = kafkaCluster;
             return this;
         }
         @CustomType.Setter

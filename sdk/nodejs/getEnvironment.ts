@@ -34,11 +34,8 @@ import * as utilities from "./utilities";
  */
 export function getEnvironment(args?: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getEnvironment:getEnvironment", {
         "displayName": args.displayName,
         "id": args.id,
@@ -76,9 +73,36 @@ export interface GetEnvironmentResult {
      */
     readonly resourceName: string;
 }
-
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.Environment` describes an Environment data source.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const exampleUsingIdEnvironment = confluentcloud.getEnvironment({
+ *     id: "env-abc123",
+ * });
+ * export const exampleUsingId = exampleUsingIdEnvironment;
+ * const exampleUsingNameEnvironment = confluentcloud.getEnvironment({
+ *     displayName: "stag",
+ * });
+ * const exampleUsingNameServiceAccount = confluentcloud.getServiceAccount({
+ *     displayName: "test_sa",
+ * });
+ * const test_role_binding = new confluentcloud.RoleBinding("test-role-binding", {
+ *     principal: exampleUsingNameServiceAccount.then(exampleUsingNameServiceAccount => `User:${exampleUsingNameServiceAccount.id}`),
+ *     roleName: "EnvironmentAdmin",
+ *     crnPattern: exampleUsingNameEnvironment.then(exampleUsingNameEnvironment => exampleUsingNameEnvironment.resourceName),
+ * });
+ * ```
+ */
 export function getEnvironmentOutput(args?: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
-    return pulumi.output(args).apply(a => getEnvironment(a, opts))
+    return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))
 }
 
 /**

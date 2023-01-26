@@ -34,11 +34,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getKafkaCluster(args: GetKafkaClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getKafkaCluster:getKafkaCluster", {
         "basics": args.basics,
         "dedicated": args.dedicated,
@@ -117,6 +114,9 @@ export interface GetKafkaClusterResult {
      * (Required String) A kind of the Kafka cluster, for example, `Cluster`.
      */
     readonly kind: string;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     readonly networks: outputs.GetKafkaClusterNetwork[];
     /**
      * (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
@@ -135,9 +135,35 @@ export interface GetKafkaClusterResult {
      */
     readonly standards?: outputs.GetKafkaClusterStandard[];
 }
-
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.KafkaCluster` describes a Kafka cluster data source.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const exampleUsingId = confluentcloud.getKafkaCluster({
+ *     id: "lkc-abc123",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * const test_sa = new confluentcloud.ServiceAccount("test-sa", {description: exampleUsingId.then(exampleUsingId => `app_mgr for ${exampleUsingId.displayName}`)});
+ * const exampleUsingNameKafkaCluster = confluentcloud.getKafkaCluster({
+ *     displayName: "basic_kafka_cluster",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * export const exampleUsingName = exampleUsingNameKafkaCluster;
+ * ```
+ */
 export function getKafkaClusterOutput(args: GetKafkaClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaClusterResult> {
-    return pulumi.output(args).apply(a => getKafkaCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getKafkaCluster(a, opts))
 }
 
 /**

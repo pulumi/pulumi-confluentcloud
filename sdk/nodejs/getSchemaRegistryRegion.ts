@@ -24,11 +24,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getSchemaRegistryRegion(args: GetSchemaRegistryRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryRegionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion", {
         "cloud": args.cloud,
         "package": args.package,
@@ -66,9 +63,27 @@ export interface GetSchemaRegistryRegionResult {
     readonly package: string;
     readonly region: string;
 }
-
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const exampleSchemaRegistryRegion = confluentcloud.getSchemaRegistryRegion({
+ *     cloud: "AWS",
+ *     region: "us-east-2",
+ *     "package": "ESSENTIALS",
+ * });
+ * export const example = exampleSchemaRegistryRegion;
+ * ```
+ */
 export function getSchemaRegistryRegionOutput(args: GetSchemaRegistryRegionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryRegionResult> {
-    return pulumi.output(args).apply(a => getSchemaRegistryRegion(a, opts))
+    return pulumi.output(args).apply((a: any) => getSchemaRegistryRegion(a, opts))
 }
 
 /**

@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 //
 // `IdentityPool` describes an Identity Pool data source.
 //
@@ -28,9 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdIdentityPool, err := confluentcloud.LookupIdentityPool(ctx, &GetIdentityPoolArgs{
+//			exampleUsingIdIdentityPool, err := confluentcloud.LookupIdentityPool(ctx, &confluentcloud.LookupIdentityPoolArgs{
 //				Id: pulumi.StringRef("pool-xyz456"),
-//				IdentityProvider: GetIdentityPoolIdentityProvider{
+//				IdentityProvider: confluentcloud.GetIdentityPoolIdentityProvider{
 //					Id: "op-abc123",
 //				},
 //			}, nil)
@@ -38,9 +38,9 @@ import (
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingIdIdentityPool)
-//			exampleUsingNameIdentityPool, err := confluentcloud.LookupIdentityPool(ctx, &GetIdentityPoolArgs{
+//			exampleUsingNameIdentityPool, err := confluentcloud.LookupIdentityPool(ctx, &confluentcloud.LookupIdentityPoolArgs{
 //				DisplayName: pulumi.StringRef("My Identity Pool"),
-//				IdentityProvider: GetIdentityPoolIdentityProvider{
+//				IdentityProvider: confluentcloud.GetIdentityPoolIdentityProvider{
 //					Id: "op-abc123",
 //				},
 //			}, nil)
@@ -67,7 +67,8 @@ type LookupIdentityPoolArgs struct {
 	// A human-readable name for the Identity Pool.
 	DisplayName *string `pulumi:"displayName"`
 	// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
-	Id               *string                         `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// (Required Configuration Block) supports the following:
 	IdentityProvider GetIdentityPoolIdentityProvider `pulumi:"identityProvider"`
 }
 
@@ -82,7 +83,8 @@ type LookupIdentityPoolResult struct {
 	// (Required String) The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
 	Id string `pulumi:"id"`
 	// (Required String) The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
-	IdentityClaim    string                          `pulumi:"identityClaim"`
+	IdentityClaim string `pulumi:"identityClaim"`
+	// (Required Configuration Block) supports the following:
 	IdentityProvider GetIdentityPoolIdentityProvider `pulumi:"identityProvider"`
 }
 
@@ -104,7 +106,8 @@ type LookupIdentityPoolOutputArgs struct {
 	// A human-readable name for the Identity Pool.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
-	Id               pulumi.StringPtrInput                `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// (Required Configuration Block) supports the following:
 	IdentityProvider GetIdentityPoolIdentityProviderInput `pulumi:"identityProvider"`
 }
 
@@ -152,6 +155,7 @@ func (o LookupIdentityPoolResultOutput) IdentityClaim() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) string { return v.IdentityClaim }).(pulumi.StringOutput)
 }
 
+// (Required Configuration Block) supports the following:
 func (o LookupIdentityPoolResultOutput) IdentityProvider() GetIdentityPoolIdentityProviderOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) GetIdentityPoolIdentityProvider { return v.IdentityProvider }).(GetIdentityPoolIdentityProviderOutput)
 }

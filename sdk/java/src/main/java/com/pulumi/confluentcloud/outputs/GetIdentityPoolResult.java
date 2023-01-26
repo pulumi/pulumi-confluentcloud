@@ -35,6 +35,10 @@ public final class GetIdentityPoolResult {
      * 
      */
     private String identityClaim;
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     private GetIdentityPoolIdentityProvider identityProvider;
 
     private GetIdentityPoolResult() {}
@@ -73,6 +77,10 @@ public final class GetIdentityPoolResult {
     public String identityClaim() {
         return this.identityClaim;
     }
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public GetIdentityPoolIdentityProvider identityProvider() {
         return this.identityProvider;
     }

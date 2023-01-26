@@ -28,9 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdSchemaRegistryCluster, err := confluentcloud.LookupSchemaRegistryCluster(ctx, &GetSchemaRegistryClusterArgs{
+//			exampleUsingIdSchemaRegistryCluster, err := confluentcloud.LookupSchemaRegistryCluster(ctx, &confluentcloud.LookupSchemaRegistryClusterArgs{
 //				Id: pulumi.StringRef("lsrc-abc123"),
-//				Environment: GetSchemaRegistryClusterEnvironment{
+//				Environment: confluentcloud.GetSchemaRegistryClusterEnvironment{
 //					Id: "env-xyz456",
 //				},
 //			}, nil)
@@ -38,9 +38,9 @@ import (
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingIdSchemaRegistryCluster)
-//			exampleUsingNameSchemaRegistryCluster, err := confluentcloud.LookupSchemaRegistryCluster(ctx, &GetSchemaRegistryClusterArgs{
+//			exampleUsingNameSchemaRegistryCluster, err := confluentcloud.LookupSchemaRegistryCluster(ctx, &confluentcloud.LookupSchemaRegistryClusterArgs{
 //				DisplayName: pulumi.StringRef("Stream Governance Package"),
-//				Environment: GetSchemaRegistryClusterEnvironment{
+//				Environment: confluentcloud.GetSchemaRegistryClusterEnvironment{
 //					Id: "env-xyz456",
 //				},
 //			}, nil)
@@ -82,8 +82,8 @@ type LookupSchemaRegistryClusterResult struct {
 	// (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.
 	Kind string `pulumi:"kind"`
 	// (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
-	// - `region` (Required Configuration Block) supports the following:
-	Package string                           `pulumi:"package"`
+	Package string `pulumi:"package"`
+	// (Required Configuration Block) supports the following:
 	Regions []GetSchemaRegistryClusterRegion `pulumi:"regions"`
 	// (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
 	ResourceName string `pulumi:"resourceName"`
@@ -156,11 +156,11 @@ func (o LookupSchemaRegistryClusterResultOutput) Kind() pulumi.StringOutput {
 }
 
 // (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
-// - `region` (Required Configuration Block) supports the following:
 func (o LookupSchemaRegistryClusterResultOutput) Package() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryClusterResult) string { return v.Package }).(pulumi.StringOutput)
 }
 
+// (Required Configuration Block) supports the following:
 func (o LookupSchemaRegistryClusterResultOutput) Regions() GetSchemaRegistryClusterRegionArrayOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryClusterResult) []GetSchemaRegistryClusterRegion { return v.Regions }).(GetSchemaRegistryClusterRegionArrayOutput)
 }

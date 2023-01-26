@@ -36,11 +36,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getKsqlCluster(args: GetKsqlClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKsqlClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getKsqlCluster:getKsqlCluster", {
         "displayName": args.displayName,
         "environment": args.environment,
@@ -71,10 +68,12 @@ export interface GetKsqlClusterResult {
      * (Required String) An API Version of the schema version of the ksqlDB cluster, for example, `ksqldbcm/v2`.
      */
     readonly apiVersion: string;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     readonly credentialIdentities: outputs.GetKsqlClusterCredentialIdentity[];
     /**
      * (Required Number) The number of CSUs (Confluent Streaming Units) in the ksqlDB cluster.
-     * - `useDetailedProcessingLog` (Optional Boolean) Controls whether the row data should be included in the processing log topic.
      */
     readonly csu: number;
     readonly displayName: string;
@@ -83,6 +82,9 @@ export interface GetKsqlClusterResult {
      * (Required String) The ID of the service or user account that the ksqlDB cluster belongs to, for example, `sa-abc123`.
      */
     readonly id: string;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     readonly kafkaClusters: outputs.GetKsqlClusterKafkaCluster[];
     /**
      * (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
@@ -94,9 +96,6 @@ export interface GetKsqlClusterResult {
     readonly resourceName: string;
     /**
      * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
-     * - `kafkaCluster` (Optional Configuration Block) supports the following:
-     *
-     * @deprecated use rest_endpoint instead
      */
     readonly restEndpoint: string;
     /**
@@ -107,11 +106,42 @@ export interface GetKsqlClusterResult {
      * (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
      */
     readonly topicPrefix: string;
+    /**
+     * (Optional Boolean) Controls whether the row data should be included in the processing log topic.
+     */
     readonly useDetailedProcessingLog: boolean;
 }
-
+/**
+ * ## # confluentcloud.KsqlCluster Data Source
+ *
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const exampleUsingIdKsqlCluster = confluentcloud.getKsqlCluster({
+ *     id: "lksqlc-abc123",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * export const exampleUsingId = exampleUsingIdKsqlCluster;
+ * const exampleUsingNameKsqlCluster = confluentcloud.getKsqlCluster({
+ *     displayName: "ksqldb_cluster",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ * });
+ * export const exampleUsingName = exampleUsingNameKsqlCluster;
+ * ```
+ */
 export function getKsqlClusterOutput(args: GetKsqlClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKsqlClusterResult> {
-    return pulumi.output(args).apply(a => getKsqlCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getKsqlCluster(a, opts))
 }
 
 /**

@@ -47,6 +47,13 @@ public final class Config {
         return Codegen.stringProp("kafkaApiSecret").config(config).get();
     }
 /**
+ * The Kafka Cluster ID.
+ * 
+ */
+    public Optional<String> kafkaId() {
+        return Codegen.stringProp("kafkaId").config(config).get();
+    }
+/**
  * The Kafka Cluster REST Endpoint.
  * 
  */
@@ -59,5 +66,33 @@ public final class Config {
  */
     public Optional<Integer> maxRetries() {
         return Codegen.integerProp("maxRetries").config(config).get();
+    }
+/**
+ * The Schema Registry Cluster API Key.
+ * 
+ */
+    public Optional<String> schemaRegistryApiKey() {
+        return Codegen.stringProp("schemaRegistryApiKey").config(config).get();
+    }
+/**
+ * The Schema Registry Cluster API Secret.
+ * 
+ */
+    public Optional<String> schemaRegistryApiSecret() {
+        return Codegen.stringProp("schemaRegistryApiSecret").config(config).get();
+    }
+/**
+ * The Schema Registry Cluster ID.
+ * 
+ */
+    public Optional<String> schemaRegistryId() {
+        return Codegen.stringProp("schemaRegistryId").config(config).get();
+    }
+/**
+ * The Schema Registry Cluster REST Endpoint.
+ * 
+ */
+    public Optional<String> schemaRegistryRestEndpoint() {
+        return Codegen.stringProp("schemaRegistryRestEndpoint").config(config).get();
     }
 }

@@ -44,11 +44,8 @@ import * as utilities from "./utilities";
  */
 export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getUser:getUser", {
         "email": args.email,
         "fullName": args.fullName,
@@ -99,9 +96,46 @@ export interface GetUserResult {
      */
     readonly kind: string;
 }
-
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.getUser` describes a User data source.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const exampleUsingIdUser = confluentcloud.getUser({
+ *     id: "u-abc123",
+ * });
+ * export const exampleUsingId = exampleUsingIdUser;
+ * const exampleUsingEmail = confluentcloud.getUser({
+ *     email: "test123@gmail.com",
+ * });
+ * const test_env = new confluentcloud.Environment("test-env", {});
+ * const standard_cluster_on_aws = new confluentcloud.KafkaCluster("standard-cluster-on-aws", {
+ *     availability: "SINGLE_ZONE",
+ *     cloud: "AWS",
+ *     region: "us-west-2",
+ *     standard: {},
+ *     environment: {
+ *         id: test_env.id,
+ *     },
+ * });
+ * const test_role_binding = new confluentcloud.RoleBinding("test-role-binding", {
+ *     principal: exampleUsingEmail.then(exampleUsingEmail => `User:${exampleUsingEmail.id}`),
+ *     roleName: "CloudClusterAdmin",
+ *     crnPattern: standard_cluster_on_aws.rbacCrn,
+ * });
+ * const exampleUsingFullName = confluentcloud.getUser({
+ *     fullName: "John Doe",
+ * });
+ * ```
+ */
 export function getUserOutput(args?: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
-    return pulumi.output(args).apply(a => getUser(a, opts))
+    return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }
 
 /**

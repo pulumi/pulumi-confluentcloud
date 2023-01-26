@@ -70,6 +70,10 @@ export class Network extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
+     * Network DNS config. It applies only to the PRIVATELINK network connection type.
+     */
+    public readonly dnsConfig!: pulumi.Output<outputs.NetworkDnsConfig>;
+    /**
      * (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
      */
     public /*out*/ readonly dnsDomain!: pulumi.Output<string>;
@@ -95,7 +99,8 @@ export class Network extends pulumi.CustomResource {
     public /*out*/ readonly zonalSubdomains!: pulumi.Output<{[key: string]: string}>;
     /**
      * The 3 availability zones for this network. They can optionally be specified for AWS networks
-     * used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
+     * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+     * networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
      * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -121,6 +126,7 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["cloud"] = state ? state.cloud : undefined;
             resourceInputs["connectionTypes"] = state ? state.connectionTypes : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["dnsConfig"] = state ? state.dnsConfig : undefined;
             resourceInputs["dnsDomain"] = state ? state.dnsDomain : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
             resourceInputs["gcps"] = state ? state.gcps : undefined;
@@ -148,6 +154,7 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["cloud"] = args ? args.cloud : undefined;
             resourceInputs["connectionTypes"] = args ? args.connectionTypes : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["dnsConfig"] = args ? args.dnsConfig : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["gcps"] = args ? args.gcps : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
@@ -190,6 +197,10 @@ export interface NetworkState {
      */
     displayName?: pulumi.Input<string>;
     /**
+     * Network DNS config. It applies only to the PRIVATELINK network connection type.
+     */
+    dnsConfig?: pulumi.Input<inputs.NetworkDnsConfig>;
+    /**
      * (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
      */
     dnsDomain?: pulumi.Input<string>;
@@ -215,7 +226,8 @@ export interface NetworkState {
     zonalSubdomains?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The 3 availability zones for this network. They can optionally be specified for AWS networks
-     * used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
+     * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+     * networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
      * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -252,6 +264,10 @@ export interface NetworkArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
+     * Network DNS config. It applies only to the PRIVATELINK network connection type.
+     */
+    dnsConfig?: pulumi.Input<inputs.NetworkDnsConfig>;
+    /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment: pulumi.Input<inputs.NetworkEnvironment>;
@@ -265,7 +281,8 @@ export interface NetworkArgs {
     region: pulumi.Input<string>;
     /**
      * The 3 availability zones for this network. They can optionally be specified for AWS networks
-     * used with Private Link and for GCP networks used with Private Service Connect. Otherwise, they are automatically chosen by Confluent Cloud.
+     * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+     * networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
      * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.

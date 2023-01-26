@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetNetworkAw;
 import com.pulumi.confluentcloud.outputs.GetNetworkAzure;
+import com.pulumi.confluentcloud.outputs.GetNetworkDnsConfig;
 import com.pulumi.confluentcloud.outputs.GetNetworkEnvironment;
 import com.pulumi.confluentcloud.outputs.GetNetworkGcp;
 import com.pulumi.core.annotations.CustomType;
@@ -45,6 +46,11 @@ public final class GetNetworkResult {
      * 
      */
     private String displayName;
+    /**
+     * @return (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+     * 
+     */
+    private List<GetNetworkDnsConfig> dnsConfigs;
     private String dnsDomain;
     private GetNetworkEnvironment environment;
     /**
@@ -70,7 +76,8 @@ public final class GetNetworkResult {
     private Map<String,String> zonalSubdomains;
     /**
      * @return (Optional List of String) The 3 availability zones for this network. They can optionally be specified for AWS networks
-     * used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+     * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+     * networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
      * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -121,6 +128,13 @@ public final class GetNetworkResult {
     public String displayName() {
         return this.displayName;
     }
+    /**
+     * @return (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
+     * 
+     */
+    public List<GetNetworkDnsConfig> dnsConfigs() {
+        return this.dnsConfigs;
+    }
     public String dnsDomain() {
         return this.dnsDomain;
     }
@@ -160,7 +174,8 @@ public final class GetNetworkResult {
     }
     /**
      * @return (Optional List of String) The 3 availability zones for this network. They can optionally be specified for AWS networks
-     * used with Private Link. Otherwise, they are automatically chosen by Confluent Cloud.
+     * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
+     * networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
      * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
      * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
@@ -185,6 +200,7 @@ public final class GetNetworkResult {
         private String cloud;
         private List<String> connectionTypes;
         private String displayName;
+        private List<GetNetworkDnsConfig> dnsConfigs;
         private String dnsDomain;
         private GetNetworkEnvironment environment;
         private List<GetNetworkGcp> gcps;
@@ -202,6 +218,7 @@ public final class GetNetworkResult {
     	      this.cloud = defaults.cloud;
     	      this.connectionTypes = defaults.connectionTypes;
     	      this.displayName = defaults.displayName;
+    	      this.dnsConfigs = defaults.dnsConfigs;
     	      this.dnsDomain = defaults.dnsDomain;
     	      this.environment = defaults.environment;
     	      this.gcps = defaults.gcps;
@@ -250,6 +267,14 @@ public final class GetNetworkResult {
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
+        }
+        @CustomType.Setter
+        public Builder dnsConfigs(List<GetNetworkDnsConfig> dnsConfigs) {
+            this.dnsConfigs = Objects.requireNonNull(dnsConfigs);
+            return this;
+        }
+        public Builder dnsConfigs(GetNetworkDnsConfig... dnsConfigs) {
+            return dnsConfigs(List.of(dnsConfigs));
         }
         @CustomType.Setter
         public Builder dnsDomain(String dnsDomain) {
@@ -305,6 +330,7 @@ public final class GetNetworkResult {
             o.cloud = cloud;
             o.connectionTypes = connectionTypes;
             o.displayName = displayName;
+            o.dnsConfigs = dnsConfigs;
             o.dnsDomain = dnsDomain;
             o.environment = environment;
             o.gcps = gcps;

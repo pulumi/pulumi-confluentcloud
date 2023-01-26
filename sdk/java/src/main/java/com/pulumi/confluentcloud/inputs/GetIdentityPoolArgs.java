@@ -46,9 +46,17 @@ public final class GetIdentityPoolArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * (Required Configuration Block) supports the following:
+     * 
+     */
     @Import(name="identityProvider", required=true)
     private Output<GetIdentityPoolIdentityProviderArgs> identityProvider;
 
+    /**
+     * @return (Required Configuration Block) supports the following:
+     * 
+     */
     public Output<GetIdentityPoolIdentityProviderArgs> identityProvider() {
         return this.identityProvider;
     }
@@ -121,11 +129,23 @@ public final class GetIdentityPoolArgs extends com.pulumi.resources.InvokeArgs {
             return id(Output.of(id));
         }
 
+        /**
+         * @param identityProvider (Required Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityProvider(Output<GetIdentityPoolIdentityProviderArgs> identityProvider) {
             $.identityProvider = identityProvider;
             return this;
         }
 
+        /**
+         * @param identityProvider (Required Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityProvider(GetIdentityPoolIdentityProviderArgs identityProvider) {
             return identityProvider(Output.of(identityProvider));
         }

@@ -4,18 +4,12 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetTransitGatewayAttachmentAw {
-    /**
-     * @return (Required String) Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-     * 
-     */
-    private Boolean enableCustomRoutes;
     /**
      * @return (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
      * 
@@ -38,13 +32,6 @@ public final class GetTransitGatewayAttachmentAw {
     private String transitGatewayId;
 
     private GetTransitGatewayAttachmentAw() {}
-    /**
-     * @return (Required String) Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-     * 
-     */
-    public Boolean enableCustomRoutes() {
-        return this.enableCustomRoutes;
-    }
     /**
      * @return (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
      * 
@@ -83,7 +70,6 @@ public final class GetTransitGatewayAttachmentAw {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enableCustomRoutes;
         private String ramResourceShareArn;
         private List<String> routes;
         private String transitGatewayAttachmentId;
@@ -91,18 +77,12 @@ public final class GetTransitGatewayAttachmentAw {
         public Builder() {}
         public Builder(GetTransitGatewayAttachmentAw defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.enableCustomRoutes = defaults.enableCustomRoutes;
     	      this.ramResourceShareArn = defaults.ramResourceShareArn;
     	      this.routes = defaults.routes;
     	      this.transitGatewayAttachmentId = defaults.transitGatewayAttachmentId;
     	      this.transitGatewayId = defaults.transitGatewayId;
         }
 
-        @CustomType.Setter
-        public Builder enableCustomRoutes(Boolean enableCustomRoutes) {
-            this.enableCustomRoutes = Objects.requireNonNull(enableCustomRoutes);
-            return this;
-        }
         @CustomType.Setter
         public Builder ramResourceShareArn(String ramResourceShareArn) {
             this.ramResourceShareArn = Objects.requireNonNull(ramResourceShareArn);
@@ -128,7 +108,6 @@ public final class GetTransitGatewayAttachmentAw {
         }
         public GetTransitGatewayAttachmentAw build() {
             final var o = new GetTransitGatewayAttachmentAw();
-            o.enableCustomRoutes = enableCustomRoutes;
             o.ramResourceShareArn = ramResourceShareArn;
             o.routes = routes;
             o.transitGatewayAttachmentId = transitGatewayAttachmentId;

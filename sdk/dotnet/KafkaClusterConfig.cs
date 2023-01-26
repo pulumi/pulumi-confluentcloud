@@ -10,44 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
-    /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-    /// 
-    /// `confluentcloud.KafkaClusterConfig` provides a Kafka cluster config resource that enables updating configs on a Dedicated Kafka cluster on Confluent Cloud.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using ConfluentCloud = Pulumi.ConfluentCloud;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var orders = new ConfluentCloud.KafkaClusterConfig("orders", new()
-    ///     {
-    ///         KafkaCluster = new ConfluentCloud.Inputs.KafkaClusterConfigKafkaClusterArgs
-    ///         {
-    ///             Id = confluent_kafka_cluster.Dedicated.Id,
-    ///         },
-    ///         RestEndpoint = confluent_kafka_cluster.Dedicated.Rest_endpoint,
-    ///         Config = 
-    ///         {
-    ///             { "auto.create.topics.enable", "true" },
-    ///             { "log.retention.ms", "604800123" },
-    ///         },
-    ///         Credentials = new ConfluentCloud.Inputs.KafkaClusterConfigCredentialsArgs
-    ///         {
-    ///             Key = confluent_api_key.App_manager_kafka_api_key.Id,
-    ///             Secret = confluent_api_key.App_manager_kafka_api_key.Secret,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
-    /// You can import a Kafka cluster config by using the Kafka cluster ID, for example$ export IMPORT_KAFKA_API_KEY="&lt;kafka_api_key&gt;" $ export IMPORT_KAFKA_API_SECRET="&lt;kafka_api_secret&gt;" $ export IMPORT_KAFKA_REST_ENDPOINT="&lt;kafka_rest_endpoint&gt;"
+    /// You can import a Kafka cluster config by using the Kafka cluster ID, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY="&lt;kafka_api_key&gt;" $ export IMPORT_KAFKA_API_SECRET="&lt;kafka_api_secret&gt;" $ export IMPORT_KAFKA_REST_ENDPOINT="&lt;kafka_rest_endpoint&gt;"
+    /// 
+    /// ```sh
+    ///  $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
+    /// ```
+    /// 
+    ///  Option #2Manage a single Kafka cluster in the same Terraform workspace
     /// 
     /// ```sh
     ///  $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
@@ -71,7 +42,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.KafkaClusterConfigCredentials?> Credentials { get; private set; } = null!;
 
         [Output("kafkaCluster")]
-        public Output<Outputs.KafkaClusterConfigKafkaCluster> KafkaCluster { get; private set; } = null!;
+        public Output<Outputs.KafkaClusterConfigKafkaCluster?> KafkaCluster { get; private set; } = null!;
 
         /// <summary>
         /// The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -157,8 +128,8 @@ namespace Pulumi.ConfluentCloud
             }
         }
 
-        [Input("kafkaCluster", required: true)]
-        public Input<Inputs.KafkaClusterConfigKafkaClusterArgs> KafkaCluster { get; set; } = null!;
+        [Input("kafkaCluster")]
+        public Input<Inputs.KafkaClusterConfigKafkaClusterArgs>? KafkaCluster { get; set; }
 
         /// <summary>
         /// The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).

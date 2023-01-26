@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy) [![Request Access To OAuth API](https://img.shields.io/badge/-Request%20Access%20To%20OAuth%20API-%23bc8540)](mailto:ccloud-api-access+iam-v2-closed-preview@confluent.io?subject=Request%20to%20join%20OAuth%20API%20Closed%20Preview&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Closed%20Preview%20for%20iam/v2%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 //
 // `IdentityProvider` describes an Identity Provider data source.
 //
@@ -28,14 +28,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdIdentityProvider, err := confluentcloud.LookupIdentityProvider(ctx, &GetIdentityProviderArgs{
+//			exampleUsingIdIdentityProvider, err := confluentcloud.LookupIdentityProvider(ctx, &confluentcloud.LookupIdentityProviderArgs{
 //				Id: pulumi.StringRef("op-abc123"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			ctx.Export("exampleUsingId", exampleUsingIdIdentityProvider)
-//			exampleUsingNameIdentityProvider, err := confluentcloud.LookupIdentityProvider(ctx, &GetIdentityProviderArgs{
+//			exampleUsingNameIdentityProvider, err := confluentcloud.LookupIdentityProvider(ctx, &confluentcloud.LookupIdentityProviderArgs{
 //				DisplayName: pulumi.StringRef("My OIDC Provider: Azure AD"),
 //			}, nil)
 //			if err != nil {

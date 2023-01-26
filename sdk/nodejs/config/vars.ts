@@ -63,6 +63,17 @@ Object.defineProperty(exports, "kafkaApiSecret", {
 });
 
 /**
+ * The Kafka Cluster ID.
+ */
+export declare const kafkaId: string | undefined;
+Object.defineProperty(exports, "kafkaId", {
+    get() {
+        return __config.get("kafkaId");
+    },
+    enumerable: true,
+});
+
+/**
  * The Kafka Cluster REST Endpoint.
  */
 export declare const kafkaRestEndpoint: string | undefined;
@@ -80,6 +91,50 @@ export declare const maxRetries: number | undefined;
 Object.defineProperty(exports, "maxRetries", {
     get() {
         return __config.getObject<number>("maxRetries");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Schema Registry Cluster API Key.
+ */
+export declare const schemaRegistryApiKey: string | undefined;
+Object.defineProperty(exports, "schemaRegistryApiKey", {
+    get() {
+        return __config.get("schemaRegistryApiKey");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Schema Registry Cluster API Secret.
+ */
+export declare const schemaRegistryApiSecret: string | undefined;
+Object.defineProperty(exports, "schemaRegistryApiSecret", {
+    get() {
+        return __config.get("schemaRegistryApiSecret");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Schema Registry Cluster ID.
+ */
+export declare const schemaRegistryId: string | undefined;
+Object.defineProperty(exports, "schemaRegistryId", {
+    get() {
+        return __config.get("schemaRegistryId");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Schema Registry Cluster REST Endpoint.
+ */
+export declare const schemaRegistryRestEndpoint: string | undefined;
+Object.defineProperty(exports, "schemaRegistryRestEndpoint", {
+    get() {
+        return __config.get("schemaRegistryRestEndpoint");
     },
     enumerable: true,
 });

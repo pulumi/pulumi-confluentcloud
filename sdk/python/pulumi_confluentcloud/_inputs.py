@@ -43,6 +43,7 @@ __all__ = [
     'KsqlClusterKafkaClusterArgs',
     'NetworkAwArgs',
     'NetworkAzureArgs',
+    'NetworkDnsConfigArgs',
     'NetworkEnvironmentArgs',
     'NetworkGcpArgs',
     'PeeringAwsArgs',
@@ -55,8 +56,19 @@ __all__ = [
     'PrivateLinkAccessEnvironmentArgs',
     'PrivateLinkAccessGcpArgs',
     'PrivateLinkAccessNetworkArgs',
+    'SchemaCredentialsArgs',
+    'SchemaRegistryClusterConfigCredentialsArgs',
+    'SchemaRegistryClusterConfigSchemaRegistryClusterArgs',
     'SchemaRegistryClusterEnvironmentArgs',
+    'SchemaRegistryClusterModeCredentialsArgs',
+    'SchemaRegistryClusterModeSchemaRegistryClusterArgs',
     'SchemaRegistryClusterRegionArgs',
+    'SchemaSchemaReferenceArgs',
+    'SchemaSchemaRegistryClusterArgs',
+    'SubjectConfigCredentialsArgs',
+    'SubjectConfigSchemaRegistryClusterArgs',
+    'SubjectModeCredentialsArgs',
+    'SubjectModeSchemaRegistryClusterArgs',
     'TransitGatewayAttachmentAwsArgs',
     'TransitGatewayAttachmentEnvironmentArgs',
     'TransitGatewayAttachmentNetworkArgs',
@@ -70,11 +82,22 @@ __all__ = [
     'GetKsqlClusterEnvironmentArgs',
     'GetNetworkAwArgs',
     'GetNetworkAzureArgs',
+    'GetNetworkDnsConfigArgs',
     'GetNetworkEnvironmentArgs',
     'GetNetworkGcpArgs',
     'GetPeeringEnvironmentArgs',
     'GetPrivateLinkAccessEnvironmentArgs',
+    'GetSchemaCredentialsArgs',
+    'GetSchemaRegistryClusterConfigCredentialsArgs',
+    'GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs',
     'GetSchemaRegistryClusterEnvironmentArgs',
+    'GetSchemaRegistryClusterModeCredentialsArgs',
+    'GetSchemaRegistryClusterModeSchemaRegistryClusterArgs',
+    'GetSchemaSchemaRegistryClusterArgs',
+    'GetSubjectConfigCredentialsArgs',
+    'GetSubjectConfigSchemaRegistryClusterArgs',
+    'GetSubjectModeCredentialsArgs',
+    'GetSubjectModeSchemaRegistryClusterArgs',
     'GetTransitGatewayAttachmentEnvironmentArgs',
 ]
 
@@ -1115,6 +1138,32 @@ class NetworkAzureArgs:
 
 
 @pulumi.input_type
+class NetworkDnsConfigArgs:
+    def __init__(__self__, *,
+                 resolution: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] resolution: Network DNS resolution.
+               When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+               When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+        """
+        pulumi.set(__self__, "resolution", resolution)
+
+    @property
+    @pulumi.getter
+    def resolution(self) -> pulumi.Input[str]:
+        """
+        Network DNS resolution.
+        When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+        When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+        """
+        return pulumi.get(self, "resolution")
+
+    @resolution.setter
+    def resolution(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resolution", value)
+
+
+@pulumi.input_type
 class NetworkEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -1518,6 +1567,102 @@ class PrivateLinkAccessNetworkArgs:
 
 
 @pulumi.input_type
+class SchemaCredentialsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Schema Registry API Key.
+        :param pulumi.Input[str] secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[str]:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class SchemaRegistryClusterConfigCredentialsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Schema Registry API Key.
+        :param pulumi.Input[str] secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[str]:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class SchemaRegistryClusterConfigSchemaRegistryClusterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class SchemaRegistryClusterEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -1531,6 +1676,65 @@ class SchemaRegistryClusterEnvironmentArgs:
     def id(self) -> pulumi.Input[str]:
         """
         The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class SchemaRegistryClusterModeCredentialsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Schema Registry API Key.
+        :param pulumi.Input[str] secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[str]:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class SchemaRegistryClusterModeSchemaRegistryClusterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -1562,26 +1766,213 @@ class SchemaRegistryClusterRegionArgs:
 
 
 @pulumi.input_type
+class SchemaSchemaReferenceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 subject_name: pulumi.Input[str],
+                 version: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] name: The name of the subject, representing the subject under which the referenced schema is registered.
+        :param pulumi.Input[str] subject_name: The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        :param pulumi.Input[int] version: The version, representing the exact version of the schema under the registered subject.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "subject_name", subject_name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the subject, representing the subject under which the referenced schema is registered.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="subjectName")
+    def subject_name(self) -> pulumi.Input[str]:
+        """
+        The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        """
+        return pulumi.get(self, "subject_name")
+
+    @subject_name.setter
+    def subject_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subject_name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[int]:
+        """
+        The version, representing the exact version of the schema under the registered subject.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[int]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class SchemaSchemaRegistryClusterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class SubjectConfigCredentialsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Schema Registry API Key.
+        :param pulumi.Input[str] secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[str]:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class SubjectConfigSchemaRegistryClusterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class SubjectModeCredentialsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Schema Registry API Key.
+        :param pulumi.Input[str] secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[str]:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class SubjectModeSchemaRegistryClusterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class TransitGatewayAttachmentAwsArgs:
     def __init__(__self__, *,
                  ram_resource_share_arn: pulumi.Input[str],
+                 routes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  transit_gateway_id: pulumi.Input[str],
-                 enable_custom_routes: Optional[pulumi.Input[bool]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] ram_resource_share_arn: The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
-        :param pulumi.Input[str] transit_gateway_id: The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
-        :param pulumi.Input[bool] enable_custom_routes: Enable custom destination routes in Confluent Cloud. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] routes: List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+        :param pulumi.Input[str] transit_gateway_id: The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
         :param pulumi.Input[str] transit_gateway_attachment_id: (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
         """
         pulumi.set(__self__, "ram_resource_share_arn", ram_resource_share_arn)
+        pulumi.set(__self__, "routes", routes)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
-        if enable_custom_routes is not None:
-            pulumi.set(__self__, "enable_custom_routes", enable_custom_routes)
-        if routes is not None:
-            pulumi.set(__self__, "routes", routes)
         if transit_gateway_attachment_id is not None:
             pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
 
@@ -1598,6 +1989,18 @@ class TransitGatewayAttachmentAwsArgs:
         pulumi.set(self, "ram_resource_share_arn", value)
 
     @property
+    @pulumi.getter
+    def routes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+        """
+        return pulumi.get(self, "routes")
+
+    @routes.setter
+    def routes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "routes", value)
+
+    @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Input[str]:
         """
@@ -1608,30 +2011,6 @@ class TransitGatewayAttachmentAwsArgs:
     @transit_gateway_id.setter
     def transit_gateway_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "transit_gateway_id", value)
-
-    @property
-    @pulumi.getter(name="enableCustomRoutes")
-    def enable_custom_routes(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable custom destination routes in Confluent Cloud. Defaults to `false`.
-        """
-        return pulumi.get(self, "enable_custom_routes")
-
-    @enable_custom_routes.setter
-    def enable_custom_routes(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_custom_routes", value)
-
-    @property
-    @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
-        """
-        return pulumi.get(self, "routes")
-
-    @routes.setter
-    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "routes", value)
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
@@ -1939,6 +2318,32 @@ class GetNetworkAzureArgs:
 
 
 @pulumi.input_type
+class GetNetworkDnsConfigArgs:
+    def __init__(__self__, *,
+                 resolution: str):
+        """
+        :param str resolution: (Required String) Network DNS resolution.
+               When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+               When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+        """
+        pulumi.set(__self__, "resolution", resolution)
+
+    @property
+    @pulumi.getter
+    def resolution(self) -> str:
+        """
+        (Required String) Network DNS resolution.
+        When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
+        When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
+        """
+        return pulumi.get(self, "resolution")
+
+    @resolution.setter
+    def resolution(self, value: str):
+        pulumi.set(self, "resolution", value)
+
+
+@pulumi.input_type
 class GetNetworkEnvironmentArgs:
     def __init__(__self__, *,
                  id: str):
@@ -2057,6 +2462,102 @@ class GetPrivateLinkAccessEnvironmentArgs:
 
 
 @pulumi.input_type
+class GetSchemaCredentialsArgs:
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: str):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class GetSchemaRegistryClusterConfigCredentialsArgs:
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: str):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class GetSchemaRegistryClusterEnvironmentArgs:
     def __init__(__self__, *,
                  id: str):
@@ -2070,6 +2571,205 @@ class GetSchemaRegistryClusterEnvironmentArgs:
     def id(self) -> str:
         """
         The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetSchemaRegistryClusterModeCredentialsArgs:
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: str):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class GetSchemaRegistryClusterModeSchemaRegistryClusterArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetSchemaSchemaRegistryClusterArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetSubjectConfigCredentialsArgs:
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: str):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class GetSubjectConfigSchemaRegistryClusterArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetSubjectModeCredentialsArgs:
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: str):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class GetSubjectModeSchemaRegistryClusterArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
 

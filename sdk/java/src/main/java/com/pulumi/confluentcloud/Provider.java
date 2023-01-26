@@ -94,6 +94,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.kafkaApiSecret);
     }
     /**
+     * The Kafka Cluster ID.
+     * 
+     */
+    @Export(name="kafkaId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> kafkaId;
+
+    /**
+     * @return The Kafka Cluster ID.
+     * 
+     */
+    public Output<Optional<String>> kafkaId() {
+        return Codegen.optional(this.kafkaId);
+    }
+    /**
      * The Kafka Cluster REST Endpoint.
      * 
      */
@@ -106,6 +120,62 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<Optional<String>> kafkaRestEndpoint() {
         return Codegen.optional(this.kafkaRestEndpoint);
+    }
+    /**
+     * The Schema Registry Cluster API Key.
+     * 
+     */
+    @Export(name="schemaRegistryApiKey", type=String.class, parameters={})
+    private Output</* @Nullable */ String> schemaRegistryApiKey;
+
+    /**
+     * @return The Schema Registry Cluster API Key.
+     * 
+     */
+    public Output<Optional<String>> schemaRegistryApiKey() {
+        return Codegen.optional(this.schemaRegistryApiKey);
+    }
+    /**
+     * The Schema Registry Cluster API Secret.
+     * 
+     */
+    @Export(name="schemaRegistryApiSecret", type=String.class, parameters={})
+    private Output</* @Nullable */ String> schemaRegistryApiSecret;
+
+    /**
+     * @return The Schema Registry Cluster API Secret.
+     * 
+     */
+    public Output<Optional<String>> schemaRegistryApiSecret() {
+        return Codegen.optional(this.schemaRegistryApiSecret);
+    }
+    /**
+     * The Schema Registry Cluster ID.
+     * 
+     */
+    @Export(name="schemaRegistryId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> schemaRegistryId;
+
+    /**
+     * @return The Schema Registry Cluster ID.
+     * 
+     */
+    public Output<Optional<String>> schemaRegistryId() {
+        return Codegen.optional(this.schemaRegistryId);
+    }
+    /**
+     * The Schema Registry Cluster REST Endpoint.
+     * 
+     */
+    @Export(name="schemaRegistryRestEndpoint", type=String.class, parameters={})
+    private Output</* @Nullable */ String> schemaRegistryRestEndpoint;
+
+    /**
+     * @return The Schema Registry Cluster REST Endpoint.
+     * 
+     */
+    public Output<Optional<String>> schemaRegistryRestEndpoint() {
+        return Codegen.optional(this.schemaRegistryRestEndpoint);
     }
 
     /**
@@ -140,7 +210,9 @@ public class Provider extends com.pulumi.resources.ProviderResource {
                 "cloudApiKey",
                 "cloudApiSecret",
                 "kafkaApiKey",
-                "kafkaApiSecret"
+                "kafkaApiSecret",
+                "schemaRegistryApiKey",
+                "schemaRegistryApiSecret"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

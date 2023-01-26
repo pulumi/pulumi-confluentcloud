@@ -34,6 +34,11 @@ kafkaApiSecret: Optional[str]
 The Kafka Cluster API Secret.
 """
 
+kafkaId: Optional[str]
+"""
+The Kafka Cluster ID.
+"""
+
 kafkaRestEndpoint: Optional[str]
 """
 The Kafka Cluster REST Endpoint.
@@ -42,5 +47,25 @@ The Kafka Cluster REST Endpoint.
 maxRetries: Optional[int]
 """
 Maximum number of retries of HTTP client. Defaults to 4.
+"""
+
+schemaRegistryApiKey: Optional[str]
+"""
+The Schema Registry Cluster API Key.
+"""
+
+schemaRegistryApiSecret: Optional[str]
+"""
+The Schema Registry Cluster API Secret.
+"""
+
+schemaRegistryId: Optional[str]
+"""
+The Schema Registry Cluster ID.
+"""
+
+schemaRegistryRestEndpoint: Optional[str]
+"""
+The Schema Registry Cluster REST Endpoint.
 """
 

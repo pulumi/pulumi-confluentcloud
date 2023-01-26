@@ -13,7 +13,7 @@ import (
 
 // ## Import
 //
-// You can import a Kafka API Key by using the Environment ID and Kafka API Key ID in the format `<Environment ID>/<Kafka API Key ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export API_KEY_SECRET="<api_key_secret>" Option #1Kafka API Key
+// You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `<Environment ID>/<Cluster API Key ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export API_KEY_SECRET="<api_key_secret>" Option #1Cluster API Key
 //
 // ```sh
 //
@@ -39,7 +39,7 @@ type ApiKey struct {
 	DisableWaitForReady pulumi.BoolPtrOutput `pulumi:"disableWaitForReady"`
 	// A human-readable name for the API Key.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
 	ManagedResource ApiKeyManagedResourcePtrOutput `pulumi:"managedResource"`
 	// The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
 	Owner ApiKeyOwnerOutput `pulumi:"owner"`
@@ -89,7 +89,7 @@ type apiKeyState struct {
 	DisableWaitForReady *bool `pulumi:"disableWaitForReady"`
 	// A human-readable name for the API Key.
 	DisplayName *string `pulumi:"displayName"`
-	// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
 	ManagedResource *ApiKeyManagedResource `pulumi:"managedResource"`
 	// The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
 	Owner *ApiKeyOwner `pulumi:"owner"`
@@ -104,7 +104,7 @@ type ApiKeyState struct {
 	DisableWaitForReady pulumi.BoolPtrInput
 	// A human-readable name for the API Key.
 	DisplayName pulumi.StringPtrInput
-	// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
 	ManagedResource ApiKeyManagedResourcePtrInput
 	// The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
 	Owner ApiKeyOwnerPtrInput
@@ -123,7 +123,7 @@ type apiKeyArgs struct {
 	DisableWaitForReady *bool `pulumi:"disableWaitForReady"`
 	// A human-readable name for the API Key.
 	DisplayName *string `pulumi:"displayName"`
-	// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
 	ManagedResource *ApiKeyManagedResource `pulumi:"managedResource"`
 	// The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
 	Owner ApiKeyOwner `pulumi:"owner"`
@@ -137,7 +137,7 @@ type ApiKeyArgs struct {
 	DisableWaitForReady pulumi.BoolPtrInput
 	// A human-readable name for the API Key.
 	DisplayName pulumi.StringPtrInput
-	// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+	// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
 	ManagedResource ApiKeyManagedResourcePtrInput
 	// The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
 	Owner ApiKeyOwnerInput
@@ -245,7 +245,7 @@ func (o ApiKeyOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The resource associated with this object. The only resource that is supported is 'cmk.v2.KafkaCluster'.
+// The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
 func (o ApiKeyOutput) ManagedResource() ApiKeyManagedResourcePtrOutput {
 	return o.ApplyT(func(v *ApiKey) ApiKeyManagedResourcePtrOutput { return v.ManagedResource }).(ApiKeyManagedResourcePtrOutput)
 }
