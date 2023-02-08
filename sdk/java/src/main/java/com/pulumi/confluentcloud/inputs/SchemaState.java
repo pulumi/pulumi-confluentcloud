@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.inputs.SchemaSchemaReferenceArgs;
 import com.pulumi.confluentcloud.inputs.SchemaSchemaRegistryClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -48,6 +49,36 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> format() {
         return Optional.ofNullable(this.format);
+    }
+
+    /**
+     * An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     * 
+     */
+    @Import(name="hardDelete")
+    private @Nullable Output<Boolean> hardDelete;
+
+    /**
+     * @return An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     * 
+     */
+    public Optional<Output<Boolean>> hardDelete() {
+        return Optional.ofNullable(this.hardDelete);
+    }
+
+    /**
+     * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+     * 
+     */
+    @Import(name="recreateOnUpdate")
+    private @Nullable Output<Boolean> recreateOnUpdate;
+
+    /**
+     * @return An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+     * 
+     */
+    public Optional<Output<Boolean>> recreateOnUpdate() {
+        return Optional.ofNullable(this.recreateOnUpdate);
     }
 
     /**
@@ -152,6 +183,8 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     private SchemaState(SchemaState $) {
         this.credentials = $.credentials;
         this.format = $.format;
+        this.hardDelete = $.hardDelete;
+        this.recreateOnUpdate = $.recreateOnUpdate;
         this.restEndpoint = $.restEndpoint;
         this.schema = $.schema;
         this.schemaIdentifier = $.schemaIdentifier;
@@ -219,6 +252,48 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder format(String format) {
             return format(Output.of(format));
+        }
+
+        /**
+         * @param hardDelete An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hardDelete(@Nullable Output<Boolean> hardDelete) {
+            $.hardDelete = hardDelete;
+            return this;
+        }
+
+        /**
+         * @param hardDelete An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hardDelete(Boolean hardDelete) {
+            return hardDelete(Output.of(hardDelete));
+        }
+
+        /**
+         * @param recreateOnUpdate An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recreateOnUpdate(@Nullable Output<Boolean> recreateOnUpdate) {
+            $.recreateOnUpdate = recreateOnUpdate;
+            return this;
+        }
+
+        /**
+         * @param recreateOnUpdate An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recreateOnUpdate(Boolean recreateOnUpdate) {
+            return recreateOnUpdate(Output.of(recreateOnUpdate));
         }
 
         /**

@@ -39,7 +39,7 @@ public final class GetKafkaClientQuotaResult {
      */
     private List<GetKafkaClientQuotaKafkaCluster> kafkaClusters;
     /**
-     * @return (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, &#34;default&#34;, to represent the default quota for all users and service accounts.
+     * @return (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, &#34;&lt;default&gt;&#34;, to represent the default quota for all users and service accounts.
      * 
      */
     private List<String> principals;
@@ -86,7 +86,7 @@ public final class GetKafkaClientQuotaResult {
         return this.kafkaClusters;
     }
     /**
-     * @return (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, &#34;default&#34;, to represent the default quota for all users and service accounts.
+     * @return (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, &#34;&lt;default&gt;&#34;, to represent the default quota for all users and service accounts.
      * 
      */
     public List<String> principals() {

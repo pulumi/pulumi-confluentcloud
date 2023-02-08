@@ -65,7 +65,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdUser.Apply(getUserResult =&gt; getUserResult),
+        ///         ["exampleUsingId"] = exampleUsingIdUser,
         ///     };
         /// });
         /// ```
@@ -129,7 +129,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdUser.Apply(getUserResult =&gt; getUserResult),
+        ///         ["exampleUsingId"] = exampleUsingIdUser,
         ///     };
         /// });
         /// ```

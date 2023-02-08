@@ -106,10 +106,12 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
         /// </summary>
         public readonly string Format;
+        public readonly bool HardDelete;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly bool RecreateOnUpdate;
         public readonly string? RestEndpoint;
         /// <summary>
         /// (Required String) The schema string, for example, `file("./schema_version_1.avsc")`.
@@ -136,7 +138,11 @@ namespace Pulumi.ConfluentCloud
 
             string format,
 
+            bool hardDelete,
+
             string id,
+
+            bool recreateOnUpdate,
 
             string? restEndpoint,
 
@@ -154,7 +160,9 @@ namespace Pulumi.ConfluentCloud
         {
             Credentials = credentials;
             Format = format;
+            HardDelete = hardDelete;
             Id = id;
+            RecreateOnUpdate = recreateOnUpdate;
             RestEndpoint = restEndpoint;
             Schema = schema;
             SchemaIdentifier = schemaIdentifier;

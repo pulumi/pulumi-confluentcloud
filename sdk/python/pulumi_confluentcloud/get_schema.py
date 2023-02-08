@@ -23,16 +23,22 @@ class GetSchemaResult:
     """
     A collection of values returned by getSchema.
     """
-    def __init__(__self__, credentials=None, format=None, id=None, rest_endpoint=None, schema=None, schema_identifier=None, schema_references=None, schema_registry_cluster=None, subject_name=None, version=None):
+    def __init__(__self__, credentials=None, format=None, hard_delete=None, id=None, recreate_on_update=None, rest_endpoint=None, schema=None, schema_identifier=None, schema_references=None, schema_registry_cluster=None, subject_name=None, version=None):
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
         if format and not isinstance(format, str):
             raise TypeError("Expected argument 'format' to be a str")
         pulumi.set(__self__, "format", format)
+        if hard_delete and not isinstance(hard_delete, bool):
+            raise TypeError("Expected argument 'hard_delete' to be a bool")
+        pulumi.set(__self__, "hard_delete", hard_delete)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if recreate_on_update and not isinstance(recreate_on_update, bool):
+            raise TypeError("Expected argument 'recreate_on_update' to be a bool")
+        pulumi.set(__self__, "recreate_on_update", recreate_on_update)
         if rest_endpoint and not isinstance(rest_endpoint, str):
             raise TypeError("Expected argument 'rest_endpoint' to be a str")
         pulumi.set(__self__, "rest_endpoint", rest_endpoint)
@@ -69,12 +75,22 @@ class GetSchemaResult:
         return pulumi.get(self, "format")
 
     @property
+    @pulumi.getter(name="hardDelete")
+    def hard_delete(self) -> bool:
+        return pulumi.get(self, "hard_delete")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="recreateOnUpdate")
+    def recreate_on_update(self) -> bool:
+        return pulumi.get(self, "recreate_on_update")
 
     @property
     @pulumi.getter(name="restEndpoint")
@@ -132,7 +148,9 @@ class AwaitableGetSchemaResult(GetSchemaResult):
         return GetSchemaResult(
             credentials=self.credentials,
             format=self.format,
+            hard_delete=self.hard_delete,
             id=self.id,
+            recreate_on_update=self.recreate_on_update,
             rest_endpoint=self.rest_endpoint,
             schema=self.schema,
             schema_identifier=self.schema_identifier,
@@ -167,7 +185,9 @@ def get_schema(credentials: Optional[pulumi.InputType['GetSchemaCredentialsArgs'
     return AwaitableGetSchemaResult(
         credentials=__ret__.credentials,
         format=__ret__.format,
+        hard_delete=__ret__.hard_delete,
         id=__ret__.id,
+        recreate_on_update=__ret__.recreate_on_update,
         rest_endpoint=__ret__.rest_endpoint,
         schema=__ret__.schema,
         schema_identifier=__ret__.schema_identifier,

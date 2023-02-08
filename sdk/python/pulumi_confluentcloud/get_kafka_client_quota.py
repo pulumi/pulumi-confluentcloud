@@ -89,7 +89,7 @@ class GetKafkaClientQuotaResult:
     @pulumi.getter
     def principals(self) -> Sequence[str]:
         """
-        (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
+        (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "<default>", to represent the default quota for all users and service accounts.
         """
         return pulumi.get(self, "principals")
 

@@ -17,28 +17,37 @@ __all__ = ['SchemaArgs', 'Schema']
 class SchemaArgs:
     def __init__(__self__, *,
                  format: pulumi.Input[str],
-                 schema: pulumi.Input[str],
                  subject_name: pulumi.Input[str],
                  credentials: Optional[pulumi.Input['SchemaCredentialsArgs']] = None,
+                 hard_delete: Optional[pulumi.Input[bool]] = None,
+                 recreate_on_update: Optional[pulumi.Input[bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
+                 schema: Optional[pulumi.Input[str]] = None,
                  schema_references: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]] = None,
                  schema_registry_cluster: Optional[pulumi.Input['SchemaSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a Schema resource.
         :param pulumi.Input[str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
-        :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[str] subject_name: The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
         :param pulumi.Input['SchemaCredentialsArgs'] credentials: The Cluster API Credentials.
+        :param pulumi.Input[bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        :param pulumi.Input[bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
         """
         pulumi.set(__self__, "format", format)
-        pulumi.set(__self__, "schema", schema)
         pulumi.set(__self__, "subject_name", subject_name)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if hard_delete is not None:
+            pulumi.set(__self__, "hard_delete", hard_delete)
+        if recreate_on_update is not None:
+            pulumi.set(__self__, "recreate_on_update", recreate_on_update)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
         if schema_references is not None:
             pulumi.set(__self__, "schema_references", schema_references)
         if schema_registry_cluster is not None:
@@ -55,18 +64,6 @@ class SchemaArgs:
     @format.setter
     def format(self, value: pulumi.Input[str]):
         pulumi.set(self, "format", value)
-
-    @property
-    @pulumi.getter
-    def schema(self) -> pulumi.Input[str]:
-        """
-        The schema string, for example, `file("./schema_version_1.avsc")`.
-        """
-        return pulumi.get(self, "schema")
-
-    @schema.setter
-    def schema(self, value: pulumi.Input[str]):
-        pulumi.set(self, "schema", value)
 
     @property
     @pulumi.getter(name="subjectName")
@@ -93,6 +90,30 @@ class SchemaArgs:
         pulumi.set(self, "credentials", value)
 
     @property
+    @pulumi.getter(name="hardDelete")
+    def hard_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        """
+        return pulumi.get(self, "hard_delete")
+
+    @hard_delete.setter
+    def hard_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hard_delete", value)
+
+    @property
+    @pulumi.getter(name="recreateOnUpdate")
+    def recreate_on_update(self) -> Optional[pulumi.Input[bool]]:
+        """
+        An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+        """
+        return pulumi.get(self, "recreate_on_update")
+
+    @recreate_on_update.setter
+    def recreate_on_update(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "recreate_on_update", value)
+
+    @property
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -103,6 +124,18 @@ class SchemaArgs:
     @rest_endpoint.setter
     def rest_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rest_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        The schema string, for example, `file("./schema_version_1.avsc")`.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema", value)
 
     @property
     @pulumi.getter(name="schemaReferences")
@@ -131,6 +164,8 @@ class _SchemaState:
     def __init__(__self__, *,
                  credentials: Optional[pulumi.Input['SchemaCredentialsArgs']] = None,
                  format: Optional[pulumi.Input[str]] = None,
+                 hard_delete: Optional[pulumi.Input[bool]] = None,
+                 recreate_on_update: Optional[pulumi.Input[bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  schema_identifier: Optional[pulumi.Input[int]] = None,
@@ -142,6 +177,8 @@ class _SchemaState:
         Input properties used for looking up and filtering Schema resources.
         :param pulumi.Input['SchemaCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+        :param pulumi.Input[bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        :param pulumi.Input[bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[int] schema_identifier: (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
@@ -153,6 +190,10 @@ class _SchemaState:
             pulumi.set(__self__, "credentials", credentials)
         if format is not None:
             pulumi.set(__self__, "format", format)
+        if hard_delete is not None:
+            pulumi.set(__self__, "hard_delete", hard_delete)
+        if recreate_on_update is not None:
+            pulumi.set(__self__, "recreate_on_update", recreate_on_update)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
         if schema is not None:
@@ -191,6 +232,30 @@ class _SchemaState:
     @format.setter
     def format(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "format", value)
+
+    @property
+    @pulumi.getter(name="hardDelete")
+    def hard_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        """
+        return pulumi.get(self, "hard_delete")
+
+    @hard_delete.setter
+    def hard_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hard_delete", value)
+
+    @property
+    @pulumi.getter(name="recreateOnUpdate")
+    def recreate_on_update(self) -> Optional[pulumi.Input[bool]]:
+        """
+        An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+        """
+        return pulumi.get(self, "recreate_on_update")
+
+    @recreate_on_update.setter
+    def recreate_on_update(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "recreate_on_update", value)
 
     @property
     @pulumi.getter(name="restEndpoint")
@@ -281,6 +346,8 @@ class Schema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credentials: Optional[pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']]] = None,
                  format: Optional[pulumi.Input[str]] = None,
+                 hard_delete: Optional[pulumi.Input[bool]] = None,
+                 recreate_on_update: Optional[pulumi.Input[bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]]] = None,
@@ -290,7 +357,13 @@ class Schema(pulumi.CustomResource):
         """
         ## Import
 
-        You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier of the Schema in the format `<Schema Registry cluster ID>/<Subject name>/<Schema identifier>`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+        You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreate_on_update = false`) of the Schema in the format `<Schema Registry cluster ID>/<Subject name>/<Schema identifier>`, for exampleOption Arecreate_on_update = false (by default) $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>" $ export SCHEMA_CONTENT="<schema_content>" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
+
+        ```sh
+         $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest
+        ```
+
+         Option Brecreate_on_update = true $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>" $ export SCHEMA_CONTENT="<schema_content>" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
 
         ```sh
          $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003
@@ -302,6 +375,8 @@ class Schema(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+        :param pulumi.Input[bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        :param pulumi.Input[bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
@@ -316,7 +391,13 @@ class Schema(pulumi.CustomResource):
         """
         ## Import
 
-        You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier of the Schema in the format `<Schema Registry cluster ID>/<Subject name>/<Schema identifier>`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+        You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreate_on_update = false`) of the Schema in the format `<Schema Registry cluster ID>/<Subject name>/<Schema identifier>`, for exampleOption Arecreate_on_update = false (by default) $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>" $ export SCHEMA_CONTENT="<schema_content>" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
+
+        ```sh
+         $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest
+        ```
+
+         Option Brecreate_on_update = true $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>" $ export SCHEMA_CONTENT="<schema_content>" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
 
         ```sh
          $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003
@@ -341,6 +422,8 @@ class Schema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credentials: Optional[pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']]] = None,
                  format: Optional[pulumi.Input[str]] = None,
+                 hard_delete: Optional[pulumi.Input[bool]] = None,
+                 recreate_on_update: Optional[pulumi.Input[bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]]] = None,
@@ -359,9 +442,9 @@ class Schema(pulumi.CustomResource):
             if format is None and not opts.urn:
                 raise TypeError("Missing required property 'format'")
             __props__.__dict__["format"] = format
+            __props__.__dict__["hard_delete"] = hard_delete
+            __props__.__dict__["recreate_on_update"] = recreate_on_update
             __props__.__dict__["rest_endpoint"] = rest_endpoint
-            if schema is None and not opts.urn:
-                raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
             __props__.__dict__["schema_references"] = schema_references
             __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
@@ -384,6 +467,8 @@ class Schema(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             credentials: Optional[pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']]] = None,
             format: Optional[pulumi.Input[str]] = None,
+            hard_delete: Optional[pulumi.Input[bool]] = None,
+            recreate_on_update: Optional[pulumi.Input[bool]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             schema_identifier: Optional[pulumi.Input[int]] = None,
@@ -400,6 +485,8 @@ class Schema(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+        :param pulumi.Input[bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        :param pulumi.Input[bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[int] schema_identifier: (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
@@ -413,6 +500,8 @@ class Schema(pulumi.CustomResource):
 
         __props__.__dict__["credentials"] = credentials
         __props__.__dict__["format"] = format
+        __props__.__dict__["hard_delete"] = hard_delete
+        __props__.__dict__["recreate_on_update"] = recreate_on_update
         __props__.__dict__["rest_endpoint"] = rest_endpoint
         __props__.__dict__["schema"] = schema
         __props__.__dict__["schema_identifier"] = schema_identifier
@@ -437,6 +526,22 @@ class Schema(pulumi.CustomResource):
         The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
         """
         return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="hardDelete")
+    def hard_delete(self) -> pulumi.Output[Optional[bool]]:
+        """
+        An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        """
+        return pulumi.get(self, "hard_delete")
+
+    @property
+    @pulumi.getter(name="recreateOnUpdate")
+    def recreate_on_update(self) -> pulumi.Output[Optional[bool]]:
+        """
+        An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+        """
+        return pulumi.get(self, "recreate_on_update")
 
     @property
     @pulumi.getter(name="restEndpoint")

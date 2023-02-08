@@ -49,8 +49,8 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdKsqlCluster.Apply(getKsqlClusterResult =&gt; getKsqlClusterResult),
-        ///         ["exampleUsingName"] = exampleUsingNameKsqlCluster.Apply(getKsqlClusterResult =&gt; getKsqlClusterResult),
+        ///         ["exampleUsingId"] = exampleUsingIdKsqlCluster,
+        ///         ["exampleUsingName"] = exampleUsingNameKsqlCluster,
         ///     };
         /// });
         /// ```
@@ -98,8 +98,8 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdKsqlCluster.Apply(getKsqlClusterResult =&gt; getKsqlClusterResult),
-        ///         ["exampleUsingName"] = exampleUsingNameKsqlCluster.Apply(getKsqlClusterResult =&gt; getKsqlClusterResult),
+        ///         ["exampleUsingId"] = exampleUsingIdKsqlCluster,
+        ///         ["exampleUsingName"] = exampleUsingNameKsqlCluster,
         ///     };
         /// });
         /// ```

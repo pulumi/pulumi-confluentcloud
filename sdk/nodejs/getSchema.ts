@@ -47,10 +47,12 @@ export interface GetSchemaResult {
      * (Required String) The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
      */
     readonly format: string;
+    readonly hardDelete: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly recreateOnUpdate: boolean;
     readonly restEndpoint?: string;
     /**
      * (Required String) The schema string, for example, `file("./schema_version_1.avsc")`.

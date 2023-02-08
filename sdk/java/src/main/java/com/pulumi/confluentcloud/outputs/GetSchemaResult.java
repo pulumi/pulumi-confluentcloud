@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.outputs.GetSchemaCredentials;
 import com.pulumi.confluentcloud.outputs.GetSchemaSchemaReference;
 import com.pulumi.confluentcloud.outputs.GetSchemaSchemaRegistryCluster;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -22,11 +23,13 @@ public final class GetSchemaResult {
      * 
      */
     private String format;
+    private Boolean hardDelete;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    private Boolean recreateOnUpdate;
     private @Nullable String restEndpoint;
     /**
      * @return (Required String) The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
@@ -62,12 +65,18 @@ public final class GetSchemaResult {
     public String format() {
         return this.format;
     }
+    public Boolean hardDelete() {
+        return this.hardDelete;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     public String id() {
         return this.id;
+    }
+    public Boolean recreateOnUpdate() {
+        return this.recreateOnUpdate;
     }
     public Optional<String> restEndpoint() {
         return Optional.ofNullable(this.restEndpoint);
@@ -118,7 +127,9 @@ public final class GetSchemaResult {
     public static final class Builder {
         private @Nullable GetSchemaCredentials credentials;
         private String format;
+        private Boolean hardDelete;
         private String id;
+        private Boolean recreateOnUpdate;
         private @Nullable String restEndpoint;
         private String schema;
         private Integer schemaIdentifier;
@@ -131,7 +142,9 @@ public final class GetSchemaResult {
     	      Objects.requireNonNull(defaults);
     	      this.credentials = defaults.credentials;
     	      this.format = defaults.format;
+    	      this.hardDelete = defaults.hardDelete;
     	      this.id = defaults.id;
+    	      this.recreateOnUpdate = defaults.recreateOnUpdate;
     	      this.restEndpoint = defaults.restEndpoint;
     	      this.schema = defaults.schema;
     	      this.schemaIdentifier = defaults.schemaIdentifier;
@@ -152,8 +165,18 @@ public final class GetSchemaResult {
             return this;
         }
         @CustomType.Setter
+        public Builder hardDelete(Boolean hardDelete) {
+            this.hardDelete = Objects.requireNonNull(hardDelete);
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder recreateOnUpdate(Boolean recreateOnUpdate) {
+            this.recreateOnUpdate = Objects.requireNonNull(recreateOnUpdate);
             return this;
         }
         @CustomType.Setter
@@ -198,7 +221,9 @@ public final class GetSchemaResult {
             final var o = new GetSchemaResult();
             o.credentials = credentials;
             o.format = format;
+            o.hardDelete = hardDelete;
             o.id = id;
+            o.recreateOnUpdate = recreateOnUpdate;
             o.restEndpoint = restEndpoint;
             o.schema = schema;
             o.schemaIdentifier = schemaIdentifier;

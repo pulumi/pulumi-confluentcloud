@@ -47,8 +47,8 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdPeering.Apply(getPeeringResult =&gt; getPeeringResult),
-        ///         ["exampleUsingName"] = exampleUsingNamePeering.Apply(getPeeringResult =&gt; getPeeringResult),
+        ///         ["exampleUsingId"] = exampleUsingIdPeering,
+        ///         ["exampleUsingName"] = exampleUsingNamePeering,
         ///     };
         /// });
         /// ```
@@ -94,8 +94,8 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdPeering.Apply(getPeeringResult =&gt; getPeeringResult),
-        ///         ["exampleUsingName"] = exampleUsingNamePeering.Apply(getPeeringResult =&gt; getPeeringResult),
+        ///         ["exampleUsingId"] = exampleUsingIdPeering,
+        ///         ["exampleUsingName"] = exampleUsingNamePeering,
         ///     };
         /// });
         /// ```

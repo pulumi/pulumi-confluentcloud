@@ -12,7 +12,13 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Import
     /// 
-    /// You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier of the Schema in the format `&lt;Schema Registry cluster ID&gt;/&lt;Subject name&gt;/&lt;Schema identifier&gt;`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
+    /// You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreate_on_update = false`) of the Schema in the format `&lt;Schema Registry cluster ID&gt;/&lt;Subject name&gt;/&lt;Schema identifier&gt;`, for exampleOption Arecreate_on_update = false (by default) $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;" $ export SCHEMA_CONTENT="&lt;schema_content&gt;" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
+    /// 
+    /// ```sh
+    ///  $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest
+    /// ```
+    /// 
+    ///  Option Brecreate_on_update = true $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;" $ export SCHEMA_CONTENT="&lt;schema_content&gt;" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
     /// 
     /// ```sh
     ///  $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003
@@ -34,6 +40,18 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("format")]
         public Output<string> Format { get; private set; } = null!;
+
+        /// <summary>
+        /// An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        /// </summary>
+        [Output("hardDelete")]
+        public Output<bool?> HardDelete { get; private set; } = null!;
+
+        /// <summary>
+        /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+        /// </summary>
+        [Output("recreateOnUpdate")]
+        public Output<bool?> RecreateOnUpdate { get; private set; } = null!;
 
         /// <summary>
         /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -147,6 +165,18 @@ namespace Pulumi.ConfluentCloud
         public Input<string> Format { get; set; } = null!;
 
         /// <summary>
+        /// An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        /// </summary>
+        [Input("hardDelete")]
+        public Input<bool>? HardDelete { get; set; }
+
+        /// <summary>
+        /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+        /// </summary>
+        [Input("recreateOnUpdate")]
+        public Input<bool>? RecreateOnUpdate { get; set; }
+
+        /// <summary>
         /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         [Input("restEndpoint")]
@@ -155,8 +185,8 @@ namespace Pulumi.ConfluentCloud
         /// <summary>
         /// The schema string, for example, `file("./schema_version_1.avsc")`.
         /// </summary>
-        [Input("schema", required: true)]
-        public Input<string> SchemaDetails { get; set; } = null!;
+        [Input("schema")]
+        public Input<string>? SchemaDetails { get; set; }
 
         [Input("schemaReferences")]
         private InputList<Inputs.SchemaSchemaReferenceArgs>? _schemaReferences;
@@ -208,6 +238,18 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
+
+        /// <summary>
+        /// An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        /// </summary>
+        [Input("hardDelete")]
+        public Input<bool>? HardDelete { get; set; }
+
+        /// <summary>
+        /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+        /// </summary>
+        [Input("recreateOnUpdate")]
+        public Input<bool>? RecreateOnUpdate { get; set; }
 
         /// <summary>
         /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

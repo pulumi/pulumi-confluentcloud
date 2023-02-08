@@ -52,7 +52,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingName"] = exampleUsingNameNetwork.Apply(getNetworkResult =&gt; getNetworkResult),
+        ///         ["exampleUsingName"] = exampleUsingNameNetwork,
         ///     };
         /// });
         /// ```
@@ -103,7 +103,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingName"] = exampleUsingNameNetwork.Apply(getNetworkResult =&gt; getNetworkResult),
+        ///         ["exampleUsingName"] = exampleUsingNameNetwork,
         ///     };
         /// });
         /// ```

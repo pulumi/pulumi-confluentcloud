@@ -52,7 +52,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingName"] = exampleUsingNameKafkaCluster.Apply(getKafkaClusterResult =&gt; getKafkaClusterResult),
+        ///         ["exampleUsingName"] = exampleUsingNameKafkaCluster,
         ///     };
         /// });
         /// ```
@@ -103,7 +103,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingName"] = exampleUsingNameKafkaCluster.Apply(getKafkaClusterResult =&gt; getKafkaClusterResult),
+        ///         ["exampleUsingName"] = exampleUsingNameKafkaCluster,
         ///     };
         /// });
         /// ```

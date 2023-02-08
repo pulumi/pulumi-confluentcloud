@@ -35,10 +35,12 @@ type LookupSchemaArgs struct {
 type LookupSchemaResult struct {
 	Credentials *GetSchemaCredentials `pulumi:"credentials"`
 	// (Required String) The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
-	Format string `pulumi:"format"`
+	Format     string `pulumi:"format"`
+	HardDelete bool   `pulumi:"hardDelete"`
 	// The provider-assigned unique ID for this managed resource.
-	Id           string  `pulumi:"id"`
-	RestEndpoint *string `pulumi:"restEndpoint"`
+	Id               string  `pulumi:"id"`
+	RecreateOnUpdate bool    `pulumi:"recreateOnUpdate"`
+	RestEndpoint     *string `pulumi:"restEndpoint"`
 	// (Required String) The schema string, for example, `file("./schema_version_1.avsc")`.
 	Schema           string `pulumi:"schema"`
 	SchemaIdentifier int    `pulumi:"schemaIdentifier"`
@@ -104,9 +106,17 @@ func (o LookupSchemaResultOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaResult) string { return v.Format }).(pulumi.StringOutput)
 }
 
+func (o LookupSchemaResultOutput) HardDelete() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSchemaResult) bool { return v.HardDelete }).(pulumi.BoolOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupSchemaResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupSchemaResultOutput) RecreateOnUpdate() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSchemaResult) bool { return v.RecreateOnUpdate }).(pulumi.BoolOutput)
 }
 
 func (o LookupSchemaResultOutput) RestEndpoint() pulumi.StringPtrOutput {

@@ -31,7 +31,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult),
+        ///         ["example"] = exampleOrganization,
         ///     };
         /// });
         /// ```

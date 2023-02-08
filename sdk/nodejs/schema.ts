@@ -9,7 +9,13 @@ import * as utilities from "./utilities";
 /**
  * ## Import
  *
- * You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier of the Schema in the format `<Schema Registry cluster ID>/<Subject name>/<Schema identifier>`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+ * You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreate_on_update = false`) of the Schema in the format `<Schema Registry cluster ID>/<Subject name>/<Schema identifier>`, for exampleOption Arecreate_on_update = false (by default) $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>" $ export SCHEMA_CONTENT="<schema_content>" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
+ *
+ * ```sh
+ *  $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest
+ * ```
+ *
+ *  Option Brecreate_on_update = true $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>" $ export SCHEMA_CONTENT="<schema_content>" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
  *
  * ```sh
  *  $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003
@@ -54,6 +60,14 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly format!: pulumi.Output<string>;
     /**
+     * An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     */
+    public readonly hardDelete!: pulumi.Output<boolean | undefined>;
+    /**
+     * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+     */
+    public readonly recreateOnUpdate!: pulumi.Output<boolean | undefined>;
+    /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     public readonly restEndpoint!: pulumi.Output<string | undefined>;
@@ -94,6 +108,8 @@ export class Schema extends pulumi.CustomResource {
             const state = argsOrState as SchemaState | undefined;
             resourceInputs["credentials"] = state ? state.credentials : undefined;
             resourceInputs["format"] = state ? state.format : undefined;
+            resourceInputs["hardDelete"] = state ? state.hardDelete : undefined;
+            resourceInputs["recreateOnUpdate"] = state ? state.recreateOnUpdate : undefined;
             resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["schemaIdentifier"] = state ? state.schemaIdentifier : undefined;
@@ -106,14 +122,13 @@ export class Schema extends pulumi.CustomResource {
             if ((!args || args.format === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'format'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'schema'");
-            }
             if ((!args || args.subjectName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subjectName'");
             }
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["hardDelete"] = args ? args.hardDelete : undefined;
+            resourceInputs["recreateOnUpdate"] = args ? args.recreateOnUpdate : undefined;
             resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["schemaReferences"] = args ? args.schemaReferences : undefined;
@@ -141,6 +156,14 @@ export interface SchemaState {
      * The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
      */
     format?: pulumi.Input<string>;
+    /**
+     * An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     */
+    hardDelete?: pulumi.Input<boolean>;
+    /**
+     * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+     */
+    recreateOnUpdate?: pulumi.Input<boolean>;
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
@@ -181,13 +204,21 @@ export interface SchemaArgs {
      */
     format: pulumi.Input<string>;
     /**
+     * An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     */
+    hardDelete?: pulumi.Input<boolean>;
+    /**
+     * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+     */
+    recreateOnUpdate?: pulumi.Input<boolean>;
+    /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
     /**
      * The schema string, for example, `file("./schema_version_1.avsc")`.
      */
-    schema: pulumi.Input<string>;
+    schema?: pulumi.Input<string>;
     /**
      * The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
      */
