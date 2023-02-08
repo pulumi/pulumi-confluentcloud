@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.inputs.SchemaSchemaReferenceArgs;
 import com.pulumi.confluentcloud.inputs.SchemaSchemaRegistryClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -50,6 +51,36 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     * 
+     */
+    @Import(name="hardDelete")
+    private @Nullable Output<Boolean> hardDelete;
+
+    /**
+     * @return An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     * 
+     */
+    public Optional<Output<Boolean>> hardDelete() {
+        return Optional.ofNullable(this.hardDelete);
+    }
+
+    /**
+     * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+     * 
+     */
+    @Import(name="recreateOnUpdate")
+    private @Nullable Output<Boolean> recreateOnUpdate;
+
+    /**
+     * @return An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+     * 
+     */
+    public Optional<Output<Boolean>> recreateOnUpdate() {
+        return Optional.ofNullable(this.recreateOnUpdate);
+    }
+
+    /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
@@ -68,15 +99,15 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
      * The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
      * 
      */
-    @Import(name="schema", required=true)
-    private Output<String> schema;
+    @Import(name="schema")
+    private @Nullable Output<String> schema;
 
     /**
      * @return The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
      * 
      */
-    public Output<String> schema() {
-        return this.schema;
+    public Optional<Output<String>> schema() {
+        return Optional.ofNullable(this.schema);
     }
 
     /**
@@ -121,6 +152,8 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     private SchemaArgs(SchemaArgs $) {
         this.credentials = $.credentials;
         this.format = $.format;
+        this.hardDelete = $.hardDelete;
+        this.recreateOnUpdate = $.recreateOnUpdate;
         this.restEndpoint = $.restEndpoint;
         this.schema = $.schema;
         this.schemaReferences = $.schemaReferences;
@@ -189,6 +222,48 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param hardDelete An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hardDelete(@Nullable Output<Boolean> hardDelete) {
+            $.hardDelete = hardDelete;
+            return this;
+        }
+
+        /**
+         * @param hardDelete An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hardDelete(Boolean hardDelete) {
+            return hardDelete(Output.of(hardDelete));
+        }
+
+        /**
+         * @param recreateOnUpdate An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recreateOnUpdate(@Nullable Output<Boolean> recreateOnUpdate) {
+            $.recreateOnUpdate = recreateOnUpdate;
+            return this;
+        }
+
+        /**
+         * @param recreateOnUpdate An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recreateOnUpdate(Boolean recreateOnUpdate) {
+            return recreateOnUpdate(Output.of(recreateOnUpdate));
+        }
+
+        /**
          * @param restEndpoint The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
          * 
          * @return builder
@@ -215,7 +290,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder schema(Output<String> schema) {
+        public Builder schema(@Nullable Output<String> schema) {
             $.schema = schema;
             return this;
         }
@@ -293,7 +368,6 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
 
         public SchemaArgs build() {
             $.format = Objects.requireNonNull($.format, "expected parameter 'format' to be non-null");
-            $.schema = Objects.requireNonNull($.schema, "expected parameter 'schema' to be non-null");
             $.subjectName = Objects.requireNonNull($.subjectName, "expected parameter 'subjectName' to be non-null");
             return $;
         }

@@ -78,7 +78,7 @@ def get_schema_registry_region(cloud: Optional[str] = None,
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
-    `get_schema_registry_region` describes a Schema Registry cluster data source.
+    _get_schema_registry_region_ describes a Schema Registry cluster data source.
 
     ## Example Usage
 
@@ -119,7 +119,7 @@ def get_schema_registry_region_output(cloud: Optional[pulumi.Input[str]] = None,
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
-    `get_schema_registry_region` describes a Schema Registry cluster data source.
+    _get_schema_registry_region_ describes a Schema Registry cluster data source.
 
     ## Example Usage
 

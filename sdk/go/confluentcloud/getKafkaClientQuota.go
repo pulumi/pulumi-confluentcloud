@@ -69,7 +69,7 @@ type LookupKafkaClientQuotaResult struct {
 	Id string `pulumi:"id"`
 	// (Required Configuration Block) supports the following:
 	KafkaClusters []GetKafkaClientQuotaKafkaCluster `pulumi:"kafkaClusters"`
-	// (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
+	// (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "<default>", to represent the default quota for all users and service accounts.
 	Principals []string `pulumi:"principals"`
 	// (Required Configuration Block) supports the following:
 	Throughputs []GetKafkaClientQuotaThroughput `pulumi:"throughputs"`
@@ -138,7 +138,7 @@ func (o LookupKafkaClientQuotaResultOutput) KafkaClusters() GetKafkaClientQuotaK
 	return o.ApplyT(func(v LookupKafkaClientQuotaResult) []GetKafkaClientQuotaKafkaCluster { return v.KafkaClusters }).(GetKafkaClientQuotaKafkaClusterArrayOutput)
 }
 
-// (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "default", to represent the default quota for all users and service accounts.
+// (Required Set of Strings) The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "<default>", to represent the default quota for all users and service accounts.
 func (o LookupKafkaClientQuotaResultOutput) Principals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupKafkaClientQuotaResult) []string { return v.Principals }).(pulumi.StringArrayOutput)
 }

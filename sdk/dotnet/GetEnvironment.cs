@@ -51,7 +51,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdEnvironment.Apply(getEnvironmentResult =&gt; getEnvironmentResult),
+        ///         ["exampleUsingId"] = exampleUsingIdEnvironment,
         ///     };
         /// });
         /// ```
@@ -101,7 +101,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdEnvironment.Apply(getEnvironmentResult =&gt; getEnvironmentResult),
+        ///         ["exampleUsingId"] = exampleUsingIdEnvironment,
         ///     };
         /// });
         /// ```

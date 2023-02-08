@@ -34,7 +34,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleRoleBinding.Apply(getRoleBindingResult =&gt; getRoleBindingResult),
+        ///         ["example"] = exampleRoleBinding,
         ///     };
         /// });
         /// ```
@@ -67,7 +67,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleRoleBinding.Apply(getRoleBindingResult =&gt; getRoleBindingResult),
+        ///         ["example"] = exampleRoleBinding,
         ///     };
         /// });
         /// ```

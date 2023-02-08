@@ -36,7 +36,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleSchemaRegistryRegion.Apply(getSchemaRegistryRegionResult =&gt; getSchemaRegistryRegionResult),
+        ///         ["example"] = exampleSchemaRegistryRegion,
         ///     };
         /// });
         /// ```
@@ -71,7 +71,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleSchemaRegistryRegion.Apply(getSchemaRegistryRegionResult =&gt; getSchemaRegistryRegionResult),
+        ///         ["example"] = exampleSchemaRegistryRegion,
         ///     };
         /// });
         /// ```

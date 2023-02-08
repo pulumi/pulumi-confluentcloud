@@ -13,6 +13,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -22,7 +23,13 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier of the Schema in the format `&lt;Schema Registry cluster ID&gt;/&lt;Subject name&gt;/&lt;Schema identifier&gt;`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34; $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34; $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
+ * You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreate_on_update = false`) of the Schema in the format `&lt;Schema Registry cluster ID&gt;/&lt;Subject name&gt;/&lt;Schema identifier&gt;`, for exampleOption Arecreate_on_update = false (by default) $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34; $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34; $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34; $ export SCHEMA_CONTENT=&#34;&lt;schema_content&gt;&#34; # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
+ * 
+ * ```sh
+ *  $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest
+ * ```
+ * 
+ *  Option Brecreate_on_update = true $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34; $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34; $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34; $ export SCHEMA_CONTENT=&#34;&lt;schema_content&gt;&#34; # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
  * 
  * ```sh
  *  $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003
@@ -60,6 +67,34 @@ public class Schema extends com.pulumi.resources.CustomResource {
      */
     public Output<String> format() {
         return this.format;
+    }
+    /**
+     * An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     * 
+     */
+    @Export(name="hardDelete", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> hardDelete;
+
+    /**
+     * @return An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+     * 
+     */
+    public Output<Optional<Boolean>> hardDelete() {
+        return Codegen.optional(this.hardDelete);
+    }
+    /**
+     * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+     * 
+     */
+    @Export(name="recreateOnUpdate", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> recreateOnUpdate;
+
+    /**
+     * @return An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+     * 
+     */
+    public Output<Optional<Boolean>> recreateOnUpdate() {
+        return Codegen.optional(this.recreateOnUpdate);
     }
     /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).

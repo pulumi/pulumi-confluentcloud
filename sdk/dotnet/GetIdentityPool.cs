@@ -47,8 +47,8 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdIdentityPool.Apply(getIdentityPoolResult =&gt; getIdentityPoolResult),
-        ///         ["exampleUsingName"] = exampleUsingNameIdentityPool.Apply(getIdentityPoolResult =&gt; getIdentityPoolResult),
+        ///         ["exampleUsingId"] = exampleUsingIdIdentityPool,
+        ///         ["exampleUsingName"] = exampleUsingNameIdentityPool,
         ///     };
         /// });
         /// ```
@@ -94,8 +94,8 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdIdentityPool.Apply(getIdentityPoolResult =&gt; getIdentityPoolResult),
-        ///         ["exampleUsingName"] = exampleUsingNameIdentityPool.Apply(getIdentityPoolResult =&gt; getIdentityPoolResult),
+        ///         ["exampleUsingId"] = exampleUsingIdIdentityPool,
+        ///         ["exampleUsingName"] = exampleUsingNameIdentityPool,
         ///     };
         /// });
         /// ```
