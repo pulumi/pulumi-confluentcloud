@@ -415,8 +415,8 @@ github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0 h1:dtLqrG3nltpe2xucO8Bj17HP
 github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0/go.mod h1:0LAvd4VqlaRwKU4yvDEkVCtV43yNezt56+hBe9Lmg7Q=
 github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 h1:DaipFGVdZjAE8eSztUrA/4b74kj6k5lZ0EJmK1RqccU=
 github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0/go.mod h1:ufn9In8kDsyJ7Nru2ygpAaWdGw7DSDTOTtDhQVSmZjs=
-github.com/confluentinc/ccloud-sdk-go-v2/networking v0.5.0 h1:u09Qix5FXjPUudT+dy5iJZQpBdMJ4i01Fujh48eyIVk=
-github.com/confluentinc/ccloud-sdk-go-v2/networking v0.5.0/go.mod h1:EcmHhRib8dDuO5ZsO+qS3scX9xEP5E/IXOVoItp5X2s=
+github.com/confluentinc/ccloud-sdk-go-v2/networking v0.6.0 h1:tR8iXAKjDz70G4lb0FXJvQj61k6R5tyOm7GZaLGWKew=
+github.com/confluentinc/ccloud-sdk-go-v2/networking v0.6.0/go.mod h1:EcmHhRib8dDuO5ZsO+qS3scX9xEP5E/IXOVoItp5X2s=
 github.com/confluentinc/ccloud-sdk-go-v2/org v0.4.0 h1:WcJs6RbY8nU5HapaG0ZCH9ftFBtZyuKMIuNAkdVmc2o=
 github.com/confluentinc/ccloud-sdk-go-v2/org v0.4.0/go.mod h1:zREJ+OOZz0rEXCaPx0JbCVj2EfNnYs/c6qhPDfhldI0=
 github.com/confluentinc/ccloud-sdk-go-v2/schema-registry v0.1.0 h1:X3snoY6twxQ0Z/vbysQrHhdRVkNdpFE/Os7JpMKfXWw=
@@ -1579,8 +1579,8 @@ github.com/prometheus/prometheus v0.37.0/go.mod h1:egARUgz+K93zwqsVIAneFlLZefyGO
 github.com/prometheus/tsdb v0.7.1/go.mod h1:qhTCs0VvXwvX/y3TZrWD7rabWM+ijKTux40TwIPHuXU=
 github.com/pulumi/pulumi-java/pkg v0.7.1 h1:3tl36+I5BRYVXbq10mqDeh3X5kdJBaNDYiATOfEfgSY=
 github.com/pulumi/pulumi-java/pkg v0.7.1/go.mod h1:XdN2jYNlcQewr0MFecZfBnY3gnGcvV+WoPTzQqH48k4=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.39.2 h1:fPUDhC4cqskms4v1mK4VjdGKo4vxpbP+/A0TCDPM2BE=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.39.2/go.mod h1:McH/PLanWyrObVQIPwwZAffK26hxNXQScjp6NyGibpo=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.40.0 h1:8rKlkIwxJ16DmmgVCb15aB95yl25UVXSQm9nvWZkf30=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.40.0/go.mod h1:McH/PLanWyrObVQIPwwZAffK26hxNXQScjp6NyGibpo=
 github.com/pulumi/pulumi-yaml v1.0.4 h1:p+989rW3AqkkxbzxtxccHKAN4xCJi3K2cRpvA2K84tw=
 github.com/pulumi/pulumi-yaml v1.0.4/go.mod h1:Szj8ud4Vqyq3oO1n3kzIUfaP3AiCjYZM4FYjOVWwJn8=
 github.com/pulumi/pulumi/pkg/v3 v3.54.0 h1:zA/hK4q5/+A4KHztQyXXbzCAVBbn/7z/4kBz+DKrR9w=
