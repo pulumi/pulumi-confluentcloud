@@ -999,6 +999,37 @@
                 }
             }
         },
+        "confluentcloud:index/NetworkZoneInfo:NetworkZoneInfo": {
+            "properties": {
+                "cidr": {
+                    "type": "string",
+                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "zoneId": {
+                    "type": "string",
+                    "description": "Cloud provider zone ID.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "cidr",
+                        "zoneId"
+                    ]
+                }
+            }
+        },
         "confluentcloud:index/PeeringAws:PeeringAws": {
             "properties": {
                 "account": {
@@ -1426,8 +1457,7 @@
                         "python": {
                             "mapCase": false
                         }
-                    },
-                    "willReplaceOnChanges": true
+                    }
                 },
                 "subjectName": {
                     "type": "string",
@@ -1436,8 +1466,7 @@
                         "python": {
                             "mapCase": false
                         }
-                    },
-                    "willReplaceOnChanges": true
+                    }
                 },
                 "version": {
                     "type": "integer",
@@ -1446,8 +1475,7 @@
                         "python": {
                             "mapCase": false
                         }
-                    },
-                    "willReplaceOnChanges": true
+                    }
                 }
             },
             "type": "object",
@@ -2088,6 +2116,38 @@
                 "privateServiceConnectServiceAttachments",
                 "project",
                 "vpcNetwork"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getNetworkZoneInfo:getNetworkZoneInfo": {
+            "properties": {
+                "cidr": {
+                    "type": "string",
+                    "description": "(Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "zoneId": {
+                    "type": "string",
+                    "description": "(Required String) Cloud provider zone ID.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "cidr",
+                "zoneId"
             ],
             "language": {
                 "nodejs": {
@@ -4337,7 +4397,7 @@
                 },
                 "cidr": {
                     "type": "string",
-                    "description": "The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.\n"
+                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n"
                 },
                 "cloud": {
                     "type": "string",
@@ -4377,6 +4437,10 @@
                     "type": "string",
                     "description": "The cloud provider region where the network exists.\n"
                 },
+                "reservedCidr": {
+                    "type": "string",
+                    "description": "The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.\n"
+                },
                 "resourceName": {
                     "type": "string",
                     "description": "(Required String) The Confluent Resource Name of the Network.\n"
@@ -4387,6 +4451,13 @@
                         "type": "string"
                     },
                     "description": "(Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.\n"
+                },
+                "zoneInfos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/NetworkZoneInfo:NetworkZoneInfo"
+                    },
+                    "description": "Each item represents information related to a single zone.\n"
                 },
                 "zones": {
                     "type": "array",
@@ -4408,8 +4479,10 @@
                 "environment",
                 "gcps",
                 "region",
+                "reservedCidr",
                 "resourceName",
                 "zonalSubdomains",
+                "zoneInfos",
                 "zones"
             ],
             "inputProperties": {
@@ -4429,7 +4502,7 @@
                 },
                 "cidr": {
                     "type": "string",
-                    "description": "The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.\n",
+                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n",
                     "willReplaceOnChanges": true
                 },
                 "cloud": {
@@ -4470,6 +4543,19 @@
                     "description": "The cloud provider region where the network exists.\n",
                     "willReplaceOnChanges": true
                 },
+                "reservedCidr": {
+                    "type": "string",
+                    "description": "The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "zoneInfos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/NetworkZoneInfo:NetworkZoneInfo"
+                    },
+                    "description": "Each item represents information related to a single zone.\n",
+                    "willReplaceOnChanges": true
+                },
                 "zones": {
                     "type": "array",
                     "items": {
@@ -4504,7 +4590,7 @@
                     },
                     "cidr": {
                         "type": "string",
-                        "description": "The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.\n",
+                        "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n",
                         "willReplaceOnChanges": true
                     },
                     "cloud": {
@@ -4549,6 +4635,11 @@
                         "description": "The cloud provider region where the network exists.\n",
                         "willReplaceOnChanges": true
                     },
+                    "reservedCidr": {
+                        "type": "string",
+                        "description": "The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "resourceName": {
                         "type": "string",
                         "description": "(Required String) The Confluent Resource Name of the Network.\n"
@@ -4559,6 +4650,14 @@
                             "type": "string"
                         },
                         "description": "(Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.\n"
+                    },
+                    "zoneInfos": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/NetworkZoneInfo:NetworkZoneInfo"
+                        },
+                        "description": "Each item represents information related to a single zone.\n",
+                        "willReplaceOnChanges": true
                     },
                     "zones": {
                         "type": "array",
@@ -4845,7 +4944,7 @@
                 },
                 "recreateOnUpdate": {
                     "type": "boolean",
-                    "description": "An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).\n"
+                    "description": "An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.\n"
                 },
                 "restEndpoint": {
                     "type": "string",
@@ -4907,7 +5006,7 @@
                 },
                 "recreateOnUpdate": {
                     "type": "boolean",
-                    "description": "An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).\n",
+                    "description": "An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
@@ -4964,7 +5063,7 @@
                     },
                     "recreateOnUpdate": {
                         "type": "boolean",
-                        "description": "An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).\n",
+                        "description": "An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.\n",
                         "willReplaceOnChanges": true
                     },
                     "restEndpoint": {
@@ -6149,7 +6248,7 @@
                     },
                     "cidr": {
                         "type": "string",
-                        "description": "(Required String) The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.\n"
+                        "description": "(Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n"
                     },
                     "cloud": {
                         "type": "string",
@@ -6194,6 +6293,10 @@
                         "type": "string",
                         "description": "(Required String) The cloud provider region where the network exists.\n"
                     },
+                    "reservedCidr": {
+                        "type": "string",
+                        "description": "(Required String) The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.\n"
+                    },
                     "resourceName": {
                         "type": "string",
                         "description": "(Required String) The Confluent Resource Name of the Network.\n"
@@ -6203,6 +6306,13 @@
                         "additionalProperties": {
                             "type": "string"
                         }
+                    },
+                    "zoneInfos": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getNetworkZoneInfo:getNetworkZoneInfo"
+                        },
+                        "description": "(Required Configuration Blocks) Each item represents information related to a single zone. It supports the following:\n"
                     },
                     "zones": {
                         "type": "array",
@@ -6226,8 +6336,10 @@
                     "gcps",
                     "id",
                     "region",
+                    "reservedCidr",
                     "resourceName",
                     "zonalSubdomains",
+                    "zoneInfos",
                     "zones"
                 ]
             }

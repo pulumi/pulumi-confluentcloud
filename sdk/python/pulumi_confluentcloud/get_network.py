@@ -23,7 +23,7 @@ class GetNetworkResult:
     """
     A collection of values returned by getNetwork.
     """
-    def __init__(__self__, aws=None, azures=None, cidr=None, cloud=None, connection_types=None, display_name=None, dns_configs=None, dns_domain=None, environment=None, gcps=None, id=None, region=None, resource_name=None, zonal_subdomains=None, zones=None):
+    def __init__(__self__, aws=None, azures=None, cidr=None, cloud=None, connection_types=None, display_name=None, dns_configs=None, dns_domain=None, environment=None, gcps=None, id=None, region=None, reserved_cidr=None, resource_name=None, zonal_subdomains=None, zone_infos=None, zones=None):
         if aws and not isinstance(aws, list):
             raise TypeError("Expected argument 'aws' to be a list")
         pulumi.set(__self__, "aws", aws)
@@ -60,12 +60,18 @@ class GetNetworkResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if reserved_cidr and not isinstance(reserved_cidr, str):
+            raise TypeError("Expected argument 'reserved_cidr' to be a str")
+        pulumi.set(__self__, "reserved_cidr", reserved_cidr)
         if resource_name and not isinstance(resource_name, str):
             raise TypeError("Expected argument 'resource_name' to be a str")
         pulumi.set(__self__, "resource_name", resource_name)
         if zonal_subdomains and not isinstance(zonal_subdomains, dict):
             raise TypeError("Expected argument 'zonal_subdomains' to be a dict")
         pulumi.set(__self__, "zonal_subdomains", zonal_subdomains)
+        if zone_infos and not isinstance(zone_infos, list):
+            raise TypeError("Expected argument 'zone_infos' to be a list")
+        pulumi.set(__self__, "zone_infos", zone_infos)
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
@@ -90,7 +96,7 @@ class GetNetworkResult:
     @pulumi.getter
     def cidr(self) -> str:
         """
-        (Required String) The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+        (Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
         """
         return pulumi.get(self, "cidr")
 
@@ -161,6 +167,14 @@ class GetNetworkResult:
         return pulumi.get(self, "region")
 
     @property
+    @pulumi.getter(name="reservedCidr")
+    def reserved_cidr(self) -> str:
+        """
+        (Required String) The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+        """
+        return pulumi.get(self, "reserved_cidr")
+
+    @property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> str:
         """
@@ -172,6 +186,14 @@ class GetNetworkResult:
     @pulumi.getter(name="zonalSubdomains")
     def zonal_subdomains(self) -> Mapping[str, str]:
         return pulumi.get(self, "zonal_subdomains")
+
+    @property
+    @pulumi.getter(name="zoneInfos")
+    def zone_infos(self) -> Sequence['outputs.GetNetworkZoneInfoResult']:
+        """
+        (Required Configuration Blocks) Each item represents information related to a single zone. It supports the following:
+        """
+        return pulumi.get(self, "zone_infos")
 
     @property
     @pulumi.getter
@@ -205,8 +227,10 @@ class AwaitableGetNetworkResult(GetNetworkResult):
             gcps=self.gcps,
             id=self.id,
             region=self.region,
+            reserved_cidr=self.reserved_cidr,
             resource_name=self.resource_name,
             zonal_subdomains=self.zonal_subdomains,
+            zone_infos=self.zone_infos,
             zones=self.zones)
 
 
@@ -273,8 +297,10 @@ def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = 
         gcps=__ret__.gcps,
         id=__ret__.id,
         region=__ret__.region,
+        reserved_cidr=__ret__.reserved_cidr,
         resource_name=__ret__.resource_name,
         zonal_subdomains=__ret__.zonal_subdomains,
+        zone_infos=__ret__.zone_infos,
         zones=__ret__.zones)
 
 

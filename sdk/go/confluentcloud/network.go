@@ -29,7 +29,7 @@ type Network struct {
 	Aws NetworkAwArrayOutput `pulumi:"aws"`
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures NetworkAzureArrayOutput `pulumi:"azures"`
-	// The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
 	Cidr pulumi.StringOutput `pulumi:"cidr"`
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
@@ -47,10 +47,14 @@ type Network struct {
 	Gcps NetworkGcpArrayOutput `pulumi:"gcps"`
 	// The cloud provider region where the network exists.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+	ReservedCidr pulumi.StringOutput `pulumi:"reservedCidr"`
 	// (Required String) The Confluent Resource Name of the Network.
 	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
 	// (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
 	ZonalSubdomains pulumi.StringMapOutput `pulumi:"zonalSubdomains"`
+	// Each item represents information related to a single zone.
+	ZoneInfos NetworkZoneInfoArrayOutput `pulumi:"zoneInfos"`
 	// The 3 availability zones for this network. They can optionally be specified for AWS networks
 	// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
 	// networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
@@ -105,7 +109,7 @@ type networkState struct {
 	Aws []NetworkAw `pulumi:"aws"`
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures []NetworkAzure `pulumi:"azures"`
-	// The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
 	Cidr *string `pulumi:"cidr"`
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud *string `pulumi:"cloud"`
@@ -123,10 +127,14 @@ type networkState struct {
 	Gcps []NetworkGcp `pulumi:"gcps"`
 	// The cloud provider region where the network exists.
 	Region *string `pulumi:"region"`
+	// The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+	ReservedCidr *string `pulumi:"reservedCidr"`
 	// (Required String) The Confluent Resource Name of the Network.
 	ResourceName *string `pulumi:"resourceName"`
 	// (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
 	ZonalSubdomains map[string]string `pulumi:"zonalSubdomains"`
+	// Each item represents information related to a single zone.
+	ZoneInfos []NetworkZoneInfo `pulumi:"zoneInfos"`
 	// The 3 availability zones for this network. They can optionally be specified for AWS networks
 	// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
 	// networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
@@ -141,7 +149,7 @@ type NetworkState struct {
 	Aws NetworkAwArrayInput
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures NetworkAzureArrayInput
-	// The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
 	Cidr pulumi.StringPtrInput
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud pulumi.StringPtrInput
@@ -159,10 +167,14 @@ type NetworkState struct {
 	Gcps NetworkGcpArrayInput
 	// The cloud provider region where the network exists.
 	Region pulumi.StringPtrInput
+	// The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+	ReservedCidr pulumi.StringPtrInput
 	// (Required String) The Confluent Resource Name of the Network.
 	ResourceName pulumi.StringPtrInput
 	// (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
 	ZonalSubdomains pulumi.StringMapInput
+	// Each item represents information related to a single zone.
+	ZoneInfos NetworkZoneInfoArrayInput
 	// The 3 availability zones for this network. They can optionally be specified for AWS networks
 	// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
 	// networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
@@ -181,7 +193,7 @@ type networkArgs struct {
 	Aws []NetworkAw `pulumi:"aws"`
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures []NetworkAzure `pulumi:"azures"`
-	// The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
 	Cidr *string `pulumi:"cidr"`
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud string `pulumi:"cloud"`
@@ -197,6 +209,10 @@ type networkArgs struct {
 	Gcps []NetworkGcp `pulumi:"gcps"`
 	// The cloud provider region where the network exists.
 	Region string `pulumi:"region"`
+	// The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+	ReservedCidr *string `pulumi:"reservedCidr"`
+	// Each item represents information related to a single zone.
+	ZoneInfos []NetworkZoneInfo `pulumi:"zoneInfos"`
 	// The 3 availability zones for this network. They can optionally be specified for AWS networks
 	// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
 	// networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
@@ -212,7 +228,7 @@ type NetworkArgs struct {
 	Aws NetworkAwArrayInput
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures NetworkAzureArrayInput
-	// The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
 	Cidr pulumi.StringPtrInput
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud pulumi.StringInput
@@ -228,6 +244,10 @@ type NetworkArgs struct {
 	Gcps NetworkGcpArrayInput
 	// The cloud provider region where the network exists.
 	Region pulumi.StringInput
+	// The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+	ReservedCidr pulumi.StringPtrInput
+	// Each item represents information related to a single zone.
+	ZoneInfos NetworkZoneInfoArrayInput
 	// The 3 availability zones for this network. They can optionally be specified for AWS networks
 	// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
 	// networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
@@ -334,7 +354,7 @@ func (o NetworkOutput) Azures() NetworkAzureArrayOutput {
 	return o.ApplyT(func(v *Network) NetworkAzureArrayOutput { return v.Azures }).(NetworkAzureArrayOutput)
 }
 
-// The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
 func (o NetworkOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
 }
@@ -379,6 +399,11 @@ func (o NetworkOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
+// The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+func (o NetworkOutput) ReservedCidr() pulumi.StringOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.ReservedCidr }).(pulumi.StringOutput)
+}
+
 // (Required String) The Confluent Resource Name of the Network.
 func (o NetworkOutput) ResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.ResourceName }).(pulumi.StringOutput)
@@ -387,6 +412,11 @@ func (o NetworkOutput) ResourceName() pulumi.StringOutput {
 // (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
 func (o NetworkOutput) ZonalSubdomains() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringMapOutput { return v.ZonalSubdomains }).(pulumi.StringMapOutput)
+}
+
+// Each item represents information related to a single zone.
+func (o NetworkOutput) ZoneInfos() NetworkZoneInfoArrayOutput {
+	return o.ApplyT(func(v *Network) NetworkZoneInfoArrayOutput { return v.ZoneInfos }).(NetworkZoneInfoArrayOutput)
 }
 
 // The 3 availability zones for this network. They can optionally be specified for AWS networks

@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.inputs.NetworkAzureArgs;
 import com.pulumi.confluentcloud.inputs.NetworkDnsConfigArgs;
 import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.NetworkGcpArgs;
+import com.pulumi.confluentcloud.inputs.NetworkZoneInfoArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -53,14 +54,14 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+     * The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
      * 
      */
     @Import(name="cidr")
     private @Nullable Output<String> cidr;
 
     /**
-     * @return The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+     * @return The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
      * 
      */
     public Optional<Output<String>> cidr() {
@@ -188,6 +189,21 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+     * 
+     */
+    @Import(name="reservedCidr")
+    private @Nullable Output<String> reservedCidr;
+
+    /**
+     * @return The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+     * 
+     */
+    public Optional<Output<String>> reservedCidr() {
+        return Optional.ofNullable(this.reservedCidr);
+    }
+
+    /**
      * (Required String) The Confluent Resource Name of the Network.
      * 
      */
@@ -215,6 +231,21 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Map<String,String>>> zonalSubdomains() {
         return Optional.ofNullable(this.zonalSubdomains);
+    }
+
+    /**
+     * Each item represents information related to a single zone.
+     * 
+     */
+    @Import(name="zoneInfos")
+    private @Nullable Output<List<NetworkZoneInfoArgs>> zoneInfos;
+
+    /**
+     * @return Each item represents information related to a single zone.
+     * 
+     */
+    public Optional<Output<List<NetworkZoneInfoArgs>>> zoneInfos() {
+        return Optional.ofNullable(this.zoneInfos);
     }
 
     /**
@@ -256,8 +287,10 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         this.environment = $.environment;
         this.gcps = $.gcps;
         this.region = $.region;
+        this.reservedCidr = $.reservedCidr;
         this.resourceName = $.resourceName;
         this.zonalSubdomains = $.zonalSubdomains;
+        this.zoneInfos = $.zoneInfos;
         this.zones = $.zones;
     }
 
@@ -342,7 +375,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cidr The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+         * @param cidr The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
          * 
          * @return builder
          * 
@@ -353,7 +386,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cidr The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+         * @param cidr The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
          * 
          * @return builder
          * 
@@ -551,6 +584,27 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param reservedCidr The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder reservedCidr(@Nullable Output<String> reservedCidr) {
+            $.reservedCidr = reservedCidr;
+            return this;
+        }
+
+        /**
+         * @param reservedCidr The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder reservedCidr(String reservedCidr) {
+            return reservedCidr(Output.of(reservedCidr));
+        }
+
+        /**
          * @param resourceName (Required String) The Confluent Resource Name of the Network.
          * 
          * @return builder
@@ -590,6 +644,37 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder zonalSubdomains(Map<String,String> zonalSubdomains) {
             return zonalSubdomains(Output.of(zonalSubdomains));
+        }
+
+        /**
+         * @param zoneInfos Each item represents information related to a single zone.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zoneInfos(@Nullable Output<List<NetworkZoneInfoArgs>> zoneInfos) {
+            $.zoneInfos = zoneInfos;
+            return this;
+        }
+
+        /**
+         * @param zoneInfos Each item represents information related to a single zone.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zoneInfos(List<NetworkZoneInfoArgs> zoneInfos) {
+            return zoneInfos(Output.of(zoneInfos));
+        }
+
+        /**
+         * @param zoneInfos Each item represents information related to a single zone.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zoneInfos(NetworkZoneInfoArgs... zoneInfos) {
+            return zoneInfos(List.of(zoneInfos));
         }
 
         /**

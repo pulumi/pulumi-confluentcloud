@@ -83,14 +83,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hardDelete);
     }
     /**
-     * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+     * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
      * 
      */
     @Export(name="recreateOnUpdate", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> recreateOnUpdate;
 
     /**
-     * @return An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+     * @return An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
      * 
      */
     public Output<Optional<Boolean>> recreateOnUpdate() {

@@ -5213,6 +5213,112 @@ func (o NetworkGcpArrayOutput) Index(i pulumi.IntInput) NetworkGcpOutput {
 	}).(NetworkGcpOutput)
 }
 
+type NetworkZoneInfo struct {
+	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+	Cidr *string `pulumi:"cidr"`
+	// Cloud provider zone ID.
+	ZoneId *string `pulumi:"zoneId"`
+}
+
+// NetworkZoneInfoInput is an input type that accepts NetworkZoneInfoArgs and NetworkZoneInfoOutput values.
+// You can construct a concrete instance of `NetworkZoneInfoInput` via:
+//
+//	NetworkZoneInfoArgs{...}
+type NetworkZoneInfoInput interface {
+	pulumi.Input
+
+	ToNetworkZoneInfoOutput() NetworkZoneInfoOutput
+	ToNetworkZoneInfoOutputWithContext(context.Context) NetworkZoneInfoOutput
+}
+
+type NetworkZoneInfoArgs struct {
+	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
+	// Cloud provider zone ID.
+	ZoneId pulumi.StringPtrInput `pulumi:"zoneId"`
+}
+
+func (NetworkZoneInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkZoneInfo)(nil)).Elem()
+}
+
+func (i NetworkZoneInfoArgs) ToNetworkZoneInfoOutput() NetworkZoneInfoOutput {
+	return i.ToNetworkZoneInfoOutputWithContext(context.Background())
+}
+
+func (i NetworkZoneInfoArgs) ToNetworkZoneInfoOutputWithContext(ctx context.Context) NetworkZoneInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkZoneInfoOutput)
+}
+
+// NetworkZoneInfoArrayInput is an input type that accepts NetworkZoneInfoArray and NetworkZoneInfoArrayOutput values.
+// You can construct a concrete instance of `NetworkZoneInfoArrayInput` via:
+//
+//	NetworkZoneInfoArray{ NetworkZoneInfoArgs{...} }
+type NetworkZoneInfoArrayInput interface {
+	pulumi.Input
+
+	ToNetworkZoneInfoArrayOutput() NetworkZoneInfoArrayOutput
+	ToNetworkZoneInfoArrayOutputWithContext(context.Context) NetworkZoneInfoArrayOutput
+}
+
+type NetworkZoneInfoArray []NetworkZoneInfoInput
+
+func (NetworkZoneInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkZoneInfo)(nil)).Elem()
+}
+
+func (i NetworkZoneInfoArray) ToNetworkZoneInfoArrayOutput() NetworkZoneInfoArrayOutput {
+	return i.ToNetworkZoneInfoArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkZoneInfoArray) ToNetworkZoneInfoArrayOutputWithContext(ctx context.Context) NetworkZoneInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkZoneInfoArrayOutput)
+}
+
+type NetworkZoneInfoOutput struct{ *pulumi.OutputState }
+
+func (NetworkZoneInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkZoneInfo)(nil)).Elem()
+}
+
+func (o NetworkZoneInfoOutput) ToNetworkZoneInfoOutput() NetworkZoneInfoOutput {
+	return o
+}
+
+func (o NetworkZoneInfoOutput) ToNetworkZoneInfoOutputWithContext(ctx context.Context) NetworkZoneInfoOutput {
+	return o
+}
+
+// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+func (o NetworkZoneInfoOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkZoneInfo) *string { return v.Cidr }).(pulumi.StringPtrOutput)
+}
+
+// Cloud provider zone ID.
+func (o NetworkZoneInfoOutput) ZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkZoneInfo) *string { return v.ZoneId }).(pulumi.StringPtrOutput)
+}
+
+type NetworkZoneInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkZoneInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkZoneInfo)(nil)).Elem()
+}
+
+func (o NetworkZoneInfoArrayOutput) ToNetworkZoneInfoArrayOutput() NetworkZoneInfoArrayOutput {
+	return o
+}
+
+func (o NetworkZoneInfoArrayOutput) ToNetworkZoneInfoArrayOutputWithContext(ctx context.Context) NetworkZoneInfoArrayOutput {
+	return o
+}
+
+func (o NetworkZoneInfoArrayOutput) Index(i pulumi.IntInput) NetworkZoneInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkZoneInfo {
+		return vs[0].([]NetworkZoneInfo)[vs[1].(int)]
+	}).(NetworkZoneInfoOutput)
+}
+
 type PeeringAws struct {
 	// The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
 	Account string `pulumi:"account"`
@@ -10892,6 +10998,112 @@ func (o GetNetworkGcpArrayOutput) Index(i pulumi.IntInput) GetNetworkGcpOutput {
 	}).(GetNetworkGcpOutput)
 }
 
+type GetNetworkZoneInfo struct {
+	// (Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+	Cidr string `pulumi:"cidr"`
+	// (Required String) Cloud provider zone ID.
+	ZoneId string `pulumi:"zoneId"`
+}
+
+// GetNetworkZoneInfoInput is an input type that accepts GetNetworkZoneInfoArgs and GetNetworkZoneInfoOutput values.
+// You can construct a concrete instance of `GetNetworkZoneInfoInput` via:
+//
+//	GetNetworkZoneInfoArgs{...}
+type GetNetworkZoneInfoInput interface {
+	pulumi.Input
+
+	ToGetNetworkZoneInfoOutput() GetNetworkZoneInfoOutput
+	ToGetNetworkZoneInfoOutputWithContext(context.Context) GetNetworkZoneInfoOutput
+}
+
+type GetNetworkZoneInfoArgs struct {
+	// (Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+	Cidr pulumi.StringInput `pulumi:"cidr"`
+	// (Required String) Cloud provider zone ID.
+	ZoneId pulumi.StringInput `pulumi:"zoneId"`
+}
+
+func (GetNetworkZoneInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkZoneInfo)(nil)).Elem()
+}
+
+func (i GetNetworkZoneInfoArgs) ToGetNetworkZoneInfoOutput() GetNetworkZoneInfoOutput {
+	return i.ToGetNetworkZoneInfoOutputWithContext(context.Background())
+}
+
+func (i GetNetworkZoneInfoArgs) ToGetNetworkZoneInfoOutputWithContext(ctx context.Context) GetNetworkZoneInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkZoneInfoOutput)
+}
+
+// GetNetworkZoneInfoArrayInput is an input type that accepts GetNetworkZoneInfoArray and GetNetworkZoneInfoArrayOutput values.
+// You can construct a concrete instance of `GetNetworkZoneInfoArrayInput` via:
+//
+//	GetNetworkZoneInfoArray{ GetNetworkZoneInfoArgs{...} }
+type GetNetworkZoneInfoArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkZoneInfoArrayOutput() GetNetworkZoneInfoArrayOutput
+	ToGetNetworkZoneInfoArrayOutputWithContext(context.Context) GetNetworkZoneInfoArrayOutput
+}
+
+type GetNetworkZoneInfoArray []GetNetworkZoneInfoInput
+
+func (GetNetworkZoneInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkZoneInfo)(nil)).Elem()
+}
+
+func (i GetNetworkZoneInfoArray) ToGetNetworkZoneInfoArrayOutput() GetNetworkZoneInfoArrayOutput {
+	return i.ToGetNetworkZoneInfoArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkZoneInfoArray) ToGetNetworkZoneInfoArrayOutputWithContext(ctx context.Context) GetNetworkZoneInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkZoneInfoArrayOutput)
+}
+
+type GetNetworkZoneInfoOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkZoneInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkZoneInfo)(nil)).Elem()
+}
+
+func (o GetNetworkZoneInfoOutput) ToGetNetworkZoneInfoOutput() GetNetworkZoneInfoOutput {
+	return o
+}
+
+func (o GetNetworkZoneInfoOutput) ToGetNetworkZoneInfoOutputWithContext(ctx context.Context) GetNetworkZoneInfoOutput {
+	return o
+}
+
+// (Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+func (o GetNetworkZoneInfoOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkZoneInfo) string { return v.Cidr }).(pulumi.StringOutput)
+}
+
+// (Required String) Cloud provider zone ID.
+func (o GetNetworkZoneInfoOutput) ZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkZoneInfo) string { return v.ZoneId }).(pulumi.StringOutput)
+}
+
+type GetNetworkZoneInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkZoneInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkZoneInfo)(nil)).Elem()
+}
+
+func (o GetNetworkZoneInfoArrayOutput) ToGetNetworkZoneInfoArrayOutput() GetNetworkZoneInfoArrayOutput {
+	return o
+}
+
+func (o GetNetworkZoneInfoArrayOutput) ToGetNetworkZoneInfoArrayOutputWithContext(ctx context.Context) GetNetworkZoneInfoArrayOutput {
+	return o
+}
+
+func (o GetNetworkZoneInfoArrayOutput) Index(i pulumi.IntInput) GetNetworkZoneInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkZoneInfo {
+		return vs[0].([]GetNetworkZoneInfo)[vs[1].(int)]
+	}).(GetNetworkZoneInfoOutput)
+}
+
 type GetPeeringAw struct {
 	// (Required String) The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
 	Account string `pulumi:"account"`
@@ -13910,6 +14122,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkEnvironmentPtrInput)(nil)).Elem(), NetworkEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkGcpInput)(nil)).Elem(), NetworkGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkGcpArrayInput)(nil)).Elem(), NetworkGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkZoneInfoInput)(nil)).Elem(), NetworkZoneInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkZoneInfoArrayInput)(nil)).Elem(), NetworkZoneInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAwsInput)(nil)).Elem(), PeeringAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAwsPtrInput)(nil)).Elem(), PeeringAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAzureInput)(nil)).Elem(), PeeringAzureArgs{})
@@ -13996,6 +14210,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkEnvironmentInput)(nil)).Elem(), GetNetworkEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkGcpInput)(nil)).Elem(), GetNetworkGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkGcpArrayInput)(nil)).Elem(), GetNetworkGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkZoneInfoInput)(nil)).Elem(), GetNetworkZoneInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkZoneInfoArrayInput)(nil)).Elem(), GetNetworkZoneInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAwInput)(nil)).Elem(), GetPeeringAwArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAwArrayInput)(nil)).Elem(), GetPeeringAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAzureInput)(nil)).Elem(), GetPeeringAzureArgs{})
@@ -14116,6 +14332,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(NetworkGcpOutput{})
 	pulumi.RegisterOutputType(NetworkGcpArrayOutput{})
+	pulumi.RegisterOutputType(NetworkZoneInfoOutput{})
+	pulumi.RegisterOutputType(NetworkZoneInfoArrayOutput{})
 	pulumi.RegisterOutputType(PeeringAwsOutput{})
 	pulumi.RegisterOutputType(PeeringAwsPtrOutput{})
 	pulumi.RegisterOutputType(PeeringAzureOutput{})
@@ -14202,6 +14420,8 @@ func init() {
 	pulumi.RegisterOutputType(GetNetworkEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetNetworkGcpOutput{})
 	pulumi.RegisterOutputType(GetNetworkGcpArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkZoneInfoOutput{})
+	pulumi.RegisterOutputType(GetNetworkZoneInfoArrayOutput{})
 	pulumi.RegisterOutputType(GetPeeringAwOutput{})
 	pulumi.RegisterOutputType(GetPeeringAwArrayOutput{})
 	pulumi.RegisterOutputType(GetPeeringAzureOutput{})
