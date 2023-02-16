@@ -1,0 +1,86 @@
+diff --git b/internal/provider/resource_kafka_topic.go a/internal/provider/resource_kafka_topic.go
+index 459471d..90e6b7f 100644
+--- b/internal/provider/resource_kafka_topic.go
++++ a/internal/provider/resource_kafka_topic.go
+@@ -18,15 +18,16 @@ import (
+ 	"context"
+ 	"encoding/json"
+ 	"fmt"
++	"net/http"
++	"regexp"
++	"strings"
++	"time"
++
+ 	kafkarestv3 "github.com/confluentinc/ccloud-sdk-go-v2/kafkarest/v3"
+ 	"github.com/hashicorp/terraform-plugin-log/tflog"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
+-	"net/http"
+-	"regexp"
+-	"strings"
+-	"time"
+ )
+ 
+ const (
+@@ -96,6 +97,15 @@ func kafkaTopicResource() *schema.Resource {
+ 				Description:  "The number of partitions to create in the topic.",
+ 				ValidateFunc: validation.IntAtLeast(1),
+ 			},
++			paramHttpEndpoint: {
++				Deprecated:    "This parameter has been deprecated in favour of Rest Endpoint",
++				Type:          schema.TypeString,
++				Optional:      true,
++				Computed:      true,
++				Description:   "The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).",
++				ValidateFunc:  validation.StringMatch(regexp.MustCompile("^http"), "the HTTP endpoint must start with 'https://'"),
++				ConflictsWith: []string{paramRestEndpoint},
++			},
+ 			paramRestEndpoint: {
+ 				Type:         schema.TypeString,
+ 				Optional:     true,
+@@ -165,7 +175,12 @@ func extractRestEndpoint(client *Client, d *schema.ResourceData, isImportOperati
+ 	if restEndpoint != "" {
+ 		return restEndpoint, nil
+ 	}
+-	return "", fmt.Errorf("one of provider.kafka_rest_endpoint (defaults to KAFKA_REST_ENDPOINT environment variable) or resource.rest_endpoint must be set")
++	httpEndpoint := d.Get(paramHttpEndpoint).(string)
++	if httpEndpoint != "" {
++		return httpEndpoint, nil
++	}
++
++	return "", fmt.Errorf("one of provider.kafka_rest_endpoint (defaults to KAFKA_REST_ENDPOINT environment variable), resource.rest_endpoint or resource.http_endpoint must be set")
+ }
+ 
+ func extractClusterApiKeyAndApiSecret(client *Client, d *schema.ResourceData, isImportOperation bool) (string, string, error) {
+@@ -468,6 +483,9 @@ func readTopicAndSetAttributes(ctx context.Context, d *schema.ResourceData, c *K
+ 		if err := d.Set(paramRestEndpoint, c.restEndpoint); err != nil {
+ 			return nil, err
+ 		}
++		if err := d.Set(paramHttpEndpoint, c.restEndpoint); err != nil {
++			return nil, err
++		}
+ 	}
+ 
+ 	d.SetId(createKafkaTopicId(c.clusterId, topicName))
+diff --git b/internal/provider/state_upgraders.go a/internal/provider/state_upgraders.go
+index 4d3ed5b..b6be930 100644
+--- b/internal/provider/state_upgraders.go
++++ a/internal/provider/state_upgraders.go
+@@ -88,11 +88,11 @@ func kafkaResourceV0() *schema.Resource {
+ // Modifies the attribute(s) appropriately for the migration.
+ func kafkaStateUpgradeV0(ctx context.Context, rawState map[string]interface{}, meta interface{}) (map[string]interface{}, error) {
+ 	// 1. When upgrading from 0.10.0, rename "http_endpoint" to "rest_endpoint" by copying the value and deleting "http_endpoint" attribute
+-	if httpEndpoint, found := rawState[paramHttpEndpoint]; found {
+-		httpEndpointString := httpEndpoint.(string)
+-		rawState[paramRestEndpoint] = httpEndpointString
+-		delete(rawState, paramHttpEndpoint)
+-	}
++	//if httpEndpoint, found := rawState[paramHttpEndpoint]; found {
++	//	httpEndpointString := httpEndpoint.(string)
++	//	rawState[paramRestEndpoint] = httpEndpointString
++	//	delete(rawState, paramHttpEndpoint)
++	//}
+ 	// 2. When upgrading from 0.11.0 no changes are necessary: "rest_endpoint" exists already
+ 
+ 	return rawState, nil

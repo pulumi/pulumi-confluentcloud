@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-confluentcloud/provider
 go 1.19
 
 replace (
-	github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20230216214322-70fce3de2489
+	github.com/confluentinc/terraform-provider-confluent => ../upstream
 	github.com/confluentinc/terraform-provider-confluent/shim => ./shim
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9
 )
