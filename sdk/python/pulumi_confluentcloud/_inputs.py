@@ -46,6 +46,7 @@ __all__ = [
     'NetworkDnsConfigArgs',
     'NetworkEnvironmentArgs',
     'NetworkGcpArgs',
+    'NetworkZoneInfoArgs',
     'PeeringAwsArgs',
     'PeeringAzureArgs',
     'PeeringEnvironmentArgs',
@@ -1238,6 +1239,45 @@ class NetworkGcpArgs:
     @vpc_network.setter
     def vpc_network(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_network", value)
+
+
+@pulumi.input_type
+class NetworkZoneInfoArgs:
+    def __init__(__self__, *,
+                 cidr: Optional[pulumi.Input[str]] = None,
+                 zone_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] cidr: The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+        :param pulumi.Input[str] zone_id: Cloud provider zone ID.
+        """
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if zone_id is not None:
+            pulumi.set(__self__, "zone_id", zone_id)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+        """
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr", value)
+
+    @property
+    @pulumi.getter(name="zoneId")
+    def zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cloud provider zone ID.
+        """
+        return pulumi.get(self, "zone_id")
+
+    @zone_id.setter
+    def zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone_id", value)
 
 
 @pulumi.input_type

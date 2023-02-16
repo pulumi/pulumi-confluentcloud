@@ -11,6 +11,7 @@ import com.pulumi.confluentcloud.outputs.NetworkAzure;
 import com.pulumi.confluentcloud.outputs.NetworkDnsConfig;
 import com.pulumi.confluentcloud.outputs.NetworkEnvironment;
 import com.pulumi.confluentcloud.outputs.NetworkGcp;
+import com.pulumi.confluentcloud.outputs.NetworkZoneInfo;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -63,14 +64,14 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.azures;
     }
     /**
-     * The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+     * The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
      * 
      */
     @Export(name="cidr", type=String.class, parameters={})
     private Output<String> cidr;
 
     /**
-     * @return The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+     * @return The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
      * 
      */
     public Output<String> cidr() {
@@ -189,6 +190,20 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
+     * The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+     * 
+     */
+    @Export(name="reservedCidr", type=String.class, parameters={})
+    private Output<String> reservedCidr;
+
+    /**
+     * @return The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+     * 
+     */
+    public Output<String> reservedCidr() {
+        return this.reservedCidr;
+    }
+    /**
      * (Required String) The Confluent Resource Name of the Network.
      * 
      */
@@ -215,6 +230,20 @@ public class Network extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> zonalSubdomains() {
         return this.zonalSubdomains;
+    }
+    /**
+     * Each item represents information related to a single zone.
+     * 
+     */
+    @Export(name="zoneInfos", type=List.class, parameters={NetworkZoneInfo.class})
+    private Output<List<NetworkZoneInfo>> zoneInfos;
+
+    /**
+     * @return Each item represents information related to a single zone.
+     * 
+     */
+    public Output<List<NetworkZoneInfo>> zoneInfos() {
+        return this.zoneInfos;
     }
     /**
      * The 3 availability zones for this network. They can optionally be specified for AWS networks

@@ -48,7 +48,7 @@ namespace Pulumi.ConfluentCloud
         public Output<bool?> HardDelete { get; private set; } = null!;
 
         /// <summary>
-        /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+        /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
         /// </summary>
         [Output("recreateOnUpdate")]
         public Output<bool?> RecreateOnUpdate { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.ConfluentCloud
         public Input<bool>? HardDelete { get; set; }
 
         /// <summary>
-        /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+        /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
         /// </summary>
         [Input("recreateOnUpdate")]
         public Input<bool>? RecreateOnUpdate { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.ConfluentCloud
         public Input<bool>? HardDelete { get; set; }
 
         /// <summary>
-        /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false` (resource instance always points to the latest schema by supporting in-place updates).
+        /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
         /// </summary>
         [Input("recreateOnUpdate")]
         public Input<bool>? RecreateOnUpdate { get; set; }

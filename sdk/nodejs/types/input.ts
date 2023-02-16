@@ -793,6 +793,17 @@ export interface NetworkGcp {
     vpcNetwork?: pulumi.Input<string>;
 }
 
+export interface NetworkZoneInfo {
+    /**
+     * The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+     */
+    cidr?: pulumi.Input<string>;
+    /**
+     * Cloud provider zone ID.
+     */
+    zoneId?: pulumi.Input<string>;
+}
+
 export interface PeeringAws {
     /**
      * The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.

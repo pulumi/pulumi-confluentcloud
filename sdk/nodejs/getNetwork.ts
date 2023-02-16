@@ -91,7 +91,7 @@ export interface GetNetworkResult {
      */
     readonly azures: outputs.GetNetworkAzure[];
     /**
-     * (Required String) The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+     * (Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
      */
     readonly cidr: string;
     /**
@@ -125,10 +125,18 @@ export interface GetNetworkResult {
      */
     readonly region: string;
     /**
+     * (Required String) The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+     */
+    readonly reservedCidr: string;
+    /**
      * (Required String) The Confluent Resource Name of the Network.
      */
     readonly resourceName: string;
     readonly zonalSubdomains: {[key: string]: string};
+    /**
+     * (Required Configuration Blocks) Each item represents information related to a single zone. It supports the following:
+     */
+    readonly zoneInfos: outputs.GetNetworkZoneInfo[];
     /**
      * (Optional List of String) The 3 availability zones for this network. They can optionally be specified for AWS networks
      * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP

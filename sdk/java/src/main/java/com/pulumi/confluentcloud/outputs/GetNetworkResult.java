@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.outputs.GetNetworkAzure;
 import com.pulumi.confluentcloud.outputs.GetNetworkDnsConfig;
 import com.pulumi.confluentcloud.outputs.GetNetworkEnvironment;
 import com.pulumi.confluentcloud.outputs.GetNetworkGcp;
+import com.pulumi.confluentcloud.outputs.GetNetworkZoneInfo;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -27,7 +28,7 @@ public final class GetNetworkResult {
      */
     private List<GetNetworkAzure> azures;
     /**
-     * @return (Required String) The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+     * @return (Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
      * 
      */
     private String cidr;
@@ -69,11 +70,21 @@ public final class GetNetworkResult {
      */
     private String region;
     /**
+     * @return (Required String) The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+     * 
+     */
+    private String reservedCidr;
+    /**
      * @return (Required String) The Confluent Resource Name of the Network.
      * 
      */
     private String resourceName;
     private Map<String,String> zonalSubdomains;
+    /**
+     * @return (Required Configuration Blocks) Each item represents information related to a single zone. It supports the following:
+     * 
+     */
+    private List<GetNetworkZoneInfo> zoneInfos;
     /**
      * @return (Optional List of String) The 3 availability zones for this network. They can optionally be specified for AWS networks
      * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
@@ -101,7 +112,7 @@ public final class GetNetworkResult {
         return this.azures;
     }
     /**
-     * @return (Required String) The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+     * @return (Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
      * 
      */
     public String cidr() {
@@ -163,6 +174,13 @@ public final class GetNetworkResult {
         return this.region;
     }
     /**
+     * @return (Required String) The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+     * 
+     */
+    public String reservedCidr() {
+        return this.reservedCidr;
+    }
+    /**
      * @return (Required String) The Confluent Resource Name of the Network.
      * 
      */
@@ -171,6 +189,13 @@ public final class GetNetworkResult {
     }
     public Map<String,String> zonalSubdomains() {
         return this.zonalSubdomains;
+    }
+    /**
+     * @return (Required Configuration Blocks) Each item represents information related to a single zone. It supports the following:
+     * 
+     */
+    public List<GetNetworkZoneInfo> zoneInfos() {
+        return this.zoneInfos;
     }
     /**
      * @return (Optional List of String) The 3 availability zones for this network. They can optionally be specified for AWS networks
@@ -206,8 +231,10 @@ public final class GetNetworkResult {
         private List<GetNetworkGcp> gcps;
         private String id;
         private String region;
+        private String reservedCidr;
         private String resourceName;
         private Map<String,String> zonalSubdomains;
+        private List<GetNetworkZoneInfo> zoneInfos;
         private List<String> zones;
         public Builder() {}
         public Builder(GetNetworkResult defaults) {
@@ -224,8 +251,10 @@ public final class GetNetworkResult {
     	      this.gcps = defaults.gcps;
     	      this.id = defaults.id;
     	      this.region = defaults.region;
+    	      this.reservedCidr = defaults.reservedCidr;
     	      this.resourceName = defaults.resourceName;
     	      this.zonalSubdomains = defaults.zonalSubdomains;
+    	      this.zoneInfos = defaults.zoneInfos;
     	      this.zones = defaults.zones;
         }
 
@@ -305,6 +334,11 @@ public final class GetNetworkResult {
             return this;
         }
         @CustomType.Setter
+        public Builder reservedCidr(String reservedCidr) {
+            this.reservedCidr = Objects.requireNonNull(reservedCidr);
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceName(String resourceName) {
             this.resourceName = Objects.requireNonNull(resourceName);
             return this;
@@ -313,6 +347,14 @@ public final class GetNetworkResult {
         public Builder zonalSubdomains(Map<String,String> zonalSubdomains) {
             this.zonalSubdomains = Objects.requireNonNull(zonalSubdomains);
             return this;
+        }
+        @CustomType.Setter
+        public Builder zoneInfos(List<GetNetworkZoneInfo> zoneInfos) {
+            this.zoneInfos = Objects.requireNonNull(zoneInfos);
+            return this;
+        }
+        public Builder zoneInfos(GetNetworkZoneInfo... zoneInfos) {
+            return zoneInfos(List.of(zoneInfos));
         }
         @CustomType.Setter
         public Builder zones(List<String> zones) {
@@ -336,8 +378,10 @@ public final class GetNetworkResult {
             o.gcps = gcps;
             o.id = id;
             o.region = region;
+            o.reservedCidr = reservedCidr;
             o.resourceName = resourceName;
             o.zonalSubdomains = zonalSubdomains;
+            o.zoneInfos = zoneInfos;
             o.zones = zones;
             return o;
         }

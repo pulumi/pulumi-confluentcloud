@@ -266,6 +266,17 @@ export interface GetNetworkGcp {
     vpcNetwork: string;
 }
 
+export interface GetNetworkZoneInfo {
+    /**
+     * (Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+     */
+    cidr: string;
+    /**
+     * (Required String) Cloud provider zone ID.
+     */
+    zoneId: string;
+}
+
 export interface GetPeeringAw {
     /**
      * (Required String) The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
@@ -742,6 +753,17 @@ export interface NetworkGcp {
      * (Required String) The network name of the Confluent Cloud VPC.
      */
     vpcNetwork: string;
+}
+
+export interface NetworkZoneInfo {
+    /**
+     * The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+     */
+    cidr: string;
+    /**
+     * Cloud provider zone ID.
+     */
+    zoneId: string;
 }
 
 export interface PeeringAws {

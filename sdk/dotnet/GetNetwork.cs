@@ -270,7 +270,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkAzureResult> Azures;
         /// <summary>
-        /// (Required String) The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+        /// (Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
         /// </summary>
         public readonly string Cidr;
         /// <summary>
@@ -304,10 +304,18 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string Region;
         /// <summary>
+        /// (Required String) The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+        /// </summary>
+        public readonly string ReservedCidr;
+        /// <summary>
         /// (Required String) The Confluent Resource Name of the Network.
         /// </summary>
         public readonly string ResourceName;
         public readonly ImmutableDictionary<string, string> ZonalSubdomains;
+        /// <summary>
+        /// (Required Configuration Blocks) Each item represents information related to a single zone. It supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetNetworkZoneInfoResult> ZoneInfos;
         /// <summary>
         /// (Optional List of String) The 3 availability zones for this network. They can optionally be specified for AWS networks
         /// used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
@@ -344,9 +352,13 @@ namespace Pulumi.ConfluentCloud
 
             string region,
 
+            string reservedCidr,
+
             string resourceName,
 
             ImmutableDictionary<string, string> zonalSubdomains,
+
+            ImmutableArray<Outputs.GetNetworkZoneInfoResult> zoneInfos,
 
             ImmutableArray<string> zones)
         {
@@ -362,8 +374,10 @@ namespace Pulumi.ConfluentCloud
             Gcps = gcps;
             Id = id;
             Region = region;
+            ReservedCidr = reservedCidr;
             ResourceName = resourceName;
             ZonalSubdomains = zonalSubdomains;
+            ZoneInfos = zoneInfos;
             Zones = zones;
         }
     }
