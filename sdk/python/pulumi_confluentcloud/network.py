@@ -26,6 +26,8 @@ class NetworkArgs:
                  display_name: Optional[pulumi.Input[str]] = None,
                  dns_config: Optional[pulumi.Input['NetworkDnsConfigArgs']] = None,
                  gcps: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]]] = None,
+                 reserved_cidr: Optional[pulumi.Input[str]] = None,
+                 zone_infos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Network resource.
@@ -35,10 +37,12 @@ class NetworkArgs:
         :param pulumi.Input[str] region: The cloud provider region where the network exists.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAwArgs']]] aws: (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAzureArgs']]] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-        :param pulumi.Input[str] cidr: The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+        :param pulumi.Input[str] cidr: The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
         :param pulumi.Input[str] display_name: The name of the Network.
         :param pulumi.Input['NetworkDnsConfigArgs'] dns_config: Network DNS config. It applies only to the PRIVATELINK network connection type.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
+        :param pulumi.Input[str] reserved_cidr: The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]] zone_infos: Each item represents information related to a single zone.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The 3 availability zones for this network. They can optionally be specified for AWS networks
                used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
                networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
@@ -62,6 +66,10 @@ class NetworkArgs:
             pulumi.set(__self__, "dns_config", dns_config)
         if gcps is not None:
             pulumi.set(__self__, "gcps", gcps)
+        if reserved_cidr is not None:
+            pulumi.set(__self__, "reserved_cidr", reserved_cidr)
+        if zone_infos is not None:
+            pulumi.set(__self__, "zone_infos", zone_infos)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -141,7 +149,7 @@ class NetworkArgs:
     @pulumi.getter
     def cidr(self) -> Optional[pulumi.Input[str]]:
         """
-        The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+        The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
         """
         return pulumi.get(self, "cidr")
 
@@ -186,6 +194,30 @@ class NetworkArgs:
         pulumi.set(self, "gcps", value)
 
     @property
+    @pulumi.getter(name="reservedCidr")
+    def reserved_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+        """
+        return pulumi.get(self, "reserved_cidr")
+
+    @reserved_cidr.setter
+    def reserved_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reserved_cidr", value)
+
+    @property
+    @pulumi.getter(name="zoneInfos")
+    def zone_infos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]]:
+        """
+        Each item represents information related to a single zone.
+        """
+        return pulumi.get(self, "zone_infos")
+
+    @zone_infos.setter
+    def zone_infos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]]):
+        pulumi.set(self, "zone_infos", value)
+
+    @property
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -217,14 +249,16 @@ class _NetworkState:
                  environment: Optional[pulumi.Input['NetworkEnvironmentArgs']] = None,
                  gcps: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]]] = None,
                  region: Optional[pulumi.Input[str]] = None,
+                 reserved_cidr: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
                  zonal_subdomains: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_infos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Network resources.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAwArgs']]] aws: (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAzureArgs']]] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-        :param pulumi.Input[str] cidr: The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+        :param pulumi.Input[str] cidr: The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
         :param pulumi.Input[str] cloud: The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_types: The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
         :param pulumi.Input[str] display_name: The name of the Network.
@@ -233,8 +267,10 @@ class _NetworkState:
         :param pulumi.Input['NetworkEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
         :param pulumi.Input[str] region: The cloud provider region where the network exists.
+        :param pulumi.Input[str] reserved_cidr: The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
         :param pulumi.Input[str] resource_name: (Required String) The Confluent Resource Name of the Network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] zonal_subdomains: (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]] zone_infos: Each item represents information related to a single zone.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The 3 availability zones for this network. They can optionally be specified for AWS networks
                used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
                networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
@@ -264,10 +300,14 @@ class _NetworkState:
             pulumi.set(__self__, "gcps", gcps)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if reserved_cidr is not None:
+            pulumi.set(__self__, "reserved_cidr", reserved_cidr)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
         if zonal_subdomains is not None:
             pulumi.set(__self__, "zonal_subdomains", zonal_subdomains)
+        if zone_infos is not None:
+            pulumi.set(__self__, "zone_infos", zone_infos)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -299,7 +339,7 @@ class _NetworkState:
     @pulumi.getter
     def cidr(self) -> Optional[pulumi.Input[str]]:
         """
-        The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+        The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
         """
         return pulumi.get(self, "cidr")
 
@@ -404,6 +444,18 @@ class _NetworkState:
         pulumi.set(self, "region", value)
 
     @property
+    @pulumi.getter(name="reservedCidr")
+    def reserved_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+        """
+        return pulumi.get(self, "reserved_cidr")
+
+    @reserved_cidr.setter
+    def reserved_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reserved_cidr", value)
+
+    @property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -426,6 +478,18 @@ class _NetworkState:
     @zonal_subdomains.setter
     def zonal_subdomains(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "zonal_subdomains", value)
+
+    @property
+    @pulumi.getter(name="zoneInfos")
+    def zone_infos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]]:
+        """
+        Each item represents information related to a single zone.
+        """
+        return pulumi.get(self, "zone_infos")
+
+    @zone_infos.setter
+    def zone_infos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]]):
+        pulumi.set(self, "zone_infos", value)
 
     @property
     @pulumi.getter
@@ -460,6 +524,8 @@ class Network(pulumi.CustomResource):
                  environment: Optional[pulumi.Input[pulumi.InputType['NetworkEnvironmentArgs']]] = None,
                  gcps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkGcpArgs']]]]] = None,
                  region: Optional[pulumi.Input[str]] = None,
+                 reserved_cidr: Optional[pulumi.Input[str]] = None,
+                 zone_infos: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkZoneInfoArgs']]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -477,7 +543,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAwArgs']]]] aws: (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAzureArgs']]]] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-        :param pulumi.Input[str] cidr: The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+        :param pulumi.Input[str] cidr: The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
         :param pulumi.Input[str] cloud: The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_types: The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
         :param pulumi.Input[str] display_name: The name of the Network.
@@ -485,6 +551,8 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NetworkEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkGcpArgs']]]] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
         :param pulumi.Input[str] region: The cloud provider region where the network exists.
+        :param pulumi.Input[str] reserved_cidr: The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkZoneInfoArgs']]]] zone_infos: Each item represents information related to a single zone.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The 3 availability zones for this network. They can optionally be specified for AWS networks
                used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
                networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
@@ -534,6 +602,8 @@ class Network(pulumi.CustomResource):
                  environment: Optional[pulumi.Input[pulumi.InputType['NetworkEnvironmentArgs']]] = None,
                  gcps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkGcpArgs']]]]] = None,
                  region: Optional[pulumi.Input[str]] = None,
+                 reserved_cidr: Optional[pulumi.Input[str]] = None,
+                 zone_infos: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkZoneInfoArgs']]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -562,6 +632,8 @@ class Network(pulumi.CustomResource):
             if region is None and not opts.urn:
                 raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region
+            __props__.__dict__["reserved_cidr"] = reserved_cidr
+            __props__.__dict__["zone_infos"] = zone_infos
             __props__.__dict__["zones"] = zones
             __props__.__dict__["dns_domain"] = None
             __props__.__dict__["resource_name"] = None
@@ -587,8 +659,10 @@ class Network(pulumi.CustomResource):
             environment: Optional[pulumi.Input[pulumi.InputType['NetworkEnvironmentArgs']]] = None,
             gcps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkGcpArgs']]]]] = None,
             region: Optional[pulumi.Input[str]] = None,
+            reserved_cidr: Optional[pulumi.Input[str]] = None,
             resource_name_: Optional[pulumi.Input[str]] = None,
             zonal_subdomains: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            zone_infos: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkZoneInfoArgs']]]]] = None,
             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Network':
         """
         Get an existing Network resource's state with the given name, id, and optional extra
@@ -599,7 +673,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAwArgs']]]] aws: (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAzureArgs']]]] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
-        :param pulumi.Input[str] cidr: The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+        :param pulumi.Input[str] cidr: The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
         :param pulumi.Input[str] cloud: The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_types: The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
         :param pulumi.Input[str] display_name: The name of the Network.
@@ -608,8 +682,10 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NetworkEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkGcpArgs']]]] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
         :param pulumi.Input[str] region: The cloud provider region where the network exists.
+        :param pulumi.Input[str] reserved_cidr: The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
         :param pulumi.Input[str] resource_name_: (Required String) The Confluent Resource Name of the Network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] zonal_subdomains: (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkZoneInfoArgs']]]] zone_infos: Each item represents information related to a single zone.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The 3 availability zones for this network. They can optionally be specified for AWS networks
                used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
                networks used with Peering. Otherwise, they are automatically chosen by Confluent Cloud.
@@ -632,8 +708,10 @@ class Network(pulumi.CustomResource):
         __props__.__dict__["environment"] = environment
         __props__.__dict__["gcps"] = gcps
         __props__.__dict__["region"] = region
+        __props__.__dict__["reserved_cidr"] = reserved_cidr
         __props__.__dict__["resource_name"] = resource_name_
         __props__.__dict__["zonal_subdomains"] = zonal_subdomains
+        __props__.__dict__["zone_infos"] = zone_infos
         __props__.__dict__["zones"] = zones
         return Network(resource_name, opts=opts, __props__=__props__)
 
@@ -657,7 +735,7 @@ class Network(pulumi.CustomResource):
     @pulumi.getter
     def cidr(self) -> pulumi.Output[str]:
         """
-        The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+        The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
         """
         return pulumi.get(self, "cidr")
 
@@ -726,6 +804,14 @@ class Network(pulumi.CustomResource):
         return pulumi.get(self, "region")
 
     @property
+    @pulumi.getter(name="reservedCidr")
+    def reserved_cidr(self) -> pulumi.Output[str]:
+        """
+        The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+        """
+        return pulumi.get(self, "reserved_cidr")
+
+    @property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> pulumi.Output[str]:
         """
@@ -740,6 +826,14 @@ class Network(pulumi.CustomResource):
         (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
         """
         return pulumi.get(self, "zonal_subdomains")
+
+    @property
+    @pulumi.getter(name="zoneInfos")
+    def zone_infos(self) -> pulumi.Output[Sequence['outputs.NetworkZoneInfo']]:
+        """
+        Each item represents information related to a single zone.
+        """
+        return pulumi.get(self, "zone_infos")
 
     @property
     @pulumi.getter

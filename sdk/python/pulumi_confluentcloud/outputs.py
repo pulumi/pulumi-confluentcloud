@@ -47,6 +47,7 @@ __all__ = [
     'NetworkDnsConfig',
     'NetworkEnvironment',
     'NetworkGcp',
+    'NetworkZoneInfo',
     'PeeringAws',
     'PeeringAzure',
     'PeeringEnvironment',
@@ -92,6 +93,7 @@ __all__ = [
     'GetNetworkDnsConfigResult',
     'GetNetworkEnvironmentResult',
     'GetNetworkGcpResult',
+    'GetNetworkZoneInfoResult',
     'GetPeeringAwResult',
     'GetPeeringAzureResult',
     'GetPeeringEnvironmentResult',
@@ -1233,6 +1235,54 @@ class NetworkGcp(dict):
         (Required String) The network name of the Confluent Cloud VPC.
         """
         return pulumi.get(self, "vpc_network")
+
+
+@pulumi.output_type
+class NetworkZoneInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "zoneId":
+            suggest = "zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkZoneInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkZoneInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkZoneInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr: Optional[str] = None,
+                 zone_id: Optional[str] = None):
+        """
+        :param str cidr: The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+        :param str zone_id: Cloud provider zone ID.
+        """
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if zone_id is not None:
+            pulumi.set(__self__, "zone_id", zone_id)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[str]:
+        """
+        The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+        """
+        return pulumi.get(self, "cidr")
+
+    @property
+    @pulumi.getter(name="zoneId")
+    def zone_id(self) -> Optional[str]:
+        """
+        Cloud provider zone ID.
+        """
+        return pulumi.get(self, "zone_id")
 
 
 @pulumi.output_type
@@ -2380,6 +2430,35 @@ class GetNetworkGcpResult(dict):
         (Required String) The network name of the Confluent Cloud VPC.
         """
         return pulumi.get(self, "vpc_network")
+
+
+@pulumi.output_type
+class GetNetworkZoneInfoResult(dict):
+    def __init__(__self__, *,
+                 cidr: str,
+                 zone_id: str):
+        """
+        :param str cidr: (Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+        :param str zone_id: (Required String) Cloud provider zone ID.
+        """
+        pulumi.set(__self__, "cidr", cidr)
+        pulumi.set(__self__, "zone_id", zone_id)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> str:
+        """
+        (Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+        """
+        return pulumi.get(self, "cidr")
+
+    @property
+    @pulumi.getter(name="zoneId")
+    def zone_id(self) -> str:
+        """
+        (Required String) Cloud provider zone ID.
+        """
+        return pulumi.get(self, "zone_id")
 
 
 @pulumi.output_type

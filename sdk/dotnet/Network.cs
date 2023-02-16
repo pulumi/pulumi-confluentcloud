@@ -36,7 +36,7 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableArray<Outputs.NetworkAzure>> Azures { get; private set; } = null!;
 
         /// <summary>
-        /// The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+        /// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
         /// </summary>
         [Output("cidr")]
         public Output<string> Cidr { get; private set; } = null!;
@@ -90,6 +90,12 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
+        /// The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+        /// </summary>
+        [Output("reservedCidr")]
+        public Output<string> ReservedCidr { get; private set; } = null!;
+
+        /// <summary>
         /// (Required String) The Confluent Resource Name of the Network.
         /// </summary>
         [Output("resourceName")]
@@ -100,6 +106,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("zonalSubdomains")]
         public Output<ImmutableDictionary<string, string>> ZonalSubdomains { get; private set; } = null!;
+
+        /// <summary>
+        /// Each item represents information related to a single zone.
+        /// </summary>
+        [Output("zoneInfos")]
+        public Output<ImmutableArray<Outputs.NetworkZoneInfo>> ZoneInfos { get; private set; } = null!;
 
         /// <summary>
         /// The 3 availability zones for this network. They can optionally be specified for AWS networks
@@ -183,7 +195,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+        /// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
         /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
@@ -242,6 +254,24 @@ namespace Pulumi.ConfluentCloud
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
+        /// <summary>
+        /// The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+        /// </summary>
+        [Input("reservedCidr")]
+        public Input<string>? ReservedCidr { get; set; }
+
+        [Input("zoneInfos")]
+        private InputList<Inputs.NetworkZoneInfoArgs>? _zoneInfos;
+
+        /// <summary>
+        /// Each item represents information related to a single zone.
+        /// </summary>
+        public InputList<Inputs.NetworkZoneInfoArgs> ZoneInfos
+        {
+            get => _zoneInfos ?? (_zoneInfos = new InputList<Inputs.NetworkZoneInfoArgs>());
+            set => _zoneInfos = value;
+        }
+
         [Input("zones")]
         private InputList<string>? _zones;
 
@@ -292,7 +322,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+        /// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
         /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
@@ -358,6 +388,12 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Region { get; set; }
 
         /// <summary>
+        /// The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+        /// </summary>
+        [Input("reservedCidr")]
+        public Input<string>? ReservedCidr { get; set; }
+
+        /// <summary>
         /// (Required String) The Confluent Resource Name of the Network.
         /// </summary>
         [Input("resourceName")]
@@ -373,6 +409,18 @@ namespace Pulumi.ConfluentCloud
         {
             get => _zonalSubdomains ?? (_zonalSubdomains = new InputMap<string>());
             set => _zonalSubdomains = value;
+        }
+
+        [Input("zoneInfos")]
+        private InputList<Inputs.NetworkZoneInfoGetArgs>? _zoneInfos;
+
+        /// <summary>
+        /// Each item represents information related to a single zone.
+        /// </summary>
+        public InputList<Inputs.NetworkZoneInfoGetArgs> ZoneInfos
+        {
+            get => _zoneInfos ?? (_zoneInfos = new InputList<Inputs.NetworkZoneInfoGetArgs>());
+            set => _zoneInfos = value;
         }
 
         [Input("zones")]

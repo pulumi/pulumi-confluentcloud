@@ -139,12 +139,6 @@ export class KafkaTopic extends pulumi.CustomResource {
      * The Cluster API Credentials.
      */
     public readonly credentials!: pulumi.Output<outputs.KafkaTopicCredentials | undefined>;
-    /**
-     * The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-     *
-     * @deprecated This parameter has been deprecated in favour of Rest Endpoint
-     */
-    public readonly httpEndpoint!: pulumi.Output<string>;
     public readonly kafkaCluster!: pulumi.Output<outputs.KafkaTopicKafkaCluster | undefined>;
     /**
      * The number of partitions to create in the topic. Defaults to `6`.
@@ -174,7 +168,6 @@ export class KafkaTopic extends pulumi.CustomResource {
             const state = argsOrState as KafkaTopicState | undefined;
             resourceInputs["config"] = state ? state.config : undefined;
             resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["httpEndpoint"] = state ? state.httpEndpoint : undefined;
             resourceInputs["kafkaCluster"] = state ? state.kafkaCluster : undefined;
             resourceInputs["partitionsCount"] = state ? state.partitionsCount : undefined;
             resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
@@ -186,7 +179,6 @@ export class KafkaTopic extends pulumi.CustomResource {
             }
             resourceInputs["config"] = args ? args.config : undefined;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["httpEndpoint"] = args ? args.httpEndpoint : undefined;
             resourceInputs["kafkaCluster"] = args ? args.kafkaCluster : undefined;
             resourceInputs["partitionsCount"] = args ? args.partitionsCount : undefined;
             resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
@@ -211,12 +203,6 @@ export interface KafkaTopicState {
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.KafkaTopicCredentials>;
-    /**
-     * The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-     *
-     * @deprecated This parameter has been deprecated in favour of Rest Endpoint
-     */
-    httpEndpoint?: pulumi.Input<string>;
     kafkaCluster?: pulumi.Input<inputs.KafkaTopicKafkaCluster>;
     /**
      * The number of partitions to create in the topic. Defaults to `6`.
@@ -244,12 +230,6 @@ export interface KafkaTopicArgs {
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.KafkaTopicCredentials>;
-    /**
-     * The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-     *
-     * @deprecated This parameter has been deprecated in favour of Rest Endpoint
-     */
-    httpEndpoint?: pulumi.Input<string>;
     kafkaCluster?: pulumi.Input<inputs.KafkaTopicKafkaCluster>;
     /**
      * The number of partitions to create in the topic. Defaults to `6`.

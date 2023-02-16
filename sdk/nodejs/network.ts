@@ -54,7 +54,7 @@ export class Network extends pulumi.CustomResource {
      */
     public readonly azures!: pulumi.Output<outputs.NetworkAzure[]>;
     /**
-     * The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+     * The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
      */
     public readonly cidr!: pulumi.Output<string>;
     /**
@@ -90,6 +90,10 @@ export class Network extends pulumi.CustomResource {
      */
     public readonly region!: pulumi.Output<string>;
     /**
+     * The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+     */
+    public readonly reservedCidr!: pulumi.Output<string>;
+    /**
      * (Required String) The Confluent Resource Name of the Network.
      */
     public /*out*/ readonly resourceName!: pulumi.Output<string>;
@@ -97,6 +101,10 @@ export class Network extends pulumi.CustomResource {
      * (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
      */
     public /*out*/ readonly zonalSubdomains!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Each item represents information related to a single zone.
+     */
+    public readonly zoneInfos!: pulumi.Output<outputs.NetworkZoneInfo[]>;
     /**
      * The 3 availability zones for this network. They can optionally be specified for AWS networks
      * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
@@ -131,8 +139,10 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["environment"] = state ? state.environment : undefined;
             resourceInputs["gcps"] = state ? state.gcps : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["reservedCidr"] = state ? state.reservedCidr : undefined;
             resourceInputs["resourceName"] = state ? state.resourceName : undefined;
             resourceInputs["zonalSubdomains"] = state ? state.zonalSubdomains : undefined;
+            resourceInputs["zoneInfos"] = state ? state.zoneInfos : undefined;
             resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as NetworkArgs | undefined;
@@ -158,6 +168,8 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["gcps"] = args ? args.gcps : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["reservedCidr"] = args ? args.reservedCidr : undefined;
+            resourceInputs["zoneInfos"] = args ? args.zoneInfos : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["dnsDomain"] = undefined /*out*/;
             resourceInputs["resourceName"] = undefined /*out*/;
@@ -181,7 +193,7 @@ export interface NetworkState {
      */
     azures?: pulumi.Input<pulumi.Input<inputs.NetworkAzure>[]>;
     /**
-     * The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+     * The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
      */
     cidr?: pulumi.Input<string>;
     /**
@@ -217,6 +229,10 @@ export interface NetworkState {
      */
     region?: pulumi.Input<string>;
     /**
+     * The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+     */
+    reservedCidr?: pulumi.Input<string>;
+    /**
      * (Required String) The Confluent Resource Name of the Network.
      */
     resourceName?: pulumi.Input<string>;
@@ -224,6 +240,10 @@ export interface NetworkState {
      * (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
      */
     zonalSubdomains?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Each item represents information related to a single zone.
+     */
+    zoneInfos?: pulumi.Input<pulumi.Input<inputs.NetworkZoneInfo>[]>;
     /**
      * The 3 availability zones for this network. They can optionally be specified for AWS networks
      * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
@@ -248,7 +268,7 @@ export interface NetworkArgs {
      */
     azures?: pulumi.Input<pulumi.Input<inputs.NetworkAzure>[]>;
     /**
-     * The IPv4 CIDR block to used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
+     * The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
      */
     cidr?: pulumi.Input<string>;
     /**
@@ -279,6 +299,14 @@ export interface NetworkArgs {
      * The cloud provider region where the network exists.
      */
     region: pulumi.Input<string>;
+    /**
+     * The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
+     */
+    reservedCidr?: pulumi.Input<string>;
+    /**
+     * Each item represents information related to a single zone.
+     */
+    zoneInfos?: pulumi.Input<pulumi.Input<inputs.NetworkZoneInfo>[]>;
     /**
      * The 3 availability zones for this network. They can optionally be specified for AWS networks
      * used with PrivateLink, for GCP networks used with Private Service Connect, and for AWS and GCP
