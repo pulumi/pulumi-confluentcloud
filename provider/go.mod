@@ -3,14 +3,14 @@ module github.com/pulumi/pulumi-confluentcloud/provider
 go 1.19
 
 replace (
-	github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20230208180614-75347cbbd9d8
+	github.com/confluentinc/terraform-provider-confluent => github.com/pulumi/terraform-provider-confluent v0.0.0-20230216214322-70fce3de2489
 	github.com/confluentinc/terraform-provider-confluent/shim => ./shim
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9
 )
 
 require (
 	github.com/confluentinc/terraform-provider-confluent/shim v0.0.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.39.2
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.40.0
 )
 
 require (
@@ -87,11 +87,11 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.13.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.5.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.6.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/org v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/schema-registry v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/srcm v0.2.0 // indirect
-	github.com/confluentinc/terraform-provider-confluent v1.19.0 // indirect
+	github.com/confluentinc/terraform-provider-confluent v1.32.0 // indirect
 	github.com/containerd/cgroups v1.0.3 // indirect
 	github.com/containerd/containerd v1.6.12 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
