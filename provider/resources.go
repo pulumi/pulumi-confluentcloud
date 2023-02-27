@@ -49,14 +49,15 @@ func Provider() tfbridge.ProviderInfo {
 		//
 		// You may host a logo on a domain you control or add an SVG logo for your package
 		// in your repository and use the raw content URL for that file as your logo URL.
-		LogoURL:     "",
-		Description: "A Pulumi package for creating and managing Confluent cloud resources.",
-		Keywords:    []string{"pulumi", "confluentcloud", "category/cloud"},
-		License:     "Apache-2.0",
-		Homepage:    "https://www.pulumi.com",
-		Repository:  "https://github.com/pulumi/pulumi-confluentcloud",
-		GitHubOrg:   "confluentinc",
-		Config:      map[string]*tfbridge.SchemaInfo{},
+		LogoURL:          "",
+		Description:      "A Pulumi package for creating and managing Confluent cloud resources.",
+		Keywords:         []string{"pulumi", "confluentcloud", "category/cloud"},
+		License:          "Apache-2.0",
+		Homepage:         "https://www.pulumi.com",
+		Repository:       "https://github.com/pulumi/pulumi-confluentcloud",
+		GitHubOrg:        "confluentinc",
+		Config:           map[string]*tfbridge.SchemaInfo{},
+		UpstreamRepoPath: "./upstream",
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"confluent_api_key": {
 				Tok: tfbridge.MakeResource(mainPkg, mainMod, "ApiKey"),
