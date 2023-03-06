@@ -10,7 +10,7 @@ replace (
 
 require (
 	github.com/confluentinc/terraform-provider-confluent/shim v0.0.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.40.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.41.0
 )
 
 require (
