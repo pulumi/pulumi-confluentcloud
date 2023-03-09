@@ -40,6 +40,11 @@ export const getIdentityProvider: typeof import("./getIdentityProvider").getIden
 export const getIdentityProviderOutput: typeof import("./getIdentityProvider").getIdentityProviderOutput = null as any;
 utilities.lazyLoad(exports, ["getIdentityProvider","getIdentityProviderOutput"], () => require("./getIdentityProvider"));
 
+export { GetInvitationArgs, GetInvitationResult, GetInvitationOutputArgs } from "./getInvitation";
+export const getInvitation: typeof import("./getInvitation").getInvitation = null as any;
+export const getInvitationOutput: typeof import("./getInvitation").getInvitationOutput = null as any;
+utilities.lazyLoad(exports, ["getInvitation","getInvitationOutput"], () => require("./getInvitation"));
+
 export { GetKafkaClientQuotaArgs, GetKafkaClientQuotaResult, GetKafkaClientQuotaOutputArgs } from "./getKafkaClientQuota";
 export const getKafkaClientQuota: typeof import("./getKafkaClientQuota").getKafkaClientQuota = null as any;
 export const getKafkaClientQuotaOutput: typeof import("./getKafkaClientQuota").getKafkaClientQuotaOutput = null as any;
@@ -143,6 +148,11 @@ export { IdentityProviderArgs, IdentityProviderState } from "./identityProvider"
 export type IdentityProvider = import("./identityProvider").IdentityProvider;
 export const IdentityProvider: typeof import("./identityProvider").IdentityProvider = null as any;
 utilities.lazyLoad(exports, ["IdentityProvider"], () => require("./identityProvider"));
+
+export { InvitationArgs, InvitationState } from "./invitation";
+export type Invitation = import("./invitation").Invitation;
+export const Invitation: typeof import("./invitation").Invitation = null as any;
+utilities.lazyLoad(exports, ["Invitation"], () => require("./invitation"));
 
 export { KafkaAclArgs, KafkaAclState } from "./kafkaAcl";
 export type KafkaAcl = import("./kafkaAcl").KafkaAcl;
@@ -270,6 +280,8 @@ const _module = {
                 return new IdentityPool(name, <any>undefined, { urn })
             case "confluentcloud:index/identityProvider:IdentityProvider":
                 return new IdentityProvider(name, <any>undefined, { urn })
+            case "confluentcloud:index/invitation:Invitation":
+                return new Invitation(name, <any>undefined, { urn })
             case "confluentcloud:index/kafkaAcl:KafkaAcl":
                 return new KafkaAcl(name, <any>undefined, { urn })
             case "confluentcloud:index/kafkaClientQuota:KafkaClientQuota":
@@ -319,6 +331,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/connector", _modu
 pulumi.runtime.registerResourceModule("confluentcloud", "index/environment", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/identityPool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/identityProvider", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/invitation", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/kafkaAcl", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/kafkaClientQuota", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/kafkaCluster", _module)

@@ -10,6 +10,8 @@ import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityPoolPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityProviderPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetInvitationArgs;
+import com.pulumi.confluentcloud.inputs.GetInvitationPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterArgs;
@@ -49,6 +51,7 @@ import com.pulumi.confluentcloud.inputs.GetUserPlainArgs;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityPoolResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityProviderResult;
+import com.pulumi.confluentcloud.outputs.GetInvitationResult;
 import com.pulumi.confluentcloud.outputs.GetKafkaClientQuotaResult;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterResult;
 import com.pulumi.confluentcloud.outputs.GetKafkaTopicResult;
@@ -895,6 +898,178 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetIdentityProviderResult> getIdentityProviderPlain(GetIdentityProviderPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getIdentityProvider:getIdentityProvider", TypeShape.of(GetIdentityProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.Invitation` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.Invitation` describes an Invitation data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetInvitationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getInvitation(GetInvitationArgs.builder()
+     *             .id(&#34;i-gxxn1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;invitation&#34;, main.applyValue(getInvitationResult -&gt; getInvitationResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetInvitationResult> getInvitation(GetInvitationArgs args) {
+        return getInvitation(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.Invitation` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.Invitation` describes an Invitation data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetInvitationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getInvitation(GetInvitationArgs.builder()
+     *             .id(&#34;i-gxxn1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;invitation&#34;, main.applyValue(getInvitationResult -&gt; getInvitationResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetInvitationResult> getInvitationPlain(GetInvitationPlainArgs args) {
+        return getInvitationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.Invitation` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.Invitation` describes an Invitation data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetInvitationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getInvitation(GetInvitationArgs.builder()
+     *             .id(&#34;i-gxxn1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;invitation&#34;, main.applyValue(getInvitationResult -&gt; getInvitationResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetInvitationResult> getInvitation(GetInvitationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getInvitation:getInvitation", TypeShape.of(GetInvitationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.Invitation` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.Invitation` describes an Invitation data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetInvitationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getInvitation(GetInvitationArgs.builder()
+     *             .id(&#34;i-gxxn1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;invitation&#34;, main.applyValue(getInvitationResult -&gt; getInvitationResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetInvitationResult> getInvitationPlain(GetInvitationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getInvitation:getInvitation", TypeShape.of(GetInvitationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

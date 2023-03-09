@@ -12,6 +12,7 @@ from .environment import *
 from .get_environment import *
 from .get_identity_pool import *
 from .get_identity_provider import *
+from .get_invitation import *
 from .get_kafka_client_quota import *
 from .get_kafka_cluster import *
 from .get_kafka_topic import *
@@ -33,6 +34,7 @@ from .get_transit_gateway_attachment import *
 from .get_user import *
 from .identity_pool import *
 from .identity_provider import *
+from .invitation import *
 from .kafka_acl import *
 from .kafka_client_quota import *
 from .kafka_cluster import *
@@ -112,6 +114,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/identityProvider:IdentityProvider": "IdentityProvider"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/invitation",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/invitation:Invitation": "Invitation"
   }
  },
  {

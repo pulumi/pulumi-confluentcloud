@@ -20,6 +20,8 @@ __all__ = [
     'ConnectorEnvironmentArgs',
     'ConnectorKafkaClusterArgs',
     'IdentityPoolIdentityProviderArgs',
+    'InvitationCreatorArgs',
+    'InvitationUserArgs',
     'KafkaAclCredentialsArgs',
     'KafkaAclKafkaClusterArgs',
     'KafkaClientQuotaEnvironmentArgs',
@@ -512,6 +514,52 @@ class IdentityPoolIdentityProviderArgs:
 
 
 @pulumi.input_type
+class InvitationCreatorArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: (Required String) The id of invitation creator.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) The id of invitation creator.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class InvitationUserArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: (Required String) The id of invitation creator.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) The id of invitation creator.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class KafkaAclCredentialsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -720,14 +768,21 @@ class KafkaClusterConfigKafkaClusterArgs:
 class KafkaClusterDedicatedArgs:
     def __init__(__self__, *,
                  cku: pulumi.Input[int],
-                 encryption_key: Optional[pulumi.Input[str]] = None):
+                 encryption_key: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] cku: The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
         :param pulumi.Input[str] encryption_key: The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: (Required List of String) The list of zones the cluster is in.
+               On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+               On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+               On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
         """
         pulumi.set(__self__, "cku", cku)
         if encryption_key is not None:
             pulumi.set(__self__, "encryption_key", encryption_key)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -752,6 +807,21 @@ class KafkaClusterDedicatedArgs:
     @encryption_key.setter
     def encryption_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "encryption_key", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Required List of String) The list of zones the cluster is in.
+        On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+        On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+        On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type
@@ -2141,13 +2211,19 @@ class GetKafkaClusterBasicArgs:
 class GetKafkaClusterDedicatedArgs:
     def __init__(__self__, *,
                  cku: int,
-                 encryption_key: str):
+                 encryption_key: str,
+                 zones: Sequence[str]):
         """
         :param int cku: (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
         :param str encryption_key: (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
+        :param Sequence[str] zones: (Required List of String) The list of zones the cluster is in.
+               On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+               On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+               On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
         """
         pulumi.set(__self__, "cku", cku)
         pulumi.set(__self__, "encryption_key", encryption_key)
+        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter
@@ -2172,6 +2248,21 @@ class GetKafkaClusterDedicatedArgs:
     @encryption_key.setter
     def encryption_key(self, value: str):
         pulumi.set(self, "encryption_key", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Sequence[str]:
+        """
+        (Required List of String) The list of zones the cluster is in.
+        On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+        On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+        On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Sequence[str]):
+        pulumi.set(self, "zones", value)
 
 
 @pulumi.input_type

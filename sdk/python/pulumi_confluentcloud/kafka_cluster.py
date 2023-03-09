@@ -32,6 +32,7 @@ class KafkaClusterArgs:
         :param pulumi.Input['KafkaClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] region: The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
         :param pulumi.Input['KafkaClusterBasicArgs'] basic: The configuration of the Basic Kafka cluster.
+        :param pulumi.Input['KafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
         :param pulumi.Input['KafkaClusterNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
@@ -115,6 +116,9 @@ class KafkaClusterArgs:
     @property
     @pulumi.getter
     def dedicated(self) -> Optional[pulumi.Input['KafkaClusterDedicatedArgs']]:
+        """
+        (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+        """
         return pulumi.get(self, "dedicated")
 
     @dedicated.setter
@@ -183,6 +187,7 @@ class _KafkaClusterState:
         :param pulumi.Input['KafkaClusterBasicArgs'] basic: The configuration of the Basic Kafka cluster.
         :param pulumi.Input[str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+        :param pulumi.Input['KafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
         :param pulumi.Input['KafkaClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] kind: (Required String) A kind of the Kafka cluster, for example, `Cluster`.
@@ -285,6 +290,9 @@ class _KafkaClusterState:
     @property
     @pulumi.getter
     def dedicated(self) -> Optional[pulumi.Input['KafkaClusterDedicatedArgs']]:
+        """
+        (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+        """
         return pulumi.get(self, "dedicated")
 
     @dedicated.setter
@@ -420,6 +428,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[str] availability: The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
         :param pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']] basic: The configuration of the Basic Kafka cluster.
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+        :param pulumi.Input[pulumi.InputType['KafkaClusterDedicatedArgs']] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
         :param pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -535,6 +544,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']] basic: The configuration of the Basic Kafka cluster.
         :param pulumi.Input[str] bootstrap_endpoint: (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+        :param pulumi.Input[pulumi.InputType['KafkaClusterDedicatedArgs']] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
         :param pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] kind: (Required String) A kind of the Kafka cluster, for example, `Cluster`.
@@ -608,6 +618,9 @@ class KafkaCluster(pulumi.CustomResource):
     @property
     @pulumi.getter
     def dedicated(self) -> pulumi.Output[Optional['outputs.KafkaClusterDedicated']]:
+        """
+        (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+        """
         return pulumi.get(self, "dedicated")
 
     @property
