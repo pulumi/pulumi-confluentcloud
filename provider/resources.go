@@ -109,36 +109,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"confluent_schema_registry_cluster":        {Tok: tfbridge.MakeResource(mainPkg, mainMod, "SchemaRegistryCluster")},
-			"confluent_schema_registry_cluster_config": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "SchemaRegistryClusterConfig")},
-			"confluent_schema_registry_cluster_mode":   {Tok: tfbridge.MakeResource(mainPkg, mainMod, "SchemaRegistryClusterMode")},
-			"confluent_subject_config":                 {Tok: tfbridge.MakeResource(mainPkg, mainMod, "SubjectConfig")},
-			"confluent_subject_mode":                   {Tok: tfbridge.MakeResource(mainPkg, mainMod, "SubjectMode")},
-			"confluent_transit_gateway_attachment":     {Tok: tfbridge.MakeResource(mainPkg, mainMod, "TransitGatewayAttachment")},
-		},
-		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"confluent_environment":                    {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getEnvironment")},
-			"confluent_kafka_client_quota":             {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getKafkaClientQuota")},
-			"confluent_kafka_cluster":                  {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getKafkaCluster")},
-			"confluent_kafka_topic":                    {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getKafkaTopic")},
-			"confluent_network":                        {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getNetwork")},
-			"confluent_organization":                   {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getOrganization")},
-			"confluent_service_account":                {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getServiceAccount")},
-			"confluent_user":                           {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getUser")},
-			"confluent_peering":                        {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getPeering")},
-			"confluent_private_link_access":            {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getPrivateLinkAccess")},
-			"confluent_role_binding":                   {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getRoleBinding")},
-			"confluent_identity_pool":                  {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getIdentityPool")},
-			"confluent_identity_provider":              {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getIdentityProvider")},
-			"confluent_ksql_cluster":                   {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getKsqlCluster")},
-			"confluent_schema":                         {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getSchema")},
-			"confluent_schema_registry_cluster":        {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getSchemaRegistryCluster")},
-			"confluent_schema_registry_cluster_config": {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getSchemaRegistryClusterConfig")},
-			"confluent_schema_registry_cluster_mode":   {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getSchemaRegistryClusterMode")},
-			"confluent_schema_registry_region":         {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getSchemaRegistryRegion")},
-			"confluent_subject_config":                 {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getSubjectConfig")},
-			"confluent_subject_mode":                   {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getSubjectMode")},
-			"confluent_transit_gateway_attachment":     {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getTransitGatewayAttachment")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
@@ -172,7 +142,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 	}
-	err := x.ComputeDefaults(&prov, x.TokensSingleModule("confluentcloud_", mainMod,
+	err := x.ComputeDefaults(&prov, x.TokensSingleModule("confluent_", mainMod,
 		x.MakeStandardToken(mainPkg)))
 	contract.AssertNoError(err)
 	prov.SetAutonaming(255, "-")
