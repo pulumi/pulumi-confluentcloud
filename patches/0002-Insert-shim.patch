@@ -1,0 +1,29 @@
+From 9ddb67b10e34b449fa8c442447e2005f2879868a Mon Sep 17 00:00:00 2001
+From: Ian Wahbe <ian@wahbe.com>
+Date: Thu, 9 Mar 2023 18:22:25 +0100
+Subject: [PATCH] Insert shim
+
+---
+ shim/shim.go | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+ create mode 100644 shim/shim.go
+
+diff --git a/shim/shim.go b/shim/shim.go
+new file mode 100644
+index 0000000..ac43027
+--- /dev/null
++++ b/shim/shim.go
+@@ -0,0 +1,10 @@
++package shim
++
++import (
++	"github.com/confluentinc/terraform-provider-confluent/internal/provider"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++)
++
++func NewProvider(version, customUserAgent string) *schema.Provider {
++	return provider.New(version, customUserAgent)()
++}
+-- 
+2.39.1
+
