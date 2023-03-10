@@ -53,6 +53,9 @@ namespace Pulumi.ConfluentCloud
         [Output("cloud")]
         public Output<string> Cloud { get; private set; } = null!;
 
+        /// <summary>
+        /// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+        /// </summary>
         [Output("dedicated")]
         public Output<Outputs.KafkaClusterDedicated?> Dedicated { get; private set; } = null!;
 
@@ -169,6 +172,9 @@ namespace Pulumi.ConfluentCloud
         [Input("cloud", required: true)]
         public Input<string> Cloud { get; set; } = null!;
 
+        /// <summary>
+        /// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+        /// </summary>
         [Input("dedicated")]
         public Input<Inputs.KafkaClusterDedicatedArgs>? Dedicated { get; set; }
 
@@ -241,6 +247,9 @@ namespace Pulumi.ConfluentCloud
         [Input("cloud")]
         public Input<string>? Cloud { get; set; }
 
+        /// <summary>
+        /// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+        /// </summary>
         [Input("dedicated")]
         public Input<Inputs.KafkaClusterDedicatedGetArgs>? Dedicated { get; set; }
 

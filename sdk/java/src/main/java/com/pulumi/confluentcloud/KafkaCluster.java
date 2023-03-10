@@ -103,9 +103,17 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
     public Output<String> cloud() {
         return this.cloud;
     }
+    /**
+     * (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+     * 
+     */
     @Export(name="dedicated", type=KafkaClusterDedicated.class, parameters={})
     private Output</* @Nullable */ KafkaClusterDedicated> dedicated;
 
+    /**
+     * @return (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+     * 
+     */
     public Output<Optional<KafkaClusterDedicated>> dedicated() {
         return Codegen.optional(this.dedicated);
     }

@@ -34,7 +34,8 @@ type KafkaCluster struct {
 	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringOutput `pulumi:"bootstrapEndpoint"`
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
-	Cloud     pulumi.StringOutput            `pulumi:"cloud"`
+	Cloud pulumi.StringOutput `pulumi:"cloud"`
+	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated KafkaClusterDedicatedPtrOutput `pulumi:"dedicated"`
 	// The name of the Kafka cluster.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
@@ -105,7 +106,8 @@ type kafkaClusterState struct {
 	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint *string `pulumi:"bootstrapEndpoint"`
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
-	Cloud     *string                `pulumi:"cloud"`
+	Cloud *string `pulumi:"cloud"`
+	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated *KafkaClusterDedicated `pulumi:"dedicated"`
 	// The name of the Kafka cluster.
 	DisplayName *string `pulumi:"displayName"`
@@ -136,7 +138,8 @@ type KafkaClusterState struct {
 	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringPtrInput
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
-	Cloud     pulumi.StringPtrInput
+	Cloud pulumi.StringPtrInput
+	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated KafkaClusterDedicatedPtrInput
 	// The name of the Kafka cluster.
 	DisplayName pulumi.StringPtrInput
@@ -167,7 +170,8 @@ type kafkaClusterArgs struct {
 	// The configuration of the Basic Kafka cluster.
 	Basic *KafkaClusterBasic `pulumi:"basic"`
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
-	Cloud     string                 `pulumi:"cloud"`
+	Cloud string `pulumi:"cloud"`
+	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated *KafkaClusterDedicated `pulumi:"dedicated"`
 	// The name of the Kafka cluster.
 	DisplayName *string `pulumi:"displayName"`
@@ -189,7 +193,8 @@ type KafkaClusterArgs struct {
 	// The configuration of the Basic Kafka cluster.
 	Basic KafkaClusterBasicPtrInput
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
-	Cloud     pulumi.StringInput
+	Cloud pulumi.StringInput
+	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated KafkaClusterDedicatedPtrInput
 	// The name of the Kafka cluster.
 	DisplayName pulumi.StringPtrInput
@@ -316,6 +321,7 @@ func (o KafkaClusterOutput) Cloud() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.Cloud }).(pulumi.StringOutput)
 }
 
+// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 func (o KafkaClusterOutput) Dedicated() KafkaClusterDedicatedPtrOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterDedicatedPtrOutput { return v.Dedicated }).(KafkaClusterDedicatedPtrOutput)
 }

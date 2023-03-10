@@ -65,6 +65,9 @@ export class KafkaCluster extends pulumi.CustomResource {
      * The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
     public readonly cloud!: pulumi.Output<string>;
+    /**
+     * (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+     */
     public readonly dedicated!: pulumi.Output<outputs.KafkaClusterDedicated | undefined>;
     /**
      * The name of the Kafka cluster.
@@ -185,6 +188,9 @@ export interface KafkaClusterState {
      * The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
     cloud?: pulumi.Input<string>;
+    /**
+     * (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+     */
     dedicated?: pulumi.Input<inputs.KafkaClusterDedicated>;
     /**
      * The name of the Kafka cluster.
@@ -237,6 +243,9 @@ export interface KafkaClusterArgs {
      * The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
     cloud: pulumi.Input<string>;
+    /**
+     * (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+     */
     dedicated?: pulumi.Input<inputs.KafkaClusterDedicated>;
     /**
      * The name of the Kafka cluster.

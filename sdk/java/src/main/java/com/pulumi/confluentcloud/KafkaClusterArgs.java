@@ -65,9 +65,17 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         return this.cloud;
     }
 
+    /**
+     * (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+     * 
+     */
     @Import(name="dedicated")
     private @Nullable Output<KafkaClusterDedicatedArgs> dedicated;
 
+    /**
+     * @return (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+     * 
+     */
     public Optional<Output<KafkaClusterDedicatedArgs>> dedicated() {
         return Optional.ofNullable(this.dedicated);
     }
@@ -244,11 +252,23 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
             return cloud(Output.of(cloud));
         }
 
+        /**
+         * @param dedicated (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder dedicated(@Nullable Output<KafkaClusterDedicatedArgs> dedicated) {
             $.dedicated = dedicated;
             return this;
         }
 
+        /**
+         * @param dedicated (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder dedicated(KafkaClusterDedicatedArgs dedicated) {
             return dedicated(Output.of(dedicated));
         }

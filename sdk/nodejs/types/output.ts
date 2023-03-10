@@ -118,6 +118,20 @@ export interface GetIdentityPoolIdentityProvider {
     id: string;
 }
 
+export interface GetInvitationCreator {
+    /**
+     * The ID of the Invitation, for example, `i-zyw30`.
+     */
+    id: string;
+}
+
+export interface GetInvitationUser {
+    /**
+     * The ID of the Invitation, for example, `i-zyw30`.
+     */
+    id: string;
+}
+
 export interface GetKafkaClientQuotaEnvironment {
     /**
      * The ID of the Kafka Client Quota (for example, `cq-abc123`).
@@ -155,6 +169,13 @@ export interface GetKafkaClusterDedicated {
      * (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
      */
     encryptionKey: string;
+    /**
+     * (Required List of String) The list of zones the cluster is in.
+     * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+     * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+     * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+     */
+    zones: string[];
 }
 
 export interface GetKafkaClusterEnvironment {
@@ -534,6 +555,20 @@ export interface IdentityPoolIdentityProvider {
     id: string;
 }
 
+export interface InvitationCreator {
+    /**
+     * (Required String) The id of invitation creator.
+     */
+    id: string;
+}
+
+export interface InvitationUser {
+    /**
+     * (Required String) The id of invitation creator.
+     */
+    id: string;
+}
+
 export interface KafkaAclCredentials {
     /**
      * The Kafka API Key.
@@ -607,6 +642,13 @@ export interface KafkaClusterDedicated {
      * The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
      */
     encryptionKey?: string;
+    /**
+     * (Required List of String) The list of zones the cluster is in.
+     * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+     * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+     * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+     */
+    zones: string[];
 }
 
 export interface KafkaClusterEnvironment {

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -46,11 +47,33 @@ public final class KafkaClusterDedicatedArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.encryptionKey);
     }
 
+    /**
+     * (Required List of String) The list of zones the cluster is in.
+     * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+     * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+     * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+     * 
+     */
+    @Import(name="zones")
+    private @Nullable Output<List<String>> zones;
+
+    /**
+     * @return (Required List of String) The list of zones the cluster is in.
+     * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+     * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+     * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+     * 
+     */
+    public Optional<Output<List<String>>> zones() {
+        return Optional.ofNullable(this.zones);
+    }
+
     private KafkaClusterDedicatedArgs() {}
 
     private KafkaClusterDedicatedArgs(KafkaClusterDedicatedArgs $) {
         this.cku = $.cku;
         this.encryptionKey = $.encryptionKey;
+        this.zones = $.zones;
     }
 
     public static Builder builder() {
@@ -111,6 +134,46 @@ public final class KafkaClusterDedicatedArgs extends com.pulumi.resources.Resour
          */
         public Builder encryptionKey(String encryptionKey) {
             return encryptionKey(Output.of(encryptionKey));
+        }
+
+        /**
+         * @param zones (Required List of String) The list of zones the cluster is in.
+         * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+         * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+         * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zones(@Nullable Output<List<String>> zones) {
+            $.zones = zones;
+            return this;
+        }
+
+        /**
+         * @param zones (Required List of String) The list of zones the cluster is in.
+         * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+         * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+         * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zones(List<String> zones) {
+            return zones(Output.of(zones));
+        }
+
+        /**
+         * @param zones (Required List of String) The list of zones the cluster is in.
+         * On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+         * On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+         * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zones(String... zones) {
+            return zones(List.of(zones));
         }
 
         public KafkaClusterDedicatedArgs build() {

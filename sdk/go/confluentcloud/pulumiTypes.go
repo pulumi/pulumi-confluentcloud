@@ -1617,6 +1617,200 @@ func (o IdentityPoolIdentityProviderPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type InvitationCreator struct {
+	// (Required String) The id of invitation creator.
+	Id *string `pulumi:"id"`
+}
+
+// InvitationCreatorInput is an input type that accepts InvitationCreatorArgs and InvitationCreatorOutput values.
+// You can construct a concrete instance of `InvitationCreatorInput` via:
+//
+//	InvitationCreatorArgs{...}
+type InvitationCreatorInput interface {
+	pulumi.Input
+
+	ToInvitationCreatorOutput() InvitationCreatorOutput
+	ToInvitationCreatorOutputWithContext(context.Context) InvitationCreatorOutput
+}
+
+type InvitationCreatorArgs struct {
+	// (Required String) The id of invitation creator.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (InvitationCreatorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvitationCreator)(nil)).Elem()
+}
+
+func (i InvitationCreatorArgs) ToInvitationCreatorOutput() InvitationCreatorOutput {
+	return i.ToInvitationCreatorOutputWithContext(context.Background())
+}
+
+func (i InvitationCreatorArgs) ToInvitationCreatorOutputWithContext(ctx context.Context) InvitationCreatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvitationCreatorOutput)
+}
+
+// InvitationCreatorArrayInput is an input type that accepts InvitationCreatorArray and InvitationCreatorArrayOutput values.
+// You can construct a concrete instance of `InvitationCreatorArrayInput` via:
+//
+//	InvitationCreatorArray{ InvitationCreatorArgs{...} }
+type InvitationCreatorArrayInput interface {
+	pulumi.Input
+
+	ToInvitationCreatorArrayOutput() InvitationCreatorArrayOutput
+	ToInvitationCreatorArrayOutputWithContext(context.Context) InvitationCreatorArrayOutput
+}
+
+type InvitationCreatorArray []InvitationCreatorInput
+
+func (InvitationCreatorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InvitationCreator)(nil)).Elem()
+}
+
+func (i InvitationCreatorArray) ToInvitationCreatorArrayOutput() InvitationCreatorArrayOutput {
+	return i.ToInvitationCreatorArrayOutputWithContext(context.Background())
+}
+
+func (i InvitationCreatorArray) ToInvitationCreatorArrayOutputWithContext(ctx context.Context) InvitationCreatorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvitationCreatorArrayOutput)
+}
+
+type InvitationCreatorOutput struct{ *pulumi.OutputState }
+
+func (InvitationCreatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvitationCreator)(nil)).Elem()
+}
+
+func (o InvitationCreatorOutput) ToInvitationCreatorOutput() InvitationCreatorOutput {
+	return o
+}
+
+func (o InvitationCreatorOutput) ToInvitationCreatorOutputWithContext(ctx context.Context) InvitationCreatorOutput {
+	return o
+}
+
+// (Required String) The id of invitation creator.
+func (o InvitationCreatorOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InvitationCreator) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type InvitationCreatorArrayOutput struct{ *pulumi.OutputState }
+
+func (InvitationCreatorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InvitationCreator)(nil)).Elem()
+}
+
+func (o InvitationCreatorArrayOutput) ToInvitationCreatorArrayOutput() InvitationCreatorArrayOutput {
+	return o
+}
+
+func (o InvitationCreatorArrayOutput) ToInvitationCreatorArrayOutputWithContext(ctx context.Context) InvitationCreatorArrayOutput {
+	return o
+}
+
+func (o InvitationCreatorArrayOutput) Index(i pulumi.IntInput) InvitationCreatorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InvitationCreator {
+		return vs[0].([]InvitationCreator)[vs[1].(int)]
+	}).(InvitationCreatorOutput)
+}
+
+type InvitationUser struct {
+	// (Required String) The id of invitation creator.
+	Id *string `pulumi:"id"`
+}
+
+// InvitationUserInput is an input type that accepts InvitationUserArgs and InvitationUserOutput values.
+// You can construct a concrete instance of `InvitationUserInput` via:
+//
+//	InvitationUserArgs{...}
+type InvitationUserInput interface {
+	pulumi.Input
+
+	ToInvitationUserOutput() InvitationUserOutput
+	ToInvitationUserOutputWithContext(context.Context) InvitationUserOutput
+}
+
+type InvitationUserArgs struct {
+	// (Required String) The id of invitation creator.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (InvitationUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvitationUser)(nil)).Elem()
+}
+
+func (i InvitationUserArgs) ToInvitationUserOutput() InvitationUserOutput {
+	return i.ToInvitationUserOutputWithContext(context.Background())
+}
+
+func (i InvitationUserArgs) ToInvitationUserOutputWithContext(ctx context.Context) InvitationUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvitationUserOutput)
+}
+
+// InvitationUserArrayInput is an input type that accepts InvitationUserArray and InvitationUserArrayOutput values.
+// You can construct a concrete instance of `InvitationUserArrayInput` via:
+//
+//	InvitationUserArray{ InvitationUserArgs{...} }
+type InvitationUserArrayInput interface {
+	pulumi.Input
+
+	ToInvitationUserArrayOutput() InvitationUserArrayOutput
+	ToInvitationUserArrayOutputWithContext(context.Context) InvitationUserArrayOutput
+}
+
+type InvitationUserArray []InvitationUserInput
+
+func (InvitationUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InvitationUser)(nil)).Elem()
+}
+
+func (i InvitationUserArray) ToInvitationUserArrayOutput() InvitationUserArrayOutput {
+	return i.ToInvitationUserArrayOutputWithContext(context.Background())
+}
+
+func (i InvitationUserArray) ToInvitationUserArrayOutputWithContext(ctx context.Context) InvitationUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvitationUserArrayOutput)
+}
+
+type InvitationUserOutput struct{ *pulumi.OutputState }
+
+func (InvitationUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvitationUser)(nil)).Elem()
+}
+
+func (o InvitationUserOutput) ToInvitationUserOutput() InvitationUserOutput {
+	return o
+}
+
+func (o InvitationUserOutput) ToInvitationUserOutputWithContext(ctx context.Context) InvitationUserOutput {
+	return o
+}
+
+// (Required String) The id of invitation creator.
+func (o InvitationUserOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InvitationUser) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type InvitationUserArrayOutput struct{ *pulumi.OutputState }
+
+func (InvitationUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InvitationUser)(nil)).Elem()
+}
+
+func (o InvitationUserArrayOutput) ToInvitationUserArrayOutput() InvitationUserArrayOutput {
+	return o
+}
+
+func (o InvitationUserArrayOutput) ToInvitationUserArrayOutputWithContext(ctx context.Context) InvitationUserArrayOutput {
+	return o
+}
+
+func (o InvitationUserArrayOutput) Index(i pulumi.IntInput) InvitationUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InvitationUser {
+		return vs[0].([]InvitationUser)[vs[1].(int)]
+	}).(InvitationUserOutput)
+}
+
 type KafkaAclCredentials struct {
 	// The Kafka API Key.
 	Key string `pulumi:"key"`
@@ -2756,6 +2950,11 @@ type KafkaClusterDedicated struct {
 	Cku int `pulumi:"cku"`
 	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
 	EncryptionKey *string `pulumi:"encryptionKey"`
+	// (Required List of String) The list of zones the cluster is in.
+	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+	// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+	// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+	Zones []string `pulumi:"zones"`
 }
 
 // KafkaClusterDedicatedInput is an input type that accepts KafkaClusterDedicatedArgs and KafkaClusterDedicatedOutput values.
@@ -2774,6 +2973,11 @@ type KafkaClusterDedicatedArgs struct {
 	Cku pulumi.IntInput `pulumi:"cku"`
 	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
 	EncryptionKey pulumi.StringPtrInput `pulumi:"encryptionKey"`
+	// (Required List of String) The list of zones the cluster is in.
+	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+	// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+	// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 func (KafkaClusterDedicatedArgs) ElementType() reflect.Type {
@@ -2863,6 +3067,14 @@ func (o KafkaClusterDedicatedOutput) EncryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterDedicated) *string { return v.EncryptionKey }).(pulumi.StringPtrOutput)
 }
 
+// (Required List of String) The list of zones the cluster is in.
+// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+func (o KafkaClusterDedicatedOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KafkaClusterDedicated) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 type KafkaClusterDedicatedPtrOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterDedicatedPtrOutput) ElementType() reflect.Type {
@@ -2905,6 +3117,19 @@ func (o KafkaClusterDedicatedPtrOutput) EncryptionKey() pulumi.StringPtrOutput {
 		}
 		return v.EncryptionKey
 	}).(pulumi.StringPtrOutput)
+}
+
+// (Required List of String) The list of zones the cluster is in.
+// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+func (o KafkaClusterDedicatedPtrOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KafkaClusterDedicated) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Zones
+	}).(pulumi.StringArrayOutput)
 }
 
 type KafkaClusterEnvironment struct {
@@ -9196,6 +9421,200 @@ func (o GetIdentityPoolIdentityProviderOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIdentityPoolIdentityProvider) string { return v.Id }).(pulumi.StringOutput)
 }
 
+type GetInvitationCreator struct {
+	// The ID of the Invitation, for example, `i-zyw30`.
+	Id string `pulumi:"id"`
+}
+
+// GetInvitationCreatorInput is an input type that accepts GetInvitationCreatorArgs and GetInvitationCreatorOutput values.
+// You can construct a concrete instance of `GetInvitationCreatorInput` via:
+//
+//	GetInvitationCreatorArgs{...}
+type GetInvitationCreatorInput interface {
+	pulumi.Input
+
+	ToGetInvitationCreatorOutput() GetInvitationCreatorOutput
+	ToGetInvitationCreatorOutputWithContext(context.Context) GetInvitationCreatorOutput
+}
+
+type GetInvitationCreatorArgs struct {
+	// The ID of the Invitation, for example, `i-zyw30`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetInvitationCreatorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInvitationCreator)(nil)).Elem()
+}
+
+func (i GetInvitationCreatorArgs) ToGetInvitationCreatorOutput() GetInvitationCreatorOutput {
+	return i.ToGetInvitationCreatorOutputWithContext(context.Background())
+}
+
+func (i GetInvitationCreatorArgs) ToGetInvitationCreatorOutputWithContext(ctx context.Context) GetInvitationCreatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInvitationCreatorOutput)
+}
+
+// GetInvitationCreatorArrayInput is an input type that accepts GetInvitationCreatorArray and GetInvitationCreatorArrayOutput values.
+// You can construct a concrete instance of `GetInvitationCreatorArrayInput` via:
+//
+//	GetInvitationCreatorArray{ GetInvitationCreatorArgs{...} }
+type GetInvitationCreatorArrayInput interface {
+	pulumi.Input
+
+	ToGetInvitationCreatorArrayOutput() GetInvitationCreatorArrayOutput
+	ToGetInvitationCreatorArrayOutputWithContext(context.Context) GetInvitationCreatorArrayOutput
+}
+
+type GetInvitationCreatorArray []GetInvitationCreatorInput
+
+func (GetInvitationCreatorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInvitationCreator)(nil)).Elem()
+}
+
+func (i GetInvitationCreatorArray) ToGetInvitationCreatorArrayOutput() GetInvitationCreatorArrayOutput {
+	return i.ToGetInvitationCreatorArrayOutputWithContext(context.Background())
+}
+
+func (i GetInvitationCreatorArray) ToGetInvitationCreatorArrayOutputWithContext(ctx context.Context) GetInvitationCreatorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInvitationCreatorArrayOutput)
+}
+
+type GetInvitationCreatorOutput struct{ *pulumi.OutputState }
+
+func (GetInvitationCreatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInvitationCreator)(nil)).Elem()
+}
+
+func (o GetInvitationCreatorOutput) ToGetInvitationCreatorOutput() GetInvitationCreatorOutput {
+	return o
+}
+
+func (o GetInvitationCreatorOutput) ToGetInvitationCreatorOutputWithContext(ctx context.Context) GetInvitationCreatorOutput {
+	return o
+}
+
+// The ID of the Invitation, for example, `i-zyw30`.
+func (o GetInvitationCreatorOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInvitationCreator) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetInvitationCreatorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInvitationCreatorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInvitationCreator)(nil)).Elem()
+}
+
+func (o GetInvitationCreatorArrayOutput) ToGetInvitationCreatorArrayOutput() GetInvitationCreatorArrayOutput {
+	return o
+}
+
+func (o GetInvitationCreatorArrayOutput) ToGetInvitationCreatorArrayOutputWithContext(ctx context.Context) GetInvitationCreatorArrayOutput {
+	return o
+}
+
+func (o GetInvitationCreatorArrayOutput) Index(i pulumi.IntInput) GetInvitationCreatorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInvitationCreator {
+		return vs[0].([]GetInvitationCreator)[vs[1].(int)]
+	}).(GetInvitationCreatorOutput)
+}
+
+type GetInvitationUser struct {
+	// The ID of the Invitation, for example, `i-zyw30`.
+	Id string `pulumi:"id"`
+}
+
+// GetInvitationUserInput is an input type that accepts GetInvitationUserArgs and GetInvitationUserOutput values.
+// You can construct a concrete instance of `GetInvitationUserInput` via:
+//
+//	GetInvitationUserArgs{...}
+type GetInvitationUserInput interface {
+	pulumi.Input
+
+	ToGetInvitationUserOutput() GetInvitationUserOutput
+	ToGetInvitationUserOutputWithContext(context.Context) GetInvitationUserOutput
+}
+
+type GetInvitationUserArgs struct {
+	// The ID of the Invitation, for example, `i-zyw30`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetInvitationUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInvitationUser)(nil)).Elem()
+}
+
+func (i GetInvitationUserArgs) ToGetInvitationUserOutput() GetInvitationUserOutput {
+	return i.ToGetInvitationUserOutputWithContext(context.Background())
+}
+
+func (i GetInvitationUserArgs) ToGetInvitationUserOutputWithContext(ctx context.Context) GetInvitationUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInvitationUserOutput)
+}
+
+// GetInvitationUserArrayInput is an input type that accepts GetInvitationUserArray and GetInvitationUserArrayOutput values.
+// You can construct a concrete instance of `GetInvitationUserArrayInput` via:
+//
+//	GetInvitationUserArray{ GetInvitationUserArgs{...} }
+type GetInvitationUserArrayInput interface {
+	pulumi.Input
+
+	ToGetInvitationUserArrayOutput() GetInvitationUserArrayOutput
+	ToGetInvitationUserArrayOutputWithContext(context.Context) GetInvitationUserArrayOutput
+}
+
+type GetInvitationUserArray []GetInvitationUserInput
+
+func (GetInvitationUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInvitationUser)(nil)).Elem()
+}
+
+func (i GetInvitationUserArray) ToGetInvitationUserArrayOutput() GetInvitationUserArrayOutput {
+	return i.ToGetInvitationUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetInvitationUserArray) ToGetInvitationUserArrayOutputWithContext(ctx context.Context) GetInvitationUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInvitationUserArrayOutput)
+}
+
+type GetInvitationUserOutput struct{ *pulumi.OutputState }
+
+func (GetInvitationUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInvitationUser)(nil)).Elem()
+}
+
+func (o GetInvitationUserOutput) ToGetInvitationUserOutput() GetInvitationUserOutput {
+	return o
+}
+
+func (o GetInvitationUserOutput) ToGetInvitationUserOutputWithContext(ctx context.Context) GetInvitationUserOutput {
+	return o
+}
+
+// The ID of the Invitation, for example, `i-zyw30`.
+func (o GetInvitationUserOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInvitationUser) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetInvitationUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInvitationUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInvitationUser)(nil)).Elem()
+}
+
+func (o GetInvitationUserArrayOutput) ToGetInvitationUserArrayOutput() GetInvitationUserArrayOutput {
+	return o
+}
+
+func (o GetInvitationUserArrayOutput) ToGetInvitationUserArrayOutputWithContext(ctx context.Context) GetInvitationUserArrayOutput {
+	return o
+}
+
+func (o GetInvitationUserArrayOutput) Index(i pulumi.IntInput) GetInvitationUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInvitationUser {
+		return vs[0].([]GetInvitationUser)[vs[1].(int)]
+	}).(GetInvitationUserOutput)
+}
+
 type GetKafkaClientQuotaEnvironment struct {
 	// The ID of the Kafka Client Quota (for example, `cq-abc123`).
 	Id string `pulumi:"id"`
@@ -9589,6 +10008,11 @@ type GetKafkaClusterDedicated struct {
 	Cku int `pulumi:"cku"`
 	// (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
 	EncryptionKey string `pulumi:"encryptionKey"`
+	// (Required List of String) The list of zones the cluster is in.
+	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+	// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+	// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+	Zones []string `pulumi:"zones"`
 }
 
 // GetKafkaClusterDedicatedInput is an input type that accepts GetKafkaClusterDedicatedArgs and GetKafkaClusterDedicatedOutput values.
@@ -9607,6 +10031,11 @@ type GetKafkaClusterDedicatedArgs struct {
 	Cku pulumi.IntInput `pulumi:"cku"`
 	// (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
 	EncryptionKey pulumi.StringInput `pulumi:"encryptionKey"`
+	// (Required List of String) The list of zones the cluster is in.
+	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+	// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+	// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 func (GetKafkaClusterDedicatedArgs) ElementType() reflect.Type {
@@ -9696,6 +10125,14 @@ func (o GetKafkaClusterDedicatedOutput) EncryptionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaClusterDedicated) string { return v.EncryptionKey }).(pulumi.StringOutput)
 }
 
+// (Required List of String) The list of zones the cluster is in.
+// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+func (o GetKafkaClusterDedicatedOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetKafkaClusterDedicated) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 type GetKafkaClusterDedicatedPtrOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaClusterDedicatedPtrOutput) ElementType() reflect.Type {
@@ -9738,6 +10175,19 @@ func (o GetKafkaClusterDedicatedPtrOutput) EncryptionKey() pulumi.StringPtrOutpu
 		}
 		return &v.EncryptionKey
 	}).(pulumi.StringPtrOutput)
+}
+
+// (Required List of String) The list of zones the cluster is in.
+// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
+// On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
+// On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
+func (o GetKafkaClusterDedicatedPtrOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetKafkaClusterDedicated) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Zones
+	}).(pulumi.StringArrayOutput)
 }
 
 type GetKafkaClusterEnvironment struct {
@@ -14070,6 +14520,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterPtrInput)(nil)).Elem(), ConnectorKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolIdentityProviderInput)(nil)).Elem(), IdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolIdentityProviderPtrInput)(nil)).Elem(), IdentityPoolIdentityProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvitationCreatorInput)(nil)).Elem(), InvitationCreatorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvitationCreatorArrayInput)(nil)).Elem(), InvitationCreatorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvitationUserInput)(nil)).Elem(), InvitationUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvitationUserArrayInput)(nil)).Elem(), InvitationUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaAclCredentialsInput)(nil)).Elem(), KafkaAclCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaAclCredentialsPtrInput)(nil)).Elem(), KafkaAclCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaAclKafkaClusterInput)(nil)).Elem(), KafkaAclKafkaClusterArgs{})
@@ -14177,6 +14631,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNetworkInput)(nil)).Elem(), TransitGatewayAttachmentNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNetworkPtrInput)(nil)).Elem(), TransitGatewayAttachmentNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolIdentityProviderInput)(nil)).Elem(), GetIdentityPoolIdentityProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationCreatorInput)(nil)).Elem(), GetInvitationCreatorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationCreatorArrayInput)(nil)).Elem(), GetInvitationCreatorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationUserInput)(nil)).Elem(), GetInvitationUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationUserArrayInput)(nil)).Elem(), GetInvitationUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaEnvironmentInput)(nil)).Elem(), GetKafkaClientQuotaEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaEnvironmentArrayInput)(nil)).Elem(), GetKafkaClientQuotaEnvironmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaKafkaClusterInput)(nil)).Elem(), GetKafkaClientQuotaKafkaClusterArgs{})
@@ -14280,6 +14738,10 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPoolIdentityProviderOutput{})
 	pulumi.RegisterOutputType(IdentityPoolIdentityProviderPtrOutput{})
+	pulumi.RegisterOutputType(InvitationCreatorOutput{})
+	pulumi.RegisterOutputType(InvitationCreatorArrayOutput{})
+	pulumi.RegisterOutputType(InvitationUserOutput{})
+	pulumi.RegisterOutputType(InvitationUserArrayOutput{})
 	pulumi.RegisterOutputType(KafkaAclCredentialsOutput{})
 	pulumi.RegisterOutputType(KafkaAclCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(KafkaAclKafkaClusterOutput{})
@@ -14387,6 +14849,10 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayAttachmentNetworkOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentNetworkPtrOutput{})
 	pulumi.RegisterOutputType(GetIdentityPoolIdentityProviderOutput{})
+	pulumi.RegisterOutputType(GetInvitationCreatorOutput{})
+	pulumi.RegisterOutputType(GetInvitationCreatorArrayOutput{})
+	pulumi.RegisterOutputType(GetInvitationUserOutput{})
+	pulumi.RegisterOutputType(GetInvitationUserArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClientQuotaEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetKafkaClientQuotaEnvironmentArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClientQuotaKafkaClusterOutput{})
