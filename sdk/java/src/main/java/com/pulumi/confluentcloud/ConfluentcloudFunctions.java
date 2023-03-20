@@ -4,6 +4,8 @@
 package com.pulumi.confluentcloud;
 
 import com.pulumi.confluentcloud.Utilities;
+import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
+import com.pulumi.confluentcloud.inputs.GetByokKeyPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
@@ -38,6 +40,8 @@ import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterModePlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryClusterPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetSchemasArgs;
+import com.pulumi.confluentcloud.inputs.GetSchemasPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
 import com.pulumi.confluentcloud.inputs.GetServiceAccountPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
@@ -48,6 +52,7 @@ import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentArgs;
 import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetUserArgs;
 import com.pulumi.confluentcloud.inputs.GetUserPlainArgs;
+import com.pulumi.confluentcloud.outputs.GetByokKeyResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityPoolResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityProviderResult;
@@ -66,6 +71,7 @@ import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterModeResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryRegionResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaResult;
+import com.pulumi.confluentcloud.outputs.GetSchemasResult;
 import com.pulumi.confluentcloud.outputs.GetServiceAccountResult;
 import com.pulumi.confluentcloud.outputs.GetSubjectConfigResult;
 import com.pulumi.confluentcloud.outputs.GetSubjectModeResult;
@@ -79,6 +85,178 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class ConfluentcloudFunctions {
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.ByokKey` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.ByokKey` describes a BYOK Key data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var azureKey = ConfluentcloudFunctions.getByokKey(GetByokKeyArgs.builder()
+     *             .id(&#34;cck-abcde&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;byok&#34;, azureKey.applyValue(getByokKeyResult -&gt; getByokKeyResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetByokKeyResult> getByokKey(GetByokKeyArgs args) {
+        return getByokKey(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.ByokKey` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.ByokKey` describes a BYOK Key data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var azureKey = ConfluentcloudFunctions.getByokKey(GetByokKeyArgs.builder()
+     *             .id(&#34;cck-abcde&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;byok&#34;, azureKey.applyValue(getByokKeyResult -&gt; getByokKeyResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetByokKeyResult> getByokKeyPlain(GetByokKeyPlainArgs args) {
+        return getByokKeyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.ByokKey` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.ByokKey` describes a BYOK Key data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var azureKey = ConfluentcloudFunctions.getByokKey(GetByokKeyArgs.builder()
+     *             .id(&#34;cck-abcde&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;byok&#34;, azureKey.applyValue(getByokKeyResult -&gt; getByokKeyResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetByokKeyResult> getByokKey(GetByokKeyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getByokKey:getByokKey", TypeShape.of(GetByokKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.ByokKey` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.ByokKey` describes a BYOK Key data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var azureKey = ConfluentcloudFunctions.getByokKey(GetByokKeyArgs.builder()
+     *             .id(&#34;cck-abcde&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;byok&#34;, azureKey.applyValue(getByokKeyResult -&gt; getByokKeyResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetByokKeyResult> getByokKeyPlain(GetByokKeyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getByokKey:getByokKey", TypeShape.of(GetByokKeyResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
@@ -3144,6 +3322,24 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetSchemaRegistryRegionResult> getSchemaRegistryRegionPlain(GetSchemaRegistryRegionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion", TypeShape.of(GetSchemaRegistryRegionResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetSchemasResult> getSchemas() {
+        return getSchemas(GetSchemasArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetSchemasResult> getSchemasPlain() {
+        return getSchemasPlain(GetSchemasPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetSchemasResult> getSchemas(GetSchemasArgs args) {
+        return getSchemas(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetSchemasResult> getSchemasPlain(GetSchemasPlainArgs args) {
+        return getSchemasPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetSchemasResult> getSchemas(GetSchemasArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getSchemas:getSchemas", TypeShape.of(GetSchemasResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetSchemasResult> getSchemasPlain(GetSchemasPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemas:getSchemas", TypeShape.of(GetSchemasResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

@@ -10,6 +10,11 @@ export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
 utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
 
+export { ByokKeyArgs, ByokKeyState } from "./byokKey";
+export type ByokKey = import("./byokKey").ByokKey;
+export const ByokKey: typeof import("./byokKey").ByokKey = null as any;
+utilities.lazyLoad(exports, ["ByokKey"], () => require("./byokKey"));
+
 export { ClusterLinkArgs, ClusterLinkState } from "./clusterLink";
 export type ClusterLink = import("./clusterLink").ClusterLink;
 export const ClusterLink: typeof import("./clusterLink").ClusterLink = null as any;
@@ -24,6 +29,11 @@ export { EnvironmentArgs, EnvironmentState } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
 utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
+
+export { GetByokKeyArgs, GetByokKeyResult, GetByokKeyOutputArgs } from "./getByokKey";
+export const getByokKey: typeof import("./getByokKey").getByokKey = null as any;
+export const getByokKeyOutput: typeof import("./getByokKey").getByokKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getByokKey","getByokKeyOutput"], () => require("./getByokKey"));
 
 export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
 export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
@@ -113,6 +123,11 @@ export { GetSchemaRegistryRegionArgs, GetSchemaRegistryRegionResult, GetSchemaRe
 export const getSchemaRegistryRegion: typeof import("./getSchemaRegistryRegion").getSchemaRegistryRegion = null as any;
 export const getSchemaRegistryRegionOutput: typeof import("./getSchemaRegistryRegion").getSchemaRegistryRegionOutput = null as any;
 utilities.lazyLoad(exports, ["getSchemaRegistryRegion","getSchemaRegistryRegionOutput"], () => require("./getSchemaRegistryRegion"));
+
+export { GetSchemasArgs, GetSchemasResult, GetSchemasOutputArgs } from "./getSchemas";
+export const getSchemas: typeof import("./getSchemas").getSchemas = null as any;
+export const getSchemasOutput: typeof import("./getSchemas").getSchemasOutput = null as any;
+utilities.lazyLoad(exports, ["getSchemas","getSchemasOutput"], () => require("./getSchemas"));
 
 export { GetServiceAccountArgs, GetServiceAccountResult, GetServiceAccountOutputArgs } from "./getServiceAccount";
 export const getServiceAccount: typeof import("./getServiceAccount").getServiceAccount = null as any;
@@ -270,6 +285,8 @@ const _module = {
         switch (type) {
             case "confluentcloud:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
+            case "confluentcloud:index/byokKey:ByokKey":
+                return new ByokKey(name, <any>undefined, { urn })
             case "confluentcloud:index/clusterLink:ClusterLink":
                 return new ClusterLink(name, <any>undefined, { urn })
             case "confluentcloud:index/connector:Connector":
@@ -326,6 +343,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("confluentcloud", "index/apiKey", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/byokKey", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/clusterLink", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/connector", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/environment", _module)

@@ -43,6 +43,36 @@ export interface ApiKeyOwner {
     kind: pulumi.Input<string>;
 }
 
+export interface ByokKeyAws {
+    /**
+     * The Amazon Resource Name (ARN) of an AWS KMS key.
+     */
+    keyArn: pulumi.Input<string>;
+    /**
+     * (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
+     */
+    roles?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ByokKeyAzure {
+    /**
+     * (Optional String) The Application ID created for this key-environment combination.
+     */
+    applicationId?: pulumi.Input<string>;
+    /**
+     * The unique Key Object Identifier URL of an Azure Key Vault key.
+     */
+    keyIdentifier: pulumi.Input<string>;
+    /**
+     * Key Vault ID containing the key.
+     */
+    keyVaultId: pulumi.Input<string>;
+    /**
+     * Tenant ID (uuid) hosting the Key Vault containing the key.
+     */
+    tenantId: pulumi.Input<string>;
+}
+
 export interface ClusterLinkDestinationKafkaCluster {
     /**
      * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -136,9 +166,6 @@ export interface GetKafkaClusterDedicated {
      * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
      */
     cku?: number;
-    /**
-     * (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
-     */
     encryptionKey?: string;
     /**
      * (Required List of String) The list of zones the cluster is in.
@@ -154,9 +181,6 @@ export interface GetKafkaClusterDedicatedArgs {
      * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
      */
     cku?: pulumi.Input<number>;
-    /**
-     * (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
-     */
     encryptionKey?: pulumi.Input<string>;
     /**
      * (Required List of String) The list of zones the cluster is in.
@@ -493,6 +517,72 @@ export interface GetSchemaSchemaRegistryClusterArgs {
     id: pulumi.Input<string>;
 }
 
+export interface GetSchemasCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetSchemasCredentialsArgs {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetSchemasFilter {
+    /**
+     * The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+     */
+    deleted?: boolean;
+    /**
+     * The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+     */
+    latestOnly?: boolean;
+    /**
+     * The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
+     */
+    subjectPrefix?: string;
+}
+
+export interface GetSchemasFilterArgs {
+    /**
+     * The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+     */
+    deleted?: pulumi.Input<boolean>;
+    /**
+     * The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+     */
+    latestOnly?: pulumi.Input<boolean>;
+    /**
+     * The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
+     */
+    subjectPrefix?: pulumi.Input<string>;
+}
+
+export interface GetSchemasSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetSchemasSchemaRegistryClusterArgs {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface GetSubjectConfigCredentials {
     /**
      * The Schema Registry API Key.
@@ -646,6 +736,13 @@ export interface KafkaClientQuotaThroughput {
 export interface KafkaClusterBasic {
 }
 
+export interface KafkaClusterByokKey {
+    /**
+     * The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface KafkaClusterConfigCredentials {
     /**
      * The Kafka API Key.
@@ -669,9 +766,6 @@ export interface KafkaClusterDedicated {
      * The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
      */
     cku: pulumi.Input<number>;
-    /**
-     * The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
-     */
     encryptionKey?: pulumi.Input<string>;
     /**
      * (Required List of String) The list of zones the cluster is in.
@@ -684,14 +778,14 @@ export interface KafkaClusterDedicated {
 
 export interface KafkaClusterEnvironment {
     /**
-     * The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+     * The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
      */
     id: pulumi.Input<string>;
 }
 
 export interface KafkaClusterNetwork {
     /**
-     * The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+     * The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
      */
     id: pulumi.Input<string>;
 }

@@ -242,6 +242,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string BootstrapEndpoint;
         /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKafkaClusterByokKeyResult> ByokKeys;
+        /// <summary>
         /// (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         /// </summary>
         public readonly string Cloud;
@@ -255,7 +259,7 @@ namespace Pulumi.ConfluentCloud
         public readonly string DisplayName;
         public readonly Outputs.GetKafkaClusterEnvironmentResult Environment;
         /// <summary>
-        /// (Required String) The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+        /// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -293,6 +297,8 @@ namespace Pulumi.ConfluentCloud
 
             string bootstrapEndpoint,
 
+            ImmutableArray<Outputs.GetKafkaClusterByokKeyResult> byokKeys,
+
             string cloud,
 
             Outputs.GetKafkaClusterDedicatedResult? dedicated,
@@ -319,6 +325,7 @@ namespace Pulumi.ConfluentCloud
             Availability = availability;
             Basics = basics;
             BootstrapEndpoint = bootstrapEndpoint;
+            ByokKeys = byokKeys;
             Cloud = cloud;
             Dedicated = dedicated;
             DisplayName = displayName;

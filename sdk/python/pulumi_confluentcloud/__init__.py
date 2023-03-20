@@ -6,9 +6,11 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .api_key import *
+from .byok_key import *
 from .cluster_link import *
 from .connector import *
 from .environment import *
+from .get_byok_key import *
 from .get_environment import *
 from .get_identity_pool import *
 from .get_identity_provider import *
@@ -27,6 +29,7 @@ from .get_schema_registry_cluster import *
 from .get_schema_registry_cluster_config import *
 from .get_schema_registry_cluster_mode import *
 from .get_schema_registry_region import *
+from .get_schemas import *
 from .get_service_account import *
 from .get_subject_config import *
 from .get_subject_mode import *
@@ -74,6 +77,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/apiKey:ApiKey": "ApiKey"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/byokKey",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/byokKey:ByokKey": "ByokKey"
   }
  },
  {

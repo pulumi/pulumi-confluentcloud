@@ -43,6 +43,36 @@ export interface ApiKeyOwner {
     kind: string;
 }
 
+export interface ByokKeyAws {
+    /**
+     * The Amazon Resource Name (ARN) of an AWS KMS key.
+     */
+    keyArn: string;
+    /**
+     * (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
+     */
+    roles: string[];
+}
+
+export interface ByokKeyAzure {
+    /**
+     * (Optional String) The Application ID created for this key-environment combination.
+     */
+    applicationId: string;
+    /**
+     * The unique Key Object Identifier URL of an Azure Key Vault key.
+     */
+    keyIdentifier: string;
+    /**
+     * Key Vault ID containing the key.
+     */
+    keyVaultId: string;
+    /**
+     * Tenant ID (uuid) hosting the Key Vault containing the key.
+     */
+    tenantId: string;
+}
+
 export interface ClusterLinkDestinationKafkaCluster {
     /**
      * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -111,6 +141,36 @@ export interface ConnectorKafkaCluster {
     id: string;
 }
 
+export interface GetByokKeyAw {
+    /**
+     * (Required String) The Amazon Resource Name (ARN) of an AWS KMS key.
+     */
+    keyArn: string;
+    /**
+     * (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment combination.
+     */
+    roles: string[];
+}
+
+export interface GetByokKeyAzure {
+    /**
+     * (Optional String) The Application ID created for this key-environment combination.
+     */
+    applicationId: string;
+    /**
+     * (Required String) The unique Key Object Identifier URL of an Azure Key Vault key.
+     */
+    keyIdentifier: string;
+    /**
+     * (Required String) Key Vault ID containing the key.
+     */
+    keyVaultId: string;
+    /**
+     * (Required String) Tenant ID (uuid) hosting the Key Vault containing the key.
+     */
+    tenantId: string;
+}
+
 export interface GetIdentityPoolIdentityProvider {
     /**
      * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
@@ -160,14 +220,18 @@ export interface GetKafkaClientQuotaThroughput {
 export interface GetKafkaClusterBasic {
 }
 
+export interface GetKafkaClusterByokKey {
+    /**
+     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
 export interface GetKafkaClusterDedicated {
     /**
      * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
      */
     cku: number;
-    /**
-     * (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
-     */
     encryptionKey: string;
     /**
      * (Required List of String) The list of zones the cluster is in.
@@ -479,6 +543,81 @@ export interface GetSchemaSchemaRegistryCluster {
     id: string;
 }
 
+export interface GetSchemasCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetSchemasFilter {
+    /**
+     * The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+     */
+    deleted?: boolean;
+    /**
+     * The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+     */
+    latestOnly?: boolean;
+    /**
+     * The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
+     */
+    subjectPrefix?: string;
+}
+
+export interface GetSchemasSchema {
+    /**
+     * (Required String) The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+     */
+    format: string;
+    /**
+     * (Required String) The schema string.
+     */
+    schema: string;
+    /**
+     * (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+     */
+    schemaIdentifier: number;
+    /**
+     * (Optional List) The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+     */
+    schemaReferences: outputs.GetSchemasSchemaSchemaReference[];
+    /**
+     * (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     */
+    subjectName: string;
+    /**
+     * (Required Integer) The version of the Schema, for example, `4`.
+     */
+    version: number;
+}
+
+export interface GetSchemasSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetSchemasSchemaSchemaReference {
+    /**
+     * (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+     */
+    name: string;
+    /**
+     * (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     */
+    subjectName: string;
+    /**
+     * (Required Integer) The version of the Schema, for example, `4`.
+     */
+    version: number;
+}
+
 export interface GetSubjectConfigCredentials {
     /**
      * The Schema Registry API Key.
@@ -615,6 +754,13 @@ export interface KafkaClientQuotaThroughput {
 export interface KafkaClusterBasic {
 }
 
+export interface KafkaClusterByokKey {
+    /**
+     * The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     */
+    id: string;
+}
+
 export interface KafkaClusterConfigCredentials {
     /**
      * The Kafka API Key.
@@ -638,9 +784,6 @@ export interface KafkaClusterDedicated {
      * The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
      */
     cku: number;
-    /**
-     * The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
-     */
     encryptionKey?: string;
     /**
      * (Required List of String) The list of zones the cluster is in.
@@ -653,14 +796,14 @@ export interface KafkaClusterDedicated {
 
 export interface KafkaClusterEnvironment {
     /**
-     * The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+     * The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
      */
     id: string;
 }
 
 export interface KafkaClusterNetwork {
     /**
-     * The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+     * The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
      */
     id: string;
 }

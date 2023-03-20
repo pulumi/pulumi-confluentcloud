@@ -61,6 +61,7 @@ export class KafkaCluster extends pulumi.CustomResource {
      * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     public /*out*/ readonly bootstrapEndpoint!: pulumi.Output<string>;
+    public readonly byokKey!: pulumi.Output<outputs.KafkaClusterByokKey>;
     /**
      * The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
@@ -120,6 +121,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["availability"] = state ? state.availability : undefined;
             resourceInputs["basic"] = state ? state.basic : undefined;
             resourceInputs["bootstrapEndpoint"] = state ? state.bootstrapEndpoint : undefined;
+            resourceInputs["byokKey"] = state ? state.byokKey : undefined;
             resourceInputs["cloud"] = state ? state.cloud : undefined;
             resourceInputs["dedicated"] = state ? state.dedicated : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
@@ -146,6 +148,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             }
             resourceInputs["availability"] = args ? args.availability : undefined;
             resourceInputs["basic"] = args ? args.basic : undefined;
+            resourceInputs["byokKey"] = args ? args.byokKey : undefined;
             resourceInputs["cloud"] = args ? args.cloud : undefined;
             resourceInputs["dedicated"] = args ? args.dedicated : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
@@ -184,6 +187,7 @@ export interface KafkaClusterState {
      * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: pulumi.Input<string>;
+    byokKey?: pulumi.Input<inputs.KafkaClusterByokKey>;
     /**
      * The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
@@ -239,6 +243,7 @@ export interface KafkaClusterArgs {
      * The configuration of the Basic Kafka cluster.
      */
     basic?: pulumi.Input<inputs.KafkaClusterBasic>;
+    byokKey?: pulumi.Input<inputs.KafkaClusterByokKey>;
     /**
      * The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */

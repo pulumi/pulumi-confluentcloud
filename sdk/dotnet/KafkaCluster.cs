@@ -47,6 +47,9 @@ namespace Pulumi.ConfluentCloud
         [Output("bootstrapEndpoint")]
         public Output<string> BootstrapEndpoint { get; private set; } = null!;
 
+        [Output("byokKey")]
+        public Output<Outputs.KafkaClusterByokKey> ByokKey { get; private set; } = null!;
+
         /// <summary>
         /// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         /// </summary>
@@ -166,6 +169,9 @@ namespace Pulumi.ConfluentCloud
         [Input("basic")]
         public Input<Inputs.KafkaClusterBasicArgs>? Basic { get; set; }
 
+        [Input("byokKey")]
+        public Input<Inputs.KafkaClusterByokKeyArgs>? ByokKey { get; set; }
+
         /// <summary>
         /// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         /// </summary>
@@ -240,6 +246,9 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("bootstrapEndpoint")]
         public Input<string>? BootstrapEndpoint { get; set; }
+
+        [Input("byokKey")]
+        public Input<Inputs.KafkaClusterByokKeyGetArgs>? ByokKey { get; set; }
 
         /// <summary>
         /// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.

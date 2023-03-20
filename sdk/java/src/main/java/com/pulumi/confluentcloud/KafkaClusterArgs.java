@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud;
 
 import com.pulumi.confluentcloud.inputs.KafkaClusterBasicArgs;
+import com.pulumi.confluentcloud.inputs.KafkaClusterByokKeyArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterDedicatedArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterNetworkArgs;
@@ -48,6 +49,13 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<KafkaClusterBasicArgs>> basic() {
         return Optional.ofNullable(this.basic);
+    }
+
+    @Import(name="byokKey")
+    private @Nullable Output<KafkaClusterByokKeyArgs> byokKey;
+
+    public Optional<Output<KafkaClusterByokKeyArgs>> byokKey() {
+        return Optional.ofNullable(this.byokKey);
     }
 
     /**
@@ -162,6 +170,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
     private KafkaClusterArgs(KafkaClusterArgs $) {
         this.availability = $.availability;
         this.basic = $.basic;
+        this.byokKey = $.byokKey;
         this.cloud = $.cloud;
         this.dedicated = $.dedicated;
         this.displayName = $.displayName;
@@ -229,6 +238,15 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder basic(KafkaClusterBasicArgs basic) {
             return basic(Output.of(basic));
+        }
+
+        public Builder byokKey(@Nullable Output<KafkaClusterByokKeyArgs> byokKey) {
+            $.byokKey = byokKey;
+            return this;
+        }
+
+        public Builder byokKey(KafkaClusterByokKeyArgs byokKey) {
+            return byokKey(Output.of(byokKey));
         }
 
         /**
