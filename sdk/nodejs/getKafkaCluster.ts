@@ -94,6 +94,10 @@ export interface GetKafkaClusterResult {
      */
     readonly bootstrapEndpoint: string;
     /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly byokKeys: outputs.GetKafkaClusterByokKey[];
+    /**
      * (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      */
     readonly cloud: string;
@@ -107,7 +111,7 @@ export interface GetKafkaClusterResult {
     readonly displayName: string;
     readonly environment: outputs.GetKafkaClusterEnvironment;
     /**
-     * (Required String) The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+     * (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
      */
     readonly id: string;
     /**

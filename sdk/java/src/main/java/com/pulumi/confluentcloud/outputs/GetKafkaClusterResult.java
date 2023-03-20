@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterBasic;
+import com.pulumi.confluentcloud.outputs.GetKafkaClusterByokKey;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterDedicated;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterEnvironment;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterNetwork;
@@ -38,6 +39,11 @@ public final class GetKafkaClusterResult {
      */
     private String bootstrapEndpoint;
     /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetKafkaClusterByokKey> byokKeys;
+    /**
      * @return (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      * 
      */
@@ -54,7 +60,7 @@ public final class GetKafkaClusterResult {
     private String displayName;
     private GetKafkaClusterEnvironment environment;
     /**
-     * @return (Required String) The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+     * @return (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
      * 
      */
     private String id;
@@ -119,6 +125,13 @@ public final class GetKafkaClusterResult {
         return this.bootstrapEndpoint;
     }
     /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetKafkaClusterByokKey> byokKeys() {
+        return this.byokKeys;
+    }
+    /**
      * @return (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      * 
      */
@@ -143,7 +156,7 @@ public final class GetKafkaClusterResult {
         return this.environment;
     }
     /**
-     * @return (Required String) The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+     * @return (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
      * 
      */
     public String id() {
@@ -205,6 +218,7 @@ public final class GetKafkaClusterResult {
         private String availability;
         private @Nullable List<GetKafkaClusterBasic> basics;
         private String bootstrapEndpoint;
+        private List<GetKafkaClusterByokKey> byokKeys;
         private String cloud;
         private @Nullable GetKafkaClusterDedicated dedicated;
         private String displayName;
@@ -223,6 +237,7 @@ public final class GetKafkaClusterResult {
     	      this.availability = defaults.availability;
     	      this.basics = defaults.basics;
     	      this.bootstrapEndpoint = defaults.bootstrapEndpoint;
+    	      this.byokKeys = defaults.byokKeys;
     	      this.cloud = defaults.cloud;
     	      this.dedicated = defaults.dedicated;
     	      this.displayName = defaults.displayName;
@@ -258,6 +273,14 @@ public final class GetKafkaClusterResult {
         public Builder bootstrapEndpoint(String bootstrapEndpoint) {
             this.bootstrapEndpoint = Objects.requireNonNull(bootstrapEndpoint);
             return this;
+        }
+        @CustomType.Setter
+        public Builder byokKeys(List<GetKafkaClusterByokKey> byokKeys) {
+            this.byokKeys = Objects.requireNonNull(byokKeys);
+            return this;
+        }
+        public Builder byokKeys(GetKafkaClusterByokKey... byokKeys) {
+            return byokKeys(List.of(byokKeys));
         }
         @CustomType.Setter
         public Builder cloud(String cloud) {
@@ -326,6 +349,7 @@ public final class GetKafkaClusterResult {
             o.availability = availability;
             o.basics = basics;
             o.bootstrapEndpoint = bootstrapEndpoint;
+            o.byokKeys = byokKeys;
             o.cloud = cloud;
             o.dedicated = dedicated;
             o.displayName = displayName;

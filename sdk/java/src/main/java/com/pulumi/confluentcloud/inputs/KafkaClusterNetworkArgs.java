@@ -14,14 +14,14 @@ public final class KafkaClusterNetworkArgs extends com.pulumi.resources.Resource
     public static final KafkaClusterNetworkArgs Empty = new KafkaClusterNetworkArgs();
 
     /**
-     * The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+     * The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+     * @return The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
      * 
      */
     public Output<String> id() {
@@ -53,7 +53,7 @@ public final class KafkaClusterNetworkArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param id The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+         * @param id The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class KafkaClusterNetworkArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param id The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+         * @param id The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
          * 
          * @return builder
          * 

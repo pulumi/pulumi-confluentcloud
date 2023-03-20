@@ -14,6 +14,8 @@ __all__ = [
     'ApiKeyManagedResource',
     'ApiKeyManagedResourceEnvironment',
     'ApiKeyOwner',
+    'ByokKeyAws',
+    'ByokKeyAzure',
     'ClusterLinkDestinationKafkaCluster',
     'ClusterLinkDestinationKafkaClusterCredentials',
     'ClusterLinkSourceKafkaCluster',
@@ -29,6 +31,7 @@ __all__ = [
     'KafkaClientQuotaKafkaCluster',
     'KafkaClientQuotaThroughput',
     'KafkaClusterBasic',
+    'KafkaClusterByokKey',
     'KafkaClusterConfigCredentials',
     'KafkaClusterConfigKafkaCluster',
     'KafkaClusterDedicated',
@@ -76,6 +79,8 @@ __all__ = [
     'TransitGatewayAttachmentAws',
     'TransitGatewayAttachmentEnvironment',
     'TransitGatewayAttachmentNetwork',
+    'GetByokKeyAwResult',
+    'GetByokKeyAzureResult',
     'GetIdentityPoolIdentityProviderResult',
     'GetInvitationCreatorResult',
     'GetInvitationUserResult',
@@ -83,6 +88,7 @@ __all__ = [
     'GetKafkaClientQuotaKafkaClusterResult',
     'GetKafkaClientQuotaThroughputResult',
     'GetKafkaClusterBasicResult',
+    'GetKafkaClusterByokKeyResult',
     'GetKafkaClusterDedicatedResult',
     'GetKafkaClusterEnvironmentResult',
     'GetKafkaClusterNetworkResult',
@@ -117,6 +123,11 @@ __all__ = [
     'GetSchemaRegistryClusterRegionResult',
     'GetSchemaSchemaReferenceResult',
     'GetSchemaSchemaRegistryClusterResult',
+    'GetSchemasCredentialsResult',
+    'GetSchemasFilterResult',
+    'GetSchemasSchemaResult',
+    'GetSchemasSchemaRegistryClusterResult',
+    'GetSchemasSchemaSchemaReferenceResult',
     'GetSubjectConfigCredentialsResult',
     'GetSubjectConfigSchemaRegistryClusterResult',
     'GetSubjectModeCredentialsResult',
@@ -263,6 +274,128 @@ class ApiKeyOwner(dict):
         The kind of the managed resource that the API Key associated with, for example, `Cluster`.
         """
         return pulumi.get(self, "kind")
+
+
+@pulumi.output_type
+class ByokKeyAws(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyArn":
+            suggest = "key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ByokKeyAws. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ByokKeyAws.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ByokKeyAws.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_arn: str,
+                 roles: Optional[Sequence[str]] = None):
+        """
+        :param str key_arn: The Amazon Resource Name (ARN) of an AWS KMS key.
+        :param Sequence[str] roles: (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
+        """
+        pulumi.set(__self__, "key_arn", key_arn)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+
+    @property
+    @pulumi.getter(name="keyArn")
+    def key_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of an AWS KMS key.
+        """
+        return pulumi.get(self, "key_arn")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[Sequence[str]]:
+        """
+        (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
+        """
+        return pulumi.get(self, "roles")
+
+
+@pulumi.output_type
+class ByokKeyAzure(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyIdentifier":
+            suggest = "key_identifier"
+        elif key == "keyVaultId":
+            suggest = "key_vault_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "applicationId":
+            suggest = "application_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ByokKeyAzure. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ByokKeyAzure.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ByokKeyAzure.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_identifier: str,
+                 key_vault_id: str,
+                 tenant_id: str,
+                 application_id: Optional[str] = None):
+        """
+        :param str key_identifier: The unique Key Object Identifier URL of an Azure Key Vault key.
+        :param str key_vault_id: Key Vault ID containing the key.
+        :param str tenant_id: Tenant ID (uuid) hosting the Key Vault containing the key.
+        :param str application_id: (Optional String) The Application ID created for this key-environment combination.
+        """
+        pulumi.set(__self__, "key_identifier", key_identifier)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> str:
+        """
+        The unique Key Object Identifier URL of an Azure Key Vault key.
+        """
+        return pulumi.get(self, "key_identifier")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        """
+        Key Vault ID containing the key.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Tenant ID (uuid) hosting the Key Vault containing the key.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[str]:
+        """
+        (Optional String) The Application ID created for this key-environment combination.
+        """
+        return pulumi.get(self, "application_id")
 
 
 @pulumi.output_type
@@ -691,6 +824,24 @@ class KafkaClusterBasic(dict):
 
 
 @pulumi.output_type
+class KafkaClusterByokKey(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class KafkaClusterConfigCredentials(dict):
     def __init__(__self__, *,
                  key: str,
@@ -762,7 +913,6 @@ class KafkaClusterDedicated(dict):
                  zones: Optional[Sequence[str]] = None):
         """
         :param int cku: The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-        :param str encryption_key: The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
         :param Sequence[str] zones: (Required List of String) The list of zones the cluster is in.
                On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
@@ -785,9 +935,6 @@ class KafkaClusterDedicated(dict):
     @property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> Optional[str]:
-        """
-        The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
-        """
         return pulumi.get(self, "encryption_key")
 
     @property
@@ -807,7 +954,7 @@ class KafkaClusterEnvironment(dict):
     def __init__(__self__, *,
                  id: str):
         """
-        :param str id: The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+        :param str id: The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -815,7 +962,7 @@ class KafkaClusterEnvironment(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+        The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
         """
         return pulumi.get(self, "id")
 
@@ -825,7 +972,7 @@ class KafkaClusterNetwork(dict):
     def __init__(__self__, *,
                  id: str):
         """
-        :param str id: The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+        :param str id: The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -833,7 +980,7 @@ class KafkaClusterNetwork(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+        The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
         """
         return pulumi.get(self, "id")
 
@@ -2094,6 +2241,86 @@ class TransitGatewayAttachmentNetwork(dict):
 
 
 @pulumi.output_type
+class GetByokKeyAwResult(dict):
+    def __init__(__self__, *,
+                 key_arn: str,
+                 roles: Sequence[str]):
+        """
+        :param str key_arn: (Required String) The Amazon Resource Name (ARN) of an AWS KMS key.
+        :param Sequence[str] roles: (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment combination.
+        """
+        pulumi.set(__self__, "key_arn", key_arn)
+        pulumi.set(__self__, "roles", roles)
+
+    @property
+    @pulumi.getter(name="keyArn")
+    def key_arn(self) -> str:
+        """
+        (Required String) The Amazon Resource Name (ARN) of an AWS KMS key.
+        """
+        return pulumi.get(self, "key_arn")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Sequence[str]:
+        """
+        (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment combination.
+        """
+        return pulumi.get(self, "roles")
+
+
+@pulumi.output_type
+class GetByokKeyAzureResult(dict):
+    def __init__(__self__, *,
+                 application_id: str,
+                 key_identifier: str,
+                 key_vault_id: str,
+                 tenant_id: str):
+        """
+        :param str application_id: (Optional String) The Application ID created for this key-environment combination.
+        :param str key_identifier: (Required String) The unique Key Object Identifier URL of an Azure Key Vault key.
+        :param str key_vault_id: (Required String) Key Vault ID containing the key.
+        :param str tenant_id: (Required String) Tenant ID (uuid) hosting the Key Vault containing the key.
+        """
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "key_identifier", key_identifier)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> str:
+        """
+        (Optional String) The Application ID created for this key-environment combination.
+        """
+        return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> str:
+        """
+        (Required String) The unique Key Object Identifier URL of an Azure Key Vault key.
+        """
+        return pulumi.get(self, "key_identifier")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        """
+        (Required String) Key Vault ID containing the key.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        (Required String) Tenant ID (uuid) hosting the Key Vault containing the key.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
 class GetIdentityPoolIdentityProviderResult(dict):
     def __init__(__self__, *,
                  id: str):
@@ -2219,6 +2446,24 @@ class GetKafkaClusterBasicResult(dict):
 
 
 @pulumi.output_type
+class GetKafkaClusterByokKeyResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class GetKafkaClusterDedicatedResult(dict):
     def __init__(__self__, *,
                  cku: int,
@@ -2226,7 +2471,6 @@ class GetKafkaClusterDedicatedResult(dict):
                  zones: Sequence[str]):
         """
         :param int cku: (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-        :param str encryption_key: (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
         :param Sequence[str] zones: (Required List of String) The list of zones the cluster is in.
                On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
@@ -2247,9 +2491,6 @@ class GetKafkaClusterDedicatedResult(dict):
     @property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> str:
-        """
-        (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
-        """
         return pulumi.get(self, "encryption_key")
 
     @property
@@ -3046,6 +3287,209 @@ class GetSchemaSchemaRegistryClusterResult(dict):
         The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetSchemasCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetSchemasFilterResult(dict):
+    def __init__(__self__, *,
+                 deleted: Optional[bool] = None,
+                 latest_only: Optional[bool] = None,
+                 subject_prefix: Optional[str] = None):
+        """
+        :param bool deleted: The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+        :param bool latest_only: The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+        :param str subject_prefix: The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
+        """
+        if deleted is not None:
+            pulumi.set(__self__, "deleted", deleted)
+        if latest_only is not None:
+            pulumi.set(__self__, "latest_only", latest_only)
+        if subject_prefix is not None:
+            pulumi.set(__self__, "subject_prefix", subject_prefix)
+
+    @property
+    @pulumi.getter
+    def deleted(self) -> Optional[bool]:
+        """
+        The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+        """
+        return pulumi.get(self, "deleted")
+
+    @property
+    @pulumi.getter(name="latestOnly")
+    def latest_only(self) -> Optional[bool]:
+        """
+        The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+        """
+        return pulumi.get(self, "latest_only")
+
+    @property
+    @pulumi.getter(name="subjectPrefix")
+    def subject_prefix(self) -> Optional[str]:
+        """
+        The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
+        """
+        return pulumi.get(self, "subject_prefix")
+
+
+@pulumi.output_type
+class GetSchemasSchemaResult(dict):
+    def __init__(__self__, *,
+                 format: str,
+                 schema: str,
+                 schema_identifier: int,
+                 schema_references: Sequence['outputs.GetSchemasSchemaSchemaReferenceResult'],
+                 subject_name: str,
+                 version: int):
+        """
+        :param str format: (Required String) The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+        :param str schema: (Required String) The schema string.
+        :param int schema_identifier: (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+        :param Sequence['GetSchemasSchemaSchemaReferenceArgs'] schema_references: (Optional List) The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+        :param str subject_name: (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        :param int version: (Required Integer) The version of the Schema, for example, `4`.
+        """
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "schema_identifier", schema_identifier)
+        pulumi.set(__self__, "schema_references", schema_references)
+        pulumi.set(__self__, "subject_name", subject_name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def format(self) -> str:
+        """
+        (Required String) The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        (Required String) The schema string.
+        """
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter(name="schemaIdentifier")
+    def schema_identifier(self) -> int:
+        """
+        (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+        """
+        return pulumi.get(self, "schema_identifier")
+
+    @property
+    @pulumi.getter(name="schemaReferences")
+    def schema_references(self) -> Sequence['outputs.GetSchemasSchemaSchemaReferenceResult']:
+        """
+        (Optional List) The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+        """
+        return pulumi.get(self, "schema_references")
+
+    @property
+    @pulumi.getter(name="subjectName")
+    def subject_name(self) -> str:
+        """
+        (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        """
+        return pulumi.get(self, "subject_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> int:
+        """
+        (Required Integer) The version of the Schema, for example, `4`.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class GetSchemasSchemaRegistryClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetSchemasSchemaSchemaReferenceResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 subject_name: str,
+                 version: int):
+        """
+        :param str name: (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+        :param str subject_name: (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        :param int version: (Required Integer) The version of the Schema, for example, `4`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "subject_name", subject_name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subjectName")
+    def subject_name(self) -> str:
+        """
+        (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        """
+        return pulumi.get(self, "subject_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> int:
+        """
+        (Required Integer) The version of the Schema, for example, `4`.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

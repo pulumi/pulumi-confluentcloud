@@ -23,7 +23,7 @@ class GetKafkaClusterResult:
     """
     A collection of values returned by getKafkaCluster.
     """
-    def __init__(__self__, api_version=None, availability=None, basics=None, bootstrap_endpoint=None, cloud=None, dedicated=None, display_name=None, environment=None, id=None, kind=None, networks=None, rbac_crn=None, region=None, rest_endpoint=None, standards=None):
+    def __init__(__self__, api_version=None, availability=None, basics=None, bootstrap_endpoint=None, byok_keys=None, cloud=None, dedicated=None, display_name=None, environment=None, id=None, kind=None, networks=None, rbac_crn=None, region=None, rest_endpoint=None, standards=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
@@ -36,6 +36,9 @@ class GetKafkaClusterResult:
         if bootstrap_endpoint and not isinstance(bootstrap_endpoint, str):
             raise TypeError("Expected argument 'bootstrap_endpoint' to be a str")
         pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+        if byok_keys and not isinstance(byok_keys, list):
+            raise TypeError("Expected argument 'byok_keys' to be a list")
+        pulumi.set(__self__, "byok_keys", byok_keys)
         if cloud and not isinstance(cloud, str):
             raise TypeError("Expected argument 'cloud' to be a str")
         pulumi.set(__self__, "cloud", cloud)
@@ -103,6 +106,14 @@ class GetKafkaClusterResult:
         return pulumi.get(self, "bootstrap_endpoint")
 
     @property
+    @pulumi.getter(name="byokKeys")
+    def byok_keys(self) -> Sequence['outputs.GetKafkaClusterByokKeyResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "byok_keys")
+
+    @property
     @pulumi.getter
     def cloud(self) -> str:
         """
@@ -135,7 +146,7 @@ class GetKafkaClusterResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        (Required String) The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+        (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
         """
         return pulumi.get(self, "id")
 
@@ -198,6 +209,7 @@ class AwaitableGetKafkaClusterResult(GetKafkaClusterResult):
             availability=self.availability,
             basics=self.basics,
             bootstrap_endpoint=self.bootstrap_endpoint,
+            byok_keys=self.byok_keys,
             cloud=self.cloud,
             dedicated=self.dedicated,
             display_name=self.display_name,
@@ -263,6 +275,7 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
         availability=__ret__.availability,
         basics=__ret__.basics,
         bootstrap_endpoint=__ret__.bootstrap_endpoint,
+        byok_keys=__ret__.byok_keys,
         cloud=__ret__.cloud,
         dedicated=__ret__.dedicated,
         display_name=__ret__.display_name,

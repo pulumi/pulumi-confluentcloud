@@ -512,6 +512,356 @@ func (o ApiKeyOwnerPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ByokKeyAws struct {
+	// The Amazon Resource Name (ARN) of an AWS KMS key.
+	KeyArn string `pulumi:"keyArn"`
+	// (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
+	Roles []string `pulumi:"roles"`
+}
+
+// ByokKeyAwsInput is an input type that accepts ByokKeyAwsArgs and ByokKeyAwsOutput values.
+// You can construct a concrete instance of `ByokKeyAwsInput` via:
+//
+//	ByokKeyAwsArgs{...}
+type ByokKeyAwsInput interface {
+	pulumi.Input
+
+	ToByokKeyAwsOutput() ByokKeyAwsOutput
+	ToByokKeyAwsOutputWithContext(context.Context) ByokKeyAwsOutput
+}
+
+type ByokKeyAwsArgs struct {
+	// The Amazon Resource Name (ARN) of an AWS KMS key.
+	KeyArn pulumi.StringInput `pulumi:"keyArn"`
+	// (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
+	Roles pulumi.StringArrayInput `pulumi:"roles"`
+}
+
+func (ByokKeyAwsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ByokKeyAws)(nil)).Elem()
+}
+
+func (i ByokKeyAwsArgs) ToByokKeyAwsOutput() ByokKeyAwsOutput {
+	return i.ToByokKeyAwsOutputWithContext(context.Background())
+}
+
+func (i ByokKeyAwsArgs) ToByokKeyAwsOutputWithContext(ctx context.Context) ByokKeyAwsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyAwsOutput)
+}
+
+func (i ByokKeyAwsArgs) ToByokKeyAwsPtrOutput() ByokKeyAwsPtrOutput {
+	return i.ToByokKeyAwsPtrOutputWithContext(context.Background())
+}
+
+func (i ByokKeyAwsArgs) ToByokKeyAwsPtrOutputWithContext(ctx context.Context) ByokKeyAwsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyAwsOutput).ToByokKeyAwsPtrOutputWithContext(ctx)
+}
+
+// ByokKeyAwsPtrInput is an input type that accepts ByokKeyAwsArgs, ByokKeyAwsPtr and ByokKeyAwsPtrOutput values.
+// You can construct a concrete instance of `ByokKeyAwsPtrInput` via:
+//
+//	        ByokKeyAwsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ByokKeyAwsPtrInput interface {
+	pulumi.Input
+
+	ToByokKeyAwsPtrOutput() ByokKeyAwsPtrOutput
+	ToByokKeyAwsPtrOutputWithContext(context.Context) ByokKeyAwsPtrOutput
+}
+
+type byokKeyAwsPtrType ByokKeyAwsArgs
+
+func ByokKeyAwsPtr(v *ByokKeyAwsArgs) ByokKeyAwsPtrInput {
+	return (*byokKeyAwsPtrType)(v)
+}
+
+func (*byokKeyAwsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ByokKeyAws)(nil)).Elem()
+}
+
+func (i *byokKeyAwsPtrType) ToByokKeyAwsPtrOutput() ByokKeyAwsPtrOutput {
+	return i.ToByokKeyAwsPtrOutputWithContext(context.Background())
+}
+
+func (i *byokKeyAwsPtrType) ToByokKeyAwsPtrOutputWithContext(ctx context.Context) ByokKeyAwsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyAwsPtrOutput)
+}
+
+type ByokKeyAwsOutput struct{ *pulumi.OutputState }
+
+func (ByokKeyAwsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ByokKeyAws)(nil)).Elem()
+}
+
+func (o ByokKeyAwsOutput) ToByokKeyAwsOutput() ByokKeyAwsOutput {
+	return o
+}
+
+func (o ByokKeyAwsOutput) ToByokKeyAwsOutputWithContext(ctx context.Context) ByokKeyAwsOutput {
+	return o
+}
+
+func (o ByokKeyAwsOutput) ToByokKeyAwsPtrOutput() ByokKeyAwsPtrOutput {
+	return o.ToByokKeyAwsPtrOutputWithContext(context.Background())
+}
+
+func (o ByokKeyAwsOutput) ToByokKeyAwsPtrOutputWithContext(ctx context.Context) ByokKeyAwsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ByokKeyAws) *ByokKeyAws {
+		return &v
+	}).(ByokKeyAwsPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of an AWS KMS key.
+func (o ByokKeyAwsOutput) KeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ByokKeyAws) string { return v.KeyArn }).(pulumi.StringOutput)
+}
+
+// (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
+func (o ByokKeyAwsOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ByokKeyAws) []string { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+type ByokKeyAwsPtrOutput struct{ *pulumi.OutputState }
+
+func (ByokKeyAwsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ByokKeyAws)(nil)).Elem()
+}
+
+func (o ByokKeyAwsPtrOutput) ToByokKeyAwsPtrOutput() ByokKeyAwsPtrOutput {
+	return o
+}
+
+func (o ByokKeyAwsPtrOutput) ToByokKeyAwsPtrOutputWithContext(ctx context.Context) ByokKeyAwsPtrOutput {
+	return o
+}
+
+func (o ByokKeyAwsPtrOutput) Elem() ByokKeyAwsOutput {
+	return o.ApplyT(func(v *ByokKeyAws) ByokKeyAws {
+		if v != nil {
+			return *v
+		}
+		var ret ByokKeyAws
+		return ret
+	}).(ByokKeyAwsOutput)
+}
+
+// The Amazon Resource Name (ARN) of an AWS KMS key.
+func (o ByokKeyAwsPtrOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ByokKeyAws) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
+func (o ByokKeyAwsPtrOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ByokKeyAws) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Roles
+	}).(pulumi.StringArrayOutput)
+}
+
+type ByokKeyAzure struct {
+	// (Optional String) The Application ID created for this key-environment combination.
+	ApplicationId *string `pulumi:"applicationId"`
+	// The unique Key Object Identifier URL of an Azure Key Vault key.
+	KeyIdentifier string `pulumi:"keyIdentifier"`
+	// Key Vault ID containing the key.
+	KeyVaultId string `pulumi:"keyVaultId"`
+	// Tenant ID (uuid) hosting the Key Vault containing the key.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// ByokKeyAzureInput is an input type that accepts ByokKeyAzureArgs and ByokKeyAzureOutput values.
+// You can construct a concrete instance of `ByokKeyAzureInput` via:
+//
+//	ByokKeyAzureArgs{...}
+type ByokKeyAzureInput interface {
+	pulumi.Input
+
+	ToByokKeyAzureOutput() ByokKeyAzureOutput
+	ToByokKeyAzureOutputWithContext(context.Context) ByokKeyAzureOutput
+}
+
+type ByokKeyAzureArgs struct {
+	// (Optional String) The Application ID created for this key-environment combination.
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+	// The unique Key Object Identifier URL of an Azure Key Vault key.
+	KeyIdentifier pulumi.StringInput `pulumi:"keyIdentifier"`
+	// Key Vault ID containing the key.
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	// Tenant ID (uuid) hosting the Key Vault containing the key.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (ByokKeyAzureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ByokKeyAzure)(nil)).Elem()
+}
+
+func (i ByokKeyAzureArgs) ToByokKeyAzureOutput() ByokKeyAzureOutput {
+	return i.ToByokKeyAzureOutputWithContext(context.Background())
+}
+
+func (i ByokKeyAzureArgs) ToByokKeyAzureOutputWithContext(ctx context.Context) ByokKeyAzureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyAzureOutput)
+}
+
+func (i ByokKeyAzureArgs) ToByokKeyAzurePtrOutput() ByokKeyAzurePtrOutput {
+	return i.ToByokKeyAzurePtrOutputWithContext(context.Background())
+}
+
+func (i ByokKeyAzureArgs) ToByokKeyAzurePtrOutputWithContext(ctx context.Context) ByokKeyAzurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyAzureOutput).ToByokKeyAzurePtrOutputWithContext(ctx)
+}
+
+// ByokKeyAzurePtrInput is an input type that accepts ByokKeyAzureArgs, ByokKeyAzurePtr and ByokKeyAzurePtrOutput values.
+// You can construct a concrete instance of `ByokKeyAzurePtrInput` via:
+//
+//	        ByokKeyAzureArgs{...}
+//
+//	or:
+//
+//	        nil
+type ByokKeyAzurePtrInput interface {
+	pulumi.Input
+
+	ToByokKeyAzurePtrOutput() ByokKeyAzurePtrOutput
+	ToByokKeyAzurePtrOutputWithContext(context.Context) ByokKeyAzurePtrOutput
+}
+
+type byokKeyAzurePtrType ByokKeyAzureArgs
+
+func ByokKeyAzurePtr(v *ByokKeyAzureArgs) ByokKeyAzurePtrInput {
+	return (*byokKeyAzurePtrType)(v)
+}
+
+func (*byokKeyAzurePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ByokKeyAzure)(nil)).Elem()
+}
+
+func (i *byokKeyAzurePtrType) ToByokKeyAzurePtrOutput() ByokKeyAzurePtrOutput {
+	return i.ToByokKeyAzurePtrOutputWithContext(context.Background())
+}
+
+func (i *byokKeyAzurePtrType) ToByokKeyAzurePtrOutputWithContext(ctx context.Context) ByokKeyAzurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyAzurePtrOutput)
+}
+
+type ByokKeyAzureOutput struct{ *pulumi.OutputState }
+
+func (ByokKeyAzureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ByokKeyAzure)(nil)).Elem()
+}
+
+func (o ByokKeyAzureOutput) ToByokKeyAzureOutput() ByokKeyAzureOutput {
+	return o
+}
+
+func (o ByokKeyAzureOutput) ToByokKeyAzureOutputWithContext(ctx context.Context) ByokKeyAzureOutput {
+	return o
+}
+
+func (o ByokKeyAzureOutput) ToByokKeyAzurePtrOutput() ByokKeyAzurePtrOutput {
+	return o.ToByokKeyAzurePtrOutputWithContext(context.Background())
+}
+
+func (o ByokKeyAzureOutput) ToByokKeyAzurePtrOutputWithContext(ctx context.Context) ByokKeyAzurePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ByokKeyAzure) *ByokKeyAzure {
+		return &v
+	}).(ByokKeyAzurePtrOutput)
+}
+
+// (Optional String) The Application ID created for this key-environment combination.
+func (o ByokKeyAzureOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ByokKeyAzure) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// The unique Key Object Identifier URL of an Azure Key Vault key.
+func (o ByokKeyAzureOutput) KeyIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ByokKeyAzure) string { return v.KeyIdentifier }).(pulumi.StringOutput)
+}
+
+// Key Vault ID containing the key.
+func (o ByokKeyAzureOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v ByokKeyAzure) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+// Tenant ID (uuid) hosting the Key Vault containing the key.
+func (o ByokKeyAzureOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ByokKeyAzure) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type ByokKeyAzurePtrOutput struct{ *pulumi.OutputState }
+
+func (ByokKeyAzurePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ByokKeyAzure)(nil)).Elem()
+}
+
+func (o ByokKeyAzurePtrOutput) ToByokKeyAzurePtrOutput() ByokKeyAzurePtrOutput {
+	return o
+}
+
+func (o ByokKeyAzurePtrOutput) ToByokKeyAzurePtrOutputWithContext(ctx context.Context) ByokKeyAzurePtrOutput {
+	return o
+}
+
+func (o ByokKeyAzurePtrOutput) Elem() ByokKeyAzureOutput {
+	return o.ApplyT(func(v *ByokKeyAzure) ByokKeyAzure {
+		if v != nil {
+			return *v
+		}
+		var ret ByokKeyAzure
+		return ret
+	}).(ByokKeyAzureOutput)
+}
+
+// (Optional String) The Application ID created for this key-environment combination.
+func (o ByokKeyAzurePtrOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ByokKeyAzure) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique Key Object Identifier URL of an Azure Key Vault key.
+func (o ByokKeyAzurePtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ByokKeyAzure) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key Vault ID containing the key.
+func (o ByokKeyAzurePtrOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ByokKeyAzure) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tenant ID (uuid) hosting the Key Vault containing the key.
+func (o ByokKeyAzurePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ByokKeyAzure) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterLinkDestinationKafkaCluster struct {
 	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint *string                                        `pulumi:"bootstrapEndpoint"`
@@ -2652,6 +3002,143 @@ func (o KafkaClusterBasicPtrOutput) Elem() KafkaClusterBasicOutput {
 	}).(KafkaClusterBasicOutput)
 }
 
+type KafkaClusterByokKey struct {
+	// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+	Id string `pulumi:"id"`
+}
+
+// KafkaClusterByokKeyInput is an input type that accepts KafkaClusterByokKeyArgs and KafkaClusterByokKeyOutput values.
+// You can construct a concrete instance of `KafkaClusterByokKeyInput` via:
+//
+//	KafkaClusterByokKeyArgs{...}
+type KafkaClusterByokKeyInput interface {
+	pulumi.Input
+
+	ToKafkaClusterByokKeyOutput() KafkaClusterByokKeyOutput
+	ToKafkaClusterByokKeyOutputWithContext(context.Context) KafkaClusterByokKeyOutput
+}
+
+type KafkaClusterByokKeyArgs struct {
+	// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (KafkaClusterByokKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterByokKey)(nil)).Elem()
+}
+
+func (i KafkaClusterByokKeyArgs) ToKafkaClusterByokKeyOutput() KafkaClusterByokKeyOutput {
+	return i.ToKafkaClusterByokKeyOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterByokKeyArgs) ToKafkaClusterByokKeyOutputWithContext(ctx context.Context) KafkaClusterByokKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterByokKeyOutput)
+}
+
+func (i KafkaClusterByokKeyArgs) ToKafkaClusterByokKeyPtrOutput() KafkaClusterByokKeyPtrOutput {
+	return i.ToKafkaClusterByokKeyPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterByokKeyArgs) ToKafkaClusterByokKeyPtrOutputWithContext(ctx context.Context) KafkaClusterByokKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterByokKeyOutput).ToKafkaClusterByokKeyPtrOutputWithContext(ctx)
+}
+
+// KafkaClusterByokKeyPtrInput is an input type that accepts KafkaClusterByokKeyArgs, KafkaClusterByokKeyPtr and KafkaClusterByokKeyPtrOutput values.
+// You can construct a concrete instance of `KafkaClusterByokKeyPtrInput` via:
+//
+//	        KafkaClusterByokKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type KafkaClusterByokKeyPtrInput interface {
+	pulumi.Input
+
+	ToKafkaClusterByokKeyPtrOutput() KafkaClusterByokKeyPtrOutput
+	ToKafkaClusterByokKeyPtrOutputWithContext(context.Context) KafkaClusterByokKeyPtrOutput
+}
+
+type kafkaClusterByokKeyPtrType KafkaClusterByokKeyArgs
+
+func KafkaClusterByokKeyPtr(v *KafkaClusterByokKeyArgs) KafkaClusterByokKeyPtrInput {
+	return (*kafkaClusterByokKeyPtrType)(v)
+}
+
+func (*kafkaClusterByokKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterByokKey)(nil)).Elem()
+}
+
+func (i *kafkaClusterByokKeyPtrType) ToKafkaClusterByokKeyPtrOutput() KafkaClusterByokKeyPtrOutput {
+	return i.ToKafkaClusterByokKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClusterByokKeyPtrType) ToKafkaClusterByokKeyPtrOutputWithContext(ctx context.Context) KafkaClusterByokKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterByokKeyPtrOutput)
+}
+
+type KafkaClusterByokKeyOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterByokKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterByokKey)(nil)).Elem()
+}
+
+func (o KafkaClusterByokKeyOutput) ToKafkaClusterByokKeyOutput() KafkaClusterByokKeyOutput {
+	return o
+}
+
+func (o KafkaClusterByokKeyOutput) ToKafkaClusterByokKeyOutputWithContext(ctx context.Context) KafkaClusterByokKeyOutput {
+	return o
+}
+
+func (o KafkaClusterByokKeyOutput) ToKafkaClusterByokKeyPtrOutput() KafkaClusterByokKeyPtrOutput {
+	return o.ToKafkaClusterByokKeyPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClusterByokKeyOutput) ToKafkaClusterByokKeyPtrOutputWithContext(ctx context.Context) KafkaClusterByokKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterByokKey) *KafkaClusterByokKey {
+		return &v
+	}).(KafkaClusterByokKeyPtrOutput)
+}
+
+// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+func (o KafkaClusterByokKeyOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterByokKey) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type KafkaClusterByokKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterByokKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterByokKey)(nil)).Elem()
+}
+
+func (o KafkaClusterByokKeyPtrOutput) ToKafkaClusterByokKeyPtrOutput() KafkaClusterByokKeyPtrOutput {
+	return o
+}
+
+func (o KafkaClusterByokKeyPtrOutput) ToKafkaClusterByokKeyPtrOutputWithContext(ctx context.Context) KafkaClusterByokKeyPtrOutput {
+	return o
+}
+
+func (o KafkaClusterByokKeyPtrOutput) Elem() KafkaClusterByokKeyOutput {
+	return o.ApplyT(func(v *KafkaClusterByokKey) KafkaClusterByokKey {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterByokKey
+		return ret
+	}).(KafkaClusterByokKeyOutput)
+}
+
+// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+func (o KafkaClusterByokKeyPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterByokKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type KafkaClusterConfigCredentials struct {
 	// The Kafka API Key.
 	Key string `pulumi:"key"`
@@ -2947,8 +3434,7 @@ func (o KafkaClusterConfigKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 
 type KafkaClusterDedicated struct {
 	// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-	Cku int `pulumi:"cku"`
-	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
+	Cku           int     `pulumi:"cku"`
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
 	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -2970,8 +3456,7 @@ type KafkaClusterDedicatedInput interface {
 
 type KafkaClusterDedicatedArgs struct {
 	// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-	Cku pulumi.IntInput `pulumi:"cku"`
-	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
+	Cku           pulumi.IntInput       `pulumi:"cku"`
 	EncryptionKey pulumi.StringPtrInput `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
 	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -3062,7 +3547,6 @@ func (o KafkaClusterDedicatedOutput) Cku() pulumi.IntOutput {
 	return o.ApplyT(func(v KafkaClusterDedicated) int { return v.Cku }).(pulumi.IntOutput)
 }
 
-// The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
 func (o KafkaClusterDedicatedOutput) EncryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterDedicated) *string { return v.EncryptionKey }).(pulumi.StringPtrOutput)
 }
@@ -3109,7 +3593,6 @@ func (o KafkaClusterDedicatedPtrOutput) Cku() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
 func (o KafkaClusterDedicatedPtrOutput) EncryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterDedicated) *string {
 		if v == nil {
@@ -3133,7 +3616,7 @@ func (o KafkaClusterDedicatedPtrOutput) Zones() pulumi.StringArrayOutput {
 }
 
 type KafkaClusterEnvironment struct {
-	// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+	// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 	Id string `pulumi:"id"`
 }
 
@@ -3149,7 +3632,7 @@ type KafkaClusterEnvironmentInput interface {
 }
 
 type KafkaClusterEnvironmentArgs struct {
-	// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+	// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -3230,7 +3713,7 @@ func (o KafkaClusterEnvironmentOutput) ToKafkaClusterEnvironmentPtrOutputWithCon
 	}).(KafkaClusterEnvironmentPtrOutput)
 }
 
-// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 func (o KafkaClusterEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -3259,7 +3742,7 @@ func (o KafkaClusterEnvironmentPtrOutput) Elem() KafkaClusterEnvironmentOutput {
 	}).(KafkaClusterEnvironmentOutput)
 }
 
-// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 func (o KafkaClusterEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterEnvironment) *string {
 		if v == nil {
@@ -3270,7 +3753,7 @@ func (o KafkaClusterEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type KafkaClusterNetwork struct {
-	// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+	// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 	Id string `pulumi:"id"`
 }
 
@@ -3286,7 +3769,7 @@ type KafkaClusterNetworkInput interface {
 }
 
 type KafkaClusterNetworkArgs struct {
-	// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+	// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -3367,7 +3850,7 @@ func (o KafkaClusterNetworkOutput) ToKafkaClusterNetworkPtrOutputWithContext(ctx
 	}).(KafkaClusterNetworkPtrOutput)
 }
 
-// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 func (o KafkaClusterNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterNetwork) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -3396,7 +3879,7 @@ func (o KafkaClusterNetworkPtrOutput) Elem() KafkaClusterNetworkOutput {
 	}).(KafkaClusterNetworkOutput)
 }
 
-// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 func (o KafkaClusterNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterNetwork) *string {
 		if v == nil {
@@ -9369,6 +9852,236 @@ func (o TransitGatewayAttachmentNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetByokKeyAw struct {
+	// (Required String) The Amazon Resource Name (ARN) of an AWS KMS key.
+	KeyArn string `pulumi:"keyArn"`
+	// (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment combination.
+	Roles []string `pulumi:"roles"`
+}
+
+// GetByokKeyAwInput is an input type that accepts GetByokKeyAwArgs and GetByokKeyAwOutput values.
+// You can construct a concrete instance of `GetByokKeyAwInput` via:
+//
+//	GetByokKeyAwArgs{...}
+type GetByokKeyAwInput interface {
+	pulumi.Input
+
+	ToGetByokKeyAwOutput() GetByokKeyAwOutput
+	ToGetByokKeyAwOutputWithContext(context.Context) GetByokKeyAwOutput
+}
+
+type GetByokKeyAwArgs struct {
+	// (Required String) The Amazon Resource Name (ARN) of an AWS KMS key.
+	KeyArn pulumi.StringInput `pulumi:"keyArn"`
+	// (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment combination.
+	Roles pulumi.StringArrayInput `pulumi:"roles"`
+}
+
+func (GetByokKeyAwArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetByokKeyAw)(nil)).Elem()
+}
+
+func (i GetByokKeyAwArgs) ToGetByokKeyAwOutput() GetByokKeyAwOutput {
+	return i.ToGetByokKeyAwOutputWithContext(context.Background())
+}
+
+func (i GetByokKeyAwArgs) ToGetByokKeyAwOutputWithContext(ctx context.Context) GetByokKeyAwOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetByokKeyAwOutput)
+}
+
+// GetByokKeyAwArrayInput is an input type that accepts GetByokKeyAwArray and GetByokKeyAwArrayOutput values.
+// You can construct a concrete instance of `GetByokKeyAwArrayInput` via:
+//
+//	GetByokKeyAwArray{ GetByokKeyAwArgs{...} }
+type GetByokKeyAwArrayInput interface {
+	pulumi.Input
+
+	ToGetByokKeyAwArrayOutput() GetByokKeyAwArrayOutput
+	ToGetByokKeyAwArrayOutputWithContext(context.Context) GetByokKeyAwArrayOutput
+}
+
+type GetByokKeyAwArray []GetByokKeyAwInput
+
+func (GetByokKeyAwArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetByokKeyAw)(nil)).Elem()
+}
+
+func (i GetByokKeyAwArray) ToGetByokKeyAwArrayOutput() GetByokKeyAwArrayOutput {
+	return i.ToGetByokKeyAwArrayOutputWithContext(context.Background())
+}
+
+func (i GetByokKeyAwArray) ToGetByokKeyAwArrayOutputWithContext(ctx context.Context) GetByokKeyAwArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetByokKeyAwArrayOutput)
+}
+
+type GetByokKeyAwOutput struct{ *pulumi.OutputState }
+
+func (GetByokKeyAwOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetByokKeyAw)(nil)).Elem()
+}
+
+func (o GetByokKeyAwOutput) ToGetByokKeyAwOutput() GetByokKeyAwOutput {
+	return o
+}
+
+func (o GetByokKeyAwOutput) ToGetByokKeyAwOutputWithContext(ctx context.Context) GetByokKeyAwOutput {
+	return o
+}
+
+// (Required String) The Amazon Resource Name (ARN) of an AWS KMS key.
+func (o GetByokKeyAwOutput) KeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetByokKeyAw) string { return v.KeyArn }).(pulumi.StringOutput)
+}
+
+// (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment combination.
+func (o GetByokKeyAwOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetByokKeyAw) []string { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+type GetByokKeyAwArrayOutput struct{ *pulumi.OutputState }
+
+func (GetByokKeyAwArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetByokKeyAw)(nil)).Elem()
+}
+
+func (o GetByokKeyAwArrayOutput) ToGetByokKeyAwArrayOutput() GetByokKeyAwArrayOutput {
+	return o
+}
+
+func (o GetByokKeyAwArrayOutput) ToGetByokKeyAwArrayOutputWithContext(ctx context.Context) GetByokKeyAwArrayOutput {
+	return o
+}
+
+func (o GetByokKeyAwArrayOutput) Index(i pulumi.IntInput) GetByokKeyAwOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetByokKeyAw {
+		return vs[0].([]GetByokKeyAw)[vs[1].(int)]
+	}).(GetByokKeyAwOutput)
+}
+
+type GetByokKeyAzure struct {
+	// (Optional String) The Application ID created for this key-environment combination.
+	ApplicationId string `pulumi:"applicationId"`
+	// (Required String) The unique Key Object Identifier URL of an Azure Key Vault key.
+	KeyIdentifier string `pulumi:"keyIdentifier"`
+	// (Required String) Key Vault ID containing the key.
+	KeyVaultId string `pulumi:"keyVaultId"`
+	// (Required String) Tenant ID (uuid) hosting the Key Vault containing the key.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// GetByokKeyAzureInput is an input type that accepts GetByokKeyAzureArgs and GetByokKeyAzureOutput values.
+// You can construct a concrete instance of `GetByokKeyAzureInput` via:
+//
+//	GetByokKeyAzureArgs{...}
+type GetByokKeyAzureInput interface {
+	pulumi.Input
+
+	ToGetByokKeyAzureOutput() GetByokKeyAzureOutput
+	ToGetByokKeyAzureOutputWithContext(context.Context) GetByokKeyAzureOutput
+}
+
+type GetByokKeyAzureArgs struct {
+	// (Optional String) The Application ID created for this key-environment combination.
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// (Required String) The unique Key Object Identifier URL of an Azure Key Vault key.
+	KeyIdentifier pulumi.StringInput `pulumi:"keyIdentifier"`
+	// (Required String) Key Vault ID containing the key.
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	// (Required String) Tenant ID (uuid) hosting the Key Vault containing the key.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (GetByokKeyAzureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetByokKeyAzure)(nil)).Elem()
+}
+
+func (i GetByokKeyAzureArgs) ToGetByokKeyAzureOutput() GetByokKeyAzureOutput {
+	return i.ToGetByokKeyAzureOutputWithContext(context.Background())
+}
+
+func (i GetByokKeyAzureArgs) ToGetByokKeyAzureOutputWithContext(ctx context.Context) GetByokKeyAzureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetByokKeyAzureOutput)
+}
+
+// GetByokKeyAzureArrayInput is an input type that accepts GetByokKeyAzureArray and GetByokKeyAzureArrayOutput values.
+// You can construct a concrete instance of `GetByokKeyAzureArrayInput` via:
+//
+//	GetByokKeyAzureArray{ GetByokKeyAzureArgs{...} }
+type GetByokKeyAzureArrayInput interface {
+	pulumi.Input
+
+	ToGetByokKeyAzureArrayOutput() GetByokKeyAzureArrayOutput
+	ToGetByokKeyAzureArrayOutputWithContext(context.Context) GetByokKeyAzureArrayOutput
+}
+
+type GetByokKeyAzureArray []GetByokKeyAzureInput
+
+func (GetByokKeyAzureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetByokKeyAzure)(nil)).Elem()
+}
+
+func (i GetByokKeyAzureArray) ToGetByokKeyAzureArrayOutput() GetByokKeyAzureArrayOutput {
+	return i.ToGetByokKeyAzureArrayOutputWithContext(context.Background())
+}
+
+func (i GetByokKeyAzureArray) ToGetByokKeyAzureArrayOutputWithContext(ctx context.Context) GetByokKeyAzureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetByokKeyAzureArrayOutput)
+}
+
+type GetByokKeyAzureOutput struct{ *pulumi.OutputState }
+
+func (GetByokKeyAzureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetByokKeyAzure)(nil)).Elem()
+}
+
+func (o GetByokKeyAzureOutput) ToGetByokKeyAzureOutput() GetByokKeyAzureOutput {
+	return o
+}
+
+func (o GetByokKeyAzureOutput) ToGetByokKeyAzureOutputWithContext(ctx context.Context) GetByokKeyAzureOutput {
+	return o
+}
+
+// (Optional String) The Application ID created for this key-environment combination.
+func (o GetByokKeyAzureOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetByokKeyAzure) string { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// (Required String) The unique Key Object Identifier URL of an Azure Key Vault key.
+func (o GetByokKeyAzureOutput) KeyIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetByokKeyAzure) string { return v.KeyIdentifier }).(pulumi.StringOutput)
+}
+
+// (Required String) Key Vault ID containing the key.
+func (o GetByokKeyAzureOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetByokKeyAzure) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+// (Required String) Tenant ID (uuid) hosting the Key Vault containing the key.
+func (o GetByokKeyAzureOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetByokKeyAzure) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type GetByokKeyAzureArrayOutput struct{ *pulumi.OutputState }
+
+func (GetByokKeyAzureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetByokKeyAzure)(nil)).Elem()
+}
+
+func (o GetByokKeyAzureArrayOutput) ToGetByokKeyAzureArrayOutput() GetByokKeyAzureArrayOutput {
+	return o
+}
+
+func (o GetByokKeyAzureArrayOutput) ToGetByokKeyAzureArrayOutputWithContext(ctx context.Context) GetByokKeyAzureArrayOutput {
+	return o
+}
+
+func (o GetByokKeyAzureArrayOutput) Index(i pulumi.IntInput) GetByokKeyAzureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetByokKeyAzure {
+		return vs[0].([]GetByokKeyAzure)[vs[1].(int)]
+	}).(GetByokKeyAzureOutput)
+}
+
 type GetIdentityPoolIdentityProvider struct {
 	// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
 	Id string `pulumi:"id"`
@@ -10003,10 +10716,106 @@ func (o GetKafkaClusterBasicArrayOutput) Index(i pulumi.IntInput) GetKafkaCluste
 	}).(GetKafkaClusterBasicOutput)
 }
 
+type GetKafkaClusterByokKey struct {
+	// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetKafkaClusterByokKeyInput is an input type that accepts GetKafkaClusterByokKeyArgs and GetKafkaClusterByokKeyOutput values.
+// You can construct a concrete instance of `GetKafkaClusterByokKeyInput` via:
+//
+//	GetKafkaClusterByokKeyArgs{...}
+type GetKafkaClusterByokKeyInput interface {
+	pulumi.Input
+
+	ToGetKafkaClusterByokKeyOutput() GetKafkaClusterByokKeyOutput
+	ToGetKafkaClusterByokKeyOutputWithContext(context.Context) GetKafkaClusterByokKeyOutput
+}
+
+type GetKafkaClusterByokKeyArgs struct {
+	// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetKafkaClusterByokKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClusterByokKey)(nil)).Elem()
+}
+
+func (i GetKafkaClusterByokKeyArgs) ToGetKafkaClusterByokKeyOutput() GetKafkaClusterByokKeyOutput {
+	return i.ToGetKafkaClusterByokKeyOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClusterByokKeyArgs) ToGetKafkaClusterByokKeyOutputWithContext(ctx context.Context) GetKafkaClusterByokKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterByokKeyOutput)
+}
+
+// GetKafkaClusterByokKeyArrayInput is an input type that accepts GetKafkaClusterByokKeyArray and GetKafkaClusterByokKeyArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClusterByokKeyArrayInput` via:
+//
+//	GetKafkaClusterByokKeyArray{ GetKafkaClusterByokKeyArgs{...} }
+type GetKafkaClusterByokKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClusterByokKeyArrayOutput() GetKafkaClusterByokKeyArrayOutput
+	ToGetKafkaClusterByokKeyArrayOutputWithContext(context.Context) GetKafkaClusterByokKeyArrayOutput
+}
+
+type GetKafkaClusterByokKeyArray []GetKafkaClusterByokKeyInput
+
+func (GetKafkaClusterByokKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClusterByokKey)(nil)).Elem()
+}
+
+func (i GetKafkaClusterByokKeyArray) ToGetKafkaClusterByokKeyArrayOutput() GetKafkaClusterByokKeyArrayOutput {
+	return i.ToGetKafkaClusterByokKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClusterByokKeyArray) ToGetKafkaClusterByokKeyArrayOutputWithContext(ctx context.Context) GetKafkaClusterByokKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterByokKeyArrayOutput)
+}
+
+type GetKafkaClusterByokKeyOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClusterByokKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClusterByokKey)(nil)).Elem()
+}
+
+func (o GetKafkaClusterByokKeyOutput) ToGetKafkaClusterByokKeyOutput() GetKafkaClusterByokKeyOutput {
+	return o
+}
+
+func (o GetKafkaClusterByokKeyOutput) ToGetKafkaClusterByokKeyOutputWithContext(ctx context.Context) GetKafkaClusterByokKeyOutput {
+	return o
+}
+
+// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+func (o GetKafkaClusterByokKeyOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKafkaClusterByokKey) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetKafkaClusterByokKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClusterByokKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClusterByokKey)(nil)).Elem()
+}
+
+func (o GetKafkaClusterByokKeyArrayOutput) ToGetKafkaClusterByokKeyArrayOutput() GetKafkaClusterByokKeyArrayOutput {
+	return o
+}
+
+func (o GetKafkaClusterByokKeyArrayOutput) ToGetKafkaClusterByokKeyArrayOutputWithContext(ctx context.Context) GetKafkaClusterByokKeyArrayOutput {
+	return o
+}
+
+func (o GetKafkaClusterByokKeyArrayOutput) Index(i pulumi.IntInput) GetKafkaClusterByokKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClusterByokKey {
+		return vs[0].([]GetKafkaClusterByokKey)[vs[1].(int)]
+	}).(GetKafkaClusterByokKeyOutput)
+}
+
 type GetKafkaClusterDedicated struct {
 	// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-	Cku int `pulumi:"cku"`
-	// (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
+	Cku           int    `pulumi:"cku"`
 	EncryptionKey string `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
 	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -10028,8 +10837,7 @@ type GetKafkaClusterDedicatedInput interface {
 
 type GetKafkaClusterDedicatedArgs struct {
 	// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-	Cku pulumi.IntInput `pulumi:"cku"`
-	// (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
+	Cku           pulumi.IntInput    `pulumi:"cku"`
 	EncryptionKey pulumi.StringInput `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
 	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -10120,7 +10928,6 @@ func (o GetKafkaClusterDedicatedOutput) Cku() pulumi.IntOutput {
 	return o.ApplyT(func(v GetKafkaClusterDedicated) int { return v.Cku }).(pulumi.IntOutput)
 }
 
-// (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
 func (o GetKafkaClusterDedicatedOutput) EncryptionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaClusterDedicated) string { return v.EncryptionKey }).(pulumi.StringOutput)
 }
@@ -10167,7 +10974,6 @@ func (o GetKafkaClusterDedicatedPtrOutput) Cku() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
 func (o GetKafkaClusterDedicatedPtrOutput) EncryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetKafkaClusterDedicated) *string {
 		if v == nil {
@@ -13640,6 +14446,731 @@ func (o GetSchemaSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetSchemasCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// GetSchemasCredentialsInput is an input type that accepts GetSchemasCredentialsArgs and GetSchemasCredentialsOutput values.
+// You can construct a concrete instance of `GetSchemasCredentialsInput` via:
+//
+//	GetSchemasCredentialsArgs{...}
+type GetSchemasCredentialsInput interface {
+	pulumi.Input
+
+	ToGetSchemasCredentialsOutput() GetSchemasCredentialsOutput
+	ToGetSchemasCredentialsOutputWithContext(context.Context) GetSchemasCredentialsOutput
+}
+
+type GetSchemasCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetSchemasCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemasCredentials)(nil)).Elem()
+}
+
+func (i GetSchemasCredentialsArgs) ToGetSchemasCredentialsOutput() GetSchemasCredentialsOutput {
+	return i.ToGetSchemasCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetSchemasCredentialsArgs) ToGetSchemasCredentialsOutputWithContext(ctx context.Context) GetSchemasCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasCredentialsOutput)
+}
+
+func (i GetSchemasCredentialsArgs) ToGetSchemasCredentialsPtrOutput() GetSchemasCredentialsPtrOutput {
+	return i.ToGetSchemasCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetSchemasCredentialsArgs) ToGetSchemasCredentialsPtrOutputWithContext(ctx context.Context) GetSchemasCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasCredentialsOutput).ToGetSchemasCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetSchemasCredentialsPtrInput is an input type that accepts GetSchemasCredentialsArgs, GetSchemasCredentialsPtr and GetSchemasCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetSchemasCredentialsPtrInput` via:
+//
+//	        GetSchemasCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSchemasCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetSchemasCredentialsPtrOutput() GetSchemasCredentialsPtrOutput
+	ToGetSchemasCredentialsPtrOutputWithContext(context.Context) GetSchemasCredentialsPtrOutput
+}
+
+type getSchemasCredentialsPtrType GetSchemasCredentialsArgs
+
+func GetSchemasCredentialsPtr(v *GetSchemasCredentialsArgs) GetSchemasCredentialsPtrInput {
+	return (*getSchemasCredentialsPtrType)(v)
+}
+
+func (*getSchemasCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemasCredentials)(nil)).Elem()
+}
+
+func (i *getSchemasCredentialsPtrType) ToGetSchemasCredentialsPtrOutput() GetSchemasCredentialsPtrOutput {
+	return i.ToGetSchemasCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getSchemasCredentialsPtrType) ToGetSchemasCredentialsPtrOutputWithContext(ctx context.Context) GetSchemasCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasCredentialsPtrOutput)
+}
+
+type GetSchemasCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetSchemasCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemasCredentials)(nil)).Elem()
+}
+
+func (o GetSchemasCredentialsOutput) ToGetSchemasCredentialsOutput() GetSchemasCredentialsOutput {
+	return o
+}
+
+func (o GetSchemasCredentialsOutput) ToGetSchemasCredentialsOutputWithContext(ctx context.Context) GetSchemasCredentialsOutput {
+	return o
+}
+
+func (o GetSchemasCredentialsOutput) ToGetSchemasCredentialsPtrOutput() GetSchemasCredentialsPtrOutput {
+	return o.ToGetSchemasCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetSchemasCredentialsOutput) ToGetSchemasCredentialsPtrOutputWithContext(ctx context.Context) GetSchemasCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSchemasCredentials) *GetSchemasCredentials {
+		return &v
+	}).(GetSchemasCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetSchemasCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemasCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetSchemasCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemasCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetSchemasCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSchemasCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemasCredentials)(nil)).Elem()
+}
+
+func (o GetSchemasCredentialsPtrOutput) ToGetSchemasCredentialsPtrOutput() GetSchemasCredentialsPtrOutput {
+	return o
+}
+
+func (o GetSchemasCredentialsPtrOutput) ToGetSchemasCredentialsPtrOutputWithContext(ctx context.Context) GetSchemasCredentialsPtrOutput {
+	return o
+}
+
+func (o GetSchemasCredentialsPtrOutput) Elem() GetSchemasCredentialsOutput {
+	return o.ApplyT(func(v *GetSchemasCredentials) GetSchemasCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetSchemasCredentials
+		return ret
+	}).(GetSchemasCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetSchemasCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSchemasCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetSchemasCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSchemasCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSchemasFilter struct {
+	// The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+	Deleted *bool `pulumi:"deleted"`
+	// The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+	LatestOnly *bool `pulumi:"latestOnly"`
+	// The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
+	SubjectPrefix *string `pulumi:"subjectPrefix"`
+}
+
+// GetSchemasFilterInput is an input type that accepts GetSchemasFilterArgs and GetSchemasFilterOutput values.
+// You can construct a concrete instance of `GetSchemasFilterInput` via:
+//
+//	GetSchemasFilterArgs{...}
+type GetSchemasFilterInput interface {
+	pulumi.Input
+
+	ToGetSchemasFilterOutput() GetSchemasFilterOutput
+	ToGetSchemasFilterOutputWithContext(context.Context) GetSchemasFilterOutput
+}
+
+type GetSchemasFilterArgs struct {
+	// The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+	Deleted pulumi.BoolPtrInput `pulumi:"deleted"`
+	// The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+	LatestOnly pulumi.BoolPtrInput `pulumi:"latestOnly"`
+	// The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
+	SubjectPrefix pulumi.StringPtrInput `pulumi:"subjectPrefix"`
+}
+
+func (GetSchemasFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemasFilter)(nil)).Elem()
+}
+
+func (i GetSchemasFilterArgs) ToGetSchemasFilterOutput() GetSchemasFilterOutput {
+	return i.ToGetSchemasFilterOutputWithContext(context.Background())
+}
+
+func (i GetSchemasFilterArgs) ToGetSchemasFilterOutputWithContext(ctx context.Context) GetSchemasFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasFilterOutput)
+}
+
+func (i GetSchemasFilterArgs) ToGetSchemasFilterPtrOutput() GetSchemasFilterPtrOutput {
+	return i.ToGetSchemasFilterPtrOutputWithContext(context.Background())
+}
+
+func (i GetSchemasFilterArgs) ToGetSchemasFilterPtrOutputWithContext(ctx context.Context) GetSchemasFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasFilterOutput).ToGetSchemasFilterPtrOutputWithContext(ctx)
+}
+
+// GetSchemasFilterPtrInput is an input type that accepts GetSchemasFilterArgs, GetSchemasFilterPtr and GetSchemasFilterPtrOutput values.
+// You can construct a concrete instance of `GetSchemasFilterPtrInput` via:
+//
+//	        GetSchemasFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSchemasFilterPtrInput interface {
+	pulumi.Input
+
+	ToGetSchemasFilterPtrOutput() GetSchemasFilterPtrOutput
+	ToGetSchemasFilterPtrOutputWithContext(context.Context) GetSchemasFilterPtrOutput
+}
+
+type getSchemasFilterPtrType GetSchemasFilterArgs
+
+func GetSchemasFilterPtr(v *GetSchemasFilterArgs) GetSchemasFilterPtrInput {
+	return (*getSchemasFilterPtrType)(v)
+}
+
+func (*getSchemasFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemasFilter)(nil)).Elem()
+}
+
+func (i *getSchemasFilterPtrType) ToGetSchemasFilterPtrOutput() GetSchemasFilterPtrOutput {
+	return i.ToGetSchemasFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *getSchemasFilterPtrType) ToGetSchemasFilterPtrOutputWithContext(ctx context.Context) GetSchemasFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasFilterPtrOutput)
+}
+
+type GetSchemasFilterOutput struct{ *pulumi.OutputState }
+
+func (GetSchemasFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemasFilter)(nil)).Elem()
+}
+
+func (o GetSchemasFilterOutput) ToGetSchemasFilterOutput() GetSchemasFilterOutput {
+	return o
+}
+
+func (o GetSchemasFilterOutput) ToGetSchemasFilterOutputWithContext(ctx context.Context) GetSchemasFilterOutput {
+	return o
+}
+
+func (o GetSchemasFilterOutput) ToGetSchemasFilterPtrOutput() GetSchemasFilterPtrOutput {
+	return o.ToGetSchemasFilterPtrOutputWithContext(context.Background())
+}
+
+func (o GetSchemasFilterOutput) ToGetSchemasFilterPtrOutputWithContext(ctx context.Context) GetSchemasFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSchemasFilter) *GetSchemasFilter {
+		return &v
+	}).(GetSchemasFilterPtrOutput)
+}
+
+// The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+func (o GetSchemasFilterOutput) Deleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetSchemasFilter) *bool { return v.Deleted }).(pulumi.BoolPtrOutput)
+}
+
+// The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+func (o GetSchemasFilterOutput) LatestOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetSchemasFilter) *bool { return v.LatestOnly }).(pulumi.BoolPtrOutput)
+}
+
+// The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
+func (o GetSchemasFilterOutput) SubjectPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSchemasFilter) *string { return v.SubjectPrefix }).(pulumi.StringPtrOutput)
+}
+
+type GetSchemasFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSchemasFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemasFilter)(nil)).Elem()
+}
+
+func (o GetSchemasFilterPtrOutput) ToGetSchemasFilterPtrOutput() GetSchemasFilterPtrOutput {
+	return o
+}
+
+func (o GetSchemasFilterPtrOutput) ToGetSchemasFilterPtrOutputWithContext(ctx context.Context) GetSchemasFilterPtrOutput {
+	return o
+}
+
+func (o GetSchemasFilterPtrOutput) Elem() GetSchemasFilterOutput {
+	return o.ApplyT(func(v *GetSchemasFilter) GetSchemasFilter {
+		if v != nil {
+			return *v
+		}
+		var ret GetSchemasFilter
+		return ret
+	}).(GetSchemasFilterOutput)
+}
+
+// The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+func (o GetSchemasFilterPtrOutput) Deleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetSchemasFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Deleted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+func (o GetSchemasFilterPtrOutput) LatestOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetSchemasFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LatestOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
+func (o GetSchemasFilterPtrOutput) SubjectPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSchemasFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSchemasSchema struct {
+	// (Required String) The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+	Format string `pulumi:"format"`
+	// (Required String) The schema string.
+	Schema string `pulumi:"schema"`
+	// (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+	SchemaIdentifier int `pulumi:"schemaIdentifier"`
+	// (Optional List) The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+	SchemaReferences []GetSchemasSchemaSchemaReference `pulumi:"schemaReferences"`
+	// (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+	SubjectName string `pulumi:"subjectName"`
+	// (Required Integer) The version of the Schema, for example, `4`.
+	Version int `pulumi:"version"`
+}
+
+// GetSchemasSchemaInput is an input type that accepts GetSchemasSchemaArgs and GetSchemasSchemaOutput values.
+// You can construct a concrete instance of `GetSchemasSchemaInput` via:
+//
+//	GetSchemasSchemaArgs{...}
+type GetSchemasSchemaInput interface {
+	pulumi.Input
+
+	ToGetSchemasSchemaOutput() GetSchemasSchemaOutput
+	ToGetSchemasSchemaOutputWithContext(context.Context) GetSchemasSchemaOutput
+}
+
+type GetSchemasSchemaArgs struct {
+	// (Required String) The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+	Format pulumi.StringInput `pulumi:"format"`
+	// (Required String) The schema string.
+	Schema pulumi.StringInput `pulumi:"schema"`
+	// (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+	SchemaIdentifier pulumi.IntInput `pulumi:"schemaIdentifier"`
+	// (Optional List) The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+	SchemaReferences GetSchemasSchemaSchemaReferenceArrayInput `pulumi:"schemaReferences"`
+	// (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+	SubjectName pulumi.StringInput `pulumi:"subjectName"`
+	// (Required Integer) The version of the Schema, for example, `4`.
+	Version pulumi.IntInput `pulumi:"version"`
+}
+
+func (GetSchemasSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemasSchema)(nil)).Elem()
+}
+
+func (i GetSchemasSchemaArgs) ToGetSchemasSchemaOutput() GetSchemasSchemaOutput {
+	return i.ToGetSchemasSchemaOutputWithContext(context.Background())
+}
+
+func (i GetSchemasSchemaArgs) ToGetSchemasSchemaOutputWithContext(ctx context.Context) GetSchemasSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaOutput)
+}
+
+// GetSchemasSchemaArrayInput is an input type that accepts GetSchemasSchemaArray and GetSchemasSchemaArrayOutput values.
+// You can construct a concrete instance of `GetSchemasSchemaArrayInput` via:
+//
+//	GetSchemasSchemaArray{ GetSchemasSchemaArgs{...} }
+type GetSchemasSchemaArrayInput interface {
+	pulumi.Input
+
+	ToGetSchemasSchemaArrayOutput() GetSchemasSchemaArrayOutput
+	ToGetSchemasSchemaArrayOutputWithContext(context.Context) GetSchemasSchemaArrayOutput
+}
+
+type GetSchemasSchemaArray []GetSchemasSchemaInput
+
+func (GetSchemasSchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemasSchema)(nil)).Elem()
+}
+
+func (i GetSchemasSchemaArray) ToGetSchemasSchemaArrayOutput() GetSchemasSchemaArrayOutput {
+	return i.ToGetSchemasSchemaArrayOutputWithContext(context.Background())
+}
+
+func (i GetSchemasSchemaArray) ToGetSchemasSchemaArrayOutputWithContext(ctx context.Context) GetSchemasSchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaArrayOutput)
+}
+
+type GetSchemasSchemaOutput struct{ *pulumi.OutputState }
+
+func (GetSchemasSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemasSchema)(nil)).Elem()
+}
+
+func (o GetSchemasSchemaOutput) ToGetSchemasSchemaOutput() GetSchemasSchemaOutput {
+	return o
+}
+
+func (o GetSchemasSchemaOutput) ToGetSchemasSchemaOutputWithContext(ctx context.Context) GetSchemasSchemaOutput {
+	return o
+}
+
+// (Required String) The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
+func (o GetSchemasSchemaOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemasSchema) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// (Required String) The schema string.
+func (o GetSchemasSchemaOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemasSchema) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+// (Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.
+func (o GetSchemasSchemaOutput) SchemaIdentifier() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSchemasSchema) int { return v.SchemaIdentifier }).(pulumi.IntOutput)
+}
+
+// (Optional List) The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
+func (o GetSchemasSchemaOutput) SchemaReferences() GetSchemasSchemaSchemaReferenceArrayOutput {
+	return o.ApplyT(func(v GetSchemasSchema) []GetSchemasSchemaSchemaReference { return v.SchemaReferences }).(GetSchemasSchemaSchemaReferenceArrayOutput)
+}
+
+// (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+func (o GetSchemasSchemaOutput) SubjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemasSchema) string { return v.SubjectName }).(pulumi.StringOutput)
+}
+
+// (Required Integer) The version of the Schema, for example, `4`.
+func (o GetSchemasSchemaOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSchemasSchema) int { return v.Version }).(pulumi.IntOutput)
+}
+
+type GetSchemasSchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSchemasSchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemasSchema)(nil)).Elem()
+}
+
+func (o GetSchemasSchemaArrayOutput) ToGetSchemasSchemaArrayOutput() GetSchemasSchemaArrayOutput {
+	return o
+}
+
+func (o GetSchemasSchemaArrayOutput) ToGetSchemasSchemaArrayOutputWithContext(ctx context.Context) GetSchemasSchemaArrayOutput {
+	return o
+}
+
+func (o GetSchemasSchemaArrayOutput) Index(i pulumi.IntInput) GetSchemasSchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSchemasSchema {
+		return vs[0].([]GetSchemasSchema)[vs[1].(int)]
+	}).(GetSchemasSchemaOutput)
+}
+
+type GetSchemasSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetSchemasSchemaRegistryClusterInput is an input type that accepts GetSchemasSchemaRegistryClusterArgs and GetSchemasSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `GetSchemasSchemaRegistryClusterInput` via:
+//
+//	GetSchemasSchemaRegistryClusterArgs{...}
+type GetSchemasSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToGetSchemasSchemaRegistryClusterOutput() GetSchemasSchemaRegistryClusterOutput
+	ToGetSchemasSchemaRegistryClusterOutputWithContext(context.Context) GetSchemasSchemaRegistryClusterOutput
+}
+
+type GetSchemasSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetSchemasSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemasSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i GetSchemasSchemaRegistryClusterArgs) ToGetSchemasSchemaRegistryClusterOutput() GetSchemasSchemaRegistryClusterOutput {
+	return i.ToGetSchemasSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i GetSchemasSchemaRegistryClusterArgs) ToGetSchemasSchemaRegistryClusterOutputWithContext(ctx context.Context) GetSchemasSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaRegistryClusterOutput)
+}
+
+func (i GetSchemasSchemaRegistryClusterArgs) ToGetSchemasSchemaRegistryClusterPtrOutput() GetSchemasSchemaRegistryClusterPtrOutput {
+	return i.ToGetSchemasSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i GetSchemasSchemaRegistryClusterArgs) ToGetSchemasSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemasSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaRegistryClusterOutput).ToGetSchemasSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// GetSchemasSchemaRegistryClusterPtrInput is an input type that accepts GetSchemasSchemaRegistryClusterArgs, GetSchemasSchemaRegistryClusterPtr and GetSchemasSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `GetSchemasSchemaRegistryClusterPtrInput` via:
+//
+//	        GetSchemasSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSchemasSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToGetSchemasSchemaRegistryClusterPtrOutput() GetSchemasSchemaRegistryClusterPtrOutput
+	ToGetSchemasSchemaRegistryClusterPtrOutputWithContext(context.Context) GetSchemasSchemaRegistryClusterPtrOutput
+}
+
+type getSchemasSchemaRegistryClusterPtrType GetSchemasSchemaRegistryClusterArgs
+
+func GetSchemasSchemaRegistryClusterPtr(v *GetSchemasSchemaRegistryClusterArgs) GetSchemasSchemaRegistryClusterPtrInput {
+	return (*getSchemasSchemaRegistryClusterPtrType)(v)
+}
+
+func (*getSchemasSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemasSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *getSchemasSchemaRegistryClusterPtrType) ToGetSchemasSchemaRegistryClusterPtrOutput() GetSchemasSchemaRegistryClusterPtrOutput {
+	return i.ToGetSchemasSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *getSchemasSchemaRegistryClusterPtrType) ToGetSchemasSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemasSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaRegistryClusterPtrOutput)
+}
+
+type GetSchemasSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (GetSchemasSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemasSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetSchemasSchemaRegistryClusterOutput) ToGetSchemasSchemaRegistryClusterOutput() GetSchemasSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetSchemasSchemaRegistryClusterOutput) ToGetSchemasSchemaRegistryClusterOutputWithContext(ctx context.Context) GetSchemasSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetSchemasSchemaRegistryClusterOutput) ToGetSchemasSchemaRegistryClusterPtrOutput() GetSchemasSchemaRegistryClusterPtrOutput {
+	return o.ToGetSchemasSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o GetSchemasSchemaRegistryClusterOutput) ToGetSchemasSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemasSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSchemasSchemaRegistryCluster) *GetSchemasSchemaRegistryCluster {
+		return &v
+	}).(GetSchemasSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetSchemasSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemasSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetSchemasSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSchemasSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemasSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetSchemasSchemaRegistryClusterPtrOutput) ToGetSchemasSchemaRegistryClusterPtrOutput() GetSchemasSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetSchemasSchemaRegistryClusterPtrOutput) ToGetSchemasSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemasSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetSchemasSchemaRegistryClusterPtrOutput) Elem() GetSchemasSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *GetSchemasSchemaRegistryCluster) GetSchemasSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret GetSchemasSchemaRegistryCluster
+		return ret
+	}).(GetSchemasSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetSchemasSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSchemasSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSchemasSchemaSchemaReference struct {
+	// (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+	Name string `pulumi:"name"`
+	// (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+	SubjectName string `pulumi:"subjectName"`
+	// (Required Integer) The version of the Schema, for example, `4`.
+	Version int `pulumi:"version"`
+}
+
+// GetSchemasSchemaSchemaReferenceInput is an input type that accepts GetSchemasSchemaSchemaReferenceArgs and GetSchemasSchemaSchemaReferenceOutput values.
+// You can construct a concrete instance of `GetSchemasSchemaSchemaReferenceInput` via:
+//
+//	GetSchemasSchemaSchemaReferenceArgs{...}
+type GetSchemasSchemaSchemaReferenceInput interface {
+	pulumi.Input
+
+	ToGetSchemasSchemaSchemaReferenceOutput() GetSchemasSchemaSchemaReferenceOutput
+	ToGetSchemasSchemaSchemaReferenceOutputWithContext(context.Context) GetSchemasSchemaSchemaReferenceOutput
+}
+
+type GetSchemasSchemaSchemaReferenceArgs struct {
+	// (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+	SubjectName pulumi.StringInput `pulumi:"subjectName"`
+	// (Required Integer) The version of the Schema, for example, `4`.
+	Version pulumi.IntInput `pulumi:"version"`
+}
+
+func (GetSchemasSchemaSchemaReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemasSchemaSchemaReference)(nil)).Elem()
+}
+
+func (i GetSchemasSchemaSchemaReferenceArgs) ToGetSchemasSchemaSchemaReferenceOutput() GetSchemasSchemaSchemaReferenceOutput {
+	return i.ToGetSchemasSchemaSchemaReferenceOutputWithContext(context.Background())
+}
+
+func (i GetSchemasSchemaSchemaReferenceArgs) ToGetSchemasSchemaSchemaReferenceOutputWithContext(ctx context.Context) GetSchemasSchemaSchemaReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaSchemaReferenceOutput)
+}
+
+// GetSchemasSchemaSchemaReferenceArrayInput is an input type that accepts GetSchemasSchemaSchemaReferenceArray and GetSchemasSchemaSchemaReferenceArrayOutput values.
+// You can construct a concrete instance of `GetSchemasSchemaSchemaReferenceArrayInput` via:
+//
+//	GetSchemasSchemaSchemaReferenceArray{ GetSchemasSchemaSchemaReferenceArgs{...} }
+type GetSchemasSchemaSchemaReferenceArrayInput interface {
+	pulumi.Input
+
+	ToGetSchemasSchemaSchemaReferenceArrayOutput() GetSchemasSchemaSchemaReferenceArrayOutput
+	ToGetSchemasSchemaSchemaReferenceArrayOutputWithContext(context.Context) GetSchemasSchemaSchemaReferenceArrayOutput
+}
+
+type GetSchemasSchemaSchemaReferenceArray []GetSchemasSchemaSchemaReferenceInput
+
+func (GetSchemasSchemaSchemaReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemasSchemaSchemaReference)(nil)).Elem()
+}
+
+func (i GetSchemasSchemaSchemaReferenceArray) ToGetSchemasSchemaSchemaReferenceArrayOutput() GetSchemasSchemaSchemaReferenceArrayOutput {
+	return i.ToGetSchemasSchemaSchemaReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i GetSchemasSchemaSchemaReferenceArray) ToGetSchemasSchemaSchemaReferenceArrayOutputWithContext(ctx context.Context) GetSchemasSchemaSchemaReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaSchemaReferenceArrayOutput)
+}
+
+type GetSchemasSchemaSchemaReferenceOutput struct{ *pulumi.OutputState }
+
+func (GetSchemasSchemaSchemaReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemasSchemaSchemaReference)(nil)).Elem()
+}
+
+func (o GetSchemasSchemaSchemaReferenceOutput) ToGetSchemasSchemaSchemaReferenceOutput() GetSchemasSchemaSchemaReferenceOutput {
+	return o
+}
+
+func (o GetSchemasSchemaSchemaReferenceOutput) ToGetSchemasSchemaSchemaReferenceOutputWithContext(ctx context.Context) GetSchemasSchemaSchemaReferenceOutput {
+	return o
+}
+
+// (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+func (o GetSchemasSchemaSchemaReferenceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemasSchemaSchemaReference) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+func (o GetSchemasSchemaSchemaReferenceOutput) SubjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemasSchemaSchemaReference) string { return v.SubjectName }).(pulumi.StringOutput)
+}
+
+// (Required Integer) The version of the Schema, for example, `4`.
+func (o GetSchemasSchemaSchemaReferenceOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSchemasSchemaSchemaReference) int { return v.Version }).(pulumi.IntOutput)
+}
+
+type GetSchemasSchemaSchemaReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSchemasSchemaSchemaReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemasSchemaSchemaReference)(nil)).Elem()
+}
+
+func (o GetSchemasSchemaSchemaReferenceArrayOutput) ToGetSchemasSchemaSchemaReferenceArrayOutput() GetSchemasSchemaSchemaReferenceArrayOutput {
+	return o
+}
+
+func (o GetSchemasSchemaSchemaReferenceArrayOutput) ToGetSchemasSchemaSchemaReferenceArrayOutputWithContext(ctx context.Context) GetSchemasSchemaSchemaReferenceArrayOutput {
+	return o
+}
+
+func (o GetSchemasSchemaSchemaReferenceArrayOutput) Index(i pulumi.IntInput) GetSchemasSchemaSchemaReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSchemasSchemaSchemaReference {
+		return vs[0].([]GetSchemasSchemaSchemaReference)[vs[1].(int)]
+	}).(GetSchemasSchemaSchemaReferenceOutput)
+}
+
 type GetSubjectConfigCredentials struct {
 	// The Schema Registry API Key.
 	Key string `pulumi:"key"`
@@ -14506,6 +16037,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyManagedResourceEnvironmentPtrInput)(nil)).Elem(), ApiKeyManagedResourceEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyOwnerInput)(nil)).Elem(), ApiKeyOwnerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyOwnerPtrInput)(nil)).Elem(), ApiKeyOwnerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyAwsInput)(nil)).Elem(), ByokKeyAwsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyAwsPtrInput)(nil)).Elem(), ByokKeyAwsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyAzureInput)(nil)).Elem(), ByokKeyAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyAzurePtrInput)(nil)).Elem(), ByokKeyAzureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterPtrInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterCredentialsInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterCredentialsArgs{})
@@ -14536,6 +16071,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClientQuotaThroughputPtrInput)(nil)).Elem(), KafkaClientQuotaThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterBasicInput)(nil)).Elem(), KafkaClusterBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterBasicPtrInput)(nil)).Elem(), KafkaClusterBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterByokKeyInput)(nil)).Elem(), KafkaClusterByokKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterByokKeyPtrInput)(nil)).Elem(), KafkaClusterByokKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterConfigCredentialsInput)(nil)).Elem(), KafkaClusterConfigCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterConfigCredentialsPtrInput)(nil)).Elem(), KafkaClusterConfigCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterConfigKafkaClusterInput)(nil)).Elem(), KafkaClusterConfigKafkaClusterArgs{})
@@ -14630,6 +16167,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentEnvironmentPtrInput)(nil)).Elem(), TransitGatewayAttachmentEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNetworkInput)(nil)).Elem(), TransitGatewayAttachmentNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNetworkPtrInput)(nil)).Elem(), TransitGatewayAttachmentNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAwInput)(nil)).Elem(), GetByokKeyAwArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAwArrayInput)(nil)).Elem(), GetByokKeyAwArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAzureInput)(nil)).Elem(), GetByokKeyAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAzureArrayInput)(nil)).Elem(), GetByokKeyAzureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolIdentityProviderInput)(nil)).Elem(), GetIdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationCreatorInput)(nil)).Elem(), GetInvitationCreatorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationCreatorArrayInput)(nil)).Elem(), GetInvitationCreatorArray{})
@@ -14643,6 +16184,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaThroughputArrayInput)(nil)).Elem(), GetKafkaClientQuotaThroughputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterBasicInput)(nil)).Elem(), GetKafkaClusterBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterBasicArrayInput)(nil)).Elem(), GetKafkaClusterBasicArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterByokKeyInput)(nil)).Elem(), GetKafkaClusterByokKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterByokKeyArrayInput)(nil)).Elem(), GetKafkaClusterByokKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterDedicatedInput)(nil)).Elem(), GetKafkaClusterDedicatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterDedicatedPtrInput)(nil)).Elem(), GetKafkaClusterDedicatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterEnvironmentInput)(nil)).Elem(), GetKafkaClusterEnvironmentArgs{})
@@ -14705,6 +16248,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaSchemaReferenceArrayInput)(nil)).Elem(), GetSchemaSchemaReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaSchemaRegistryClusterInput)(nil)).Elem(), GetSchemaSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaSchemaRegistryClusterPtrInput)(nil)).Elem(), GetSchemaSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemasCredentialsInput)(nil)).Elem(), GetSchemasCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemasCredentialsPtrInput)(nil)).Elem(), GetSchemasCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemasFilterInput)(nil)).Elem(), GetSchemasFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemasFilterPtrInput)(nil)).Elem(), GetSchemasFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemasSchemaInput)(nil)).Elem(), GetSchemasSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemasSchemaArrayInput)(nil)).Elem(), GetSchemasSchemaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemasSchemaRegistryClusterInput)(nil)).Elem(), GetSchemasSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemasSchemaRegistryClusterPtrInput)(nil)).Elem(), GetSchemasSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemasSchemaSchemaReferenceInput)(nil)).Elem(), GetSchemasSchemaSchemaReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemasSchemaSchemaReferenceArrayInput)(nil)).Elem(), GetSchemasSchemaSchemaReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectConfigCredentialsInput)(nil)).Elem(), GetSubjectConfigCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectConfigCredentialsPtrInput)(nil)).Elem(), GetSubjectConfigCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectConfigSchemaRegistryClusterInput)(nil)).Elem(), GetSubjectConfigSchemaRegistryClusterArgs{})
@@ -14724,6 +16277,10 @@ func init() {
 	pulumi.RegisterOutputType(ApiKeyManagedResourceEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ApiKeyOwnerOutput{})
 	pulumi.RegisterOutputType(ApiKeyOwnerPtrOutput{})
+	pulumi.RegisterOutputType(ByokKeyAwsOutput{})
+	pulumi.RegisterOutputType(ByokKeyAwsPtrOutput{})
+	pulumi.RegisterOutputType(ByokKeyAzureOutput{})
+	pulumi.RegisterOutputType(ByokKeyAzurePtrOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterCredentialsOutput{})
@@ -14754,6 +16311,8 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClientQuotaThroughputPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterBasicOutput{})
 	pulumi.RegisterOutputType(KafkaClusterBasicPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterByokKeyOutput{})
+	pulumi.RegisterOutputType(KafkaClusterByokKeyPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterConfigCredentialsOutput{})
 	pulumi.RegisterOutputType(KafkaClusterConfigCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterConfigKafkaClusterOutput{})
@@ -14848,6 +16407,10 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayAttachmentEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentNetworkOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentNetworkPtrOutput{})
+	pulumi.RegisterOutputType(GetByokKeyAwOutput{})
+	pulumi.RegisterOutputType(GetByokKeyAwArrayOutput{})
+	pulumi.RegisterOutputType(GetByokKeyAzureOutput{})
+	pulumi.RegisterOutputType(GetByokKeyAzureArrayOutput{})
 	pulumi.RegisterOutputType(GetIdentityPoolIdentityProviderOutput{})
 	pulumi.RegisterOutputType(GetInvitationCreatorOutput{})
 	pulumi.RegisterOutputType(GetInvitationCreatorArrayOutput{})
@@ -14861,6 +16424,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKafkaClientQuotaThroughputArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterBasicOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterBasicArrayOutput{})
+	pulumi.RegisterOutputType(GetKafkaClusterByokKeyOutput{})
+	pulumi.RegisterOutputType(GetKafkaClusterByokKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterDedicatedOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterDedicatedPtrOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterEnvironmentOutput{})
@@ -14923,6 +16488,16 @@ func init() {
 	pulumi.RegisterOutputType(GetSchemaSchemaReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetSchemaSchemaRegistryClusterOutput{})
 	pulumi.RegisterOutputType(GetSchemaSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(GetSchemasCredentialsOutput{})
+	pulumi.RegisterOutputType(GetSchemasCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetSchemasFilterOutput{})
+	pulumi.RegisterOutputType(GetSchemasFilterPtrOutput{})
+	pulumi.RegisterOutputType(GetSchemasSchemaOutput{})
+	pulumi.RegisterOutputType(GetSchemasSchemaArrayOutput{})
+	pulumi.RegisterOutputType(GetSchemasSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(GetSchemasSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(GetSchemasSchemaSchemaReferenceOutput{})
+	pulumi.RegisterOutputType(GetSchemasSchemaSchemaReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetSubjectConfigCredentialsOutput{})
 	pulumi.RegisterOutputType(GetSubjectConfigCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetSubjectConfigSchemaRegistryClusterOutput{})

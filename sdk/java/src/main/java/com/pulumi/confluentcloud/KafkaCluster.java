@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.KafkaClusterArgs;
 import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.KafkaClusterState;
 import com.pulumi.confluentcloud.outputs.KafkaClusterBasic;
+import com.pulumi.confluentcloud.outputs.KafkaClusterByokKey;
 import com.pulumi.confluentcloud.outputs.KafkaClusterDedicated;
 import com.pulumi.confluentcloud.outputs.KafkaClusterEnvironment;
 import com.pulumi.confluentcloud.outputs.KafkaClusterNetwork;
@@ -88,6 +89,12 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> bootstrapEndpoint() {
         return this.bootstrapEndpoint;
+    }
+    @Export(name="byokKey", type=KafkaClusterByokKey.class, parameters={})
+    private Output<KafkaClusterByokKey> byokKey;
+
+    public Output<KafkaClusterByokKey> byokKey() {
+        return this.byokKey;
     }
     /**
      * The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.

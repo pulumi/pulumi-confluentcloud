@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.confluentcloud.inputs.KafkaClusterBasicArgs;
+import com.pulumi.confluentcloud.inputs.KafkaClusterByokKeyArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterDedicatedArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterNetworkArgs;
@@ -78,6 +79,13 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> bootstrapEndpoint() {
         return Optional.ofNullable(this.bootstrapEndpoint);
+    }
+
+    @Import(name="byokKey")
+    private @Nullable Output<KafkaClusterByokKeyArgs> byokKey;
+
+    public Optional<Output<KafkaClusterByokKeyArgs>> byokKey() {
+        return Optional.ofNullable(this.byokKey);
     }
 
     /**
@@ -239,6 +247,7 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
         this.availability = $.availability;
         this.basic = $.basic;
         this.bootstrapEndpoint = $.bootstrapEndpoint;
+        this.byokKey = $.byokKey;
         this.cloud = $.cloud;
         this.dedicated = $.dedicated;
         this.displayName = $.displayName;
@@ -351,6 +360,15 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder bootstrapEndpoint(String bootstrapEndpoint) {
             return bootstrapEndpoint(Output.of(bootstrapEndpoint));
+        }
+
+        public Builder byokKey(@Nullable Output<KafkaClusterByokKeyArgs> byokKey) {
+            $.byokKey = byokKey;
+            return this;
+        }
+
+        public Builder byokKey(KafkaClusterByokKeyArgs byokKey) {
+            return byokKey(Output.of(byokKey));
         }
 
         /**

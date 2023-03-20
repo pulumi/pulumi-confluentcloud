@@ -32,7 +32,8 @@ type KafkaCluster struct {
 	// The configuration of the Basic Kafka cluster.
 	Basic KafkaClusterBasicPtrOutput `pulumi:"basic"`
 	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-	BootstrapEndpoint pulumi.StringOutput `pulumi:"bootstrapEndpoint"`
+	BootstrapEndpoint pulumi.StringOutput       `pulumi:"bootstrapEndpoint"`
+	ByokKey           KafkaClusterByokKeyOutput `pulumi:"byokKey"`
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
@@ -104,7 +105,8 @@ type kafkaClusterState struct {
 	// The configuration of the Basic Kafka cluster.
 	Basic *KafkaClusterBasic `pulumi:"basic"`
 	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-	BootstrapEndpoint *string `pulumi:"bootstrapEndpoint"`
+	BootstrapEndpoint *string              `pulumi:"bootstrapEndpoint"`
+	ByokKey           *KafkaClusterByokKey `pulumi:"byokKey"`
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud *string `pulumi:"cloud"`
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
@@ -137,6 +139,7 @@ type KafkaClusterState struct {
 	Basic KafkaClusterBasicPtrInput
 	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringPtrInput
+	ByokKey           KafkaClusterByokKeyPtrInput
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud pulumi.StringPtrInput
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
@@ -168,7 +171,8 @@ type kafkaClusterArgs struct {
 	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
 	Availability string `pulumi:"availability"`
 	// The configuration of the Basic Kafka cluster.
-	Basic *KafkaClusterBasic `pulumi:"basic"`
+	Basic   *KafkaClusterBasic   `pulumi:"basic"`
+	ByokKey *KafkaClusterByokKey `pulumi:"byokKey"`
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud string `pulumi:"cloud"`
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
@@ -191,7 +195,8 @@ type KafkaClusterArgs struct {
 	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
 	Availability pulumi.StringInput
 	// The configuration of the Basic Kafka cluster.
-	Basic KafkaClusterBasicPtrInput
+	Basic   KafkaClusterBasicPtrInput
+	ByokKey KafkaClusterByokKeyPtrInput
 	// The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud pulumi.StringInput
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
@@ -314,6 +319,10 @@ func (o KafkaClusterOutput) Basic() KafkaClusterBasicPtrOutput {
 // (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o KafkaClusterOutput) BootstrapEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.BootstrapEndpoint }).(pulumi.StringOutput)
+}
+
+func (o KafkaClusterOutput) ByokKey() KafkaClusterByokKeyOutput {
+	return o.ApplyT(func(v *KafkaCluster) KafkaClusterByokKeyOutput { return v.ByokKey }).(KafkaClusterByokKeyOutput)
 }
 
 // The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.

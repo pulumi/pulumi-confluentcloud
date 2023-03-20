@@ -22,6 +22,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "confluentcloud:index/apiKey:ApiKey":
 		r = &ApiKey{}
+	case "confluentcloud:index/byokKey:ByokKey":
+		r = &ByokKey{}
 	case "confluentcloud:index/clusterLink:ClusterLink":
 		r = &ClusterLink{}
 	case "confluentcloud:index/connector:Connector":
@@ -103,6 +105,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/apiKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/byokKey",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

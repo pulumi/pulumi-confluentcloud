@@ -94,6 +94,8 @@ type LookupKafkaClusterResult struct {
 	Basics []GetKafkaClusterBasic `pulumi:"basics"`
 	// (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint string `pulumi:"bootstrapEndpoint"`
+	// (Optional Configuration Block) supports the following:
+	ByokKeys []GetKafkaClusterByokKey `pulumi:"byokKeys"`
 	// (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud string `pulumi:"cloud"`
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
@@ -101,7 +103,7 @@ type LookupKafkaClusterResult struct {
 	// (Required String) The name of the Kafka cluster.
 	DisplayName string                     `pulumi:"displayName"`
 	Environment GetKafkaClusterEnvironment `pulumi:"environment"`
-	// (Required String) The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+	// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 	Id string `pulumi:"id"`
 	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
 	Kind string `pulumi:"kind"`
@@ -184,6 +186,11 @@ func (o LookupKafkaClusterResultOutput) BootstrapEndpoint() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupKafkaClusterResult) string { return v.BootstrapEndpoint }).(pulumi.StringOutput)
 }
 
+// (Optional Configuration Block) supports the following:
+func (o LookupKafkaClusterResultOutput) ByokKeys() GetKafkaClusterByokKeyArrayOutput {
+	return o.ApplyT(func(v LookupKafkaClusterResult) []GetKafkaClusterByokKey { return v.ByokKeys }).(GetKafkaClusterByokKeyArrayOutput)
+}
+
 // (Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 func (o LookupKafkaClusterResultOutput) Cloud() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKafkaClusterResult) string { return v.Cloud }).(pulumi.StringOutput)
@@ -203,7 +210,7 @@ func (o LookupKafkaClusterResultOutput) Environment() GetKafkaClusterEnvironment
 	return o.ApplyT(func(v LookupKafkaClusterResult) GetKafkaClusterEnvironment { return v.Environment }).(GetKafkaClusterEnvironmentOutput)
 }
 
-// (Required String) The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 func (o LookupKafkaClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKafkaClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }

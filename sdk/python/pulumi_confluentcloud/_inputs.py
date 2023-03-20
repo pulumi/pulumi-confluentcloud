@@ -13,6 +13,8 @@ __all__ = [
     'ApiKeyManagedResourceArgs',
     'ApiKeyManagedResourceEnvironmentArgs',
     'ApiKeyOwnerArgs',
+    'ByokKeyAwsArgs',
+    'ByokKeyAzureArgs',
     'ClusterLinkDestinationKafkaClusterArgs',
     'ClusterLinkDestinationKafkaClusterCredentialsArgs',
     'ClusterLinkSourceKafkaClusterArgs',
@@ -28,6 +30,7 @@ __all__ = [
     'KafkaClientQuotaKafkaClusterArgs',
     'KafkaClientQuotaThroughputArgs',
     'KafkaClusterBasicArgs',
+    'KafkaClusterByokKeyArgs',
     'KafkaClusterConfigCredentialsArgs',
     'KafkaClusterConfigKafkaClusterArgs',
     'KafkaClusterDedicatedArgs',
@@ -97,6 +100,9 @@ __all__ = [
     'GetSchemaRegistryClusterModeCredentialsArgs',
     'GetSchemaRegistryClusterModeSchemaRegistryClusterArgs',
     'GetSchemaSchemaRegistryClusterArgs',
+    'GetSchemasCredentialsArgs',
+    'GetSchemasFilterArgs',
+    'GetSchemasSchemaRegistryClusterArgs',
     'GetSubjectConfigCredentialsArgs',
     'GetSubjectConfigSchemaRegistryClusterArgs',
     'GetSubjectModeCredentialsArgs',
@@ -239,6 +245,112 @@ class ApiKeyOwnerArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
+
+
+@pulumi.input_type
+class ByokKeyAwsArgs:
+    def __init__(__self__, *,
+                 key_arn: pulumi.Input[str],
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] key_arn: The Amazon Resource Name (ARN) of an AWS KMS key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
+        """
+        pulumi.set(__self__, "key_arn", key_arn)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+
+    @property
+    @pulumi.getter(name="keyArn")
+    def key_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of an AWS KMS key.
+        """
+        return pulumi.get(self, "key_arn")
+
+    @key_arn.setter
+    def key_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_arn", value)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "roles", value)
+
+
+@pulumi.input_type
+class ByokKeyAzureArgs:
+    def __init__(__self__, *,
+                 key_identifier: pulumi.Input[str],
+                 key_vault_id: pulumi.Input[str],
+                 tenant_id: pulumi.Input[str],
+                 application_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key_identifier: The unique Key Object Identifier URL of an Azure Key Vault key.
+        :param pulumi.Input[str] key_vault_id: Key Vault ID containing the key.
+        :param pulumi.Input[str] tenant_id: Tenant ID (uuid) hosting the Key Vault containing the key.
+        :param pulumi.Input[str] application_id: (Optional String) The Application ID created for this key-environment combination.
+        """
+        pulumi.set(__self__, "key_identifier", key_identifier)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> pulumi.Input[str]:
+        """
+        The unique Key Object Identifier URL of an Azure Key Vault key.
+        """
+        return pulumi.get(self, "key_identifier")
+
+    @key_identifier.setter
+    def key_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_identifier", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> pulumi.Input[str]:
+        """
+        Key Vault ID containing the key.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[str]:
+        """
+        Tenant ID (uuid) hosting the Key Vault containing the key.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional String) The Application ID created for this key-environment combination.
+        """
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_id", value)
 
 
 @pulumi.input_type
@@ -706,6 +818,28 @@ class KafkaClusterBasicArgs:
 
 
 @pulumi.input_type
+class KafkaClusterByokKeyArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class KafkaClusterConfigCredentialsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -772,7 +906,6 @@ class KafkaClusterDedicatedArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] cku: The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-        :param pulumi.Input[str] encryption_key: The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: (Required List of String) The list of zones the cluster is in.
                On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
@@ -799,9 +932,6 @@ class KafkaClusterDedicatedArgs:
     @property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
-        """
         return pulumi.get(self, "encryption_key")
 
     @encryption_key.setter
@@ -829,7 +959,7 @@ class KafkaClusterEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+        :param pulumi.Input[str] id: The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -837,7 +967,7 @@ class KafkaClusterEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+        The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
         """
         return pulumi.get(self, "id")
 
@@ -851,7 +981,7 @@ class KafkaClusterNetworkArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+        :param pulumi.Input[str] id: The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -859,7 +989,7 @@ class KafkaClusterNetworkArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
+        The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
         """
         return pulumi.get(self, "id")
 
@@ -2215,7 +2345,6 @@ class GetKafkaClusterDedicatedArgs:
                  zones: Sequence[str]):
         """
         :param int cku: (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-        :param str encryption_key: (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
         :param Sequence[str] zones: (Required List of String) The list of zones the cluster is in.
                On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
@@ -2240,9 +2369,6 @@ class GetKafkaClusterDedicatedArgs:
     @property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> str:
-        """
-        (Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.
-        """
         return pulumi.get(self, "encryption_key")
 
     @encryption_key.setter
@@ -2771,6 +2897,120 @@ class GetSchemaRegistryClusterModeSchemaRegistryClusterArgs:
 
 @pulumi.input_type
 class GetSchemaSchemaRegistryClusterArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetSchemasCredentialsArgs:
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: str):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class GetSchemasFilterArgs:
+    def __init__(__self__, *,
+                 deleted: Optional[bool] = None,
+                 latest_only: Optional[bool] = None,
+                 subject_prefix: Optional[str] = None):
+        """
+        :param bool deleted: The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+        :param bool latest_only: The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+        :param str subject_prefix: The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
+        """
+        if deleted is not None:
+            pulumi.set(__self__, "deleted", deleted)
+        if latest_only is not None:
+            pulumi.set(__self__, "latest_only", latest_only)
+        if subject_prefix is not None:
+            pulumi.set(__self__, "subject_prefix", subject_prefix)
+
+    @property
+    @pulumi.getter
+    def deleted(self) -> Optional[bool]:
+        """
+        The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
+        """
+        return pulumi.get(self, "deleted")
+
+    @deleted.setter
+    def deleted(self, value: Optional[bool]):
+        pulumi.set(self, "deleted", value)
+
+    @property
+    @pulumi.getter(name="latestOnly")
+    def latest_only(self) -> Optional[bool]:
+        """
+        The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
+        """
+        return pulumi.get(self, "latest_only")
+
+    @latest_only.setter
+    def latest_only(self, value: Optional[bool]):
+        pulumi.set(self, "latest_only", value)
+
+    @property
+    @pulumi.getter(name="subjectPrefix")
+    def subject_prefix(self) -> Optional[str]:
+        """
+        The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
+        """
+        return pulumi.get(self, "subject_prefix")
+
+    @subject_prefix.setter
+    def subject_prefix(self, value: Optional[str]):
+        pulumi.set(self, "subject_prefix", value)
+
+
+@pulumi.input_type
+class GetSchemasSchemaRegistryClusterArgs:
     def __init__(__self__, *,
                  id: str):
         """

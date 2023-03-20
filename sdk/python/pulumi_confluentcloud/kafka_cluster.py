@@ -21,6 +21,7 @@ class KafkaClusterArgs:
                  environment: pulumi.Input['KafkaClusterEnvironmentArgs'],
                  region: pulumi.Input[str],
                  basic: Optional[pulumi.Input['KafkaClusterBasicArgs']] = None,
+                 byok_key: Optional[pulumi.Input['KafkaClusterByokKeyArgs']] = None,
                  dedicated: Optional[pulumi.Input['KafkaClusterDedicatedArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['KafkaClusterNetworkArgs']] = None,
@@ -44,6 +45,8 @@ class KafkaClusterArgs:
         pulumi.set(__self__, "region", region)
         if basic is not None:
             pulumi.set(__self__, "basic", basic)
+        if byok_key is not None:
+            pulumi.set(__self__, "byok_key", byok_key)
         if dedicated is not None:
             pulumi.set(__self__, "dedicated", dedicated)
         if display_name is not None:
@@ -114,6 +117,15 @@ class KafkaClusterArgs:
         pulumi.set(self, "basic", value)
 
     @property
+    @pulumi.getter(name="byokKey")
+    def byok_key(self) -> Optional[pulumi.Input['KafkaClusterByokKeyArgs']]:
+        return pulumi.get(self, "byok_key")
+
+    @byok_key.setter
+    def byok_key(self, value: Optional[pulumi.Input['KafkaClusterByokKeyArgs']]):
+        pulumi.set(self, "byok_key", value)
+
+    @property
     @pulumi.getter
     def dedicated(self) -> Optional[pulumi.Input['KafkaClusterDedicatedArgs']]:
         """
@@ -170,6 +182,7 @@ class _KafkaClusterState:
                  availability: Optional[pulumi.Input[str]] = None,
                  basic: Optional[pulumi.Input['KafkaClusterBasicArgs']] = None,
                  bootstrap_endpoint: Optional[pulumi.Input[str]] = None,
+                 byok_key: Optional[pulumi.Input['KafkaClusterByokKeyArgs']] = None,
                  cloud: Optional[pulumi.Input[str]] = None,
                  dedicated: Optional[pulumi.Input['KafkaClusterDedicatedArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -206,6 +219,8 @@ class _KafkaClusterState:
             pulumi.set(__self__, "basic", basic)
         if bootstrap_endpoint is not None:
             pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+        if byok_key is not None:
+            pulumi.set(__self__, "byok_key", byok_key)
         if cloud is not None:
             pulumi.set(__self__, "cloud", cloud)
         if dedicated is not None:
@@ -274,6 +289,15 @@ class _KafkaClusterState:
     @bootstrap_endpoint.setter
     def bootstrap_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bootstrap_endpoint", value)
+
+    @property
+    @pulumi.getter(name="byokKey")
+    def byok_key(self) -> Optional[pulumi.Input['KafkaClusterByokKeyArgs']]:
+        return pulumi.get(self, "byok_key")
+
+    @byok_key.setter
+    def byok_key(self, value: Optional[pulumi.Input['KafkaClusterByokKeyArgs']]):
+        pulumi.set(self, "byok_key", value)
 
     @property
     @pulumi.getter
@@ -404,6 +428,7 @@ class KafkaCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability: Optional[pulumi.Input[str]] = None,
                  basic: Optional[pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']]] = None,
+                 byok_key: Optional[pulumi.Input[pulumi.InputType['KafkaClusterByokKeyArgs']]] = None,
                  cloud: Optional[pulumi.Input[str]] = None,
                  dedicated: Optional[pulumi.Input[pulumi.InputType['KafkaClusterDedicatedArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -470,6 +495,7 @@ class KafkaCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability: Optional[pulumi.Input[str]] = None,
                  basic: Optional[pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']]] = None,
+                 byok_key: Optional[pulumi.Input[pulumi.InputType['KafkaClusterByokKeyArgs']]] = None,
                  cloud: Optional[pulumi.Input[str]] = None,
                  dedicated: Optional[pulumi.Input[pulumi.InputType['KafkaClusterDedicatedArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -490,6 +516,7 @@ class KafkaCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'availability'")
             __props__.__dict__["availability"] = availability
             __props__.__dict__["basic"] = basic
+            __props__.__dict__["byok_key"] = byok_key
             if cloud is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud'")
             __props__.__dict__["cloud"] = cloud
@@ -522,6 +549,7 @@ class KafkaCluster(pulumi.CustomResource):
             availability: Optional[pulumi.Input[str]] = None,
             basic: Optional[pulumi.Input[pulumi.InputType['KafkaClusterBasicArgs']]] = None,
             bootstrap_endpoint: Optional[pulumi.Input[str]] = None,
+            byok_key: Optional[pulumi.Input[pulumi.InputType['KafkaClusterByokKeyArgs']]] = None,
             cloud: Optional[pulumi.Input[str]] = None,
             dedicated: Optional[pulumi.Input[pulumi.InputType['KafkaClusterDedicatedArgs']]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
@@ -563,6 +591,7 @@ class KafkaCluster(pulumi.CustomResource):
         __props__.__dict__["availability"] = availability
         __props__.__dict__["basic"] = basic
         __props__.__dict__["bootstrap_endpoint"] = bootstrap_endpoint
+        __props__.__dict__["byok_key"] = byok_key
         __props__.__dict__["cloud"] = cloud
         __props__.__dict__["dedicated"] = dedicated
         __props__.__dict__["display_name"] = display_name
@@ -606,6 +635,11 @@ class KafkaCluster(pulumi.CustomResource):
         (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
+
+    @property
+    @pulumi.getter(name="byokKey")
+    def byok_key(self) -> pulumi.Output['outputs.KafkaClusterByokKey']:
+        return pulumi.get(self, "byok_key")
 
     @property
     @pulumi.getter
