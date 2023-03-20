@@ -220,6 +220,103 @@
                 "kind"
             ]
         },
+        "confluentcloud:index/ByokKeyAws:ByokKeyAws": {
+            "properties": {
+                "keyArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of an AWS KMS key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "keyArn"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "keyArn",
+                        "roles"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/ByokKeyAzure:ByokKeyAzure": {
+            "properties": {
+                "applicationId": {
+                    "type": "string",
+                    "description": "(Optional String) The Application ID created for this key-environment combination.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "keyIdentifier": {
+                    "type": "string",
+                    "description": "The unique Key Object Identifier URL of an Azure Key Vault key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "keyVaultId": {
+                    "type": "string",
+                    "description": "Key Vault ID containing the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "tenantId": {
+                    "type": "string",
+                    "description": "Tenant ID (uuid) hosting the Key Vault containing the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "keyIdentifier",
+                "keyVaultId",
+                "tenantId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "applicationId",
+                        "keyIdentifier",
+                        "keyVaultId",
+                        "tenantId"
+                    ]
+                }
+            }
+        },
         "confluentcloud:index/ClusterLinkDestinationKafkaCluster:ClusterLinkDestinationKafkaCluster": {
             "properties": {
                 "bootstrapEndpoint": {
@@ -581,6 +678,24 @@
         "confluentcloud:index/KafkaClusterBasic:KafkaClusterBasic": {
             "type": "object"
         },
+        "confluentcloud:index/KafkaClusterByokKey:KafkaClusterByokKey": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/KafkaClusterConfigCredentials:KafkaClusterConfigCredentials": {
             "properties": {
                 "key": {
@@ -641,7 +756,6 @@
                 },
                 "encryptionKey": {
                     "type": "string",
-                    "description": "The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -678,7 +792,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.\n",
+                    "description": "The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -696,7 +810,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.\n",
+                    "description": "The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1757,6 +1871,93 @@
                 "id"
             ]
         },
+        "confluentcloud:index/getByokKeyAw:getByokKeyAw": {
+            "properties": {
+                "keyArn": {
+                    "type": "string",
+                    "description": "(Required String) The Amazon Resource Name (ARN) of an AWS KMS key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment combination.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "keyArn",
+                "roles"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getByokKeyAzure:getByokKeyAzure": {
+            "properties": {
+                "applicationId": {
+                    "type": "string",
+                    "description": "(Optional String) The Application ID created for this key-environment combination.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "keyIdentifier": {
+                    "type": "string",
+                    "description": "(Required String) The unique Key Object Identifier URL of an Azure Key Vault key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "keyVaultId": {
+                    "type": "string",
+                    "description": "(Required String) Key Vault ID containing the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tenantId": {
+                    "type": "string",
+                    "description": "(Required String) Tenant ID (uuid) hosting the Key Vault containing the key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "applicationId",
+                "keyIdentifier",
+                "keyVaultId",
+                "tenantId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/getIdentityPoolIdentityProvider:getIdentityPoolIdentityProvider": {
             "properties": {
                 "id": {
@@ -1897,6 +2098,28 @@
         "confluentcloud:index/getKafkaClusterBasic:getKafkaClusterBasic": {
             "type": "object"
         },
+        "confluentcloud:index/getKafkaClusterByokKey:getKafkaClusterByokKey": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/getKafkaClusterDedicated:getKafkaClusterDedicated": {
             "properties": {
                 "cku": {
@@ -1910,7 +2133,6 @@
                 },
                 "encryptionKey": {
                     "type": "string",
-                    "description": "(Optional String) The ID of the encryption key that is used to encrypt the data in the Kafka cluster, for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` (key Amazon Resource Name) for AWS or `projects/my-test-project/locations/global/keyRings/test-byok/cryptoKeys/test` for GCP. Append required permissions to the key policy before creating a Kafka cluster, see [Encrypt Confluent Cloud Clusters using Self-Managed Keys](https://docs.confluent.io/cloud/current/clusters/byok/index.html) for more details. At the moment, self-managed encryption keys are only available for the Dedicated clusters on AWS or GCP.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2776,6 +2998,201 @@
                 "id"
             ]
         },
+        "confluentcloud:index/getSchemasCredentials:getSchemasCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Schema Registry API Key.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Schema Registry API Secret.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/getSchemasFilter:getSchemasFilter": {
+            "properties": {
+                "deleted": {
+                    "type": "boolean",
+                    "description": "The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "latestOnly": {
+                    "type": "boolean",
+                    "description": "The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "subjectPrefix": {
+                    "type": "string",
+                    "description": "The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "confluentcloud:index/getSchemasSchema:getSchemasSchema": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "(Required String) The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "(Required String) The schema string.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schemaIdentifier": {
+                    "type": "integer",
+                    "description": "(Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schemaReferences": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getSchemasSchemaSchemaReference:getSchemasSchemaSchemaReference"
+                    },
+                    "description": "(Optional List) The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "subjectName": {
+                    "type": "string",
+                    "description": "(Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "version": {
+                    "type": "integer",
+                    "description": "(Required Integer) The version of the Schema, for example, `4`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "format",
+                "schema",
+                "schemaIdentifier",
+                "schemaReferences",
+                "subjectName",
+                "version"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getSchemasSchemaRegistryCluster:getSchemasSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getSchemasSchemaSchemaReference:getSchemasSchemaSchemaReference": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "(Required String) The name of the subject, representing the subject under which the referenced schema is registered.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "subjectName": {
+                    "type": "string",
+                    "description": "(Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "version": {
+                    "type": "integer",
+                    "description": "(Required Integer) The version of the Schema, for example, `4`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "subjectName",
+                "version"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/getSubjectConfigCredentials:getSubjectConfigCredentials": {
             "properties": {
                 "key": {
@@ -3171,6 +3588,51 @@
                         "type": "string",
                         "description": "(Required String, Sensitive) The secret of the API Key.\n",
                         "secret": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/byokKey:ByokKey": {
+            "description": "\n\n\n## Import\n\nYou can import a BYOK Key by using BYOK Key ID. The following example shows how to import a BYOK Key$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/byokKey:ByokKey aws_key cck-abcde\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "aws": {
+                    "$ref": "#/types/confluentcloud:index/ByokKeyAws:ByokKeyAws",
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "azure": {
+                    "$ref": "#/types/confluentcloud:index/ByokKeyAzure:ByokKeyAzure",
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                }
+            },
+            "required": [
+                "aws",
+                "azure"
+            ],
+            "inputProperties": {
+                "aws": {
+                    "$ref": "#/types/confluentcloud:index/ByokKeyAws:ByokKeyAws",
+                    "description": "(Optional Configuration Block) supports the following:\n",
+                    "willReplaceOnChanges": true
+                },
+                "azure": {
+                    "$ref": "#/types/confluentcloud:index/ByokKeyAzure:ByokKeyAzure",
+                    "description": "(Optional Configuration Block) supports the following:\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ByokKey resources.\n",
+                "properties": {
+                    "aws": {
+                        "$ref": "#/types/confluentcloud:index/ByokKeyAws:ByokKeyAws",
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "azure": {
+                        "$ref": "#/types/confluentcloud:index/ByokKeyAzure:ByokKeyAzure",
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -3990,6 +4452,9 @@
                     "type": "string",
                     "description": "(Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n"
                 },
+                "byokKey": {
+                    "$ref": "#/types/confluentcloud:index/KafkaClusterByokKey:KafkaClusterByokKey"
+                },
                 "cloud": {
                     "type": "string",
                     "description": "The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.\n"
@@ -4035,6 +4500,7 @@
                 "apiVersion",
                 "availability",
                 "bootstrapEndpoint",
+                "byokKey",
                 "cloud",
                 "displayName",
                 "environment",
@@ -4053,6 +4519,9 @@
                 "basic": {
                     "$ref": "#/types/confluentcloud:index/KafkaClusterBasic:KafkaClusterBasic",
                     "description": "The configuration of the Basic Kafka cluster.\n"
+                },
+                "byokKey": {
+                    "$ref": "#/types/confluentcloud:index/KafkaClusterByokKey:KafkaClusterByokKey"
                 },
                 "cloud": {
                     "type": "string",
@@ -4111,6 +4580,9 @@
                     "bootstrapEndpoint": {
                         "type": "string",
                         "description": "(Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n"
+                    },
+                    "byokKey": {
+                        "$ref": "#/types/confluentcloud:index/KafkaClusterByokKey:KafkaClusterByokKey"
                     },
                     "cloud": {
                         "type": "string",
@@ -5884,6 +6356,51 @@
         }
     },
     "functions": {
+        "confluentcloud:index/getByokKey:getByokKey": {
+            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.ByokKey` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.ByokKey` describes a BYOK Key data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst azureKey = confluentcloud.getByokKey({\n    id: \"cck-abcde\",\n});\nexport const byok = azureKey;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nazure_key = confluentcloud.get_byok_key(id=\"cck-abcde\")\npulumi.export(\"byok\", azure_key)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var azureKey = ConfluentCloud.GetByokKey.Invoke(new()\n    {\n        Id = \"cck-abcde\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"byok\"] = azureKey,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tazureKey, err := confluentcloud.LookupByokKey(ctx, \u0026confluentcloud.LookupByokKeyArgs{\n\t\t\tId: \"cck-abcde\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"byok\", azureKey)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetByokKeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var azureKey = ConfluentcloudFunctions.getByokKey(GetByokKeyArgs.builder()\n            .id(\"cck-abcde\")\n            .build());\n\n        ctx.export(\"byok\", azureKey.applyValue(getByokKeyResult -\u003e getByokKeyResult));\n    }\n}\n```\n```yaml\nvariables:\n  azureKey:\n    fn::invoke:\n      Function: confluentcloud:getByokKey\n      Arguments:\n        id: cck-abcde\noutputs:\n  byok: ${azureKey}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getByokKey.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the BYOK key, for example, `cck-abcde`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getByokKey.\n",
+                "properties": {
+                    "aws": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getByokKeyAw:getByokKeyAw"
+                        },
+                        "description": "(Optional Configuration Block) supports the following:\n"
+                    },
+                    "azures": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getByokKeyAzure:getByokKeyAzure"
+                        },
+                        "description": "(Optional Configuration Block) supports the following:\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the BYOK key, for example, `cck-abcde`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "aws",
+                    "azures",
+                    "id"
+                ]
+            }
+        },
         "confluentcloud:index/getEnvironment:getEnvironment": {
             "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.Environment` describes an Environment data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleUsingIdEnvironment = confluentcloud.getEnvironment({\n    id: \"env-abc123\",\n});\nexport const exampleUsingId = exampleUsingIdEnvironment;\nconst exampleUsingNameEnvironment = confluentcloud.getEnvironment({\n    displayName: \"stag\",\n});\nconst exampleUsingNameServiceAccount = confluentcloud.getServiceAccount({\n    displayName: \"test_sa\",\n});\nconst test_role_binding = new confluentcloud.RoleBinding(\"test-role-binding\", {\n    principal: exampleUsingNameServiceAccount.then(exampleUsingNameServiceAccount =\u003e `User:${exampleUsingNameServiceAccount.id}`),\n    roleName: \"EnvironmentAdmin\",\n    crnPattern: exampleUsingNameEnvironment.then(exampleUsingNameEnvironment =\u003e exampleUsingNameEnvironment.resourceName),\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_using_id_environment = confluentcloud.get_environment(id=\"env-abc123\")\npulumi.export(\"exampleUsingId\", example_using_id_environment)\nexample_using_name_environment = confluentcloud.get_environment(display_name=\"stag\")\nexample_using_name_service_account = confluentcloud.get_service_account(display_name=\"test_sa\")\ntest_role_binding = confluentcloud.RoleBinding(\"test-role-binding\",\n    principal=f\"User:{example_using_name_service_account.id}\",\n    role_name=\"EnvironmentAdmin\",\n    crn_pattern=example_using_name_environment.resource_name)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleUsingIdEnvironment = ConfluentCloud.GetEnvironment.Invoke(new()\n    {\n        Id = \"env-abc123\",\n    });\n\n    var exampleUsingNameEnvironment = ConfluentCloud.GetEnvironment.Invoke(new()\n    {\n        DisplayName = \"stag\",\n    });\n\n    var exampleUsingNameServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()\n    {\n        DisplayName = \"test_sa\",\n    });\n\n    var test_role_binding = new ConfluentCloud.RoleBinding(\"test-role-binding\", new()\n    {\n        Principal = $\"User:{exampleUsingNameServiceAccount.Apply(getServiceAccountResult =\u003e getServiceAccountResult.Id)}\",\n        RoleName = \"EnvironmentAdmin\",\n        CrnPattern = exampleUsingNameEnvironment.Apply(getEnvironmentResult =\u003e getEnvironmentResult.ResourceName),\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"exampleUsingId\"] = exampleUsingIdEnvironment,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleUsingIdEnvironment, err := confluentcloud.LookupEnvironment(ctx, \u0026confluentcloud.LookupEnvironmentArgs{\n\t\t\tId: pulumi.StringRef(\"env-abc123\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingId\", exampleUsingIdEnvironment)\n\t\texampleUsingNameEnvironment, err := confluentcloud.LookupEnvironment(ctx, \u0026confluentcloud.LookupEnvironmentArgs{\n\t\t\tDisplayName: pulumi.StringRef(\"stag\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleUsingNameServiceAccount, err := confluentcloud.LookupServiceAccount(ctx, \u0026confluentcloud.LookupServiceAccountArgs{\n\t\t\tDisplayName: pulumi.StringRef(\"test_sa\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewRoleBinding(ctx, \"test-role-binding\", \u0026confluentcloud.RoleBindingArgs{\n\t\t\tPrincipal:  pulumi.String(fmt.Sprintf(\"User:%v\", exampleUsingNameServiceAccount.Id)),\n\t\t\tRoleName:   pulumi.String(\"EnvironmentAdmin\"),\n\t\t\tCrnPattern: *pulumi.String(exampleUsingNameEnvironment.ResourceName),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;\nimport com.pulumi.confluentcloud.RoleBinding;\nimport com.pulumi.confluentcloud.RoleBindingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleUsingIdEnvironment = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()\n            .id(\"env-abc123\")\n            .build());\n\n        ctx.export(\"exampleUsingId\", exampleUsingIdEnvironment.applyValue(getEnvironmentResult -\u003e getEnvironmentResult));\n        final var exampleUsingNameEnvironment = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()\n            .displayName(\"stag\")\n            .build());\n\n        final var exampleUsingNameServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()\n            .displayName(\"test_sa\")\n            .build());\n\n        var test_role_binding = new RoleBinding(\"test-role-binding\", RoleBindingArgs.builder()        \n            .principal(String.format(\"User:%s\", exampleUsingNameServiceAccount.applyValue(getServiceAccountResult -\u003e getServiceAccountResult.id())))\n            .roleName(\"EnvironmentAdmin\")\n            .crnPattern(exampleUsingNameEnvironment.applyValue(getEnvironmentResult -\u003e getEnvironmentResult.resourceName()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test-role-binding:\n    type: confluentcloud:RoleBinding\n    properties:\n      principal: User:${exampleUsingNameServiceAccount.id}\n      roleName: EnvironmentAdmin\n      crnPattern: ${exampleUsingNameEnvironment.resourceName}\nvariables:\n  exampleUsingIdEnvironment:\n    fn::invoke:\n      Function: confluentcloud:getEnvironment\n      Arguments:\n        id: env-abc123\n  exampleUsingNameEnvironment:\n    fn::invoke:\n      Function: confluentcloud:getEnvironment\n      Arguments:\n        displayName: stag\n  exampleUsingNameServiceAccount:\n    fn::invoke:\n      Function: confluentcloud:getServiceAccount\n      Arguments:\n        displayName: test_sa\noutputs:\n  exampleUsingId: ${exampleUsingIdEnvironment}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -6239,6 +6756,13 @@
                         "type": "string",
                         "description": "(Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n"
                     },
+                    "byokKeys": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getKafkaClusterByokKey:getKafkaClusterByokKey"
+                        },
+                        "description": "(Optional Configuration Block) supports the following:\n"
+                    },
                     "cloud": {
                         "type": "string",
                         "description": "(Required String) The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.\n"
@@ -6256,7 +6780,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "(Required String) The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.\n"
+                        "description": "(Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.\n"
                     },
                     "kind": {
                         "type": "string",
@@ -6294,6 +6818,7 @@
                     "apiVersion",
                     "availability",
                     "bootstrapEndpoint",
+                    "byokKeys",
                     "cloud",
                     "displayName",
                     "environment",
@@ -7177,6 +7702,63 @@
                     "id",
                     "package",
                     "region"
+                ]
+            }
+        },
+        "confluentcloud:index/getSchemas:getSchemas": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getSchemas.\n",
+                "properties": {
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getSchemasCredentials:getSchemasCredentials",
+                        "secret": true
+                    },
+                    "filter": {
+                        "$ref": "#/types/confluentcloud:index/getSchemasFilter:getSchemasFilter"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/getSchemasSchemaRegistryCluster:getSchemasSchemaRegistryCluster"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSchemas.\n",
+                "properties": {
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getSchemasCredentials:getSchemasCredentials",
+                        "secret": true
+                    },
+                    "filter": {
+                        "$ref": "#/types/confluentcloud:index/getSchemasFilter:getSchemasFilter"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string"
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/getSchemasSchemaRegistryCluster:getSchemasSchemaRegistryCluster"
+                    },
+                    "schemas": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getSchemasSchema:getSchemasSchema"
+                        },
+                        "description": "(List of Object) List of schemas. Each schema object exports the following attributes:\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "schemas",
+                    "id"
                 ]
             }
         },
