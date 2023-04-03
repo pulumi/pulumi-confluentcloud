@@ -20,6 +20,8 @@ from .get_kafka_cluster import *
 from .get_kafka_topic import *
 from .get_ksql_cluster import *
 from .get_network import *
+from .get_network_link_endpoint import *
+from .get_network_link_service import *
 from .get_organization import *
 from .get_peering import *
 from .get_private_link_access import *
@@ -35,6 +37,7 @@ from .get_subject_config import *
 from .get_subject_mode import *
 from .get_transit_gateway_attachment import *
 from .get_user import *
+from .get_users import *
 from .identity_pool import *
 from .identity_provider import *
 from .invitation import *
@@ -46,6 +49,8 @@ from .kafka_mirror_topic import *
 from .kafka_topic import *
 from .ksql_cluster import *
 from .network import *
+from .network_link_endpoint import *
+from .network_link_service import *
 from .peering import *
 from .private_link_access import *
 from .provider import *
@@ -197,6 +202,22 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/network:Network": "Network"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/networkLinkEndpoint",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint": "NetworkLinkEndpoint"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/networkLinkService",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/networkLinkService:NetworkLinkService": "NetworkLinkService"
   }
  },
  {

@@ -351,6 +351,52 @@ export interface GetNetworkGcp {
     vpcNetwork: string;
 }
 
+export interface GetNetworkLinkEndpointEnvironment {
+    /**
+     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetNetworkLinkEndpointNetwork {
+    /**
+     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetNetworkLinkEndpointNetworkLinkService {
+    /**
+     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetNetworkLinkServiceAccept {
+    /**
+     * (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+     */
+    environments: string[];
+    /**
+     * (Optional List of Strings) List of network ids from which connections can be accepted.
+     */
+    networks: string[];
+}
+
+export interface GetNetworkLinkServiceEnvironment {
+    /**
+     * The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+     */
+    id: string;
+}
+
+export interface GetNetworkLinkServiceNetwork {
+    /**
+     * The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+     */
+    id: string;
+}
+
 export interface GetNetworkZoneInfo {
     /**
      * (Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
@@ -938,6 +984,52 @@ export interface NetworkGcp {
      * (Required String) The network name of the Confluent Cloud VPC.
      */
     vpcNetwork: string;
+}
+
+export interface NetworkLinkEndpointEnvironment {
+    /**
+     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface NetworkLinkEndpointNetwork {
+    /**
+     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface NetworkLinkEndpointNetworkLinkService {
+    /**
+     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface NetworkLinkServiceAccept {
+    /**
+     * List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+     */
+    environments: string[];
+    /**
+     * List of network ids from which connections can be accepted.
+     */
+    networks: string[];
+}
+
+export interface NetworkLinkServiceEnvironment {
+    /**
+     * The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+     */
+    id: string;
+}
+
+export interface NetworkLinkServiceNetwork {
+    /**
+     * The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+     */
+    id: string;
 }
 
 export interface NetworkZoneInfo {

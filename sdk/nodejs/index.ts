@@ -80,6 +80,16 @@ export const getNetwork: typeof import("./getNetwork").getNetwork = null as any;
 export const getNetworkOutput: typeof import("./getNetwork").getNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["getNetwork","getNetworkOutput"], () => require("./getNetwork"));
 
+export { GetNetworkLinkEndpointArgs, GetNetworkLinkEndpointResult, GetNetworkLinkEndpointOutputArgs } from "./getNetworkLinkEndpoint";
+export const getNetworkLinkEndpoint: typeof import("./getNetworkLinkEndpoint").getNetworkLinkEndpoint = null as any;
+export const getNetworkLinkEndpointOutput: typeof import("./getNetworkLinkEndpoint").getNetworkLinkEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkLinkEndpoint","getNetworkLinkEndpointOutput"], () => require("./getNetworkLinkEndpoint"));
+
+export { GetNetworkLinkServiceArgs, GetNetworkLinkServiceResult, GetNetworkLinkServiceOutputArgs } from "./getNetworkLinkService";
+export const getNetworkLinkService: typeof import("./getNetworkLinkService").getNetworkLinkService = null as any;
+export const getNetworkLinkServiceOutput: typeof import("./getNetworkLinkService").getNetworkLinkServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkLinkService","getNetworkLinkServiceOutput"], () => require("./getNetworkLinkService"));
+
 export { GetOrganizationResult } from "./getOrganization";
 export const getOrganization: typeof import("./getOrganization").getOrganization = null as any;
 utilities.lazyLoad(exports, ["getOrganization"], () => require("./getOrganization"));
@@ -154,6 +164,10 @@ export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
+export { GetUsersResult } from "./getUsers";
+export const getUsers: typeof import("./getUsers").getUsers = null as any;
+utilities.lazyLoad(exports, ["getUsers"], () => require("./getUsers"));
+
 export { IdentityPoolArgs, IdentityPoolState } from "./identityPool";
 export type IdentityPool = import("./identityPool").IdentityPool;
 export const IdentityPool: typeof import("./identityPool").IdentityPool = null as any;
@@ -208,6 +222,16 @@ export { NetworkArgs, NetworkState } from "./network";
 export type Network = import("./network").Network;
 export const Network: typeof import("./network").Network = null as any;
 utilities.lazyLoad(exports, ["Network"], () => require("./network"));
+
+export { NetworkLinkEndpointArgs, NetworkLinkEndpointState } from "./networkLinkEndpoint";
+export type NetworkLinkEndpoint = import("./networkLinkEndpoint").NetworkLinkEndpoint;
+export const NetworkLinkEndpoint: typeof import("./networkLinkEndpoint").NetworkLinkEndpoint = null as any;
+utilities.lazyLoad(exports, ["NetworkLinkEndpoint"], () => require("./networkLinkEndpoint"));
+
+export { NetworkLinkServiceArgs, NetworkLinkServiceState } from "./networkLinkService";
+export type NetworkLinkService = import("./networkLinkService").NetworkLinkService;
+export const NetworkLinkService: typeof import("./networkLinkService").NetworkLinkService = null as any;
+utilities.lazyLoad(exports, ["NetworkLinkService"], () => require("./networkLinkService"));
 
 export { PeeringArgs, PeeringState } from "./peering";
 export type Peering = import("./peering").Peering;
@@ -315,6 +339,10 @@ const _module = {
                 return new KsqlCluster(name, <any>undefined, { urn })
             case "confluentcloud:index/network:Network":
                 return new Network(name, <any>undefined, { urn })
+            case "confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint":
+                return new NetworkLinkEndpoint(name, <any>undefined, { urn })
+            case "confluentcloud:index/networkLinkService:NetworkLinkService":
+                return new NetworkLinkService(name, <any>undefined, { urn })
             case "confluentcloud:index/peering:Peering":
                 return new Peering(name, <any>undefined, { urn })
             case "confluentcloud:index/privateLinkAccess:PrivateLinkAccess":
@@ -358,6 +386,8 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/kafkaMirrorTopic"
 pulumi.runtime.registerResourceModule("confluentcloud", "index/kafkaTopic", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/ksqlCluster", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/network", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/networkLinkEndpoint", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/networkLinkService", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/peering", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAccess", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/roleBinding", _module)

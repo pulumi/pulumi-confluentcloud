@@ -52,6 +52,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &KsqlCluster{}
 	case "confluentcloud:index/network:Network":
 		r = &Network{}
+	case "confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint":
+		r = &NetworkLinkEndpoint{}
+	case "confluentcloud:index/networkLinkService:NetworkLinkService":
+		r = &NetworkLinkService{}
 	case "confluentcloud:index/peering:Peering":
 		r = &Peering{}
 	case "confluentcloud:index/privateLinkAccess:PrivateLinkAccess":
@@ -180,6 +184,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/network",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/networkLinkEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/networkLinkService",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

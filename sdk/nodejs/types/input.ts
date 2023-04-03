@@ -367,6 +367,56 @@ export interface GetNetworkGcpArgs {
     vpcNetwork?: pulumi.Input<string>;
 }
 
+export interface GetNetworkLinkEndpointEnvironment {
+    /**
+     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetNetworkLinkEndpointEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetNetworkLinkServiceAccept {
+    /**
+     * (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+     */
+    environments?: string[];
+    /**
+     * (Optional List of Strings) List of network ids from which connections can be accepted.
+     */
+    networks?: string[];
+}
+
+export interface GetNetworkLinkServiceAcceptArgs {
+    /**
+     * (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+     */
+    environments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Optional List of Strings) List of network ids from which connections can be accepted.
+     */
+    networks?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetNetworkLinkServiceEnvironment {
+    /**
+     * The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+     */
+    id: string;
+}
+
+export interface GetNetworkLinkServiceEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface GetPeeringEnvironment {
     /**
      * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
@@ -920,6 +970,52 @@ export interface NetworkGcp {
      * (Required String) The network name of the Confluent Cloud VPC.
      */
     vpcNetwork?: pulumi.Input<string>;
+}
+
+export interface NetworkLinkEndpointEnvironment {
+    /**
+     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface NetworkLinkEndpointNetwork {
+    /**
+     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface NetworkLinkEndpointNetworkLinkService {
+    /**
+     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface NetworkLinkServiceAccept {
+    /**
+     * List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+     */
+    environments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of network ids from which connections can be accepted.
+     */
+    networks?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NetworkLinkServiceEnvironment {
+    /**
+     * The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface NetworkLinkServiceNetwork {
+    /**
+     * The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+     */
+    id: pulumi.Input<string>;
 }
 
 export interface NetworkZoneInfo {
