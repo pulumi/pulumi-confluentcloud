@@ -51,6 +51,12 @@ __all__ = [
     'NetworkDnsConfigArgs',
     'NetworkEnvironmentArgs',
     'NetworkGcpArgs',
+    'NetworkLinkEndpointEnvironmentArgs',
+    'NetworkLinkEndpointNetworkArgs',
+    'NetworkLinkEndpointNetworkLinkServiceArgs',
+    'NetworkLinkServiceAcceptArgs',
+    'NetworkLinkServiceEnvironmentArgs',
+    'NetworkLinkServiceNetworkArgs',
     'NetworkZoneInfoArgs',
     'PeeringAwsArgs',
     'PeeringAzureArgs',
@@ -91,6 +97,9 @@ __all__ = [
     'GetNetworkDnsConfigArgs',
     'GetNetworkEnvironmentArgs',
     'GetNetworkGcpArgs',
+    'GetNetworkLinkEndpointEnvironmentArgs',
+    'GetNetworkLinkServiceAcceptArgs',
+    'GetNetworkLinkServiceEnvironmentArgs',
     'GetPeeringEnvironmentArgs',
     'GetPrivateLinkAccessEnvironmentArgs',
     'GetSchemaCredentialsArgs',
@@ -1442,6 +1451,155 @@ class NetworkGcpArgs:
 
 
 @pulumi.input_type
+class NetworkLinkEndpointEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class NetworkLinkEndpointNetworkArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class NetworkLinkEndpointNetworkLinkServiceArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class NetworkLinkServiceAcceptArgs:
+    def __init__(__self__, *,
+                 environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 networks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] environments: List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] networks: List of network ids from which connections can be accepted.
+        """
+        if environments is not None:
+            pulumi.set(__self__, "environments", environments)
+        if networks is not None:
+            pulumi.set(__self__, "networks", networks)
+
+    @property
+    @pulumi.getter
+    def environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+        """
+        return pulumi.get(self, "environments")
+
+    @environments.setter
+    def environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "environments", value)
+
+    @property
+    @pulumi.getter
+    def networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of network ids from which connections can be accepted.
+        """
+        return pulumi.get(self, "networks")
+
+    @networks.setter
+    def networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "networks", value)
+
+
+@pulumi.input_type
+class NetworkLinkServiceEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class NetworkLinkServiceNetworkArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class NetworkZoneInfoArgs:
     def __init__(__self__, *,
                  cidr: Optional[pulumi.Input[str]] = None,
@@ -2672,6 +2830,87 @@ class GetNetworkGcpArgs:
     @vpc_network.setter
     def vpc_network(self, value: str):
         pulumi.set(self, "vpc_network", value)
+
+
+@pulumi.input_type
+class GetNetworkLinkEndpointEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetNetworkLinkServiceAcceptArgs:
+    def __init__(__self__, *,
+                 environments: Sequence[str],
+                 networks: Sequence[str]):
+        """
+        :param Sequence[str] environments: (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+        :param Sequence[str] networks: (Optional List of Strings) List of network ids from which connections can be accepted.
+        """
+        pulumi.set(__self__, "environments", environments)
+        pulumi.set(__self__, "networks", networks)
+
+    @property
+    @pulumi.getter
+    def environments(self) -> Sequence[str]:
+        """
+        (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+        """
+        return pulumi.get(self, "environments")
+
+    @environments.setter
+    def environments(self, value: Sequence[str]):
+        pulumi.set(self, "environments", value)
+
+    @property
+    @pulumi.getter
+    def networks(self) -> Sequence[str]:
+        """
+        (Optional List of Strings) List of network ids from which connections can be accepted.
+        """
+        return pulumi.get(self, "networks")
+
+    @networks.setter
+    def networks(self, value: Sequence[str]):
+        pulumi.set(self, "networks", value)
+
+
+@pulumi.input_type
+class GetNetworkLinkServiceEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

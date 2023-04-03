@@ -181,6 +181,10 @@ class Invitation(pulumi.CustomResource):
                  email: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `Invitation` provides an invitation resource that enables creating, reading, and deleting invitation on Confluent Cloud.
+
         ## Example Usage
 
         ```python
@@ -215,6 +219,10 @@ class Invitation(pulumi.CustomResource):
                  args: InvitationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        `Invitation` provides an invitation resource that enables creating, reading, and deleting invitation on Confluent Cloud.
+
         ## Example Usage
 
         ```python

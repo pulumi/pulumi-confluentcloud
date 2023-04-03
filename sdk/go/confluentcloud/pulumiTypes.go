@@ -5921,6 +5921,847 @@ func (o NetworkGcpArrayOutput) Index(i pulumi.IntInput) NetworkGcpOutput {
 	}).(NetworkGcpOutput)
 }
 
+type NetworkLinkEndpointEnvironment struct {
+	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// NetworkLinkEndpointEnvironmentInput is an input type that accepts NetworkLinkEndpointEnvironmentArgs and NetworkLinkEndpointEnvironmentOutput values.
+// You can construct a concrete instance of `NetworkLinkEndpointEnvironmentInput` via:
+//
+//	NetworkLinkEndpointEnvironmentArgs{...}
+type NetworkLinkEndpointEnvironmentInput interface {
+	pulumi.Input
+
+	ToNetworkLinkEndpointEnvironmentOutput() NetworkLinkEndpointEnvironmentOutput
+	ToNetworkLinkEndpointEnvironmentOutputWithContext(context.Context) NetworkLinkEndpointEnvironmentOutput
+}
+
+type NetworkLinkEndpointEnvironmentArgs struct {
+	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (NetworkLinkEndpointEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkLinkEndpointEnvironment)(nil)).Elem()
+}
+
+func (i NetworkLinkEndpointEnvironmentArgs) ToNetworkLinkEndpointEnvironmentOutput() NetworkLinkEndpointEnvironmentOutput {
+	return i.ToNetworkLinkEndpointEnvironmentOutputWithContext(context.Background())
+}
+
+func (i NetworkLinkEndpointEnvironmentArgs) ToNetworkLinkEndpointEnvironmentOutputWithContext(ctx context.Context) NetworkLinkEndpointEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointEnvironmentOutput)
+}
+
+func (i NetworkLinkEndpointEnvironmentArgs) ToNetworkLinkEndpointEnvironmentPtrOutput() NetworkLinkEndpointEnvironmentPtrOutput {
+	return i.ToNetworkLinkEndpointEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkLinkEndpointEnvironmentArgs) ToNetworkLinkEndpointEnvironmentPtrOutputWithContext(ctx context.Context) NetworkLinkEndpointEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointEnvironmentOutput).ToNetworkLinkEndpointEnvironmentPtrOutputWithContext(ctx)
+}
+
+// NetworkLinkEndpointEnvironmentPtrInput is an input type that accepts NetworkLinkEndpointEnvironmentArgs, NetworkLinkEndpointEnvironmentPtr and NetworkLinkEndpointEnvironmentPtrOutput values.
+// You can construct a concrete instance of `NetworkLinkEndpointEnvironmentPtrInput` via:
+//
+//	        NetworkLinkEndpointEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkLinkEndpointEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToNetworkLinkEndpointEnvironmentPtrOutput() NetworkLinkEndpointEnvironmentPtrOutput
+	ToNetworkLinkEndpointEnvironmentPtrOutputWithContext(context.Context) NetworkLinkEndpointEnvironmentPtrOutput
+}
+
+type networkLinkEndpointEnvironmentPtrType NetworkLinkEndpointEnvironmentArgs
+
+func NetworkLinkEndpointEnvironmentPtr(v *NetworkLinkEndpointEnvironmentArgs) NetworkLinkEndpointEnvironmentPtrInput {
+	return (*networkLinkEndpointEnvironmentPtrType)(v)
+}
+
+func (*networkLinkEndpointEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkLinkEndpointEnvironment)(nil)).Elem()
+}
+
+func (i *networkLinkEndpointEnvironmentPtrType) ToNetworkLinkEndpointEnvironmentPtrOutput() NetworkLinkEndpointEnvironmentPtrOutput {
+	return i.ToNetworkLinkEndpointEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *networkLinkEndpointEnvironmentPtrType) ToNetworkLinkEndpointEnvironmentPtrOutputWithContext(ctx context.Context) NetworkLinkEndpointEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointEnvironmentPtrOutput)
+}
+
+type NetworkLinkEndpointEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (NetworkLinkEndpointEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkLinkEndpointEnvironment)(nil)).Elem()
+}
+
+func (o NetworkLinkEndpointEnvironmentOutput) ToNetworkLinkEndpointEnvironmentOutput() NetworkLinkEndpointEnvironmentOutput {
+	return o
+}
+
+func (o NetworkLinkEndpointEnvironmentOutput) ToNetworkLinkEndpointEnvironmentOutputWithContext(ctx context.Context) NetworkLinkEndpointEnvironmentOutput {
+	return o
+}
+
+func (o NetworkLinkEndpointEnvironmentOutput) ToNetworkLinkEndpointEnvironmentPtrOutput() NetworkLinkEndpointEnvironmentPtrOutput {
+	return o.ToNetworkLinkEndpointEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkLinkEndpointEnvironmentOutput) ToNetworkLinkEndpointEnvironmentPtrOutputWithContext(ctx context.Context) NetworkLinkEndpointEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkLinkEndpointEnvironment) *NetworkLinkEndpointEnvironment {
+		return &v
+	}).(NetworkLinkEndpointEnvironmentPtrOutput)
+}
+
+// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+func (o NetworkLinkEndpointEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkLinkEndpointEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type NetworkLinkEndpointEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkLinkEndpointEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkLinkEndpointEnvironment)(nil)).Elem()
+}
+
+func (o NetworkLinkEndpointEnvironmentPtrOutput) ToNetworkLinkEndpointEnvironmentPtrOutput() NetworkLinkEndpointEnvironmentPtrOutput {
+	return o
+}
+
+func (o NetworkLinkEndpointEnvironmentPtrOutput) ToNetworkLinkEndpointEnvironmentPtrOutputWithContext(ctx context.Context) NetworkLinkEndpointEnvironmentPtrOutput {
+	return o
+}
+
+func (o NetworkLinkEndpointEnvironmentPtrOutput) Elem() NetworkLinkEndpointEnvironmentOutput {
+	return o.ApplyT(func(v *NetworkLinkEndpointEnvironment) NetworkLinkEndpointEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkLinkEndpointEnvironment
+		return ret
+	}).(NetworkLinkEndpointEnvironmentOutput)
+}
+
+// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+func (o NetworkLinkEndpointEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkLinkEndpointEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkLinkEndpointNetwork struct {
+	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// NetworkLinkEndpointNetworkInput is an input type that accepts NetworkLinkEndpointNetworkArgs and NetworkLinkEndpointNetworkOutput values.
+// You can construct a concrete instance of `NetworkLinkEndpointNetworkInput` via:
+//
+//	NetworkLinkEndpointNetworkArgs{...}
+type NetworkLinkEndpointNetworkInput interface {
+	pulumi.Input
+
+	ToNetworkLinkEndpointNetworkOutput() NetworkLinkEndpointNetworkOutput
+	ToNetworkLinkEndpointNetworkOutputWithContext(context.Context) NetworkLinkEndpointNetworkOutput
+}
+
+type NetworkLinkEndpointNetworkArgs struct {
+	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (NetworkLinkEndpointNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkLinkEndpointNetwork)(nil)).Elem()
+}
+
+func (i NetworkLinkEndpointNetworkArgs) ToNetworkLinkEndpointNetworkOutput() NetworkLinkEndpointNetworkOutput {
+	return i.ToNetworkLinkEndpointNetworkOutputWithContext(context.Background())
+}
+
+func (i NetworkLinkEndpointNetworkArgs) ToNetworkLinkEndpointNetworkOutputWithContext(ctx context.Context) NetworkLinkEndpointNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointNetworkOutput)
+}
+
+func (i NetworkLinkEndpointNetworkArgs) ToNetworkLinkEndpointNetworkPtrOutput() NetworkLinkEndpointNetworkPtrOutput {
+	return i.ToNetworkLinkEndpointNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkLinkEndpointNetworkArgs) ToNetworkLinkEndpointNetworkPtrOutputWithContext(ctx context.Context) NetworkLinkEndpointNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointNetworkOutput).ToNetworkLinkEndpointNetworkPtrOutputWithContext(ctx)
+}
+
+// NetworkLinkEndpointNetworkPtrInput is an input type that accepts NetworkLinkEndpointNetworkArgs, NetworkLinkEndpointNetworkPtr and NetworkLinkEndpointNetworkPtrOutput values.
+// You can construct a concrete instance of `NetworkLinkEndpointNetworkPtrInput` via:
+//
+//	        NetworkLinkEndpointNetworkArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkLinkEndpointNetworkPtrInput interface {
+	pulumi.Input
+
+	ToNetworkLinkEndpointNetworkPtrOutput() NetworkLinkEndpointNetworkPtrOutput
+	ToNetworkLinkEndpointNetworkPtrOutputWithContext(context.Context) NetworkLinkEndpointNetworkPtrOutput
+}
+
+type networkLinkEndpointNetworkPtrType NetworkLinkEndpointNetworkArgs
+
+func NetworkLinkEndpointNetworkPtr(v *NetworkLinkEndpointNetworkArgs) NetworkLinkEndpointNetworkPtrInput {
+	return (*networkLinkEndpointNetworkPtrType)(v)
+}
+
+func (*networkLinkEndpointNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkLinkEndpointNetwork)(nil)).Elem()
+}
+
+func (i *networkLinkEndpointNetworkPtrType) ToNetworkLinkEndpointNetworkPtrOutput() NetworkLinkEndpointNetworkPtrOutput {
+	return i.ToNetworkLinkEndpointNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *networkLinkEndpointNetworkPtrType) ToNetworkLinkEndpointNetworkPtrOutputWithContext(ctx context.Context) NetworkLinkEndpointNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointNetworkPtrOutput)
+}
+
+type NetworkLinkEndpointNetworkOutput struct{ *pulumi.OutputState }
+
+func (NetworkLinkEndpointNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkLinkEndpointNetwork)(nil)).Elem()
+}
+
+func (o NetworkLinkEndpointNetworkOutput) ToNetworkLinkEndpointNetworkOutput() NetworkLinkEndpointNetworkOutput {
+	return o
+}
+
+func (o NetworkLinkEndpointNetworkOutput) ToNetworkLinkEndpointNetworkOutputWithContext(ctx context.Context) NetworkLinkEndpointNetworkOutput {
+	return o
+}
+
+func (o NetworkLinkEndpointNetworkOutput) ToNetworkLinkEndpointNetworkPtrOutput() NetworkLinkEndpointNetworkPtrOutput {
+	return o.ToNetworkLinkEndpointNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkLinkEndpointNetworkOutput) ToNetworkLinkEndpointNetworkPtrOutputWithContext(ctx context.Context) NetworkLinkEndpointNetworkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkLinkEndpointNetwork) *NetworkLinkEndpointNetwork {
+		return &v
+	}).(NetworkLinkEndpointNetworkPtrOutput)
+}
+
+// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+func (o NetworkLinkEndpointNetworkOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkLinkEndpointNetwork) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type NetworkLinkEndpointNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkLinkEndpointNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkLinkEndpointNetwork)(nil)).Elem()
+}
+
+func (o NetworkLinkEndpointNetworkPtrOutput) ToNetworkLinkEndpointNetworkPtrOutput() NetworkLinkEndpointNetworkPtrOutput {
+	return o
+}
+
+func (o NetworkLinkEndpointNetworkPtrOutput) ToNetworkLinkEndpointNetworkPtrOutputWithContext(ctx context.Context) NetworkLinkEndpointNetworkPtrOutput {
+	return o
+}
+
+func (o NetworkLinkEndpointNetworkPtrOutput) Elem() NetworkLinkEndpointNetworkOutput {
+	return o.ApplyT(func(v *NetworkLinkEndpointNetwork) NetworkLinkEndpointNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkLinkEndpointNetwork
+		return ret
+	}).(NetworkLinkEndpointNetworkOutput)
+}
+
+// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+func (o NetworkLinkEndpointNetworkPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkLinkEndpointNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkLinkEndpointNetworkLinkService struct {
+	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// NetworkLinkEndpointNetworkLinkServiceInput is an input type that accepts NetworkLinkEndpointNetworkLinkServiceArgs and NetworkLinkEndpointNetworkLinkServiceOutput values.
+// You can construct a concrete instance of `NetworkLinkEndpointNetworkLinkServiceInput` via:
+//
+//	NetworkLinkEndpointNetworkLinkServiceArgs{...}
+type NetworkLinkEndpointNetworkLinkServiceInput interface {
+	pulumi.Input
+
+	ToNetworkLinkEndpointNetworkLinkServiceOutput() NetworkLinkEndpointNetworkLinkServiceOutput
+	ToNetworkLinkEndpointNetworkLinkServiceOutputWithContext(context.Context) NetworkLinkEndpointNetworkLinkServiceOutput
+}
+
+type NetworkLinkEndpointNetworkLinkServiceArgs struct {
+	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (NetworkLinkEndpointNetworkLinkServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkLinkEndpointNetworkLinkService)(nil)).Elem()
+}
+
+func (i NetworkLinkEndpointNetworkLinkServiceArgs) ToNetworkLinkEndpointNetworkLinkServiceOutput() NetworkLinkEndpointNetworkLinkServiceOutput {
+	return i.ToNetworkLinkEndpointNetworkLinkServiceOutputWithContext(context.Background())
+}
+
+func (i NetworkLinkEndpointNetworkLinkServiceArgs) ToNetworkLinkEndpointNetworkLinkServiceOutputWithContext(ctx context.Context) NetworkLinkEndpointNetworkLinkServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointNetworkLinkServiceOutput)
+}
+
+func (i NetworkLinkEndpointNetworkLinkServiceArgs) ToNetworkLinkEndpointNetworkLinkServicePtrOutput() NetworkLinkEndpointNetworkLinkServicePtrOutput {
+	return i.ToNetworkLinkEndpointNetworkLinkServicePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkLinkEndpointNetworkLinkServiceArgs) ToNetworkLinkEndpointNetworkLinkServicePtrOutputWithContext(ctx context.Context) NetworkLinkEndpointNetworkLinkServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointNetworkLinkServiceOutput).ToNetworkLinkEndpointNetworkLinkServicePtrOutputWithContext(ctx)
+}
+
+// NetworkLinkEndpointNetworkLinkServicePtrInput is an input type that accepts NetworkLinkEndpointNetworkLinkServiceArgs, NetworkLinkEndpointNetworkLinkServicePtr and NetworkLinkEndpointNetworkLinkServicePtrOutput values.
+// You can construct a concrete instance of `NetworkLinkEndpointNetworkLinkServicePtrInput` via:
+//
+//	        NetworkLinkEndpointNetworkLinkServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkLinkEndpointNetworkLinkServicePtrInput interface {
+	pulumi.Input
+
+	ToNetworkLinkEndpointNetworkLinkServicePtrOutput() NetworkLinkEndpointNetworkLinkServicePtrOutput
+	ToNetworkLinkEndpointNetworkLinkServicePtrOutputWithContext(context.Context) NetworkLinkEndpointNetworkLinkServicePtrOutput
+}
+
+type networkLinkEndpointNetworkLinkServicePtrType NetworkLinkEndpointNetworkLinkServiceArgs
+
+func NetworkLinkEndpointNetworkLinkServicePtr(v *NetworkLinkEndpointNetworkLinkServiceArgs) NetworkLinkEndpointNetworkLinkServicePtrInput {
+	return (*networkLinkEndpointNetworkLinkServicePtrType)(v)
+}
+
+func (*networkLinkEndpointNetworkLinkServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkLinkEndpointNetworkLinkService)(nil)).Elem()
+}
+
+func (i *networkLinkEndpointNetworkLinkServicePtrType) ToNetworkLinkEndpointNetworkLinkServicePtrOutput() NetworkLinkEndpointNetworkLinkServicePtrOutput {
+	return i.ToNetworkLinkEndpointNetworkLinkServicePtrOutputWithContext(context.Background())
+}
+
+func (i *networkLinkEndpointNetworkLinkServicePtrType) ToNetworkLinkEndpointNetworkLinkServicePtrOutputWithContext(ctx context.Context) NetworkLinkEndpointNetworkLinkServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointNetworkLinkServicePtrOutput)
+}
+
+type NetworkLinkEndpointNetworkLinkServiceOutput struct{ *pulumi.OutputState }
+
+func (NetworkLinkEndpointNetworkLinkServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkLinkEndpointNetworkLinkService)(nil)).Elem()
+}
+
+func (o NetworkLinkEndpointNetworkLinkServiceOutput) ToNetworkLinkEndpointNetworkLinkServiceOutput() NetworkLinkEndpointNetworkLinkServiceOutput {
+	return o
+}
+
+func (o NetworkLinkEndpointNetworkLinkServiceOutput) ToNetworkLinkEndpointNetworkLinkServiceOutputWithContext(ctx context.Context) NetworkLinkEndpointNetworkLinkServiceOutput {
+	return o
+}
+
+func (o NetworkLinkEndpointNetworkLinkServiceOutput) ToNetworkLinkEndpointNetworkLinkServicePtrOutput() NetworkLinkEndpointNetworkLinkServicePtrOutput {
+	return o.ToNetworkLinkEndpointNetworkLinkServicePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkLinkEndpointNetworkLinkServiceOutput) ToNetworkLinkEndpointNetworkLinkServicePtrOutputWithContext(ctx context.Context) NetworkLinkEndpointNetworkLinkServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkLinkEndpointNetworkLinkService) *NetworkLinkEndpointNetworkLinkService {
+		return &v
+	}).(NetworkLinkEndpointNetworkLinkServicePtrOutput)
+}
+
+// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+func (o NetworkLinkEndpointNetworkLinkServiceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkLinkEndpointNetworkLinkService) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type NetworkLinkEndpointNetworkLinkServicePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkLinkEndpointNetworkLinkServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkLinkEndpointNetworkLinkService)(nil)).Elem()
+}
+
+func (o NetworkLinkEndpointNetworkLinkServicePtrOutput) ToNetworkLinkEndpointNetworkLinkServicePtrOutput() NetworkLinkEndpointNetworkLinkServicePtrOutput {
+	return o
+}
+
+func (o NetworkLinkEndpointNetworkLinkServicePtrOutput) ToNetworkLinkEndpointNetworkLinkServicePtrOutputWithContext(ctx context.Context) NetworkLinkEndpointNetworkLinkServicePtrOutput {
+	return o
+}
+
+func (o NetworkLinkEndpointNetworkLinkServicePtrOutput) Elem() NetworkLinkEndpointNetworkLinkServiceOutput {
+	return o.ApplyT(func(v *NetworkLinkEndpointNetworkLinkService) NetworkLinkEndpointNetworkLinkService {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkLinkEndpointNetworkLinkService
+		return ret
+	}).(NetworkLinkEndpointNetworkLinkServiceOutput)
+}
+
+// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+func (o NetworkLinkEndpointNetworkLinkServicePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkLinkEndpointNetworkLinkService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkLinkServiceAccept struct {
+	// List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+	Environments []string `pulumi:"environments"`
+	// List of network ids from which connections can be accepted.
+	Networks []string `pulumi:"networks"`
+}
+
+// NetworkLinkServiceAcceptInput is an input type that accepts NetworkLinkServiceAcceptArgs and NetworkLinkServiceAcceptOutput values.
+// You can construct a concrete instance of `NetworkLinkServiceAcceptInput` via:
+//
+//	NetworkLinkServiceAcceptArgs{...}
+type NetworkLinkServiceAcceptInput interface {
+	pulumi.Input
+
+	ToNetworkLinkServiceAcceptOutput() NetworkLinkServiceAcceptOutput
+	ToNetworkLinkServiceAcceptOutputWithContext(context.Context) NetworkLinkServiceAcceptOutput
+}
+
+type NetworkLinkServiceAcceptArgs struct {
+	// List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+	Environments pulumi.StringArrayInput `pulumi:"environments"`
+	// List of network ids from which connections can be accepted.
+	Networks pulumi.StringArrayInput `pulumi:"networks"`
+}
+
+func (NetworkLinkServiceAcceptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkLinkServiceAccept)(nil)).Elem()
+}
+
+func (i NetworkLinkServiceAcceptArgs) ToNetworkLinkServiceAcceptOutput() NetworkLinkServiceAcceptOutput {
+	return i.ToNetworkLinkServiceAcceptOutputWithContext(context.Background())
+}
+
+func (i NetworkLinkServiceAcceptArgs) ToNetworkLinkServiceAcceptOutputWithContext(ctx context.Context) NetworkLinkServiceAcceptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceAcceptOutput)
+}
+
+func (i NetworkLinkServiceAcceptArgs) ToNetworkLinkServiceAcceptPtrOutput() NetworkLinkServiceAcceptPtrOutput {
+	return i.ToNetworkLinkServiceAcceptPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkLinkServiceAcceptArgs) ToNetworkLinkServiceAcceptPtrOutputWithContext(ctx context.Context) NetworkLinkServiceAcceptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceAcceptOutput).ToNetworkLinkServiceAcceptPtrOutputWithContext(ctx)
+}
+
+// NetworkLinkServiceAcceptPtrInput is an input type that accepts NetworkLinkServiceAcceptArgs, NetworkLinkServiceAcceptPtr and NetworkLinkServiceAcceptPtrOutput values.
+// You can construct a concrete instance of `NetworkLinkServiceAcceptPtrInput` via:
+//
+//	        NetworkLinkServiceAcceptArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkLinkServiceAcceptPtrInput interface {
+	pulumi.Input
+
+	ToNetworkLinkServiceAcceptPtrOutput() NetworkLinkServiceAcceptPtrOutput
+	ToNetworkLinkServiceAcceptPtrOutputWithContext(context.Context) NetworkLinkServiceAcceptPtrOutput
+}
+
+type networkLinkServiceAcceptPtrType NetworkLinkServiceAcceptArgs
+
+func NetworkLinkServiceAcceptPtr(v *NetworkLinkServiceAcceptArgs) NetworkLinkServiceAcceptPtrInput {
+	return (*networkLinkServiceAcceptPtrType)(v)
+}
+
+func (*networkLinkServiceAcceptPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkLinkServiceAccept)(nil)).Elem()
+}
+
+func (i *networkLinkServiceAcceptPtrType) ToNetworkLinkServiceAcceptPtrOutput() NetworkLinkServiceAcceptPtrOutput {
+	return i.ToNetworkLinkServiceAcceptPtrOutputWithContext(context.Background())
+}
+
+func (i *networkLinkServiceAcceptPtrType) ToNetworkLinkServiceAcceptPtrOutputWithContext(ctx context.Context) NetworkLinkServiceAcceptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceAcceptPtrOutput)
+}
+
+type NetworkLinkServiceAcceptOutput struct{ *pulumi.OutputState }
+
+func (NetworkLinkServiceAcceptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkLinkServiceAccept)(nil)).Elem()
+}
+
+func (o NetworkLinkServiceAcceptOutput) ToNetworkLinkServiceAcceptOutput() NetworkLinkServiceAcceptOutput {
+	return o
+}
+
+func (o NetworkLinkServiceAcceptOutput) ToNetworkLinkServiceAcceptOutputWithContext(ctx context.Context) NetworkLinkServiceAcceptOutput {
+	return o
+}
+
+func (o NetworkLinkServiceAcceptOutput) ToNetworkLinkServiceAcceptPtrOutput() NetworkLinkServiceAcceptPtrOutput {
+	return o.ToNetworkLinkServiceAcceptPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkLinkServiceAcceptOutput) ToNetworkLinkServiceAcceptPtrOutputWithContext(ctx context.Context) NetworkLinkServiceAcceptPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkLinkServiceAccept) *NetworkLinkServiceAccept {
+		return &v
+	}).(NetworkLinkServiceAcceptPtrOutput)
+}
+
+// List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+func (o NetworkLinkServiceAcceptOutput) Environments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkLinkServiceAccept) []string { return v.Environments }).(pulumi.StringArrayOutput)
+}
+
+// List of network ids from which connections can be accepted.
+func (o NetworkLinkServiceAcceptOutput) Networks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkLinkServiceAccept) []string { return v.Networks }).(pulumi.StringArrayOutput)
+}
+
+type NetworkLinkServiceAcceptPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkLinkServiceAcceptPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkLinkServiceAccept)(nil)).Elem()
+}
+
+func (o NetworkLinkServiceAcceptPtrOutput) ToNetworkLinkServiceAcceptPtrOutput() NetworkLinkServiceAcceptPtrOutput {
+	return o
+}
+
+func (o NetworkLinkServiceAcceptPtrOutput) ToNetworkLinkServiceAcceptPtrOutputWithContext(ctx context.Context) NetworkLinkServiceAcceptPtrOutput {
+	return o
+}
+
+func (o NetworkLinkServiceAcceptPtrOutput) Elem() NetworkLinkServiceAcceptOutput {
+	return o.ApplyT(func(v *NetworkLinkServiceAccept) NetworkLinkServiceAccept {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkLinkServiceAccept
+		return ret
+	}).(NetworkLinkServiceAcceptOutput)
+}
+
+// List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+func (o NetworkLinkServiceAcceptPtrOutput) Environments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkLinkServiceAccept) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Environments
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of network ids from which connections can be accepted.
+func (o NetworkLinkServiceAcceptPtrOutput) Networks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkLinkServiceAccept) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Networks
+	}).(pulumi.StringArrayOutput)
+}
+
+type NetworkLinkServiceEnvironment struct {
+	// The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// NetworkLinkServiceEnvironmentInput is an input type that accepts NetworkLinkServiceEnvironmentArgs and NetworkLinkServiceEnvironmentOutput values.
+// You can construct a concrete instance of `NetworkLinkServiceEnvironmentInput` via:
+//
+//	NetworkLinkServiceEnvironmentArgs{...}
+type NetworkLinkServiceEnvironmentInput interface {
+	pulumi.Input
+
+	ToNetworkLinkServiceEnvironmentOutput() NetworkLinkServiceEnvironmentOutput
+	ToNetworkLinkServiceEnvironmentOutputWithContext(context.Context) NetworkLinkServiceEnvironmentOutput
+}
+
+type NetworkLinkServiceEnvironmentArgs struct {
+	// The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (NetworkLinkServiceEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkLinkServiceEnvironment)(nil)).Elem()
+}
+
+func (i NetworkLinkServiceEnvironmentArgs) ToNetworkLinkServiceEnvironmentOutput() NetworkLinkServiceEnvironmentOutput {
+	return i.ToNetworkLinkServiceEnvironmentOutputWithContext(context.Background())
+}
+
+func (i NetworkLinkServiceEnvironmentArgs) ToNetworkLinkServiceEnvironmentOutputWithContext(ctx context.Context) NetworkLinkServiceEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceEnvironmentOutput)
+}
+
+func (i NetworkLinkServiceEnvironmentArgs) ToNetworkLinkServiceEnvironmentPtrOutput() NetworkLinkServiceEnvironmentPtrOutput {
+	return i.ToNetworkLinkServiceEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkLinkServiceEnvironmentArgs) ToNetworkLinkServiceEnvironmentPtrOutputWithContext(ctx context.Context) NetworkLinkServiceEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceEnvironmentOutput).ToNetworkLinkServiceEnvironmentPtrOutputWithContext(ctx)
+}
+
+// NetworkLinkServiceEnvironmentPtrInput is an input type that accepts NetworkLinkServiceEnvironmentArgs, NetworkLinkServiceEnvironmentPtr and NetworkLinkServiceEnvironmentPtrOutput values.
+// You can construct a concrete instance of `NetworkLinkServiceEnvironmentPtrInput` via:
+//
+//	        NetworkLinkServiceEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkLinkServiceEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToNetworkLinkServiceEnvironmentPtrOutput() NetworkLinkServiceEnvironmentPtrOutput
+	ToNetworkLinkServiceEnvironmentPtrOutputWithContext(context.Context) NetworkLinkServiceEnvironmentPtrOutput
+}
+
+type networkLinkServiceEnvironmentPtrType NetworkLinkServiceEnvironmentArgs
+
+func NetworkLinkServiceEnvironmentPtr(v *NetworkLinkServiceEnvironmentArgs) NetworkLinkServiceEnvironmentPtrInput {
+	return (*networkLinkServiceEnvironmentPtrType)(v)
+}
+
+func (*networkLinkServiceEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkLinkServiceEnvironment)(nil)).Elem()
+}
+
+func (i *networkLinkServiceEnvironmentPtrType) ToNetworkLinkServiceEnvironmentPtrOutput() NetworkLinkServiceEnvironmentPtrOutput {
+	return i.ToNetworkLinkServiceEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *networkLinkServiceEnvironmentPtrType) ToNetworkLinkServiceEnvironmentPtrOutputWithContext(ctx context.Context) NetworkLinkServiceEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceEnvironmentPtrOutput)
+}
+
+type NetworkLinkServiceEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (NetworkLinkServiceEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkLinkServiceEnvironment)(nil)).Elem()
+}
+
+func (o NetworkLinkServiceEnvironmentOutput) ToNetworkLinkServiceEnvironmentOutput() NetworkLinkServiceEnvironmentOutput {
+	return o
+}
+
+func (o NetworkLinkServiceEnvironmentOutput) ToNetworkLinkServiceEnvironmentOutputWithContext(ctx context.Context) NetworkLinkServiceEnvironmentOutput {
+	return o
+}
+
+func (o NetworkLinkServiceEnvironmentOutput) ToNetworkLinkServiceEnvironmentPtrOutput() NetworkLinkServiceEnvironmentPtrOutput {
+	return o.ToNetworkLinkServiceEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkLinkServiceEnvironmentOutput) ToNetworkLinkServiceEnvironmentPtrOutputWithContext(ctx context.Context) NetworkLinkServiceEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkLinkServiceEnvironment) *NetworkLinkServiceEnvironment {
+		return &v
+	}).(NetworkLinkServiceEnvironmentPtrOutput)
+}
+
+// The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+func (o NetworkLinkServiceEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkLinkServiceEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type NetworkLinkServiceEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkLinkServiceEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkLinkServiceEnvironment)(nil)).Elem()
+}
+
+func (o NetworkLinkServiceEnvironmentPtrOutput) ToNetworkLinkServiceEnvironmentPtrOutput() NetworkLinkServiceEnvironmentPtrOutput {
+	return o
+}
+
+func (o NetworkLinkServiceEnvironmentPtrOutput) ToNetworkLinkServiceEnvironmentPtrOutputWithContext(ctx context.Context) NetworkLinkServiceEnvironmentPtrOutput {
+	return o
+}
+
+func (o NetworkLinkServiceEnvironmentPtrOutput) Elem() NetworkLinkServiceEnvironmentOutput {
+	return o.ApplyT(func(v *NetworkLinkServiceEnvironment) NetworkLinkServiceEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkLinkServiceEnvironment
+		return ret
+	}).(NetworkLinkServiceEnvironmentOutput)
+}
+
+// The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+func (o NetworkLinkServiceEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkLinkServiceEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkLinkServiceNetwork struct {
+	// The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// NetworkLinkServiceNetworkInput is an input type that accepts NetworkLinkServiceNetworkArgs and NetworkLinkServiceNetworkOutput values.
+// You can construct a concrete instance of `NetworkLinkServiceNetworkInput` via:
+//
+//	NetworkLinkServiceNetworkArgs{...}
+type NetworkLinkServiceNetworkInput interface {
+	pulumi.Input
+
+	ToNetworkLinkServiceNetworkOutput() NetworkLinkServiceNetworkOutput
+	ToNetworkLinkServiceNetworkOutputWithContext(context.Context) NetworkLinkServiceNetworkOutput
+}
+
+type NetworkLinkServiceNetworkArgs struct {
+	// The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (NetworkLinkServiceNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkLinkServiceNetwork)(nil)).Elem()
+}
+
+func (i NetworkLinkServiceNetworkArgs) ToNetworkLinkServiceNetworkOutput() NetworkLinkServiceNetworkOutput {
+	return i.ToNetworkLinkServiceNetworkOutputWithContext(context.Background())
+}
+
+func (i NetworkLinkServiceNetworkArgs) ToNetworkLinkServiceNetworkOutputWithContext(ctx context.Context) NetworkLinkServiceNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceNetworkOutput)
+}
+
+func (i NetworkLinkServiceNetworkArgs) ToNetworkLinkServiceNetworkPtrOutput() NetworkLinkServiceNetworkPtrOutput {
+	return i.ToNetworkLinkServiceNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkLinkServiceNetworkArgs) ToNetworkLinkServiceNetworkPtrOutputWithContext(ctx context.Context) NetworkLinkServiceNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceNetworkOutput).ToNetworkLinkServiceNetworkPtrOutputWithContext(ctx)
+}
+
+// NetworkLinkServiceNetworkPtrInput is an input type that accepts NetworkLinkServiceNetworkArgs, NetworkLinkServiceNetworkPtr and NetworkLinkServiceNetworkPtrOutput values.
+// You can construct a concrete instance of `NetworkLinkServiceNetworkPtrInput` via:
+//
+//	        NetworkLinkServiceNetworkArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkLinkServiceNetworkPtrInput interface {
+	pulumi.Input
+
+	ToNetworkLinkServiceNetworkPtrOutput() NetworkLinkServiceNetworkPtrOutput
+	ToNetworkLinkServiceNetworkPtrOutputWithContext(context.Context) NetworkLinkServiceNetworkPtrOutput
+}
+
+type networkLinkServiceNetworkPtrType NetworkLinkServiceNetworkArgs
+
+func NetworkLinkServiceNetworkPtr(v *NetworkLinkServiceNetworkArgs) NetworkLinkServiceNetworkPtrInput {
+	return (*networkLinkServiceNetworkPtrType)(v)
+}
+
+func (*networkLinkServiceNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkLinkServiceNetwork)(nil)).Elem()
+}
+
+func (i *networkLinkServiceNetworkPtrType) ToNetworkLinkServiceNetworkPtrOutput() NetworkLinkServiceNetworkPtrOutput {
+	return i.ToNetworkLinkServiceNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *networkLinkServiceNetworkPtrType) ToNetworkLinkServiceNetworkPtrOutputWithContext(ctx context.Context) NetworkLinkServiceNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceNetworkPtrOutput)
+}
+
+type NetworkLinkServiceNetworkOutput struct{ *pulumi.OutputState }
+
+func (NetworkLinkServiceNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkLinkServiceNetwork)(nil)).Elem()
+}
+
+func (o NetworkLinkServiceNetworkOutput) ToNetworkLinkServiceNetworkOutput() NetworkLinkServiceNetworkOutput {
+	return o
+}
+
+func (o NetworkLinkServiceNetworkOutput) ToNetworkLinkServiceNetworkOutputWithContext(ctx context.Context) NetworkLinkServiceNetworkOutput {
+	return o
+}
+
+func (o NetworkLinkServiceNetworkOutput) ToNetworkLinkServiceNetworkPtrOutput() NetworkLinkServiceNetworkPtrOutput {
+	return o.ToNetworkLinkServiceNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkLinkServiceNetworkOutput) ToNetworkLinkServiceNetworkPtrOutputWithContext(ctx context.Context) NetworkLinkServiceNetworkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkLinkServiceNetwork) *NetworkLinkServiceNetwork {
+		return &v
+	}).(NetworkLinkServiceNetworkPtrOutput)
+}
+
+// The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+func (o NetworkLinkServiceNetworkOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkLinkServiceNetwork) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type NetworkLinkServiceNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkLinkServiceNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkLinkServiceNetwork)(nil)).Elem()
+}
+
+func (o NetworkLinkServiceNetworkPtrOutput) ToNetworkLinkServiceNetworkPtrOutput() NetworkLinkServiceNetworkPtrOutput {
+	return o
+}
+
+func (o NetworkLinkServiceNetworkPtrOutput) ToNetworkLinkServiceNetworkPtrOutputWithContext(ctx context.Context) NetworkLinkServiceNetworkPtrOutput {
+	return o
+}
+
+func (o NetworkLinkServiceNetworkPtrOutput) Elem() NetworkLinkServiceNetworkOutput {
+	return o.ApplyT(func(v *NetworkLinkServiceNetwork) NetworkLinkServiceNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkLinkServiceNetwork
+		return ret
+	}).(NetworkLinkServiceNetworkOutput)
+}
+
+// The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+func (o NetworkLinkServiceNetworkPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkLinkServiceNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type NetworkZoneInfo struct {
 	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
 	Cidr *string `pulumi:"cidr"`
@@ -12254,6 +13095,557 @@ func (o GetNetworkGcpArrayOutput) Index(i pulumi.IntInput) GetNetworkGcpOutput {
 	}).(GetNetworkGcpOutput)
 }
 
+type GetNetworkLinkEndpointEnvironment struct {
+	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetNetworkLinkEndpointEnvironmentInput is an input type that accepts GetNetworkLinkEndpointEnvironmentArgs and GetNetworkLinkEndpointEnvironmentOutput values.
+// You can construct a concrete instance of `GetNetworkLinkEndpointEnvironmentInput` via:
+//
+//	GetNetworkLinkEndpointEnvironmentArgs{...}
+type GetNetworkLinkEndpointEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetNetworkLinkEndpointEnvironmentOutput() GetNetworkLinkEndpointEnvironmentOutput
+	ToGetNetworkLinkEndpointEnvironmentOutputWithContext(context.Context) GetNetworkLinkEndpointEnvironmentOutput
+}
+
+type GetNetworkLinkEndpointEnvironmentArgs struct {
+	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetNetworkLinkEndpointEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkLinkEndpointEnvironment)(nil)).Elem()
+}
+
+func (i GetNetworkLinkEndpointEnvironmentArgs) ToGetNetworkLinkEndpointEnvironmentOutput() GetNetworkLinkEndpointEnvironmentOutput {
+	return i.ToGetNetworkLinkEndpointEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetNetworkLinkEndpointEnvironmentArgs) ToGetNetworkLinkEndpointEnvironmentOutputWithContext(ctx context.Context) GetNetworkLinkEndpointEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkEndpointEnvironmentOutput)
+}
+
+type GetNetworkLinkEndpointEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkLinkEndpointEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkLinkEndpointEnvironment)(nil)).Elem()
+}
+
+func (o GetNetworkLinkEndpointEnvironmentOutput) ToGetNetworkLinkEndpointEnvironmentOutput() GetNetworkLinkEndpointEnvironmentOutput {
+	return o
+}
+
+func (o GetNetworkLinkEndpointEnvironmentOutput) ToGetNetworkLinkEndpointEnvironmentOutputWithContext(ctx context.Context) GetNetworkLinkEndpointEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+func (o GetNetworkLinkEndpointEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkLinkEndpointEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetNetworkLinkEndpointNetwork struct {
+	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetNetworkLinkEndpointNetworkInput is an input type that accepts GetNetworkLinkEndpointNetworkArgs and GetNetworkLinkEndpointNetworkOutput values.
+// You can construct a concrete instance of `GetNetworkLinkEndpointNetworkInput` via:
+//
+//	GetNetworkLinkEndpointNetworkArgs{...}
+type GetNetworkLinkEndpointNetworkInput interface {
+	pulumi.Input
+
+	ToGetNetworkLinkEndpointNetworkOutput() GetNetworkLinkEndpointNetworkOutput
+	ToGetNetworkLinkEndpointNetworkOutputWithContext(context.Context) GetNetworkLinkEndpointNetworkOutput
+}
+
+type GetNetworkLinkEndpointNetworkArgs struct {
+	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetNetworkLinkEndpointNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkLinkEndpointNetwork)(nil)).Elem()
+}
+
+func (i GetNetworkLinkEndpointNetworkArgs) ToGetNetworkLinkEndpointNetworkOutput() GetNetworkLinkEndpointNetworkOutput {
+	return i.ToGetNetworkLinkEndpointNetworkOutputWithContext(context.Background())
+}
+
+func (i GetNetworkLinkEndpointNetworkArgs) ToGetNetworkLinkEndpointNetworkOutputWithContext(ctx context.Context) GetNetworkLinkEndpointNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkEndpointNetworkOutput)
+}
+
+// GetNetworkLinkEndpointNetworkArrayInput is an input type that accepts GetNetworkLinkEndpointNetworkArray and GetNetworkLinkEndpointNetworkArrayOutput values.
+// You can construct a concrete instance of `GetNetworkLinkEndpointNetworkArrayInput` via:
+//
+//	GetNetworkLinkEndpointNetworkArray{ GetNetworkLinkEndpointNetworkArgs{...} }
+type GetNetworkLinkEndpointNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkLinkEndpointNetworkArrayOutput() GetNetworkLinkEndpointNetworkArrayOutput
+	ToGetNetworkLinkEndpointNetworkArrayOutputWithContext(context.Context) GetNetworkLinkEndpointNetworkArrayOutput
+}
+
+type GetNetworkLinkEndpointNetworkArray []GetNetworkLinkEndpointNetworkInput
+
+func (GetNetworkLinkEndpointNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkLinkEndpointNetwork)(nil)).Elem()
+}
+
+func (i GetNetworkLinkEndpointNetworkArray) ToGetNetworkLinkEndpointNetworkArrayOutput() GetNetworkLinkEndpointNetworkArrayOutput {
+	return i.ToGetNetworkLinkEndpointNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkLinkEndpointNetworkArray) ToGetNetworkLinkEndpointNetworkArrayOutputWithContext(ctx context.Context) GetNetworkLinkEndpointNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkEndpointNetworkArrayOutput)
+}
+
+type GetNetworkLinkEndpointNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkLinkEndpointNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkLinkEndpointNetwork)(nil)).Elem()
+}
+
+func (o GetNetworkLinkEndpointNetworkOutput) ToGetNetworkLinkEndpointNetworkOutput() GetNetworkLinkEndpointNetworkOutput {
+	return o
+}
+
+func (o GetNetworkLinkEndpointNetworkOutput) ToGetNetworkLinkEndpointNetworkOutputWithContext(ctx context.Context) GetNetworkLinkEndpointNetworkOutput {
+	return o
+}
+
+// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+func (o GetNetworkLinkEndpointNetworkOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkLinkEndpointNetwork) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetNetworkLinkEndpointNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkLinkEndpointNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkLinkEndpointNetwork)(nil)).Elem()
+}
+
+func (o GetNetworkLinkEndpointNetworkArrayOutput) ToGetNetworkLinkEndpointNetworkArrayOutput() GetNetworkLinkEndpointNetworkArrayOutput {
+	return o
+}
+
+func (o GetNetworkLinkEndpointNetworkArrayOutput) ToGetNetworkLinkEndpointNetworkArrayOutputWithContext(ctx context.Context) GetNetworkLinkEndpointNetworkArrayOutput {
+	return o
+}
+
+func (o GetNetworkLinkEndpointNetworkArrayOutput) Index(i pulumi.IntInput) GetNetworkLinkEndpointNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkLinkEndpointNetwork {
+		return vs[0].([]GetNetworkLinkEndpointNetwork)[vs[1].(int)]
+	}).(GetNetworkLinkEndpointNetworkOutput)
+}
+
+type GetNetworkLinkEndpointNetworkLinkService struct {
+	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetNetworkLinkEndpointNetworkLinkServiceInput is an input type that accepts GetNetworkLinkEndpointNetworkLinkServiceArgs and GetNetworkLinkEndpointNetworkLinkServiceOutput values.
+// You can construct a concrete instance of `GetNetworkLinkEndpointNetworkLinkServiceInput` via:
+//
+//	GetNetworkLinkEndpointNetworkLinkServiceArgs{...}
+type GetNetworkLinkEndpointNetworkLinkServiceInput interface {
+	pulumi.Input
+
+	ToGetNetworkLinkEndpointNetworkLinkServiceOutput() GetNetworkLinkEndpointNetworkLinkServiceOutput
+	ToGetNetworkLinkEndpointNetworkLinkServiceOutputWithContext(context.Context) GetNetworkLinkEndpointNetworkLinkServiceOutput
+}
+
+type GetNetworkLinkEndpointNetworkLinkServiceArgs struct {
+	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetNetworkLinkEndpointNetworkLinkServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkLinkEndpointNetworkLinkService)(nil)).Elem()
+}
+
+func (i GetNetworkLinkEndpointNetworkLinkServiceArgs) ToGetNetworkLinkEndpointNetworkLinkServiceOutput() GetNetworkLinkEndpointNetworkLinkServiceOutput {
+	return i.ToGetNetworkLinkEndpointNetworkLinkServiceOutputWithContext(context.Background())
+}
+
+func (i GetNetworkLinkEndpointNetworkLinkServiceArgs) ToGetNetworkLinkEndpointNetworkLinkServiceOutputWithContext(ctx context.Context) GetNetworkLinkEndpointNetworkLinkServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkEndpointNetworkLinkServiceOutput)
+}
+
+// GetNetworkLinkEndpointNetworkLinkServiceArrayInput is an input type that accepts GetNetworkLinkEndpointNetworkLinkServiceArray and GetNetworkLinkEndpointNetworkLinkServiceArrayOutput values.
+// You can construct a concrete instance of `GetNetworkLinkEndpointNetworkLinkServiceArrayInput` via:
+//
+//	GetNetworkLinkEndpointNetworkLinkServiceArray{ GetNetworkLinkEndpointNetworkLinkServiceArgs{...} }
+type GetNetworkLinkEndpointNetworkLinkServiceArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkLinkEndpointNetworkLinkServiceArrayOutput() GetNetworkLinkEndpointNetworkLinkServiceArrayOutput
+	ToGetNetworkLinkEndpointNetworkLinkServiceArrayOutputWithContext(context.Context) GetNetworkLinkEndpointNetworkLinkServiceArrayOutput
+}
+
+type GetNetworkLinkEndpointNetworkLinkServiceArray []GetNetworkLinkEndpointNetworkLinkServiceInput
+
+func (GetNetworkLinkEndpointNetworkLinkServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkLinkEndpointNetworkLinkService)(nil)).Elem()
+}
+
+func (i GetNetworkLinkEndpointNetworkLinkServiceArray) ToGetNetworkLinkEndpointNetworkLinkServiceArrayOutput() GetNetworkLinkEndpointNetworkLinkServiceArrayOutput {
+	return i.ToGetNetworkLinkEndpointNetworkLinkServiceArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkLinkEndpointNetworkLinkServiceArray) ToGetNetworkLinkEndpointNetworkLinkServiceArrayOutputWithContext(ctx context.Context) GetNetworkLinkEndpointNetworkLinkServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkEndpointNetworkLinkServiceArrayOutput)
+}
+
+type GetNetworkLinkEndpointNetworkLinkServiceOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkLinkEndpointNetworkLinkServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkLinkEndpointNetworkLinkService)(nil)).Elem()
+}
+
+func (o GetNetworkLinkEndpointNetworkLinkServiceOutput) ToGetNetworkLinkEndpointNetworkLinkServiceOutput() GetNetworkLinkEndpointNetworkLinkServiceOutput {
+	return o
+}
+
+func (o GetNetworkLinkEndpointNetworkLinkServiceOutput) ToGetNetworkLinkEndpointNetworkLinkServiceOutputWithContext(ctx context.Context) GetNetworkLinkEndpointNetworkLinkServiceOutput {
+	return o
+}
+
+// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+func (o GetNetworkLinkEndpointNetworkLinkServiceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkLinkEndpointNetworkLinkService) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetNetworkLinkEndpointNetworkLinkServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkLinkEndpointNetworkLinkServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkLinkEndpointNetworkLinkService)(nil)).Elem()
+}
+
+func (o GetNetworkLinkEndpointNetworkLinkServiceArrayOutput) ToGetNetworkLinkEndpointNetworkLinkServiceArrayOutput() GetNetworkLinkEndpointNetworkLinkServiceArrayOutput {
+	return o
+}
+
+func (o GetNetworkLinkEndpointNetworkLinkServiceArrayOutput) ToGetNetworkLinkEndpointNetworkLinkServiceArrayOutputWithContext(ctx context.Context) GetNetworkLinkEndpointNetworkLinkServiceArrayOutput {
+	return o
+}
+
+func (o GetNetworkLinkEndpointNetworkLinkServiceArrayOutput) Index(i pulumi.IntInput) GetNetworkLinkEndpointNetworkLinkServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkLinkEndpointNetworkLinkService {
+		return vs[0].([]GetNetworkLinkEndpointNetworkLinkService)[vs[1].(int)]
+	}).(GetNetworkLinkEndpointNetworkLinkServiceOutput)
+}
+
+type GetNetworkLinkServiceAccept struct {
+	// (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+	Environments []string `pulumi:"environments"`
+	// (Optional List of Strings) List of network ids from which connections can be accepted.
+	Networks []string `pulumi:"networks"`
+}
+
+// GetNetworkLinkServiceAcceptInput is an input type that accepts GetNetworkLinkServiceAcceptArgs and GetNetworkLinkServiceAcceptOutput values.
+// You can construct a concrete instance of `GetNetworkLinkServiceAcceptInput` via:
+//
+//	GetNetworkLinkServiceAcceptArgs{...}
+type GetNetworkLinkServiceAcceptInput interface {
+	pulumi.Input
+
+	ToGetNetworkLinkServiceAcceptOutput() GetNetworkLinkServiceAcceptOutput
+	ToGetNetworkLinkServiceAcceptOutputWithContext(context.Context) GetNetworkLinkServiceAcceptOutput
+}
+
+type GetNetworkLinkServiceAcceptArgs struct {
+	// (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+	Environments pulumi.StringArrayInput `pulumi:"environments"`
+	// (Optional List of Strings) List of network ids from which connections can be accepted.
+	Networks pulumi.StringArrayInput `pulumi:"networks"`
+}
+
+func (GetNetworkLinkServiceAcceptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkLinkServiceAccept)(nil)).Elem()
+}
+
+func (i GetNetworkLinkServiceAcceptArgs) ToGetNetworkLinkServiceAcceptOutput() GetNetworkLinkServiceAcceptOutput {
+	return i.ToGetNetworkLinkServiceAcceptOutputWithContext(context.Background())
+}
+
+func (i GetNetworkLinkServiceAcceptArgs) ToGetNetworkLinkServiceAcceptOutputWithContext(ctx context.Context) GetNetworkLinkServiceAcceptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkServiceAcceptOutput)
+}
+
+func (i GetNetworkLinkServiceAcceptArgs) ToGetNetworkLinkServiceAcceptPtrOutput() GetNetworkLinkServiceAcceptPtrOutput {
+	return i.ToGetNetworkLinkServiceAcceptPtrOutputWithContext(context.Background())
+}
+
+func (i GetNetworkLinkServiceAcceptArgs) ToGetNetworkLinkServiceAcceptPtrOutputWithContext(ctx context.Context) GetNetworkLinkServiceAcceptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkServiceAcceptOutput).ToGetNetworkLinkServiceAcceptPtrOutputWithContext(ctx)
+}
+
+// GetNetworkLinkServiceAcceptPtrInput is an input type that accepts GetNetworkLinkServiceAcceptArgs, GetNetworkLinkServiceAcceptPtr and GetNetworkLinkServiceAcceptPtrOutput values.
+// You can construct a concrete instance of `GetNetworkLinkServiceAcceptPtrInput` via:
+//
+//	        GetNetworkLinkServiceAcceptArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetNetworkLinkServiceAcceptPtrInput interface {
+	pulumi.Input
+
+	ToGetNetworkLinkServiceAcceptPtrOutput() GetNetworkLinkServiceAcceptPtrOutput
+	ToGetNetworkLinkServiceAcceptPtrOutputWithContext(context.Context) GetNetworkLinkServiceAcceptPtrOutput
+}
+
+type getNetworkLinkServiceAcceptPtrType GetNetworkLinkServiceAcceptArgs
+
+func GetNetworkLinkServiceAcceptPtr(v *GetNetworkLinkServiceAcceptArgs) GetNetworkLinkServiceAcceptPtrInput {
+	return (*getNetworkLinkServiceAcceptPtrType)(v)
+}
+
+func (*getNetworkLinkServiceAcceptPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetNetworkLinkServiceAccept)(nil)).Elem()
+}
+
+func (i *getNetworkLinkServiceAcceptPtrType) ToGetNetworkLinkServiceAcceptPtrOutput() GetNetworkLinkServiceAcceptPtrOutput {
+	return i.ToGetNetworkLinkServiceAcceptPtrOutputWithContext(context.Background())
+}
+
+func (i *getNetworkLinkServiceAcceptPtrType) ToGetNetworkLinkServiceAcceptPtrOutputWithContext(ctx context.Context) GetNetworkLinkServiceAcceptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkServiceAcceptPtrOutput)
+}
+
+type GetNetworkLinkServiceAcceptOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkLinkServiceAcceptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkLinkServiceAccept)(nil)).Elem()
+}
+
+func (o GetNetworkLinkServiceAcceptOutput) ToGetNetworkLinkServiceAcceptOutput() GetNetworkLinkServiceAcceptOutput {
+	return o
+}
+
+func (o GetNetworkLinkServiceAcceptOutput) ToGetNetworkLinkServiceAcceptOutputWithContext(ctx context.Context) GetNetworkLinkServiceAcceptOutput {
+	return o
+}
+
+func (o GetNetworkLinkServiceAcceptOutput) ToGetNetworkLinkServiceAcceptPtrOutput() GetNetworkLinkServiceAcceptPtrOutput {
+	return o.ToGetNetworkLinkServiceAcceptPtrOutputWithContext(context.Background())
+}
+
+func (o GetNetworkLinkServiceAcceptOutput) ToGetNetworkLinkServiceAcceptPtrOutputWithContext(ctx context.Context) GetNetworkLinkServiceAcceptPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetNetworkLinkServiceAccept) *GetNetworkLinkServiceAccept {
+		return &v
+	}).(GetNetworkLinkServiceAcceptPtrOutput)
+}
+
+// (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+func (o GetNetworkLinkServiceAcceptOutput) Environments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkLinkServiceAccept) []string { return v.Environments }).(pulumi.StringArrayOutput)
+}
+
+// (Optional List of Strings) List of network ids from which connections can be accepted.
+func (o GetNetworkLinkServiceAcceptOutput) Networks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkLinkServiceAccept) []string { return v.Networks }).(pulumi.StringArrayOutput)
+}
+
+type GetNetworkLinkServiceAcceptPtrOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkLinkServiceAcceptPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetNetworkLinkServiceAccept)(nil)).Elem()
+}
+
+func (o GetNetworkLinkServiceAcceptPtrOutput) ToGetNetworkLinkServiceAcceptPtrOutput() GetNetworkLinkServiceAcceptPtrOutput {
+	return o
+}
+
+func (o GetNetworkLinkServiceAcceptPtrOutput) ToGetNetworkLinkServiceAcceptPtrOutputWithContext(ctx context.Context) GetNetworkLinkServiceAcceptPtrOutput {
+	return o
+}
+
+func (o GetNetworkLinkServiceAcceptPtrOutput) Elem() GetNetworkLinkServiceAcceptOutput {
+	return o.ApplyT(func(v *GetNetworkLinkServiceAccept) GetNetworkLinkServiceAccept {
+		if v != nil {
+			return *v
+		}
+		var ret GetNetworkLinkServiceAccept
+		return ret
+	}).(GetNetworkLinkServiceAcceptOutput)
+}
+
+// (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
+func (o GetNetworkLinkServiceAcceptPtrOutput) Environments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetNetworkLinkServiceAccept) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Environments
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional List of Strings) List of network ids from which connections can be accepted.
+func (o GetNetworkLinkServiceAcceptPtrOutput) Networks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetNetworkLinkServiceAccept) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Networks
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetNetworkLinkServiceEnvironment struct {
+	// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+	Id string `pulumi:"id"`
+}
+
+// GetNetworkLinkServiceEnvironmentInput is an input type that accepts GetNetworkLinkServiceEnvironmentArgs and GetNetworkLinkServiceEnvironmentOutput values.
+// You can construct a concrete instance of `GetNetworkLinkServiceEnvironmentInput` via:
+//
+//	GetNetworkLinkServiceEnvironmentArgs{...}
+type GetNetworkLinkServiceEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetNetworkLinkServiceEnvironmentOutput() GetNetworkLinkServiceEnvironmentOutput
+	ToGetNetworkLinkServiceEnvironmentOutputWithContext(context.Context) GetNetworkLinkServiceEnvironmentOutput
+}
+
+type GetNetworkLinkServiceEnvironmentArgs struct {
+	// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetNetworkLinkServiceEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkLinkServiceEnvironment)(nil)).Elem()
+}
+
+func (i GetNetworkLinkServiceEnvironmentArgs) ToGetNetworkLinkServiceEnvironmentOutput() GetNetworkLinkServiceEnvironmentOutput {
+	return i.ToGetNetworkLinkServiceEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetNetworkLinkServiceEnvironmentArgs) ToGetNetworkLinkServiceEnvironmentOutputWithContext(ctx context.Context) GetNetworkLinkServiceEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkServiceEnvironmentOutput)
+}
+
+type GetNetworkLinkServiceEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkLinkServiceEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkLinkServiceEnvironment)(nil)).Elem()
+}
+
+func (o GetNetworkLinkServiceEnvironmentOutput) ToGetNetworkLinkServiceEnvironmentOutput() GetNetworkLinkServiceEnvironmentOutput {
+	return o
+}
+
+func (o GetNetworkLinkServiceEnvironmentOutput) ToGetNetworkLinkServiceEnvironmentOutputWithContext(ctx context.Context) GetNetworkLinkServiceEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+func (o GetNetworkLinkServiceEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkLinkServiceEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetNetworkLinkServiceNetwork struct {
+	// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+	Id string `pulumi:"id"`
+}
+
+// GetNetworkLinkServiceNetworkInput is an input type that accepts GetNetworkLinkServiceNetworkArgs and GetNetworkLinkServiceNetworkOutput values.
+// You can construct a concrete instance of `GetNetworkLinkServiceNetworkInput` via:
+//
+//	GetNetworkLinkServiceNetworkArgs{...}
+type GetNetworkLinkServiceNetworkInput interface {
+	pulumi.Input
+
+	ToGetNetworkLinkServiceNetworkOutput() GetNetworkLinkServiceNetworkOutput
+	ToGetNetworkLinkServiceNetworkOutputWithContext(context.Context) GetNetworkLinkServiceNetworkOutput
+}
+
+type GetNetworkLinkServiceNetworkArgs struct {
+	// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetNetworkLinkServiceNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkLinkServiceNetwork)(nil)).Elem()
+}
+
+func (i GetNetworkLinkServiceNetworkArgs) ToGetNetworkLinkServiceNetworkOutput() GetNetworkLinkServiceNetworkOutput {
+	return i.ToGetNetworkLinkServiceNetworkOutputWithContext(context.Background())
+}
+
+func (i GetNetworkLinkServiceNetworkArgs) ToGetNetworkLinkServiceNetworkOutputWithContext(ctx context.Context) GetNetworkLinkServiceNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkServiceNetworkOutput)
+}
+
+// GetNetworkLinkServiceNetworkArrayInput is an input type that accepts GetNetworkLinkServiceNetworkArray and GetNetworkLinkServiceNetworkArrayOutput values.
+// You can construct a concrete instance of `GetNetworkLinkServiceNetworkArrayInput` via:
+//
+//	GetNetworkLinkServiceNetworkArray{ GetNetworkLinkServiceNetworkArgs{...} }
+type GetNetworkLinkServiceNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkLinkServiceNetworkArrayOutput() GetNetworkLinkServiceNetworkArrayOutput
+	ToGetNetworkLinkServiceNetworkArrayOutputWithContext(context.Context) GetNetworkLinkServiceNetworkArrayOutput
+}
+
+type GetNetworkLinkServiceNetworkArray []GetNetworkLinkServiceNetworkInput
+
+func (GetNetworkLinkServiceNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkLinkServiceNetwork)(nil)).Elem()
+}
+
+func (i GetNetworkLinkServiceNetworkArray) ToGetNetworkLinkServiceNetworkArrayOutput() GetNetworkLinkServiceNetworkArrayOutput {
+	return i.ToGetNetworkLinkServiceNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkLinkServiceNetworkArray) ToGetNetworkLinkServiceNetworkArrayOutputWithContext(ctx context.Context) GetNetworkLinkServiceNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkServiceNetworkArrayOutput)
+}
+
+type GetNetworkLinkServiceNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkLinkServiceNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkLinkServiceNetwork)(nil)).Elem()
+}
+
+func (o GetNetworkLinkServiceNetworkOutput) ToGetNetworkLinkServiceNetworkOutput() GetNetworkLinkServiceNetworkOutput {
+	return o
+}
+
+func (o GetNetworkLinkServiceNetworkOutput) ToGetNetworkLinkServiceNetworkOutputWithContext(ctx context.Context) GetNetworkLinkServiceNetworkOutput {
+	return o
+}
+
+// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+func (o GetNetworkLinkServiceNetworkOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkLinkServiceNetwork) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetNetworkLinkServiceNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkLinkServiceNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkLinkServiceNetwork)(nil)).Elem()
+}
+
+func (o GetNetworkLinkServiceNetworkArrayOutput) ToGetNetworkLinkServiceNetworkArrayOutput() GetNetworkLinkServiceNetworkArrayOutput {
+	return o
+}
+
+func (o GetNetworkLinkServiceNetworkArrayOutput) ToGetNetworkLinkServiceNetworkArrayOutputWithContext(ctx context.Context) GetNetworkLinkServiceNetworkArrayOutput {
+	return o
+}
+
+func (o GetNetworkLinkServiceNetworkArrayOutput) Index(i pulumi.IntInput) GetNetworkLinkServiceNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkLinkServiceNetwork {
+		return vs[0].([]GetNetworkLinkServiceNetwork)[vs[1].(int)]
+	}).(GetNetworkLinkServiceNetworkOutput)
+}
+
 type GetNetworkZoneInfo struct {
 	// (Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
 	Cidr string `pulumi:"cidr"`
@@ -16113,6 +17505,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkEnvironmentPtrInput)(nil)).Elem(), NetworkEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkGcpInput)(nil)).Elem(), NetworkGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkGcpArrayInput)(nil)).Elem(), NetworkGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkLinkEndpointEnvironmentInput)(nil)).Elem(), NetworkLinkEndpointEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkLinkEndpointEnvironmentPtrInput)(nil)).Elem(), NetworkLinkEndpointEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkLinkEndpointNetworkInput)(nil)).Elem(), NetworkLinkEndpointNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkLinkEndpointNetworkPtrInput)(nil)).Elem(), NetworkLinkEndpointNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkLinkEndpointNetworkLinkServiceInput)(nil)).Elem(), NetworkLinkEndpointNetworkLinkServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkLinkEndpointNetworkLinkServicePtrInput)(nil)).Elem(), NetworkLinkEndpointNetworkLinkServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkLinkServiceAcceptInput)(nil)).Elem(), NetworkLinkServiceAcceptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkLinkServiceAcceptPtrInput)(nil)).Elem(), NetworkLinkServiceAcceptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkLinkServiceEnvironmentInput)(nil)).Elem(), NetworkLinkServiceEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkLinkServiceEnvironmentPtrInput)(nil)).Elem(), NetworkLinkServiceEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkLinkServiceNetworkInput)(nil)).Elem(), NetworkLinkServiceNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkLinkServiceNetworkPtrInput)(nil)).Elem(), NetworkLinkServiceNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkZoneInfoInput)(nil)).Elem(), NetworkZoneInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkZoneInfoArrayInput)(nil)).Elem(), NetworkZoneInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAwsInput)(nil)).Elem(), PeeringAwsArgs{})
@@ -16211,6 +17615,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkEnvironmentInput)(nil)).Elem(), GetNetworkEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkGcpInput)(nil)).Elem(), GetNetworkGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkGcpArrayInput)(nil)).Elem(), GetNetworkGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkEndpointEnvironmentInput)(nil)).Elem(), GetNetworkLinkEndpointEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkEndpointNetworkInput)(nil)).Elem(), GetNetworkLinkEndpointNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkEndpointNetworkArrayInput)(nil)).Elem(), GetNetworkLinkEndpointNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkEndpointNetworkLinkServiceInput)(nil)).Elem(), GetNetworkLinkEndpointNetworkLinkServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkEndpointNetworkLinkServiceArrayInput)(nil)).Elem(), GetNetworkLinkEndpointNetworkLinkServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkServiceAcceptInput)(nil)).Elem(), GetNetworkLinkServiceAcceptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkServiceAcceptPtrInput)(nil)).Elem(), GetNetworkLinkServiceAcceptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkServiceEnvironmentInput)(nil)).Elem(), GetNetworkLinkServiceEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkServiceNetworkInput)(nil)).Elem(), GetNetworkLinkServiceNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkLinkServiceNetworkArrayInput)(nil)).Elem(), GetNetworkLinkServiceNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkZoneInfoInput)(nil)).Elem(), GetNetworkZoneInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkZoneInfoArrayInput)(nil)).Elem(), GetNetworkZoneInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAwInput)(nil)).Elem(), GetPeeringAwArgs{})
@@ -16353,6 +17767,18 @@ func init() {
 	pulumi.RegisterOutputType(NetworkEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(NetworkGcpOutput{})
 	pulumi.RegisterOutputType(NetworkGcpArrayOutput{})
+	pulumi.RegisterOutputType(NetworkLinkEndpointEnvironmentOutput{})
+	pulumi.RegisterOutputType(NetworkLinkEndpointEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(NetworkLinkEndpointNetworkOutput{})
+	pulumi.RegisterOutputType(NetworkLinkEndpointNetworkPtrOutput{})
+	pulumi.RegisterOutputType(NetworkLinkEndpointNetworkLinkServiceOutput{})
+	pulumi.RegisterOutputType(NetworkLinkEndpointNetworkLinkServicePtrOutput{})
+	pulumi.RegisterOutputType(NetworkLinkServiceAcceptOutput{})
+	pulumi.RegisterOutputType(NetworkLinkServiceAcceptPtrOutput{})
+	pulumi.RegisterOutputType(NetworkLinkServiceEnvironmentOutput{})
+	pulumi.RegisterOutputType(NetworkLinkServiceEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(NetworkLinkServiceNetworkOutput{})
+	pulumi.RegisterOutputType(NetworkLinkServiceNetworkPtrOutput{})
 	pulumi.RegisterOutputType(NetworkZoneInfoOutput{})
 	pulumi.RegisterOutputType(NetworkZoneInfoArrayOutput{})
 	pulumi.RegisterOutputType(PeeringAwsOutput{})
@@ -16451,6 +17877,16 @@ func init() {
 	pulumi.RegisterOutputType(GetNetworkEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetNetworkGcpOutput{})
 	pulumi.RegisterOutputType(GetNetworkGcpArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkLinkEndpointEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetNetworkLinkEndpointNetworkOutput{})
+	pulumi.RegisterOutputType(GetNetworkLinkEndpointNetworkArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkLinkEndpointNetworkLinkServiceOutput{})
+	pulumi.RegisterOutputType(GetNetworkLinkEndpointNetworkLinkServiceArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkLinkServiceAcceptOutput{})
+	pulumi.RegisterOutputType(GetNetworkLinkServiceAcceptPtrOutput{})
+	pulumi.RegisterOutputType(GetNetworkLinkServiceEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetNetworkLinkServiceNetworkOutput{})
+	pulumi.RegisterOutputType(GetNetworkLinkServiceNetworkArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkZoneInfoOutput{})
 	pulumi.RegisterOutputType(GetNetworkZoneInfoArrayOutput{})
 	pulumi.RegisterOutputType(GetPeeringAwOutput{})

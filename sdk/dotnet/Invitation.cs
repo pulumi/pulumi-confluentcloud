@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    /// 
+    /// `confluentcloud.Invitation` provides an invitation resource that enables creating, reading, and deleting invitation on Confluent Cloud.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
