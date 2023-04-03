@@ -1175,6 +1175,133 @@
                 }
             }
         },
+        "confluentcloud:index/NetworkLinkEndpointEnvironment:NetworkLinkEndpointEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/NetworkLinkEndpointNetwork:NetworkLinkEndpointNetwork": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/NetworkLinkEndpointNetworkLinkService:NetworkLinkEndpointNetworkLinkService": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/NetworkLinkServiceAccept:NetworkLinkServiceAccept": {
+            "properties": {
+                "environments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of network ids from which connections can be accepted.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "environments",
+                        "networks"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/NetworkLinkServiceEnvironment:NetworkLinkServiceEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/NetworkLinkServiceNetwork:NetworkLinkServiceNetwork": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/NetworkZoneInfo:NetworkZoneInfo": {
             "properties": {
                 "cidr": {
@@ -2457,6 +2584,144 @@
                 "privateServiceConnectServiceAttachments",
                 "project",
                 "vpcNetwork"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getNetworkLinkEndpointEnvironment:getNetworkLinkEndpointEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getNetworkLinkEndpointNetwork:getNetworkLinkEndpointNetwork": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getNetworkLinkEndpointNetworkLinkService:getNetworkLinkEndpointNetworkLinkService": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getNetworkLinkServiceAccept:getNetworkLinkServiceAccept": {
+            "properties": {
+                "environments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Optional List of Strings) List of network ids from which connections can be accepted.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "environments",
+                "networks"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getNetworkLinkServiceEnvironment:getNetworkLinkServiceEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getNetworkLinkServiceNetwork:getNetworkLinkServiceNetwork": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
             ],
             "language": {
                 "nodejs": {
@@ -4053,7 +4318,7 @@
             }
         },
         "confluentcloud:index/invitation:Invitation": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = new confluentcloud.Invitation(\"main\", {email: \"\"});\nconst main2 = new confluentcloud.Invitation(\"main2\", {\n    authType: \"AUTH_TYPE_LOCAL\",\n    email: \"\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.Invitation(\"main\", email=\"\")\nmain2 = confluentcloud.Invitation(\"main2\",\n    auth_type=\"AUTH_TYPE_LOCAL\",\n    email=\"\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = new ConfluentCloud.Invitation(\"main\", new()\n    {\n        Email = \"\",\n    });\n\n    var main2 = new ConfluentCloud.Invitation(\"main2\", new()\n    {\n        AuthType = \"AUTH_TYPE_LOCAL\",\n        Email = \"\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewInvitation(ctx, \"main\", \u0026confluentcloud.InvitationArgs{\n\t\t\tEmail: pulumi.String(\"\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewInvitation(ctx, \"main2\", \u0026confluentcloud.InvitationArgs{\n\t\t\tAuthType: pulumi.String(\"AUTH_TYPE_LOCAL\"),\n\t\t\tEmail:    pulumi.String(\"\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Invitation;\nimport com.pulumi.confluentcloud.InvitationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var main = new Invitation(\"main\", InvitationArgs.builder()        \n            .email(\"\")\n            .build());\n\n        var main2 = new Invitation(\"main2\", InvitationArgs.builder()        \n            .authType(\"AUTH_TYPE_LOCAL\")\n            .email(\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  main:\n    type: confluentcloud:Invitation\n    properties:\n      email:\n  main2:\n    type: confluentcloud:Invitation\n    properties:\n      authType: AUTH_TYPE_LOCAL\n      email:\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nYou can import a Role Binding by using Role Binding ID, for example$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.Invitation` provides an invitation resource that enables creating, reading, and deleting invitation on Confluent Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = new confluentcloud.Invitation(\"main\", {email: \"\"});\nconst main2 = new confluentcloud.Invitation(\"main2\", {\n    authType: \"AUTH_TYPE_LOCAL\",\n    email: \"\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.Invitation(\"main\", email=\"\")\nmain2 = confluentcloud.Invitation(\"main2\",\n    auth_type=\"AUTH_TYPE_LOCAL\",\n    email=\"\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = new ConfluentCloud.Invitation(\"main\", new()\n    {\n        Email = \"\",\n    });\n\n    var main2 = new ConfluentCloud.Invitation(\"main2\", new()\n    {\n        AuthType = \"AUTH_TYPE_LOCAL\",\n        Email = \"\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewInvitation(ctx, \"main\", \u0026confluentcloud.InvitationArgs{\n\t\t\tEmail: pulumi.String(\"\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewInvitation(ctx, \"main2\", \u0026confluentcloud.InvitationArgs{\n\t\t\tAuthType: pulumi.String(\"AUTH_TYPE_LOCAL\"),\n\t\t\tEmail:    pulumi.String(\"\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Invitation;\nimport com.pulumi.confluentcloud.InvitationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var main = new Invitation(\"main\", InvitationArgs.builder()        \n            .email(\"\")\n            .build());\n\n        var main2 = new Invitation(\"main2\", InvitationArgs.builder()        \n            .authType(\"AUTH_TYPE_LOCAL\")\n            .email(\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  main:\n    type: confluentcloud:Invitation\n    properties:\n      email:\n  main2:\n    type: confluentcloud:Invitation\n    properties:\n      authType: AUTH_TYPE_LOCAL\n      email:\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nYou can import a Role Binding by using Role Binding ID, for example$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
             "properties": {
                 "acceptedAt": {
                     "type": "string",
@@ -5368,6 +5633,197 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint": {
+            "description": "\n\n\n## Import\n\nYou can import a Network Link Endpoint by using Environment ID and Network Link Endpoint ID, in the format `\u003cEnvironment ID\u003e/\u003cNetwork Link Endpoint ID\u003e`. The following example shows how to import a Network Link Endpoint$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint my_nle env-abc123/nle-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Network Link Endpoint.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Network Link Endpoint.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointEnvironment:NetworkLinkEndpointEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                },
+                "network": {
+                    "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointNetwork:NetworkLinkEndpointNetwork",
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n"
+                },
+                "networkLinkService": {
+                    "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointNetworkLinkService:NetworkLinkEndpointNetworkLinkService"
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "(Required String) The Confluent Resource Name of the Network Link Endpoint.\n"
+                }
+            },
+            "required": [
+                "description",
+                "displayName",
+                "environment",
+                "network",
+                "networkLinkService",
+                "resourceName"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Network Link Endpoint.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Network Link Endpoint.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointEnvironment:NetworkLinkEndpointEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "network": {
+                    "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointNetwork:NetworkLinkEndpointNetwork",
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
+                    "willReplaceOnChanges": true
+                },
+                "networkLinkService": {
+                    "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointNetworkLinkService:NetworkLinkEndpointNetworkLinkService",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "environment",
+                "network",
+                "networkLinkService"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NetworkLinkEndpoint resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the Network Link Endpoint.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the Network Link Endpoint.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointEnvironment:NetworkLinkEndpointEnvironment",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "network": {
+                        "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointNetwork:NetworkLinkEndpointNetwork",
+                        "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "networkLinkService": {
+                        "$ref": "#/types/confluentcloud:index/NetworkLinkEndpointNetworkLinkService:NetworkLinkEndpointNetworkLinkService",
+                        "willReplaceOnChanges": true
+                    },
+                    "resourceName": {
+                        "type": "string",
+                        "description": "(Required String) The Confluent Resource Name of the Network Link Endpoint.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/networkLinkService:NetworkLinkService": {
+            "description": "\n\n\n## Import\n\nYou can import a Network Link Service by using Environment ID and Network Link Service ID, in the format `\u003cEnvironment ID\u003e/\u003cNetwork Link Service ID\u003e`. The following example shows how to import a Network Link Service$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/networkLinkService:NetworkLinkService my_nls env-abc123/nls-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "accept": {
+                    "$ref": "#/types/confluentcloud:index/NetworkLinkServiceAccept:NetworkLinkServiceAccept"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Network Link Service.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Network Link Service.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/NetworkLinkServiceEnvironment:NetworkLinkServiceEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                },
+                "network": {
+                    "$ref": "#/types/confluentcloud:index/NetworkLinkServiceNetwork:NetworkLinkServiceNetwork",
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n"
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "(Required String) The Confluent Resource Name of the Network Link Service.\n"
+                }
+            },
+            "required": [
+                "accept",
+                "description",
+                "displayName",
+                "environment",
+                "network",
+                "resourceName"
+            ],
+            "inputProperties": {
+                "accept": {
+                    "$ref": "#/types/confluentcloud:index/NetworkLinkServiceAccept:NetworkLinkServiceAccept"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Network Link Service.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Network Link Service.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/NetworkLinkServiceEnvironment:NetworkLinkServiceEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "network": {
+                    "$ref": "#/types/confluentcloud:index/NetworkLinkServiceNetwork:NetworkLinkServiceNetwork",
+                    "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "environment",
+                "network"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NetworkLinkService resources.\n",
+                "properties": {
+                    "accept": {
+                        "$ref": "#/types/confluentcloud:index/NetworkLinkServiceAccept:NetworkLinkServiceAccept"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the Network Link Service.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the Network Link Service.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/NetworkLinkServiceEnvironment:NetworkLinkServiceEnvironment",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "network": {
+                        "$ref": "#/types/confluentcloud:index/NetworkLinkServiceNetwork:NetworkLinkServiceNetwork",
+                        "description": "Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider\naccounts.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "resourceName": {
+                        "type": "string",
+                        "description": "(Required String) The Confluent Resource Name of the Network Link Service.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/peering:Peering": {
             "description": "\n\n\n## Import\n\nYou can import a Peering by using Environment ID and Peering ID, in the format `\u003cEnvironment ID\u003e/\u003cPeering ID\u003e`. The following example shows how to import a Peering$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/peering:Peering my_peer env-abc123/peer-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
             "properties": {
@@ -6554,7 +7010,7 @@
             }
         },
         "confluentcloud:index/getInvitation:getInvitation": {
-            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.Invitation` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.Invitation` describes an Invitation data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getInvitation({\n    id: \"i-gxxn1\",\n});\nexport const invitation = main;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_invitation(id=\"i-gxxn1\")\npulumi.export(\"invitation\", main)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetInvitation.Invoke(new()\n    {\n        Id = \"i-gxxn1\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"invitation\"] = main,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.LookupInvitation(ctx, \u0026confluentcloud.LookupInvitationArgs{\n\t\t\tId: \"i-gxxn1\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"invitation\", main)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetInvitationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getInvitation(GetInvitationArgs.builder()\n            .id(\"i-gxxn1\")\n            .build());\n\n        ctx.export(\"invitation\", main.applyValue(getInvitationResult -\u003e getInvitationResult));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getInvitation\n      Arguments:\n        id: i-gxxn1\noutputs:\n  invitation: ${main}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.Invitation` describes an Invitation data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getInvitation({\n    id: \"i-gxxn1\",\n});\nexport const invitation = main;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_invitation(id=\"i-gxxn1\")\npulumi.export(\"invitation\", main)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetInvitation.Invoke(new()\n    {\n        Id = \"i-gxxn1\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"invitation\"] = main,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.LookupInvitation(ctx, \u0026confluentcloud.LookupInvitationArgs{\n\t\t\tId: \"i-gxxn1\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"invitation\", main)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetInvitationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getInvitation(GetInvitationArgs.builder()\n            .id(\"i-gxxn1\")\n            .build());\n\n        ctx.export(\"invitation\", main.applyValue(getInvitationResult -\u003e getInvitationResult));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getInvitation\n      Arguments:\n        id: i-gxxn1\noutputs:\n  invitation: ${main}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getInvitation.\n",
                 "properties": {
@@ -7161,6 +7617,143 @@
                     "zonalSubdomains",
                     "zoneInfos",
                     "zones"
+                ]
+            }
+        },
+        "confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint": {
+            "description": "[![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.NetworkLinkEndpoint` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Early Access releases of the Early Access features at any time in Confluent’s sole discretion.\n\n`confluentcloud.NetworkLinkEndpoint` describes a Network Link Endpoint data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst nle = confluentcloud.getNetworkLinkEndpoint({\n    id: \"nle-1357\",\n    environment: {\n        id: \"env-1234\",\n    },\n});\nexport const networkLinkEndpoint = nle;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nnle = confluentcloud.get_network_link_endpoint(id=\"nle-1357\",\n    environment=confluentcloud.GetNetworkLinkEndpointEnvironmentArgs(\n        id=\"env-1234\",\n    ))\npulumi.export(\"networkLinkEndpoint\", nle)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var nle = ConfluentCloud.GetNetworkLinkEndpoint.Invoke(new()\n    {\n        Id = \"nle-1357\",\n        Environment = new ConfluentCloud.Inputs.GetNetworkLinkEndpointEnvironmentInputArgs\n        {\n            Id = \"env-1234\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"networkLinkEndpoint\"] = nle,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnle, err := confluentcloud.LookupNetworkLinkEndpoint(ctx, \u0026confluentcloud.LookupNetworkLinkEndpointArgs{\n\t\t\tId: \"nle-1357\",\n\t\t\tEnvironment: confluentcloud.GetNetworkLinkEndpointEnvironment{\n\t\t\t\tId: \"env-1234\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"networkLinkEndpoint\", nle)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointArgs;\nimport com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var nle = ConfluentcloudFunctions.getNetworkLinkEndpoint(GetNetworkLinkEndpointArgs.builder()\n            .id(\"nle-1357\")\n            .environment(GetNetworkLinkEndpointEnvironmentArgs.builder()\n                .id(\"env-1234\")\n                .build())\n            .build());\n\n        ctx.export(\"networkLinkEndpoint\", nle.applyValue(getNetworkLinkEndpointResult -\u003e getNetworkLinkEndpointResult));\n    }\n}\n```\n```yaml\nvariables:\n  nle:\n    fn::invoke:\n      Function: confluentcloud:getNetworkLinkEndpoint\n      Arguments:\n        id: nle-1357\n        environment:\n          id: env-1234\noutputs:\n  networkLinkEndpoint: ${nle}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getNetworkLinkEndpoint.\n",
+                "properties": {
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getNetworkLinkEndpointEnvironment:getNetworkLinkEndpointEnvironment"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environment",
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNetworkLinkEndpoint.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "(Optional String) The description of the Network Link Endpoint.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "(Optional String) The name of the Network Link Endpoint.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getNetworkLinkEndpointEnvironment:getNetworkLinkEndpointEnvironment"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the Network Link Service\n"
+                    },
+                    "networkLinkServices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getNetworkLinkEndpointNetworkLinkService:getNetworkLinkEndpointNetworkLinkService"
+                        },
+                        "description": "(Required Configuration Block) supports the following:\n"
+                    },
+                    "networks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getNetworkLinkEndpointNetwork:getNetworkLinkEndpointNetwork"
+                        },
+                        "description": "(Required Configuration Block) supports the following:\n"
+                    },
+                    "resourceName": {
+                        "type": "string",
+                        "description": "(Required String) The Confluent Resource Name of the Network Link Endpoint.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "displayName",
+                    "environment",
+                    "id",
+                    "networks",
+                    "networkLinkServices",
+                    "resourceName"
+                ]
+            }
+        },
+        "confluentcloud:index/getNetworkLinkService:getNetworkLinkService": {
+            "description": "[![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.NetworkLinkService` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Early Access releases of the Early Access features at any time in Confluent’s sole discretion.\n\n`confluentcloud.NetworkLinkService` describes a Network Link Service data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst nls = confluentcloud.getNetworkLinkService({\n    id: \"nls-zyw30\",\n    environment: {\n        id: \"env-1234\",\n    },\n});\nexport const networkLinkService = nls;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nnls = confluentcloud.get_network_link_service(id=\"nls-zyw30\",\n    environment=confluentcloud.GetNetworkLinkServiceEnvironmentArgs(\n        id=\"env-1234\",\n    ))\npulumi.export(\"networkLinkService\", nls)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var nls = ConfluentCloud.GetNetworkLinkService.Invoke(new()\n    {\n        Id = \"nls-zyw30\",\n        Environment = new ConfluentCloud.Inputs.GetNetworkLinkServiceEnvironmentInputArgs\n        {\n            Id = \"env-1234\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"networkLinkService\"] = nls,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnls, err := confluentcloud.LookupNetworkLinkService(ctx, \u0026confluentcloud.LookupNetworkLinkServiceArgs{\n\t\t\tId: \"nls-zyw30\",\n\t\t\tEnvironment: confluentcloud.GetNetworkLinkServiceEnvironment{\n\t\t\t\tId: \"env-1234\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"networkLinkService\", nls)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceArgs;\nimport com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var nls = ConfluentcloudFunctions.getNetworkLinkService(GetNetworkLinkServiceArgs.builder()\n            .id(\"nls-zyw30\")\n            .environment(GetNetworkLinkServiceEnvironmentArgs.builder()\n                .id(\"env-1234\")\n                .build())\n            .build());\n\n        ctx.export(\"networkLinkService\", nls.applyValue(getNetworkLinkServiceResult -\u003e getNetworkLinkServiceResult));\n    }\n}\n```\n```yaml\nvariables:\n  nls:\n    fn::invoke:\n      Function: confluentcloud:getNetworkLinkService\n      Arguments:\n        id: nls-zyw30\n        environment:\n          id: env-1234\noutputs:\n  networkLinkService: ${nls}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getNetworkLinkService.\n",
+                "properties": {
+                    "accept": {
+                        "$ref": "#/types/confluentcloud:index/getNetworkLinkServiceAccept:getNetworkLinkServiceAccept",
+                        "description": "(Optional Configuration Block) supports the following:\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getNetworkLinkServiceEnvironment:getNetworkLinkServiceEnvironment"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environment",
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNetworkLinkService.\n",
+                "properties": {
+                    "accept": {
+                        "$ref": "#/types/confluentcloud:index/getNetworkLinkServiceAccept:getNetworkLinkServiceAccept",
+                        "description": "(Optional Configuration Block) supports the following:\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "(Optional String) The description of the Network Link Service.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "(Optional String) The name of the Network Link Service.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getNetworkLinkServiceEnvironment:getNetworkLinkServiceEnvironment"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.\n"
+                    },
+                    "networks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getNetworkLinkServiceNetwork:getNetworkLinkServiceNetwork"
+                        },
+                        "description": "(Required Configuration Block) supports the following:\n"
+                    },
+                    "resourceName": {
+                        "type": "string",
+                        "description": "(Required String) The Confluent Resource Name of the Network Link Service.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "accept",
+                    "description",
+                    "displayName",
+                    "environment",
+                    "id",
+                    "networks",
+                    "resourceName"
                 ]
             }
         },
@@ -8044,6 +8637,30 @@
                     "fullName",
                     "id",
                     "kind"
+                ]
+            }
+        },
+        "confluentcloud:index/getUsers:getUsers": {
+            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.getUsers` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.getUsers` describes a data source for Users.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getUsers({});\nexport const users = main.then(main =\u003e main.ids);\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_users()\npulumi.export(\"users\", main.ids)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetUsers.Invoke();\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"users\"] = main.Apply(getUsersResult =\u003e getUsersResult.Ids),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.GetUsers(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"users\", main.Ids)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getUsers();\n\n        ctx.export(\"users\", main.applyValue(getUsersResult -\u003e getUsersResult.ids()));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getUsers\n      Arguments: {}\noutputs:\n  users: ${main.ids}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getUsers.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(Required List of Strings) The list of User IDs, for example: `[\"u-abc123\", \"u-abc124\"]`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ids",
+                    "id"
                 ]
             }
         }
