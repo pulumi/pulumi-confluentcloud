@@ -117,40 +117,20 @@
                 "apiVersion": {
                     "type": "string",
                     "description": "The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/ApiKeyManagedResourceEnvironment:ApiKeyManagedResourceEnvironment",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "id": {
                     "type": "string",
                     "description": "The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "kind": {
                     "type": "string",
                     "description": "The kind of the managed resource that the API Key associated with, for example, `Cluster`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -167,11 +147,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -185,31 +160,16 @@
                 "apiVersion": {
                     "type": "string",
                     "description": "The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "id": {
                     "type": "string",
                     "description": "The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "kind": {
                     "type": "string",
                     "description": "The kind of the managed resource that the API Key associated with, for example, `Cluster`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -225,11 +185,6 @@
                 "keyArn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of an AWS KMS key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "roles": {
@@ -237,12 +192,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment\n"
                 }
             },
             "type": "object",
@@ -262,41 +212,21 @@
             "properties": {
                 "applicationId": {
                     "type": "string",
-                    "description": "(Optional String) The Application ID created for this key-environment combination.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional String) The Application ID created for this key-environment combination.\n"
                 },
                 "keyIdentifier": {
                     "type": "string",
                     "description": "The unique Key Object Identifier URL of an Azure Key Vault key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "keyVaultId": {
                     "type": "string",
                     "description": "Key Vault ID containing the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "tenantId": {
                     "type": "string",
                     "description": "Tenant ID (uuid) hosting the Key Vault containing the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -322,40 +252,20 @@
                 "bootstrapEndpoint": {
                     "type": "string",
                     "description": "The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/ClusterLinkDestinationKafkaClusterCredentials:ClusterLinkDestinationKafkaClusterCredentials",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "id": {
                     "type": "string",
                     "description": "The ID of the destination Kafka cluster, for example, `lkc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
                     "type": "string",
                     "description": "The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -369,21 +279,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Kafka API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Kafka API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -398,40 +298,20 @@
                 "bootstrapEndpoint": {
                     "type": "string",
                     "description": "The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/ClusterLinkSourceKafkaClusterCredentials:ClusterLinkSourceKafkaClusterCredentials",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "id": {
                     "type": "string",
                     "description": "The ID of the destination Kafka cluster, for example, `lkc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
                     "type": "string",
                     "description": "The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -445,21 +325,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Kafka API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Kafka API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -474,11 +344,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -492,11 +357,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -510,11 +370,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -527,12 +382,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "(Required String) The id of invitation creator.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The id of invitation creator.\n"
                 }
             },
             "type": "object",
@@ -548,12 +398,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "(Required String) The id of invitation creator.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The id of invitation creator.\n"
                 }
             },
             "type": "object",
@@ -570,21 +415,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Kafka API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Kafka API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -599,11 +434,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Kafka cluster, for example, `lkc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -617,11 +447,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -635,11 +460,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -652,21 +472,11 @@
             "properties": {
                 "egressByteRate": {
                     "type": "string",
-                    "description": "The egress throughput limit in bytes per second.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The egress throughput limit in bytes per second.\n"
                 },
                 "ingressByteRate": {
                     "type": "string",
-                    "description": "The ingress throughput limit in bytes per second.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ingress throughput limit in bytes per second.\n"
                 }
             },
             "type": "object",
@@ -683,11 +493,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -701,21 +506,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Kafka API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Kafka API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -730,11 +525,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -747,32 +537,17 @@
             "properties": {
                 "cku": {
                     "type": "integer",
-                    "description": "The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.\n"
                 },
                 "encryptionKey": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "zones": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Required List of String) The list of zones the cluster is in.\nOn AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.\nOn GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.\nOn Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required List of String) The list of zones the cluster is in.\nOn AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.\nOn GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.\nOn Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.\n"
                 }
             },
             "type": "object",
@@ -793,11 +568,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -811,11 +581,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -832,11 +597,6 @@
                 "linkName": {
                     "type": "string",
                     "description": "The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -849,31 +609,16 @@
             "properties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/KafkaMirrorTopicKafkaClusterCredentials:KafkaMirrorTopicKafkaClusterCredentials",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "id": {
                     "type": "string",
                     "description": "The ID of the destination Kafka cluster, for example, `lkc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
                     "type": "string",
                     "description": "The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -887,21 +632,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Kafka API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Kafka API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -916,11 +651,6 @@
                 "topicName": {
                     "type": "string",
                     "description": "The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -934,21 +664,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Kafka API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Kafka API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -963,11 +683,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Kafka cluster, for example, `lkc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -981,11 +696,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the associated service or user account, for example, `sa-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -999,11 +709,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the associated service or user account, for example, `sa-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1017,11 +722,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the associated service or user account, for example, `sa-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1034,30 +734,15 @@
             "properties": {
                 "account": {
                     "type": "string",
-                    "description": "(Required String) The AWS account ID associated with the Confluent Cloud VPC.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The AWS account ID associated with the Confluent Cloud VPC.\n"
                 },
                 "privateLinkEndpointService": {
                     "type": "string",
-                    "description": "(Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.\n"
                 },
                 "vpc": {
                     "type": "string",
-                    "description": "(Required String) The Confluent Cloud VPC ID.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The Confluent Cloud VPC ID.\n"
                 }
             },
             "type": "object",
@@ -1078,12 +763,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "(Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zone names, for example, `1` and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service), for example, `s-nk99e-privatelink-1.8c43dcd0-695c-1234-bc35-11fe6abb303a.centralus.azure.privatelinkservice`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zone names, for example, `1` and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service), for example, `s-nk99e-privatelink-1.8c43dcd0-695c-1234-bc35-11fe6abb303a.centralus.azure.privatelinkservice`.\n"
                 }
             },
             "type": "object",
@@ -1100,11 +780,6 @@
                 "resolution": {
                     "type": "string",
                     "description": "Network DNS resolution.\nWhen resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.\nWhen resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1118,11 +793,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Environment that the Network belongs to, for example, `env-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1138,30 +808,15 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "(Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).\n"
                 },
                 "project": {
                     "type": "string",
-                    "description": "(Required String) The GCP Project ID associated with the Confluent Cloud VPC.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The GCP Project ID associated with the Confluent Cloud VPC.\n"
                 },
                 "vpcNetwork": {
                     "type": "string",
-                    "description": "(Required String) The network name of the Confluent Cloud VPC.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The network name of the Confluent Cloud VPC.\n"
                 }
             },
             "type": "object",
@@ -1180,11 +835,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1198,11 +848,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1216,11 +861,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1236,24 +876,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.\n"
                 },
                 "networks": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of network ids from which connections can be accepted.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "List of network ids from which connections can be accepted.\n"
                 }
             },
             "type": "object",
@@ -1271,11 +901,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1289,11 +914,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1306,21 +926,11 @@
             "properties": {
                 "cidr": {
                     "type": "string",
-                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n"
                 },
                 "zoneId": {
                     "type": "string",
-                    "description": "Cloud provider zone ID.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "Cloud provider zone ID.\n"
                 }
             },
             "type": "object",
@@ -1338,21 +948,11 @@
                 "account": {
                     "type": "string",
                     "description": "The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "customerRegion": {
                     "type": "string",
                     "description": "The region of the Azure peer VNet.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "routes": {
@@ -1361,21 +961,11 @@
                         "type": "string"
                     },
                     "description": "The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs \u003e Target VPC \u003e Details** section of the AWS Management Console.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "vpc": {
                     "type": "string",
                     "description": "The AWS VPC ID of the peer VPC that you're peering with Confluent Cloud. You can find your AWS VPC ID [here](https://console.aws.amazon.com/vpc/) under **Your VPCs** section of the AWS Management Console. Must start with `vpc-`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1392,31 +982,16 @@
                 "customerRegion": {
                     "type": "string",
                     "description": "The region of the Azure peer VNet.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "tenant": {
                     "type": "string",
                     "description": "The Tenant ID that represents an organization in Azure Active Directory. You can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "vnet": {
                     "type": "string",
                     "description": "The resource (composite) ID of the peer Virtual Network that you're peering with Confluent Cloud, in the format `/subscriptions/\u003cSubscription ID\u003e/resourceGroups/\u003cResource Group Name\u003e/providers/Microsoft.Network/virtualNetworks/\u003cVNet name\u003e`. You can find Subscription ID, Resource Group Name and your VNet name under **Virtual Networks \u003e Target VNet \u003e Essentials** section of your [Microsoft Azure Portal](https://portal.azure.com/).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1432,11 +1007,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Network that the Peering belongs to, for example, `n-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1450,31 +1020,16 @@
                 "importCustomRoutes": {
                     "type": "boolean",
                     "description": "The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "project": {
                     "type": "string",
                     "description": "The GCP Project ID. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "vpcNetwork": {
                     "type": "string",
                     "description": "The VPC network name that you're peering to Confluent Cloud. You can find your VPC network name under **VPC Networks** section of your [Google Cloud Console](https://console.cloud.google.com/networking/networks/list).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1489,11 +1044,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Network that the Peering belongs to, for example, `n-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1507,11 +1057,6 @@
                 "account": {
                     "type": "string",
                     "description": "The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1525,11 +1070,6 @@
                 "subscription": {
                     "type": "string",
                     "description": "The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1543,11 +1083,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1561,11 +1096,6 @@
                 "project": {
                     "type": "string",
                     "description": "The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1579,11 +1109,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1597,21 +1122,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Schema Registry API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Schema Registry API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -1626,21 +1141,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Schema Registry API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Schema Registry API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -1655,11 +1160,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1673,11 +1173,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1691,21 +1186,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Schema Registry API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Schema Registry API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -1720,11 +1205,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1738,11 +1218,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1755,30 +1230,15 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "The name of the subject, representing the subject under which the referenced schema is registered.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The name of the subject, representing the subject under which the referenced schema is registered.\n"
                 },
                 "subjectName": {
                     "type": "string",
-                    "description": "The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n"
                 },
                 "version": {
                     "type": "integer",
-                    "description": "The version, representing the exact version of the schema under the registered subject.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The version, representing the exact version of the schema under the registered subject.\n"
                 }
             },
             "type": "object",
@@ -1793,11 +1253,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1811,21 +1266,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Schema Registry API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Schema Registry API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -1840,11 +1285,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1858,21 +1298,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Schema Registry API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Schema Registry API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -1887,11 +1317,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1905,11 +1330,6 @@
                 "ramResourceShareArn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "routes": {
@@ -1918,30 +1338,15 @@
                         "type": "string"
                     },
                     "description": "List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 },
                 "transitGatewayAttachmentId": {
                     "type": "string",
-                    "description": "(Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.\n"
                 },
                 "transitGatewayId": {
                     "type": "string",
                     "description": "The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1967,11 +1372,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -1985,11 +1385,6 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "willReplaceOnChanges": true
                 }
             },
@@ -2002,24 +1397,14 @@
             "properties": {
                 "keyArn": {
                     "type": "string",
-                    "description": "(Required String) The Amazon Resource Name (ARN) of an AWS KMS key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The Amazon Resource Name (ARN) of an AWS KMS key.\n"
                 },
                 "roles": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment combination.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment combination.\n"
                 }
             },
             "type": "object",
@@ -2037,39 +1422,19 @@
             "properties": {
                 "applicationId": {
                     "type": "string",
-                    "description": "(Optional String) The Application ID created for this key-environment combination.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional String) The Application ID created for this key-environment combination.\n"
                 },
                 "keyIdentifier": {
                     "type": "string",
-                    "description": "(Required String) The unique Key Object Identifier URL of an Azure Key Vault key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The unique Key Object Identifier URL of an Azure Key Vault key.\n"
                 },
                 "keyVaultId": {
                     "type": "string",
-                    "description": "(Required String) Key Vault ID containing the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) Key Vault ID containing the key.\n"
                 },
                 "tenantId": {
                     "type": "string",
-                    "description": "(Required String) Tenant ID (uuid) hosting the Key Vault containing the key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) Tenant ID (uuid) hosting the Key Vault containing the key.\n"
                 }
             },
             "type": "object",
@@ -2089,12 +1454,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.\n"
                 }
             },
             "type": "object",
@@ -2106,12 +1466,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Invitation, for example, `i-zyw30`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Invitation, for example, `i-zyw30`.\n"
                 }
             },
             "type": "object",
@@ -2128,12 +1483,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Invitation, for example, `i-zyw30`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Invitation, for example, `i-zyw30`.\n"
                 }
             },
             "type": "object",
@@ -2150,12 +1500,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Kafka Client Quota (for example, `cq-abc123`).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Kafka Client Quota (for example, `cq-abc123`).\n"
                 }
             },
             "type": "object",
@@ -2172,12 +1517,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Kafka Client Quota (for example, `cq-abc123`).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Kafka Client Quota (for example, `cq-abc123`).\n"
                 }
             },
             "type": "object",
@@ -2194,21 +1534,11 @@
             "properties": {
                 "egressByteRate": {
                     "type": "string",
-                    "description": "(Required String) The egress throughput limit in bytes per second.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The egress throughput limit in bytes per second.\n"
                 },
                 "ingressByteRate": {
                     "type": "string",
-                    "description": "(Required String) The ingress throughput limit in bytes per second.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The ingress throughput limit in bytes per second.\n"
                 }
             },
             "type": "object",
@@ -2229,12 +1559,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -2251,32 +1576,17 @@
             "properties": {
                 "cku": {
                     "type": "integer",
-                    "description": "(Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.\n"
                 },
                 "encryptionKey": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "zones": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Required List of String) The list of zones the cluster is in.\nOn AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.\nOn GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.\nOn Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required List of String) The list of zones the cluster is in.\nOn AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.\nOn GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.\nOn Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.\n"
                 }
             },
             "type": "object",
@@ -2295,12 +1605,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -2312,12 +1617,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -2338,21 +1638,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Kafka API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Kafka API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -2366,12 +1656,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Kafka cluster, for example, `lkc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Kafka cluster, for example, `lkc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -2383,12 +1668,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -2405,12 +1685,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -2422,12 +1697,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -2444,30 +1714,15 @@
             "properties": {
                 "account": {
                     "type": "string",
-                    "description": "(Required String) The AWS account ID associated with the Confluent Cloud VPC.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The AWS account ID associated with the Confluent Cloud VPC.\n"
                 },
                 "privateLinkEndpointService": {
                     "type": "string",
-                    "description": "(Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.\n"
                 },
                 "vpc": {
                     "type": "string",
-                    "description": "(Required String) The Confluent Cloud VPC ID.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The Confluent Cloud VPC ID.\n"
                 }
             },
             "type": "object",
@@ -2489,12 +1744,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "(Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).\n"
                 }
             },
             "type": "object",
@@ -2511,12 +1761,7 @@
             "properties": {
                 "resolution": {
                     "type": "string",
-                    "description": "(Required String) Network DNS resolution.\nWhen resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.\nWhen resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) Network DNS resolution.\nWhen resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.\nWhen resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.\n"
                 }
             },
             "type": "object",
@@ -2533,12 +1778,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Network belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -2553,30 +1793,15 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "(Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).\n"
                 },
                 "project": {
                     "type": "string",
-                    "description": "(Required String) The GCP Project ID associated with the Confluent Cloud VPC.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The GCP Project ID associated with the Confluent Cloud VPC.\n"
                 },
                 "vpcNetwork": {
                     "type": "string",
-                    "description": "(Required String) The network name of the Confluent Cloud VPC.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The network name of the Confluent Cloud VPC.\n"
                 }
             },
             "type": "object",
@@ -2595,12 +1820,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -2612,12 +1832,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -2634,12 +1849,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -2659,24 +1869,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.\n"
                 },
                 "networks": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Optional List of Strings) List of network ids from which connections can be accepted.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional List of Strings) List of network ids from which connections can be accepted.\n"
                 }
             },
             "type": "object",
@@ -2694,12 +1894,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.\n"
                 }
             },
             "type": "object",
@@ -2711,12 +1906,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.\n"
                 }
             },
             "type": "object",
@@ -2733,21 +1923,11 @@
             "properties": {
                 "cidr": {
                     "type": "string",
-                    "description": "(Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n"
                 },
                 "zoneId": {
                     "type": "string",
-                    "description": "(Required String) Cloud provider zone ID.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) Cloud provider zone ID.\n"
                 }
             },
             "type": "object",
@@ -2765,42 +1945,22 @@
             "properties": {
                 "account": {
                     "type": "string",
-                    "description": "(Required String) The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.\n"
                 },
                 "customerRegion": {
                     "type": "string",
-                    "description": "(Required String) The region of the Azure peer VNet.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The region of the Azure peer VNet.\n"
                 },
                 "routes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Required String) The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs \u003e Target VPC \u003e Details** section of the AWS Management Console.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs \u003e Target VPC \u003e Details** section of the AWS Management Console.\n"
                 },
                 "vpc": {
                     "type": "string",
-                    "description": "(Required String) The AWS VPC ID of the peer VPC that you're peering with Confluent Cloud. You can find your AWS VPC ID [here](https://console.aws.amazon.com/vpc/) under **Your VPCs** section of the AWS Management Console. Must start with `vpc-`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The AWS VPC ID of the peer VPC that you're peering with Confluent Cloud. You can find your AWS VPC ID [here](https://console.aws.amazon.com/vpc/) under **Your VPCs** section of the AWS Management Console. Must start with `vpc-`.\n"
                 }
             },
             "type": "object",
@@ -2820,30 +1980,15 @@
             "properties": {
                 "customerRegion": {
                     "type": "string",
-                    "description": "(Required String) The region of the Azure peer VNet.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The region of the Azure peer VNet.\n"
                 },
                 "tenant": {
                     "type": "string",
-                    "description": "(Required String) The Tenant ID that represents an organization in Azure Active Directory. You can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The Tenant ID that represents an organization in Azure Active Directory. You can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.\n"
                 },
                 "vnet": {
                     "type": "string",
-                    "description": "(Required String) The resource (composite) ID of the peer Virtual Network that you're peering with Confluent Cloud, in the format `/subscriptions/\u003cSubscription ID\u003e/resourceGroups/\u003cResource Group Name\u003e/providers/Microsoft.Network/virtualNetworks/\u003cVNet name\u003e`. You can find Subscription ID, Resource Group Name and your VNet name under **Virtual Networks \u003e Target VNet \u003e Essentials** section of your [Microsoft Azure Portal](https://portal.azure.com/).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The resource (composite) ID of the peer Virtual Network that you're peering with Confluent Cloud, in the format `/subscriptions/\u003cSubscription ID\u003e/resourceGroups/\u003cResource Group Name\u003e/providers/Microsoft.Network/virtualNetworks/\u003cVNet name\u003e`. You can find Subscription ID, Resource Group Name and your VNet name under **Virtual Networks \u003e Target VNet \u003e Essentials** section of your [Microsoft Azure Portal](https://portal.azure.com/).\n"
                 }
             },
             "type": "object",
@@ -2862,12 +2007,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -2879,30 +2019,15 @@
             "properties": {
                 "importCustomRoutes": {
                     "type": "boolean",
-                    "description": "(Optional Boolean) The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional Boolean) The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).\n"
                 },
                 "project": {
                     "type": "string",
-                    "description": "(Required String) The GCP Project ID. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The GCP Project ID. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).\n"
                 },
                 "vpcNetwork": {
                     "type": "string",
-                    "description": "(Required String) The VPC network name that you're peering to Confluent Cloud. You can find your VPC network name under **VPC Networks** section of your [Google Cloud Console](https://console.cloud.google.com/networking/networks/list).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The VPC network name that you're peering to Confluent Cloud. You can find your VPC network name under **VPC Networks** section of your [Google Cloud Console](https://console.cloud.google.com/networking/networks/list).\n"
                 }
             },
             "type": "object",
@@ -2921,12 +2046,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -2943,12 +2063,7 @@
             "properties": {
                 "account": {
                     "type": "string",
-                    "description": "(Required String) The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.\n"
                 }
             },
             "type": "object",
@@ -2965,12 +2080,7 @@
             "properties": {
                 "subscription": {
                     "type": "string",
-                    "description": "(Required String) The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.\n"
                 }
             },
             "type": "object",
@@ -2987,12 +2097,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -3004,12 +2109,7 @@
             "properties": {
                 "project": {
                     "type": "string",
-                    "description": "(Required String) The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).\n"
                 }
             },
             "type": "object",
@@ -3026,12 +2126,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -3049,21 +2144,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Schema Registry API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Schema Registry API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -3078,21 +2163,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Schema Registry API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Schema Registry API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -3106,12 +2181,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3123,12 +2193,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -3141,21 +2206,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Schema Registry API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Schema Registry API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -3169,12 +2224,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3186,12 +2236,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -3208,30 +2253,15 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "(Required String) The name of the subject, representing the subject under which the referenced schema is registered.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The name of the subject, representing the subject under which the referenced schema is registered.\n"
                 },
                 "subjectName": {
                     "type": "string",
-                    "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.\n"
                 },
                 "version": {
                     "type": "integer",
-                    "description": "(Required Integer) The version of the Schema, for example, `4`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required Integer) The version of the Schema, for example, `4`.\n"
                 }
             },
             "type": "object",
@@ -3250,12 +2280,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3268,21 +2293,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Schema Registry API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Schema Registry API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -3296,30 +2311,15 @@
             "properties": {
                 "deleted": {
                     "type": "boolean",
-                    "description": "The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.\n"
                 },
                 "latestOnly": {
                     "type": "boolean",
-                    "description": "The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.\n"
                 },
                 "subjectPrefix": {
                     "type": "string",
-                    "description": "The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.\n"
                 }
             },
             "type": "object"
@@ -3328,60 +2328,30 @@
             "properties": {
                 "format": {
                     "type": "string",
-                    "description": "(Required String) The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.\n"
                 },
                 "schema": {
                     "type": "string",
-                    "description": "(Required String) The schema string.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The schema string.\n"
                 },
                 "schemaIdentifier": {
                     "type": "integer",
-                    "description": "(Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The ID of the Schema, for example: `lsrc-abc123/test-subject/100003`.\n"
                 },
                 "schemaReferences": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/confluentcloud:index/getSchemasSchemaSchemaReference:getSchemasSchemaSchemaReference"
                     },
-                    "description": "(Optional List) The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Optional List) The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):\n"
                 },
                 "subjectName": {
                     "type": "string",
-                    "description": "(Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n"
                 },
                 "version": {
                     "type": "integer",
-                    "description": "(Required Integer) The version of the Schema, for example, `4`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required Integer) The version of the Schema, for example, `4`.\n"
                 }
             },
             "type": "object",
@@ -3403,12 +2373,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3420,30 +2385,15 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "(Required String) The name of the subject, representing the subject under which the referenced schema is registered.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The name of the subject, representing the subject under which the referenced schema is registered.\n"
                 },
                 "subjectName": {
                     "type": "string",
-                    "description": "(Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n"
                 },
                 "version": {
                     "type": "integer",
-                    "description": "(Required Integer) The version of the Schema, for example, `4`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required Integer) The version of the Schema, for example, `4`.\n"
                 }
             },
             "type": "object",
@@ -3463,21 +2413,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Schema Registry API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Schema Registry API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -3491,12 +2431,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3509,21 +2444,11 @@
                 "key": {
                     "type": "string",
                     "description": "The Schema Registry API Key.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
                     "description": "The Schema Registry API Secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    },
                     "secret": true
                 }
             },
@@ -3537,12 +2462,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3554,42 +2474,22 @@
             "properties": {
                 "ramResourceShareArn": {
                     "type": "string",
-                    "description": "(Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.\n"
                 },
                 "routes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "(Required List of String) List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required List of String) List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.\n"
                 },
                 "transitGatewayAttachmentId": {
                     "type": "string",
-                    "description": "(Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.\n"
                 },
                 "transitGatewayId": {
                     "type": "string",
-                    "description": "(Required String) The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "(Required String) The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.\n"
                 }
             },
             "type": "object",
@@ -3609,12 +2509,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -3626,12 +2521,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.\n"
                 }
             },
             "type": "object",
@@ -6728,6 +5618,41 @@
                     "subjectName": {
                         "type": "string",
                         "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/tfImporter:TfImporter": {
+            "properties": {
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of resources names to export. Defaults to all exportable resources.\n"
+                }
+            },
+            "inputProperties": {
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of resources names to export. Defaults to all exportable resources.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TfImporter resources.\n",
+                "properties": {
+                    "resources": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of resources names to export. Defaults to all exportable resources.\n",
                         "willReplaceOnChanges": true
                     }
                 },
