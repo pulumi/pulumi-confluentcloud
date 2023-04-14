@@ -76,6 +76,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SubjectConfig{}
 	case "confluentcloud:index/subjectMode:SubjectMode":
 		r = &SubjectMode{}
+	case "confluentcloud:index/tfImporter:TfImporter":
+		r = &TfImporter{}
 	case "confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment":
 		r = &TransitGatewayAttachment{}
 	default:
@@ -244,6 +246,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/subjectMode",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/tfImporter",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

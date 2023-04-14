@@ -288,6 +288,11 @@ export type SubjectMode = import("./subjectMode").SubjectMode;
 export const SubjectMode: typeof import("./subjectMode").SubjectMode = null as any;
 utilities.lazyLoad(exports, ["SubjectMode"], () => require("./subjectMode"));
 
+export { TfImporterArgs, TfImporterState } from "./tfImporter";
+export type TfImporter = import("./tfImporter").TfImporter;
+export const TfImporter: typeof import("./tfImporter").TfImporter = null as any;
+utilities.lazyLoad(exports, ["TfImporter"], () => require("./tfImporter"));
+
 export { TransitGatewayAttachmentArgs, TransitGatewayAttachmentState } from "./transitGatewayAttachment";
 export type TransitGatewayAttachment = import("./transitGatewayAttachment").TransitGatewayAttachment;
 export const TransitGatewayAttachment: typeof import("./transitGatewayAttachment").TransitGatewayAttachment = null as any;
@@ -363,6 +368,8 @@ const _module = {
                 return new SubjectConfig(name, <any>undefined, { urn })
             case "confluentcloud:index/subjectMode:SubjectMode":
                 return new SubjectMode(name, <any>undefined, { urn })
+            case "confluentcloud:index/tfImporter:TfImporter":
+                return new TfImporter(name, <any>undefined, { urn })
             case "confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment":
                 return new TransitGatewayAttachment(name, <any>undefined, { urn })
             default:
@@ -398,6 +405,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryClu
 pulumi.runtime.registerResourceModule("confluentcloud", "index/serviceAccount", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/subjectConfig", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/subjectMode", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/tfImporter", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/transitGatewayAttachment", _module)
 pulumi.runtime.registerResourcePackage("confluentcloud", {
     version: utilities.getVersion(),
