@@ -62,6 +62,7 @@ from .schema_registry_cluster_mode import *
 from .service_account import *
 from .subject_config import *
 from .subject_mode import *
+from .tf_importer import *
 from .transit_gateway_attachment import *
 from ._inputs import *
 from . import outputs
@@ -298,6 +299,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/subjectMode:SubjectMode": "SubjectMode"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/tfImporter",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/tfImporter:TfImporter": "TfImporter"
   }
  },
  {

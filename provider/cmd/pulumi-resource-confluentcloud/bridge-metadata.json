@@ -1,0 +1,182 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "confluent_api_key": {
+                "current": "confluentcloud:index/apiKey:ApiKey"
+            },
+            "confluent_byok_key": {
+                "current": "confluentcloud:index/byokKey:ByokKey"
+            },
+            "confluent_cluster_link": {
+                "current": "confluentcloud:index/clusterLink:ClusterLink"
+            },
+            "confluent_connector": {
+                "current": "confluentcloud:index/connector:Connector"
+            },
+            "confluent_environment": {
+                "current": "confluentcloud:index/environment:Environment"
+            },
+            "confluent_identity_pool": {
+                "current": "confluentcloud:index/identityPool:IdentityPool"
+            },
+            "confluent_identity_provider": {
+                "current": "confluentcloud:index/identityProvider:IdentityProvider"
+            },
+            "confluent_invitation": {
+                "current": "confluentcloud:index/invitation:Invitation"
+            },
+            "confluent_kafka_acl": {
+                "current": "confluentcloud:index/kafkaAcl:KafkaAcl"
+            },
+            "confluent_kafka_client_quota": {
+                "current": "confluentcloud:index/kafkaClientQuota:KafkaClientQuota"
+            },
+            "confluent_kafka_cluster": {
+                "current": "confluentcloud:index/kafkaCluster:KafkaCluster"
+            },
+            "confluent_kafka_cluster_config": {
+                "current": "confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig"
+            },
+            "confluent_kafka_mirror_topic": {
+                "current": "confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic"
+            },
+            "confluent_kafka_topic": {
+                "current": "confluentcloud:index/kafkaTopic:KafkaTopic"
+            },
+            "confluent_ksql_cluster": {
+                "current": "confluentcloud:index/ksqlCluster:KsqlCluster"
+            },
+            "confluent_network": {
+                "current": "confluentcloud:index/network:Network"
+            },
+            "confluent_network_link_endpoint": {
+                "current": "confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint"
+            },
+            "confluent_network_link_service": {
+                "current": "confluentcloud:index/networkLinkService:NetworkLinkService"
+            },
+            "confluent_peering": {
+                "current": "confluentcloud:index/peering:Peering"
+            },
+            "confluent_private_link_access": {
+                "current": "confluentcloud:index/privateLinkAccess:PrivateLinkAccess"
+            },
+            "confluent_role_binding": {
+                "current": "confluentcloud:index/roleBinding:RoleBinding"
+            },
+            "confluent_schema": {
+                "current": "confluentcloud:index/schema:Schema"
+            },
+            "confluent_schema_registry_cluster": {
+                "current": "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster"
+            },
+            "confluent_schema_registry_cluster_config": {
+                "current": "confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig"
+            },
+            "confluent_schema_registry_cluster_mode": {
+                "current": "confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode"
+            },
+            "confluent_service_account": {
+                "current": "confluentcloud:index/serviceAccount:ServiceAccount"
+            },
+            "confluent_subject_config": {
+                "current": "confluentcloud:index/subjectConfig:SubjectConfig"
+            },
+            "confluent_subject_mode": {
+                "current": "confluentcloud:index/subjectMode:SubjectMode"
+            },
+            "confluent_tf_importer": {
+                "current": "confluentcloud:index/tfImporter:TfImporter"
+            },
+            "confluent_transit_gateway_attachment": {
+                "current": "confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment"
+            }
+        },
+        "datasources": {
+            "confluent_byok_key": {
+                "current": "confluentcloud:index/getByokKey:getByokKey"
+            },
+            "confluent_environment": {
+                "current": "confluentcloud:index/getEnvironment:getEnvironment"
+            },
+            "confluent_identity_pool": {
+                "current": "confluentcloud:index/getIdentityPool:getIdentityPool"
+            },
+            "confluent_identity_provider": {
+                "current": "confluentcloud:index/getIdentityProvider:getIdentityProvider"
+            },
+            "confluent_invitation": {
+                "current": "confluentcloud:index/getInvitation:getInvitation"
+            },
+            "confluent_kafka_client_quota": {
+                "current": "confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota"
+            },
+            "confluent_kafka_cluster": {
+                "current": "confluentcloud:index/getKafkaCluster:getKafkaCluster"
+            },
+            "confluent_kafka_topic": {
+                "current": "confluentcloud:index/getKafkaTopic:getKafkaTopic"
+            },
+            "confluent_ksql_cluster": {
+                "current": "confluentcloud:index/getKsqlCluster:getKsqlCluster"
+            },
+            "confluent_network": {
+                "current": "confluentcloud:index/getNetwork:getNetwork"
+            },
+            "confluent_network_link_endpoint": {
+                "current": "confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint"
+            },
+            "confluent_network_link_service": {
+                "current": "confluentcloud:index/getNetworkLinkService:getNetworkLinkService"
+            },
+            "confluent_organization": {
+                "current": "confluentcloud:index/getOrganization:getOrganization"
+            },
+            "confluent_peering": {
+                "current": "confluentcloud:index/getPeering:getPeering"
+            },
+            "confluent_private_link_access": {
+                "current": "confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess"
+            },
+            "confluent_role_binding": {
+                "current": "confluentcloud:index/getRoleBinding:getRoleBinding"
+            },
+            "confluent_schema": {
+                "current": "confluentcloud:index/getSchema:getSchema"
+            },
+            "confluent_schema_registry_cluster": {
+                "current": "confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster"
+            },
+            "confluent_schema_registry_cluster_config": {
+                "current": "confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig"
+            },
+            "confluent_schema_registry_cluster_mode": {
+                "current": "confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode"
+            },
+            "confluent_schema_registry_region": {
+                "current": "confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion"
+            },
+            "confluent_schemas": {
+                "current": "confluentcloud:index/getSchemas:getSchemas"
+            },
+            "confluent_service_account": {
+                "current": "confluentcloud:index/getServiceAccount:getServiceAccount"
+            },
+            "confluent_subject_config": {
+                "current": "confluentcloud:index/getSubjectConfig:getSubjectConfig"
+            },
+            "confluent_subject_mode": {
+                "current": "confluentcloud:index/getSubjectMode:getSubjectMode"
+            },
+            "confluent_transit_gateway_attachment": {
+                "current": "confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment"
+            },
+            "confluent_user": {
+                "current": "confluentcloud:index/getUser:getUser"
+            },
+            "confluent_users": {
+                "current": "confluentcloud:index/getUsers:getUsers"
+            }
+        }
+    }
+}

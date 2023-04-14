@@ -73,6 +73,7 @@
         "serviceAccount.ts",
         "subjectConfig.ts",
         "subjectMode.ts",
+        "tfImporter.ts",
         "transitGatewayAttachment.ts",
         "types/index.ts",
         "types/input.ts",
