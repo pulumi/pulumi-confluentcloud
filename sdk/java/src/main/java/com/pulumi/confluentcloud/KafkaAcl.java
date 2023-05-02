@@ -72,14 +72,14 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kafkaCluster);
     }
     /**
-     * The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
+     * The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
      * 
      */
     @Export(name="operation", type=String.class, parameters={})
     private Output<String> operation;
 
     /**
-     * @return The operation type for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
+     * @return The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
      * 
      */
     public Output<String> operation() {
@@ -100,14 +100,14 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
         return this.patternType;
     }
     /**
-     * The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
+     * The permission for the ACL. Accepted values are: `DENY` and `ALLOW`.
      * 
      */
     @Export(name="permission", type=String.class, parameters={})
     private Output<String> permission;
 
     /**
-     * @return The permission for the ACL. Accepted values are: `UNKNOWN`, `ANY`, `DENY`, and `ALLOW`.
+     * @return The permission for the ACL. Accepted values are: `DENY` and `ALLOW`.
      * 
      */
     public Output<String> permission() {
@@ -142,14 +142,14 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
         return this.resourceName;
     }
     /**
-     * The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
+     * The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
      * 
      */
     @Export(name="resourceType", type=String.class, parameters={})
     private Output<String> resourceType;
 
     /**
-     * @return The type of the resource. Accepted values are: `UNKNOWN`, `ANY`, `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
+     * @return The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
      * 
      */
     public Output<String> resourceType() {

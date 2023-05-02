@@ -199,7 +199,7 @@ class Invitation(pulumi.CustomResource):
 
         ## Import
 
-        You can import a Role Binding by using Role Binding ID, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        You can import an Invitation by using Invitation ID, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
          $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1
@@ -237,7 +237,7 @@ class Invitation(pulumi.CustomResource):
 
         ## Import
 
-        You can import a Role Binding by using Role Binding ID, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        You can import an Invitation by using Invitation ID, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
          $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1

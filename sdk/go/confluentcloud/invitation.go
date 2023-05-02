@@ -50,7 +50,7 @@ import (
 //
 // ## Import
 //
-// You can import a Role Binding by using Role Binding ID, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+// You can import an Invitation by using Invitation ID, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
 //

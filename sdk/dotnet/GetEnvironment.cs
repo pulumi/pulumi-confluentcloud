@@ -22,6 +22,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
@@ -72,6 +73,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using ConfluentCloud = Pulumi.ConfluentCloud;
         /// 
