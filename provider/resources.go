@@ -17,7 +17,7 @@ package confluentcloud
 import (
 	"fmt"
 	// embed is used to store bridge-metadata.json in the compiled binary
-    _ "embed"
+	_ "embed"
 	"path/filepath"
 
 	"github.com/confluentinc/terraform-provider-confluent/shim"
@@ -32,9 +32,9 @@ import (
 const (
 	// This variable controls the default name of the package in the package
 	// registries for nodejs and python:
-	mainPkg	= "confluentcloud"
+	mainPkg = "confluentcloud"
 	// modules:
-	mainMod	= "index"	// the confluentcloud module
+	mainMod = "index" // the confluentcloud module
 )
 
 // Provider returns additional overlaid schema and metadata associated with the provider..
@@ -44,27 +44,27 @@ func Provider() tfbridge.ProviderInfo {
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:		p,
-		Name:		"confluent",
-		DisplayName:	"Confluent",
-		Publisher:	"Pulumi",
+		P:           p,
+		Name:        "confluent",
+		DisplayName: "Confluent",
+		Publisher:   "Pulumi",
 		// LogoURL is optional but useful to help identify your package in the Pulumi Registry
 		// if this package is published there.
 		//
 		// You may host a logo on a domain you control or add an SVG logo for your package
 		// in your repository and use the raw content URL for that file as your logo URL.
-		LogoURL:		"",
-		Description:		"A Pulumi package for creating and managing Confluent cloud resources.",
-		Keywords:		[]string{"pulumi", "confluentcloud", "category/cloud"},
-		License:		"Apache-2.0",
-		Homepage:		"https://www.pulumi.com",
-		Repository:		"https://github.com/pulumi/pulumi-confluentcloud",
-		GitHubOrg:		"confluentinc",
-		Config:			map[string]*tfbridge.SchemaInfo{},
-		UpstreamRepoPath:	"./upstream",
+		LogoURL:          "",
+		Description:      "A Pulumi package for creating and managing Confluent cloud resources.",
+		Keywords:         []string{"pulumi", "confluentcloud", "category/cloud"},
+		License:          "Apache-2.0",
+		Homepage:         "https://www.pulumi.com",
+		Repository:       "https://github.com/pulumi/pulumi-confluentcloud",
+		GitHubOrg:        "confluentinc",
+		Config:           map[string]*tfbridge.SchemaInfo{},
+		UpstreamRepoPath: "./upstream",
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"confluent_api_key": {
-				Tok:	tfbridge.MakeResource(mainPkg, mainMod, "ApiKey"),
+				Tok: tfbridge.MakeResource(mainPkg, mainMod, "ApiKey"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"display_name": tfbridge.AutoName("displayName", 255, "-"),
 				}},
@@ -73,38 +73,38 @@ func Provider() tfbridge.ProviderInfo {
 					"link_name": tfbridge.AutoName("link", 255, "-"),
 				},
 			},
-			"confluent_connector":	{Tok: tfbridge.MakeResource(mainPkg, mainMod, "Connector")},
+			"confluent_connector": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Connector")},
 			"confluent_environment": {
-				Tok:	tfbridge.MakeResource(mainPkg, mainMod, "Environment"),
+				Tok: tfbridge.MakeResource(mainPkg, mainMod, "Environment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"display_name": tfbridge.AutoName("displayName", 255, "-"),
 				}},
-			"confluent_kafka_acl":		{Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaAcl")},
-			"confluent_kafka_client_quota":	{Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaClientQuota")},
+			"confluent_kafka_acl":          {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaAcl")},
+			"confluent_kafka_client_quota": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaClientQuota")},
 			"confluent_kafka_cluster": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaCluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"display_name":	tfbridge.AutoName("displayName", 255, "-"),
-					"standard":	{Name: "standard", MaxItemsOne: tfbridge.True()},
-					"basic":	{Name: "basic", MaxItemsOne: tfbridge.True()},
-					"dedicated":	{Name: "dedicated", MaxItemsOne: tfbridge.True()},
+					"display_name": tfbridge.AutoName("displayName", 255, "-"),
+					"standard":     {Name: "standard", MaxItemsOne: tfbridge.True()},
+					"basic":        {Name: "basic", MaxItemsOne: tfbridge.True()},
+					"dedicated":    {Name: "dedicated", MaxItemsOne: tfbridge.True()},
 				}},
-			"confluent_kafka_cluster_config":	{Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaClusterConfig")},
-			"confluent_kafka_mirror_topic":		{Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaMirrorTopic")},
-			"confluent_kafka_topic":		{Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaTopic")},
-			"confluent_network":			{Tok: tfbridge.MakeResource(mainPkg, mainMod, "Network")},
-			"confluent_peering":			{Tok: tfbridge.MakeResource(mainPkg, mainMod, "Peering")},
-			"confluent_private_link_access":	{Tok: tfbridge.MakeResource(mainPkg, mainMod, "PrivateLinkAccess")},
-			"confluent_role_binding":		{Tok: tfbridge.MakeResource(mainPkg, mainMod, "RoleBinding")},
+			"confluent_kafka_cluster_config": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaClusterConfig")},
+			"confluent_kafka_mirror_topic":   {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaMirrorTopic")},
+			"confluent_kafka_topic":          {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaTopic")},
+			"confluent_network":              {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Network")},
+			"confluent_peering":              {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Peering")},
+			"confluent_private_link_access":  {Tok: tfbridge.MakeResource(mainPkg, mainMod, "PrivateLinkAccess")},
+			"confluent_role_binding":         {Tok: tfbridge.MakeResource(mainPkg, mainMod, "RoleBinding")},
 			"confluent_service_account": {
-				Tok:	tfbridge.MakeResource(mainPkg, mainMod, "ServiceAccount"),
+				Tok: tfbridge.MakeResource(mainPkg, mainMod, "ServiceAccount"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"display_name": tfbridge.AutoName("displayName", 255, "-"),
 				}},
-			"confluent_identity_pool":	{Tok: tfbridge.MakeResource(mainPkg, mainMod, "IdentityPool")},
-			"confluent_identity_provider":	{Tok: tfbridge.MakeResource(mainPkg, mainMod, "IdentityProvider")},
-			"confluent_ksql_cluster":	{Tok: tfbridge.MakeResource(mainPkg, mainMod, "KsqlCluster")},
+			"confluent_identity_pool":     {Tok: tfbridge.MakeResource(mainPkg, mainMod, "IdentityPool")},
+			"confluent_identity_provider": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "IdentityProvider")},
+			"confluent_ksql_cluster":      {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KsqlCluster")},
 			"confluent_schema": {
-				Tok:	tfbridge.MakeResource(mainPkg, mainMod, "Schema"),
+				Tok: tfbridge.MakeResource(mainPkg, mainMod, "Schema"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"schema": {
 						CSharpName: "SchemaDetails",
@@ -117,8 +117,8 @@ func Provider() tfbridge.ProviderInfo {
 				"@pulumi/pulumi": "^3.0.0",
 			},
 			DevDependencies: map[string]string{
-				"@types/node":	"^10.0.0",	// so we can access strongly typed node definitions.
-				"@types/mime":	"^2.0.0",
+				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
+				"@types/mime": "^2.0.0",
 			},
 		},
 		Python: &tfbridge.PythonInfo{
@@ -133,7 +133,7 @@ func Provider() tfbridge.ProviderInfo {
 				"go",
 				mainPkg,
 			),
-			GenerateResourceContainerTypes:	true,
+			GenerateResourceContainerTypes: true,
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
@@ -146,7 +146,8 @@ func Provider() tfbridge.ProviderInfo {
 	}
 	err := x.ComputeDefaults(&prov, x.TokensSingleModule("confluent_", mainMod,
 		x.MakeStandardToken(mainPkg)))
-	contract.AssertNoError(err)
+	contract.AssertNoErrorf(err, "failed to apply auto token mapping")
+
 	err = x.AutoAliasing(&prov, prov.GetMetadata())
 	contract.AssertNoErrorf(err, "auto aliasing apply failed")
 	prov.SetAutonaming(255, "-")
