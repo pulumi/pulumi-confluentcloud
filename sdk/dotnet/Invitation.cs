@@ -18,6 +18,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using ConfluentCloud = Pulumi.ConfluentCloud;
     /// 
@@ -39,7 +40,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Import
     /// 
-    /// You can import a Role Binding by using Role Binding ID, for example$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
+    /// You can import an Invitation by using Invitation ID, for example$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// 
     /// ```sh
     ///  $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1
