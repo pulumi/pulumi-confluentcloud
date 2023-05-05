@@ -180,6 +180,117 @@
                 "kind"
             ]
         },
+        "confluentcloud:index/BusinessMetadataAttributeDefinition:BusinessMetadataAttributeDefinition": {
+            "properties": {
+                "defaultValue": {
+                    "type": "string",
+                    "description": "The default value of this attribute.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Business Metadata.\n"
+                },
+                "isOptional": {
+                    "type": "boolean",
+                    "description": "An optional flag to control whether the attribute should be optional or required. The default value is `false`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the attribute.\n"
+                },
+                "options": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "(Optional Map) Block for the attribute options:\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required String) The type of the attribute, it always returns `string`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "defaultValue",
+                        "description",
+                        "isOptional",
+                        "name",
+                        "options",
+                        "type"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/BusinessMetadataBindingCredentials:BusinessMetadataBindingCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Schema Registry API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Schema Registry API Secret.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/BusinessMetadataBindingSchemaRegistryCluster:BusinessMetadataBindingSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/BusinessMetadataCredentials:BusinessMetadataCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Schema Registry API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Schema Registry API Secret.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/BusinessMetadataSchemaRegistryCluster:BusinessMetadataSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/ByokKeyAws:ByokKeyAws": {
             "properties": {
                 "keyArn": {
@@ -1325,6 +1436,70 @@
                 "id"
             ]
         },
+        "confluentcloud:index/TagBindingCredentials:TagBindingCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Schema Registry API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Schema Registry API Secret.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/TagBindingSchemaRegistryCluster:TagBindingSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/TagCredentials:TagCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Schema Registry API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Schema Registry API Secret.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/TagSchemaRegistryCluster:TagSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/TransitGatewayAttachmentAws:TransitGatewayAttachmentAws": {
             "properties": {
                 "ramResourceShareArn": {
@@ -1386,6 +1561,113 @@
                     "type": "string",
                     "description": "The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.\n",
                     "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getBusinessMetadataAttributeDefinition:getBusinessMetadataAttributeDefinition": {
+            "properties": {
+                "defaultValue": {
+                    "type": "string",
+                    "description": "(Optional String) The default value of this attribute.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "(Optional String) The description of this attribute.\n"
+                },
+                "isOptional": {
+                    "type": "boolean",
+                    "description": "(Optional Boolean) An optional flag to control whether the attribute should be optional or required.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Business Metadata, for example, `PII`.\n"
+                },
+                "options": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "(Optional Map) Block for the attribute options:\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Required String) The type of the attribute, it always returns `string`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "defaultValue",
+                "description",
+                "isOptional",
+                "name",
+                "options",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getBusinessMetadataBindingCredentials:getBusinessMetadataBindingCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Schema Registry API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Schema Registry API Secret.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/getBusinessMetadataBindingSchemaRegistryCluster:getBusinessMetadataBindingSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getBusinessMetadataCredentials:getBusinessMetadataCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Schema Registry API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Schema Registry API Secret.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/getBusinessMetadataSchemaRegistryCluster:getBusinessMetadataSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -2470,6 +2752,68 @@
                 "id"
             ]
         },
+        "confluentcloud:index/getTagBindingCredentials:getTagBindingCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Schema Registry API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Schema Registry API Secret.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/getTagBindingSchemaRegistryCluster:getTagBindingSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getTagCredentials:getTagCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Schema Registry API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Schema Registry API Secret.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/getTagSchemaRegistryCluster:getTagSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/getTransitGatewayAttachmentAw:getTransitGatewayAttachmentAw": {
             "properties": {
                 "ramResourceShareArn": {
@@ -2743,6 +3087,248 @@
                         "type": "string",
                         "description": "(Required String, Sensitive) The secret of the API Key.\n",
                         "secret": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/businessMetadata:BusinessMetadata": {
+            "description": "\n\n\n## Import\n\nYou can import a Business Metadata by using the Schema Registry cluster ID, Business Metadata name in the format `\u003cSchema Registry cluster ID\u003e/\u003cBusiness Metadata name\u003e`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/businessMetadata:BusinessMetadata pii lsrc-8wrx70/PII\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "attributeDefinitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/BusinessMetadataAttributeDefinition:BusinessMetadataAttributeDefinition"
+                    },
+                    "description": "The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):\n"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/BusinessMetadataCredentials:BusinessMetadataCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Business Metadata.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the attribute.\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/BusinessMetadataSchemaRegistryCluster:BusinessMetadataSchemaRegistryCluster"
+                },
+                "version": {
+                    "type": "integer",
+                    "description": "(Required Integer) The version of the Business Metadata, for example, `1`.\n"
+                }
+            },
+            "required": [
+                "attributeDefinitions",
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "attributeDefinitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/BusinessMetadataAttributeDefinition:BusinessMetadataAttributeDefinition"
+                    },
+                    "description": "The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):\n"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/BusinessMetadataCredentials:BusinessMetadataCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Business Metadata.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the attribute.\n",
+                    "willReplaceOnChanges": true
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "willReplaceOnChanges": true
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/BusinessMetadataSchemaRegistryCluster:BusinessMetadataSchemaRegistryCluster",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering BusinessMetadata resources.\n",
+                "properties": {
+                    "attributeDefinitions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/BusinessMetadataAttributeDefinition:BusinessMetadataAttributeDefinition"
+                        },
+                        "description": "The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):\n"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/BusinessMetadataCredentials:BusinessMetadataCredentials",
+                        "description": "The Cluster API Credentials.\n",
+                        "secret": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the Business Metadata.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the attribute.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/BusinessMetadataSchemaRegistryCluster:BusinessMetadataSchemaRegistryCluster",
+                        "willReplaceOnChanges": true
+                    },
+                    "version": {
+                        "type": "integer",
+                        "description": "(Required Integer) The version of the Business Metadata, for example, `1`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding": {
+            "description": "\n\n\n## Import\n\nYou can import a Business Metadata Binding by using the Schema Registry cluster ID, Business Metadata name, entity name and entity type in the format `\u003cSchema Registry Cluster Id\u003e/\u003cBusiness Metadata Name\u003e/\u003cEntity Name\u003e/\u003cEntity Type\u003e`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding main lsrc-8wrx70/PII/lsrc-8wrx70:.:100001/sr_schema\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "attributes": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The block of key-value pair attributes.\n"
+                },
+                "businessMetadataName": {
+                    "type": "string",
+                    "description": "The name of the Business Metadata to be applied, for example, `PII`.\n"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/BusinessMetadataBindingCredentials:BusinessMetadataBindingCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "entityName": {
+                    "type": "string",
+                    "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n"
+                },
+                "entityType": {
+                    "type": "string",
+                    "description": "The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/BusinessMetadataBindingSchemaRegistryCluster:BusinessMetadataBindingSchemaRegistryCluster"
+                }
+            },
+            "required": [
+                "attributes",
+                "businessMetadataName",
+                "entityName",
+                "entityType"
+            ],
+            "inputProperties": {
+                "attributes": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The block of key-value pair attributes.\n"
+                },
+                "businessMetadataName": {
+                    "type": "string",
+                    "description": "The name of the Business Metadata to be applied, for example, `PII`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/BusinessMetadataBindingCredentials:BusinessMetadataBindingCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "entityName": {
+                    "type": "string",
+                    "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "entityType": {
+                    "type": "string",
+                    "description": "The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.\n",
+                    "willReplaceOnChanges": true
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "willReplaceOnChanges": true
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/BusinessMetadataBindingSchemaRegistryCluster:BusinessMetadataBindingSchemaRegistryCluster",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "businessMetadataName",
+                "entityName",
+                "entityType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering BusinessMetadataBinding resources.\n",
+                "properties": {
+                    "attributes": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "The block of key-value pair attributes.\n"
+                    },
+                    "businessMetadataName": {
+                        "type": "string",
+                        "description": "The name of the Business Metadata to be applied, for example, `PII`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/BusinessMetadataBindingCredentials:BusinessMetadataBindingCredentials",
+                        "description": "The Cluster API Credentials.\n",
+                        "secret": true
+                    },
+                    "entityName": {
+                        "type": "string",
+                        "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "entityType": {
+                        "type": "string",
+                        "description": "The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/BusinessMetadataBindingSchemaRegistryCluster:BusinessMetadataBindingSchemaRegistryCluster",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -5624,6 +6210,215 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/tag:Tag": {
+            "description": "\n\n\n## Import\n\nYou can import a Tag by using the Schema Registry cluster ID, Tag name in the format `\u003cSchema Registry cluster ID\u003e/\u003cTag name\u003e`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/tag:Tag pii lsrc-8wrx70/PII\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/TagCredentials:TagCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the tag.\n"
+                },
+                "entityTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Optional List of String) The entity types of the tag, this always returns `[\"cf_entity\"]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the tag, for example, `PII`.\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/TagSchemaRegistryCluster:TagSchemaRegistryCluster"
+                },
+                "version": {
+                    "type": "integer",
+                    "description": "(Optional Integer) The version, for example, `1`.\n"
+                }
+            },
+            "required": [
+                "entityTypes",
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/TagCredentials:TagCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the tag.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the tag, for example, `PII`.\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "willReplaceOnChanges": true
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/TagSchemaRegistryCluster:TagSchemaRegistryCluster",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Tag resources.\n",
+                "properties": {
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/TagCredentials:TagCredentials",
+                        "description": "The Cluster API Credentials.\n",
+                        "secret": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the tag.\n"
+                    },
+                    "entityTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(Optional List of String) The entity types of the tag, this always returns `[\"cf_entity\"]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the tag, for example, `PII`.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/TagSchemaRegistryCluster:TagSchemaRegistryCluster",
+                        "willReplaceOnChanges": true
+                    },
+                    "version": {
+                        "type": "integer",
+                        "description": "(Optional Integer) The version, for example, `1`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/tagBinding:TagBinding": {
+            "description": "\n\n\n## Import\n\nYou can import a Tag Binding by using the Schema Registry cluster ID, Tag name, entity name and entity type in the format `\u003cSchema Registry Cluster Id\u003e/\u003cTag Name\u003e/\u003cEntity Name\u003e/\u003cEntity Type\u003e`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/tagBinding:TagBinding main lsrc-8wrx70/PII/lsrc-8wrx70:.:100001/sr_schema\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/TagBindingCredentials:TagBindingCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "entityName": {
+                    "type": "string",
+                    "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n"
+                },
+                "entityType": {
+                    "type": "string",
+                    "description": "The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/TagBindingSchemaRegistryCluster:TagBindingSchemaRegistryCluster"
+                },
+                "tagName": {
+                    "type": "string",
+                    "description": "The name of the tag to be applied, for example, `PII`.\n"
+                }
+            },
+            "required": [
+                "entityName",
+                "entityType",
+                "tagName"
+            ],
+            "inputProperties": {
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/TagBindingCredentials:TagBindingCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "entityName": {
+                    "type": "string",
+                    "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "entityType": {
+                    "type": "string",
+                    "description": "The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.\n",
+                    "willReplaceOnChanges": true
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "willReplaceOnChanges": true
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/TagBindingSchemaRegistryCluster:TagBindingSchemaRegistryCluster",
+                    "willReplaceOnChanges": true
+                },
+                "tagName": {
+                    "type": "string",
+                    "description": "The name of the tag to be applied, for example, `PII`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "entityName",
+                "entityType",
+                "tagName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TagBinding resources.\n",
+                "properties": {
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/TagBindingCredentials:TagBindingCredentials",
+                        "description": "The Cluster API Credentials.\n",
+                        "secret": true
+                    },
+                    "entityName": {
+                        "type": "string",
+                        "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "entityType": {
+                        "type": "string",
+                        "description": "The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/TagBindingSchemaRegistryCluster:TagBindingSchemaRegistryCluster",
+                        "willReplaceOnChanges": true
+                    },
+                    "tagName": {
+                        "type": "string",
+                        "description": "The name of the tag to be applied, for example, `PII`.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/tfImporter:TfImporter": {
             "properties": {
                 "resources": {
@@ -5737,6 +6532,157 @@
         }
     },
     "functions": {
+        "confluentcloud:index/getBusinessMetadata:getBusinessMetadata": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getBusinessMetadata.\n",
+                "properties": {
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getBusinessMetadataCredentials:getBusinessMetadataCredentials",
+                        "secret": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Business Metadata, for example, `PII`.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/getBusinessMetadataSchemaRegistryCluster:getBusinessMetadataSchemaRegistryCluster"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getBusinessMetadata.\n",
+                "properties": {
+                    "attributeDefinitions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getBusinessMetadataAttributeDefinition:getBusinessMetadataAttributeDefinition"
+                        },
+                        "description": "(Optional List) The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):\n"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getBusinessMetadataCredentials:getBusinessMetadataCredentials",
+                        "secret": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "(Optional String) The description of this attribute.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the Business Metadata, in the format `\u003cSchema Registry cluster ID\u003e/\u003cBusiness Metadata name\u003e`, for example, `lsrc-8wrx70/PII`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "(Required String) The name of the attribute.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string"
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/getBusinessMetadataSchemaRegistryCluster:getBusinessMetadataSchemaRegistryCluster"
+                    },
+                    "version": {
+                        "type": "integer",
+                        "description": "(Required Integer) The version of the Business Metadata, for example, `1`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "attributeDefinitions",
+                    "description",
+                    "id",
+                    "name",
+                    "version"
+                ]
+            }
+        },
+        "confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getBusinessMetadataBinding.\n",
+                "properties": {
+                    "businessMetadataName": {
+                        "type": "string",
+                        "description": "The name of the Business Metadata to be applied, for example, `PII`.\n"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getBusinessMetadataBindingCredentials:getBusinessMetadataBindingCredentials",
+                        "secret": true
+                    },
+                    "entityName": {
+                        "type": "string",
+                        "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n"
+                    },
+                    "entityType": {
+                        "type": "string",
+                        "description": "The entity type, for example, `sr_schema`.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/getBusinessMetadataBindingSchemaRegistryCluster:getBusinessMetadataBindingSchemaRegistryCluster"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "businessMetadataName",
+                    "entityName",
+                    "entityType"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getBusinessMetadataBinding.\n",
+                "properties": {
+                    "attributes": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "(Optional Map) The block of key-value pair attributes.\n"
+                    },
+                    "businessMetadataName": {
+                        "type": "string"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getBusinessMetadataBindingCredentials:getBusinessMetadataBindingCredentials",
+                        "secret": true
+                    },
+                    "entityName": {
+                        "type": "string"
+                    },
+                    "entityType": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the Business Metadata Binding, in the format `\u003cSchema Registry Cluster Id\u003e/\u003cBusiness Metadata Name\u003e/\u003cEntity Name\u003e/\u003cEntity Type\u003e`, for example, `lsrc-8wrx70/PII/lsrc-8wrx70:.:100001/sr_schema`.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string"
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/getBusinessMetadataBindingSchemaRegistryCluster:getBusinessMetadataBindingSchemaRegistryCluster"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "attributes",
+                    "businessMetadataName",
+                    "entityName",
+                    "entityType",
+                    "id"
+                ]
+            }
+        },
         "confluentcloud:index/getByokKey:getByokKey": {
             "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.ByokKey` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.ByokKey` describes a BYOK Key data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst azureKey = confluentcloud.getByokKey({\n    id: \"cck-abcde\",\n});\nexport const byok = azureKey;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nazure_key = confluentcloud.get_byok_key(id=\"cck-abcde\")\npulumi.export(\"byok\", azure_key)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var azureKey = ConfluentCloud.GetByokKey.Invoke(new()\n    {\n        Id = \"cck-abcde\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"byok\"] = azureKey,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tazureKey, err := confluentcloud.LookupByokKey(ctx, \u0026confluentcloud.LookupByokKeyArgs{\n\t\t\tId: \"cck-abcde\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"byok\", azureKey)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetByokKeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var azureKey = ConfluentcloudFunctions.getByokKey(GetByokKeyArgs.builder()\n            .id(\"cck-abcde\")\n            .build());\n\n        ctx.export(\"byok\", azureKey.applyValue(getByokKeyResult -\u003e getByokKeyResult));\n    }\n}\n```\n```yaml\nvariables:\n  azureKey:\n    fn::invoke:\n      Function: confluentcloud:getByokKey\n      Arguments:\n        id: cck-abcde\noutputs:\n  byok: ${azureKey}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -7445,6 +8391,148 @@
                     "mode",
                     "subjectName",
                     "id"
+                ]
+            }
+        },
+        "confluentcloud:index/getTag:getTag": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getTag.\n",
+                "properties": {
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getTagCredentials:getTagCredentials",
+                        "secret": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the tag, for example, `PII`.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/getTagSchemaRegistryCluster:getTagSchemaRegistryCluster"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getTag.\n",
+                "properties": {
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getTagCredentials:getTagCredentials",
+                        "secret": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "(Optional String) The description of the tag.\n"
+                    },
+                    "entityTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(Optional List of String) The entity types of the tag, this always returns `[\"cf_entity\"]`.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the Tag, in the format `\u003cSchema Registry cluster ID\u003e/\u003cTag name\u003e`, for example, `lsrc-8wrx70/PII`.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "restEndpoint": {
+                        "type": "string"
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/getTagSchemaRegistryCluster:getTagSchemaRegistryCluster"
+                    },
+                    "version": {
+                        "type": "integer",
+                        "description": "(Optional Integer) The version, for example, `1`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "entityTypes",
+                    "id",
+                    "name",
+                    "version"
+                ]
+            }
+        },
+        "confluentcloud:index/getTagBinding:getTagBinding": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getTagBinding.\n",
+                "properties": {
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getTagBindingCredentials:getTagBindingCredentials",
+                        "secret": true
+                    },
+                    "entityName": {
+                        "type": "string",
+                        "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n"
+                    },
+                    "entityType": {
+                        "type": "string",
+                        "description": "The entity type, for example, `sr_schema`.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/getTagBindingSchemaRegistryCluster:getTagBindingSchemaRegistryCluster"
+                    },
+                    "tagName": {
+                        "type": "string",
+                        "description": "The name of the tag to be applied, for example, `PII`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "entityName",
+                    "entityType",
+                    "tagName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getTagBinding.\n",
+                "properties": {
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getTagBindingCredentials:getTagBindingCredentials",
+                        "secret": true
+                    },
+                    "entityName": {
+                        "type": "string"
+                    },
+                    "entityType": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the Tag Binding, in the format `\u003cSchema Registry Cluster Id\u003e/\u003cTag Name\u003e/\u003cEntity Name\u003e/\u003cEntity Type\u003e`, for example, `lsrc-8wrx70/PII/lsrc-8wrx70:.:100001/sr_schema`.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string"
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/getTagBindingSchemaRegistryCluster:getTagBindingSchemaRegistryCluster"
+                    },
+                    "tagName": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "entityName",
+                    "entityType",
+                    "id",
+                    "tagName"
                 ]
             }
         },
