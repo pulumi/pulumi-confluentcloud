@@ -512,6 +512,734 @@ func (o ApiKeyOwnerPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type BusinessMetadataAttributeDefinition struct {
+	// The default value of this attribute.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// The description of the Business Metadata.
+	Description *string `pulumi:"description"`
+	// An optional flag to control whether the attribute should be optional or required. The default value is `false`.
+	IsOptional *bool `pulumi:"isOptional"`
+	// The name of the attribute.
+	Name string `pulumi:"name"`
+	// (Optional Map) Block for the attribute options:
+	Options map[string]string `pulumi:"options"`
+	// (Required String) The type of the attribute, it always returns `string`.
+	Type *string `pulumi:"type"`
+}
+
+// BusinessMetadataAttributeDefinitionInput is an input type that accepts BusinessMetadataAttributeDefinitionArgs and BusinessMetadataAttributeDefinitionOutput values.
+// You can construct a concrete instance of `BusinessMetadataAttributeDefinitionInput` via:
+//
+//	BusinessMetadataAttributeDefinitionArgs{...}
+type BusinessMetadataAttributeDefinitionInput interface {
+	pulumi.Input
+
+	ToBusinessMetadataAttributeDefinitionOutput() BusinessMetadataAttributeDefinitionOutput
+	ToBusinessMetadataAttributeDefinitionOutputWithContext(context.Context) BusinessMetadataAttributeDefinitionOutput
+}
+
+type BusinessMetadataAttributeDefinitionArgs struct {
+	// The default value of this attribute.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// The description of the Business Metadata.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// An optional flag to control whether the attribute should be optional or required. The default value is `false`.
+	IsOptional pulumi.BoolPtrInput `pulumi:"isOptional"`
+	// The name of the attribute.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional Map) Block for the attribute options:
+	Options pulumi.StringMapInput `pulumi:"options"`
+	// (Required String) The type of the attribute, it always returns `string`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (BusinessMetadataAttributeDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessMetadataAttributeDefinition)(nil)).Elem()
+}
+
+func (i BusinessMetadataAttributeDefinitionArgs) ToBusinessMetadataAttributeDefinitionOutput() BusinessMetadataAttributeDefinitionOutput {
+	return i.ToBusinessMetadataAttributeDefinitionOutputWithContext(context.Background())
+}
+
+func (i BusinessMetadataAttributeDefinitionArgs) ToBusinessMetadataAttributeDefinitionOutputWithContext(ctx context.Context) BusinessMetadataAttributeDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataAttributeDefinitionOutput)
+}
+
+// BusinessMetadataAttributeDefinitionArrayInput is an input type that accepts BusinessMetadataAttributeDefinitionArray and BusinessMetadataAttributeDefinitionArrayOutput values.
+// You can construct a concrete instance of `BusinessMetadataAttributeDefinitionArrayInput` via:
+//
+//	BusinessMetadataAttributeDefinitionArray{ BusinessMetadataAttributeDefinitionArgs{...} }
+type BusinessMetadataAttributeDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToBusinessMetadataAttributeDefinitionArrayOutput() BusinessMetadataAttributeDefinitionArrayOutput
+	ToBusinessMetadataAttributeDefinitionArrayOutputWithContext(context.Context) BusinessMetadataAttributeDefinitionArrayOutput
+}
+
+type BusinessMetadataAttributeDefinitionArray []BusinessMetadataAttributeDefinitionInput
+
+func (BusinessMetadataAttributeDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BusinessMetadataAttributeDefinition)(nil)).Elem()
+}
+
+func (i BusinessMetadataAttributeDefinitionArray) ToBusinessMetadataAttributeDefinitionArrayOutput() BusinessMetadataAttributeDefinitionArrayOutput {
+	return i.ToBusinessMetadataAttributeDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i BusinessMetadataAttributeDefinitionArray) ToBusinessMetadataAttributeDefinitionArrayOutputWithContext(ctx context.Context) BusinessMetadataAttributeDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataAttributeDefinitionArrayOutput)
+}
+
+type BusinessMetadataAttributeDefinitionOutput struct{ *pulumi.OutputState }
+
+func (BusinessMetadataAttributeDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessMetadataAttributeDefinition)(nil)).Elem()
+}
+
+func (o BusinessMetadataAttributeDefinitionOutput) ToBusinessMetadataAttributeDefinitionOutput() BusinessMetadataAttributeDefinitionOutput {
+	return o
+}
+
+func (o BusinessMetadataAttributeDefinitionOutput) ToBusinessMetadataAttributeDefinitionOutputWithContext(ctx context.Context) BusinessMetadataAttributeDefinitionOutput {
+	return o
+}
+
+// The default value of this attribute.
+func (o BusinessMetadataAttributeDefinitionOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BusinessMetadataAttributeDefinition) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// The description of the Business Metadata.
+func (o BusinessMetadataAttributeDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BusinessMetadataAttributeDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// An optional flag to control whether the attribute should be optional or required. The default value is `false`.
+func (o BusinessMetadataAttributeDefinitionOutput) IsOptional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BusinessMetadataAttributeDefinition) *bool { return v.IsOptional }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the attribute.
+func (o BusinessMetadataAttributeDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BusinessMetadataAttributeDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional Map) Block for the attribute options:
+func (o BusinessMetadataAttributeDefinitionOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v BusinessMetadataAttributeDefinition) map[string]string { return v.Options }).(pulumi.StringMapOutput)
+}
+
+// (Required String) The type of the attribute, it always returns `string`.
+func (o BusinessMetadataAttributeDefinitionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BusinessMetadataAttributeDefinition) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type BusinessMetadataAttributeDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (BusinessMetadataAttributeDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BusinessMetadataAttributeDefinition)(nil)).Elem()
+}
+
+func (o BusinessMetadataAttributeDefinitionArrayOutput) ToBusinessMetadataAttributeDefinitionArrayOutput() BusinessMetadataAttributeDefinitionArrayOutput {
+	return o
+}
+
+func (o BusinessMetadataAttributeDefinitionArrayOutput) ToBusinessMetadataAttributeDefinitionArrayOutputWithContext(ctx context.Context) BusinessMetadataAttributeDefinitionArrayOutput {
+	return o
+}
+
+func (o BusinessMetadataAttributeDefinitionArrayOutput) Index(i pulumi.IntInput) BusinessMetadataAttributeDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BusinessMetadataAttributeDefinition {
+		return vs[0].([]BusinessMetadataAttributeDefinition)[vs[1].(int)]
+	}).(BusinessMetadataAttributeDefinitionOutput)
+}
+
+type BusinessMetadataBindingCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// BusinessMetadataBindingCredentialsInput is an input type that accepts BusinessMetadataBindingCredentialsArgs and BusinessMetadataBindingCredentialsOutput values.
+// You can construct a concrete instance of `BusinessMetadataBindingCredentialsInput` via:
+//
+//	BusinessMetadataBindingCredentialsArgs{...}
+type BusinessMetadataBindingCredentialsInput interface {
+	pulumi.Input
+
+	ToBusinessMetadataBindingCredentialsOutput() BusinessMetadataBindingCredentialsOutput
+	ToBusinessMetadataBindingCredentialsOutputWithContext(context.Context) BusinessMetadataBindingCredentialsOutput
+}
+
+type BusinessMetadataBindingCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (BusinessMetadataBindingCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessMetadataBindingCredentials)(nil)).Elem()
+}
+
+func (i BusinessMetadataBindingCredentialsArgs) ToBusinessMetadataBindingCredentialsOutput() BusinessMetadataBindingCredentialsOutput {
+	return i.ToBusinessMetadataBindingCredentialsOutputWithContext(context.Background())
+}
+
+func (i BusinessMetadataBindingCredentialsArgs) ToBusinessMetadataBindingCredentialsOutputWithContext(ctx context.Context) BusinessMetadataBindingCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataBindingCredentialsOutput)
+}
+
+func (i BusinessMetadataBindingCredentialsArgs) ToBusinessMetadataBindingCredentialsPtrOutput() BusinessMetadataBindingCredentialsPtrOutput {
+	return i.ToBusinessMetadataBindingCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i BusinessMetadataBindingCredentialsArgs) ToBusinessMetadataBindingCredentialsPtrOutputWithContext(ctx context.Context) BusinessMetadataBindingCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataBindingCredentialsOutput).ToBusinessMetadataBindingCredentialsPtrOutputWithContext(ctx)
+}
+
+// BusinessMetadataBindingCredentialsPtrInput is an input type that accepts BusinessMetadataBindingCredentialsArgs, BusinessMetadataBindingCredentialsPtr and BusinessMetadataBindingCredentialsPtrOutput values.
+// You can construct a concrete instance of `BusinessMetadataBindingCredentialsPtrInput` via:
+//
+//	        BusinessMetadataBindingCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BusinessMetadataBindingCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToBusinessMetadataBindingCredentialsPtrOutput() BusinessMetadataBindingCredentialsPtrOutput
+	ToBusinessMetadataBindingCredentialsPtrOutputWithContext(context.Context) BusinessMetadataBindingCredentialsPtrOutput
+}
+
+type businessMetadataBindingCredentialsPtrType BusinessMetadataBindingCredentialsArgs
+
+func BusinessMetadataBindingCredentialsPtr(v *BusinessMetadataBindingCredentialsArgs) BusinessMetadataBindingCredentialsPtrInput {
+	return (*businessMetadataBindingCredentialsPtrType)(v)
+}
+
+func (*businessMetadataBindingCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BusinessMetadataBindingCredentials)(nil)).Elem()
+}
+
+func (i *businessMetadataBindingCredentialsPtrType) ToBusinessMetadataBindingCredentialsPtrOutput() BusinessMetadataBindingCredentialsPtrOutput {
+	return i.ToBusinessMetadataBindingCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *businessMetadataBindingCredentialsPtrType) ToBusinessMetadataBindingCredentialsPtrOutputWithContext(ctx context.Context) BusinessMetadataBindingCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataBindingCredentialsPtrOutput)
+}
+
+type BusinessMetadataBindingCredentialsOutput struct{ *pulumi.OutputState }
+
+func (BusinessMetadataBindingCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessMetadataBindingCredentials)(nil)).Elem()
+}
+
+func (o BusinessMetadataBindingCredentialsOutput) ToBusinessMetadataBindingCredentialsOutput() BusinessMetadataBindingCredentialsOutput {
+	return o
+}
+
+func (o BusinessMetadataBindingCredentialsOutput) ToBusinessMetadataBindingCredentialsOutputWithContext(ctx context.Context) BusinessMetadataBindingCredentialsOutput {
+	return o
+}
+
+func (o BusinessMetadataBindingCredentialsOutput) ToBusinessMetadataBindingCredentialsPtrOutput() BusinessMetadataBindingCredentialsPtrOutput {
+	return o.ToBusinessMetadataBindingCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o BusinessMetadataBindingCredentialsOutput) ToBusinessMetadataBindingCredentialsPtrOutputWithContext(ctx context.Context) BusinessMetadataBindingCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BusinessMetadataBindingCredentials) *BusinessMetadataBindingCredentials {
+		return &v
+	}).(BusinessMetadataBindingCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o BusinessMetadataBindingCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BusinessMetadataBindingCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o BusinessMetadataBindingCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v BusinessMetadataBindingCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type BusinessMetadataBindingCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (BusinessMetadataBindingCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BusinessMetadataBindingCredentials)(nil)).Elem()
+}
+
+func (o BusinessMetadataBindingCredentialsPtrOutput) ToBusinessMetadataBindingCredentialsPtrOutput() BusinessMetadataBindingCredentialsPtrOutput {
+	return o
+}
+
+func (o BusinessMetadataBindingCredentialsPtrOutput) ToBusinessMetadataBindingCredentialsPtrOutputWithContext(ctx context.Context) BusinessMetadataBindingCredentialsPtrOutput {
+	return o
+}
+
+func (o BusinessMetadataBindingCredentialsPtrOutput) Elem() BusinessMetadataBindingCredentialsOutput {
+	return o.ApplyT(func(v *BusinessMetadataBindingCredentials) BusinessMetadataBindingCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret BusinessMetadataBindingCredentials
+		return ret
+	}).(BusinessMetadataBindingCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o BusinessMetadataBindingCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BusinessMetadataBindingCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o BusinessMetadataBindingCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BusinessMetadataBindingCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type BusinessMetadataBindingSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// BusinessMetadataBindingSchemaRegistryClusterInput is an input type that accepts BusinessMetadataBindingSchemaRegistryClusterArgs and BusinessMetadataBindingSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `BusinessMetadataBindingSchemaRegistryClusterInput` via:
+//
+//	BusinessMetadataBindingSchemaRegistryClusterArgs{...}
+type BusinessMetadataBindingSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToBusinessMetadataBindingSchemaRegistryClusterOutput() BusinessMetadataBindingSchemaRegistryClusterOutput
+	ToBusinessMetadataBindingSchemaRegistryClusterOutputWithContext(context.Context) BusinessMetadataBindingSchemaRegistryClusterOutput
+}
+
+type BusinessMetadataBindingSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (BusinessMetadataBindingSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessMetadataBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i BusinessMetadataBindingSchemaRegistryClusterArgs) ToBusinessMetadataBindingSchemaRegistryClusterOutput() BusinessMetadataBindingSchemaRegistryClusterOutput {
+	return i.ToBusinessMetadataBindingSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i BusinessMetadataBindingSchemaRegistryClusterArgs) ToBusinessMetadataBindingSchemaRegistryClusterOutputWithContext(ctx context.Context) BusinessMetadataBindingSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataBindingSchemaRegistryClusterOutput)
+}
+
+func (i BusinessMetadataBindingSchemaRegistryClusterArgs) ToBusinessMetadataBindingSchemaRegistryClusterPtrOutput() BusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return i.ToBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i BusinessMetadataBindingSchemaRegistryClusterArgs) ToBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) BusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataBindingSchemaRegistryClusterOutput).ToBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// BusinessMetadataBindingSchemaRegistryClusterPtrInput is an input type that accepts BusinessMetadataBindingSchemaRegistryClusterArgs, BusinessMetadataBindingSchemaRegistryClusterPtr and BusinessMetadataBindingSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `BusinessMetadataBindingSchemaRegistryClusterPtrInput` via:
+//
+//	        BusinessMetadataBindingSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type BusinessMetadataBindingSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToBusinessMetadataBindingSchemaRegistryClusterPtrOutput() BusinessMetadataBindingSchemaRegistryClusterPtrOutput
+	ToBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(context.Context) BusinessMetadataBindingSchemaRegistryClusterPtrOutput
+}
+
+type businessMetadataBindingSchemaRegistryClusterPtrType BusinessMetadataBindingSchemaRegistryClusterArgs
+
+func BusinessMetadataBindingSchemaRegistryClusterPtr(v *BusinessMetadataBindingSchemaRegistryClusterArgs) BusinessMetadataBindingSchemaRegistryClusterPtrInput {
+	return (*businessMetadataBindingSchemaRegistryClusterPtrType)(v)
+}
+
+func (*businessMetadataBindingSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BusinessMetadataBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *businessMetadataBindingSchemaRegistryClusterPtrType) ToBusinessMetadataBindingSchemaRegistryClusterPtrOutput() BusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return i.ToBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *businessMetadataBindingSchemaRegistryClusterPtrType) ToBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) BusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataBindingSchemaRegistryClusterPtrOutput)
+}
+
+type BusinessMetadataBindingSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (BusinessMetadataBindingSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessMetadataBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o BusinessMetadataBindingSchemaRegistryClusterOutput) ToBusinessMetadataBindingSchemaRegistryClusterOutput() BusinessMetadataBindingSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o BusinessMetadataBindingSchemaRegistryClusterOutput) ToBusinessMetadataBindingSchemaRegistryClusterOutputWithContext(ctx context.Context) BusinessMetadataBindingSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o BusinessMetadataBindingSchemaRegistryClusterOutput) ToBusinessMetadataBindingSchemaRegistryClusterPtrOutput() BusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return o.ToBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o BusinessMetadataBindingSchemaRegistryClusterOutput) ToBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) BusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BusinessMetadataBindingSchemaRegistryCluster) *BusinessMetadataBindingSchemaRegistryCluster {
+		return &v
+	}).(BusinessMetadataBindingSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o BusinessMetadataBindingSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v BusinessMetadataBindingSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type BusinessMetadataBindingSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (BusinessMetadataBindingSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BusinessMetadataBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o BusinessMetadataBindingSchemaRegistryClusterPtrOutput) ToBusinessMetadataBindingSchemaRegistryClusterPtrOutput() BusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o BusinessMetadataBindingSchemaRegistryClusterPtrOutput) ToBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) BusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o BusinessMetadataBindingSchemaRegistryClusterPtrOutput) Elem() BusinessMetadataBindingSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *BusinessMetadataBindingSchemaRegistryCluster) BusinessMetadataBindingSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret BusinessMetadataBindingSchemaRegistryCluster
+		return ret
+	}).(BusinessMetadataBindingSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o BusinessMetadataBindingSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BusinessMetadataBindingSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type BusinessMetadataCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// BusinessMetadataCredentialsInput is an input type that accepts BusinessMetadataCredentialsArgs and BusinessMetadataCredentialsOutput values.
+// You can construct a concrete instance of `BusinessMetadataCredentialsInput` via:
+//
+//	BusinessMetadataCredentialsArgs{...}
+type BusinessMetadataCredentialsInput interface {
+	pulumi.Input
+
+	ToBusinessMetadataCredentialsOutput() BusinessMetadataCredentialsOutput
+	ToBusinessMetadataCredentialsOutputWithContext(context.Context) BusinessMetadataCredentialsOutput
+}
+
+type BusinessMetadataCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (BusinessMetadataCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessMetadataCredentials)(nil)).Elem()
+}
+
+func (i BusinessMetadataCredentialsArgs) ToBusinessMetadataCredentialsOutput() BusinessMetadataCredentialsOutput {
+	return i.ToBusinessMetadataCredentialsOutputWithContext(context.Background())
+}
+
+func (i BusinessMetadataCredentialsArgs) ToBusinessMetadataCredentialsOutputWithContext(ctx context.Context) BusinessMetadataCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataCredentialsOutput)
+}
+
+func (i BusinessMetadataCredentialsArgs) ToBusinessMetadataCredentialsPtrOutput() BusinessMetadataCredentialsPtrOutput {
+	return i.ToBusinessMetadataCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i BusinessMetadataCredentialsArgs) ToBusinessMetadataCredentialsPtrOutputWithContext(ctx context.Context) BusinessMetadataCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataCredentialsOutput).ToBusinessMetadataCredentialsPtrOutputWithContext(ctx)
+}
+
+// BusinessMetadataCredentialsPtrInput is an input type that accepts BusinessMetadataCredentialsArgs, BusinessMetadataCredentialsPtr and BusinessMetadataCredentialsPtrOutput values.
+// You can construct a concrete instance of `BusinessMetadataCredentialsPtrInput` via:
+//
+//	        BusinessMetadataCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BusinessMetadataCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToBusinessMetadataCredentialsPtrOutput() BusinessMetadataCredentialsPtrOutput
+	ToBusinessMetadataCredentialsPtrOutputWithContext(context.Context) BusinessMetadataCredentialsPtrOutput
+}
+
+type businessMetadataCredentialsPtrType BusinessMetadataCredentialsArgs
+
+func BusinessMetadataCredentialsPtr(v *BusinessMetadataCredentialsArgs) BusinessMetadataCredentialsPtrInput {
+	return (*businessMetadataCredentialsPtrType)(v)
+}
+
+func (*businessMetadataCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BusinessMetadataCredentials)(nil)).Elem()
+}
+
+func (i *businessMetadataCredentialsPtrType) ToBusinessMetadataCredentialsPtrOutput() BusinessMetadataCredentialsPtrOutput {
+	return i.ToBusinessMetadataCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *businessMetadataCredentialsPtrType) ToBusinessMetadataCredentialsPtrOutputWithContext(ctx context.Context) BusinessMetadataCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataCredentialsPtrOutput)
+}
+
+type BusinessMetadataCredentialsOutput struct{ *pulumi.OutputState }
+
+func (BusinessMetadataCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessMetadataCredentials)(nil)).Elem()
+}
+
+func (o BusinessMetadataCredentialsOutput) ToBusinessMetadataCredentialsOutput() BusinessMetadataCredentialsOutput {
+	return o
+}
+
+func (o BusinessMetadataCredentialsOutput) ToBusinessMetadataCredentialsOutputWithContext(ctx context.Context) BusinessMetadataCredentialsOutput {
+	return o
+}
+
+func (o BusinessMetadataCredentialsOutput) ToBusinessMetadataCredentialsPtrOutput() BusinessMetadataCredentialsPtrOutput {
+	return o.ToBusinessMetadataCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o BusinessMetadataCredentialsOutput) ToBusinessMetadataCredentialsPtrOutputWithContext(ctx context.Context) BusinessMetadataCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BusinessMetadataCredentials) *BusinessMetadataCredentials {
+		return &v
+	}).(BusinessMetadataCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o BusinessMetadataCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BusinessMetadataCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o BusinessMetadataCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v BusinessMetadataCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type BusinessMetadataCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (BusinessMetadataCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BusinessMetadataCredentials)(nil)).Elem()
+}
+
+func (o BusinessMetadataCredentialsPtrOutput) ToBusinessMetadataCredentialsPtrOutput() BusinessMetadataCredentialsPtrOutput {
+	return o
+}
+
+func (o BusinessMetadataCredentialsPtrOutput) ToBusinessMetadataCredentialsPtrOutputWithContext(ctx context.Context) BusinessMetadataCredentialsPtrOutput {
+	return o
+}
+
+func (o BusinessMetadataCredentialsPtrOutput) Elem() BusinessMetadataCredentialsOutput {
+	return o.ApplyT(func(v *BusinessMetadataCredentials) BusinessMetadataCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret BusinessMetadataCredentials
+		return ret
+	}).(BusinessMetadataCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o BusinessMetadataCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BusinessMetadataCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o BusinessMetadataCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BusinessMetadataCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type BusinessMetadataSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// BusinessMetadataSchemaRegistryClusterInput is an input type that accepts BusinessMetadataSchemaRegistryClusterArgs and BusinessMetadataSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `BusinessMetadataSchemaRegistryClusterInput` via:
+//
+//	BusinessMetadataSchemaRegistryClusterArgs{...}
+type BusinessMetadataSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToBusinessMetadataSchemaRegistryClusterOutput() BusinessMetadataSchemaRegistryClusterOutput
+	ToBusinessMetadataSchemaRegistryClusterOutputWithContext(context.Context) BusinessMetadataSchemaRegistryClusterOutput
+}
+
+type BusinessMetadataSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (BusinessMetadataSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessMetadataSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i BusinessMetadataSchemaRegistryClusterArgs) ToBusinessMetadataSchemaRegistryClusterOutput() BusinessMetadataSchemaRegistryClusterOutput {
+	return i.ToBusinessMetadataSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i BusinessMetadataSchemaRegistryClusterArgs) ToBusinessMetadataSchemaRegistryClusterOutputWithContext(ctx context.Context) BusinessMetadataSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataSchemaRegistryClusterOutput)
+}
+
+func (i BusinessMetadataSchemaRegistryClusterArgs) ToBusinessMetadataSchemaRegistryClusterPtrOutput() BusinessMetadataSchemaRegistryClusterPtrOutput {
+	return i.ToBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i BusinessMetadataSchemaRegistryClusterArgs) ToBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) BusinessMetadataSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataSchemaRegistryClusterOutput).ToBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// BusinessMetadataSchemaRegistryClusterPtrInput is an input type that accepts BusinessMetadataSchemaRegistryClusterArgs, BusinessMetadataSchemaRegistryClusterPtr and BusinessMetadataSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `BusinessMetadataSchemaRegistryClusterPtrInput` via:
+//
+//	        BusinessMetadataSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type BusinessMetadataSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToBusinessMetadataSchemaRegistryClusterPtrOutput() BusinessMetadataSchemaRegistryClusterPtrOutput
+	ToBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(context.Context) BusinessMetadataSchemaRegistryClusterPtrOutput
+}
+
+type businessMetadataSchemaRegistryClusterPtrType BusinessMetadataSchemaRegistryClusterArgs
+
+func BusinessMetadataSchemaRegistryClusterPtr(v *BusinessMetadataSchemaRegistryClusterArgs) BusinessMetadataSchemaRegistryClusterPtrInput {
+	return (*businessMetadataSchemaRegistryClusterPtrType)(v)
+}
+
+func (*businessMetadataSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BusinessMetadataSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *businessMetadataSchemaRegistryClusterPtrType) ToBusinessMetadataSchemaRegistryClusterPtrOutput() BusinessMetadataSchemaRegistryClusterPtrOutput {
+	return i.ToBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *businessMetadataSchemaRegistryClusterPtrType) ToBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) BusinessMetadataSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataSchemaRegistryClusterPtrOutput)
+}
+
+type BusinessMetadataSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (BusinessMetadataSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessMetadataSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o BusinessMetadataSchemaRegistryClusterOutput) ToBusinessMetadataSchemaRegistryClusterOutput() BusinessMetadataSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o BusinessMetadataSchemaRegistryClusterOutput) ToBusinessMetadataSchemaRegistryClusterOutputWithContext(ctx context.Context) BusinessMetadataSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o BusinessMetadataSchemaRegistryClusterOutput) ToBusinessMetadataSchemaRegistryClusterPtrOutput() BusinessMetadataSchemaRegistryClusterPtrOutput {
+	return o.ToBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o BusinessMetadataSchemaRegistryClusterOutput) ToBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) BusinessMetadataSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BusinessMetadataSchemaRegistryCluster) *BusinessMetadataSchemaRegistryCluster {
+		return &v
+	}).(BusinessMetadataSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o BusinessMetadataSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v BusinessMetadataSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type BusinessMetadataSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (BusinessMetadataSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BusinessMetadataSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o BusinessMetadataSchemaRegistryClusterPtrOutput) ToBusinessMetadataSchemaRegistryClusterPtrOutput() BusinessMetadataSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o BusinessMetadataSchemaRegistryClusterPtrOutput) ToBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) BusinessMetadataSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o BusinessMetadataSchemaRegistryClusterPtrOutput) Elem() BusinessMetadataSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *BusinessMetadataSchemaRegistryCluster) BusinessMetadataSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret BusinessMetadataSchemaRegistryCluster
+		return ret
+	}).(BusinessMetadataSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o BusinessMetadataSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BusinessMetadataSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type ByokKeyAws struct {
 	// The Amazon Resource Name (ARN) of an AWS KMS key.
 	KeyArn string `pulumi:"keyArn"`
@@ -10225,6 +10953,592 @@ func (o SubjectModeSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TagBindingCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// TagBindingCredentialsInput is an input type that accepts TagBindingCredentialsArgs and TagBindingCredentialsOutput values.
+// You can construct a concrete instance of `TagBindingCredentialsInput` via:
+//
+//	TagBindingCredentialsArgs{...}
+type TagBindingCredentialsInput interface {
+	pulumi.Input
+
+	ToTagBindingCredentialsOutput() TagBindingCredentialsOutput
+	ToTagBindingCredentialsOutputWithContext(context.Context) TagBindingCredentialsOutput
+}
+
+type TagBindingCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (TagBindingCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagBindingCredentials)(nil)).Elem()
+}
+
+func (i TagBindingCredentialsArgs) ToTagBindingCredentialsOutput() TagBindingCredentialsOutput {
+	return i.ToTagBindingCredentialsOutputWithContext(context.Background())
+}
+
+func (i TagBindingCredentialsArgs) ToTagBindingCredentialsOutputWithContext(ctx context.Context) TagBindingCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagBindingCredentialsOutput)
+}
+
+func (i TagBindingCredentialsArgs) ToTagBindingCredentialsPtrOutput() TagBindingCredentialsPtrOutput {
+	return i.ToTagBindingCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i TagBindingCredentialsArgs) ToTagBindingCredentialsPtrOutputWithContext(ctx context.Context) TagBindingCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagBindingCredentialsOutput).ToTagBindingCredentialsPtrOutputWithContext(ctx)
+}
+
+// TagBindingCredentialsPtrInput is an input type that accepts TagBindingCredentialsArgs, TagBindingCredentialsPtr and TagBindingCredentialsPtrOutput values.
+// You can construct a concrete instance of `TagBindingCredentialsPtrInput` via:
+//
+//	        TagBindingCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagBindingCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToTagBindingCredentialsPtrOutput() TagBindingCredentialsPtrOutput
+	ToTagBindingCredentialsPtrOutputWithContext(context.Context) TagBindingCredentialsPtrOutput
+}
+
+type tagBindingCredentialsPtrType TagBindingCredentialsArgs
+
+func TagBindingCredentialsPtr(v *TagBindingCredentialsArgs) TagBindingCredentialsPtrInput {
+	return (*tagBindingCredentialsPtrType)(v)
+}
+
+func (*tagBindingCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagBindingCredentials)(nil)).Elem()
+}
+
+func (i *tagBindingCredentialsPtrType) ToTagBindingCredentialsPtrOutput() TagBindingCredentialsPtrOutput {
+	return i.ToTagBindingCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *tagBindingCredentialsPtrType) ToTagBindingCredentialsPtrOutputWithContext(ctx context.Context) TagBindingCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagBindingCredentialsPtrOutput)
+}
+
+type TagBindingCredentialsOutput struct{ *pulumi.OutputState }
+
+func (TagBindingCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagBindingCredentials)(nil)).Elem()
+}
+
+func (o TagBindingCredentialsOutput) ToTagBindingCredentialsOutput() TagBindingCredentialsOutput {
+	return o
+}
+
+func (o TagBindingCredentialsOutput) ToTagBindingCredentialsOutputWithContext(ctx context.Context) TagBindingCredentialsOutput {
+	return o
+}
+
+func (o TagBindingCredentialsOutput) ToTagBindingCredentialsPtrOutput() TagBindingCredentialsPtrOutput {
+	return o.ToTagBindingCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o TagBindingCredentialsOutput) ToTagBindingCredentialsPtrOutputWithContext(ctx context.Context) TagBindingCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagBindingCredentials) *TagBindingCredentials {
+		return &v
+	}).(TagBindingCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o TagBindingCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TagBindingCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o TagBindingCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v TagBindingCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type TagBindingCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (TagBindingCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagBindingCredentials)(nil)).Elem()
+}
+
+func (o TagBindingCredentialsPtrOutput) ToTagBindingCredentialsPtrOutput() TagBindingCredentialsPtrOutput {
+	return o
+}
+
+func (o TagBindingCredentialsPtrOutput) ToTagBindingCredentialsPtrOutputWithContext(ctx context.Context) TagBindingCredentialsPtrOutput {
+	return o
+}
+
+func (o TagBindingCredentialsPtrOutput) Elem() TagBindingCredentialsOutput {
+	return o.ApplyT(func(v *TagBindingCredentials) TagBindingCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret TagBindingCredentials
+		return ret
+	}).(TagBindingCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o TagBindingCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagBindingCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o TagBindingCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagBindingCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type TagBindingSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// TagBindingSchemaRegistryClusterInput is an input type that accepts TagBindingSchemaRegistryClusterArgs and TagBindingSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `TagBindingSchemaRegistryClusterInput` via:
+//
+//	TagBindingSchemaRegistryClusterArgs{...}
+type TagBindingSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToTagBindingSchemaRegistryClusterOutput() TagBindingSchemaRegistryClusterOutput
+	ToTagBindingSchemaRegistryClusterOutputWithContext(context.Context) TagBindingSchemaRegistryClusterOutput
+}
+
+type TagBindingSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (TagBindingSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i TagBindingSchemaRegistryClusterArgs) ToTagBindingSchemaRegistryClusterOutput() TagBindingSchemaRegistryClusterOutput {
+	return i.ToTagBindingSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i TagBindingSchemaRegistryClusterArgs) ToTagBindingSchemaRegistryClusterOutputWithContext(ctx context.Context) TagBindingSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagBindingSchemaRegistryClusterOutput)
+}
+
+func (i TagBindingSchemaRegistryClusterArgs) ToTagBindingSchemaRegistryClusterPtrOutput() TagBindingSchemaRegistryClusterPtrOutput {
+	return i.ToTagBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i TagBindingSchemaRegistryClusterArgs) ToTagBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) TagBindingSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagBindingSchemaRegistryClusterOutput).ToTagBindingSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// TagBindingSchemaRegistryClusterPtrInput is an input type that accepts TagBindingSchemaRegistryClusterArgs, TagBindingSchemaRegistryClusterPtr and TagBindingSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `TagBindingSchemaRegistryClusterPtrInput` via:
+//
+//	        TagBindingSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagBindingSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToTagBindingSchemaRegistryClusterPtrOutput() TagBindingSchemaRegistryClusterPtrOutput
+	ToTagBindingSchemaRegistryClusterPtrOutputWithContext(context.Context) TagBindingSchemaRegistryClusterPtrOutput
+}
+
+type tagBindingSchemaRegistryClusterPtrType TagBindingSchemaRegistryClusterArgs
+
+func TagBindingSchemaRegistryClusterPtr(v *TagBindingSchemaRegistryClusterArgs) TagBindingSchemaRegistryClusterPtrInput {
+	return (*tagBindingSchemaRegistryClusterPtrType)(v)
+}
+
+func (*tagBindingSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *tagBindingSchemaRegistryClusterPtrType) ToTagBindingSchemaRegistryClusterPtrOutput() TagBindingSchemaRegistryClusterPtrOutput {
+	return i.ToTagBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *tagBindingSchemaRegistryClusterPtrType) ToTagBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) TagBindingSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagBindingSchemaRegistryClusterPtrOutput)
+}
+
+type TagBindingSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (TagBindingSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o TagBindingSchemaRegistryClusterOutput) ToTagBindingSchemaRegistryClusterOutput() TagBindingSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o TagBindingSchemaRegistryClusterOutput) ToTagBindingSchemaRegistryClusterOutputWithContext(ctx context.Context) TagBindingSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o TagBindingSchemaRegistryClusterOutput) ToTagBindingSchemaRegistryClusterPtrOutput() TagBindingSchemaRegistryClusterPtrOutput {
+	return o.ToTagBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o TagBindingSchemaRegistryClusterOutput) ToTagBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) TagBindingSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagBindingSchemaRegistryCluster) *TagBindingSchemaRegistryCluster {
+		return &v
+	}).(TagBindingSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o TagBindingSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TagBindingSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type TagBindingSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (TagBindingSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o TagBindingSchemaRegistryClusterPtrOutput) ToTagBindingSchemaRegistryClusterPtrOutput() TagBindingSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o TagBindingSchemaRegistryClusterPtrOutput) ToTagBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) TagBindingSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o TagBindingSchemaRegistryClusterPtrOutput) Elem() TagBindingSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *TagBindingSchemaRegistryCluster) TagBindingSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret TagBindingSchemaRegistryCluster
+		return ret
+	}).(TagBindingSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o TagBindingSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagBindingSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type TagCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// TagCredentialsInput is an input type that accepts TagCredentialsArgs and TagCredentialsOutput values.
+// You can construct a concrete instance of `TagCredentialsInput` via:
+//
+//	TagCredentialsArgs{...}
+type TagCredentialsInput interface {
+	pulumi.Input
+
+	ToTagCredentialsOutput() TagCredentialsOutput
+	ToTagCredentialsOutputWithContext(context.Context) TagCredentialsOutput
+}
+
+type TagCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (TagCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagCredentials)(nil)).Elem()
+}
+
+func (i TagCredentialsArgs) ToTagCredentialsOutput() TagCredentialsOutput {
+	return i.ToTagCredentialsOutputWithContext(context.Background())
+}
+
+func (i TagCredentialsArgs) ToTagCredentialsOutputWithContext(ctx context.Context) TagCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagCredentialsOutput)
+}
+
+func (i TagCredentialsArgs) ToTagCredentialsPtrOutput() TagCredentialsPtrOutput {
+	return i.ToTagCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i TagCredentialsArgs) ToTagCredentialsPtrOutputWithContext(ctx context.Context) TagCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagCredentialsOutput).ToTagCredentialsPtrOutputWithContext(ctx)
+}
+
+// TagCredentialsPtrInput is an input type that accepts TagCredentialsArgs, TagCredentialsPtr and TagCredentialsPtrOutput values.
+// You can construct a concrete instance of `TagCredentialsPtrInput` via:
+//
+//	        TagCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToTagCredentialsPtrOutput() TagCredentialsPtrOutput
+	ToTagCredentialsPtrOutputWithContext(context.Context) TagCredentialsPtrOutput
+}
+
+type tagCredentialsPtrType TagCredentialsArgs
+
+func TagCredentialsPtr(v *TagCredentialsArgs) TagCredentialsPtrInput {
+	return (*tagCredentialsPtrType)(v)
+}
+
+func (*tagCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagCredentials)(nil)).Elem()
+}
+
+func (i *tagCredentialsPtrType) ToTagCredentialsPtrOutput() TagCredentialsPtrOutput {
+	return i.ToTagCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *tagCredentialsPtrType) ToTagCredentialsPtrOutputWithContext(ctx context.Context) TagCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagCredentialsPtrOutput)
+}
+
+type TagCredentialsOutput struct{ *pulumi.OutputState }
+
+func (TagCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagCredentials)(nil)).Elem()
+}
+
+func (o TagCredentialsOutput) ToTagCredentialsOutput() TagCredentialsOutput {
+	return o
+}
+
+func (o TagCredentialsOutput) ToTagCredentialsOutputWithContext(ctx context.Context) TagCredentialsOutput {
+	return o
+}
+
+func (o TagCredentialsOutput) ToTagCredentialsPtrOutput() TagCredentialsPtrOutput {
+	return o.ToTagCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o TagCredentialsOutput) ToTagCredentialsPtrOutputWithContext(ctx context.Context) TagCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagCredentials) *TagCredentials {
+		return &v
+	}).(TagCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o TagCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TagCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o TagCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v TagCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type TagCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (TagCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagCredentials)(nil)).Elem()
+}
+
+func (o TagCredentialsPtrOutput) ToTagCredentialsPtrOutput() TagCredentialsPtrOutput {
+	return o
+}
+
+func (o TagCredentialsPtrOutput) ToTagCredentialsPtrOutputWithContext(ctx context.Context) TagCredentialsPtrOutput {
+	return o
+}
+
+func (o TagCredentialsPtrOutput) Elem() TagCredentialsOutput {
+	return o.ApplyT(func(v *TagCredentials) TagCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret TagCredentials
+		return ret
+	}).(TagCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o TagCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o TagCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type TagSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// TagSchemaRegistryClusterInput is an input type that accepts TagSchemaRegistryClusterArgs and TagSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `TagSchemaRegistryClusterInput` via:
+//
+//	TagSchemaRegistryClusterArgs{...}
+type TagSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToTagSchemaRegistryClusterOutput() TagSchemaRegistryClusterOutput
+	ToTagSchemaRegistryClusterOutputWithContext(context.Context) TagSchemaRegistryClusterOutput
+}
+
+type TagSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (TagSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i TagSchemaRegistryClusterArgs) ToTagSchemaRegistryClusterOutput() TagSchemaRegistryClusterOutput {
+	return i.ToTagSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i TagSchemaRegistryClusterArgs) ToTagSchemaRegistryClusterOutputWithContext(ctx context.Context) TagSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagSchemaRegistryClusterOutput)
+}
+
+func (i TagSchemaRegistryClusterArgs) ToTagSchemaRegistryClusterPtrOutput() TagSchemaRegistryClusterPtrOutput {
+	return i.ToTagSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i TagSchemaRegistryClusterArgs) ToTagSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) TagSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagSchemaRegistryClusterOutput).ToTagSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// TagSchemaRegistryClusterPtrInput is an input type that accepts TagSchemaRegistryClusterArgs, TagSchemaRegistryClusterPtr and TagSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `TagSchemaRegistryClusterPtrInput` via:
+//
+//	        TagSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToTagSchemaRegistryClusterPtrOutput() TagSchemaRegistryClusterPtrOutput
+	ToTagSchemaRegistryClusterPtrOutputWithContext(context.Context) TagSchemaRegistryClusterPtrOutput
+}
+
+type tagSchemaRegistryClusterPtrType TagSchemaRegistryClusterArgs
+
+func TagSchemaRegistryClusterPtr(v *TagSchemaRegistryClusterArgs) TagSchemaRegistryClusterPtrInput {
+	return (*tagSchemaRegistryClusterPtrType)(v)
+}
+
+func (*tagSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *tagSchemaRegistryClusterPtrType) ToTagSchemaRegistryClusterPtrOutput() TagSchemaRegistryClusterPtrOutput {
+	return i.ToTagSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *tagSchemaRegistryClusterPtrType) ToTagSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) TagSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagSchemaRegistryClusterPtrOutput)
+}
+
+type TagSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (TagSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o TagSchemaRegistryClusterOutput) ToTagSchemaRegistryClusterOutput() TagSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o TagSchemaRegistryClusterOutput) ToTagSchemaRegistryClusterOutputWithContext(ctx context.Context) TagSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o TagSchemaRegistryClusterOutput) ToTagSchemaRegistryClusterPtrOutput() TagSchemaRegistryClusterPtrOutput {
+	return o.ToTagSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o TagSchemaRegistryClusterOutput) ToTagSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) TagSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagSchemaRegistryCluster) *TagSchemaRegistryCluster {
+		return &v
+	}).(TagSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o TagSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TagSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type TagSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (TagSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o TagSchemaRegistryClusterPtrOutput) ToTagSchemaRegistryClusterPtrOutput() TagSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o TagSchemaRegistryClusterPtrOutput) ToTagSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) TagSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o TagSchemaRegistryClusterPtrOutput) Elem() TagSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *TagSchemaRegistryCluster) TagSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret TagSchemaRegistryCluster
+		return ret
+	}).(TagSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o TagSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type TransitGatewayAttachmentAws struct {
 	// The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
 	RamResourceShareArn string `pulumi:"ramResourceShareArn"`
@@ -10686,6 +12000,734 @@ func (o TransitGatewayAttachmentNetworkPtrOutput) Elem() TransitGatewayAttachmen
 // The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
 func (o TransitGatewayAttachmentNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGatewayAttachmentNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetBusinessMetadataAttributeDefinition struct {
+	// (Optional String) The default value of this attribute.
+	DefaultValue string `pulumi:"defaultValue"`
+	// (Optional String) The description of this attribute.
+	Description string `pulumi:"description"`
+	// (Optional Boolean) An optional flag to control whether the attribute should be optional or required.
+	IsOptional bool `pulumi:"isOptional"`
+	// The name of the Business Metadata, for example, `PII`.
+	Name string `pulumi:"name"`
+	// (Optional Map) Block for the attribute options:
+	Options map[string]string `pulumi:"options"`
+	// (Required String) The type of the attribute, it always returns `string`.
+	Type string `pulumi:"type"`
+}
+
+// GetBusinessMetadataAttributeDefinitionInput is an input type that accepts GetBusinessMetadataAttributeDefinitionArgs and GetBusinessMetadataAttributeDefinitionOutput values.
+// You can construct a concrete instance of `GetBusinessMetadataAttributeDefinitionInput` via:
+//
+//	GetBusinessMetadataAttributeDefinitionArgs{...}
+type GetBusinessMetadataAttributeDefinitionInput interface {
+	pulumi.Input
+
+	ToGetBusinessMetadataAttributeDefinitionOutput() GetBusinessMetadataAttributeDefinitionOutput
+	ToGetBusinessMetadataAttributeDefinitionOutputWithContext(context.Context) GetBusinessMetadataAttributeDefinitionOutput
+}
+
+type GetBusinessMetadataAttributeDefinitionArgs struct {
+	// (Optional String) The default value of this attribute.
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+	// (Optional String) The description of this attribute.
+	Description pulumi.StringInput `pulumi:"description"`
+	// (Optional Boolean) An optional flag to control whether the attribute should be optional or required.
+	IsOptional pulumi.BoolInput `pulumi:"isOptional"`
+	// The name of the Business Metadata, for example, `PII`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional Map) Block for the attribute options:
+	Options pulumi.StringMapInput `pulumi:"options"`
+	// (Required String) The type of the attribute, it always returns `string`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetBusinessMetadataAttributeDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBusinessMetadataAttributeDefinition)(nil)).Elem()
+}
+
+func (i GetBusinessMetadataAttributeDefinitionArgs) ToGetBusinessMetadataAttributeDefinitionOutput() GetBusinessMetadataAttributeDefinitionOutput {
+	return i.ToGetBusinessMetadataAttributeDefinitionOutputWithContext(context.Background())
+}
+
+func (i GetBusinessMetadataAttributeDefinitionArgs) ToGetBusinessMetadataAttributeDefinitionOutputWithContext(ctx context.Context) GetBusinessMetadataAttributeDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataAttributeDefinitionOutput)
+}
+
+// GetBusinessMetadataAttributeDefinitionArrayInput is an input type that accepts GetBusinessMetadataAttributeDefinitionArray and GetBusinessMetadataAttributeDefinitionArrayOutput values.
+// You can construct a concrete instance of `GetBusinessMetadataAttributeDefinitionArrayInput` via:
+//
+//	GetBusinessMetadataAttributeDefinitionArray{ GetBusinessMetadataAttributeDefinitionArgs{...} }
+type GetBusinessMetadataAttributeDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToGetBusinessMetadataAttributeDefinitionArrayOutput() GetBusinessMetadataAttributeDefinitionArrayOutput
+	ToGetBusinessMetadataAttributeDefinitionArrayOutputWithContext(context.Context) GetBusinessMetadataAttributeDefinitionArrayOutput
+}
+
+type GetBusinessMetadataAttributeDefinitionArray []GetBusinessMetadataAttributeDefinitionInput
+
+func (GetBusinessMetadataAttributeDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBusinessMetadataAttributeDefinition)(nil)).Elem()
+}
+
+func (i GetBusinessMetadataAttributeDefinitionArray) ToGetBusinessMetadataAttributeDefinitionArrayOutput() GetBusinessMetadataAttributeDefinitionArrayOutput {
+	return i.ToGetBusinessMetadataAttributeDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i GetBusinessMetadataAttributeDefinitionArray) ToGetBusinessMetadataAttributeDefinitionArrayOutputWithContext(ctx context.Context) GetBusinessMetadataAttributeDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataAttributeDefinitionArrayOutput)
+}
+
+type GetBusinessMetadataAttributeDefinitionOutput struct{ *pulumi.OutputState }
+
+func (GetBusinessMetadataAttributeDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBusinessMetadataAttributeDefinition)(nil)).Elem()
+}
+
+func (o GetBusinessMetadataAttributeDefinitionOutput) ToGetBusinessMetadataAttributeDefinitionOutput() GetBusinessMetadataAttributeDefinitionOutput {
+	return o
+}
+
+func (o GetBusinessMetadataAttributeDefinitionOutput) ToGetBusinessMetadataAttributeDefinitionOutputWithContext(ctx context.Context) GetBusinessMetadataAttributeDefinitionOutput {
+	return o
+}
+
+// (Optional String) The default value of this attribute.
+func (o GetBusinessMetadataAttributeDefinitionOutput) DefaultValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBusinessMetadataAttributeDefinition) string { return v.DefaultValue }).(pulumi.StringOutput)
+}
+
+// (Optional String) The description of this attribute.
+func (o GetBusinessMetadataAttributeDefinitionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBusinessMetadataAttributeDefinition) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// (Optional Boolean) An optional flag to control whether the attribute should be optional or required.
+func (o GetBusinessMetadataAttributeDefinitionOutput) IsOptional() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetBusinessMetadataAttributeDefinition) bool { return v.IsOptional }).(pulumi.BoolOutput)
+}
+
+// The name of the Business Metadata, for example, `PII`.
+func (o GetBusinessMetadataAttributeDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBusinessMetadataAttributeDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional Map) Block for the attribute options:
+func (o GetBusinessMetadataAttributeDefinitionOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetBusinessMetadataAttributeDefinition) map[string]string { return v.Options }).(pulumi.StringMapOutput)
+}
+
+// (Required String) The type of the attribute, it always returns `string`.
+func (o GetBusinessMetadataAttributeDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBusinessMetadataAttributeDefinition) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetBusinessMetadataAttributeDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBusinessMetadataAttributeDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBusinessMetadataAttributeDefinition)(nil)).Elem()
+}
+
+func (o GetBusinessMetadataAttributeDefinitionArrayOutput) ToGetBusinessMetadataAttributeDefinitionArrayOutput() GetBusinessMetadataAttributeDefinitionArrayOutput {
+	return o
+}
+
+func (o GetBusinessMetadataAttributeDefinitionArrayOutput) ToGetBusinessMetadataAttributeDefinitionArrayOutputWithContext(ctx context.Context) GetBusinessMetadataAttributeDefinitionArrayOutput {
+	return o
+}
+
+func (o GetBusinessMetadataAttributeDefinitionArrayOutput) Index(i pulumi.IntInput) GetBusinessMetadataAttributeDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBusinessMetadataAttributeDefinition {
+		return vs[0].([]GetBusinessMetadataAttributeDefinition)[vs[1].(int)]
+	}).(GetBusinessMetadataAttributeDefinitionOutput)
+}
+
+type GetBusinessMetadataBindingCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// GetBusinessMetadataBindingCredentialsInput is an input type that accepts GetBusinessMetadataBindingCredentialsArgs and GetBusinessMetadataBindingCredentialsOutput values.
+// You can construct a concrete instance of `GetBusinessMetadataBindingCredentialsInput` via:
+//
+//	GetBusinessMetadataBindingCredentialsArgs{...}
+type GetBusinessMetadataBindingCredentialsInput interface {
+	pulumi.Input
+
+	ToGetBusinessMetadataBindingCredentialsOutput() GetBusinessMetadataBindingCredentialsOutput
+	ToGetBusinessMetadataBindingCredentialsOutputWithContext(context.Context) GetBusinessMetadataBindingCredentialsOutput
+}
+
+type GetBusinessMetadataBindingCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetBusinessMetadataBindingCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBusinessMetadataBindingCredentials)(nil)).Elem()
+}
+
+func (i GetBusinessMetadataBindingCredentialsArgs) ToGetBusinessMetadataBindingCredentialsOutput() GetBusinessMetadataBindingCredentialsOutput {
+	return i.ToGetBusinessMetadataBindingCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetBusinessMetadataBindingCredentialsArgs) ToGetBusinessMetadataBindingCredentialsOutputWithContext(ctx context.Context) GetBusinessMetadataBindingCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataBindingCredentialsOutput)
+}
+
+func (i GetBusinessMetadataBindingCredentialsArgs) ToGetBusinessMetadataBindingCredentialsPtrOutput() GetBusinessMetadataBindingCredentialsPtrOutput {
+	return i.ToGetBusinessMetadataBindingCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetBusinessMetadataBindingCredentialsArgs) ToGetBusinessMetadataBindingCredentialsPtrOutputWithContext(ctx context.Context) GetBusinessMetadataBindingCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataBindingCredentialsOutput).ToGetBusinessMetadataBindingCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetBusinessMetadataBindingCredentialsPtrInput is an input type that accepts GetBusinessMetadataBindingCredentialsArgs, GetBusinessMetadataBindingCredentialsPtr and GetBusinessMetadataBindingCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetBusinessMetadataBindingCredentialsPtrInput` via:
+//
+//	        GetBusinessMetadataBindingCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetBusinessMetadataBindingCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetBusinessMetadataBindingCredentialsPtrOutput() GetBusinessMetadataBindingCredentialsPtrOutput
+	ToGetBusinessMetadataBindingCredentialsPtrOutputWithContext(context.Context) GetBusinessMetadataBindingCredentialsPtrOutput
+}
+
+type getBusinessMetadataBindingCredentialsPtrType GetBusinessMetadataBindingCredentialsArgs
+
+func GetBusinessMetadataBindingCredentialsPtr(v *GetBusinessMetadataBindingCredentialsArgs) GetBusinessMetadataBindingCredentialsPtrInput {
+	return (*getBusinessMetadataBindingCredentialsPtrType)(v)
+}
+
+func (*getBusinessMetadataBindingCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetBusinessMetadataBindingCredentials)(nil)).Elem()
+}
+
+func (i *getBusinessMetadataBindingCredentialsPtrType) ToGetBusinessMetadataBindingCredentialsPtrOutput() GetBusinessMetadataBindingCredentialsPtrOutput {
+	return i.ToGetBusinessMetadataBindingCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getBusinessMetadataBindingCredentialsPtrType) ToGetBusinessMetadataBindingCredentialsPtrOutputWithContext(ctx context.Context) GetBusinessMetadataBindingCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataBindingCredentialsPtrOutput)
+}
+
+type GetBusinessMetadataBindingCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetBusinessMetadataBindingCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBusinessMetadataBindingCredentials)(nil)).Elem()
+}
+
+func (o GetBusinessMetadataBindingCredentialsOutput) ToGetBusinessMetadataBindingCredentialsOutput() GetBusinessMetadataBindingCredentialsOutput {
+	return o
+}
+
+func (o GetBusinessMetadataBindingCredentialsOutput) ToGetBusinessMetadataBindingCredentialsOutputWithContext(ctx context.Context) GetBusinessMetadataBindingCredentialsOutput {
+	return o
+}
+
+func (o GetBusinessMetadataBindingCredentialsOutput) ToGetBusinessMetadataBindingCredentialsPtrOutput() GetBusinessMetadataBindingCredentialsPtrOutput {
+	return o.ToGetBusinessMetadataBindingCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetBusinessMetadataBindingCredentialsOutput) ToGetBusinessMetadataBindingCredentialsPtrOutputWithContext(ctx context.Context) GetBusinessMetadataBindingCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetBusinessMetadataBindingCredentials) *GetBusinessMetadataBindingCredentials {
+		return &v
+	}).(GetBusinessMetadataBindingCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetBusinessMetadataBindingCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBusinessMetadataBindingCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetBusinessMetadataBindingCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBusinessMetadataBindingCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetBusinessMetadataBindingCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetBusinessMetadataBindingCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetBusinessMetadataBindingCredentials)(nil)).Elem()
+}
+
+func (o GetBusinessMetadataBindingCredentialsPtrOutput) ToGetBusinessMetadataBindingCredentialsPtrOutput() GetBusinessMetadataBindingCredentialsPtrOutput {
+	return o
+}
+
+func (o GetBusinessMetadataBindingCredentialsPtrOutput) ToGetBusinessMetadataBindingCredentialsPtrOutputWithContext(ctx context.Context) GetBusinessMetadataBindingCredentialsPtrOutput {
+	return o
+}
+
+func (o GetBusinessMetadataBindingCredentialsPtrOutput) Elem() GetBusinessMetadataBindingCredentialsOutput {
+	return o.ApplyT(func(v *GetBusinessMetadataBindingCredentials) GetBusinessMetadataBindingCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetBusinessMetadataBindingCredentials
+		return ret
+	}).(GetBusinessMetadataBindingCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetBusinessMetadataBindingCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetBusinessMetadataBindingCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetBusinessMetadataBindingCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetBusinessMetadataBindingCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetBusinessMetadataBindingSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetBusinessMetadataBindingSchemaRegistryClusterInput is an input type that accepts GetBusinessMetadataBindingSchemaRegistryClusterArgs and GetBusinessMetadataBindingSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `GetBusinessMetadataBindingSchemaRegistryClusterInput` via:
+//
+//	GetBusinessMetadataBindingSchemaRegistryClusterArgs{...}
+type GetBusinessMetadataBindingSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToGetBusinessMetadataBindingSchemaRegistryClusterOutput() GetBusinessMetadataBindingSchemaRegistryClusterOutput
+	ToGetBusinessMetadataBindingSchemaRegistryClusterOutputWithContext(context.Context) GetBusinessMetadataBindingSchemaRegistryClusterOutput
+}
+
+type GetBusinessMetadataBindingSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetBusinessMetadataBindingSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBusinessMetadataBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i GetBusinessMetadataBindingSchemaRegistryClusterArgs) ToGetBusinessMetadataBindingSchemaRegistryClusterOutput() GetBusinessMetadataBindingSchemaRegistryClusterOutput {
+	return i.ToGetBusinessMetadataBindingSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i GetBusinessMetadataBindingSchemaRegistryClusterArgs) ToGetBusinessMetadataBindingSchemaRegistryClusterOutputWithContext(ctx context.Context) GetBusinessMetadataBindingSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataBindingSchemaRegistryClusterOutput)
+}
+
+func (i GetBusinessMetadataBindingSchemaRegistryClusterArgs) ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutput() GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return i.ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i GetBusinessMetadataBindingSchemaRegistryClusterArgs) ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataBindingSchemaRegistryClusterOutput).ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// GetBusinessMetadataBindingSchemaRegistryClusterPtrInput is an input type that accepts GetBusinessMetadataBindingSchemaRegistryClusterArgs, GetBusinessMetadataBindingSchemaRegistryClusterPtr and GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `GetBusinessMetadataBindingSchemaRegistryClusterPtrInput` via:
+//
+//	        GetBusinessMetadataBindingSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetBusinessMetadataBindingSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutput() GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput
+	ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(context.Context) GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput
+}
+
+type getBusinessMetadataBindingSchemaRegistryClusterPtrType GetBusinessMetadataBindingSchemaRegistryClusterArgs
+
+func GetBusinessMetadataBindingSchemaRegistryClusterPtr(v *GetBusinessMetadataBindingSchemaRegistryClusterArgs) GetBusinessMetadataBindingSchemaRegistryClusterPtrInput {
+	return (*getBusinessMetadataBindingSchemaRegistryClusterPtrType)(v)
+}
+
+func (*getBusinessMetadataBindingSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetBusinessMetadataBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *getBusinessMetadataBindingSchemaRegistryClusterPtrType) ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutput() GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return i.ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *getBusinessMetadataBindingSchemaRegistryClusterPtrType) ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput)
+}
+
+type GetBusinessMetadataBindingSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (GetBusinessMetadataBindingSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBusinessMetadataBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetBusinessMetadataBindingSchemaRegistryClusterOutput) ToGetBusinessMetadataBindingSchemaRegistryClusterOutput() GetBusinessMetadataBindingSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetBusinessMetadataBindingSchemaRegistryClusterOutput) ToGetBusinessMetadataBindingSchemaRegistryClusterOutputWithContext(ctx context.Context) GetBusinessMetadataBindingSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetBusinessMetadataBindingSchemaRegistryClusterOutput) ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutput() GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return o.ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o GetBusinessMetadataBindingSchemaRegistryClusterOutput) ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetBusinessMetadataBindingSchemaRegistryCluster) *GetBusinessMetadataBindingSchemaRegistryCluster {
+		return &v
+	}).(GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetBusinessMetadataBindingSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBusinessMetadataBindingSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetBusinessMetadataBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput) ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutput() GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput) ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput) Elem() GetBusinessMetadataBindingSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *GetBusinessMetadataBindingSchemaRegistryCluster) GetBusinessMetadataBindingSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret GetBusinessMetadataBindingSchemaRegistryCluster
+		return ret
+	}).(GetBusinessMetadataBindingSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetBusinessMetadataBindingSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetBusinessMetadataCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// GetBusinessMetadataCredentialsInput is an input type that accepts GetBusinessMetadataCredentialsArgs and GetBusinessMetadataCredentialsOutput values.
+// You can construct a concrete instance of `GetBusinessMetadataCredentialsInput` via:
+//
+//	GetBusinessMetadataCredentialsArgs{...}
+type GetBusinessMetadataCredentialsInput interface {
+	pulumi.Input
+
+	ToGetBusinessMetadataCredentialsOutput() GetBusinessMetadataCredentialsOutput
+	ToGetBusinessMetadataCredentialsOutputWithContext(context.Context) GetBusinessMetadataCredentialsOutput
+}
+
+type GetBusinessMetadataCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetBusinessMetadataCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBusinessMetadataCredentials)(nil)).Elem()
+}
+
+func (i GetBusinessMetadataCredentialsArgs) ToGetBusinessMetadataCredentialsOutput() GetBusinessMetadataCredentialsOutput {
+	return i.ToGetBusinessMetadataCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetBusinessMetadataCredentialsArgs) ToGetBusinessMetadataCredentialsOutputWithContext(ctx context.Context) GetBusinessMetadataCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataCredentialsOutput)
+}
+
+func (i GetBusinessMetadataCredentialsArgs) ToGetBusinessMetadataCredentialsPtrOutput() GetBusinessMetadataCredentialsPtrOutput {
+	return i.ToGetBusinessMetadataCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetBusinessMetadataCredentialsArgs) ToGetBusinessMetadataCredentialsPtrOutputWithContext(ctx context.Context) GetBusinessMetadataCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataCredentialsOutput).ToGetBusinessMetadataCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetBusinessMetadataCredentialsPtrInput is an input type that accepts GetBusinessMetadataCredentialsArgs, GetBusinessMetadataCredentialsPtr and GetBusinessMetadataCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetBusinessMetadataCredentialsPtrInput` via:
+//
+//	        GetBusinessMetadataCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetBusinessMetadataCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetBusinessMetadataCredentialsPtrOutput() GetBusinessMetadataCredentialsPtrOutput
+	ToGetBusinessMetadataCredentialsPtrOutputWithContext(context.Context) GetBusinessMetadataCredentialsPtrOutput
+}
+
+type getBusinessMetadataCredentialsPtrType GetBusinessMetadataCredentialsArgs
+
+func GetBusinessMetadataCredentialsPtr(v *GetBusinessMetadataCredentialsArgs) GetBusinessMetadataCredentialsPtrInput {
+	return (*getBusinessMetadataCredentialsPtrType)(v)
+}
+
+func (*getBusinessMetadataCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetBusinessMetadataCredentials)(nil)).Elem()
+}
+
+func (i *getBusinessMetadataCredentialsPtrType) ToGetBusinessMetadataCredentialsPtrOutput() GetBusinessMetadataCredentialsPtrOutput {
+	return i.ToGetBusinessMetadataCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getBusinessMetadataCredentialsPtrType) ToGetBusinessMetadataCredentialsPtrOutputWithContext(ctx context.Context) GetBusinessMetadataCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataCredentialsPtrOutput)
+}
+
+type GetBusinessMetadataCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetBusinessMetadataCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBusinessMetadataCredentials)(nil)).Elem()
+}
+
+func (o GetBusinessMetadataCredentialsOutput) ToGetBusinessMetadataCredentialsOutput() GetBusinessMetadataCredentialsOutput {
+	return o
+}
+
+func (o GetBusinessMetadataCredentialsOutput) ToGetBusinessMetadataCredentialsOutputWithContext(ctx context.Context) GetBusinessMetadataCredentialsOutput {
+	return o
+}
+
+func (o GetBusinessMetadataCredentialsOutput) ToGetBusinessMetadataCredentialsPtrOutput() GetBusinessMetadataCredentialsPtrOutput {
+	return o.ToGetBusinessMetadataCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetBusinessMetadataCredentialsOutput) ToGetBusinessMetadataCredentialsPtrOutputWithContext(ctx context.Context) GetBusinessMetadataCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetBusinessMetadataCredentials) *GetBusinessMetadataCredentials {
+		return &v
+	}).(GetBusinessMetadataCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetBusinessMetadataCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBusinessMetadataCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetBusinessMetadataCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBusinessMetadataCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetBusinessMetadataCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetBusinessMetadataCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetBusinessMetadataCredentials)(nil)).Elem()
+}
+
+func (o GetBusinessMetadataCredentialsPtrOutput) ToGetBusinessMetadataCredentialsPtrOutput() GetBusinessMetadataCredentialsPtrOutput {
+	return o
+}
+
+func (o GetBusinessMetadataCredentialsPtrOutput) ToGetBusinessMetadataCredentialsPtrOutputWithContext(ctx context.Context) GetBusinessMetadataCredentialsPtrOutput {
+	return o
+}
+
+func (o GetBusinessMetadataCredentialsPtrOutput) Elem() GetBusinessMetadataCredentialsOutput {
+	return o.ApplyT(func(v *GetBusinessMetadataCredentials) GetBusinessMetadataCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetBusinessMetadataCredentials
+		return ret
+	}).(GetBusinessMetadataCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetBusinessMetadataCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetBusinessMetadataCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetBusinessMetadataCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetBusinessMetadataCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetBusinessMetadataSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetBusinessMetadataSchemaRegistryClusterInput is an input type that accepts GetBusinessMetadataSchemaRegistryClusterArgs and GetBusinessMetadataSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `GetBusinessMetadataSchemaRegistryClusterInput` via:
+//
+//	GetBusinessMetadataSchemaRegistryClusterArgs{...}
+type GetBusinessMetadataSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToGetBusinessMetadataSchemaRegistryClusterOutput() GetBusinessMetadataSchemaRegistryClusterOutput
+	ToGetBusinessMetadataSchemaRegistryClusterOutputWithContext(context.Context) GetBusinessMetadataSchemaRegistryClusterOutput
+}
+
+type GetBusinessMetadataSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetBusinessMetadataSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBusinessMetadataSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i GetBusinessMetadataSchemaRegistryClusterArgs) ToGetBusinessMetadataSchemaRegistryClusterOutput() GetBusinessMetadataSchemaRegistryClusterOutput {
+	return i.ToGetBusinessMetadataSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i GetBusinessMetadataSchemaRegistryClusterArgs) ToGetBusinessMetadataSchemaRegistryClusterOutputWithContext(ctx context.Context) GetBusinessMetadataSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataSchemaRegistryClusterOutput)
+}
+
+func (i GetBusinessMetadataSchemaRegistryClusterArgs) ToGetBusinessMetadataSchemaRegistryClusterPtrOutput() GetBusinessMetadataSchemaRegistryClusterPtrOutput {
+	return i.ToGetBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i GetBusinessMetadataSchemaRegistryClusterArgs) ToGetBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetBusinessMetadataSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataSchemaRegistryClusterOutput).ToGetBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// GetBusinessMetadataSchemaRegistryClusterPtrInput is an input type that accepts GetBusinessMetadataSchemaRegistryClusterArgs, GetBusinessMetadataSchemaRegistryClusterPtr and GetBusinessMetadataSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `GetBusinessMetadataSchemaRegistryClusterPtrInput` via:
+//
+//	        GetBusinessMetadataSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetBusinessMetadataSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToGetBusinessMetadataSchemaRegistryClusterPtrOutput() GetBusinessMetadataSchemaRegistryClusterPtrOutput
+	ToGetBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(context.Context) GetBusinessMetadataSchemaRegistryClusterPtrOutput
+}
+
+type getBusinessMetadataSchemaRegistryClusterPtrType GetBusinessMetadataSchemaRegistryClusterArgs
+
+func GetBusinessMetadataSchemaRegistryClusterPtr(v *GetBusinessMetadataSchemaRegistryClusterArgs) GetBusinessMetadataSchemaRegistryClusterPtrInput {
+	return (*getBusinessMetadataSchemaRegistryClusterPtrType)(v)
+}
+
+func (*getBusinessMetadataSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetBusinessMetadataSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *getBusinessMetadataSchemaRegistryClusterPtrType) ToGetBusinessMetadataSchemaRegistryClusterPtrOutput() GetBusinessMetadataSchemaRegistryClusterPtrOutput {
+	return i.ToGetBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *getBusinessMetadataSchemaRegistryClusterPtrType) ToGetBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetBusinessMetadataSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataSchemaRegistryClusterPtrOutput)
+}
+
+type GetBusinessMetadataSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (GetBusinessMetadataSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBusinessMetadataSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetBusinessMetadataSchemaRegistryClusterOutput) ToGetBusinessMetadataSchemaRegistryClusterOutput() GetBusinessMetadataSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetBusinessMetadataSchemaRegistryClusterOutput) ToGetBusinessMetadataSchemaRegistryClusterOutputWithContext(ctx context.Context) GetBusinessMetadataSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetBusinessMetadataSchemaRegistryClusterOutput) ToGetBusinessMetadataSchemaRegistryClusterPtrOutput() GetBusinessMetadataSchemaRegistryClusterPtrOutput {
+	return o.ToGetBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o GetBusinessMetadataSchemaRegistryClusterOutput) ToGetBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetBusinessMetadataSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetBusinessMetadataSchemaRegistryCluster) *GetBusinessMetadataSchemaRegistryCluster {
+		return &v
+	}).(GetBusinessMetadataSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetBusinessMetadataSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBusinessMetadataSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetBusinessMetadataSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetBusinessMetadataSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetBusinessMetadataSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetBusinessMetadataSchemaRegistryClusterPtrOutput) ToGetBusinessMetadataSchemaRegistryClusterPtrOutput() GetBusinessMetadataSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetBusinessMetadataSchemaRegistryClusterPtrOutput) ToGetBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetBusinessMetadataSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetBusinessMetadataSchemaRegistryClusterPtrOutput) Elem() GetBusinessMetadataSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *GetBusinessMetadataSchemaRegistryCluster) GetBusinessMetadataSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret GetBusinessMetadataSchemaRegistryCluster
+		return ret
+	}).(GetBusinessMetadataSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetBusinessMetadataSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetBusinessMetadataSchemaRegistryCluster) *string {
 		if v == nil {
 			return nil
 		}
@@ -17149,6 +19191,592 @@ func (o GetSubjectModeSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetTagBindingCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// GetTagBindingCredentialsInput is an input type that accepts GetTagBindingCredentialsArgs and GetTagBindingCredentialsOutput values.
+// You can construct a concrete instance of `GetTagBindingCredentialsInput` via:
+//
+//	GetTagBindingCredentialsArgs{...}
+type GetTagBindingCredentialsInput interface {
+	pulumi.Input
+
+	ToGetTagBindingCredentialsOutput() GetTagBindingCredentialsOutput
+	ToGetTagBindingCredentialsOutputWithContext(context.Context) GetTagBindingCredentialsOutput
+}
+
+type GetTagBindingCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetTagBindingCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTagBindingCredentials)(nil)).Elem()
+}
+
+func (i GetTagBindingCredentialsArgs) ToGetTagBindingCredentialsOutput() GetTagBindingCredentialsOutput {
+	return i.ToGetTagBindingCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetTagBindingCredentialsArgs) ToGetTagBindingCredentialsOutputWithContext(ctx context.Context) GetTagBindingCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTagBindingCredentialsOutput)
+}
+
+func (i GetTagBindingCredentialsArgs) ToGetTagBindingCredentialsPtrOutput() GetTagBindingCredentialsPtrOutput {
+	return i.ToGetTagBindingCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetTagBindingCredentialsArgs) ToGetTagBindingCredentialsPtrOutputWithContext(ctx context.Context) GetTagBindingCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTagBindingCredentialsOutput).ToGetTagBindingCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetTagBindingCredentialsPtrInput is an input type that accepts GetTagBindingCredentialsArgs, GetTagBindingCredentialsPtr and GetTagBindingCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetTagBindingCredentialsPtrInput` via:
+//
+//	        GetTagBindingCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetTagBindingCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetTagBindingCredentialsPtrOutput() GetTagBindingCredentialsPtrOutput
+	ToGetTagBindingCredentialsPtrOutputWithContext(context.Context) GetTagBindingCredentialsPtrOutput
+}
+
+type getTagBindingCredentialsPtrType GetTagBindingCredentialsArgs
+
+func GetTagBindingCredentialsPtr(v *GetTagBindingCredentialsArgs) GetTagBindingCredentialsPtrInput {
+	return (*getTagBindingCredentialsPtrType)(v)
+}
+
+func (*getTagBindingCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTagBindingCredentials)(nil)).Elem()
+}
+
+func (i *getTagBindingCredentialsPtrType) ToGetTagBindingCredentialsPtrOutput() GetTagBindingCredentialsPtrOutput {
+	return i.ToGetTagBindingCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getTagBindingCredentialsPtrType) ToGetTagBindingCredentialsPtrOutputWithContext(ctx context.Context) GetTagBindingCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTagBindingCredentialsPtrOutput)
+}
+
+type GetTagBindingCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetTagBindingCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTagBindingCredentials)(nil)).Elem()
+}
+
+func (o GetTagBindingCredentialsOutput) ToGetTagBindingCredentialsOutput() GetTagBindingCredentialsOutput {
+	return o
+}
+
+func (o GetTagBindingCredentialsOutput) ToGetTagBindingCredentialsOutputWithContext(ctx context.Context) GetTagBindingCredentialsOutput {
+	return o
+}
+
+func (o GetTagBindingCredentialsOutput) ToGetTagBindingCredentialsPtrOutput() GetTagBindingCredentialsPtrOutput {
+	return o.ToGetTagBindingCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetTagBindingCredentialsOutput) ToGetTagBindingCredentialsPtrOutputWithContext(ctx context.Context) GetTagBindingCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagBindingCredentials) *GetTagBindingCredentials {
+		return &v
+	}).(GetTagBindingCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetTagBindingCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTagBindingCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetTagBindingCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTagBindingCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetTagBindingCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetTagBindingCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTagBindingCredentials)(nil)).Elem()
+}
+
+func (o GetTagBindingCredentialsPtrOutput) ToGetTagBindingCredentialsPtrOutput() GetTagBindingCredentialsPtrOutput {
+	return o
+}
+
+func (o GetTagBindingCredentialsPtrOutput) ToGetTagBindingCredentialsPtrOutputWithContext(ctx context.Context) GetTagBindingCredentialsPtrOutput {
+	return o
+}
+
+func (o GetTagBindingCredentialsPtrOutput) Elem() GetTagBindingCredentialsOutput {
+	return o.ApplyT(func(v *GetTagBindingCredentials) GetTagBindingCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetTagBindingCredentials
+		return ret
+	}).(GetTagBindingCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetTagBindingCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTagBindingCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetTagBindingCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTagBindingCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetTagBindingSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetTagBindingSchemaRegistryClusterInput is an input type that accepts GetTagBindingSchemaRegistryClusterArgs and GetTagBindingSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `GetTagBindingSchemaRegistryClusterInput` via:
+//
+//	GetTagBindingSchemaRegistryClusterArgs{...}
+type GetTagBindingSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToGetTagBindingSchemaRegistryClusterOutput() GetTagBindingSchemaRegistryClusterOutput
+	ToGetTagBindingSchemaRegistryClusterOutputWithContext(context.Context) GetTagBindingSchemaRegistryClusterOutput
+}
+
+type GetTagBindingSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetTagBindingSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTagBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i GetTagBindingSchemaRegistryClusterArgs) ToGetTagBindingSchemaRegistryClusterOutput() GetTagBindingSchemaRegistryClusterOutput {
+	return i.ToGetTagBindingSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i GetTagBindingSchemaRegistryClusterArgs) ToGetTagBindingSchemaRegistryClusterOutputWithContext(ctx context.Context) GetTagBindingSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTagBindingSchemaRegistryClusterOutput)
+}
+
+func (i GetTagBindingSchemaRegistryClusterArgs) ToGetTagBindingSchemaRegistryClusterPtrOutput() GetTagBindingSchemaRegistryClusterPtrOutput {
+	return i.ToGetTagBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i GetTagBindingSchemaRegistryClusterArgs) ToGetTagBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetTagBindingSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTagBindingSchemaRegistryClusterOutput).ToGetTagBindingSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// GetTagBindingSchemaRegistryClusterPtrInput is an input type that accepts GetTagBindingSchemaRegistryClusterArgs, GetTagBindingSchemaRegistryClusterPtr and GetTagBindingSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `GetTagBindingSchemaRegistryClusterPtrInput` via:
+//
+//	        GetTagBindingSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetTagBindingSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToGetTagBindingSchemaRegistryClusterPtrOutput() GetTagBindingSchemaRegistryClusterPtrOutput
+	ToGetTagBindingSchemaRegistryClusterPtrOutputWithContext(context.Context) GetTagBindingSchemaRegistryClusterPtrOutput
+}
+
+type getTagBindingSchemaRegistryClusterPtrType GetTagBindingSchemaRegistryClusterArgs
+
+func GetTagBindingSchemaRegistryClusterPtr(v *GetTagBindingSchemaRegistryClusterArgs) GetTagBindingSchemaRegistryClusterPtrInput {
+	return (*getTagBindingSchemaRegistryClusterPtrType)(v)
+}
+
+func (*getTagBindingSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTagBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *getTagBindingSchemaRegistryClusterPtrType) ToGetTagBindingSchemaRegistryClusterPtrOutput() GetTagBindingSchemaRegistryClusterPtrOutput {
+	return i.ToGetTagBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *getTagBindingSchemaRegistryClusterPtrType) ToGetTagBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetTagBindingSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTagBindingSchemaRegistryClusterPtrOutput)
+}
+
+type GetTagBindingSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (GetTagBindingSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTagBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetTagBindingSchemaRegistryClusterOutput) ToGetTagBindingSchemaRegistryClusterOutput() GetTagBindingSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetTagBindingSchemaRegistryClusterOutput) ToGetTagBindingSchemaRegistryClusterOutputWithContext(ctx context.Context) GetTagBindingSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetTagBindingSchemaRegistryClusterOutput) ToGetTagBindingSchemaRegistryClusterPtrOutput() GetTagBindingSchemaRegistryClusterPtrOutput {
+	return o.ToGetTagBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o GetTagBindingSchemaRegistryClusterOutput) ToGetTagBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetTagBindingSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagBindingSchemaRegistryCluster) *GetTagBindingSchemaRegistryCluster {
+		return &v
+	}).(GetTagBindingSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetTagBindingSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTagBindingSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetTagBindingSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetTagBindingSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTagBindingSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetTagBindingSchemaRegistryClusterPtrOutput) ToGetTagBindingSchemaRegistryClusterPtrOutput() GetTagBindingSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetTagBindingSchemaRegistryClusterPtrOutput) ToGetTagBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetTagBindingSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetTagBindingSchemaRegistryClusterPtrOutput) Elem() GetTagBindingSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *GetTagBindingSchemaRegistryCluster) GetTagBindingSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret GetTagBindingSchemaRegistryCluster
+		return ret
+	}).(GetTagBindingSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetTagBindingSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTagBindingSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetTagCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// GetTagCredentialsInput is an input type that accepts GetTagCredentialsArgs and GetTagCredentialsOutput values.
+// You can construct a concrete instance of `GetTagCredentialsInput` via:
+//
+//	GetTagCredentialsArgs{...}
+type GetTagCredentialsInput interface {
+	pulumi.Input
+
+	ToGetTagCredentialsOutput() GetTagCredentialsOutput
+	ToGetTagCredentialsOutputWithContext(context.Context) GetTagCredentialsOutput
+}
+
+type GetTagCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (GetTagCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTagCredentials)(nil)).Elem()
+}
+
+func (i GetTagCredentialsArgs) ToGetTagCredentialsOutput() GetTagCredentialsOutput {
+	return i.ToGetTagCredentialsOutputWithContext(context.Background())
+}
+
+func (i GetTagCredentialsArgs) ToGetTagCredentialsOutputWithContext(ctx context.Context) GetTagCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTagCredentialsOutput)
+}
+
+func (i GetTagCredentialsArgs) ToGetTagCredentialsPtrOutput() GetTagCredentialsPtrOutput {
+	return i.ToGetTagCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i GetTagCredentialsArgs) ToGetTagCredentialsPtrOutputWithContext(ctx context.Context) GetTagCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTagCredentialsOutput).ToGetTagCredentialsPtrOutputWithContext(ctx)
+}
+
+// GetTagCredentialsPtrInput is an input type that accepts GetTagCredentialsArgs, GetTagCredentialsPtr and GetTagCredentialsPtrOutput values.
+// You can construct a concrete instance of `GetTagCredentialsPtrInput` via:
+//
+//	        GetTagCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetTagCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToGetTagCredentialsPtrOutput() GetTagCredentialsPtrOutput
+	ToGetTagCredentialsPtrOutputWithContext(context.Context) GetTagCredentialsPtrOutput
+}
+
+type getTagCredentialsPtrType GetTagCredentialsArgs
+
+func GetTagCredentialsPtr(v *GetTagCredentialsArgs) GetTagCredentialsPtrInput {
+	return (*getTagCredentialsPtrType)(v)
+}
+
+func (*getTagCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTagCredentials)(nil)).Elem()
+}
+
+func (i *getTagCredentialsPtrType) ToGetTagCredentialsPtrOutput() GetTagCredentialsPtrOutput {
+	return i.ToGetTagCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *getTagCredentialsPtrType) ToGetTagCredentialsPtrOutputWithContext(ctx context.Context) GetTagCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTagCredentialsPtrOutput)
+}
+
+type GetTagCredentialsOutput struct{ *pulumi.OutputState }
+
+func (GetTagCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTagCredentials)(nil)).Elem()
+}
+
+func (o GetTagCredentialsOutput) ToGetTagCredentialsOutput() GetTagCredentialsOutput {
+	return o
+}
+
+func (o GetTagCredentialsOutput) ToGetTagCredentialsOutputWithContext(ctx context.Context) GetTagCredentialsOutput {
+	return o
+}
+
+func (o GetTagCredentialsOutput) ToGetTagCredentialsPtrOutput() GetTagCredentialsPtrOutput {
+	return o.ToGetTagCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o GetTagCredentialsOutput) ToGetTagCredentialsPtrOutputWithContext(ctx context.Context) GetTagCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagCredentials) *GetTagCredentials {
+		return &v
+	}).(GetTagCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetTagCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTagCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetTagCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTagCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type GetTagCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetTagCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTagCredentials)(nil)).Elem()
+}
+
+func (o GetTagCredentialsPtrOutput) ToGetTagCredentialsPtrOutput() GetTagCredentialsPtrOutput {
+	return o
+}
+
+func (o GetTagCredentialsPtrOutput) ToGetTagCredentialsPtrOutputWithContext(ctx context.Context) GetTagCredentialsPtrOutput {
+	return o
+}
+
+func (o GetTagCredentialsPtrOutput) Elem() GetTagCredentialsOutput {
+	return o.ApplyT(func(v *GetTagCredentials) GetTagCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret GetTagCredentials
+		return ret
+	}).(GetTagCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o GetTagCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTagCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o GetTagCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTagCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetTagSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// GetTagSchemaRegistryClusterInput is an input type that accepts GetTagSchemaRegistryClusterArgs and GetTagSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `GetTagSchemaRegistryClusterInput` via:
+//
+//	GetTagSchemaRegistryClusterArgs{...}
+type GetTagSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToGetTagSchemaRegistryClusterOutput() GetTagSchemaRegistryClusterOutput
+	ToGetTagSchemaRegistryClusterOutputWithContext(context.Context) GetTagSchemaRegistryClusterOutput
+}
+
+type GetTagSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetTagSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTagSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i GetTagSchemaRegistryClusterArgs) ToGetTagSchemaRegistryClusterOutput() GetTagSchemaRegistryClusterOutput {
+	return i.ToGetTagSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i GetTagSchemaRegistryClusterArgs) ToGetTagSchemaRegistryClusterOutputWithContext(ctx context.Context) GetTagSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTagSchemaRegistryClusterOutput)
+}
+
+func (i GetTagSchemaRegistryClusterArgs) ToGetTagSchemaRegistryClusterPtrOutput() GetTagSchemaRegistryClusterPtrOutput {
+	return i.ToGetTagSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i GetTagSchemaRegistryClusterArgs) ToGetTagSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetTagSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTagSchemaRegistryClusterOutput).ToGetTagSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// GetTagSchemaRegistryClusterPtrInput is an input type that accepts GetTagSchemaRegistryClusterArgs, GetTagSchemaRegistryClusterPtr and GetTagSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `GetTagSchemaRegistryClusterPtrInput` via:
+//
+//	        GetTagSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetTagSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToGetTagSchemaRegistryClusterPtrOutput() GetTagSchemaRegistryClusterPtrOutput
+	ToGetTagSchemaRegistryClusterPtrOutputWithContext(context.Context) GetTagSchemaRegistryClusterPtrOutput
+}
+
+type getTagSchemaRegistryClusterPtrType GetTagSchemaRegistryClusterArgs
+
+func GetTagSchemaRegistryClusterPtr(v *GetTagSchemaRegistryClusterArgs) GetTagSchemaRegistryClusterPtrInput {
+	return (*getTagSchemaRegistryClusterPtrType)(v)
+}
+
+func (*getTagSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTagSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *getTagSchemaRegistryClusterPtrType) ToGetTagSchemaRegistryClusterPtrOutput() GetTagSchemaRegistryClusterPtrOutput {
+	return i.ToGetTagSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *getTagSchemaRegistryClusterPtrType) ToGetTagSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetTagSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTagSchemaRegistryClusterPtrOutput)
+}
+
+type GetTagSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (GetTagSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTagSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetTagSchemaRegistryClusterOutput) ToGetTagSchemaRegistryClusterOutput() GetTagSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetTagSchemaRegistryClusterOutput) ToGetTagSchemaRegistryClusterOutputWithContext(ctx context.Context) GetTagSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o GetTagSchemaRegistryClusterOutput) ToGetTagSchemaRegistryClusterPtrOutput() GetTagSchemaRegistryClusterPtrOutput {
+	return o.ToGetTagSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o GetTagSchemaRegistryClusterOutput) ToGetTagSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetTagSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagSchemaRegistryCluster) *GetTagSchemaRegistryCluster {
+		return &v
+	}).(GetTagSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetTagSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTagSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetTagSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetTagSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTagSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o GetTagSchemaRegistryClusterPtrOutput) ToGetTagSchemaRegistryClusterPtrOutput() GetTagSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetTagSchemaRegistryClusterPtrOutput) ToGetTagSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetTagSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o GetTagSchemaRegistryClusterPtrOutput) Elem() GetTagSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *GetTagSchemaRegistryCluster) GetTagSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret GetTagSchemaRegistryCluster
+		return ret
+	}).(GetTagSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o GetTagSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTagSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetTransitGatewayAttachmentAw struct {
 	// (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
 	RamResourceShareArn string `pulumi:"ramResourceShareArn"`
@@ -17429,6 +20057,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyManagedResourceEnvironmentPtrInput)(nil)).Elem(), ApiKeyManagedResourceEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyOwnerInput)(nil)).Elem(), ApiKeyOwnerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyOwnerPtrInput)(nil)).Elem(), ApiKeyOwnerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BusinessMetadataAttributeDefinitionInput)(nil)).Elem(), BusinessMetadataAttributeDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BusinessMetadataAttributeDefinitionArrayInput)(nil)).Elem(), BusinessMetadataAttributeDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BusinessMetadataBindingCredentialsInput)(nil)).Elem(), BusinessMetadataBindingCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BusinessMetadataBindingCredentialsPtrInput)(nil)).Elem(), BusinessMetadataBindingCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BusinessMetadataBindingSchemaRegistryClusterInput)(nil)).Elem(), BusinessMetadataBindingSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BusinessMetadataBindingSchemaRegistryClusterPtrInput)(nil)).Elem(), BusinessMetadataBindingSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BusinessMetadataCredentialsInput)(nil)).Elem(), BusinessMetadataCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BusinessMetadataCredentialsPtrInput)(nil)).Elem(), BusinessMetadataCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BusinessMetadataSchemaRegistryClusterInput)(nil)).Elem(), BusinessMetadataSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BusinessMetadataSchemaRegistryClusterPtrInput)(nil)).Elem(), BusinessMetadataSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyAwsInput)(nil)).Elem(), ByokKeyAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyAwsPtrInput)(nil)).Elem(), ByokKeyAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyAzureInput)(nil)).Elem(), ByokKeyAzureArgs{})
@@ -17565,12 +20203,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeCredentialsPtrInput)(nil)).Elem(), SubjectModeCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeSchemaRegistryClusterInput)(nil)).Elem(), SubjectModeSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubjectModeSchemaRegistryClusterPtrInput)(nil)).Elem(), SubjectModeSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagBindingCredentialsInput)(nil)).Elem(), TagBindingCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagBindingCredentialsPtrInput)(nil)).Elem(), TagBindingCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagBindingSchemaRegistryClusterInput)(nil)).Elem(), TagBindingSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagBindingSchemaRegistryClusterPtrInput)(nil)).Elem(), TagBindingSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagCredentialsInput)(nil)).Elem(), TagCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagCredentialsPtrInput)(nil)).Elem(), TagCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagSchemaRegistryClusterInput)(nil)).Elem(), TagSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagSchemaRegistryClusterPtrInput)(nil)).Elem(), TagSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentAwsInput)(nil)).Elem(), TransitGatewayAttachmentAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentAwsPtrInput)(nil)).Elem(), TransitGatewayAttachmentAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentEnvironmentInput)(nil)).Elem(), TransitGatewayAttachmentEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentEnvironmentPtrInput)(nil)).Elem(), TransitGatewayAttachmentEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNetworkInput)(nil)).Elem(), TransitGatewayAttachmentNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNetworkPtrInput)(nil)).Elem(), TransitGatewayAttachmentNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBusinessMetadataAttributeDefinitionInput)(nil)).Elem(), GetBusinessMetadataAttributeDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBusinessMetadataAttributeDefinitionArrayInput)(nil)).Elem(), GetBusinessMetadataAttributeDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBusinessMetadataBindingCredentialsInput)(nil)).Elem(), GetBusinessMetadataBindingCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBusinessMetadataBindingCredentialsPtrInput)(nil)).Elem(), GetBusinessMetadataBindingCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBusinessMetadataBindingSchemaRegistryClusterInput)(nil)).Elem(), GetBusinessMetadataBindingSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBusinessMetadataBindingSchemaRegistryClusterPtrInput)(nil)).Elem(), GetBusinessMetadataBindingSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBusinessMetadataCredentialsInput)(nil)).Elem(), GetBusinessMetadataCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBusinessMetadataCredentialsPtrInput)(nil)).Elem(), GetBusinessMetadataCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBusinessMetadataSchemaRegistryClusterInput)(nil)).Elem(), GetBusinessMetadataSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBusinessMetadataSchemaRegistryClusterPtrInput)(nil)).Elem(), GetBusinessMetadataSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAwInput)(nil)).Elem(), GetByokKeyAwArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAwArrayInput)(nil)).Elem(), GetByokKeyAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAzureInput)(nil)).Elem(), GetByokKeyAzureArgs{})
@@ -17680,6 +20336,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeCredentialsPtrInput)(nil)).Elem(), GetSubjectModeCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeSchemaRegistryClusterInput)(nil)).Elem(), GetSubjectModeSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubjectModeSchemaRegistryClusterPtrInput)(nil)).Elem(), GetSubjectModeSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTagBindingCredentialsInput)(nil)).Elem(), GetTagBindingCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTagBindingCredentialsPtrInput)(nil)).Elem(), GetTagBindingCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTagBindingSchemaRegistryClusterInput)(nil)).Elem(), GetTagBindingSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTagBindingSchemaRegistryClusterPtrInput)(nil)).Elem(), GetTagBindingSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTagCredentialsInput)(nil)).Elem(), GetTagCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTagCredentialsPtrInput)(nil)).Elem(), GetTagCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTagSchemaRegistryClusterInput)(nil)).Elem(), GetTagSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTagSchemaRegistryClusterPtrInput)(nil)).Elem(), GetTagSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentAwInput)(nil)).Elem(), GetTransitGatewayAttachmentAwArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentAwArrayInput)(nil)).Elem(), GetTransitGatewayAttachmentAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentEnvironmentInput)(nil)).Elem(), GetTransitGatewayAttachmentEnvironmentArgs{})
@@ -17691,6 +20355,16 @@ func init() {
 	pulumi.RegisterOutputType(ApiKeyManagedResourceEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ApiKeyOwnerOutput{})
 	pulumi.RegisterOutputType(ApiKeyOwnerPtrOutput{})
+	pulumi.RegisterOutputType(BusinessMetadataAttributeDefinitionOutput{})
+	pulumi.RegisterOutputType(BusinessMetadataAttributeDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(BusinessMetadataBindingCredentialsOutput{})
+	pulumi.RegisterOutputType(BusinessMetadataBindingCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(BusinessMetadataBindingSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(BusinessMetadataBindingSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(BusinessMetadataCredentialsOutput{})
+	pulumi.RegisterOutputType(BusinessMetadataCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(BusinessMetadataSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(BusinessMetadataSchemaRegistryClusterPtrOutput{})
 	pulumi.RegisterOutputType(ByokKeyAwsOutput{})
 	pulumi.RegisterOutputType(ByokKeyAwsPtrOutput{})
 	pulumi.RegisterOutputType(ByokKeyAzureOutput{})
@@ -17827,12 +20501,30 @@ func init() {
 	pulumi.RegisterOutputType(SubjectModeCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(SubjectModeSchemaRegistryClusterOutput{})
 	pulumi.RegisterOutputType(SubjectModeSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(TagBindingCredentialsOutput{})
+	pulumi.RegisterOutputType(TagBindingCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(TagBindingSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(TagBindingSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(TagCredentialsOutput{})
+	pulumi.RegisterOutputType(TagCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(TagSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(TagSchemaRegistryClusterPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentAwsOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentAwsPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentEnvironmentOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentNetworkOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentNetworkPtrOutput{})
+	pulumi.RegisterOutputType(GetBusinessMetadataAttributeDefinitionOutput{})
+	pulumi.RegisterOutputType(GetBusinessMetadataAttributeDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(GetBusinessMetadataBindingCredentialsOutput{})
+	pulumi.RegisterOutputType(GetBusinessMetadataBindingCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetBusinessMetadataBindingSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(GetBusinessMetadataCredentialsOutput{})
+	pulumi.RegisterOutputType(GetBusinessMetadataCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetBusinessMetadataSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(GetBusinessMetadataSchemaRegistryClusterPtrOutput{})
 	pulumi.RegisterOutputType(GetByokKeyAwOutput{})
 	pulumi.RegisterOutputType(GetByokKeyAwArrayOutput{})
 	pulumi.RegisterOutputType(GetByokKeyAzureOutput{})
@@ -17942,6 +20634,14 @@ func init() {
 	pulumi.RegisterOutputType(GetSubjectModeCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetSubjectModeSchemaRegistryClusterOutput{})
 	pulumi.RegisterOutputType(GetSubjectModeSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(GetTagBindingCredentialsOutput{})
+	pulumi.RegisterOutputType(GetTagBindingCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetTagBindingSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(GetTagBindingSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(GetTagCredentialsOutput{})
+	pulumi.RegisterOutputType(GetTagCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetTagSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(GetTagSchemaRegistryClusterPtrOutput{})
 	pulumi.RegisterOutputType(GetTransitGatewayAttachmentAwOutput{})
 	pulumi.RegisterOutputType(GetTransitGatewayAttachmentAwArrayOutput{})
 	pulumi.RegisterOutputType(GetTransitGatewayAttachmentEnvironmentOutput{})

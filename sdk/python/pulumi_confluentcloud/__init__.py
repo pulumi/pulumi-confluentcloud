@@ -6,10 +6,14 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .api_key import *
+from .business_metadata import *
+from .business_metadata_binding import *
 from .byok_key import *
 from .cluster_link import *
 from .connector import *
 from .environment import *
+from .get_business_metadata import *
+from .get_business_metadata_binding import *
 from .get_byok_key import *
 from .get_environment import *
 from .get_identity_pool import *
@@ -35,6 +39,8 @@ from .get_schemas import *
 from .get_service_account import *
 from .get_subject_config import *
 from .get_subject_mode import *
+from .get_tag import *
+from .get_tag_binding import *
 from .get_transit_gateway_attachment import *
 from .get_user import *
 from .get_users import *
@@ -62,6 +68,8 @@ from .schema_registry_cluster_mode import *
 from .service_account import *
 from .subject_config import *
 from .subject_mode import *
+from .tag import *
+from .tag_binding import *
 from .tf_importer import *
 from .transit_gateway_attachment import *
 from ._inputs import *
@@ -83,6 +91,22 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/apiKey:ApiKey": "ApiKey"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/businessMetadata",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/businessMetadata:BusinessMetadata": "BusinessMetadata"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/businessMetadataBinding",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding": "BusinessMetadataBinding"
   }
  },
  {
@@ -299,6 +323,22 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/subjectMode:SubjectMode": "SubjectMode"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/tag",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/tag:Tag": "Tag"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/tagBinding",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/tagBinding:TagBinding": "TagBinding"
   }
  },
  {
