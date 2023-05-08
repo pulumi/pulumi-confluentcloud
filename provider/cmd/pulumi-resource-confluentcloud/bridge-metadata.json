@@ -38,6 +38,31 @@
                     "secret": {}
                 }
             },
+            "confluent_business_metadata": {
+                "current": "confluentcloud:index/businessMetadata:BusinessMetadata",
+                "fields": {
+                    "attribute_definition": {
+                        "maxItemsOne": false
+                    },
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "confluent_business_metadata_binding": {
+                "current": "confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_byok_key": {
                 "current": "confluentcloud:index/byokKey:ByokKey",
                 "fields": {
@@ -898,6 +923,31 @@
                     "subject_name": {}
                 }
             },
+            "confluent_tag": {
+                "current": "confluentcloud:index/tag:Tag",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "entity_types": {
+                        "maxItemsOne": false
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "confluent_tag_binding": {
+                "current": "confluentcloud:index/tagBinding:TagBinding",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_tf_importer": {
                 "current": "confluentcloud:index/tfImporter:TfImporter",
                 "fields": {
@@ -945,6 +995,12 @@
             }
         },
         "datasources": {
+            "confluent_business_metadata": {
+                "current": "confluentcloud:index/getBusinessMetadata:getBusinessMetadata"
+            },
+            "confluent_business_metadata_binding": {
+                "current": "confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding"
+            },
             "confluent_byok_key": {
                 "current": "confluentcloud:index/getByokKey:getByokKey"
             },
@@ -1020,6 +1076,12 @@
             "confluent_subject_mode": {
                 "current": "confluentcloud:index/getSubjectMode:getSubjectMode"
             },
+            "confluent_tag": {
+                "current": "confluentcloud:index/getTag:getTag"
+            },
+            "confluent_tag_binding": {
+                "current": "confluentcloud:index/getTagBinding:getTagBinding"
+            },
             "confluent_transit_gateway_attachment": {
                 "current": "confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment"
             },
@@ -1034,6 +1096,8 @@
     "renames": {
         "resources": {
             "confluentcloud:index/apiKey:ApiKey": "confluent_api_key",
+            "confluentcloud:index/businessMetadata:BusinessMetadata": "confluent_business_metadata",
+            "confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding": "confluent_business_metadata_binding",
             "confluentcloud:index/byokKey:ByokKey": "confluent_byok_key",
             "confluentcloud:index/clusterLink:ClusterLink": "confluent_cluster_link",
             "confluentcloud:index/connector:Connector": "confluent_connector",
@@ -1061,10 +1125,14 @@
             "confluentcloud:index/serviceAccount:ServiceAccount": "confluent_service_account",
             "confluentcloud:index/subjectConfig:SubjectConfig": "confluent_subject_config",
             "confluentcloud:index/subjectMode:SubjectMode": "confluent_subject_mode",
+            "confluentcloud:index/tag:Tag": "confluent_tag",
+            "confluentcloud:index/tagBinding:TagBinding": "confluent_tag_binding",
             "confluentcloud:index/tfImporter:TfImporter": "confluent_tf_importer",
             "confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment": "confluent_transit_gateway_attachment"
         },
         "functions": {
+            "confluentcloud:index/getBusinessMetadata:getBusinessMetadata": "confluent_business_metadata",
+            "confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding": "confluent_business_metadata_binding",
             "confluentcloud:index/getByokKey:getByokKey": "confluent_byok_key",
             "confluentcloud:index/getEnvironment:getEnvironment": "confluent_environment",
             "confluentcloud:index/getIdentityPool:getIdentityPool": "confluent_identity_pool",
@@ -1090,6 +1158,8 @@
             "confluentcloud:index/getServiceAccount:getServiceAccount": "confluent_service_account",
             "confluentcloud:index/getSubjectConfig:getSubjectConfig": "confluent_subject_config",
             "confluentcloud:index/getSubjectMode:getSubjectMode": "confluent_subject_mode",
+            "confluentcloud:index/getTag:getTag": "confluent_tag",
+            "confluentcloud:index/getTagBinding:getTagBinding": "confluent_tag_binding",
             "confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment": "confluent_transit_gateway_attachment",
             "confluentcloud:index/getUser:getUser": "confluent_user",
             "confluentcloud:index/getUsers:getUsers": "confluent_users"
@@ -1100,6 +1170,10 @@
             },
             "confluentcloud:index/ApiKeyOwner:ApiKeyOwner": {
                 "apiVersion": "api_version"
+            },
+            "confluentcloud:index/BusinessMetadataAttributeDefinition:BusinessMetadataAttributeDefinition": {
+                "defaultValue": "default_value",
+                "isOptional": "is_optional"
             },
             "confluentcloud:index/ByokKeyAws:ByokKeyAws": {
                 "keyArn": "key_arn"
@@ -1170,6 +1244,18 @@
                 "displayName": "display_name",
                 "managedResource": "managed_resource"
             },
+            "confluentcloud:index/businessMetadata:BusinessMetadata": {
+                "attributeDefinitions": "attribute_definition",
+                "restEndpoint": "rest_endpoint",
+                "schemaRegistryCluster": "schema_registry_cluster"
+            },
+            "confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding": {
+                "businessMetadataName": "business_metadata_name",
+                "entityName": "entity_name",
+                "entityType": "entity_type",
+                "restEndpoint": "rest_endpoint",
+                "schemaRegistryCluster": "schema_registry_cluster"
+            },
             "confluentcloud:index/clusterLink:ClusterLink": {
                 "connectionMode": "connection_mode",
                 "destinationKafkaCluster": "destination_kafka_cluster",
@@ -1185,6 +1271,22 @@
             "confluentcloud:index/environment:Environment": {
                 "displayName": "display_name",
                 "resourceName": "resource_name"
+            },
+            "confluentcloud:index/getBusinessMetadata:getBusinessMetadata": {
+                "attributeDefinitions": "attribute_definition",
+                "restEndpoint": "rest_endpoint",
+                "schemaRegistryCluster": "schema_registry_cluster"
+            },
+            "confluentcloud:index/getBusinessMetadataAttributeDefinition:getBusinessMetadataAttributeDefinition": {
+                "defaultValue": "default_value",
+                "isOptional": "is_optional"
+            },
+            "confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding": {
+                "businessMetadataName": "business_metadata_name",
+                "entityName": "entity_name",
+                "entityType": "entity_type",
+                "restEndpoint": "rest_endpoint",
+                "schemaRegistryCluster": "schema_registry_cluster"
             },
             "confluentcloud:index/getByokKey:getByokKey": {
                 "azures": "azure"
@@ -1382,6 +1484,18 @@
                 "schemaRegistryCluster": "schema_registry_cluster",
                 "subjectName": "subject_name"
             },
+            "confluentcloud:index/getTag:getTag": {
+                "entityTypes": "entity_types",
+                "restEndpoint": "rest_endpoint",
+                "schemaRegistryCluster": "schema_registry_cluster"
+            },
+            "confluentcloud:index/getTagBinding:getTagBinding": {
+                "entityName": "entity_name",
+                "entityType": "entity_type",
+                "restEndpoint": "rest_endpoint",
+                "schemaRegistryCluster": "schema_registry_cluster",
+                "tagName": "tag_name"
+            },
             "confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment": {
                 "displayName": "display_name",
                 "networks": "network"
@@ -1526,6 +1640,18 @@
                 "restEndpoint": "rest_endpoint",
                 "schemaRegistryCluster": "schema_registry_cluster",
                 "subjectName": "subject_name"
+            },
+            "confluentcloud:index/tag:Tag": {
+                "entityTypes": "entity_types",
+                "restEndpoint": "rest_endpoint",
+                "schemaRegistryCluster": "schema_registry_cluster"
+            },
+            "confluentcloud:index/tagBinding:TagBinding": {
+                "entityName": "entity_name",
+                "entityType": "entity_type",
+                "restEndpoint": "rest_endpoint",
+                "schemaRegistryCluster": "schema_registry_cluster",
+                "tagName": "tag_name"
             },
             "confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment": {
                 "displayName": "display_name"

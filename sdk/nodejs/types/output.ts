@@ -43,6 +43,69 @@ export interface ApiKeyOwner {
     kind: string;
 }
 
+export interface BusinessMetadataAttributeDefinition {
+    /**
+     * The default value of this attribute.
+     */
+    defaultValue: string;
+    /**
+     * The description of the Business Metadata.
+     */
+    description: string;
+    /**
+     * An optional flag to control whether the attribute should be optional or required. The default value is `false`.
+     */
+    isOptional: boolean;
+    /**
+     * The name of the attribute.
+     */
+    name: string;
+    /**
+     * (Optional Map) Block for the attribute options:
+     */
+    options: {[key: string]: string};
+    /**
+     * (Required String) The type of the attribute, it always returns `string`.
+     */
+    type: string;
+}
+
+export interface BusinessMetadataBindingCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface BusinessMetadataBindingSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface BusinessMetadataCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface BusinessMetadataSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
 export interface ByokKeyAws {
     /**
      * The Amazon Resource Name (ARN) of an AWS KMS key.
@@ -137,6 +200,69 @@ export interface ConnectorEnvironment {
 export interface ConnectorKafkaCluster {
     /**
      * The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetBusinessMetadataAttributeDefinition {
+    /**
+     * (Optional String) The default value of this attribute.
+     */
+    defaultValue: string;
+    /**
+     * (Optional String) The description of this attribute.
+     */
+    description: string;
+    /**
+     * (Optional Boolean) An optional flag to control whether the attribute should be optional or required.
+     */
+    isOptional: boolean;
+    /**
+     * The name of the Business Metadata, for example, `PII`.
+     */
+    name: string;
+    /**
+     * (Optional Map) Block for the attribute options:
+     */
+    options: {[key: string]: string};
+    /**
+     * (Required String) The type of the attribute, it always returns `string`.
+     */
+    type: string;
+}
+
+export interface GetBusinessMetadataBindingCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetBusinessMetadataBindingSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetBusinessMetadataCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetBusinessMetadataSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: string;
 }
@@ -700,6 +826,42 @@ export interface GetSubjectModeSchemaRegistryCluster {
     id: string;
 }
 
+export interface GetTagBindingCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetTagBindingSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetTagCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetTagSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
 export interface GetTransitGatewayAttachmentAw {
     /**
      * (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
@@ -1254,6 +1416,42 @@ export interface SubjectModeCredentials {
 }
 
 export interface SubjectModeSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface TagBindingCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface TagBindingSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface TagCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface TagSchemaRegistryCluster {
     /**
      * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */

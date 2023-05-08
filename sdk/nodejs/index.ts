@@ -10,6 +10,16 @@ export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
 utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
 
+export { BusinessMetadataArgs, BusinessMetadataState } from "./businessMetadata";
+export type BusinessMetadata = import("./businessMetadata").BusinessMetadata;
+export const BusinessMetadata: typeof import("./businessMetadata").BusinessMetadata = null as any;
+utilities.lazyLoad(exports, ["BusinessMetadata"], () => require("./businessMetadata"));
+
+export { BusinessMetadataBindingArgs, BusinessMetadataBindingState } from "./businessMetadataBinding";
+export type BusinessMetadataBinding = import("./businessMetadataBinding").BusinessMetadataBinding;
+export const BusinessMetadataBinding: typeof import("./businessMetadataBinding").BusinessMetadataBinding = null as any;
+utilities.lazyLoad(exports, ["BusinessMetadataBinding"], () => require("./businessMetadataBinding"));
+
 export { ByokKeyArgs, ByokKeyState } from "./byokKey";
 export type ByokKey = import("./byokKey").ByokKey;
 export const ByokKey: typeof import("./byokKey").ByokKey = null as any;
@@ -29,6 +39,16 @@ export { EnvironmentArgs, EnvironmentState } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
 utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
+
+export { GetBusinessMetadataArgs, GetBusinessMetadataResult, GetBusinessMetadataOutputArgs } from "./getBusinessMetadata";
+export const getBusinessMetadata: typeof import("./getBusinessMetadata").getBusinessMetadata = null as any;
+export const getBusinessMetadataOutput: typeof import("./getBusinessMetadata").getBusinessMetadataOutput = null as any;
+utilities.lazyLoad(exports, ["getBusinessMetadata","getBusinessMetadataOutput"], () => require("./getBusinessMetadata"));
+
+export { GetBusinessMetadataBindingArgs, GetBusinessMetadataBindingResult, GetBusinessMetadataBindingOutputArgs } from "./getBusinessMetadataBinding";
+export const getBusinessMetadataBinding: typeof import("./getBusinessMetadataBinding").getBusinessMetadataBinding = null as any;
+export const getBusinessMetadataBindingOutput: typeof import("./getBusinessMetadataBinding").getBusinessMetadataBindingOutput = null as any;
+utilities.lazyLoad(exports, ["getBusinessMetadataBinding","getBusinessMetadataBindingOutput"], () => require("./getBusinessMetadataBinding"));
 
 export { GetByokKeyArgs, GetByokKeyResult, GetByokKeyOutputArgs } from "./getByokKey";
 export const getByokKey: typeof import("./getByokKey").getByokKey = null as any;
@@ -153,6 +173,16 @@ export { GetSubjectModeArgs, GetSubjectModeResult, GetSubjectModeOutputArgs } fr
 export const getSubjectMode: typeof import("./getSubjectMode").getSubjectMode = null as any;
 export const getSubjectModeOutput: typeof import("./getSubjectMode").getSubjectModeOutput = null as any;
 utilities.lazyLoad(exports, ["getSubjectMode","getSubjectModeOutput"], () => require("./getSubjectMode"));
+
+export { GetTagArgs, GetTagResult, GetTagOutputArgs } from "./getTag";
+export const getTag: typeof import("./getTag").getTag = null as any;
+export const getTagOutput: typeof import("./getTag").getTagOutput = null as any;
+utilities.lazyLoad(exports, ["getTag","getTagOutput"], () => require("./getTag"));
+
+export { GetTagBindingArgs, GetTagBindingResult, GetTagBindingOutputArgs } from "./getTagBinding";
+export const getTagBinding: typeof import("./getTagBinding").getTagBinding = null as any;
+export const getTagBindingOutput: typeof import("./getTagBinding").getTagBindingOutput = null as any;
+utilities.lazyLoad(exports, ["getTagBinding","getTagBindingOutput"], () => require("./getTagBinding"));
 
 export { GetTransitGatewayAttachmentArgs, GetTransitGatewayAttachmentResult, GetTransitGatewayAttachmentOutputArgs } from "./getTransitGatewayAttachment";
 export const getTransitGatewayAttachment: typeof import("./getTransitGatewayAttachment").getTransitGatewayAttachment = null as any;
@@ -288,6 +318,16 @@ export type SubjectMode = import("./subjectMode").SubjectMode;
 export const SubjectMode: typeof import("./subjectMode").SubjectMode = null as any;
 utilities.lazyLoad(exports, ["SubjectMode"], () => require("./subjectMode"));
 
+export { TagArgs, TagState } from "./tag";
+export type Tag = import("./tag").Tag;
+export const Tag: typeof import("./tag").Tag = null as any;
+utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
+
+export { TagBindingArgs, TagBindingState } from "./tagBinding";
+export type TagBinding = import("./tagBinding").TagBinding;
+export const TagBinding: typeof import("./tagBinding").TagBinding = null as any;
+utilities.lazyLoad(exports, ["TagBinding"], () => require("./tagBinding"));
+
 export { TfImporterArgs, TfImporterState } from "./tfImporter";
 export type TfImporter = import("./tfImporter").TfImporter;
 export const TfImporter: typeof import("./tfImporter").TfImporter = null as any;
@@ -314,6 +354,10 @@ const _module = {
         switch (type) {
             case "confluentcloud:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
+            case "confluentcloud:index/businessMetadata:BusinessMetadata":
+                return new BusinessMetadata(name, <any>undefined, { urn })
+            case "confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding":
+                return new BusinessMetadataBinding(name, <any>undefined, { urn })
             case "confluentcloud:index/byokKey:ByokKey":
                 return new ByokKey(name, <any>undefined, { urn })
             case "confluentcloud:index/clusterLink:ClusterLink":
@@ -368,6 +412,10 @@ const _module = {
                 return new SubjectConfig(name, <any>undefined, { urn })
             case "confluentcloud:index/subjectMode:SubjectMode":
                 return new SubjectMode(name, <any>undefined, { urn })
+            case "confluentcloud:index/tag:Tag":
+                return new Tag(name, <any>undefined, { urn })
+            case "confluentcloud:index/tagBinding:TagBinding":
+                return new TagBinding(name, <any>undefined, { urn })
             case "confluentcloud:index/tfImporter:TfImporter":
                 return new TfImporter(name, <any>undefined, { urn })
             case "confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment":
@@ -378,6 +426,8 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("confluentcloud", "index/apiKey", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/businessMetadata", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/businessMetadataBinding", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/byokKey", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/clusterLink", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/connector", _module)
@@ -405,6 +455,8 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryClu
 pulumi.runtime.registerResourceModule("confluentcloud", "index/serviceAccount", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/subjectConfig", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/subjectMode", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/tag", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/tagBinding", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/tfImporter", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/transitGatewayAttachment", _module)
 pulumi.runtime.registerResourcePackage("confluentcloud", {

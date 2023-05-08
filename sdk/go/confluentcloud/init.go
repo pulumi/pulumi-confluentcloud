@@ -22,6 +22,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "confluentcloud:index/apiKey:ApiKey":
 		r = &ApiKey{}
+	case "confluentcloud:index/businessMetadata:BusinessMetadata":
+		r = &BusinessMetadata{}
+	case "confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding":
+		r = &BusinessMetadataBinding{}
 	case "confluentcloud:index/byokKey:ByokKey":
 		r = &ByokKey{}
 	case "confluentcloud:index/clusterLink:ClusterLink":
@@ -76,6 +80,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SubjectConfig{}
 	case "confluentcloud:index/subjectMode:SubjectMode":
 		r = &SubjectMode{}
+	case "confluentcloud:index/tag:Tag":
+		r = &Tag{}
+	case "confluentcloud:index/tagBinding:TagBinding":
+		r = &TagBinding{}
 	case "confluentcloud:index/tfImporter:TfImporter":
 		r = &TfImporter{}
 	case "confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment":
@@ -111,6 +119,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/apiKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/businessMetadata",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/businessMetadataBinding",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -246,6 +264,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/subjectMode",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/tag",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/tagBinding",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

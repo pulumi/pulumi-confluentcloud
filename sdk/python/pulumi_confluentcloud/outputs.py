@@ -14,6 +14,11 @@ __all__ = [
     'ApiKeyManagedResource',
     'ApiKeyManagedResourceEnvironment',
     'ApiKeyOwner',
+    'BusinessMetadataAttributeDefinition',
+    'BusinessMetadataBindingCredentials',
+    'BusinessMetadataBindingSchemaRegistryCluster',
+    'BusinessMetadataCredentials',
+    'BusinessMetadataSchemaRegistryCluster',
     'ByokKeyAws',
     'ByokKeyAzure',
     'ClusterLinkDestinationKafkaCluster',
@@ -82,9 +87,18 @@ __all__ = [
     'SubjectConfigSchemaRegistryCluster',
     'SubjectModeCredentials',
     'SubjectModeSchemaRegistryCluster',
+    'TagBindingCredentials',
+    'TagBindingSchemaRegistryCluster',
+    'TagCredentials',
+    'TagSchemaRegistryCluster',
     'TransitGatewayAttachmentAws',
     'TransitGatewayAttachmentEnvironment',
     'TransitGatewayAttachmentNetwork',
+    'GetBusinessMetadataAttributeDefinitionResult',
+    'GetBusinessMetadataBindingCredentialsResult',
+    'GetBusinessMetadataBindingSchemaRegistryClusterResult',
+    'GetBusinessMetadataCredentialsResult',
+    'GetBusinessMetadataSchemaRegistryClusterResult',
     'GetByokKeyAwResult',
     'GetByokKeyAzureResult',
     'GetIdentityPoolIdentityProviderResult',
@@ -144,6 +158,10 @@ __all__ = [
     'GetSubjectConfigSchemaRegistryClusterResult',
     'GetSubjectModeCredentialsResult',
     'GetSubjectModeSchemaRegistryClusterResult',
+    'GetTagBindingCredentialsResult',
+    'GetTagBindingSchemaRegistryClusterResult',
+    'GetTagCredentialsResult',
+    'GetTagSchemaRegistryClusterResult',
     'GetTransitGatewayAttachmentAwResult',
     'GetTransitGatewayAttachmentEnvironmentResult',
     'GetTransitGatewayAttachmentNetworkResult',
@@ -286,6 +304,197 @@ class ApiKeyOwner(dict):
         The kind of the managed resource that the API Key associated with, for example, `Cluster`.
         """
         return pulumi.get(self, "kind")
+
+
+@pulumi.output_type
+class BusinessMetadataAttributeDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+        elif key == "isOptional":
+            suggest = "is_optional"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BusinessMetadataAttributeDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BusinessMetadataAttributeDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BusinessMetadataAttributeDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 default_value: Optional[str] = None,
+                 description: Optional[str] = None,
+                 is_optional: Optional[bool] = None,
+                 options: Optional[Mapping[str, str]] = None,
+                 type: Optional[str] = None):
+        """
+        :param str name: The name of the attribute.
+        :param str default_value: The default value of this attribute.
+        :param str description: The description of the Business Metadata.
+        :param bool is_optional: An optional flag to control whether the attribute should be optional or required. The default value is `false`.
+        :param Mapping[str, str] options: (Optional Map) Block for the attribute options:
+        :param str type: (Required String) The type of the attribute, it always returns `string`.
+        """
+        pulumi.set(__self__, "name", name)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_optional is not None:
+            pulumi.set(__self__, "is_optional", is_optional)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the attribute.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[str]:
+        """
+        The default value of this attribute.
+        """
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the Business Metadata.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isOptional")
+    def is_optional(self) -> Optional[bool]:
+        """
+        An optional flag to control whether the attribute should be optional or required. The default value is `false`.
+        """
+        return pulumi.get(self, "is_optional")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Mapping[str, str]]:
+        """
+        (Optional Map) Block for the attribute options:
+        """
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        (Required String) The type of the attribute, it always returns `string`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class BusinessMetadataBindingCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class BusinessMetadataBindingSchemaRegistryCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class BusinessMetadataCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class BusinessMetadataSchemaRegistryCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -2265,6 +2474,100 @@ class SubjectModeSchemaRegistryCluster(dict):
 
 
 @pulumi.output_type
+class TagBindingCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class TagBindingSchemaRegistryCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class TagCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class TagSchemaRegistryCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class TransitGatewayAttachmentAws(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2369,6 +2672,173 @@ class TransitGatewayAttachmentNetwork(dict):
     def id(self) -> str:
         """
         The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetBusinessMetadataAttributeDefinitionResult(dict):
+    def __init__(__self__, *,
+                 default_value: str,
+                 description: str,
+                 is_optional: bool,
+                 name: str,
+                 options: Mapping[str, str],
+                 type: str):
+        """
+        :param str default_value: (Optional String) The default value of this attribute.
+        :param str description: (Optional String) The description of this attribute.
+        :param bool is_optional: (Optional Boolean) An optional flag to control whether the attribute should be optional or required.
+        :param str name: The name of the Business Metadata, for example, `PII`.
+        :param Mapping[str, str] options: (Optional Map) Block for the attribute options:
+        :param str type: (Required String) The type of the attribute, it always returns `string`.
+        """
+        pulumi.set(__self__, "default_value", default_value)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "is_optional", is_optional)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "options", options)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> str:
+        """
+        (Optional String) The default value of this attribute.
+        """
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        (Optional String) The description of this attribute.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isOptional")
+    def is_optional(self) -> bool:
+        """
+        (Optional Boolean) An optional flag to control whether the attribute should be optional or required.
+        """
+        return pulumi.get(self, "is_optional")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Business Metadata, for example, `PII`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Mapping[str, str]:
+        """
+        (Optional Map) Block for the attribute options:
+        """
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Required String) The type of the attribute, it always returns `string`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetBusinessMetadataBindingCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetBusinessMetadataBindingSchemaRegistryClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetBusinessMetadataCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetBusinessMetadataSchemaRegistryClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -3822,6 +4292,100 @@ class GetSubjectModeCredentialsResult(dict):
 
 @pulumi.output_type
 class GetSubjectModeSchemaRegistryClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetTagBindingCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetTagBindingSchemaRegistryClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetTagCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetTagSchemaRegistryClusterResult(dict):
     def __init__(__self__, *,
                  id: str):
         """

@@ -43,6 +43,69 @@ export interface ApiKeyOwner {
     kind: pulumi.Input<string>;
 }
 
+export interface BusinessMetadataAttributeDefinition {
+    /**
+     * The default value of this attribute.
+     */
+    defaultValue?: pulumi.Input<string>;
+    /**
+     * The description of the Business Metadata.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * An optional flag to control whether the attribute should be optional or required. The default value is `false`.
+     */
+    isOptional?: pulumi.Input<boolean>;
+    /**
+     * The name of the attribute.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * (Optional Map) Block for the attribute options:
+     */
+    options?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * (Required String) The type of the attribute, it always returns `string`.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface BusinessMetadataBindingCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface BusinessMetadataBindingSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface BusinessMetadataCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface BusinessMetadataSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface ByokKeyAws {
     /**
      * The Amazon Resource Name (ARN) of an AWS KMS key.
@@ -137,6 +200,78 @@ export interface ConnectorEnvironment {
 export interface ConnectorKafkaCluster {
     /**
      * The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetBusinessMetadataBindingCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetBusinessMetadataBindingCredentialsArgs {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetBusinessMetadataBindingSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetBusinessMetadataBindingSchemaRegistryClusterArgs {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetBusinessMetadataCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetBusinessMetadataCredentialsArgs {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetBusinessMetadataSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetBusinessMetadataSchemaRegistryClusterArgs {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -705,6 +840,78 @@ export interface GetSubjectModeSchemaRegistryClusterArgs {
     id: pulumi.Input<string>;
 }
 
+export interface GetTagBindingCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetTagBindingCredentialsArgs {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetTagBindingSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetTagBindingSchemaRegistryClusterArgs {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetTagCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface GetTagCredentialsArgs {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface GetTagSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
+export interface GetTagSchemaRegistryClusterArgs {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
 export interface GetTransitGatewayAttachmentEnvironment {
     /**
      * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
@@ -1240,6 +1447,42 @@ export interface SubjectModeCredentials {
 }
 
 export interface SubjectModeSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface TagBindingCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface TagBindingSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface TagCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface TagSchemaRegistryCluster {
     /**
      * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */

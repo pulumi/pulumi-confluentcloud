@@ -4,6 +4,10 @@
 package com.pulumi.confluentcloud;
 
 import com.pulumi.confluentcloud.Utilities;
+import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
+import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
+import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetBusinessMetadataPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
 import com.pulumi.confluentcloud.inputs.GetByokKeyPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentArgs;
@@ -52,10 +56,16 @@ import com.pulumi.confluentcloud.inputs.GetSubjectConfigArgs;
 import com.pulumi.confluentcloud.inputs.GetSubjectConfigPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSubjectModeArgs;
 import com.pulumi.confluentcloud.inputs.GetSubjectModePlainArgs;
+import com.pulumi.confluentcloud.inputs.GetTagArgs;
+import com.pulumi.confluentcloud.inputs.GetTagBindingArgs;
+import com.pulumi.confluentcloud.inputs.GetTagBindingPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetTagPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentArgs;
 import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetUserArgs;
 import com.pulumi.confluentcloud.inputs.GetUserPlainArgs;
+import com.pulumi.confluentcloud.outputs.GetBusinessMetadataBindingResult;
+import com.pulumi.confluentcloud.outputs.GetBusinessMetadataResult;
 import com.pulumi.confluentcloud.outputs.GetByokKeyResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityPoolResult;
@@ -81,6 +91,8 @@ import com.pulumi.confluentcloud.outputs.GetSchemasResult;
 import com.pulumi.confluentcloud.outputs.GetServiceAccountResult;
 import com.pulumi.confluentcloud.outputs.GetSubjectConfigResult;
 import com.pulumi.confluentcloud.outputs.GetSubjectModeResult;
+import com.pulumi.confluentcloud.outputs.GetTagBindingResult;
+import com.pulumi.confluentcloud.outputs.GetTagResult;
 import com.pulumi.confluentcloud.outputs.GetTransitGatewayAttachmentResult;
 import com.pulumi.confluentcloud.outputs.GetUserResult;
 import com.pulumi.confluentcloud.outputs.GetUsersResult;
@@ -92,6 +104,30 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class ConfluentcloudFunctions {
+    public static Output<GetBusinessMetadataResult> getBusinessMetadata(GetBusinessMetadataArgs args) {
+        return getBusinessMetadata(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetBusinessMetadataResult> getBusinessMetadataPlain(GetBusinessMetadataPlainArgs args) {
+        return getBusinessMetadataPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetBusinessMetadataResult> getBusinessMetadata(GetBusinessMetadataArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getBusinessMetadata:getBusinessMetadata", TypeShape.of(GetBusinessMetadataResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetBusinessMetadataResult> getBusinessMetadataPlain(GetBusinessMetadataPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getBusinessMetadata:getBusinessMetadata", TypeShape.of(GetBusinessMetadataResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetBusinessMetadataBindingResult> getBusinessMetadataBinding(GetBusinessMetadataBindingArgs args) {
+        return getBusinessMetadataBinding(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetBusinessMetadataBindingResult> getBusinessMetadataBindingPlain(GetBusinessMetadataBindingPlainArgs args) {
+        return getBusinessMetadataBindingPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetBusinessMetadataBindingResult> getBusinessMetadataBinding(GetBusinessMetadataBindingArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", TypeShape.of(GetBusinessMetadataBindingResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetBusinessMetadataBindingResult> getBusinessMetadataBindingPlain(GetBusinessMetadataBindingPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding", TypeShape.of(GetBusinessMetadataBindingResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
@@ -4017,6 +4053,30 @@ public final class ConfluentcloudFunctions {
     }
     public static CompletableFuture<GetSubjectModeResult> getSubjectModePlain(GetSubjectModePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSubjectMode:getSubjectMode", TypeShape.of(GetSubjectModeResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetTagResult> getTag(GetTagArgs args) {
+        return getTag(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetTagResult> getTagPlain(GetTagPlainArgs args) {
+        return getTagPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetTagResult> getTag(GetTagArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getTag:getTag", TypeShape.of(GetTagResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetTagResult> getTagPlain(GetTagPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getTag:getTag", TypeShape.of(GetTagResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetTagBindingResult> getTagBinding(GetTagBindingArgs args) {
+        return getTagBinding(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetTagBindingResult> getTagBindingPlain(GetTagBindingPlainArgs args) {
+        return getTagBindingPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetTagBindingResult> getTagBinding(GetTagBindingArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getTagBinding:getTagBinding", TypeShape.of(GetTagBindingResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetTagBindingResult> getTagBindingPlain(GetTagBindingPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getTagBinding:getTagBinding", TypeShape.of(GetTagBindingResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
