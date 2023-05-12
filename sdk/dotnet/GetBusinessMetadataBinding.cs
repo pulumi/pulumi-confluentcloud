@@ -22,7 +22,7 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetBusinessMetadataBindingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Business Metadata to be applied, for example, `PII`.
+        /// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Input("businessMetadataName", required: true)]
         public string BusinessMetadataName { get; set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetBusinessMetadataBindingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Business Metadata to be applied, for example, `PII`.
+        /// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Input("businessMetadataName", required: true)]
         public Input<string> BusinessMetadataName { get; set; } = null!;

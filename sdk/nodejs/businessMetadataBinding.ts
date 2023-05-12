@@ -46,11 +46,11 @@ export class BusinessMetadataBinding extends pulumi.CustomResource {
     }
 
     /**
-     * The block of key-value pair attributes.
+     * The attributes.
      */
     public readonly attributes!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The name of the Business Metadata to be applied, for example, `PII`.
+     * The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
     public readonly businessMetadataName!: pulumi.Output<string>;
     /**
@@ -122,11 +122,11 @@ export class BusinessMetadataBinding extends pulumi.CustomResource {
  */
 export interface BusinessMetadataBindingState {
     /**
-     * The block of key-value pair attributes.
+     * The attributes.
      */
     attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the Business Metadata to be applied, for example, `PII`.
+     * The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
     businessMetadataName?: pulumi.Input<string>;
     /**
@@ -153,11 +153,11 @@ export interface BusinessMetadataBindingState {
  */
 export interface BusinessMetadataBindingArgs {
     /**
-     * The block of key-value pair attributes.
+     * The attributes.
      */
     attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the Business Metadata to be applied, for example, `PII`.
+     * The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
     businessMetadataName: pulumi.Input<string>;
     /**

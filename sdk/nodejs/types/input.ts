@@ -93,9 +93,6 @@ export interface BusinessMetadataCredentials {
      * The Schema Registry API Key.
      */
     key: pulumi.Input<string>;
-    /**
-     * The Schema Registry API Secret.
-     */
     secret: pulumi.Input<string>;
 }
 
@@ -211,6 +208,8 @@ export interface GetBusinessMetadataBindingCredentials {
     key: string;
     /**
      * The Schema Registry API Secret.
+     *
+     * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      */
     secret: string;
 }
@@ -222,6 +221,8 @@ export interface GetBusinessMetadataBindingCredentialsArgs {
     key: pulumi.Input<string>;
     /**
      * The Schema Registry API Secret.
+     *
+     * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      */
     secret: pulumi.Input<string>;
 }
@@ -279,6 +280,8 @@ export interface GetBusinessMetadataSchemaRegistryClusterArgs {
 export interface GetIdentityPoolIdentityProvider {
     /**
      * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: string;
 }
@@ -286,6 +289,8 @@ export interface GetIdentityPoolIdentityProvider {
 export interface GetIdentityPoolIdentityProviderArgs {
     /**
      * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: pulumi.Input<string>;
 }
@@ -329,6 +334,8 @@ export interface GetKafkaClusterDedicatedArgs {
 export interface GetKafkaClusterEnvironment {
     /**
      * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: string;
 }
@@ -336,6 +343,8 @@ export interface GetKafkaClusterEnvironment {
 export interface GetKafkaClusterEnvironmentArgs {
     /**
      * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: pulumi.Input<string>;
 }
@@ -351,9 +360,6 @@ export interface GetKafkaTopicCredentials {
      * The Kafka API Key.
      */
     key: string;
-    /**
-     * The Kafka API Secret.
-     */
     secret: string;
 }
 
@@ -362,9 +368,6 @@ export interface GetKafkaTopicCredentialsArgs {
      * The Kafka API Key.
      */
     key: pulumi.Input<string>;
-    /**
-     * The Kafka API Secret.
-     */
     secret: pulumi.Input<string>;
 }
 
@@ -385,6 +388,8 @@ export interface GetKafkaTopicKafkaClusterArgs {
 export interface GetKsqlClusterEnvironment {
     /**
      * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: string;
 }
@@ -392,6 +397,8 @@ export interface GetKsqlClusterEnvironment {
 export interface GetKsqlClusterEnvironmentArgs {
     /**
      * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: pulumi.Input<string>;
 }
@@ -461,6 +468,8 @@ export interface GetNetworkDnsConfigArgs {
 export interface GetNetworkEnvironment {
     /**
      * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: string;
 }
@@ -468,6 +477,8 @@ export interface GetNetworkEnvironment {
 export interface GetNetworkEnvironmentArgs {
     /**
      * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: pulumi.Input<string>;
 }
@@ -555,6 +566,8 @@ export interface GetNetworkLinkServiceEnvironmentArgs {
 export interface GetPeeringEnvironment {
     /**
      * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: string;
 }
@@ -562,6 +575,8 @@ export interface GetPeeringEnvironment {
 export interface GetPeeringEnvironmentArgs {
     /**
      * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: pulumi.Input<string>;
 }
@@ -569,6 +584,8 @@ export interface GetPeeringEnvironmentArgs {
 export interface GetPrivateLinkAccessEnvironment {
     /**
      * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: string;
 }
@@ -576,6 +593,8 @@ export interface GetPrivateLinkAccessEnvironment {
 export interface GetPrivateLinkAccessEnvironmentArgs {
     /**
      * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: pulumi.Input<string>;
 }
@@ -641,6 +660,8 @@ export interface GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs {
 export interface GetSchemaRegistryClusterEnvironment {
     /**
      * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: string;
 }
@@ -648,6 +669,8 @@ export interface GetSchemaRegistryClusterEnvironment {
 export interface GetSchemaRegistryClusterEnvironmentArgs {
     /**
      * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: pulumi.Input<string>;
 }
@@ -659,6 +682,8 @@ export interface GetSchemaRegistryClusterModeCredentials {
     key: string;
     /**
      * The Schema Registry API Secret.
+     *
+     * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      */
     secret: string;
 }
@@ -670,6 +695,8 @@ export interface GetSchemaRegistryClusterModeCredentialsArgs {
     key: pulumi.Input<string>;
     /**
      * The Schema Registry API Secret.
+     *
+     * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      */
     secret: pulumi.Input<string>;
 }
@@ -915,6 +942,8 @@ export interface GetTagSchemaRegistryClusterArgs {
 export interface GetTransitGatewayAttachmentEnvironment {
     /**
      * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: string;
 }
@@ -922,6 +951,8 @@ export interface GetTransitGatewayAttachmentEnvironment {
 export interface GetTransitGatewayAttachmentEnvironmentArgs {
     /**
      * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: pulumi.Input<string>;
 }
@@ -968,6 +999,10 @@ export interface KafkaAclKafkaCluster {
 export interface KafkaClientQuotaEnvironment {
     /**
      * The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+     *
+     * > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
+     *
+     * > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
      */
     id: pulumi.Input<string>;
 }
@@ -975,6 +1010,10 @@ export interface KafkaClientQuotaEnvironment {
 export interface KafkaClientQuotaKafkaCluster {
     /**
      * The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+     *
+     * > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
+     *
+     * > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
      */
     id: pulumi.Input<string>;
 }
@@ -1007,6 +1046,10 @@ export interface KafkaClusterConfigCredentials {
     key: pulumi.Input<string>;
     /**
      * The Kafka API Secret.
+     *
+     * > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+     *
+     * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_cluster_config.orders"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_cluster_config.orders" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
      */
     secret: pulumi.Input<string>;
 }
@@ -1019,9 +1062,6 @@ export interface KafkaClusterConfigKafkaCluster {
 }
 
 export interface KafkaClusterDedicated {
-    /**
-     * The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-     */
     cku: pulumi.Input<number>;
     encryptionKey?: pulumi.Input<string>;
     /**
@@ -1094,6 +1134,10 @@ export interface KafkaTopicCredentials {
     key: pulumi.Input<string>;
     /**
      * The Kafka API Secret.
+     *
+     * > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+     *
+     * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_topic.orders"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_topic.orders" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
      */
     secret: pulumi.Input<string>;
 }
@@ -1228,6 +1272,8 @@ export interface NetworkLinkServiceNetwork {
 export interface NetworkZoneInfo {
     /**
      * The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+     *
+     * > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
      */
     cidr?: pulumi.Input<string>;
     /**
@@ -1280,6 +1326,14 @@ export interface PeeringEnvironment {
 export interface PeeringGcp {
     /**
      * The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
+     *
+     * > **Note:** Exactly one from the `aws`, `azure`, and `gcp` configuration blocks must be specified.
+     *
+     * > **Note:** Learn more about VPC Peering requirements on AWS [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws).
+     *
+     * > **Note:** Learn more about VNet Peering requirements on Azure [here](https://docs.confluent.io/cloud/current/networking/peering/azure-peering.html#vnet-peering-on-az).
+     *
+     * > **Note:** Learn more about VPC Peering requirements on Google Cloud Platform [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#vpc-peering-on-gcp).
      */
     importCustomRoutes?: pulumi.Input<boolean>;
     /**
@@ -1323,6 +1377,12 @@ export interface PrivateLinkAccessEnvironment {
 export interface PrivateLinkAccessGcp {
     /**
      * The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+     *
+     * > **Note:** Exactly one from the `aws`, `azure`, `gcp` configuration blocks must be specified.
+     *
+     * > **Note:** Learn more about Private Link Access limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/private-links/aws-privatelink.html#limitations).
+     *
+     * > **Note:** Learn more about Private Link Access limitations on Azure [here](https://docs.confluent.io/cloud/current/networking/private-links/azure-privatelink.html#limitations).
      */
     project: pulumi.Input<string>;
 }
@@ -1339,9 +1399,6 @@ export interface SchemaCredentials {
      * The Schema Registry API Key.
      */
     key: pulumi.Input<string>;
-    /**
-     * The Schema Registry API Secret.
-     */
     secret: pulumi.Input<string>;
 }
 
@@ -1350,9 +1407,6 @@ export interface SchemaRegistryClusterConfigCredentials {
      * The Schema Registry API Key.
      */
     key: pulumi.Input<string>;
-    /**
-     * The Schema Registry API Secret.
-     */
     secret: pulumi.Input<string>;
 }
 
@@ -1375,9 +1429,6 @@ export interface SchemaRegistryClusterModeCredentials {
      * The Schema Registry API Key.
      */
     key: pulumi.Input<string>;
-    /**
-     * The Schema Registry API Secret.
-     */
     secret: pulumi.Input<string>;
 }
 
@@ -1422,9 +1473,6 @@ export interface SubjectConfigCredentials {
      * The Schema Registry API Key.
      */
     key: pulumi.Input<string>;
-    /**
-     * The Schema Registry API Secret.
-     */
     secret: pulumi.Input<string>;
 }
 
@@ -1440,9 +1488,6 @@ export interface SubjectModeCredentials {
      * The Schema Registry API Key.
      */
     key: pulumi.Input<string>;
-    /**
-     * The Schema Registry API Secret.
-     */
     secret: pulumi.Input<string>;
 }
 
@@ -1496,6 +1541,8 @@ export interface TransitGatewayAttachmentAws {
     ramResourceShareArn: pulumi.Input<string>;
     /**
      * List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+     *
+     * > **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
      */
     routes: pulumi.Input<pulumi.Input<string>[]>;
     /**

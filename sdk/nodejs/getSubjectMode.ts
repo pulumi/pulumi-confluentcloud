@@ -29,6 +29,8 @@ export interface GetSubjectModeArgs {
     schemaRegistryCluster?: inputs.GetSubjectModeSchemaRegistryCluster;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+     *
+     * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      */
     subjectName: string;
 }
@@ -66,6 +68,8 @@ export interface GetSubjectModeOutputArgs {
     schemaRegistryCluster?: pulumi.Input<inputs.GetSubjectModeSchemaRegistryClusterArgs>;
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+     *
+     * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      */
     subjectName: pulumi.Input<string>;
 }

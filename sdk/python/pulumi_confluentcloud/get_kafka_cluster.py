@@ -258,6 +258,8 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
     :param pulumi.InputType['GetKafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
     :param str display_name: A human-readable name for the Kafka cluster.
     :param str id: The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param Sequence[pulumi.InputType['GetKafkaClusterStandardArgs']] standards: (Optional Configuration Block) The configuration of the Standard Kafka cluster.
     """
     __args__ = dict()
@@ -325,6 +327,8 @@ def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[pul
     :param pulumi.InputType['GetKafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
     :param str display_name: A human-readable name for the Kafka cluster.
     :param str id: The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param Sequence[pulumi.InputType['GetKafkaClusterStandardArgs']] standards: (Optional Configuration Block) The configuration of the Standard Kafka cluster.
     """
     ...

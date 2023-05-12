@@ -26,10 +26,6 @@ namespace Pulumi.ConfluentCloud.Inputs
 
         [Input("secret", required: true)]
         private string? _secret;
-
-        /// <summary>
-        /// The Kafka API Secret.
-        /// </summary>
         public string? Secret
         {
             get => _secret;

@@ -66,12 +66,16 @@ public class Network extends com.pulumi.resources.CustomResource {
     /**
      * The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
      * 
+     * &gt; **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it&#39;s available only for AWS networks with PRIVATELINK connection type.
+     * 
      */
     @Export(name="cidr", type=String.class, parameters={})
     private Output<String> cidr;
 
     /**
      * @return The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+     * 
+     * &gt; **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it&#39;s available only for AWS networks with PRIVATELINK connection type.
      * 
      */
     public Output<String> cidr() {

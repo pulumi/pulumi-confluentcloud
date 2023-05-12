@@ -41,6 +41,8 @@ export function getIdentityProvider(args?: GetIdentityProviderArgs, opts?: pulum
 export interface GetIdentityProviderArgs {
     /**
      * A human-readable name for the Identity Provider.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     displayName?: string;
     /**
@@ -105,6 +107,8 @@ export function getIdentityProviderOutput(args?: GetIdentityProviderOutputArgs, 
 export interface GetIdentityProviderOutputArgs {
     /**
      * A human-readable name for the Identity Provider.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     displayName?: pulumi.Input<string>;
     /**

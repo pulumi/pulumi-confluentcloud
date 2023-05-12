@@ -76,6 +76,9 @@ class GetSchemaRegistryClusterResult:
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -166,6 +169,8 @@ def get_schema_registry_cluster(display_name: Optional[str] = None,
 
     :param str display_name: The name for the Schema Registry cluster.
     :param str id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     """
     __args__ = dict()
     __args__['displayName'] = display_name
@@ -217,5 +222,7 @@ def get_schema_registry_cluster_output(display_name: Optional[pulumi.Input[Optio
 
     :param str display_name: The name for the Schema Registry cluster.
     :param str id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     """
     ...

@@ -17,17 +17,9 @@ public final class KafkaClusterDedicatedArgs extends com.pulumi.resources.Resour
 
     public static final KafkaClusterDedicatedArgs Empty = new KafkaClusterDedicatedArgs();
 
-    /**
-     * The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-     * 
-     */
     @Import(name="cku", required=true)
     private Output<Integer> cku;
 
-    /**
-     * @return The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-     * 
-     */
     public Output<Integer> cku() {
         return this.cku;
     }
@@ -86,23 +78,11 @@ public final class KafkaClusterDedicatedArgs extends com.pulumi.resources.Resour
             $ = new KafkaClusterDedicatedArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cku The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cku(Output<Integer> cku) {
             $.cku = cku;
             return this;
         }
 
-        /**
-         * @param cku The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cku(Integer cku) {
             return cku(Output.of(cku));
         }

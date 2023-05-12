@@ -19,6 +19,8 @@ namespace Pulumi.ConfluentCloud.Outputs
         public readonly string Key;
         /// <summary>
         /// The Schema Registry API Secret.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
         /// </summary>
         public readonly string Secret;
 

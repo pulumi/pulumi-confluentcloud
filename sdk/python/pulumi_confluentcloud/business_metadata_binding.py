@@ -25,10 +25,10 @@ class BusinessMetadataBindingArgs:
                  schema_registry_cluster: Optional[pulumi.Input['BusinessMetadataBindingSchemaRegistryClusterArgs']] = None):
         """
         The set of arguments for constructing a BusinessMetadataBinding resource.
-        :param pulumi.Input[str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`.
+        :param pulumi.Input[str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[str] entity_name: The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
         :param pulumi.Input[str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: The block of key-value pair attributes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: The attributes.
         :param pulumi.Input['BusinessMetadataBindingCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
@@ -48,7 +48,7 @@ class BusinessMetadataBindingArgs:
     @pulumi.getter(name="businessMetadataName")
     def business_metadata_name(self) -> pulumi.Input[str]:
         """
-        The name of the Business Metadata to be applied, for example, `PII`.
+        The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         return pulumi.get(self, "business_metadata_name")
 
@@ -84,7 +84,7 @@ class BusinessMetadataBindingArgs:
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The block of key-value pair attributes.
+        The attributes.
         """
         return pulumi.get(self, "attributes")
 
@@ -138,8 +138,8 @@ class _BusinessMetadataBindingState:
                  schema_registry_cluster: Optional[pulumi.Input['BusinessMetadataBindingSchemaRegistryClusterArgs']] = None):
         """
         Input properties used for looking up and filtering BusinessMetadataBinding resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: The block of key-value pair attributes.
-        :param pulumi.Input[str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: The attributes.
+        :param pulumi.Input[str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input['BusinessMetadataBindingCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] entity_name: The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
         :param pulumi.Input[str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
@@ -164,7 +164,7 @@ class _BusinessMetadataBindingState:
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The block of key-value pair attributes.
+        The attributes.
         """
         return pulumi.get(self, "attributes")
 
@@ -176,7 +176,7 @@ class _BusinessMetadataBindingState:
     @pulumi.getter(name="businessMetadataName")
     def business_metadata_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Business Metadata to be applied, for example, `PII`.
+        The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         return pulumi.get(self, "business_metadata_name")
 
@@ -268,8 +268,8 @@ class BusinessMetadataBinding(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: The block of key-value pair attributes.
-        :param pulumi.Input[str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: The attributes.
+        :param pulumi.Input[str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[pulumi.InputType['BusinessMetadataBindingCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] entity_name: The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
         :param pulumi.Input[str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
@@ -362,8 +362,8 @@ class BusinessMetadataBinding(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: The block of key-value pair attributes.
-        :param pulumi.Input[str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: The attributes.
+        :param pulumi.Input[str] business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[pulumi.InputType['BusinessMetadataBindingCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] entity_name: The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
         :param pulumi.Input[str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
@@ -386,7 +386,7 @@ class BusinessMetadataBinding(pulumi.CustomResource):
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        The block of key-value pair attributes.
+        The attributes.
         """
         return pulumi.get(self, "attributes")
 
@@ -394,7 +394,7 @@ class BusinessMetadataBinding(pulumi.CustomResource):
     @pulumi.getter(name="businessMetadataName")
     def business_metadata_name(self) -> pulumi.Output[str]:
         """
-        The name of the Business Metadata to be applied, for example, `PII`.
+        The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         return pulumi.get(self, "business_metadata_name")
 

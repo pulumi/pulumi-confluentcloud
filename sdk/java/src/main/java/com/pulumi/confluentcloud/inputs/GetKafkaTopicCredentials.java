@@ -27,17 +27,9 @@ public final class GetKafkaTopicCredentials extends com.pulumi.resources.InvokeA
         return this.key;
     }
 
-    /**
-     * The Kafka API Secret.
-     * 
-     */
     @Import(name="secret", required=true)
     private String secret;
 
-    /**
-     * @return The Kafka API Secret.
-     * 
-     */
     public String secret() {
         return this.secret;
     }
@@ -78,12 +70,6 @@ public final class GetKafkaTopicCredentials extends com.pulumi.resources.InvokeA
             return this;
         }
 
-        /**
-         * @param secret The Kafka API Secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secret(String secret) {
             $.secret = secret;
             return this;

@@ -43,6 +43,8 @@ export interface GetSchemaRegistryRegionArgs {
     cloud: string;
     /**
      * The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+     *
+     * > **Note:** See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to manually find a corresponding region ID based on desired cloud provider region and types of the billing package.
      */
     package: string;
     /**
@@ -96,6 +98,8 @@ export interface GetSchemaRegistryRegionOutputArgs {
     cloud: pulumi.Input<string>;
     /**
      * The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+     *
+     * > **Note:** See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to manually find a corresponding region ID based on desired cloud provider region and types of the billing package.
      */
     package: pulumi.Input<string>;
     /**

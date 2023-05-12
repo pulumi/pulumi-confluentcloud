@@ -34,12 +34,16 @@ public final class TransitGatewayAttachmentAwsArgs extends com.pulumi.resources.
     /**
      * List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
      * 
+     * &gt; **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
+     * 
      */
     @Import(name="routes", required=true)
     private Output<List<String>> routes;
 
     /**
      * @return List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+     * 
+     * &gt; **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
      * 
      */
     public Output<List<String>> routes() {
@@ -127,6 +131,8 @@ public final class TransitGatewayAttachmentAwsArgs extends com.pulumi.resources.
         /**
          * @param routes List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
          * 
+         * &gt; **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
+         * 
          * @return builder
          * 
          */
@@ -138,6 +144,8 @@ public final class TransitGatewayAttachmentAwsArgs extends com.pulumi.resources.
         /**
          * @param routes List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
          * 
+         * &gt; **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
+         * 
          * @return builder
          * 
          */
@@ -147,6 +155,8 @@ public final class TransitGatewayAttachmentAwsArgs extends com.pulumi.resources.
 
         /**
          * @param routes List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+         * 
+         * &gt; **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
          * 
          * @return builder
          * 

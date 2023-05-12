@@ -13,7 +13,7 @@ import (
 type TfImporter struct {
 	pulumi.CustomResourceState
 
-	// A list of resources names to export. Defaults to all exportable resources.
+	// A list of resources to Import. Defaults to all Importable resources.
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
 }
 
@@ -46,12 +46,12 @@ func GetTfImporter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TfImporter resources.
 type tfImporterState struct {
-	// A list of resources names to export. Defaults to all exportable resources.
+	// A list of resources to Import. Defaults to all Importable resources.
 	Resources []string `pulumi:"resources"`
 }
 
 type TfImporterState struct {
-	// A list of resources names to export. Defaults to all exportable resources.
+	// A list of resources to Import. Defaults to all Importable resources.
 	Resources pulumi.StringArrayInput
 }
 
@@ -60,13 +60,13 @@ func (TfImporterState) ElementType() reflect.Type {
 }
 
 type tfImporterArgs struct {
-	// A list of resources names to export. Defaults to all exportable resources.
+	// A list of resources to Import. Defaults to all Importable resources.
 	Resources []string `pulumi:"resources"`
 }
 
 // The set of arguments for constructing a TfImporter resource.
 type TfImporterArgs struct {
-	// A list of resources names to export. Defaults to all exportable resources.
+	// A list of resources to Import. Defaults to all Importable resources.
 	Resources pulumi.StringArrayInput
 }
 
@@ -157,7 +157,7 @@ func (o TfImporterOutput) ToTfImporterOutputWithContext(ctx context.Context) TfI
 	return o
 }
 
-// A list of resources names to export. Defaults to all exportable resources.
+// A list of resources to Import. Defaults to all Importable resources.
 func (o TfImporterOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TfImporter) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
 }

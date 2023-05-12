@@ -119,6 +119,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+        /// 
+        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -145,6 +147,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+        /// 
+        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

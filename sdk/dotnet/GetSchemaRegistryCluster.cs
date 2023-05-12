@@ -122,6 +122,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        /// 
+        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -145,6 +147,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        /// 
+        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -168,6 +172,9 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string DisplayName;
         public readonly Outputs.GetSchemaRegistryClusterEnvironmentResult Environment;
+        /// <summary>
+        /// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+        /// </summary>
         public readonly string Id;
         /// <summary>
         /// (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.

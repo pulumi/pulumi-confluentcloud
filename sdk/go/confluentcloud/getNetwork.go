@@ -83,6 +83,8 @@ type LookupNetworkArgs struct {
 	// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
 	Gcps []GetNetworkGcp `pulumi:"gcps"`
 	// The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id *string `pulumi:"id"`
 }
 
@@ -153,6 +155,8 @@ type LookupNetworkOutputArgs struct {
 	// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
 	Gcps GetNetworkGcpArrayInput `pulumi:"gcps"`
 	// The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 

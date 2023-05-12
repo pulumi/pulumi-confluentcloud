@@ -128,6 +128,8 @@ def get_user(email: Optional[str] = None,
 
 
     :param str email: The email address of the User.
+           
+           > **Note:** Exactly one from the `id`, `full_name` and `email` attributes must be specified.
     :param str full_name: The full name of the User.
     :param str id: The ID of the User (e.g., `u-abc123`).
     """
@@ -183,6 +185,8 @@ def get_user_output(email: Optional[pulumi.Input[Optional[str]]] = None,
 
 
     :param str email: The email address of the User.
+           
+           > **Note:** Exactly one from the `id`, `full_name` and `email` attributes must be specified.
     :param str full_name: The full name of the User.
     :param str id: The ID of the User (e.g., `u-abc123`).
     """

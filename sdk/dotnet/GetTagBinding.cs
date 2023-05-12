@@ -37,6 +37,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The entity type, for example, `sr_schema`.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
         /// </summary>
         [Input("entityType", required: true)]
         public string EntityType { get; set; } = null!;
@@ -51,7 +53,7 @@ namespace Pulumi.ConfluentCloud
         public Inputs.GetTagBindingSchemaRegistryClusterArgs? SchemaRegistryCluster { get; set; }
 
         /// <summary>
-        /// The name of the tag to be applied, for example, `PII`.
+        /// The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Input("tagName", required: true)]
         public string TagName { get; set; } = null!;
@@ -84,6 +86,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The entity type, for example, `sr_schema`.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
         /// </summary>
         [Input("entityType", required: true)]
         public Input<string> EntityType { get; set; } = null!;
@@ -98,7 +102,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.GetTagBindingSchemaRegistryClusterInputArgs>? SchemaRegistryCluster { get; set; }
 
         /// <summary>
-        /// The name of the tag to be applied, for example, `PII`.
+        /// The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Input("tagName", required: true)]
         public Input<string> TagName { get; set; } = null!;

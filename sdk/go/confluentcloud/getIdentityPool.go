@@ -67,6 +67,8 @@ type LookupIdentityPoolArgs struct {
 	// A human-readable name for the Identity Pool.
 	DisplayName *string `pulumi:"displayName"`
 	// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id *string `pulumi:"id"`
 	// (Required Configuration Block) supports the following:
 	IdentityProvider GetIdentityPoolIdentityProvider `pulumi:"identityProvider"`
@@ -106,6 +108,8 @@ type LookupIdentityPoolOutputArgs struct {
 	// A human-readable name for the Identity Pool.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Required Configuration Block) supports the following:
 	IdentityProvider GetIdentityPoolIdentityProviderInput `pulumi:"identityProvider"`

@@ -16,12 +16,24 @@ public final class PrivateLinkAccessGcpArgs extends com.pulumi.resources.Resourc
     /**
      * The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
      * 
+     * &gt; **Note:** Exactly one from the `aws`, `azure`, `gcp` configuration blocks must be specified.
+     * 
+     * &gt; **Note:** Learn more about Private Link Access limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/private-links/aws-privatelink.html#limitations).
+     * 
+     * &gt; **Note:** Learn more about Private Link Access limitations on Azure [here](https://docs.confluent.io/cloud/current/networking/private-links/azure-privatelink.html#limitations).
+     * 
      */
     @Import(name="project", required=true)
     private Output<String> project;
 
     /**
      * @return The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+     * 
+     * &gt; **Note:** Exactly one from the `aws`, `azure`, `gcp` configuration blocks must be specified.
+     * 
+     * &gt; **Note:** Learn more about Private Link Access limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/private-links/aws-privatelink.html#limitations).
+     * 
+     * &gt; **Note:** Learn more about Private Link Access limitations on Azure [here](https://docs.confluent.io/cloud/current/networking/private-links/azure-privatelink.html#limitations).
      * 
      */
     public Output<String> project() {
@@ -55,6 +67,12 @@ public final class PrivateLinkAccessGcpArgs extends com.pulumi.resources.Resourc
         /**
          * @param project The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
          * 
+         * &gt; **Note:** Exactly one from the `aws`, `azure`, `gcp` configuration blocks must be specified.
+         * 
+         * &gt; **Note:** Learn more about Private Link Access limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/private-links/aws-privatelink.html#limitations).
+         * 
+         * &gt; **Note:** Learn more about Private Link Access limitations on Azure [here](https://docs.confluent.io/cloud/current/networking/private-links/azure-privatelink.html#limitations).
+         * 
          * @return builder
          * 
          */
@@ -65,6 +83,12 @@ public final class PrivateLinkAccessGcpArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param project The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+         * 
+         * &gt; **Note:** Exactly one from the `aws`, `azure`, `gcp` configuration blocks must be specified.
+         * 
+         * &gt; **Note:** Learn more about Private Link Access limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/private-links/aws-privatelink.html#limitations).
+         * 
+         * &gt; **Note:** Learn more about Private Link Access limitations on Azure [here](https://docs.confluent.io/cloud/current/networking/private-links/azure-privatelink.html#limitations).
          * 
          * @return builder
          * 

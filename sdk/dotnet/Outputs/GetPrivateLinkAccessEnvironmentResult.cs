@@ -15,6 +15,8 @@ namespace Pulumi.ConfluentCloud.Outputs
     {
         /// <summary>
         /// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+        /// 
+        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         /// </summary>
         public readonly string Id;
 

@@ -15,12 +15,16 @@ public final class GetKafkaClusterEnvironment extends com.pulumi.resources.Invok
     /**
      * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
      * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
      * @return The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+     * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
      * 
      */
     public String id() {
@@ -53,6 +57,8 @@ public final class GetKafkaClusterEnvironment extends com.pulumi.resources.Invok
 
         /**
          * @param id The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+         * 
+         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
          * 
          * @return builder
          * 

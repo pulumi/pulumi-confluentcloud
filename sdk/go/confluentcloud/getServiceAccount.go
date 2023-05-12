@@ -62,6 +62,8 @@ func LookupServiceAccount(ctx *pulumi.Context, args *LookupServiceAccountArgs, o
 // A collection of arguments for invoking getServiceAccount.
 type LookupServiceAccountArgs struct {
 	// A human-readable name for the Service Account.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	DisplayName *string `pulumi:"displayName"`
 	// The ID of the Service Account (e.g., `sa-abc123`).
 	Id *string `pulumi:"id"`
@@ -97,6 +99,8 @@ func LookupServiceAccountOutput(ctx *pulumi.Context, args LookupServiceAccountOu
 // A collection of arguments for invoking getServiceAccount.
 type LookupServiceAccountOutputArgs struct {
 	// A human-readable name for the Service Account.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The ID of the Service Account (e.g., `sa-abc123`).
 	Id pulumi.StringPtrInput `pulumi:"id"`

@@ -33,14 +33,14 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the tag.
+     * The description of the tag to be created.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the tag.
+     * @return The description of the tag to be created.
      * 
      */
     public Optional<Output<String>> description() {
@@ -48,14 +48,14 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the tag, for example, `PII`.
+     * The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the tag, for example, `PII`.
+     * @return The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     public Optional<Output<String>> name() {
@@ -134,7 +134,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the tag.
+         * @param description The description of the tag to be created.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the tag.
+         * @param description The description of the tag to be created.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the tag, for example, `PII`.
+         * @param name The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the tag, for example, `PII`.
+         * @param name The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
          * 
          * @return builder
          * 

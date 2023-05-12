@@ -16,12 +16,20 @@ public final class KafkaClientQuotaKafkaClusterArgs extends com.pulumi.resources
     /**
      * The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
      * 
+     * &gt; **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
+     * 
+     * &gt; **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
+     * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
      * @return The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+     * 
+     * &gt; **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
+     * 
+     * &gt; **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
      * 
      */
     public Output<String> id() {
@@ -55,6 +63,10 @@ public final class KafkaClientQuotaKafkaClusterArgs extends com.pulumi.resources
         /**
          * @param id The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
          * 
+         * &gt; **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
+         * 
+         * &gt; **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
+         * 
          * @return builder
          * 
          */
@@ -65,6 +77,10 @@ public final class KafkaClientQuotaKafkaClusterArgs extends com.pulumi.resources
 
         /**
          * @param id The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+         * 
+         * &gt; **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
+         * 
+         * &gt; **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
          * 
          * @return builder
          * 

@@ -22,7 +22,9 @@ func LookupTag(ctx *pulumi.Context, args *LookupTagArgs, opts ...pulumi.InvokeOp
 // A collection of arguments for invoking getTag.
 type LookupTagArgs struct {
 	Credentials *GetTagCredentials `pulumi:"credentials"`
-	// The name of the tag, for example, `PII`.
+	// The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
+	//
+	// > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
 	Name string `pulumi:"name"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                      `pulumi:"restEndpoint"`
@@ -61,7 +63,9 @@ func LookupTagOutput(ctx *pulumi.Context, args LookupTagOutputArgs, opts ...pulu
 // A collection of arguments for invoking getTag.
 type LookupTagOutputArgs struct {
 	Credentials GetTagCredentialsPtrInput `pulumi:"credentials"`
-	// The name of the tag, for example, `PII`.
+	// The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
+	//
+	// > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput               `pulumi:"restEndpoint"`

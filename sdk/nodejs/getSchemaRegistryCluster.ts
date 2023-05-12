@@ -54,6 +54,8 @@ export interface GetSchemaRegistryClusterArgs {
     environment: inputs.GetSchemaRegistryClusterEnvironment;
     /**
      * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id?: string;
 }
@@ -71,6 +73,9 @@ export interface GetSchemaRegistryClusterResult {
      */
     readonly displayName: string;
     readonly environment: outputs.GetSchemaRegistryClusterEnvironment;
+    /**
+     * (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+     */
     readonly id: string;
     /**
      * (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.
@@ -135,6 +140,8 @@ export interface GetSchemaRegistryClusterOutputArgs {
     environment: pulumi.Input<inputs.GetSchemaRegistryClusterEnvironmentArgs>;
     /**
      * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id?: pulumi.Input<string>;
 }

@@ -38,9 +38,6 @@ namespace Pulumi.ConfluentCloud
         [Output("sourceKafkaTopic")]
         public Output<Outputs.KafkaMirrorTopicSourceKafkaTopic> SourceKafkaTopic { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" &gt; "PAUSED"`), resuming (`"PAUSED" &gt; "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -105,9 +102,6 @@ namespace Pulumi.ConfluentCloud
         [Input("sourceKafkaTopic", required: true)]
         public Input<Inputs.KafkaMirrorTopicSourceKafkaTopicArgs> SourceKafkaTopic { get; set; } = null!;
 
-        /// <summary>
-        /// The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" &gt; "PAUSED"`), resuming (`"PAUSED" &gt; "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -134,9 +128,6 @@ namespace Pulumi.ConfluentCloud
         [Input("sourceKafkaTopic")]
         public Input<Inputs.KafkaMirrorTopicSourceKafkaTopicGetArgs>? SourceKafkaTopic { get; set; }
 
-        /// <summary>
-        /// The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" &gt; "PAUSED"`), resuming (`"PAUSED" &gt; "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

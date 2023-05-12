@@ -29,6 +29,8 @@ export interface GetSchemaArgs {
     restEndpoint?: string;
     /**
      * The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
+     *
+     * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      */
     schemaIdentifier: number;
     schemaRegistryCluster?: inputs.GetSchemaSchemaRegistryCluster;
@@ -88,6 +90,8 @@ export interface GetSchemaOutputArgs {
     restEndpoint?: pulumi.Input<string>;
     /**
      * The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
+     *
+     * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      */
     schemaIdentifier: pulumi.Input<number>;
     schemaRegistryCluster?: pulumi.Input<inputs.GetSchemaSchemaRegistryClusterArgs>;

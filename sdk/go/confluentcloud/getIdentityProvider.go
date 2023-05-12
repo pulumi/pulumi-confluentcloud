@@ -59,6 +59,8 @@ func LookupIdentityProvider(ctx *pulumi.Context, args *LookupIdentityProviderArg
 // A collection of arguments for invoking getIdentityProvider.
 type LookupIdentityProviderArgs struct {
 	// A human-readable name for the Identity Provider.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	DisplayName *string `pulumi:"displayName"`
 	// The ID of the Identity Provider, for example, `op-abc123`.
 	Id *string `pulumi:"id"`
@@ -94,6 +96,8 @@ func LookupIdentityProviderOutput(ctx *pulumi.Context, args LookupIdentityProvid
 // A collection of arguments for invoking getIdentityProvider.
 type LookupIdentityProviderOutputArgs struct {
 	// A human-readable name for the Identity Provider.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The ID of the Identity Provider, for example, `op-abc123`.
 	Id pulumi.StringPtrInput `pulumi:"id"`

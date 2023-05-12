@@ -24,7 +24,6 @@ class KafkaMirrorTopicArgs:
         """
         The set of arguments for constructing a KafkaMirrorTopic resource.
         :param pulumi.Input[str] mirror_topic_name: The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
-        :param pulumi.Input[str] status: The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
         """
         pulumi.set(__self__, "cluster_link", cluster_link)
         pulumi.set(__self__, "kafka_cluster", kafka_cluster)
@@ -76,9 +75,6 @@ class KafkaMirrorTopicArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -97,7 +93,6 @@ class _KafkaMirrorTopicState:
         """
         Input properties used for looking up and filtering KafkaMirrorTopic resources.
         :param pulumi.Input[str] mirror_topic_name: The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
-        :param pulumi.Input[str] status: The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
         """
         if cluster_link is not None:
             pulumi.set(__self__, "cluster_link", cluster_link)
@@ -152,9 +147,6 @@ class _KafkaMirrorTopicState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -187,7 +179,6 @@ class KafkaMirrorTopic(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mirror_topic_name: The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
-        :param pulumi.Input[str] status: The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
         """
         ...
     @overload
@@ -269,7 +260,6 @@ class KafkaMirrorTopic(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mirror_topic_name: The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
-        :param pulumi.Input[str] status: The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -308,8 +298,5 @@ class KafkaMirrorTopic(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
-        """
-        The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
-        """
         return pulumi.get(self, "status")
 

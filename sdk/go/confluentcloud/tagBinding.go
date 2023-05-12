@@ -29,12 +29,12 @@ type TagBinding struct {
 	Credentials TagBindingCredentialsPtrOutput `pulumi:"credentials"`
 	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
 	EntityName pulumi.StringOutput `pulumi:"entityName"`
-	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+	// The entity type.
 	EntityType pulumi.StringOutput `pulumi:"entityType"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrOutput                   `pulumi:"restEndpoint"`
 	SchemaRegistryCluster TagBindingSchemaRegistryClusterPtrOutput `pulumi:"schemaRegistryCluster"`
-	// The name of the tag to be applied, for example, `PII`.
+	// The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	TagName pulumi.StringOutput `pulumi:"tagName"`
 }
 
@@ -87,12 +87,12 @@ type tagBindingState struct {
 	Credentials *TagBindingCredentials `pulumi:"credentials"`
 	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
 	EntityName *string `pulumi:"entityName"`
-	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+	// The entity type.
 	EntityType *string `pulumi:"entityType"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                          `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *TagBindingSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
-	// The name of the tag to be applied, for example, `PII`.
+	// The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	TagName *string `pulumi:"tagName"`
 }
 
@@ -101,12 +101,12 @@ type TagBindingState struct {
 	Credentials TagBindingCredentialsPtrInput
 	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
 	EntityName pulumi.StringPtrInput
-	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+	// The entity type.
 	EntityType pulumi.StringPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
 	SchemaRegistryCluster TagBindingSchemaRegistryClusterPtrInput
-	// The name of the tag to be applied, for example, `PII`.
+	// The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	TagName pulumi.StringPtrInput
 }
 
@@ -119,12 +119,12 @@ type tagBindingArgs struct {
 	Credentials *TagBindingCredentials `pulumi:"credentials"`
 	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
 	EntityName string `pulumi:"entityName"`
-	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+	// The entity type.
 	EntityType string `pulumi:"entityType"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                          `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *TagBindingSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
-	// The name of the tag to be applied, for example, `PII`.
+	// The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	TagName string `pulumi:"tagName"`
 }
 
@@ -134,12 +134,12 @@ type TagBindingArgs struct {
 	Credentials TagBindingCredentialsPtrInput
 	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
 	EntityName pulumi.StringInput
-	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+	// The entity type.
 	EntityType pulumi.StringInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
 	SchemaRegistryCluster TagBindingSchemaRegistryClusterPtrInput
-	// The name of the tag to be applied, for example, `PII`.
+	// The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	TagName pulumi.StringInput
 }
 
@@ -240,7 +240,7 @@ func (o TagBindingOutput) EntityName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagBinding) pulumi.StringOutput { return v.EntityName }).(pulumi.StringOutput)
 }
 
-// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+// The entity type.
 func (o TagBindingOutput) EntityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagBinding) pulumi.StringOutput { return v.EntityType }).(pulumi.StringOutput)
 }
@@ -254,7 +254,7 @@ func (o TagBindingOutput) SchemaRegistryCluster() TagBindingSchemaRegistryCluste
 	return o.ApplyT(func(v *TagBinding) TagBindingSchemaRegistryClusterPtrOutput { return v.SchemaRegistryCluster }).(TagBindingSchemaRegistryClusterPtrOutput)
 }
 
-// The name of the tag to be applied, for example, `PII`.
+// The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 func (o TagBindingOutput) TagName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagBinding) pulumi.StringOutput { return v.TagName }).(pulumi.StringOutput)
 }

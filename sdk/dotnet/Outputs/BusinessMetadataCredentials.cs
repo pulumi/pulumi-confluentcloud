@@ -17,9 +17,6 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// The Schema Registry API Key.
         /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// The Schema Registry API Secret.
-        /// </summary>
         public readonly string Secret;
 
         [OutputConstructor]

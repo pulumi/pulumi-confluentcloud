@@ -36,7 +36,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> EntityName { get; private set; } = null!;
 
         /// <summary>
-        /// The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+        /// The entity type.
         /// </summary>
         [Output("entityType")]
         public Output<string> EntityType { get; private set; } = null!;
@@ -51,7 +51,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.TagBindingSchemaRegistryCluster?> SchemaRegistryCluster { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the tag to be applied, for example, `PII`.
+        /// The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Output("tagName")]
         public Output<string> TagName { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string> EntityName { get; set; } = null!;
 
         /// <summary>
-        /// The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+        /// The entity type.
         /// </summary>
         [Input("entityType", required: true)]
         public Input<string> EntityType { get; set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.TagBindingSchemaRegistryClusterArgs>? SchemaRegistryCluster { get; set; }
 
         /// <summary>
-        /// The name of the tag to be applied, for example, `PII`.
+        /// The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Input("tagName", required: true)]
         public Input<string> TagName { get; set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? EntityName { get; set; }
 
         /// <summary>
-        /// The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+        /// The entity type.
         /// </summary>
         [Input("entityType")]
         public Input<string>? EntityType { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.TagBindingSchemaRegistryClusterGetArgs>? SchemaRegistryCluster { get; set; }
 
         /// <summary>
-        /// The name of the tag to be applied, for example, `PII`.
+        /// The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Input("tagName")]
         public Input<string>? TagName { get; set; }

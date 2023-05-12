@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud
     public partial class TfImporter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of resources names to export. Defaults to all exportable resources.
+        /// A list of resources to Import. Defaults to all Importable resources.
         /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.ConfluentCloud
         private InputList<string>? _resources;
 
         /// <summary>
-        /// A list of resources names to export. Defaults to all exportable resources.
+        /// A list of resources to Import. Defaults to all Importable resources.
         /// </summary>
         public InputList<string> Resources
         {
@@ -88,7 +88,7 @@ namespace Pulumi.ConfluentCloud
         private InputList<string>? _resources;
 
         /// <summary>
-        /// A list of resources names to export. Defaults to all exportable resources.
+        /// A list of resources to Import. Defaults to all Importable resources.
         /// </summary>
         public InputList<string> Resources
         {

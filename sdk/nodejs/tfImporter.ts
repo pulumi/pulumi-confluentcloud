@@ -33,7 +33,7 @@ export class TfImporter extends pulumi.CustomResource {
     }
 
     /**
-     * A list of resources names to export. Defaults to all exportable resources.
+     * A list of resources to Import. Defaults to all Importable resources.
      */
     public readonly resources!: pulumi.Output<string[] | undefined>;
 
@@ -65,7 +65,7 @@ export class TfImporter extends pulumi.CustomResource {
  */
 export interface TfImporterState {
     /**
-     * A list of resources names to export. Defaults to all exportable resources.
+     * A list of resources to Import. Defaults to all Importable resources.
      */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -75,7 +75,7 @@ export interface TfImporterState {
  */
 export interface TfImporterArgs {
     /**
-     * A list of resources names to export. Defaults to all exportable resources.
+     * A list of resources to Import. Defaults to all Importable resources.
      */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
 }

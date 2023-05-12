@@ -47,14 +47,14 @@ public class Tag extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.credentials);
     }
     /**
-     * The description of the tag.
+     * The description of the tag to be created.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the tag.
+     * @return The description of the tag to be created.
      * 
      */
     public Output<Optional<String>> description() {
@@ -75,14 +75,14 @@ public class Tag extends com.pulumi.resources.CustomResource {
         return this.entityTypes;
     }
     /**
-     * The name of the tag, for example, `PII`.
+     * The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the tag, for example, `PII`.
+     * @return The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     public Output<String> name() {

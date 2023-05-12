@@ -48,12 +48,16 @@ public final class GetPrivateLinkAccessPlainArgs extends com.pulumi.resources.In
     /**
      * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
      * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
      * @return The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+     * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
      * 
      */
     public Optional<String> id() {
@@ -110,6 +114,8 @@ public final class GetPrivateLinkAccessPlainArgs extends com.pulumi.resources.In
 
         /**
          * @param id The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+         * 
+         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
          * 
          * @return builder
          * 

@@ -147,6 +147,8 @@ namespace Pulumi.ConfluentCloud
     {
         /// <summary>
         /// The email address of the User.
+        /// 
+        /// &gt; **Note:** Exactly one from the `id`, `full_name` and `email` attributes must be specified.
         /// </summary>
         [Input("email")]
         public string? Email { get; set; }
@@ -173,6 +175,8 @@ namespace Pulumi.ConfluentCloud
     {
         /// <summary>
         /// The email address of the User.
+        /// 
+        /// &gt; **Note:** Exactly one from the `id`, `full_name` and `email` attributes must be specified.
         /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }

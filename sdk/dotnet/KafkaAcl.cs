@@ -36,7 +36,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.KafkaAclCredentials?> Credentials { get; private set; } = null!;
 
         /// <summary>
-        /// The host for the ACL. Should be set to `*` for Confluent Cloud.
+        /// The host for the ACL.
         /// </summary>
         [Output("host")]
         public Output<string> Host { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The host for the ACL. Should be set to `*` for Confluent Cloud.
+        /// The host for the ACL.
         /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The host for the ACL. Should be set to `*` for Confluent Cloud.
+        /// The host for the ACL.
         /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }

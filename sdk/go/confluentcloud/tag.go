@@ -26,11 +26,11 @@ type Tag struct {
 
 	// The Cluster API Credentials.
 	Credentials TagCredentialsPtrOutput `pulumi:"credentials"`
-	// The description of the tag.
+	// The description of the tag to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// (Optional List of String) The entity types of the tag, this always returns `["cfEntity"]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityTypes pulumi.StringArrayOutput `pulumi:"entityTypes"`
-	// The name of the tag, for example, `PII`.
+	// The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrOutput            `pulumi:"restEndpoint"`
@@ -77,11 +77,11 @@ func GetTag(ctx *pulumi.Context,
 type tagState struct {
 	// The Cluster API Credentials.
 	Credentials *TagCredentials `pulumi:"credentials"`
-	// The description of the tag.
+	// The description of the tag to be created.
 	Description *string `pulumi:"description"`
 	// (Optional List of String) The entity types of the tag, this always returns `["cfEntity"]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityTypes []string `pulumi:"entityTypes"`
-	// The name of the tag, for example, `PII`.
+	// The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	Name *string `pulumi:"name"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                   `pulumi:"restEndpoint"`
@@ -93,11 +93,11 @@ type tagState struct {
 type TagState struct {
 	// The Cluster API Credentials.
 	Credentials TagCredentialsPtrInput
-	// The description of the tag.
+	// The description of the tag to be created.
 	Description pulumi.StringPtrInput
 	// (Optional List of String) The entity types of the tag, this always returns `["cfEntity"]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityTypes pulumi.StringArrayInput
-	// The name of the tag, for example, `PII`.
+	// The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	Name pulumi.StringPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
@@ -113,9 +113,9 @@ func (TagState) ElementType() reflect.Type {
 type tagArgs struct {
 	// The Cluster API Credentials.
 	Credentials *TagCredentials `pulumi:"credentials"`
-	// The description of the tag.
+	// The description of the tag to be created.
 	Description *string `pulumi:"description"`
-	// The name of the tag, for example, `PII`.
+	// The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	Name *string `pulumi:"name"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                   `pulumi:"restEndpoint"`
@@ -126,9 +126,9 @@ type tagArgs struct {
 type TagArgs struct {
 	// The Cluster API Credentials.
 	Credentials TagCredentialsPtrInput
-	// The description of the tag.
+	// The description of the tag to be created.
 	Description pulumi.StringPtrInput
-	// The name of the tag, for example, `PII`.
+	// The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	Name pulumi.StringPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
@@ -227,7 +227,7 @@ func (o TagOutput) Credentials() TagCredentialsPtrOutput {
 	return o.ApplyT(func(v *Tag) TagCredentialsPtrOutput { return v.Credentials }).(TagCredentialsPtrOutput)
 }
 
-// The description of the tag.
+// The description of the tag to be created.
 func (o TagOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -237,7 +237,7 @@ func (o TagOutput) EntityTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringArrayOutput { return v.EntityTypes }).(pulumi.StringArrayOutput)
 }
 
-// The name of the tag, for example, `PII`.
+// The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 func (o TagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

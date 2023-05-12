@@ -17,14 +17,14 @@ public final class TfImporterArgs extends com.pulumi.resources.ResourceArgs {
     public static final TfImporterArgs Empty = new TfImporterArgs();
 
     /**
-     * A list of resources names to export. Defaults to all exportable resources.
+     * A list of resources to Import. Defaults to all Importable resources.
      * 
      */
     @Import(name="resources")
     private @Nullable Output<List<String>> resources;
 
     /**
-     * @return A list of resources names to export. Defaults to all exportable resources.
+     * @return A list of resources to Import. Defaults to all Importable resources.
      * 
      */
     public Optional<Output<List<String>>> resources() {
@@ -56,7 +56,7 @@ public final class TfImporterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resources A list of resources names to export. Defaults to all exportable resources.
+         * @param resources A list of resources to Import. Defaults to all Importable resources.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class TfImporterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resources A list of resources names to export. Defaults to all exportable resources.
+         * @param resources A list of resources to Import. Defaults to all Importable resources.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class TfImporterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resources A list of resources names to export. Defaults to all exportable resources.
+         * @param resources A list of resources to Import. Defaults to all Importable resources.
          * 
          * @return builder
          * 

@@ -24,7 +24,7 @@ export function getBusinessMetadataBinding(args: GetBusinessMetadataBindingArgs,
  */
 export interface GetBusinessMetadataBindingArgs {
     /**
-     * The name of the Business Metadata to be applied, for example, `PII`.
+     * The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
     businessMetadataName: string;
     credentials?: inputs.GetBusinessMetadataBindingCredentials;
@@ -71,7 +71,7 @@ export function getBusinessMetadataBindingOutput(args: GetBusinessMetadataBindin
  */
 export interface GetBusinessMetadataBindingOutputArgs {
     /**
-     * The name of the Business Metadata to be applied, for example, `PII`.
+     * The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
     businessMetadataName: pulumi.Input<string>;
     credentials?: pulumi.Input<inputs.GetBusinessMetadataBindingCredentialsArgs>;

@@ -68,6 +68,8 @@ type LookupSchemaRegistryClusterArgs struct {
 	DisplayName *string                             `pulumi:"displayName"`
 	Environment GetSchemaRegistryClusterEnvironment `pulumi:"environment"`
 	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id *string `pulumi:"id"`
 }
 
@@ -78,7 +80,8 @@ type LookupSchemaRegistryClusterResult struct {
 	// (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
 	DisplayName string                              `pulumi:"displayName"`
 	Environment GetSchemaRegistryClusterEnvironment `pulumi:"environment"`
-	Id          string                              `pulumi:"id"`
+	// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+	Id string `pulumi:"id"`
 	// (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.
 	Kind string `pulumi:"kind"`
 	// (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
@@ -110,6 +113,8 @@ type LookupSchemaRegistryClusterOutputArgs struct {
 	DisplayName pulumi.StringPtrInput                    `pulumi:"displayName"`
 	Environment GetSchemaRegistryClusterEnvironmentInput `pulumi:"environment"`
 	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -146,6 +151,7 @@ func (o LookupSchemaRegistryClusterResultOutput) Environment() GetSchemaRegistry
 	return o.ApplyT(func(v LookupSchemaRegistryClusterResult) GetSchemaRegistryClusterEnvironment { return v.Environment }).(GetSchemaRegistryClusterEnvironmentOutput)
 }
 
+// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
 func (o LookupSchemaRegistryClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }

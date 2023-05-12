@@ -28,17 +28,9 @@ public final class SchemaRegistryClusterConfigCredentialsArgs extends com.pulumi
         return this.key;
     }
 
-    /**
-     * The Schema Registry API Secret.
-     * 
-     */
     @Import(name="secret", required=true)
     private Output<String> secret;
 
-    /**
-     * @return The Schema Registry API Secret.
-     * 
-     */
     public Output<String> secret() {
         return this.secret;
     }
@@ -89,23 +81,11 @@ public final class SchemaRegistryClusterConfigCredentialsArgs extends com.pulumi
             return key(Output.of(key));
         }
 
-        /**
-         * @param secret The Schema Registry API Secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secret(Output<String> secret) {
             $.secret = secret;
             return this;
         }
 
-        /**
-         * @param secret The Schema Registry API Secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secret(String secret) {
             return secret(Output.of(secret));
         }

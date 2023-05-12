@@ -13,10 +13,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KafkaClusterDedicated {
-    /**
-     * @return The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-     * 
-     */
     private Integer cku;
     private @Nullable String encryptionKey;
     /**
@@ -29,10 +25,6 @@ public final class KafkaClusterDedicated {
     private @Nullable List<String> zones;
 
     private KafkaClusterDedicated() {}
-    /**
-     * @return The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-     * 
-     */
     public Integer cku() {
         return this.cku;
     }

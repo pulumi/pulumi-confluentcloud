@@ -48,14 +48,14 @@ public final class TagBindingState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * The entity type.
      * 
      */
     @Import(name="entityType")
     private @Nullable Output<String> entityType;
 
     /**
-     * @return The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * @return The entity type.
      * 
      */
     public Optional<Output<String>> entityType() {
@@ -85,14 +85,14 @@ public final class TagBindingState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the tag to be applied, for example, `PII`.
+     * The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     @Import(name="tagName")
     private @Nullable Output<String> tagName;
 
     /**
-     * @return The name of the tag to be applied, for example, `PII`.
+     * @return The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     public Optional<Output<String>> tagName() {
@@ -171,7 +171,7 @@ public final class TagBindingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityType The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+         * @param entityType The entity type.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class TagBindingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param entityType The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+         * @param entityType The entity type.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class TagBindingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagName The name of the tag to be applied, for example, `PII`.
+         * @param tagName The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class TagBindingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagName The name of the tag to be applied, for example, `PII`.
+         * @param tagName The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
          * 
          * @return builder
          * 

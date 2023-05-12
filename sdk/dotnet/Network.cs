@@ -37,6 +37,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+        /// 
+        /// &gt; **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
         /// </summary>
         [Output("cidr")]
         public Output<string> Cidr { get; private set; } = null!;
@@ -196,6 +198,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+        /// 
+        /// &gt; **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
         /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
@@ -323,6 +327,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+        /// 
+        /// &gt; **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
         /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }

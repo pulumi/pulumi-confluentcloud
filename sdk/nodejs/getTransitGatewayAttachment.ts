@@ -57,6 +57,8 @@ export interface GetTransitGatewayAttachmentArgs {
     environment: inputs.GetTransitGatewayAttachmentEnvironment;
     /**
      * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id?: string;
 }
@@ -131,6 +133,8 @@ export interface GetTransitGatewayAttachmentOutputArgs {
     environment: pulumi.Input<inputs.GetTransitGatewayAttachmentEnvironmentArgs>;
     /**
      * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id?: pulumi.Input<string>;
 }

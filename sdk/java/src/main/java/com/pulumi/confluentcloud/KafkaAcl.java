@@ -52,14 +52,14 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.credentials);
     }
     /**
-     * The host for the ACL. Should be set to `*` for Confluent Cloud.
+     * The host for the ACL.
      * 
      */
     @Export(name="host", type=String.class, parameters={})
     private Output<String> host;
 
     /**
-     * @return The host for the ACL. Should be set to `*` for Confluent Cloud.
+     * @return The host for the ACL.
      * 
      */
     public Output<String> host() {

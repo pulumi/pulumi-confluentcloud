@@ -33,14 +33,14 @@ public final class KafkaAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The host for the ACL. Should be set to `*` for Confluent Cloud.
+     * The host for the ACL.
      * 
      */
     @Import(name="host")
     private @Nullable Output<String> host;
 
     /**
-     * @return The host for the ACL. Should be set to `*` for Confluent Cloud.
+     * @return The host for the ACL.
      * 
      */
     public Optional<Output<String>> host() {
@@ -214,7 +214,7 @@ public final class KafkaAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param host The host for the ACL. Should be set to `*` for Confluent Cloud.
+         * @param host The host for the ACL.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class KafkaAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param host The host for the ACL. Should be set to `*` for Confluent Cloud.
+         * @param host The host for the ACL.
          * 
          * @return builder
          * 

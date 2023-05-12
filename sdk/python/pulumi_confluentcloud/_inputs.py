@@ -441,7 +441,6 @@ class BusinessMetadataCredentialsArgs:
                  secret: pulumi.Input[str]):
         """
         :param pulumi.Input[str] key: The Schema Registry API Key.
-        :param pulumi.Input[str] secret: The Schema Registry API Secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -461,9 +460,6 @@ class BusinessMetadataCredentialsArgs:
     @property
     @pulumi.getter
     def secret(self) -> pulumi.Input[str]:
-        """
-        The Schema Registry API Secret.
-        """
         return pulumi.get(self, "secret")
 
     @secret.setter
@@ -982,6 +978,10 @@ class KafkaClientQuotaEnvironmentArgs:
                  id: pulumi.Input[str]):
         """
         :param pulumi.Input[str] id: The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+               
+               > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
+               
+               > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
         """
         pulumi.set(__self__, "id", id)
 
@@ -990,6 +990,10 @@ class KafkaClientQuotaEnvironmentArgs:
     def id(self) -> pulumi.Input[str]:
         """
         The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+
+        > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
+
+        > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
         """
         return pulumi.get(self, "id")
 
@@ -1004,6 +1008,10 @@ class KafkaClientQuotaKafkaClusterArgs:
                  id: pulumi.Input[str]):
         """
         :param pulumi.Input[str] id: The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+               
+               > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
+               
+               > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
         """
         pulumi.set(__self__, "id", id)
 
@@ -1012,6 +1020,10 @@ class KafkaClientQuotaKafkaClusterArgs:
     def id(self) -> pulumi.Input[str]:
         """
         The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
+
+        > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
+
+        > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
         """
         return pulumi.get(self, "id")
 
@@ -1093,6 +1105,10 @@ class KafkaClusterConfigCredentialsArgs:
         """
         :param pulumi.Input[str] key: The Kafka API Key.
         :param pulumi.Input[str] secret: The Kafka API Secret.
+               
+               > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_cluster_config.orders"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_cluster_config.orders" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -1114,6 +1130,10 @@ class KafkaClusterConfigCredentialsArgs:
     def secret(self) -> pulumi.Input[str]:
         """
         The Kafka API Secret.
+
+        > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_cluster_config.orders"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_cluster_config.orders" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
         """
         return pulumi.get(self, "secret")
 
@@ -1151,7 +1171,6 @@ class KafkaClusterDedicatedArgs:
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[int] cku: The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: (Required List of String) The list of zones the cluster is in.
                On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
@@ -1166,9 +1185,6 @@ class KafkaClusterDedicatedArgs:
     @property
     @pulumi.getter
     def cku(self) -> pulumi.Input[int]:
-        """
-        The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-        """
         return pulumi.get(self, "cku")
 
     @cku.setter
@@ -1389,6 +1405,10 @@ class KafkaTopicCredentialsArgs:
         """
         :param pulumi.Input[str] key: The Kafka API Key.
         :param pulumi.Input[str] secret: The Kafka API Secret.
+               
+               > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_topic.orders"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_topic.orders" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -1410,6 +1430,10 @@ class KafkaTopicCredentialsArgs:
     def secret(self) -> pulumi.Input[str]:
         """
         The Kafka API Secret.
+
+        > **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_topic.orders"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_topic.orders" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
         """
         return pulumi.get(self, "secret")
 
@@ -1843,6 +1867,8 @@ class NetworkZoneInfoArgs:
                  zone_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cidr: The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+               
+               > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
         :param pulumi.Input[str] zone_id: Cloud provider zone ID.
         """
         if cidr is not None:
@@ -1855,6 +1881,8 @@ class NetworkZoneInfoArgs:
     def cidr(self) -> Optional[pulumi.Input[str]]:
         """
         The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+
+        > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
         """
         return pulumi.get(self, "cidr")
 
@@ -2026,6 +2054,14 @@ class PeeringGcpArgs:
         :param pulumi.Input[str] project: The GCP Project ID. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
         :param pulumi.Input[str] vpc_network: The VPC network name that you're peering to Confluent Cloud. You can find your VPC network name under **VPC Networks** section of your [Google Cloud Console](https://console.cloud.google.com/networking/networks/list).
         :param pulumi.Input[bool] import_custom_routes: The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
+               
+               > **Note:** Exactly one from the `aws`, `azure`, and `gcp` configuration blocks must be specified.
+               
+               > **Note:** Learn more about VPC Peering requirements on AWS [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws).
+               
+               > **Note:** Learn more about VNet Peering requirements on Azure [here](https://docs.confluent.io/cloud/current/networking/peering/azure-peering.html#vnet-peering-on-az).
+               
+               > **Note:** Learn more about VPC Peering requirements on Google Cloud Platform [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#vpc-peering-on-gcp).
         """
         pulumi.set(__self__, "project", project)
         pulumi.set(__self__, "vpc_network", vpc_network)
@@ -2061,6 +2097,14 @@ class PeeringGcpArgs:
     def import_custom_routes(self) -> Optional[pulumi.Input[bool]]:
         """
         The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
+
+        > **Note:** Exactly one from the `aws`, `azure`, and `gcp` configuration blocks must be specified.
+
+        > **Note:** Learn more about VPC Peering requirements on AWS [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws).
+
+        > **Note:** Learn more about VNet Peering requirements on Azure [here](https://docs.confluent.io/cloud/current/networking/peering/azure-peering.html#vnet-peering-on-az).
+
+        > **Note:** Learn more about VPC Peering requirements on Google Cloud Platform [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#vpc-peering-on-gcp).
         """
         return pulumi.get(self, "import_custom_routes")
 
@@ -2163,6 +2207,12 @@ class PrivateLinkAccessGcpArgs:
                  project: pulumi.Input[str]):
         """
         :param pulumi.Input[str] project: The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+               
+               > **Note:** Exactly one from the `aws`, `azure`, `gcp` configuration blocks must be specified.
+               
+               > **Note:** Learn more about Private Link Access limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/private-links/aws-privatelink.html#limitations).
+               
+               > **Note:** Learn more about Private Link Access limitations on Azure [here](https://docs.confluent.io/cloud/current/networking/private-links/azure-privatelink.html#limitations).
         """
         pulumi.set(__self__, "project", project)
 
@@ -2171,6 +2221,12 @@ class PrivateLinkAccessGcpArgs:
     def project(self) -> pulumi.Input[str]:
         """
         The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
+
+        > **Note:** Exactly one from the `aws`, `azure`, `gcp` configuration blocks must be specified.
+
+        > **Note:** Learn more about Private Link Access limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/private-links/aws-privatelink.html#limitations).
+
+        > **Note:** Learn more about Private Link Access limitations on Azure [here](https://docs.confluent.io/cloud/current/networking/private-links/azure-privatelink.html#limitations).
         """
         return pulumi.get(self, "project")
 
@@ -2208,7 +2264,6 @@ class SchemaCredentialsArgs:
                  secret: pulumi.Input[str]):
         """
         :param pulumi.Input[str] key: The Schema Registry API Key.
-        :param pulumi.Input[str] secret: The Schema Registry API Secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -2228,9 +2283,6 @@ class SchemaCredentialsArgs:
     @property
     @pulumi.getter
     def secret(self) -> pulumi.Input[str]:
-        """
-        The Schema Registry API Secret.
-        """
         return pulumi.get(self, "secret")
 
     @secret.setter
@@ -2245,7 +2297,6 @@ class SchemaRegistryClusterConfigCredentialsArgs:
                  secret: pulumi.Input[str]):
         """
         :param pulumi.Input[str] key: The Schema Registry API Key.
-        :param pulumi.Input[str] secret: The Schema Registry API Secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -2265,9 +2316,6 @@ class SchemaRegistryClusterConfigCredentialsArgs:
     @property
     @pulumi.getter
     def secret(self) -> pulumi.Input[str]:
-        """
-        The Schema Registry API Secret.
-        """
         return pulumi.get(self, "secret")
 
     @secret.setter
@@ -2326,7 +2374,6 @@ class SchemaRegistryClusterModeCredentialsArgs:
                  secret: pulumi.Input[str]):
         """
         :param pulumi.Input[str] key: The Schema Registry API Key.
-        :param pulumi.Input[str] secret: The Schema Registry API Secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -2346,9 +2393,6 @@ class SchemaRegistryClusterModeCredentialsArgs:
     @property
     @pulumi.getter
     def secret(self) -> pulumi.Input[str]:
-        """
-        The Schema Registry API Secret.
-        """
         return pulumi.get(self, "secret")
 
     @secret.setter
@@ -2481,7 +2525,6 @@ class SubjectConfigCredentialsArgs:
                  secret: pulumi.Input[str]):
         """
         :param pulumi.Input[str] key: The Schema Registry API Key.
-        :param pulumi.Input[str] secret: The Schema Registry API Secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -2501,9 +2544,6 @@ class SubjectConfigCredentialsArgs:
     @property
     @pulumi.getter
     def secret(self) -> pulumi.Input[str]:
-        """
-        The Schema Registry API Secret.
-        """
         return pulumi.get(self, "secret")
 
     @secret.setter
@@ -2540,7 +2580,6 @@ class SubjectModeCredentialsArgs:
                  secret: pulumi.Input[str]):
         """
         :param pulumi.Input[str] key: The Schema Registry API Key.
-        :param pulumi.Input[str] secret: The Schema Registry API Secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -2560,9 +2599,6 @@ class SubjectModeCredentialsArgs:
     @property
     @pulumi.getter
     def secret(self) -> pulumi.Input[str]:
-        """
-        The Schema Registry API Secret.
-        """
         return pulumi.get(self, "secret")
 
     @secret.setter
@@ -2720,6 +2756,8 @@ class TransitGatewayAttachmentAwsArgs:
         """
         :param pulumi.Input[str] ram_resource_share_arn: The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] routes: List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+               
+               > **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
         :param pulumi.Input[str] transit_gateway_id: The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
         :param pulumi.Input[str] transit_gateway_attachment_id: (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
         """
@@ -2746,6 +2784,8 @@ class TransitGatewayAttachmentAwsArgs:
     def routes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+
+        > **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
         """
         return pulumi.get(self, "routes")
 
@@ -2830,6 +2870,8 @@ class GetBusinessMetadataBindingCredentialsArgs:
         """
         :param str key: The Schema Registry API Key.
         :param str secret: The Schema Registry API Secret.
+               
+               > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -2851,6 +2893,8 @@ class GetBusinessMetadataBindingCredentialsArgs:
     def secret(self) -> str:
         """
         The Schema Registry API Secret.
+
+        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
         """
         return pulumi.get(self, "secret")
 
@@ -2946,6 +2990,8 @@ class GetIdentityPoolIdentityProviderArgs:
                  id: str):
         """
         :param str id: The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+               
+               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         pulumi.set(__self__, "id", id)
 
@@ -2954,6 +3000,8 @@ class GetIdentityPoolIdentityProviderArgs:
     def id(self) -> str:
         """
         The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
 
@@ -3028,6 +3076,8 @@ class GetKafkaClusterEnvironmentArgs:
                  id: str):
         """
         :param str id: The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+               
+               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         pulumi.set(__self__, "id", id)
 
@@ -3036,6 +3086,8 @@ class GetKafkaClusterEnvironmentArgs:
     def id(self) -> str:
         """
         The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
 
@@ -3057,7 +3109,6 @@ class GetKafkaTopicCredentialsArgs:
                  secret: str):
         """
         :param str key: The Kafka API Key.
-        :param str secret: The Kafka API Secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -3077,9 +3128,6 @@ class GetKafkaTopicCredentialsArgs:
     @property
     @pulumi.getter
     def secret(self) -> str:
-        """
-        The Kafka API Secret.
-        """
         return pulumi.get(self, "secret")
 
     @secret.setter
@@ -3115,6 +3163,8 @@ class GetKsqlClusterEnvironmentArgs:
                  id: str):
         """
         :param str id: The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+               
+               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         pulumi.set(__self__, "id", id)
 
@@ -3123,6 +3173,8 @@ class GetKsqlClusterEnvironmentArgs:
     def id(self) -> str:
         """
         The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
 
@@ -3237,6 +3289,8 @@ class GetNetworkEnvironmentArgs:
                  id: str):
         """
         :param str id: The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+               
+               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         pulumi.set(__self__, "id", id)
 
@@ -3245,6 +3299,8 @@ class GetNetworkEnvironmentArgs:
     def id(self) -> str:
         """
         The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
 
@@ -3392,6 +3448,8 @@ class GetPeeringEnvironmentArgs:
                  id: str):
         """
         :param str id: The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+               
+               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         pulumi.set(__self__, "id", id)
 
@@ -3400,6 +3458,8 @@ class GetPeeringEnvironmentArgs:
     def id(self) -> str:
         """
         The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
 
@@ -3414,6 +3474,8 @@ class GetPrivateLinkAccessEnvironmentArgs:
                  id: str):
         """
         :param str id: The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+               
+               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         pulumi.set(__self__, "id", id)
 
@@ -3422,6 +3484,8 @@ class GetPrivateLinkAccessEnvironmentArgs:
     def id(self) -> str:
         """
         The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
 
@@ -3532,6 +3596,8 @@ class GetSchemaRegistryClusterEnvironmentArgs:
                  id: str):
         """
         :param str id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+               
+               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         pulumi.set(__self__, "id", id)
 
@@ -3540,6 +3606,8 @@ class GetSchemaRegistryClusterEnvironmentArgs:
     def id(self) -> str:
         """
         The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
 
@@ -3556,6 +3624,8 @@ class GetSchemaRegistryClusterModeCredentialsArgs:
         """
         :param str key: The Schema Registry API Key.
         :param str secret: The Schema Registry API Secret.
+               
+               > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -3577,6 +3647,8 @@ class GetSchemaRegistryClusterModeCredentialsArgs:
     def secret(self) -> str:
         """
         The Schema Registry API Secret.
+
+        > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
         """
         return pulumi.get(self, "secret")
 
@@ -3985,6 +4057,8 @@ class GetTransitGatewayAttachmentEnvironmentArgs:
                  id: str):
         """
         :param str id: The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+               
+               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         pulumi.set(__self__, "id", id)
 
@@ -3993,6 +4067,8 @@ class GetTransitGatewayAttachmentEnvironmentArgs:
     def id(self) -> str:
         """
         The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
 

@@ -95,6 +95,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+        /// 
+        /// &gt; **Note:** See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to manually find a corresponding region ID based on desired cloud provider region and types of the billing package.
         /// </summary>
         [Input("package", required: true)]
         public string Package { get; set; } = null!;
@@ -121,6 +123,8 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+        /// 
+        /// &gt; **Note:** See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to manually find a corresponding region ID based on desired cloud provider region and types of the billing package.
         /// </summary>
         [Input("package", required: true)]
         public Input<string> Package { get; set; } = null!;

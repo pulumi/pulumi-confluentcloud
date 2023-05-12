@@ -23,7 +23,9 @@ export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<G
 export interface GetTagArgs {
     credentials?: inputs.GetTagCredentials;
     /**
-     * The name of the tag, for example, `PII`.
+     * The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
+     *
+     * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      */
     name: string;
     /**
@@ -68,7 +70,9 @@ export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions
 export interface GetTagOutputArgs {
     credentials?: pulumi.Input<inputs.GetTagCredentialsArgs>;
     /**
-     * The name of the tag, for example, `PII`.
+     * The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
+     *
+     * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      */
     name: pulumi.Input<string>;
     /**

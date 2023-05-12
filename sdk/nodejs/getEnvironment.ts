@@ -48,6 +48,8 @@ export function getEnvironment(args?: GetEnvironmentArgs, opts?: pulumi.InvokeOp
 export interface GetEnvironmentArgs {
     /**
      * A human-readable name for the Environment.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     displayName?: string;
     /**
@@ -111,6 +113,8 @@ export function getEnvironmentOutput(args?: GetEnvironmentOutputArgs, opts?: pul
 export interface GetEnvironmentOutputArgs {
     /**
      * A human-readable name for the Environment.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     displayName?: pulumi.Input<string>;
     /**

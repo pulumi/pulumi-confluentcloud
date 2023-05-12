@@ -19,6 +19,8 @@ namespace Pulumi.ConfluentCloud.Outputs
         public readonly string RamResourceShareArn;
         /// <summary>
         /// List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+        /// 
+        /// &gt; **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
         /// </summary>
         public readonly ImmutableArray<string> Routes;
         /// <summary>

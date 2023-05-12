@@ -136,6 +136,8 @@ def get_identity_pool(display_name: Optional[str] = None,
 
     :param str display_name: A human-readable name for the Identity Pool.
     :param str id: The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param pulumi.InputType['GetIdentityPoolIdentityProviderArgs'] identity_provider: (Required Configuration Block) supports the following:
     """
     __args__ = dict()
@@ -185,6 +187,8 @@ def get_identity_pool_output(display_name: Optional[pulumi.Input[Optional[str]]]
 
     :param str display_name: A human-readable name for the Identity Pool.
     :param str id: The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param pulumi.InputType['GetIdentityPoolIdentityProviderArgs'] identity_provider: (Required Configuration Block) supports the following:
     """
     ...

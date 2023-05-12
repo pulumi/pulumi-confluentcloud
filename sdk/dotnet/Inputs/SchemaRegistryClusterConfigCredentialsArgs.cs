@@ -30,10 +30,6 @@ namespace Pulumi.ConfluentCloud.Inputs
 
         [Input("secret", required: true)]
         private Input<string>? _secret;
-
-        /// <summary>
-        /// The Schema Registry API Secret.
-        /// </summary>
         public Input<string>? Secret
         {
             get => _secret;

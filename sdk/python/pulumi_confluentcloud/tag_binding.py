@@ -25,8 +25,8 @@ class TagBindingArgs:
         """
         The set of arguments for constructing a TagBinding resource.
         :param pulumi.Input[str] entity_name: The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
-        :param pulumi.Input[str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
-        :param pulumi.Input[str] tag_name: The name of the tag to be applied, for example, `PII`.
+        :param pulumi.Input[str] entity_type: The entity type.
+        :param pulumi.Input[str] tag_name: The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input['TagBindingCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
@@ -56,7 +56,7 @@ class TagBindingArgs:
     @pulumi.getter(name="entityType")
     def entity_type(self) -> pulumi.Input[str]:
         """
-        The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+        The entity type.
         """
         return pulumi.get(self, "entity_type")
 
@@ -68,7 +68,7 @@ class TagBindingArgs:
     @pulumi.getter(name="tagName")
     def tag_name(self) -> pulumi.Input[str]:
         """
-        The name of the tag to be applied, for example, `PII`.
+        The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         return pulumi.get(self, "tag_name")
 
@@ -123,9 +123,9 @@ class _TagBindingState:
         Input properties used for looking up and filtering TagBinding resources.
         :param pulumi.Input['TagBindingCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] entity_name: The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
-        :param pulumi.Input[str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+        :param pulumi.Input[str] entity_type: The entity type.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
-        :param pulumi.Input[str] tag_name: The name of the tag to be applied, for example, `PII`.
+        :param pulumi.Input[str] tag_name: The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
@@ -168,7 +168,7 @@ class _TagBindingState:
     @pulumi.getter(name="entityType")
     def entity_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+        The entity type.
         """
         return pulumi.get(self, "entity_type")
 
@@ -201,7 +201,7 @@ class _TagBindingState:
     @pulumi.getter(name="tagName")
     def tag_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the tag to be applied, for example, `PII`.
+        The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         return pulumi.get(self, "tag_name")
 
@@ -237,9 +237,9 @@ class TagBinding(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['TagBindingCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] entity_name: The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
-        :param pulumi.Input[str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+        :param pulumi.Input[str] entity_type: The entity type.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
-        :param pulumi.Input[str] tag_name: The name of the tag to be applied, for example, `PII`.
+        :param pulumi.Input[str] tag_name: The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         ...
     @overload
@@ -327,9 +327,9 @@ class TagBinding(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['TagBindingCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] entity_name: The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
-        :param pulumi.Input[str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+        :param pulumi.Input[str] entity_type: The entity type.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
-        :param pulumi.Input[str] tag_name: The name of the tag to be applied, for example, `PII`.
+        :param pulumi.Input[str] tag_name: The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -363,7 +363,7 @@ class TagBinding(pulumi.CustomResource):
     @pulumi.getter(name="entityType")
     def entity_type(self) -> pulumi.Output[str]:
         """
-        The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+        The entity type.
         """
         return pulumi.get(self, "entity_type")
 
@@ -384,7 +384,7 @@ class TagBinding(pulumi.CustomResource):
     @pulumi.getter(name="tagName")
     def tag_name(self) -> pulumi.Output[str]:
         """
-        The name of the tag to be applied, for example, `PII`.
+        The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         return pulumi.get(self, "tag_name")
 

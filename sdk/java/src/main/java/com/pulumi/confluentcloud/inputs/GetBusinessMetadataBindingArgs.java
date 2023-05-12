@@ -18,14 +18,14 @@ public final class GetBusinessMetadataBindingArgs extends com.pulumi.resources.I
     public static final GetBusinessMetadataBindingArgs Empty = new GetBusinessMetadataBindingArgs();
 
     /**
-     * The name of the Business Metadata to be applied, for example, `PII`.
+     * The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     @Import(name="businessMetadataName", required=true)
     private Output<String> businessMetadataName;
 
     /**
-     * @return The name of the Business Metadata to be applied, for example, `PII`.
+     * @return The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     public Output<String> businessMetadataName() {
@@ -121,7 +121,7 @@ public final class GetBusinessMetadataBindingArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param businessMetadataName The name of the Business Metadata to be applied, for example, `PII`.
+         * @param businessMetadataName The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class GetBusinessMetadataBindingArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param businessMetadataName The name of the Business Metadata to be applied, for example, `PII`.
+         * @param businessMetadataName The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
          * 
          * @return builder
          * 

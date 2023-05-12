@@ -94,6 +94,8 @@ def get_environment(display_name: Optional[str] = None,
 
 
     :param str display_name: A human-readable name for the Environment.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param str id: The ID of the Environment, for example, `env-abc123`.
     """
     __args__ = dict()
@@ -135,6 +137,8 @@ def get_environment_output(display_name: Optional[pulumi.Input[Optional[str]]] =
 
 
     :param str display_name: A human-readable name for the Environment.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param str id: The ID of the Environment, for example, `env-abc123`.
     """
     ...
