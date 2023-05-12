@@ -69,6 +69,8 @@ type LookupTransitGatewayAttachmentArgs struct {
 	// (Required Configuration Block) supports the following:
 	Environment GetTransitGatewayAttachmentEnvironment `pulumi:"environment"`
 	// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id *string `pulumi:"id"`
 }
 
@@ -106,6 +108,8 @@ type LookupTransitGatewayAttachmentOutputArgs struct {
 	// (Required Configuration Block) supports the following:
 	Environment GetTransitGatewayAttachmentEnvironmentInput `pulumi:"environment"`
 	// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 

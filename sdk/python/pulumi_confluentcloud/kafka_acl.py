@@ -28,7 +28,7 @@ class KafkaAclArgs:
                  rest_endpoint: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a KafkaAcl resource.
-        :param pulumi.Input[str] host: The host for the ACL. Should be set to `*` for Confluent Cloud.
+        :param pulumi.Input[str] host: The host for the ACL.
         :param pulumi.Input[str] operation: The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         :param pulumi.Input[str] permission: The permission for the ACL. Accepted values are: `DENY` and `ALLOW`.
@@ -56,7 +56,7 @@ class KafkaAclArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        The host for the ACL. Should be set to `*` for Confluent Cloud.
+        The host for the ACL.
         """
         return pulumi.get(self, "host")
 
@@ -186,7 +186,7 @@ class _KafkaAclState:
         """
         Input properties used for looking up and filtering KafkaAcl resources.
         :param pulumi.Input['KafkaAclCredentialsArgs'] credentials: The Cluster API Credentials.
-        :param pulumi.Input[str] host: The host for the ACL. Should be set to `*` for Confluent Cloud.
+        :param pulumi.Input[str] host: The host for the ACL.
         :param pulumi.Input[str] operation: The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         :param pulumi.Input[str] permission: The permission for the ACL. Accepted values are: `DENY` and `ALLOW`.
@@ -232,7 +232,7 @@ class _KafkaAclState:
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
         """
-        The host for the ACL. Should be set to `*` for Confluent Cloud.
+        The host for the ACL.
         """
         return pulumi.get(self, "host")
 
@@ -370,7 +370,7 @@ class KafkaAcl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KafkaAclCredentialsArgs']] credentials: The Cluster API Credentials.
-        :param pulumi.Input[str] host: The host for the ACL. Should be set to `*` for Confluent Cloud.
+        :param pulumi.Input[str] host: The host for the ACL.
         :param pulumi.Input[str] operation: The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         :param pulumi.Input[str] permission: The permission for the ACL. Accepted values are: `DENY` and `ALLOW`.
@@ -490,7 +490,7 @@ class KafkaAcl(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KafkaAclCredentialsArgs']] credentials: The Cluster API Credentials.
-        :param pulumi.Input[str] host: The host for the ACL. Should be set to `*` for Confluent Cloud.
+        :param pulumi.Input[str] host: The host for the ACL.
         :param pulumi.Input[str] operation: The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         :param pulumi.Input[str] pattern_type: The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
         :param pulumi.Input[str] permission: The permission for the ACL. Accepted values are: `DENY` and `ALLOW`.
@@ -527,7 +527,7 @@ class KafkaAcl(pulumi.CustomResource):
     @pulumi.getter
     def host(self) -> pulumi.Output[str]:
         """
-        The host for the ACL. Should be set to `*` for Confluent Cloud.
+        The host for the ACL.
         """
         return pulumi.get(self, "host")
 

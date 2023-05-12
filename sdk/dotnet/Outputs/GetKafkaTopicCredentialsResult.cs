@@ -17,9 +17,6 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// The Kafka API Key.
         /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// The Kafka API Secret.
-        /// </summary>
         public readonly string Secret;
 
         [OutputConstructor]

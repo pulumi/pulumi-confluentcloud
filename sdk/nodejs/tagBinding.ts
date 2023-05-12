@@ -54,7 +54,7 @@ export class TagBinding extends pulumi.CustomResource {
      */
     public readonly entityName!: pulumi.Output<string>;
     /**
-     * The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * The entity type.
      */
     public readonly entityType!: pulumi.Output<string>;
     /**
@@ -63,7 +63,7 @@ export class TagBinding extends pulumi.CustomResource {
     public readonly restEndpoint!: pulumi.Output<string | undefined>;
     public readonly schemaRegistryCluster!: pulumi.Output<outputs.TagBindingSchemaRegistryCluster | undefined>;
     /**
-     * The name of the tag to be applied, for example, `PII`.
+     * The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
     public readonly tagName!: pulumi.Output<string>;
 
@@ -124,7 +124,7 @@ export interface TagBindingState {
      */
     entityName?: pulumi.Input<string>;
     /**
-     * The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * The entity type.
      */
     entityType?: pulumi.Input<string>;
     /**
@@ -133,7 +133,7 @@ export interface TagBindingState {
     restEndpoint?: pulumi.Input<string>;
     schemaRegistryCluster?: pulumi.Input<inputs.TagBindingSchemaRegistryCluster>;
     /**
-     * The name of the tag to be applied, for example, `PII`.
+     * The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
     tagName?: pulumi.Input<string>;
 }
@@ -151,7 +151,7 @@ export interface TagBindingArgs {
      */
     entityName: pulumi.Input<string>;
     /**
-     * The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * The entity type.
      */
     entityType: pulumi.Input<string>;
     /**
@@ -160,7 +160,7 @@ export interface TagBindingArgs {
     restEndpoint?: pulumi.Input<string>;
     schemaRegistryCluster?: pulumi.Input<inputs.TagBindingSchemaRegistryCluster>;
     /**
-     * The name of the tag to be applied, for example, `PII`.
+     * The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
     tagName: pulumi.Input<string>;
 }

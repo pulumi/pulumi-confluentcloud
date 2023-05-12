@@ -33,28 +33,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="confluentcloud:index/businessMetadataBinding:BusinessMetadataBinding")
 public class BusinessMetadataBinding extends com.pulumi.resources.CustomResource {
     /**
-     * The block of key-value pair attributes.
+     * The attributes.
      * 
      */
     @Export(name="attributes", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> attributes;
 
     /**
-     * @return The block of key-value pair attributes.
+     * @return The attributes.
      * 
      */
     public Output<Map<String,String>> attributes() {
         return this.attributes;
     }
     /**
-     * The name of the Business Metadata to be applied, for example, `PII`.
+     * The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     @Export(name="businessMetadataName", type=String.class, parameters={})
     private Output<String> businessMetadataName;
 
     /**
-     * @return The name of the Business Metadata to be applied, for example, `PII`.
+     * @return The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     public Output<String> businessMetadataName() {

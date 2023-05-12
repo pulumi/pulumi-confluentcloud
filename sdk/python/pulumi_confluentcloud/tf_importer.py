@@ -17,7 +17,7 @@ class TfImporterArgs:
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a TfImporter resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of resources names to export. Defaults to all exportable resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of resources to Import. Defaults to all Importable resources.
         """
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
@@ -26,7 +26,7 @@ class TfImporterArgs:
     @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of resources names to export. Defaults to all exportable resources.
+        A list of resources to Import. Defaults to all Importable resources.
         """
         return pulumi.get(self, "resources")
 
@@ -41,7 +41,7 @@ class _TfImporterState:
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering TfImporter resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of resources names to export. Defaults to all exportable resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of resources to Import. Defaults to all Importable resources.
         """
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
@@ -50,7 +50,7 @@ class _TfImporterState:
     @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of resources names to export. Defaults to all exportable resources.
+        A list of resources to Import. Defaults to all Importable resources.
         """
         return pulumi.get(self, "resources")
 
@@ -70,7 +70,7 @@ class TfImporter(pulumi.CustomResource):
         Create a TfImporter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of resources names to export. Defaults to all exportable resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of resources to Import. Defaults to all Importable resources.
         """
         ...
     @overload
@@ -124,7 +124,7 @@ class TfImporter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of resources names to export. Defaults to all exportable resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of resources to Import. Defaults to all Importable resources.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -137,7 +137,7 @@ class TfImporter(pulumi.CustomResource):
     @pulumi.getter
     def resources(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of resources names to export. Defaults to all exportable resources.
+        A list of resources to Import. Defaults to all Importable resources.
         """
         return pulumi.get(self, "resources")
 

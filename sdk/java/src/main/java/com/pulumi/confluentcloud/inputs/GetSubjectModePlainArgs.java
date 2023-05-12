@@ -48,12 +48,16 @@ public final class GetSubjectModePlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
      * 
+     * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+     * 
      */
     @Import(name="subjectName", required=true)
     private String subjectName;
 
     /**
      * @return The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+     * 
+     * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      * 
      */
     public String subjectName() {
@@ -110,6 +114,8 @@ public final class GetSubjectModePlainArgs extends com.pulumi.resources.InvokeAr
 
         /**
          * @param subjectName The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
+         * 
+         * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
          * 
          * @return builder
          * 

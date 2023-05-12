@@ -55,6 +55,8 @@ export class Network extends pulumi.CustomResource {
     public readonly azures!: pulumi.Output<outputs.NetworkAzure[]>;
     /**
      * The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+     *
+     * > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
      */
     public readonly cidr!: pulumi.Output<string>;
     /**
@@ -194,6 +196,8 @@ export interface NetworkState {
     azures?: pulumi.Input<pulumi.Input<inputs.NetworkAzure>[]>;
     /**
      * The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+     *
+     * > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
      */
     cidr?: pulumi.Input<string>;
     /**
@@ -269,6 +273,8 @@ export interface NetworkArgs {
     azures?: pulumi.Input<pulumi.Input<inputs.NetworkAzure>[]>;
     /**
      * The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
+     *
+     * > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
      */
     cidr?: pulumi.Input<string>;
     /**

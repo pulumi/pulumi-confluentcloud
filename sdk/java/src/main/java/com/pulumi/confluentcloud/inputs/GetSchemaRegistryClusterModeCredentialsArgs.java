@@ -31,12 +31,16 @@ public final class GetSchemaRegistryClusterModeCredentialsArgs extends com.pulum
     /**
      * The Schema Registry API Secret.
      * 
+     * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+     * 
      */
     @Import(name="secret", required=true)
     private Output<String> secret;
 
     /**
      * @return The Schema Registry API Secret.
+     * 
+     * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      * 
      */
     public Output<String> secret() {
@@ -92,6 +96,8 @@ public final class GetSchemaRegistryClusterModeCredentialsArgs extends com.pulum
         /**
          * @param secret The Schema Registry API Secret.
          * 
+         * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+         * 
          * @return builder
          * 
          */
@@ -102,6 +108,8 @@ public final class GetSchemaRegistryClusterModeCredentialsArgs extends com.pulum
 
         /**
          * @param secret The Schema Registry API Secret.
+         * 
+         * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
          * 
          * @return builder
          * 

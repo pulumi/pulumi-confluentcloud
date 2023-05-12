@@ -56,6 +56,8 @@ type GetSchemaRegistryRegionArgs struct {
 	// The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud string `pulumi:"cloud"`
 	// The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+	//
+	// > **Note:** See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to manually find a corresponding region ID based on desired cloud provider region and types of the billing package.
 	Package string `pulumi:"package"`
 	// The cloud service provider region, for example, `us-east-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 	Region string `pulumi:"region"`
@@ -88,6 +90,8 @@ type GetSchemaRegistryRegionOutputArgs struct {
 	// The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud pulumi.StringInput `pulumi:"cloud"`
 	// The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+	//
+	// > **Note:** See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to manually find a corresponding region ID based on desired cloud provider region and types of the billing package.
 	Package pulumi.StringInput `pulumi:"package"`
 	// The cloud service provider region, for example, `us-east-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
 	Region pulumi.StringInput `pulumi:"region"`

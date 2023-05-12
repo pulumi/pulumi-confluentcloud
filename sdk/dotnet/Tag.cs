@@ -30,7 +30,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.TagCredentials?> Credentials { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the tag.
+        /// The description of the tag to be created.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableArray<string>> EntityTypes { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the tag, for example, `PII`.
+        /// The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -129,13 +129,13 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The description of the tag.
+        /// The description of the tag to be created.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the tag, for example, `PII`.
+        /// The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -174,7 +174,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The description of the tag.
+        /// The description of the tag to be created.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The name of the tag, for example, `PII`.
+        /// The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

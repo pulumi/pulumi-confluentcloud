@@ -112,8 +112,10 @@ def get_tag_binding(credentials: Optional[pulumi.InputType['GetTagBindingCredent
 
     :param str entity_name: The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
     :param str entity_type: The entity type, for example, `sr_schema`.
+           
+           > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
-    :param str tag_name: The name of the tag to be applied, for example, `PII`.
+    :param str tag_name: The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
     """
     __args__ = dict()
     __args__['credentials'] = credentials
@@ -148,7 +150,9 @@ def get_tag_binding_output(credentials: Optional[pulumi.Input[Optional[pulumi.In
 
     :param str entity_name: The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
     :param str entity_type: The entity type, for example, `sr_schema`.
+           
+           > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
-    :param str tag_name: The name of the tag to be applied, for example, `PII`.
+    :param str tag_name: The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
     """
     ...

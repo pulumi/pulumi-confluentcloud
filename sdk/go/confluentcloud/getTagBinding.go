@@ -25,11 +25,13 @@ type LookupTagBindingArgs struct {
 	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
 	EntityName string `pulumi:"entityName"`
 	// The entity type, for example, `srSchema`.
+	//
+	// > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
 	EntityType string `pulumi:"entityType"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                             `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *GetTagBindingSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
-	// The name of the tag to be applied, for example, `PII`.
+	// The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	TagName string `pulumi:"tagName"`
 }
 
@@ -64,11 +66,13 @@ type LookupTagBindingOutputArgs struct {
 	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
 	EntityName pulumi.StringInput `pulumi:"entityName"`
 	// The entity type, for example, `srSchema`.
+	//
+	// > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
 	EntityType pulumi.StringInput `pulumi:"entityType"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput                      `pulumi:"restEndpoint"`
 	SchemaRegistryCluster GetTagBindingSchemaRegistryClusterPtrInput `pulumi:"schemaRegistryCluster"`
-	// The name of the tag to be applied, for example, `PII`.
+	// The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	TagName pulumi.StringInput `pulumi:"tagName"`
 }
 

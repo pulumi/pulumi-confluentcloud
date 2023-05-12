@@ -60,14 +60,14 @@ public class TagBinding extends com.pulumi.resources.CustomResource {
         return this.entityName;
     }
     /**
-     * The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * The entity type.
      * 
      */
     @Export(name="entityType", type=String.class, parameters={})
     private Output<String> entityType;
 
     /**
-     * @return The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
+     * @return The entity type.
      * 
      */
     public Output<String> entityType() {
@@ -94,14 +94,14 @@ public class TagBinding extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schemaRegistryCluster);
     }
     /**
-     * The name of the tag to be applied, for example, `PII`.
+     * The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     @Export(name="tagName", type=String.class, parameters={})
     private Output<String> tagName;
 
     /**
-     * @return The name of the tag to be applied, for example, `PII`.
+     * @return The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     public Output<String> tagName() {

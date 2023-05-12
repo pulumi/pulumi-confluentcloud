@@ -25,9 +25,9 @@ import (
 type BusinessMetadataBinding struct {
 	pulumi.CustomResourceState
 
-	// The block of key-value pair attributes.
+	// The attributes.
 	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
-	// The name of the Business Metadata to be applied, for example, `PII`.
+	// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	BusinessMetadataName pulumi.StringOutput `pulumi:"businessMetadataName"`
 	// The Cluster API Credentials.
 	Credentials BusinessMetadataBindingCredentialsPtrOutput `pulumi:"credentials"`
@@ -85,9 +85,9 @@ func GetBusinessMetadataBinding(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BusinessMetadataBinding resources.
 type businessMetadataBindingState struct {
-	// The block of key-value pair attributes.
+	// The attributes.
 	Attributes map[string]string `pulumi:"attributes"`
-	// The name of the Business Metadata to be applied, for example, `PII`.
+	// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	BusinessMetadataName *string `pulumi:"businessMetadataName"`
 	// The Cluster API Credentials.
 	Credentials *BusinessMetadataBindingCredentials `pulumi:"credentials"`
@@ -101,9 +101,9 @@ type businessMetadataBindingState struct {
 }
 
 type BusinessMetadataBindingState struct {
-	// The block of key-value pair attributes.
+	// The attributes.
 	Attributes pulumi.StringMapInput
-	// The name of the Business Metadata to be applied, for example, `PII`.
+	// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	BusinessMetadataName pulumi.StringPtrInput
 	// The Cluster API Credentials.
 	Credentials BusinessMetadataBindingCredentialsPtrInput
@@ -121,9 +121,9 @@ func (BusinessMetadataBindingState) ElementType() reflect.Type {
 }
 
 type businessMetadataBindingArgs struct {
-	// The block of key-value pair attributes.
+	// The attributes.
 	Attributes map[string]string `pulumi:"attributes"`
-	// The name of the Business Metadata to be applied, for example, `PII`.
+	// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	BusinessMetadataName string `pulumi:"businessMetadataName"`
 	// The Cluster API Credentials.
 	Credentials *BusinessMetadataBindingCredentials `pulumi:"credentials"`
@@ -138,9 +138,9 @@ type businessMetadataBindingArgs struct {
 
 // The set of arguments for constructing a BusinessMetadataBinding resource.
 type BusinessMetadataBindingArgs struct {
-	// The block of key-value pair attributes.
+	// The attributes.
 	Attributes pulumi.StringMapInput
-	// The name of the Business Metadata to be applied, for example, `PII`.
+	// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	BusinessMetadataName pulumi.StringInput
 	// The Cluster API Credentials.
 	Credentials BusinessMetadataBindingCredentialsPtrInput
@@ -240,12 +240,12 @@ func (o BusinessMetadataBindingOutput) ToBusinessMetadataBindingOutputWithContex
 	return o
 }
 
-// The block of key-value pair attributes.
+// The attributes.
 func (o BusinessMetadataBindingOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BusinessMetadataBinding) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
-// The name of the Business Metadata to be applied, for example, `PII`.
+// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 func (o BusinessMetadataBindingOutput) BusinessMetadataName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessMetadataBinding) pulumi.StringOutput { return v.BusinessMetadataName }).(pulumi.StringOutput)
 }

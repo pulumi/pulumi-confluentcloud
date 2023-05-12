@@ -31,12 +31,16 @@ public final class GetSchemaRegistryRegionArgs extends com.pulumi.resources.Invo
     /**
      * The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
      * 
+     * &gt; **Note:** See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to manually find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     * 
      */
     @Import(name="package", required=true)
     private Output<String> package_;
 
     /**
      * @return The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+     * 
+     * &gt; **Note:** See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to manually find a corresponding region ID based on desired cloud provider region and types of the billing package.
      * 
      */
     public Output<String> package_() {
@@ -108,6 +112,8 @@ public final class GetSchemaRegistryRegionArgs extends com.pulumi.resources.Invo
         /**
          * @param package_ The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
          * 
+         * &gt; **Note:** See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to manually find a corresponding region ID based on desired cloud provider region and types of the billing package.
+         * 
          * @return builder
          * 
          */
@@ -118,6 +124,8 @@ public final class GetSchemaRegistryRegionArgs extends com.pulumi.resources.Invo
 
         /**
          * @param package_ The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+         * 
+         * &gt; **Note:** See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to manually find a corresponding region ID based on desired cloud provider region and types of the billing package.
          * 
          * @return builder
          * 

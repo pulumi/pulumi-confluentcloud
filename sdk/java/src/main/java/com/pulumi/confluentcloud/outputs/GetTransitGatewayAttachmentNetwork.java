@@ -12,12 +12,16 @@ public final class GetTransitGatewayAttachmentNetwork {
     /**
      * @return The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
      * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * 
      */
     private String id;
 
     private GetTransitGatewayAttachmentNetwork() {}
     /**
      * @return The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
+     * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
      * 
      */
     public String id() {

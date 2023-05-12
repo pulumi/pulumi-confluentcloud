@@ -129,7 +129,9 @@ def get_business_metadata(credentials: Optional[pulumi.InputType['GetBusinessMet
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the Business Metadata, for example, `PII`.
+    :param str name: The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
+           
+           > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """
     __args__ = dict()
@@ -160,7 +162,9 @@ def get_business_metadata_output(credentials: Optional[pulumi.Input[Optional[pul
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: The name of the Business Metadata, for example, `PII`.
+    :param str name: The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
+           
+           > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """
     ...

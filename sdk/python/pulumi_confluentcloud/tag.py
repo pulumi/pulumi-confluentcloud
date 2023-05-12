@@ -24,8 +24,8 @@ class TagArgs:
         """
         The set of arguments for constructing a Tag resource.
         :param pulumi.Input['TagCredentialsArgs'] credentials: The Cluster API Credentials.
-        :param pulumi.Input[str] description: The description of the tag.
-        :param pulumi.Input[str] name: The name of the tag, for example, `PII`.
+        :param pulumi.Input[str] description: The description of the tag to be created.
+        :param pulumi.Input[str] name: The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         if credentials is not None:
@@ -55,7 +55,7 @@ class TagArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the tag.
+        The description of the tag to be created.
         """
         return pulumi.get(self, "description")
 
@@ -67,7 +67,7 @@ class TagArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the tag, for example, `PII`.
+        The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         return pulumi.get(self, "name")
 
@@ -110,9 +110,9 @@ class _TagState:
         """
         Input properties used for looking up and filtering Tag resources.
         :param pulumi.Input['TagCredentialsArgs'] credentials: The Cluster API Credentials.
-        :param pulumi.Input[str] description: The description of the tag.
+        :param pulumi.Input[str] description: The description of the tag to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_types: (Optional List of String) The entity types of the tag, this always returns `["cf_entity"]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
-        :param pulumi.Input[str] name: The name of the tag, for example, `PII`.
+        :param pulumi.Input[str] name: The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[int] version: (Optional Integer) The version, for example, `1`.
         """
@@ -147,7 +147,7 @@ class _TagState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the tag.
+        The description of the tag to be created.
         """
         return pulumi.get(self, "description")
 
@@ -171,7 +171,7 @@ class _TagState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the tag, for example, `PII`.
+        The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         return pulumi.get(self, "name")
 
@@ -238,8 +238,8 @@ class Tag(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['TagCredentialsArgs']] credentials: The Cluster API Credentials.
-        :param pulumi.Input[str] description: The description of the tag.
-        :param pulumi.Input[str] name: The name of the tag, for example, `PII`.
+        :param pulumi.Input[str] description: The description of the tag to be created.
+        :param pulumi.Input[str] name: The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         ...
@@ -322,9 +322,9 @@ class Tag(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['TagCredentialsArgs']] credentials: The Cluster API Credentials.
-        :param pulumi.Input[str] description: The description of the tag.
+        :param pulumi.Input[str] description: The description of the tag to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] entity_types: (Optional List of String) The entity types of the tag, this always returns `["cf_entity"]`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
-        :param pulumi.Input[str] name: The name of the tag, for example, `PII`.
+        :param pulumi.Input[str] name: The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[int] version: (Optional Integer) The version, for example, `1`.
         """
@@ -353,7 +353,7 @@ class Tag(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the tag.
+        The description of the tag to be created.
         """
         return pulumi.get(self, "description")
 
@@ -369,7 +369,7 @@ class Tag(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the tag, for example, `PII`.
+        The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         return pulumi.get(self, "name")
 

@@ -24,13 +24,13 @@ namespace Pulumi.ConfluentCloud
     public partial class BusinessMetadataBinding : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The block of key-value pair attributes.
+        /// The attributes.
         /// </summary>
         [Output("attributes")]
         public Output<ImmutableDictionary<string, string>> Attributes { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Business Metadata to be applied, for example, `PII`.
+        /// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Output("businessMetadataName")]
         public Output<string> BusinessMetadataName { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.ConfluentCloud
         private InputMap<string>? _attributes;
 
         /// <summary>
-        /// The block of key-value pair attributes.
+        /// The attributes.
         /// </summary>
         public InputMap<string> Attributes
         {
@@ -125,7 +125,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The name of the Business Metadata to be applied, for example, `PII`.
+        /// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Input("businessMetadataName", required: true)]
         public Input<string> BusinessMetadataName { get; set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.ConfluentCloud
         private InputMap<string>? _attributes;
 
         /// <summary>
-        /// The block of key-value pair attributes.
+        /// The attributes.
         /// </summary>
         public InputMap<string> Attributes
         {
@@ -188,7 +188,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The name of the Business Metadata to be applied, for example, `PII`.
+        /// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Input("businessMetadataName")]
         public Input<string>? BusinessMetadataName { get; set; }

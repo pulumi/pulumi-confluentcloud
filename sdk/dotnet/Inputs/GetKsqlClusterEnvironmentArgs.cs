@@ -14,6 +14,8 @@ namespace Pulumi.ConfluentCloud.Inputs
     {
         /// <summary>
         /// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
+        /// 
+        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

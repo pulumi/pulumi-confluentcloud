@@ -239,10 +239,10 @@ class KafkaClientQuota(pulumi.CustomResource):
                 confluent_service_account["app_manager_2"]["id"],
             ],
             kafka_cluster=confluentcloud.KafkaClientQuotaKafkaClusterArgs(
-                id=confluent_kafka_cluster["dedicated"]["id"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             environment=confluentcloud.KafkaClientQuotaEnvironmentArgs(
-                id=confluent_environment["development"]["id"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 
@@ -289,10 +289,10 @@ class KafkaClientQuota(pulumi.CustomResource):
                 confluent_service_account["app_manager_2"]["id"],
             ],
             kafka_cluster=confluentcloud.KafkaClientQuotaKafkaClusterArgs(
-                id=confluent_kafka_cluster["dedicated"]["id"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             environment=confluentcloud.KafkaClientQuotaEnvironmentArgs(
-                id=confluent_environment["development"]["id"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 

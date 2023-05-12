@@ -23,6 +23,8 @@ namespace Pulumi.ConfluentCloud.Inputs
 
         /// <summary>
         /// List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+        /// 
+        /// &gt; **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
         /// </summary>
         public InputList<string> Routes
         {

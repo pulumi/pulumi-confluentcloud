@@ -41,6 +41,8 @@ export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.In
 export interface GetServiceAccountArgs {
     /**
      * A human-readable name for the Service Account.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     displayName?: string;
     /**
@@ -105,6 +107,8 @@ export function getServiceAccountOutput(args?: GetServiceAccountOutputArgs, opts
 export interface GetServiceAccountOutputArgs {
     /**
      * A human-readable name for the Service Account.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     displayName?: pulumi.Input<string>;
     /**

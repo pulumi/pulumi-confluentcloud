@@ -17,12 +17,16 @@ public final class GetServiceAccountPlainArgs extends com.pulumi.resources.Invok
     /**
      * A human-readable name for the Service Account.
      * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * 
      */
     @Import(name="displayName")
     private @Nullable String displayName;
 
     /**
      * @return A human-readable name for the Service Account.
+     * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
      * 
      */
     public Optional<String> displayName() {
@@ -71,6 +75,8 @@ public final class GetServiceAccountPlainArgs extends com.pulumi.resources.Invok
 
         /**
          * @param displayName A human-readable name for the Service Account.
+         * 
+         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
          * 
          * @return builder
          * 

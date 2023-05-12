@@ -17,6 +17,10 @@ public final class KafkaClusterConfigCredentials {
     /**
      * @return The Kafka API Secret.
      * 
+     * &gt; **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+     * 
+     * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target=&#34;confluent_kafka_cluster_config.orders&#34;`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_kafka_cluster_config.orders&#34; -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
+     * 
      */
     private String secret;
 
@@ -30,6 +34,10 @@ public final class KafkaClusterConfigCredentials {
     }
     /**
      * @return The Kafka API Secret.
+     * 
+     * &gt; **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.
+     * 
+     * &gt; **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target=&#34;confluent_kafka_cluster_config.orders&#34;`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=&#34;confluent_kafka_cluster_config.orders&#34; -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
      * 
      */
     public String secret() {

@@ -95,6 +95,8 @@ def get_schema_registry_region(cloud: Optional[str] = None,
 
     :param str cloud: The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
     :param str package: The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+           
+           > **Note:** See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to manually find a corresponding region ID based on desired cloud provider region and types of the billing package.
     :param str region: The cloud service provider region, for example, `us-east-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
     """
     __args__ = dict()
@@ -136,6 +138,8 @@ def get_schema_registry_region_output(cloud: Optional[pulumi.Input[str]] = None,
 
     :param str cloud: The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
     :param str package: The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+           
+           > **Note:** See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to manually find a corresponding region ID based on desired cloud provider region and types of the billing package.
     :param str region: The cloud service provider region, for example, `us-east-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
     """
     ...

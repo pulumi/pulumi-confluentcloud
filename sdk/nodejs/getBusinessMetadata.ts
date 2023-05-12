@@ -23,7 +23,9 @@ export function getBusinessMetadata(args: GetBusinessMetadataArgs, opts?: pulumi
 export interface GetBusinessMetadataArgs {
     credentials?: inputs.GetBusinessMetadataCredentials;
     /**
-     * The name of the Business Metadata, for example, `PII`.
+     * The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
+     *
+     * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      */
     name: string;
     /**
@@ -71,7 +73,9 @@ export function getBusinessMetadataOutput(args: GetBusinessMetadataOutputArgs, o
 export interface GetBusinessMetadataOutputArgs {
     credentials?: pulumi.Input<inputs.GetBusinessMetadataCredentialsArgs>;
     /**
-     * The name of the Business Metadata, for example, `PII`.
+     * The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
+     *
+     * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      */
     name: pulumi.Input<string>;
     /**

@@ -35,7 +35,7 @@ type KafkaAcl struct {
 
 	// The Cluster API Credentials.
 	Credentials KafkaAclCredentialsPtrOutput `pulumi:"credentials"`
-	// The host for the ACL. Should be set to `*` for Confluent Cloud.
+	// The host for the ACL.
 	Host         pulumi.StringOutput           `pulumi:"host"`
 	KafkaCluster KafkaAclKafkaClusterPtrOutput `pulumi:"kafkaCluster"`
 	// The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
@@ -113,7 +113,7 @@ func GetKafkaAcl(ctx *pulumi.Context,
 type kafkaAclState struct {
 	// The Cluster API Credentials.
 	Credentials *KafkaAclCredentials `pulumi:"credentials"`
-	// The host for the ACL. Should be set to `*` for Confluent Cloud.
+	// The host for the ACL.
 	Host         *string               `pulumi:"host"`
 	KafkaCluster *KafkaAclKafkaCluster `pulumi:"kafkaCluster"`
 	// The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
@@ -135,7 +135,7 @@ type kafkaAclState struct {
 type KafkaAclState struct {
 	// The Cluster API Credentials.
 	Credentials KafkaAclCredentialsPtrInput
-	// The host for the ACL. Should be set to `*` for Confluent Cloud.
+	// The host for the ACL.
 	Host         pulumi.StringPtrInput
 	KafkaCluster KafkaAclKafkaClusterPtrInput
 	// The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
@@ -161,7 +161,7 @@ func (KafkaAclState) ElementType() reflect.Type {
 type kafkaAclArgs struct {
 	// The Cluster API Credentials.
 	Credentials *KafkaAclCredentials `pulumi:"credentials"`
-	// The host for the ACL. Should be set to `*` for Confluent Cloud.
+	// The host for the ACL.
 	Host         string                `pulumi:"host"`
 	KafkaCluster *KafkaAclKafkaCluster `pulumi:"kafkaCluster"`
 	// The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
@@ -184,7 +184,7 @@ type kafkaAclArgs struct {
 type KafkaAclArgs struct {
 	// The Cluster API Credentials.
 	Credentials KafkaAclCredentialsPtrInput
-	// The host for the ACL. Should be set to `*` for Confluent Cloud.
+	// The host for the ACL.
 	Host         pulumi.StringInput
 	KafkaCluster KafkaAclKafkaClusterPtrInput
 	// The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
@@ -295,7 +295,7 @@ func (o KafkaAclOutput) Credentials() KafkaAclCredentialsPtrOutput {
 	return o.ApplyT(func(v *KafkaAcl) KafkaAclCredentialsPtrOutput { return v.Credentials }).(KafkaAclCredentialsPtrOutput)
 }
 
-// The host for the ACL. Should be set to `*` for Confluent Cloud.
+// The host for the ACL.
 func (o KafkaAclOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaAcl) pulumi.StringOutput { return v.Host }).(pulumi.StringOutput)
 }

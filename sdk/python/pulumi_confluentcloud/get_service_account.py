@@ -114,6 +114,8 @@ def get_service_account(display_name: Optional[str] = None,
 
 
     :param str display_name: A human-readable name for the Service Account.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param str id: The ID of the Service Account (e.g., `sa-abc123`).
     """
     __args__ = dict()
@@ -153,6 +155,8 @@ def get_service_account_output(display_name: Optional[pulumi.Input[Optional[str]
 
 
     :param str display_name: A human-readable name for the Service Account.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param str id: The ID of the Service Account (e.g., `sa-abc123`).
     """
     ...

@@ -19,14 +19,14 @@ public final class BusinessMetadataBindingState extends com.pulumi.resources.Res
     public static final BusinessMetadataBindingState Empty = new BusinessMetadataBindingState();
 
     /**
-     * The block of key-value pair attributes.
+     * The attributes.
      * 
      */
     @Import(name="attributes")
     private @Nullable Output<Map<String,String>> attributes;
 
     /**
-     * @return The block of key-value pair attributes.
+     * @return The attributes.
      * 
      */
     public Optional<Output<Map<String,String>>> attributes() {
@@ -34,14 +34,14 @@ public final class BusinessMetadataBindingState extends com.pulumi.resources.Res
     }
 
     /**
-     * The name of the Business Metadata to be applied, for example, `PII`.
+     * The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     @Import(name="businessMetadataName")
     private @Nullable Output<String> businessMetadataName;
 
     /**
-     * @return The name of the Business Metadata to be applied, for example, `PII`.
+     * @return The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     public Optional<Output<String>> businessMetadataName() {
@@ -146,7 +146,7 @@ public final class BusinessMetadataBindingState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param attributes The block of key-value pair attributes.
+         * @param attributes The attributes.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class BusinessMetadataBindingState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param attributes The block of key-value pair attributes.
+         * @param attributes The attributes.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class BusinessMetadataBindingState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param businessMetadataName The name of the Business Metadata to be applied, for example, `PII`.
+         * @param businessMetadataName The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class BusinessMetadataBindingState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param businessMetadataName The name of the Business Metadata to be applied, for example, `PII`.
+         * @param businessMetadataName The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
          * 
          * @return builder
          * 

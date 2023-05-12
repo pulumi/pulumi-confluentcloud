@@ -59,6 +59,8 @@ export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promis
 export interface GetUserArgs {
     /**
      * The email address of the User.
+     *
+     * > **Note:** Exactly one from the `id`, `fullName` and `email` attributes must be specified.
      */
     email?: string;
     /**
@@ -144,6 +146,8 @@ export function getUserOutput(args?: GetUserOutputArgs, opts?: pulumi.InvokeOpti
 export interface GetUserOutputArgs {
     /**
      * The email address of the User.
+     *
+     * > **Note:** Exactly one from the `id`, `fullName` and `email` attributes must be specified.
      */
     email?: pulumi.Input<string>;
     /**

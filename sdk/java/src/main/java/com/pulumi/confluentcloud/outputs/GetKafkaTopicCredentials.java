@@ -14,10 +14,6 @@ public final class GetKafkaTopicCredentials {
      * 
      */
     private String key;
-    /**
-     * @return The Kafka API Secret.
-     * 
-     */
     private String secret;
 
     private GetKafkaTopicCredentials() {}
@@ -28,10 +24,6 @@ public final class GetKafkaTopicCredentials {
     public String key() {
         return this.key;
     }
-    /**
-     * @return The Kafka API Secret.
-     * 
-     */
     public String secret() {
         return this.secret;
     }

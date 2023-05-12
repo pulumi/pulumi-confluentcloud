@@ -20,6 +20,8 @@ public final class TransitGatewayAttachmentAws {
     /**
      * @return List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
      * 
+     * &gt; **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
+     * 
      */
     private List<String> routes;
     /**
@@ -43,6 +45,8 @@ public final class TransitGatewayAttachmentAws {
     }
     /**
      * @return List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.
+     * 
+     * &gt; **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).
      * 
      */
     public List<String> routes() {

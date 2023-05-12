@@ -33,12 +33,16 @@ public final class GetIdentityPoolPlainArgs extends com.pulumi.resources.InvokeA
     /**
      * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
      * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
      * @return The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+     * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
      * 
      */
     public Optional<String> id() {
@@ -99,6 +103,8 @@ public final class GetIdentityPoolPlainArgs extends com.pulumi.resources.InvokeA
 
         /**
          * @param id The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+         * 
+         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
          * 
          * @return builder
          * 

@@ -30,8 +30,7 @@ type Connector struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironmentOutput  `pulumi:"environment"`
 	KafkaCluster ConnectorKafkaClusterOutput `pulumi:"kafkaCluster"`
-	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status       pulumi.StringOutput         `pulumi:"status"`
 }
 
 // NewConnector registers a new resource with the given unique name, arguments, and options.
@@ -86,8 +85,7 @@ type connectorState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  *ConnectorEnvironment  `pulumi:"environment"`
 	KafkaCluster *ConnectorKafkaCluster `pulumi:"kafkaCluster"`
-	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
-	Status *string `pulumi:"status"`
+	Status       *string                `pulumi:"status"`
 }
 
 type ConnectorState struct {
@@ -98,8 +96,7 @@ type ConnectorState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironmentPtrInput
 	KafkaCluster ConnectorKafkaClusterPtrInput
-	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
-	Status pulumi.StringPtrInput
+	Status       pulumi.StringPtrInput
 }
 
 func (ConnectorState) ElementType() reflect.Type {
@@ -114,8 +111,7 @@ type connectorArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironment  `pulumi:"environment"`
 	KafkaCluster ConnectorKafkaCluster `pulumi:"kafkaCluster"`
-	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
-	Status *string `pulumi:"status"`
+	Status       *string               `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Connector resource.
@@ -127,8 +123,7 @@ type ConnectorArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironmentInput
 	KafkaCluster ConnectorKafkaClusterInput
-	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
-	Status pulumi.StringPtrInput
+	Status       pulumi.StringPtrInput
 }
 
 func (ConnectorArgs) ElementType() reflect.Type {
@@ -237,7 +232,6 @@ func (o ConnectorOutput) KafkaCluster() ConnectorKafkaClusterOutput {
 	return o.ApplyT(func(v *Connector) ConnectorKafkaClusterOutput { return v.KafkaCluster }).(ConnectorKafkaClusterOutput)
 }
 
-// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
 func (o ConnectorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

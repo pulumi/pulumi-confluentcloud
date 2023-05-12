@@ -56,7 +56,7 @@ export class KafkaAcl extends pulumi.CustomResource {
      */
     public readonly credentials!: pulumi.Output<outputs.KafkaAclCredentials | undefined>;
     /**
-     * The host for the ACL. Should be set to `*` for Confluent Cloud.
+     * The host for the ACL.
      */
     public readonly host!: pulumi.Output<string>;
     public readonly kafkaCluster!: pulumi.Output<outputs.KafkaAclKafkaCluster | undefined>;
@@ -162,7 +162,7 @@ export interface KafkaAclState {
      */
     credentials?: pulumi.Input<inputs.KafkaAclCredentials>;
     /**
-     * The host for the ACL. Should be set to `*` for Confluent Cloud.
+     * The host for the ACL.
      */
     host?: pulumi.Input<string>;
     kafkaCluster?: pulumi.Input<inputs.KafkaAclKafkaCluster>;
@@ -205,7 +205,7 @@ export interface KafkaAclArgs {
      */
     credentials?: pulumi.Input<inputs.KafkaAclCredentials>;
     /**
-     * The host for the ACL. Should be set to `*` for Confluent Cloud.
+     * The host for the ACL.
      */
     host: pulumi.Input<string>;
     kafkaCluster?: pulumi.Input<inputs.KafkaAclKafkaCluster>;

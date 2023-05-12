@@ -268,7 +268,6 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Schema Registry API Secret.\n",
                     "secret": true
                 }
             },
@@ -557,7 +556,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.\n",
+                    "description": "The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.\n\n\u003e **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.\n\n\u003e **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -570,7 +569,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.\n",
+                    "description": "The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.\n\n\u003e **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.\n\n\u003e **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -621,7 +620,7 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Kafka API Secret.\n",
+                    "description": "The Kafka API Secret.\n\n\u003e **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.\n\n\u003e **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target=\"confluent_kafka_cluster_config.orders\"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=\"confluent_kafka_cluster_config.orders\" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.\n",
                     "secret": true
                 }
             },
@@ -647,8 +646,7 @@
         "confluentcloud:index/KafkaClusterDedicated:KafkaClusterDedicated": {
             "properties": {
                 "cku": {
-                    "type": "integer",
-                    "description": "The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.\n"
+                    "type": "integer"
                 },
                 "encryptionKey": {
                     "type": "string"
@@ -779,7 +777,7 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Kafka API Secret.\n",
+                    "description": "The Kafka API Secret.\n\n\u003e **Note:** A Kafka API key consists of a key and a secret. Kafka API keys are required to interact with Kafka clusters in Confluent Cloud. Each Kafka API key is valid for one specific Kafka cluster.\n\n\u003e **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target=\"confluent_kafka_topic.orders\"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=\"confluent_kafka_topic.orders\" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.\n",
                     "secret": true
                 }
             },
@@ -1037,7 +1035,7 @@
             "properties": {
                 "cidr": {
                     "type": "string",
-                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n"
+                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n\n\u003e **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.\n"
                 },
                 "zoneId": {
                     "type": "string",
@@ -1130,7 +1128,7 @@
             "properties": {
                 "importCustomRoutes": {
                     "type": "boolean",
-                    "description": "The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).\n",
+                    "description": "The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).\n\n\u003e **Note:** Exactly one from the `aws`, `azure`, and `gcp` configuration blocks must be specified.\n\n\u003e **Note:** Learn more about VPC Peering requirements on AWS [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws).\n\n\u003e **Note:** Learn more about VNet Peering requirements on Azure [here](https://docs.confluent.io/cloud/current/networking/peering/azure-peering.html#vnet-peering-on-az).\n\n\u003e **Note:** Learn more about VPC Peering requirements on Google Cloud Platform [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#vpc-peering-on-gcp).\n",
                     "willReplaceOnChanges": true
                 },
                 "project": {
@@ -1206,7 +1204,7 @@
             "properties": {
                 "project": {
                     "type": "string",
-                    "description": "The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).\n",
+                    "description": "The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).\n\n\u003e **Note:** Exactly one from the `aws`, `azure`, `gcp` configuration blocks must be specified.\n\n\u003e **Note:** Learn more about Private Link Access limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/private-links/aws-privatelink.html#limitations).\n\n\u003e **Note:** Learn more about Private Link Access limitations on Azure [here](https://docs.confluent.io/cloud/current/networking/private-links/azure-privatelink.html#limitations).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1237,7 +1235,6 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Schema Registry API Secret.\n",
                     "secret": true
                 }
             },
@@ -1256,7 +1253,6 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Schema Registry API Secret.\n",
                     "secret": true
                 }
             },
@@ -1301,7 +1297,6 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Schema Registry API Secret.\n",
                     "secret": true
                 }
             },
@@ -1381,7 +1376,6 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Schema Registry API Secret.\n",
                     "secret": true
                 }
             },
@@ -1413,7 +1407,6 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Schema Registry API Secret.\n",
                     "secret": true
                 }
             },
@@ -1512,7 +1505,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.\n",
+                    "description": "List of destination routes for traffic from Confluent VPC to customer VPC via Transit Gateway.\n\n\u003e **Note:** Learn more about Transit Gateway Attachment limitations on AWS [here](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html#limitations).\n",
                     "willReplaceOnChanges": true
                 },
                 "transitGatewayAttachmentId": {
@@ -1584,7 +1577,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the Business Metadata, for example, `PII`.\n"
+                    "description": "The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n\n\u003e **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.\n"
                 },
                 "options": {
                     "type": "object",
@@ -1622,7 +1615,7 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Schema Registry API Secret.\n",
+                    "description": "The Schema Registry API Secret.\n\n\u003e **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.\n",
                     "secret": true
                 }
             },
@@ -1736,7 +1729,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.\n"
+                    "description": "The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -1841,7 +1834,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -1887,7 +1880,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -1899,7 +1892,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -1924,7 +1917,6 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Kafka API Secret.\n",
                     "secret": true
                 }
             },
@@ -1950,7 +1942,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -1967,7 +1959,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -1979,7 +1971,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -2060,7 +2052,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the Network belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -2289,7 +2281,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -2328,7 +2320,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -2379,7 +2371,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -2408,7 +2400,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -2475,7 +2467,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -2492,7 +2484,7 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Schema Registry API Secret.\n",
+                    "description": "The Schema Registry API Secret.\n\n\u003e **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.\n",
                     "secret": true
                 }
             },
@@ -2518,7 +2510,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -2853,7 +2845,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -2865,7 +2857,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                 }
             },
             "type": "object",
@@ -3215,11 +3207,11 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "The block of key-value pair attributes.\n"
+                    "description": "The attributes.\n"
                 },
                 "businessMetadataName": {
                     "type": "string",
-                    "description": "The name of the Business Metadata to be applied, for example, `PII`.\n"
+                    "description": "The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n"
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/BusinessMetadataBindingCredentials:BusinessMetadataBindingCredentials",
@@ -3254,11 +3246,11 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "The block of key-value pair attributes.\n"
+                    "description": "The attributes.\n"
                 },
                 "businessMetadataName": {
                     "type": "string",
-                    "description": "The name of the Business Metadata to be applied, for example, `PII`.\n",
+                    "description": "The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n",
                     "willReplaceOnChanges": true
                 },
                 "credentials": {
@@ -3299,11 +3291,11 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "The block of key-value pair attributes.\n"
+                        "description": "The attributes.\n"
                     },
                     "businessMetadataName": {
                         "type": "string",
-                        "description": "The name of the Business Metadata to be applied, for example, `PII`.\n",
+                        "description": "The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n",
                         "willReplaceOnChanges": true
                     },
                     "credentials": {
@@ -3509,8 +3501,7 @@
                     "$ref": "#/types/confluentcloud:index/ConnectorKafkaCluster:ConnectorKafkaCluster"
                 },
                 "status": {
-                    "type": "string",
-                    "description": "The status of the connector (one of `\"NONE\"`, `\"PROVISIONING\"`, `\"RUNNING\"`, `\"DEGRADED\"`, `\"FAILED\"`, `\"PAUSED\"`, `\"DELETED\"`). Pausing (`\"RUNNING\" \u003e \"PAUSED\"`) and resuming (`\"PAUSED\" \u003e \"RUNNING\"`) a connector is supported via an update operation.\n"
+                    "type": "string"
                 }
             },
             "required": [
@@ -3546,8 +3537,7 @@
                     "willReplaceOnChanges": true
                 },
                 "status": {
-                    "type": "string",
-                    "description": "The status of the connector (one of `\"NONE\"`, `\"PROVISIONING\"`, `\"RUNNING\"`, `\"DEGRADED\"`, `\"FAILED\"`, `\"PAUSED\"`, `\"DELETED\"`). Pausing (`\"RUNNING\" \u003e \"PAUSED\"`) and resuming (`\"PAUSED\" \u003e \"RUNNING\"`) a connector is supported via an update operation.\n"
+                    "type": "string"
                 }
             },
             "requiredInputs": [
@@ -3583,8 +3573,7 @@
                         "willReplaceOnChanges": true
                     },
                     "status": {
-                        "type": "string",
-                        "description": "The status of the connector (one of `\"NONE\"`, `\"PROVISIONING\"`, `\"RUNNING\"`, `\"DEGRADED\"`, `\"FAILED\"`, `\"PAUSED\"`, `\"DELETED\"`). Pausing (`\"RUNNING\" \u003e \"PAUSED\"`) and resuming (`\"PAUSED\" \u003e \"RUNNING\"`) a connector is supported via an update operation.\n"
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -3733,7 +3722,7 @@
                 },
                 "jwksUri": {
                     "type": "string",
-                    "description": "A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.\n"
+                    "description": "A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.\n\n\u003e **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.\n"
                 }
             },
             "required": [
@@ -3758,7 +3747,7 @@
                 },
                 "jwksUri": {
                     "type": "string",
-                    "description": "A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.\n",
+                    "description": "A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.\n\n\u003e **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -3786,7 +3775,7 @@
                     },
                     "jwksUri": {
                         "type": "string",
-                        "description": "A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.\n",
+                        "description": "A publicly reachable JSON Web Key Set (JWKS) URI for the Identity Provider. A JSON Web Key Set (JWKS) provides a set of keys containing the public keys used to verify any JSON Web Token (JWT) issued by your OAuth 2.0 identity provider.\n\n\u003e **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -3906,7 +3895,7 @@
                 },
                 "host": {
                     "type": "string",
-                    "description": "The host for the ACL. Should be set to `*` for Confluent Cloud.\n"
+                    "description": "The host for the ACL.\n"
                 },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/KafkaAclKafkaCluster:KafkaAclKafkaCluster"
@@ -3957,7 +3946,7 @@
                 },
                 "host": {
                     "type": "string",
-                    "description": "The host for the ACL. Should be set to `*` for Confluent Cloud.\n",
+                    "description": "The host for the ACL.\n",
                     "willReplaceOnChanges": true
                 },
                 "kafkaCluster": {
@@ -4019,7 +4008,7 @@
                     },
                     "host": {
                         "type": "string",
-                        "description": "The host for the ACL. Should be set to `*` for Confluent Cloud.\n",
+                        "description": "The host for the ACL.\n",
                         "willReplaceOnChanges": true
                     },
                     "kafkaCluster": {
@@ -4066,7 +4055,7 @@
             }
         },
         "confluentcloud:index/kafkaClientQuota:KafkaClientQuota": {
-            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.KafkaClientQuota(\"example\", {\n    displayName: \"test-quota\",\n    description: \"Test Quota\",\n    throughput: {\n        ingressByteRate: \"100\",\n        egressByteRate: \"200\",\n    },\n    principals: [\n        confluent_service_account.app_manager.id,\n        confluent_service_account.app_manager_2.id,\n    ],\n    kafkaCluster: {\n        id: confluent_kafka_cluster.dedicated.id,\n    },\n    environment: {\n        id: confluent_environment.development.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.KafkaClientQuota(\"example\",\n    display_name=\"test-quota\",\n    description=\"Test Quota\",\n    throughput=confluentcloud.KafkaClientQuotaThroughputArgs(\n        ingress_byte_rate=\"100\",\n        egress_byte_rate=\"200\",\n    ),\n    principals=[\n        confluent_service_account[\"app_manager\"][\"id\"],\n        confluent_service_account[\"app_manager_2\"][\"id\"],\n    ],\n    kafka_cluster=confluentcloud.KafkaClientQuotaKafkaClusterArgs(\n        id=confluent_kafka_cluster[\"dedicated\"][\"id\"],\n    ),\n    environment=confluentcloud.KafkaClientQuotaEnvironmentArgs(\n        id=confluent_environment[\"development\"][\"id\"],\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.KafkaClientQuota(\"example\", new()\n    {\n        DisplayName = \"test-quota\",\n        Description = \"Test Quota\",\n        Throughput = new ConfluentCloud.Inputs.KafkaClientQuotaThroughputArgs\n        {\n            IngressByteRate = \"100\",\n            EgressByteRate = \"200\",\n        },\n        Principals = new[]\n        {\n            confluent_service_account.App_manager.Id,\n            confluent_service_account.App_manager_2.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.KafkaClientQuotaKafkaClusterArgs\n        {\n            Id = confluent_kafka_cluster.Dedicated.Id,\n        },\n        Environment = new ConfluentCloud.Inputs.KafkaClientQuotaEnvironmentArgs\n        {\n            Id = confluent_environment.Development.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewKafkaClientQuota(ctx, \"example\", \u0026confluentcloud.KafkaClientQuotaArgs{\n\t\t\tDisplayName: pulumi.String(\"test-quota\"),\n\t\t\tDescription: pulumi.String(\"Test Quota\"),\n\t\t\tThroughput: \u0026confluentcloud.KafkaClientQuotaThroughputArgs{\n\t\t\t\tIngressByteRate: pulumi.String(\"100\"),\n\t\t\t\tEgressByteRate:  pulumi.String(\"200\"),\n\t\t\t},\n\t\t\tPrincipals: pulumi.StringArray{\n\t\t\t\tconfluent_service_account.App_manager.Id,\n\t\t\t\tconfluent_service_account.App_manager_2.Id,\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.KafkaClientQuotaKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(confluent_kafka_cluster.Dedicated.Id),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.KafkaClientQuotaEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(confluent_environment.Development.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.KafkaClientQuota;\nimport com.pulumi.confluentcloud.KafkaClientQuotaArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClientQuotaThroughputArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClientQuotaKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClientQuotaEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new KafkaClientQuota(\"example\", KafkaClientQuotaArgs.builder()        \n            .displayName(\"test-quota\")\n            .description(\"Test Quota\")\n            .throughput(KafkaClientQuotaThroughputArgs.builder()\n                .ingressByteRate(\"100\")\n                .egressByteRate(\"200\")\n                .build())\n            .principals(            \n                confluent_service_account.app_manager().id(),\n                confluent_service_account.app_manager_2().id())\n            .kafkaCluster(KafkaClientQuotaKafkaClusterArgs.builder()\n                .id(confluent_kafka_cluster.dedicated().id())\n                .build())\n            .environment(KafkaClientQuotaEnvironmentArgs.builder()\n                .id(confluent_environment.development().id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:KafkaClientQuota\n    properties:\n      displayName: test-quota\n      description: Test Quota\n      throughput:\n        ingressByteRate: '100'\n        egressByteRate: '200'\n      principals:\n        - ${confluent_service_account.app_manager.id}\n        - ${confluent_service_account.app_manager_2.id}\n      kafkaCluster:\n        id: ${confluent_kafka_cluster.dedicated.id}\n      environment:\n        id: ${confluent_environment.development.id}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nYou can import a Kafka Client Quota by using Kafka Client Quota ID. The following example shows how to import a Kafka Client Quota ID$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/kafkaClientQuota:KafkaClientQuota example cq-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example = new confluentcloud.KafkaClientQuota(\"example\", {\n    displayName: \"test-quota\",\n    description: \"Test Quota\",\n    throughput: {\n        ingressByteRate: \"100\",\n        egressByteRate: \"200\",\n    },\n    principals: [\n        confluent_service_account.app_manager.id,\n        confluent_service_account.app_manager_2.id,\n    ],\n    kafkaCluster: {\n        id: confluent_kafka_cluster.dedicated.id,\n    },\n    environment: {\n        id: confluent_environment.development.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample = confluentcloud.KafkaClientQuota(\"example\",\n    display_name=\"test-quota\",\n    description=\"Test Quota\",\n    throughput=confluentcloud.KafkaClientQuotaThroughputArgs(\n        ingress_byte_rate=\"100\",\n        egress_byte_rate=\"200\",\n    ),\n    principals=[\n        confluent_service_account[\"app_manager\"][\"id\"],\n        confluent_service_account[\"app_manager_2\"][\"id\"],\n    ],\n    kafka_cluster=confluentcloud.KafkaClientQuotaKafkaClusterArgs(\n        id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),\n    ),\n    environment=confluentcloud.KafkaClientQuotaEnvironmentArgs(\n        id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new ConfluentCloud.KafkaClientQuota(\"example\", new()\n    {\n        DisplayName = \"test-quota\",\n        Description = \"Test Quota\",\n        Throughput = new ConfluentCloud.Inputs.KafkaClientQuotaThroughputArgs\n        {\n            IngressByteRate = \"100\",\n            EgressByteRate = \"200\",\n        },\n        Principals = new[]\n        {\n            confluent_service_account.App_manager.Id,\n            confluent_service_account.App_manager_2.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.KafkaClientQuotaKafkaClusterArgs\n        {\n            Id = confluent_kafka_cluster.Dedicated.Id,\n        },\n        Environment = new ConfluentCloud.Inputs.KafkaClientQuotaEnvironmentArgs\n        {\n            Id = confluent_environment.Development.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewKafkaClientQuota(ctx, \"example\", \u0026confluentcloud.KafkaClientQuotaArgs{\n\t\t\tDisplayName: pulumi.String(\"test-quota\"),\n\t\t\tDescription: pulumi.String(\"Test Quota\"),\n\t\t\tThroughput: \u0026confluentcloud.KafkaClientQuotaThroughputArgs{\n\t\t\t\tIngressByteRate: pulumi.String(\"100\"),\n\t\t\t\tEgressByteRate:  pulumi.String(\"200\"),\n\t\t\t},\n\t\t\tPrincipals: pulumi.StringArray{\n\t\t\t\tconfluent_service_account.App_manager.Id,\n\t\t\t\tconfluent_service_account.App_manager_2.Id,\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.KafkaClientQuotaKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(confluent_kafka_cluster.Dedicated.Id),\n\t\t\t},\n\t\t\tEnvironment: \u0026confluentcloud.KafkaClientQuotaEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(confluent_environment.Development.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.KafkaClientQuota;\nimport com.pulumi.confluentcloud.KafkaClientQuotaArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClientQuotaThroughputArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClientQuotaKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.KafkaClientQuotaEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new KafkaClientQuota(\"example\", KafkaClientQuotaArgs.builder()        \n            .displayName(\"test-quota\")\n            .description(\"Test Quota\")\n            .throughput(KafkaClientQuotaThroughputArgs.builder()\n                .ingressByteRate(\"100\")\n                .egressByteRate(\"200\")\n                .build())\n            .principals(            \n                confluent_service_account.app_manager().id(),\n                confluent_service_account.app_manager_2().id())\n            .kafkaCluster(KafkaClientQuotaKafkaClusterArgs.builder()\n                .id(confluent_kafka_cluster.dedicated().id())\n                .build())\n            .environment(KafkaClientQuotaEnvironmentArgs.builder()\n                .id(confluent_environment.development().id())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: confluentcloud:KafkaClientQuota\n    properties:\n      displayName: test-quota\n      description: Test Quota\n      throughput:\n        ingressByteRate: '100'\n        egressByteRate: '200'\n      principals:\n        - ${confluent_service_account.app_manager.id}\n        - ${confluent_service_account.app_manager_2.id}\n      kafkaCluster:\n        id: ${confluent_kafka_cluster.dedicated.id}\n      environment:\n        id: ${confluent_environment.development.id}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nYou can import a Kafka Client Quota by using Kafka Client Quota ID. The following example shows how to import a Kafka Client Quota ID$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/kafkaClientQuota:KafkaClientQuota example cq-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
             "properties": {
                 "description": {
                     "type": "string",
@@ -4469,8 +4458,7 @@
                     "$ref": "#/types/confluentcloud:index/KafkaMirrorTopicSourceKafkaTopic:KafkaMirrorTopicSourceKafkaTopic"
                 },
                 "status": {
-                    "type": "string",
-                    "description": "The status of the mirror topic. The supported values are `\"ACTIVE\"`, `\"PAUSED\"`, `\"PROMOTED\"`, `\"FAILED_OVER\"`. Pausing (`\"ACTIVE\" \u003e \"PAUSED\"`), resuming (`\"PAUSED\" \u003e \"ACTIVE\"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `\"ACTIVE\"`.\n"
+                    "type": "string"
                 }
             },
             "required": [
@@ -4498,8 +4486,7 @@
                     "willReplaceOnChanges": true
                 },
                 "status": {
-                    "type": "string",
-                    "description": "The status of the mirror topic. The supported values are `\"ACTIVE\"`, `\"PAUSED\"`, `\"PROMOTED\"`, `\"FAILED_OVER\"`. Pausing (`\"ACTIVE\" \u003e \"PAUSED\"`), resuming (`\"PAUSED\" \u003e \"ACTIVE\"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `\"ACTIVE\"`.\n"
+                    "type": "string"
                 }
             },
             "requiredInputs": [
@@ -4527,8 +4514,7 @@
                         "willReplaceOnChanges": true
                     },
                     "status": {
-                        "type": "string",
-                        "description": "The status of the mirror topic. The supported values are `\"ACTIVE\"`, `\"PAUSED\"`, `\"PROMOTED\"`, `\"FAILED_OVER\"`. Pausing (`\"ACTIVE\" \u003e \"PAUSED\"`), resuming (`\"PAUSED\" \u003e \"ACTIVE\"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `\"ACTIVE\"`.\n"
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -4835,7 +4821,7 @@
                 },
                 "cidr": {
                     "type": "string",
-                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n"
+                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n\n\u003e **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.\n"
                 },
                 "cloud": {
                     "type": "string",
@@ -4940,7 +4926,7 @@
                 },
                 "cidr": {
                     "type": "string",
-                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n",
+                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n\n\u003e **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.\n",
                     "willReplaceOnChanges": true
                 },
                 "cloud": {
@@ -5028,7 +5014,7 @@
                     },
                     "cidr": {
                         "type": "string",
-                        "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n",
+                        "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n\n\u003e **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.\n",
                         "willReplaceOnChanges": true
                     },
                     "cloud": {
@@ -6220,7 +6206,7 @@
                 },
                 "description": {
                     "type": "string",
-                    "description": "The description of the tag.\n"
+                    "description": "The description of the tag to be created.\n"
                 },
                 "entityTypes": {
                     "type": "array",
@@ -6231,7 +6217,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the tag, for example, `PII`.\n"
+                    "description": "The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n"
                 },
                 "restEndpoint": {
                     "type": "string",
@@ -6258,11 +6244,11 @@
                 },
                 "description": {
                     "type": "string",
-                    "description": "The description of the tag.\n"
+                    "description": "The description of the tag to be created.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the tag, for example, `PII`.\n"
+                    "description": "The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n"
                 },
                 "restEndpoint": {
                     "type": "string",
@@ -6284,7 +6270,7 @@
                     },
                     "description": {
                         "type": "string",
-                        "description": "The description of the tag.\n"
+                        "description": "The description of the tag to be created.\n"
                     },
                     "entityTypes": {
                         "type": "array",
@@ -6295,7 +6281,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the tag, for example, `PII`.\n"
+                        "description": "The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n"
                     },
                     "restEndpoint": {
                         "type": "string",
@@ -6328,7 +6314,7 @@
                 },
                 "entityType": {
                     "type": "string",
-                    "description": "The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.\n"
+                    "description": "The entity type.\n"
                 },
                 "restEndpoint": {
                     "type": "string",
@@ -6339,7 +6325,7 @@
                 },
                 "tagName": {
                     "type": "string",
-                    "description": "The name of the tag to be applied, for example, `PII`.\n"
+                    "description": "The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n"
                 }
             },
             "required": [
@@ -6360,7 +6346,7 @@
                 },
                 "entityType": {
                     "type": "string",
-                    "description": "The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.\n",
+                    "description": "The entity type.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
@@ -6374,7 +6360,7 @@
                 },
                 "tagName": {
                     "type": "string",
-                    "description": "The name of the tag to be applied, for example, `PII`.\n",
+                    "description": "The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -6398,7 +6384,7 @@
                     },
                     "entityType": {
                         "type": "string",
-                        "description": "The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.\n",
+                        "description": "The entity type.\n",
                         "willReplaceOnChanges": true
                     },
                     "restEndpoint": {
@@ -6412,7 +6398,7 @@
                     },
                     "tagName": {
                         "type": "string",
-                        "description": "The name of the tag to be applied, for example, `PII`.\n",
+                        "description": "The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -6426,7 +6412,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of resources names to export. Defaults to all exportable resources.\n"
+                    "description": "A list of resources to Import. Defaults to all Importable resources.\n"
                 }
             },
             "inputProperties": {
@@ -6435,7 +6421,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of resources names to export. Defaults to all exportable resources.\n",
+                    "description": "A list of resources to Import. Defaults to all Importable resources.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -6447,7 +6433,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of resources names to export. Defaults to all exportable resources.\n",
+                        "description": "A list of resources to Import. Defaults to all Importable resources.\n",
                         "willReplaceOnChanges": true
                     }
                 },
@@ -6542,7 +6528,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the Business Metadata, for example, `PII`.\n"
+                        "description": "The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n\n\u003e **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.\n"
                     },
                     "restEndpoint": {
                         "type": "string",
@@ -6610,7 +6596,7 @@
                 "properties": {
                     "businessMetadataName": {
                         "type": "string",
-                        "description": "The name of the Business Metadata to be applied, for example, `PII`.\n"
+                        "description": "The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n"
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/getBusinessMetadataBindingCredentials:getBusinessMetadataBindingCredentials",
@@ -6684,7 +6670,7 @@
             }
         },
         "confluentcloud:index/getByokKey:getByokKey": {
-            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.ByokKey` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.ByokKey` describes a BYOK Key data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst azureKey = confluentcloud.getByokKey({\n    id: \"cck-abcde\",\n});\nexport const byok = azureKey;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nazure_key = confluentcloud.get_byok_key(id=\"cck-abcde\")\npulumi.export(\"byok\", azure_key)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var azureKey = ConfluentCloud.GetByokKey.Invoke(new()\n    {\n        Id = \"cck-abcde\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"byok\"] = azureKey,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tazureKey, err := confluentcloud.LookupByokKey(ctx, \u0026confluentcloud.LookupByokKeyArgs{\n\t\t\tId: \"cck-abcde\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"byok\", azureKey)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetByokKeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var azureKey = ConfluentcloudFunctions.getByokKey(GetByokKeyArgs.builder()\n            .id(\"cck-abcde\")\n            .build());\n\n        ctx.export(\"byok\", azureKey.applyValue(getByokKeyResult -\u003e getByokKeyResult));\n    }\n}\n```\n```yaml\nvariables:\n  azureKey:\n    fn::invoke:\n      Function: confluentcloud:getByokKey\n      Arguments:\n        id: cck-abcde\noutputs:\n  byok: ${azureKey}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.ByokKey` describes a BYOK Key data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst azureKey = confluentcloud.getByokKey({\n    id: \"cck-abcde\",\n});\nexport const byok = azureKey;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nazure_key = confluentcloud.get_byok_key(id=\"cck-abcde\")\npulumi.export(\"byok\", azure_key)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var azureKey = ConfluentCloud.GetByokKey.Invoke(new()\n    {\n        Id = \"cck-abcde\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"byok\"] = azureKey,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tazureKey, err := confluentcloud.LookupByokKey(ctx, \u0026confluentcloud.LookupByokKeyArgs{\n\t\t\tId: \"cck-abcde\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"byok\", azureKey)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetByokKeyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var azureKey = ConfluentcloudFunctions.getByokKey(GetByokKeyArgs.builder()\n            .id(\"cck-abcde\")\n            .build());\n\n        ctx.export(\"byok\", azureKey.applyValue(getByokKeyResult -\u003e getByokKeyResult));\n    }\n}\n```\n```yaml\nvariables:\n  azureKey:\n    fn::invoke:\n      Function: confluentcloud:getByokKey\n      Arguments:\n        id: cck-abcde\noutputs:\n  byok: ${azureKey}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getByokKey.\n",
                 "properties": {
@@ -6735,7 +6721,7 @@
                 "properties": {
                     "displayName": {
                         "type": "string",
-                        "description": "A human-readable name for the Environment.\n"
+                        "description": "A human-readable name for the Environment.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                     },
                     "id": {
                         "type": "string",
@@ -6779,7 +6765,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.\n"
+                        "description": "The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                     },
                     "identityProvider": {
                         "$ref": "#/types/confluentcloud:index/getIdentityPoolIdentityProvider:getIdentityPoolIdentityProvider",
@@ -6837,7 +6823,7 @@
                 "properties": {
                     "displayName": {
                         "type": "string",
-                        "description": "A human-readable name for the Identity Provider.\n"
+                        "description": "A human-readable name for the Identity Provider.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                     },
                     "id": {
                         "type": "string",
@@ -7046,7 +7032,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n"
+                        "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                     },
                     "standards": {
                         "type": "array",
@@ -7240,7 +7226,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n"
+                        "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                     }
                 },
                 "type": "object",
@@ -7368,7 +7354,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Network belongs to, for example, `env-xyz456`.\n"
+                        "description": "The ID of the Environment that the Network belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                     }
                 },
                 "type": "object",
@@ -7664,7 +7650,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.\n"
+                        "description": "The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                     }
                 },
                 "type": "object",
@@ -7743,7 +7729,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n"
+                        "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                     }
                 },
                 "type": "object",
@@ -7865,7 +7851,7 @@
                     },
                     "schemaIdentifier": {
                         "type": "integer",
-                        "description": "The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.\n"
+                        "description": "The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.\n\n\u003e **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.\n"
                     },
                     "schemaRegistryCluster": {
                         "$ref": "#/types/confluentcloud:index/getSchemaSchemaRegistryCluster:getSchemaSchemaRegistryCluster"
@@ -7959,7 +7945,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n"
+                        "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                     }
                 },
                 "type": "object",
@@ -7982,7 +7968,8 @@
                         "$ref": "#/types/confluentcloud:index/getSchemaRegistryClusterEnvironment:getSchemaRegistryClusterEnvironment"
                     },
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.\n"
                     },
                     "kind": {
                         "type": "string",
@@ -8129,7 +8116,7 @@
                     },
                     "package": {
                         "type": "string",
-                        "description": "The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.\n"
+                        "description": "The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.\n\n\u003e **Note:** See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to manually find a corresponding region ID based on desired cloud provider region and types of the billing package.\n"
                     },
                     "region": {
                         "type": "string",
@@ -8233,7 +8220,7 @@
                 "properties": {
                     "displayName": {
                         "type": "string",
-                        "description": "A human-readable name for the Service Account.\n"
+                        "description": "A human-readable name for the Service Account.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                     },
                     "id": {
                         "type": "string",
@@ -8353,7 +8340,7 @@
                     },
                     "subjectName": {
                         "type": "string",
-                        "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.\n"
+                        "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.\n\n\u003e **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.\n"
                     }
                 },
                 "type": "object",
@@ -8404,7 +8391,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the tag, for example, `PII`.\n"
+                        "description": "The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n\n\u003e **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.\n"
                     },
                     "restEndpoint": {
                         "type": "string",
@@ -8479,7 +8466,7 @@
                     },
                     "entityType": {
                         "type": "string",
-                        "description": "The entity type, for example, `sr_schema`.\n"
+                        "description": "The entity type, for example, `sr_schema`.\n\n\u003e **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.\n"
                     },
                     "restEndpoint": {
                         "type": "string",
@@ -8490,7 +8477,7 @@
                     },
                     "tagName": {
                         "type": "string",
-                        "description": "The name of the tag to be applied, for example, `PII`.\n"
+                        "description": "The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n"
                     }
                 },
                 "type": "object",
@@ -8551,7 +8538,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.\n"
+                        "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
                     }
                 },
                 "type": "object",
@@ -8606,7 +8593,7 @@
                 "properties": {
                     "email": {
                         "type": "string",
-                        "description": "The email address of the User.\n"
+                        "description": "The email address of the User.\n\n\u003e **Note:** Exactly one from the `id`, `full_name` and `email` attributes must be specified.\n"
                     },
                     "fullName": {
                         "type": "string",

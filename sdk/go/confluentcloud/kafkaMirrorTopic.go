@@ -30,8 +30,7 @@ type KafkaMirrorTopic struct {
 	// The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
 	MirrorTopicName  pulumi.StringOutput                    `pulumi:"mirrorTopicName"`
 	SourceKafkaTopic KafkaMirrorTopicSourceKafkaTopicOutput `pulumi:"sourceKafkaTopic"`
-	// The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status           pulumi.StringOutput                    `pulumi:"status"`
 }
 
 // NewKafkaMirrorTopic registers a new resource with the given unique name, arguments, and options.
@@ -77,8 +76,7 @@ type kafkaMirrorTopicState struct {
 	// The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
 	MirrorTopicName  *string                           `pulumi:"mirrorTopicName"`
 	SourceKafkaTopic *KafkaMirrorTopicSourceKafkaTopic `pulumi:"sourceKafkaTopic"`
-	// The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
-	Status *string `pulumi:"status"`
+	Status           *string                           `pulumi:"status"`
 }
 
 type KafkaMirrorTopicState struct {
@@ -87,8 +85,7 @@ type KafkaMirrorTopicState struct {
 	// The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
 	MirrorTopicName  pulumi.StringPtrInput
 	SourceKafkaTopic KafkaMirrorTopicSourceKafkaTopicPtrInput
-	// The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
-	Status pulumi.StringPtrInput
+	Status           pulumi.StringPtrInput
 }
 
 func (KafkaMirrorTopicState) ElementType() reflect.Type {
@@ -101,8 +98,7 @@ type kafkaMirrorTopicArgs struct {
 	// The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
 	MirrorTopicName  *string                          `pulumi:"mirrorTopicName"`
 	SourceKafkaTopic KafkaMirrorTopicSourceKafkaTopic `pulumi:"sourceKafkaTopic"`
-	// The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
-	Status *string `pulumi:"status"`
+	Status           *string                          `pulumi:"status"`
 }
 
 // The set of arguments for constructing a KafkaMirrorTopic resource.
@@ -112,8 +108,7 @@ type KafkaMirrorTopicArgs struct {
 	// The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
 	MirrorTopicName  pulumi.StringPtrInput
 	SourceKafkaTopic KafkaMirrorTopicSourceKafkaTopicInput
-	// The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
-	Status pulumi.StringPtrInput
+	Status           pulumi.StringPtrInput
 }
 
 func (KafkaMirrorTopicArgs) ElementType() reflect.Type {
@@ -220,7 +215,6 @@ func (o KafkaMirrorTopicOutput) SourceKafkaTopic() KafkaMirrorTopicSourceKafkaTo
 	return o.ApplyT(func(v *KafkaMirrorTopic) KafkaMirrorTopicSourceKafkaTopicOutput { return v.SourceKafkaTopic }).(KafkaMirrorTopicSourceKafkaTopicOutput)
 }
 
-// The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
 func (o KafkaMirrorTopicOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaMirrorTopic) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

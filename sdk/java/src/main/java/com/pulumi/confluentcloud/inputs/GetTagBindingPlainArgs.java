@@ -41,12 +41,16 @@ public final class GetTagBindingPlainArgs extends com.pulumi.resources.InvokeArg
     /**
      * The entity type, for example, `sr_schema`.
      * 
+     * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+     * 
      */
     @Import(name="entityType", required=true)
     private String entityType;
 
     /**
      * @return The entity type, for example, `sr_schema`.
+     * 
+     * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      * 
      */
     public String entityType() {
@@ -76,14 +80,14 @@ public final class GetTagBindingPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The name of the tag to be applied, for example, `PII`.
+     * The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     @Import(name="tagName", required=true)
     private String tagName;
 
     /**
-     * @return The name of the tag to be applied, for example, `PII`.
+     * @return The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     public String tagName() {
@@ -138,6 +142,8 @@ public final class GetTagBindingPlainArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param entityType The entity type, for example, `sr_schema`.
          * 
+         * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+         * 
          * @return builder
          * 
          */
@@ -163,7 +169,7 @@ public final class GetTagBindingPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tagName The name of the tag to be applied, for example, `PII`.
+         * @param tagName The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
          * 
          * @return builder
          * 

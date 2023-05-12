@@ -57,6 +57,8 @@ export interface GetPeeringArgs {
     environment: inputs.GetPeeringEnvironment;
     /**
      * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id?: string;
 }
@@ -139,6 +141,8 @@ export interface GetPeeringOutputArgs {
     environment: pulumi.Input<inputs.GetPeeringEnvironmentArgs>;
     /**
      * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id?: pulumi.Input<string>;
 }

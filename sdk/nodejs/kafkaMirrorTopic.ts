@@ -52,9 +52,6 @@ export class KafkaMirrorTopic extends pulumi.CustomResource {
      */
     public readonly mirrorTopicName!: pulumi.Output<string>;
     public readonly sourceKafkaTopic!: pulumi.Output<outputs.KafkaMirrorTopicSourceKafkaTopic>;
-    /**
-     * The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
-     */
     public readonly status!: pulumi.Output<string>;
 
     /**
@@ -108,9 +105,6 @@ export interface KafkaMirrorTopicState {
      */
     mirrorTopicName?: pulumi.Input<string>;
     sourceKafkaTopic?: pulumi.Input<inputs.KafkaMirrorTopicSourceKafkaTopic>;
-    /**
-     * The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
-     */
     status?: pulumi.Input<string>;
 }
 
@@ -125,8 +119,5 @@ export interface KafkaMirrorTopicArgs {
      */
     mirrorTopicName?: pulumi.Input<string>;
     sourceKafkaTopic: pulumi.Input<inputs.KafkaMirrorTopicSourceKafkaTopic>;
-    /**
-     * The status of the mirror topic. The supported values are `"ACTIVE"`, `"PAUSED"`, `"PROMOTED"`, `"FAILED_OVER"`. Pausing (`"ACTIVE" > "PAUSED"`), resuming (`"PAUSED" > "ACTIVE"`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `"ACTIVE"`.
-     */
     status?: pulumi.Input<string>;
 }

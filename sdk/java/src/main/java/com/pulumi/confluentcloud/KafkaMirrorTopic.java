@@ -62,17 +62,9 @@ public class KafkaMirrorTopic extends com.pulumi.resources.CustomResource {
     public Output<KafkaMirrorTopicSourceKafkaTopic> sourceKafkaTopic() {
         return this.sourceKafkaTopic;
     }
-    /**
-     * The status of the mirror topic. The supported values are `&#34;ACTIVE&#34;`, `&#34;PAUSED&#34;`, `&#34;PROMOTED&#34;`, `&#34;FAILED_OVER&#34;`. Pausing (`&#34;ACTIVE&#34; &gt; &#34;PAUSED&#34;`), resuming (`&#34;PAUSED&#34; &gt; &#34;ACTIVE&#34;`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `&#34;ACTIVE&#34;`.
-     * 
-     */
     @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
-    /**
-     * @return The status of the mirror topic. The supported values are `&#34;ACTIVE&#34;`, `&#34;PAUSED&#34;`, `&#34;PROMOTED&#34;`, `&#34;FAILED_OVER&#34;`. Pausing (`&#34;ACTIVE&#34; &gt; &#34;PAUSED&#34;`), resuming (`&#34;PAUSED&#34; &gt; &#34;ACTIVE&#34;`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `&#34;ACTIVE&#34;`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

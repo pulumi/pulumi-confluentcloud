@@ -23,6 +23,10 @@ public final class GetSchemaRegistryClusterResult {
      */
     private String displayName;
     private GetSchemaRegistryClusterEnvironment environment;
+    /**
+     * @return (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+     * 
+     */
     private String id;
     /**
      * @return (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.
@@ -68,6 +72,10 @@ public final class GetSchemaRegistryClusterResult {
     public GetSchemaRegistryClusterEnvironment environment() {
         return this.environment;
     }
+    /**
+     * @return (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+     * 
+     */
     public String id() {
         return this.id;
     }

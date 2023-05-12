@@ -15,12 +15,16 @@ public final class GetIdentityPoolIdentityProvider extends com.pulumi.resources.
     /**
      * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
      * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
      * @return The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+     * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
      * 
      */
     public String id() {
@@ -53,6 +57,8 @@ public final class GetIdentityPoolIdentityProvider extends com.pulumi.resources.
 
         /**
          * @param id The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+         * 
+         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
          * 
          * @return builder
          * 

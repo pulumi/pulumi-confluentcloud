@@ -14,10 +14,6 @@ public final class SchemaCredentials {
      * 
      */
     private String key;
-    /**
-     * @return The Schema Registry API Secret.
-     * 
-     */
     private String secret;
 
     private SchemaCredentials() {}
@@ -28,10 +24,6 @@ public final class SchemaCredentials {
     public String key() {
         return this.key;
     }
-    /**
-     * @return The Schema Registry API Secret.
-     * 
-     */
     public String secret() {
         return this.secret;
     }

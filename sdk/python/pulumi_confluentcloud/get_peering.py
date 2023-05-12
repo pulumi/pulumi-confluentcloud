@@ -149,6 +149,8 @@ def get_peering(display_name: Optional[str] = None,
     :param str display_name: A human-readable name for the Peering.
     :param pulumi.InputType['GetPeeringEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     """
     __args__ = dict()
     __args__['displayName'] = display_name
@@ -199,5 +201,7 @@ def get_peering_output(display_name: Optional[pulumi.Input[Optional[str]]] = Non
     :param str display_name: A human-readable name for the Peering.
     :param pulumi.InputType['GetPeeringEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
     :param str id: The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     """
     ...

@@ -74,6 +74,8 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 // A collection of arguments for invoking getEnvironment.
 type LookupEnvironmentArgs struct {
 	// A human-readable name for the Environment.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	DisplayName *string `pulumi:"displayName"`
 	// The ID of the Environment, for example, `env-abc123`.
 	Id *string `pulumi:"id"`
@@ -105,6 +107,8 @@ func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputAr
 // A collection of arguments for invoking getEnvironment.
 type LookupEnvironmentOutputArgs struct {
 	// A human-readable name for the Environment.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The ID of the Environment, for example, `env-abc123`.
 	Id pulumi.StringPtrInput `pulumi:"id"`

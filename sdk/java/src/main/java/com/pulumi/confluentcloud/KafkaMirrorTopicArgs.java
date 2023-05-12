@@ -54,17 +54,9 @@ public final class KafkaMirrorTopicArgs extends com.pulumi.resources.ResourceArg
         return this.sourceKafkaTopic;
     }
 
-    /**
-     * The status of the mirror topic. The supported values are `&#34;ACTIVE&#34;`, `&#34;PAUSED&#34;`, `&#34;PROMOTED&#34;`, `&#34;FAILED_OVER&#34;`. Pausing (`&#34;ACTIVE&#34; &gt; &#34;PAUSED&#34;`), resuming (`&#34;PAUSED&#34; &gt; &#34;ACTIVE&#34;`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `&#34;ACTIVE&#34;`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the mirror topic. The supported values are `&#34;ACTIVE&#34;`, `&#34;PAUSED&#34;`, `&#34;PROMOTED&#34;`, `&#34;FAILED_OVER&#34;`. Pausing (`&#34;ACTIVE&#34; &gt; &#34;PAUSED&#34;`), resuming (`&#34;PAUSED&#34; &gt; &#34;ACTIVE&#34;`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `&#34;ACTIVE&#34;`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -145,23 +137,11 @@ public final class KafkaMirrorTopicArgs extends com.pulumi.resources.ResourceArg
             return sourceKafkaTopic(Output.of(sourceKafkaTopic));
         }
 
-        /**
-         * @param status The status of the mirror topic. The supported values are `&#34;ACTIVE&#34;`, `&#34;PAUSED&#34;`, `&#34;PROMOTED&#34;`, `&#34;FAILED_OVER&#34;`. Pausing (`&#34;ACTIVE&#34; &gt; &#34;PAUSED&#34;`), resuming (`&#34;PAUSED&#34; &gt; &#34;ACTIVE&#34;`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `&#34;ACTIVE&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the mirror topic. The supported values are `&#34;ACTIVE&#34;`, `&#34;PAUSED&#34;`, `&#34;PROMOTED&#34;`, `&#34;FAILED_OVER&#34;`. Pausing (`&#34;ACTIVE&#34; &gt; &#34;PAUSED&#34;`), resuming (`&#34;PAUSED&#34; &gt; &#34;ACTIVE&#34;`), promoting, and failing over a mirror topic is supported via an update operation. Defaults to `&#34;ACTIVE&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

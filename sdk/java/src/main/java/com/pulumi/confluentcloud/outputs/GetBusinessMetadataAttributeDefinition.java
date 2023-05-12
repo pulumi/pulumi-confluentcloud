@@ -27,7 +27,9 @@ public final class GetBusinessMetadataAttributeDefinition {
      */
     private Boolean isOptional;
     /**
-     * @return The name of the Business Metadata, for example, `PII`.
+     * @return The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
+     * 
+     * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      * 
      */
     private String name;
@@ -65,7 +67,9 @@ public final class GetBusinessMetadataAttributeDefinition {
         return this.isOptional;
     }
     /**
-     * @return The name of the Business Metadata, for example, `PII`.
+     * @return The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
+     * 
+     * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
      * 
      */
     public String name() {

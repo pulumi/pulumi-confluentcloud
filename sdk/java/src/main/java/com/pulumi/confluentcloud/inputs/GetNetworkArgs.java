@@ -106,12 +106,16 @@ public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
      * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
      * @return The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+     * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
      * 
      */
     public Optional<Output<String>> id() {
@@ -305,6 +309,8 @@ public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param id The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
          * 
+         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * 
          * @return builder
          * 
          */
@@ -315,6 +321,8 @@ public final class GetNetworkArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param id The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+         * 
+         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
          * 
          * @return builder
          * 

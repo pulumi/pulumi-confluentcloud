@@ -21,7 +21,7 @@ func LookupBusinessMetadataBinding(ctx *pulumi.Context, args *LookupBusinessMeta
 
 // A collection of arguments for invoking getBusinessMetadataBinding.
 type LookupBusinessMetadataBindingArgs struct {
-	// The name of the Business Metadata to be applied, for example, `PII`.
+	// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	BusinessMetadataName string                                 `pulumi:"businessMetadataName"`
 	Credentials          *GetBusinessMetadataBindingCredentials `pulumi:"credentials"`
 	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
@@ -62,7 +62,7 @@ func LookupBusinessMetadataBindingOutput(ctx *pulumi.Context, args LookupBusines
 
 // A collection of arguments for invoking getBusinessMetadataBinding.
 type LookupBusinessMetadataBindingOutputArgs struct {
-	// The name of the Business Metadata to be applied, for example, `PII`.
+	// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	BusinessMetadataName pulumi.StringInput                            `pulumi:"businessMetadataName"`
 	Credentials          GetBusinessMetadataBindingCredentialsPtrInput `pulumi:"credentials"`
 	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.

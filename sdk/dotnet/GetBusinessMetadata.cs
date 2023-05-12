@@ -30,7 +30,9 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The name of the Business Metadata, for example, `PII`.
+        /// The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -65,7 +67,9 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The name of the Business Metadata, for example, `PII`.
+        /// The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

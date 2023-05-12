@@ -12,12 +12,16 @@ public final class GetPrivateLinkAccessNetwork {
     /**
      * @return The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
      * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * 
      */
     private String id;
 
     private GetPrivateLinkAccessNetwork() {}
     /**
      * @return The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
+     * 
+     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
      * 
      */
     public String id() {

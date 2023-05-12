@@ -50,7 +50,7 @@ export class Tag extends pulumi.CustomResource {
      */
     public readonly credentials!: pulumi.Output<outputs.TagCredentials | undefined>;
     /**
-     * The description of the tag.
+     * The description of the tag to be created.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -58,7 +58,7 @@ export class Tag extends pulumi.CustomResource {
      */
     public /*out*/ readonly entityTypes!: pulumi.Output<string[]>;
     /**
-     * The name of the tag, for example, `PII`.
+     * The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export interface TagState {
      */
     credentials?: pulumi.Input<inputs.TagCredentials>;
     /**
-     * The description of the tag.
+     * The description of the tag to be created.
      */
     description?: pulumi.Input<string>;
     /**
@@ -125,7 +125,7 @@ export interface TagState {
      */
     entityTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the tag, for example, `PII`.
+     * The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
     name?: pulumi.Input<string>;
     /**
@@ -148,11 +148,11 @@ export interface TagArgs {
      */
     credentials?: pulumi.Input<inputs.TagCredentials>;
     /**
-     * The description of the tag.
+     * The description of the tag to be created.
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the tag, for example, `PII`.
+     * The name of the tag, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
     name?: pulumi.Input<string>;
     /**

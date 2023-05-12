@@ -90,6 +90,8 @@ func GetUser(ctx *pulumi.Context, args *GetUserArgs, opts ...pulumi.InvokeOption
 // A collection of arguments for invoking getUser.
 type GetUserArgs struct {
 	// The email address of the User.
+	//
+	// > **Note:** Exactly one from the `id`, `fullName` and `email` attributes must be specified.
 	Email *string `pulumi:"email"`
 	// The full name of the User.
 	FullName *string `pulumi:"fullName"`
@@ -127,6 +129,8 @@ func GetUserOutput(ctx *pulumi.Context, args GetUserOutputArgs, opts ...pulumi.I
 // A collection of arguments for invoking getUser.
 type GetUserOutputArgs struct {
 	// The email address of the User.
+	//
+	// > **Note:** Exactly one from the `id`, `fullName` and `email` attributes must be specified.
 	Email pulumi.StringPtrInput `pulumi:"email"`
 	// The full name of the User.
 	FullName pulumi.StringPtrInput `pulumi:"fullName"`

@@ -53,6 +53,8 @@ export interface GetIdentityPoolArgs {
     displayName?: string;
     /**
      * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id?: string;
     /**
@@ -131,6 +133,8 @@ export interface GetIdentityPoolOutputArgs {
     displayName?: pulumi.Input<string>;
     /**
      * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id?: pulumi.Input<string>;
     /**

@@ -114,6 +114,8 @@ def get_identity_provider(display_name: Optional[str] = None,
 
 
     :param str display_name: A human-readable name for the Identity Provider.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param str id: The ID of the Identity Provider, for example, `op-abc123`.
     """
     __args__ = dict()
@@ -153,6 +155,8 @@ def get_identity_provider_output(display_name: Optional[pulumi.Input[Optional[st
 
 
     :param str display_name: A human-readable name for the Identity Provider.
+           
+           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     :param str id: The ID of the Identity Provider, for example, `op-abc123`.
     """
     ...
