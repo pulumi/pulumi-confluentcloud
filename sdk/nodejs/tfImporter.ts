@@ -32,8 +32,9 @@ export class TfImporter extends pulumi.CustomResource {
         return obj['__pulumiType'] === TfImporter.__pulumiType;
     }
 
+    public readonly outputPath!: pulumi.Output<string | undefined>;
     /**
-     * A list of resources to Import. Defaults to all Importable resources.
+     * A list of resources names to export. Defaults to all exportable resources.
      */
     public readonly resources!: pulumi.Output<string[] | undefined>;
 
@@ -50,9 +51,11 @@ export class TfImporter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TfImporterState | undefined;
+            resourceInputs["outputPath"] = state ? state.outputPath : undefined;
             resourceInputs["resources"] = state ? state.resources : undefined;
         } else {
             const args = argsOrState as TfImporterArgs | undefined;
+            resourceInputs["outputPath"] = args ? args.outputPath : undefined;
             resourceInputs["resources"] = args ? args.resources : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -64,8 +67,9 @@ export class TfImporter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TfImporter resources.
  */
 export interface TfImporterState {
+    outputPath?: pulumi.Input<string>;
     /**
-     * A list of resources to Import. Defaults to all Importable resources.
+     * A list of resources names to export. Defaults to all exportable resources.
      */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -74,8 +78,9 @@ export interface TfImporterState {
  * The set of arguments for constructing a TfImporter resource.
  */
 export interface TfImporterArgs {
+    outputPath?: pulumi.Input<string>;
     /**
-     * A list of resources to Import. Defaults to all Importable resources.
+     * A list of resources names to export. Defaults to all exportable resources.
      */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
 }

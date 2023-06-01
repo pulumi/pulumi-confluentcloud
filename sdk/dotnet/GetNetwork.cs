@@ -12,10 +12,6 @@ namespace Pulumi.ConfluentCloud
     public static class GetNetwork
     {
         /// <summary>
-        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-        /// 
-        /// `confluentcloud.Network` describes a Network data source.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -64,10 +60,6 @@ namespace Pulumi.ConfluentCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkResult>("confluentcloud:index/getNetwork:getNetwork", args ?? new GetNetworkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-        /// 
-        /// `confluentcloud.Network` describes a Network data source.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

@@ -16,15 +16,22 @@ public final class TfImporterState extends com.pulumi.resources.ResourceArgs {
 
     public static final TfImporterState Empty = new TfImporterState();
 
+    @Import(name="outputPath")
+    private @Nullable Output<String> outputPath;
+
+    public Optional<Output<String>> outputPath() {
+        return Optional.ofNullable(this.outputPath);
+    }
+
     /**
-     * A list of resources to Import. Defaults to all Importable resources.
+     * A list of resources names to export. Defaults to all exportable resources.
      * 
      */
     @Import(name="resources")
     private @Nullable Output<List<String>> resources;
 
     /**
-     * @return A list of resources to Import. Defaults to all Importable resources.
+     * @return A list of resources names to export. Defaults to all exportable resources.
      * 
      */
     public Optional<Output<List<String>>> resources() {
@@ -34,6 +41,7 @@ public final class TfImporterState extends com.pulumi.resources.ResourceArgs {
     private TfImporterState() {}
 
     private TfImporterState(TfImporterState $) {
+        this.outputPath = $.outputPath;
         this.resources = $.resources;
     }
 
@@ -55,8 +63,17 @@ public final class TfImporterState extends com.pulumi.resources.ResourceArgs {
             $ = new TfImporterState(Objects.requireNonNull(defaults));
         }
 
+        public Builder outputPath(@Nullable Output<String> outputPath) {
+            $.outputPath = outputPath;
+            return this;
+        }
+
+        public Builder outputPath(String outputPath) {
+            return outputPath(Output.of(outputPath));
+        }
+
         /**
-         * @param resources A list of resources to Import. Defaults to all Importable resources.
+         * @param resources A list of resources names to export. Defaults to all exportable resources.
          * 
          * @return builder
          * 
@@ -67,7 +84,7 @@ public final class TfImporterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resources A list of resources to Import. Defaults to all Importable resources.
+         * @param resources A list of resources names to export. Defaults to all exportable resources.
          * 
          * @return builder
          * 
@@ -77,7 +94,7 @@ public final class TfImporterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resources A list of resources to Import. Defaults to all Importable resources.
+         * @param resources A list of resources names to export. Defaults to all exportable resources.
          * 
          * @return builder
          * 
