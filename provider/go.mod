@@ -9,8 +9,8 @@ replace (
 
 require (
 	github.com/confluentinc/terraform-provider-confluent v1.32.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.47.1
-	github.com/pulumi/pulumi/sdk/v3 v3.67.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.48.0
+	github.com/pulumi/pulumi/sdk/v3 v3.68.0
 )
 
 require (
@@ -80,7 +80,7 @@ require (
 	github.com/cenkalti/backoff/v3 v3.2.2 // indirect
 	github.com/cenkalti/backoff/v4 v4.1.3 // indirect
 	github.com/cheggaaa/pb v1.0.29 // indirect
-	github.com/cloudflare/circl v1.1.0 // indirect
+	github.com/cloudflare/circl v1.3.3 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/apikeys v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/byok v0.0.1 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/cmk v0.8.0 // indirect
@@ -215,9 +215,9 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.9.2 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.3 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 // indirect
 	github.com/pulumi/pulumi-yaml v1.1.1 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.67.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.68.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
