@@ -118,7 +118,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string AcceptedAt;
         /// <summary>
-        /// (Optional String) Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite AUTH_TYPE_LOCAL users to SSO organizations. The user's auth_type is set as AUTH_TYPE_SSO by default if the organization has SSO enabled. Otherwise, the user's auth_type is AUTH_TYPE_LOCAL by default.
+        /// (Optional String) Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.
         /// </summary>
         public readonly string AuthType;
         /// <summary>

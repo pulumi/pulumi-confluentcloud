@@ -7549,7 +7549,7 @@ func (o NetworkLinkServiceNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 type NetworkZoneInfo struct {
 	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
 	//
-	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
+	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
 	Cidr *string `pulumi:"cidr"`
 	// Cloud provider zone ID.
 	ZoneId *string `pulumi:"zoneId"`
@@ -7569,7 +7569,7 @@ type NetworkZoneInfoInput interface {
 type NetworkZoneInfoArgs struct {
 	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
 	//
-	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
+	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
 	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
 	// Cloud provider zone ID.
 	ZoneId pulumi.StringPtrInput `pulumi:"zoneId"`
@@ -7628,7 +7628,7 @@ func (o NetworkZoneInfoOutput) ToNetworkZoneInfoOutputWithContext(ctx context.Co
 
 // The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
 //
-// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
+// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
 func (o NetworkZoneInfoOutput) Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkZoneInfo) *string { return v.Cidr }).(pulumi.StringPtrOutput)
 }

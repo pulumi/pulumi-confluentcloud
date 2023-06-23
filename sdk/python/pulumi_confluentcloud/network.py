@@ -39,7 +39,7 @@ class NetworkArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAzureArgs']]] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
         :param pulumi.Input[str] cidr: The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
                
-               > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
+               > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
         :param pulumi.Input[str] display_name: The name of the Network.
         :param pulumi.Input['NetworkDnsConfigArgs'] dns_config: Network DNS config. It applies only to the PRIVATELINK network connection type.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
@@ -153,7 +153,7 @@ class NetworkArgs:
         """
         The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
 
-        > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
+        > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
         """
         return pulumi.get(self, "cidr")
 
@@ -264,7 +264,7 @@ class _NetworkState:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkAzureArgs']]] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
         :param pulumi.Input[str] cidr: The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
                
-               > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
+               > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
         :param pulumi.Input[str] cloud: The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_types: The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
         :param pulumi.Input[str] display_name: The name of the Network.
@@ -347,7 +347,7 @@ class _NetworkState:
         """
         The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
 
-        > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
+        > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
         """
         return pulumi.get(self, "cidr")
 
@@ -553,7 +553,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAzureArgs']]]] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
         :param pulumi.Input[str] cidr: The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
                
-               > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
+               > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
         :param pulumi.Input[str] cloud: The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_types: The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
         :param pulumi.Input[str] display_name: The name of the Network.
@@ -685,7 +685,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAzureArgs']]]] azures: (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
         :param pulumi.Input[str] cidr: The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
                
-               > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
+               > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
         :param pulumi.Input[str] cloud: The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_types: The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
         :param pulumi.Input[str] display_name: The name of the Network.
@@ -749,7 +749,7 @@ class Network(pulumi.CustomResource):
         """
         The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
 
-        > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PRIVATELINK connection type.
+        > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
         """
         return pulumi.get(self, "cidr")
 
