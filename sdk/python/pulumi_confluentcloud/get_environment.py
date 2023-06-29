@@ -105,9 +105,9 @@ def get_environment(display_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
     return AwaitableGetEnvironmentResult(
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        resource_name=__ret__.resource_name)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        resource_name=pulumi.get(__ret__, 'resource_name'))
 
 
 @_utilities.lift_output_func(get_environment)

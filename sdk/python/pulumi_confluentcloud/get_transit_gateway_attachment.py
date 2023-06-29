@@ -136,11 +136,11 @@ def get_transit_gateway_attachment(display_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment', __args__, opts=opts, typ=GetTransitGatewayAttachmentResult).value
 
     return AwaitableGetTransitGatewayAttachmentResult(
-        aws=__ret__.aws,
-        display_name=__ret__.display_name,
-        environment=__ret__.environment,
-        id=__ret__.id,
-        networks=__ret__.networks)
+        aws=pulumi.get(__ret__, 'aws'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        environment=pulumi.get(__ret__, 'environment'),
+        id=pulumi.get(__ret__, 'id'),
+        networks=pulumi.get(__ret__, 'networks'))
 
 
 @_utilities.lift_output_func(get_transit_gateway_attachment)

@@ -114,12 +114,12 @@ def get_subject_config(credentials: Optional[pulumi.InputType['GetSubjectConfigC
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getSubjectConfig:getSubjectConfig', __args__, opts=opts, typ=GetSubjectConfigResult).value
 
     return AwaitableGetSubjectConfigResult(
-        compatibility_level=__ret__.compatibility_level,
-        credentials=__ret__.credentials,
-        id=__ret__.id,
-        rest_endpoint=__ret__.rest_endpoint,
-        schema_registry_cluster=__ret__.schema_registry_cluster,
-        subject_name=__ret__.subject_name)
+        compatibility_level=pulumi.get(__ret__, 'compatibility_level'),
+        credentials=pulumi.get(__ret__, 'credentials'),
+        id=pulumi.get(__ret__, 'id'),
+        rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
+        schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
+        subject_name=pulumi.get(__ret__, 'subject_name'))
 
 
 @_utilities.lift_output_func(get_subject_config)

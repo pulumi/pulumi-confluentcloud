@@ -103,10 +103,10 @@ def get_role_binding(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getRoleBinding:getRoleBinding', __args__, opts=opts, typ=GetRoleBindingResult).value
 
     return AwaitableGetRoleBindingResult(
-        crn_pattern=__ret__.crn_pattern,
-        id=__ret__.id,
-        principal=__ret__.principal,
-        role_name=__ret__.role_name)
+        crn_pattern=pulumi.get(__ret__, 'crn_pattern'),
+        id=pulumi.get(__ret__, 'id'),
+        principal=pulumi.get(__ret__, 'principal'),
+        role_name=pulumi.get(__ret__, 'role_name'))
 
 
 @_utilities.lift_output_func(get_role_binding)

@@ -102,11 +102,11 @@ def get_schema_registry_cluster_config(credentials: Optional[pulumi.InputType['G
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig', __args__, opts=opts, typ=GetSchemaRegistryClusterConfigResult).value
 
     return AwaitableGetSchemaRegistryClusterConfigResult(
-        compatibility_level=__ret__.compatibility_level,
-        credentials=__ret__.credentials,
-        id=__ret__.id,
-        rest_endpoint=__ret__.rest_endpoint,
-        schema_registry_cluster=__ret__.schema_registry_cluster)
+        compatibility_level=pulumi.get(__ret__, 'compatibility_level'),
+        credentials=pulumi.get(__ret__, 'credentials'),
+        id=pulumi.get(__ret__, 'id'),
+        rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
+        schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'))
 
 
 @_utilities.lift_output_func(get_schema_registry_cluster_config)

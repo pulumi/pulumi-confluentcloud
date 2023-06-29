@@ -138,14 +138,14 @@ def get_business_metadata_binding(business_metadata_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding', __args__, opts=opts, typ=GetBusinessMetadataBindingResult).value
 
     return AwaitableGetBusinessMetadataBindingResult(
-        attributes=__ret__.attributes,
-        business_metadata_name=__ret__.business_metadata_name,
-        credentials=__ret__.credentials,
-        entity_name=__ret__.entity_name,
-        entity_type=__ret__.entity_type,
-        id=__ret__.id,
-        rest_endpoint=__ret__.rest_endpoint,
-        schema_registry_cluster=__ret__.schema_registry_cluster)
+        attributes=pulumi.get(__ret__, 'attributes'),
+        business_metadata_name=pulumi.get(__ret__, 'business_metadata_name'),
+        credentials=pulumi.get(__ret__, 'credentials'),
+        entity_name=pulumi.get(__ret__, 'entity_name'),
+        entity_type=pulumi.get(__ret__, 'entity_type'),
+        id=pulumi.get(__ret__, 'id'),
+        rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
+        schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'))
 
 
 @_utilities.lift_output_func(get_business_metadata_binding)

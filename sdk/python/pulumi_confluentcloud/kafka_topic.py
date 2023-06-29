@@ -91,6 +91,9 @@ class KafkaTopicArgs:
         """
         The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
+        warnings.warn("""This parameter has been deprecated in favour of Rest Endpoint""", DeprecationWarning)
+        pulumi.log.warn("""http_endpoint is deprecated: This parameter has been deprecated in favour of Rest Endpoint""")
+
         return pulumi.get(self, "http_endpoint")
 
     @http_endpoint.setter
@@ -198,6 +201,9 @@ class _KafkaTopicState:
         """
         The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
+        warnings.warn("""This parameter has been deprecated in favour of Rest Endpoint""", DeprecationWarning)
+        pulumi.log.warn("""http_endpoint is deprecated: This parameter has been deprecated in favour of Rest Endpoint""")
+
         return pulumi.get(self, "http_endpoint")
 
     @http_endpoint.setter
@@ -583,6 +589,9 @@ class KafkaTopic(pulumi.CustomResource):
         """
         The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
+        warnings.warn("""This parameter has been deprecated in favour of Rest Endpoint""", DeprecationWarning)
+        pulumi.log.warn("""http_endpoint is deprecated: This parameter has been deprecated in favour of Rest Endpoint""")
+
         return pulumi.get(self, "http_endpoint")
 
     @property

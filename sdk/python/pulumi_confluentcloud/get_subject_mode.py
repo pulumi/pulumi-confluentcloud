@@ -116,12 +116,12 @@ def get_subject_mode(credentials: Optional[pulumi.InputType['GetSubjectModeCrede
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getSubjectMode:getSubjectMode', __args__, opts=opts, typ=GetSubjectModeResult).value
 
     return AwaitableGetSubjectModeResult(
-        credentials=__ret__.credentials,
-        id=__ret__.id,
-        mode=__ret__.mode,
-        rest_endpoint=__ret__.rest_endpoint,
-        schema_registry_cluster=__ret__.schema_registry_cluster,
-        subject_name=__ret__.subject_name)
+        credentials=pulumi.get(__ret__, 'credentials'),
+        id=pulumi.get(__ret__, 'id'),
+        mode=pulumi.get(__ret__, 'mode'),
+        rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
+        schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
+        subject_name=pulumi.get(__ret__, 'subject_name'))
 
 
 @_utilities.lift_output_func(get_subject_mode)

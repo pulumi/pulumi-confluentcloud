@@ -113,12 +113,12 @@ def get_schemas(credentials: Optional[pulumi.InputType['GetSchemasCredentialsArg
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getSchemas:getSchemas', __args__, opts=opts, typ=GetSchemasResult).value
 
     return AwaitableGetSchemasResult(
-        credentials=__ret__.credentials,
-        filter=__ret__.filter,
-        id=__ret__.id,
-        rest_endpoint=__ret__.rest_endpoint,
-        schema_registry_cluster=__ret__.schema_registry_cluster,
-        schemas=__ret__.schemas)
+        credentials=pulumi.get(__ret__, 'credentials'),
+        filter=pulumi.get(__ret__, 'filter'),
+        id=pulumi.get(__ret__, 'id'),
+        rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
+        schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
+        schemas=pulumi.get(__ret__, 'schemas'))
 
 
 @_utilities.lift_output_func(get_schemas)

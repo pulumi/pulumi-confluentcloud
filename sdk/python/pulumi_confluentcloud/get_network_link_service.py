@@ -149,13 +149,13 @@ def get_network_link_service(accept: Optional[pulumi.InputType['GetNetworkLinkSe
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getNetworkLinkService:getNetworkLinkService', __args__, opts=opts, typ=GetNetworkLinkServiceResult).value
 
     return AwaitableGetNetworkLinkServiceResult(
-        accept=__ret__.accept,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        environment=__ret__.environment,
-        id=__ret__.id,
-        networks=__ret__.networks,
-        resource_name=__ret__.resource_name)
+        accept=pulumi.get(__ret__, 'accept'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        environment=pulumi.get(__ret__, 'environment'),
+        id=pulumi.get(__ret__, 'id'),
+        networks=pulumi.get(__ret__, 'networks'),
+        resource_name=pulumi.get(__ret__, 'resource_name'))
 
 
 @_utilities.lift_output_func(get_network_link_service)

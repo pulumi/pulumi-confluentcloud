@@ -141,11 +141,11 @@ def get_user(email: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        api_version=__ret__.api_version,
-        email=__ret__.email,
-        full_name=__ret__.full_name,
-        id=__ret__.id,
-        kind=__ret__.kind)
+        api_version=pulumi.get(__ret__, 'api_version'),
+        email=pulumi.get(__ret__, 'email'),
+        full_name=pulumi.get(__ret__, 'full_name'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'))
 
 
 @_utilities.lift_output_func(get_user)

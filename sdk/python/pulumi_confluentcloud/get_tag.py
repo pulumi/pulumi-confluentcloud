@@ -140,14 +140,14 @@ def get_tag(credentials: Optional[pulumi.InputType['GetTagCredentialsArgs']] = N
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getTag:getTag', __args__, opts=opts, typ=GetTagResult).value
 
     return AwaitableGetTagResult(
-        credentials=__ret__.credentials,
-        description=__ret__.description,
-        entity_types=__ret__.entity_types,
-        id=__ret__.id,
-        name=__ret__.name,
-        rest_endpoint=__ret__.rest_endpoint,
-        schema_registry_cluster=__ret__.schema_registry_cluster,
-        version=__ret__.version)
+        credentials=pulumi.get(__ret__, 'credentials'),
+        description=pulumi.get(__ret__, 'description'),
+        entity_types=pulumi.get(__ret__, 'entity_types'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
+        schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_tag)

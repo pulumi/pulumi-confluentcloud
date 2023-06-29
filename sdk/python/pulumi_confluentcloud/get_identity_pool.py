@@ -148,12 +148,12 @@ def get_identity_pool(display_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getIdentityPool:getIdentityPool', __args__, opts=opts, typ=GetIdentityPoolResult).value
 
     return AwaitableGetIdentityPoolResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        filter=__ret__.filter,
-        id=__ret__.id,
-        identity_claim=__ret__.identity_claim,
-        identity_provider=__ret__.identity_provider)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        filter=pulumi.get(__ret__, 'filter'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_claim=pulumi.get(__ret__, 'identity_claim'),
+        identity_provider=pulumi.get(__ret__, 'identity_provider'))
 
 
 @_utilities.lift_output_func(get_identity_pool)

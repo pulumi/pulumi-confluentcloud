@@ -126,13 +126,13 @@ def get_kafka_topic(credentials: Optional[pulumi.InputType['GetKafkaTopicCredent
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getKafkaTopic:getKafkaTopic', __args__, opts=opts, typ=GetKafkaTopicResult).value
 
     return AwaitableGetKafkaTopicResult(
-        config=__ret__.config,
-        credentials=__ret__.credentials,
-        id=__ret__.id,
-        kafka_cluster=__ret__.kafka_cluster,
-        partitions_count=__ret__.partitions_count,
-        rest_endpoint=__ret__.rest_endpoint,
-        topic_name=__ret__.topic_name)
+        config=pulumi.get(__ret__, 'config'),
+        credentials=pulumi.get(__ret__, 'credentials'),
+        id=pulumi.get(__ret__, 'id'),
+        kafka_cluster=pulumi.get(__ret__, 'kafka_cluster'),
+        partitions_count=pulumi.get(__ret__, 'partitions_count'),
+        rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
+        topic_name=pulumi.get(__ret__, 'topic_name'))
 
 
 @_utilities.lift_output_func(get_kafka_topic)
