@@ -76,5 +76,5 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getOrganization:getOrganization', __args__, opts=opts, typ=GetOrganizationResult).value
 
     return AwaitableGetOrganizationResult(
-        id=__ret__.id,
-        resource_name=__ret__.resource_name)
+        id=pulumi.get(__ret__, 'id'),
+        resource_name=pulumi.get(__ret__, 'resource_name'))

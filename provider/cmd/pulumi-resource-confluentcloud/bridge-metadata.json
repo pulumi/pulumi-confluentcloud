@@ -996,100 +996,420 @@
         },
         "datasources": {
             "confluent_business_metadata": {
-                "current": "confluentcloud:index/getBusinessMetadata:getBusinessMetadata"
+                "current": "confluentcloud:index/getBusinessMetadata:getBusinessMetadata",
+                "fields": {
+                    "attribute_definition": {
+                        "maxItemsOne": false
+                    },
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_business_metadata_binding": {
-                "current": "confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding"
+                "current": "confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_byok_key": {
-                "current": "confluentcloud:index/getByokKey:getByokKey"
+                "current": "confluentcloud:index/getByokKey:getByokKey",
+                "fields": {
+                    "aws": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "roles": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "azure": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "confluent_environment": {
                 "current": "confluentcloud:index/getEnvironment:getEnvironment"
             },
             "confluent_identity_pool": {
-                "current": "confluentcloud:index/getIdentityPool:getIdentityPool"
+                "current": "confluentcloud:index/getIdentityPool:getIdentityPool",
+                "fields": {
+                    "identity_provider": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_identity_provider": {
                 "current": "confluentcloud:index/getIdentityProvider:getIdentityProvider"
             },
             "confluent_invitation": {
-                "current": "confluentcloud:index/getInvitation:getInvitation"
+                "current": "confluentcloud:index/getInvitation:getInvitation",
+                "fields": {
+                    "creator": {
+                        "maxItemsOne": false
+                    },
+                    "user": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "confluent_kafka_client_quota": {
-                "current": "confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota"
+                "current": "confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota",
+                "fields": {
+                    "environment": {
+                        "maxItemsOne": false
+                    },
+                    "kafka_cluster": {
+                        "maxItemsOne": false
+                    },
+                    "principals": {
+                        "maxItemsOne": false
+                    },
+                    "throughput": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "confluent_kafka_cluster": {
-                "current": "confluentcloud:index/getKafkaCluster:getKafkaCluster"
+                "current": "confluentcloud:index/getKafkaCluster:getKafkaCluster",
+                "fields": {
+                    "basic": {
+                        "maxItemsOne": false
+                    },
+                    "byok_key": {
+                        "maxItemsOne": false
+                    },
+                    "dedicated": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "zones": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "network": {
+                        "maxItemsOne": false
+                    },
+                    "standard": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "confluent_kafka_topic": {
-                "current": "confluentcloud:index/getKafkaTopic:getKafkaTopic"
+                "current": "confluentcloud:index/getKafkaTopic:getKafkaTopic",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "kafka_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_ksql_cluster": {
-                "current": "confluentcloud:index/getKsqlCluster:getKsqlCluster"
+                "current": "confluentcloud:index/getKsqlCluster:getKsqlCluster",
+                "fields": {
+                    "credential_identity": {
+                        "maxItemsOne": false
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "kafka_cluster": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "confluent_network": {
-                "current": "confluentcloud:index/getNetwork:getNetwork"
+                "current": "confluentcloud:index/getNetwork:getNetwork",
+                "fields": {
+                    "aws": {
+                        "maxItemsOne": false
+                    },
+                    "azure": {
+                        "maxItemsOne": false
+                    },
+                    "connection_types": {
+                        "maxItemsOne": false
+                    },
+                    "dns_config": {
+                        "maxItemsOne": false
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "gcp": {
+                        "maxItemsOne": false
+                    },
+                    "zone_info": {
+                        "maxItemsOne": false
+                    },
+                    "zones": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "confluent_network_link_endpoint": {
-                "current": "confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint"
+                "current": "confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint",
+                "fields": {
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "network": {
+                        "maxItemsOne": false
+                    },
+                    "network_link_service": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "confluent_network_link_service": {
-                "current": "confluentcloud:index/getNetworkLinkService:getNetworkLinkService"
+                "current": "confluentcloud:index/getNetworkLinkService:getNetworkLinkService",
+                "fields": {
+                    "accept": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "environments": {
+                                    "maxItemsOne": false
+                                },
+                                "networks": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "network": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "confluent_organization": {
                 "current": "confluentcloud:index/getOrganization:getOrganization"
             },
             "confluent_peering": {
-                "current": "confluentcloud:index/getPeering:getPeering"
+                "current": "confluentcloud:index/getPeering:getPeering",
+                "fields": {
+                    "aws": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "routes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "azure": {
+                        "maxItemsOne": false
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "gcp": {
+                        "maxItemsOne": false
+                    },
+                    "network": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "confluent_private_link_access": {
-                "current": "confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess"
+                "current": "confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess",
+                "fields": {
+                    "aws": {
+                        "maxItemsOne": false
+                    },
+                    "azure": {
+                        "maxItemsOne": false
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "gcp": {
+                        "maxItemsOne": false
+                    },
+                    "network": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "confluent_role_binding": {
                 "current": "confluentcloud:index/getRoleBinding:getRoleBinding"
             },
             "confluent_schema": {
-                "current": "confluentcloud:index/getSchema:getSchema"
+                "current": "confluentcloud:index/getSchema:getSchema",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "schema_reference": {
+                        "maxItemsOne": false
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_schema_registry_cluster": {
-                "current": "confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster"
+                "current": "confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster",
+                "fields": {
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "region": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "confluent_schema_registry_cluster_config": {
-                "current": "confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig"
+                "current": "confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_schema_registry_cluster_mode": {
-                "current": "confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode"
+                "current": "confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_schema_registry_region": {
                 "current": "confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion"
             },
             "confluent_schemas": {
-                "current": "confluentcloud:index/getSchemas:getSchemas"
+                "current": "confluentcloud:index/getSchemas:getSchemas",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "filter": {
+                        "maxItemsOne": true
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    },
+                    "schemas": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "schema_reference": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "confluent_service_account": {
                 "current": "confluentcloud:index/getServiceAccount:getServiceAccount"
             },
             "confluent_subject_config": {
-                "current": "confluentcloud:index/getSubjectConfig:getSubjectConfig"
+                "current": "confluentcloud:index/getSubjectConfig:getSubjectConfig",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_subject_mode": {
-                "current": "confluentcloud:index/getSubjectMode:getSubjectMode"
+                "current": "confluentcloud:index/getSubjectMode:getSubjectMode",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_tag": {
-                "current": "confluentcloud:index/getTag:getTag"
+                "current": "confluentcloud:index/getTag:getTag",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "entity_types": {
+                        "maxItemsOne": false
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_tag_binding": {
-                "current": "confluentcloud:index/getTagBinding:getTagBinding"
+                "current": "confluentcloud:index/getTagBinding:getTagBinding",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_transit_gateway_attachment": {
-                "current": "confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment"
+                "current": "confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment",
+                "fields": {
+                    "aws": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "routes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "network": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "confluent_user": {
                 "current": "confluentcloud:index/getUser:getUser"
             },
             "confluent_users": {
-                "current": "confluentcloud:index/getUsers:getUsers"
+                "current": "confluentcloud:index/getUsers:getUsers",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
             }
         }
     },

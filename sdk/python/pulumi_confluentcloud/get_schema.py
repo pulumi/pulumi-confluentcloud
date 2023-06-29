@@ -185,18 +185,18 @@ def get_schema(credentials: Optional[pulumi.InputType['GetSchemaCredentialsArgs'
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getSchema:getSchema', __args__, opts=opts, typ=GetSchemaResult).value
 
     return AwaitableGetSchemaResult(
-        credentials=__ret__.credentials,
-        format=__ret__.format,
-        hard_delete=__ret__.hard_delete,
-        id=__ret__.id,
-        recreate_on_update=__ret__.recreate_on_update,
-        rest_endpoint=__ret__.rest_endpoint,
-        schema=__ret__.schema,
-        schema_identifier=__ret__.schema_identifier,
-        schema_references=__ret__.schema_references,
-        schema_registry_cluster=__ret__.schema_registry_cluster,
-        subject_name=__ret__.subject_name,
-        version=__ret__.version)
+        credentials=pulumi.get(__ret__, 'credentials'),
+        format=pulumi.get(__ret__, 'format'),
+        hard_delete=pulumi.get(__ret__, 'hard_delete'),
+        id=pulumi.get(__ret__, 'id'),
+        recreate_on_update=pulumi.get(__ret__, 'recreate_on_update'),
+        rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
+        schema=pulumi.get(__ret__, 'schema'),
+        schema_identifier=pulumi.get(__ret__, 'schema_identifier'),
+        schema_references=pulumi.get(__ret__, 'schema_references'),
+        schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
+        subject_name=pulumi.get(__ret__, 'subject_name'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_schema)

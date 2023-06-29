@@ -227,19 +227,19 @@ def get_ksql_cluster(display_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getKsqlCluster:getKsqlCluster', __args__, opts=opts, typ=GetKsqlClusterResult).value
 
     return AwaitableGetKsqlClusterResult(
-        api_version=__ret__.api_version,
-        credential_identities=__ret__.credential_identities,
-        csu=__ret__.csu,
-        display_name=__ret__.display_name,
-        environment=__ret__.environment,
-        id=__ret__.id,
-        kafka_clusters=__ret__.kafka_clusters,
-        kind=__ret__.kind,
-        resource_name=__ret__.resource_name,
-        rest_endpoint=__ret__.rest_endpoint,
-        storage=__ret__.storage,
-        topic_prefix=__ret__.topic_prefix,
-        use_detailed_processing_log=__ret__.use_detailed_processing_log)
+        api_version=pulumi.get(__ret__, 'api_version'),
+        credential_identities=pulumi.get(__ret__, 'credential_identities'),
+        csu=pulumi.get(__ret__, 'csu'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        environment=pulumi.get(__ret__, 'environment'),
+        id=pulumi.get(__ret__, 'id'),
+        kafka_clusters=pulumi.get(__ret__, 'kafka_clusters'),
+        kind=pulumi.get(__ret__, 'kind'),
+        resource_name=pulumi.get(__ret__, 'resource_name'),
+        rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
+        storage=pulumi.get(__ret__, 'storage'),
+        topic_prefix=pulumi.get(__ret__, 'topic_prefix'),
+        use_detailed_processing_log=pulumi.get(__ret__, 'use_detailed_processing_log'))
 
 
 @_utilities.lift_output_func(get_ksql_cluster)

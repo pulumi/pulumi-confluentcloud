@@ -145,13 +145,13 @@ def get_kafka_client_quota(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota', __args__, opts=opts, typ=GetKafkaClientQuotaResult).value
 
     return AwaitableGetKafkaClientQuotaResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        environments=__ret__.environments,
-        id=__ret__.id,
-        kafka_clusters=__ret__.kafka_clusters,
-        principals=__ret__.principals,
-        throughputs=__ret__.throughputs)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        environments=pulumi.get(__ret__, 'environments'),
+        id=pulumi.get(__ret__, 'id'),
+        kafka_clusters=pulumi.get(__ret__, 'kafka_clusters'),
+        principals=pulumi.get(__ret__, 'principals'),
+        throughputs=pulumi.get(__ret__, 'throughputs'))
 
 
 @_utilities.lift_output_func(get_kafka_client_quota)

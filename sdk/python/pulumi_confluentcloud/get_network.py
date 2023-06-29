@@ -283,23 +283,23 @@ def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = 
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getNetwork:getNetwork', __args__, opts=opts, typ=GetNetworkResult).value
 
     return AwaitableGetNetworkResult(
-        aws=__ret__.aws,
-        azures=__ret__.azures,
-        cidr=__ret__.cidr,
-        cloud=__ret__.cloud,
-        connection_types=__ret__.connection_types,
-        display_name=__ret__.display_name,
-        dns_configs=__ret__.dns_configs,
-        dns_domain=__ret__.dns_domain,
-        environment=__ret__.environment,
-        gcps=__ret__.gcps,
-        id=__ret__.id,
-        region=__ret__.region,
-        reserved_cidr=__ret__.reserved_cidr,
-        resource_name=__ret__.resource_name,
-        zonal_subdomains=__ret__.zonal_subdomains,
-        zone_infos=__ret__.zone_infos,
-        zones=__ret__.zones)
+        aws=pulumi.get(__ret__, 'aws'),
+        azures=pulumi.get(__ret__, 'azures'),
+        cidr=pulumi.get(__ret__, 'cidr'),
+        cloud=pulumi.get(__ret__, 'cloud'),
+        connection_types=pulumi.get(__ret__, 'connection_types'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        dns_configs=pulumi.get(__ret__, 'dns_configs'),
+        dns_domain=pulumi.get(__ret__, 'dns_domain'),
+        environment=pulumi.get(__ret__, 'environment'),
+        gcps=pulumi.get(__ret__, 'gcps'),
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
+        reserved_cidr=pulumi.get(__ret__, 'reserved_cidr'),
+        resource_name=pulumi.get(__ret__, 'resource_name'),
+        zonal_subdomains=pulumi.get(__ret__, 'zonal_subdomains'),
+        zone_infos=pulumi.get(__ret__, 'zone_infos'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_network)

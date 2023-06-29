@@ -95,9 +95,9 @@ def get_byok_key(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getByokKey:getByokKey', __args__, opts=opts, typ=GetByokKeyResult).value
 
     return AwaitableGetByokKeyResult(
-        aws=__ret__.aws,
-        azures=__ret__.azures,
-        id=__ret__.id)
+        aws=pulumi.get(__ret__, 'aws'),
+        azures=pulumi.get(__ret__, 'azures'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_byok_key)

@@ -143,14 +143,14 @@ def get_business_metadata(credentials: Optional[pulumi.InputType['GetBusinessMet
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getBusinessMetadata:getBusinessMetadata', __args__, opts=opts, typ=GetBusinessMetadataResult).value
 
     return AwaitableGetBusinessMetadataResult(
-        attribute_definitions=__ret__.attribute_definitions,
-        credentials=__ret__.credentials,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        rest_endpoint=__ret__.rest_endpoint,
-        schema_registry_cluster=__ret__.schema_registry_cluster,
-        version=__ret__.version)
+        attribute_definitions=pulumi.get(__ret__, 'attribute_definitions'),
+        credentials=pulumi.get(__ret__, 'credentials'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
+        schema_registry_cluster=pulumi.get(__ret__, 'schema_registry_cluster'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_business_metadata)

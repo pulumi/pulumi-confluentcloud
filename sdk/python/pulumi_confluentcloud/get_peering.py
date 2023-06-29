@@ -160,13 +160,13 @@ def get_peering(display_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getPeering:getPeering', __args__, opts=opts, typ=GetPeeringResult).value
 
     return AwaitableGetPeeringResult(
-        aws=__ret__.aws,
-        azures=__ret__.azures,
-        display_name=__ret__.display_name,
-        environment=__ret__.environment,
-        gcps=__ret__.gcps,
-        id=__ret__.id,
-        networks=__ret__.networks)
+        aws=pulumi.get(__ret__, 'aws'),
+        azures=pulumi.get(__ret__, 'azures'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        environment=pulumi.get(__ret__, 'environment'),
+        gcps=pulumi.get(__ret__, 'gcps'),
+        id=pulumi.get(__ret__, 'id'),
+        networks=pulumi.get(__ret__, 'networks'))
 
 
 @_utilities.lift_output_func(get_peering)

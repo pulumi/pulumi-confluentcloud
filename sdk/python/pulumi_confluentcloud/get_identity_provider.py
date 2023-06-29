@@ -125,11 +125,11 @@ def get_identity_provider(display_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getIdentityProvider:getIdentityProvider', __args__, opts=opts, typ=GetIdentityProviderResult).value
 
     return AwaitableGetIdentityProviderResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        issuer=__ret__.issuer,
-        jwks_uri=__ret__.jwks_uri)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        issuer=pulumi.get(__ret__, 'issuer'),
+        jwks_uri=pulumi.get(__ret__, 'jwks_uri'))
 
 
 @_utilities.lift_output_func(get_identity_provider)

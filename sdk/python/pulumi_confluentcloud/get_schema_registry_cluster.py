@@ -180,15 +180,15 @@ def get_schema_registry_cluster(display_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster', __args__, opts=opts, typ=GetSchemaRegistryClusterResult).value
 
     return AwaitableGetSchemaRegistryClusterResult(
-        api_version=__ret__.api_version,
-        display_name=__ret__.display_name,
-        environment=__ret__.environment,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        package=__ret__.package,
-        regions=__ret__.regions,
-        resource_name=__ret__.resource_name,
-        rest_endpoint=__ret__.rest_endpoint)
+        api_version=pulumi.get(__ret__, 'api_version'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        environment=pulumi.get(__ret__, 'environment'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        package=pulumi.get(__ret__, 'package'),
+        regions=pulumi.get(__ret__, 'regions'),
+        resource_name=pulumi.get(__ret__, 'resource_name'),
+        rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'))
 
 
 @_utilities.lift_output_func(get_schema_registry_cluster)

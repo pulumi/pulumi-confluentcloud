@@ -273,22 +273,22 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getKafkaCluster:getKafkaCluster', __args__, opts=opts, typ=GetKafkaClusterResult).value
 
     return AwaitableGetKafkaClusterResult(
-        api_version=__ret__.api_version,
-        availability=__ret__.availability,
-        basics=__ret__.basics,
-        bootstrap_endpoint=__ret__.bootstrap_endpoint,
-        byok_keys=__ret__.byok_keys,
-        cloud=__ret__.cloud,
-        dedicated=__ret__.dedicated,
-        display_name=__ret__.display_name,
-        environment=__ret__.environment,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        networks=__ret__.networks,
-        rbac_crn=__ret__.rbac_crn,
-        region=__ret__.region,
-        rest_endpoint=__ret__.rest_endpoint,
-        standards=__ret__.standards)
+        api_version=pulumi.get(__ret__, 'api_version'),
+        availability=pulumi.get(__ret__, 'availability'),
+        basics=pulumi.get(__ret__, 'basics'),
+        bootstrap_endpoint=pulumi.get(__ret__, 'bootstrap_endpoint'),
+        byok_keys=pulumi.get(__ret__, 'byok_keys'),
+        cloud=pulumi.get(__ret__, 'cloud'),
+        dedicated=pulumi.get(__ret__, 'dedicated'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        environment=pulumi.get(__ret__, 'environment'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        networks=pulumi.get(__ret__, 'networks'),
+        rbac_crn=pulumi.get(__ret__, 'rbac_crn'),
+        region=pulumi.get(__ret__, 'region'),
+        rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
+        standards=pulumi.get(__ret__, 'standards'))
 
 
 @_utilities.lift_output_func(get_kafka_cluster)

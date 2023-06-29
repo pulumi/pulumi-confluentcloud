@@ -146,13 +146,13 @@ def get_network_link_endpoint(environment: Optional[pulumi.InputType['GetNetwork
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint', __args__, opts=opts, typ=GetNetworkLinkEndpointResult).value
 
     return AwaitableGetNetworkLinkEndpointResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        environment=__ret__.environment,
-        id=__ret__.id,
-        network_link_services=__ret__.network_link_services,
-        networks=__ret__.networks,
-        resource_name=__ret__.resource_name)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        environment=pulumi.get(__ret__, 'environment'),
+        id=pulumi.get(__ret__, 'id'),
+        network_link_services=pulumi.get(__ret__, 'network_link_services'),
+        networks=pulumi.get(__ret__, 'networks'),
+        resource_name=pulumi.get(__ret__, 'resource_name'))
 
 
 @_utilities.lift_output_func(get_network_link_endpoint)

@@ -155,14 +155,14 @@ def get_invitation(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getInvitation:getInvitation', __args__, opts=opts, typ=GetInvitationResult).value
 
     return AwaitableGetInvitationResult(
-        accepted_at=__ret__.accepted_at,
-        auth_type=__ret__.auth_type,
-        creators=__ret__.creators,
-        email=__ret__.email,
-        expires_at=__ret__.expires_at,
-        id=__ret__.id,
-        status=__ret__.status,
-        users=__ret__.users)
+        accepted_at=pulumi.get(__ret__, 'accepted_at'),
+        auth_type=pulumi.get(__ret__, 'auth_type'),
+        creators=pulumi.get(__ret__, 'creators'),
+        email=pulumi.get(__ret__, 'email'),
+        expires_at=pulumi.get(__ret__, 'expires_at'),
+        id=pulumi.get(__ret__, 'id'),
+        status=pulumi.get(__ret__, 'status'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_invitation)

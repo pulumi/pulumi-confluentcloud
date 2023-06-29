@@ -107,10 +107,10 @@ def get_schema_registry_region(cloud: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion', __args__, opts=opts, typ=GetSchemaRegistryRegionResult).value
 
     return AwaitableGetSchemaRegistryRegionResult(
-        cloud=__ret__.cloud,
-        id=__ret__.id,
-        package=__ret__.package,
-        region=__ret__.region)
+        cloud=pulumi.get(__ret__, 'cloud'),
+        id=pulumi.get(__ret__, 'id'),
+        package=pulumi.get(__ret__, 'package'),
+        region=pulumi.get(__ret__, 'region'))
 
 
 @_utilities.lift_output_func(get_schema_registry_region)
