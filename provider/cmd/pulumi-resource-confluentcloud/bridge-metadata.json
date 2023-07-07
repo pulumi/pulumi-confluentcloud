@@ -1041,6 +1041,14 @@
             "confluent_environment": {
                 "current": "confluentcloud:index/getEnvironment:getEnvironment"
             },
+            "confluent_environments": {
+                "current": "confluentcloud:index/getEnvironments:getEnvironments",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "confluent_identity_pool": {
                 "current": "confluentcloud:index/getIdentityPool:getIdentityPool",
                 "fields": {
@@ -1455,6 +1463,7 @@
             "confluentcloud:index/getBusinessMetadataBinding:getBusinessMetadataBinding": "confluent_business_metadata_binding",
             "confluentcloud:index/getByokKey:getByokKey": "confluent_byok_key",
             "confluentcloud:index/getEnvironment:getEnvironment": "confluent_environment",
+            "confluentcloud:index/getEnvironments:getEnvironments": "confluent_environments",
             "confluentcloud:index/getIdentityPool:getIdentityPool": "confluent_identity_pool",
             "confluentcloud:index/getIdentityProvider:getIdentityProvider": "confluent_identity_provider",
             "confluentcloud:index/getInvitation:getInvitation": "confluent_invitation",

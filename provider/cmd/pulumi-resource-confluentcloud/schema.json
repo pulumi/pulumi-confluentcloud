@@ -42,6 +42,8 @@
             "disableUnionOutputTypes": true,
             "packageDescription": "A Pulumi package for creating and managing Confluent cloud resources.",
             "packageName": "",
+            "pluginName": "",
+            "pluginVersion": "",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/confluentinc/terraform-provider-confluent)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-confluentcloud` repo](https://github.com/pulumi/pulumi-confluentcloud/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-confluent` repo](https://github.com/confluentinc/terraform-provider-confluent/issues).",
             "typescriptVersion": ""
         },
@@ -6762,6 +6764,30 @@
                     "displayName",
                     "id",
                     "resourceName"
+                ]
+            }
+        },
+        "confluentcloud:index/getEnvironments:getEnvironments": {
+            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.getEnvironments` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.getEnvironments` describes a data source for Environments.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getEnvironments({});\nexport const environments = main.then(main =\u003e main.ids);\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_environments()\npulumi.export(\"environments\", main.ids)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetEnvironments.Invoke();\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"environments\"] = main.Apply(getEnvironmentsResult =\u003e getEnvironmentsResult.Ids),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.GetEnvironments(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"environments\", main.Ids)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getEnvironments();\n\n        ctx.export(\"environments\", main.applyValue(getEnvironmentsResult -\u003e getEnvironmentsResult.ids()));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getEnvironments\n      Arguments: {}\noutputs:\n  environments: ${main.ids}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getEnvironments.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(Required List of Strings) The list of Environment IDs, for example: `[\"env-abc123\", \"env-abc124\"]`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ids",
+                    "id"
                 ]
             }
         },

@@ -16,6 +16,7 @@ from .get_business_metadata import *
 from .get_business_metadata_binding import *
 from .get_byok_key import *
 from .get_environment import *
+from .get_environments import *
 from .get_identity_pool import *
 from .get_identity_provider import *
 from .get_invitation import *
