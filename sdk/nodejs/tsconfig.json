@@ -26,6 +26,7 @@
         "getBusinessMetadataBinding.ts",
         "getByokKey.ts",
         "getEnvironment.ts",
+        "getEnvironments.ts",
         "getIdentityPool.ts",
         "getIdentityProvider.ts",
         "getInvitation.ts",
