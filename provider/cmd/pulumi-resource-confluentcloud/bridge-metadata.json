@@ -1310,6 +1310,24 @@
                     }
                 }
             },
+            "confluent_schema_registry_clusters": {
+                "current": "confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters",
+                "fields": {
+                    "clusters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "environment": {
+                                    "maxItemsOne": true
+                                },
+                                "region": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "confluent_schema_registry_region": {
                 "current": "confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion"
             },
@@ -1482,6 +1500,7 @@
             "confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster": "confluent_schema_registry_cluster",
             "confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig": "confluent_schema_registry_cluster_config",
             "confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode": "confluent_schema_registry_cluster_mode",
+            "confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters": "confluent_schema_registry_clusters",
             "confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion": "confluent_schema_registry_region",
             "confluentcloud:index/getSchemas:getSchemas": "confluent_schemas",
             "confluentcloud:index/getServiceAccount:getServiceAccount": "confluent_service_account",
@@ -1778,6 +1797,13 @@
             "confluentcloud:index/getSchemaRegistryClusterMode:getSchemaRegistryClusterMode": {
                 "restEndpoint": "rest_endpoint",
                 "schemaRegistryCluster": "schema_registry_cluster"
+            },
+            "confluentcloud:index/getSchemaRegistryClustersCluster:getSchemaRegistryClustersCluster": {
+                "apiVersion": "api_version",
+                "displayName": "display_name",
+                "regions": "region",
+                "resourceName": "resource_name",
+                "restEndpoint": "rest_endpoint"
             },
             "confluentcloud:index/getSchemaSchemaReference:getSchemaSchemaReference": {
                 "subjectName": "subject_name"

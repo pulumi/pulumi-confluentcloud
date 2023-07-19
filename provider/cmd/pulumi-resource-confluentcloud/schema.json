@@ -2525,6 +2525,100 @@
                 }
             }
         },
+        "confluentcloud:index/getSchemaRegistryClustersCluster:getSchemaRegistryClustersCluster": {
+            "properties": {
+                "apiVersion": {
+                    "type": "string",
+                    "description": "(Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "(Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/getSchemaRegistryClustersClusterEnvironment:getSchemaRegistryClustersClusterEnvironment",
+                    "description": "(Required Object) exports the following attributes:\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "(Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Required String) A kind of the Schema Registry cluster, for example, `Cluster`.\n"
+                },
+                "package": {
+                    "type": "string",
+                    "description": "(Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.\n"
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRegistryClustersClusterRegion:getSchemaRegistryClustersClusterRegion"
+                    },
+                    "description": "(Required Configuration Block) supports the following:\n"
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "(Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "(Required String) The HTTP endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-west-2.aws.confluent.cloud`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "apiVersion",
+                "displayName",
+                "environment",
+                "id",
+                "kind",
+                "package",
+                "regions",
+                "resourceName",
+                "restEndpoint"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getSchemaRegistryClustersClusterEnvironment:getSchemaRegistryClustersClusterEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "(Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getSchemaRegistryClustersClusterRegion:getSchemaRegistryClustersClusterRegion": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "(Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/getSchemaSchemaReference:getSchemaSchemaReference": {
             "properties": {
                 "name": {
@@ -8138,6 +8232,30 @@
                 "type": "object",
                 "required": [
                     "mode",
+                    "id"
+                ]
+            }
+        },
+        "confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters": {
+            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.getSchemaRegistryClusters` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.getSchemaRegistryClusters` describes a data source for Schema Registry Clusters.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getSchemaRegistryClusters({});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_schema_registry_clusters()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetSchemaRegistryClusters.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.GetSchemaRegistryClusters(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getSchemaRegistryClusters();\n\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getSchemaRegistryClusters\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getSchemaRegistryClusters.\n",
+                "properties": {
+                    "clusters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getSchemaRegistryClustersCluster:getSchemaRegistryClustersCluster"
+                        },
+                        "description": "(Required List of Object) List of Schema Registry clusters. Each Schema Registry cluster object exports the following attributes:\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "clusters",
                     "id"
                 ]
             }
