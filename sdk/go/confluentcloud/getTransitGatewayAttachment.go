@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,6 +55,7 @@ import (
 //
 // ```
 func LookupTransitGatewayAttachment(ctx *pulumi.Context, args *LookupTransitGatewayAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupTransitGatewayAttachmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTransitGatewayAttachmentResult
 	err := ctx.Invoke("confluentcloud:index/getTransitGatewayAttachment:getTransitGatewayAttachment", args, &rv, opts...)
 	if err != nil {

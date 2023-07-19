@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupSubjectConfig(ctx *pulumi.Context, args *LookupSubjectConfigArgs, opts ...pulumi.InvokeOption) (*LookupSubjectConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubjectConfigResult
 	err := ctx.Invoke("confluentcloud:index/getSubjectConfig:getSubjectConfig", args, &rv, opts...)
 	if err != nil {

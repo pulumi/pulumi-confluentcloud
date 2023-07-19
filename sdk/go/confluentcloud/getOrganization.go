@@ -4,6 +4,7 @@
 package confluentcloud
 
 import (
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ import (
 //
 // ```
 func GetOrganization(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetOrganizationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrganizationResult
 	err := ctx.Invoke("confluentcloud:index/getOrganization:getOrganization", nil, &rv, opts...)
 	if err != nil {

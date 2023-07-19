@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupTagBinding(ctx *pulumi.Context, args *LookupTagBindingArgs, opts ...pulumi.InvokeOption) (*LookupTagBindingResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTagBindingResult
 	err := ctx.Invoke("confluentcloud:index/getTagBinding:getTagBinding", args, &rv, opts...)
 	if err != nil {

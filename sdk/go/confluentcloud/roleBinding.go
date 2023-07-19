@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,6 +50,7 @@ func NewRoleBinding(ctx *pulumi.Context,
 	if args.RoleName == nil {
 		return nil, errors.New("invalid value for required argument 'RoleName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoleBinding
 	err := ctx.RegisterResource("confluentcloud:index/roleBinding:RoleBinding", name, args, &resource, opts...)
 	if err != nil {

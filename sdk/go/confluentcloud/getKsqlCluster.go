@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,6 +57,7 @@ import (
 //
 // ```
 func LookupKsqlCluster(ctx *pulumi.Context, args *LookupKsqlClusterArgs, opts ...pulumi.InvokeOption) (*LookupKsqlClusterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKsqlClusterResult
 	err := ctx.Invoke("confluentcloud:index/getKsqlCluster:getKsqlCluster", args, &rv, opts...)
 	if err != nil {

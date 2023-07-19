@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -76,6 +77,7 @@ func NewSchema(ctx *pulumi.Context,
 		"credentials",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Schema
 	err := ctx.RegisterResource("confluentcloud:index/schema:Schema", name, args, &resource, opts...)
 	if err != nil {

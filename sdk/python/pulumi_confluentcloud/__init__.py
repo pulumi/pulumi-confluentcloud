@@ -35,6 +35,7 @@ from .get_schema import *
 from .get_schema_registry_cluster import *
 from .get_schema_registry_cluster_config import *
 from .get_schema_registry_cluster_mode import *
+from .get_schema_registry_clusters import *
 from .get_schema_registry_region import *
 from .get_schemas import *
 from .get_service_account import *

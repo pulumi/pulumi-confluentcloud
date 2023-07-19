@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ func NewServiceAccount(ctx *pulumi.Context,
 		args = &ServiceAccountArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceAccount
 	err := ctx.RegisterResource("confluentcloud:index/serviceAccount:ServiceAccount", name, args, &resource, opts...)
 	if err != nil {

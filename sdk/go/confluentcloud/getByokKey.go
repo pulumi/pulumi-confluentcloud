@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupByokKey(ctx *pulumi.Context, args *LookupByokKeyArgs, opts ...pulumi.InvokeOption) (*LookupByokKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupByokKeyResult
 	err := ctx.Invoke("confluentcloud:index/getByokKey:getByokKey", args, &rv, opts...)
 	if err != nil {

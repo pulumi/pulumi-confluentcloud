@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,6 +55,7 @@ import (
 //
 // ```
 func LookupPeering(ctx *pulumi.Context, args *LookupPeeringArgs, opts ...pulumi.InvokeOption) (*LookupPeeringResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPeeringResult
 	err := ctx.Invoke("confluentcloud:index/getPeering:getPeering", args, &rv, opts...)
 	if err != nil {

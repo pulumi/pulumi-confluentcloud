@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupSchemaRegistryClusterConfig(ctx *pulumi.Context, args *LookupSchemaRegistryClusterConfigArgs, opts ...pulumi.InvokeOption) (*LookupSchemaRegistryClusterConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSchemaRegistryClusterConfigResult
 	err := ctx.Invoke("confluentcloud:index/getSchemaRegistryClusterConfig:getSchemaRegistryClusterConfig", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,6 +44,7 @@ import (
 //
 // ```
 func LookupKafkaClientQuota(ctx *pulumi.Context, args *LookupKafkaClientQuotaArgs, opts ...pulumi.InvokeOption) (*LookupKafkaClientQuotaResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKafkaClientQuotaResult
 	err := ctx.Invoke("confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota", args, &rv, opts...)
 	if err != nil {

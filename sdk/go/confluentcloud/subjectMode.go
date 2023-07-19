@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,6 +54,7 @@ func NewSubjectMode(ctx *pulumi.Context,
 		"credentials",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubjectMode
 	err := ctx.RegisterResource("confluentcloud:index/subjectMode:SubjectMode", name, args, &resource, opts...)
 	if err != nil {

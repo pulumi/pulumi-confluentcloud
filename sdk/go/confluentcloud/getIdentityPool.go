@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,6 +55,7 @@ import (
 //
 // ```
 func LookupIdentityPool(ctx *pulumi.Context, args *LookupIdentityPoolArgs, opts ...pulumi.InvokeOption) (*LookupIdentityPoolResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIdentityPoolResult
 	err := ctx.Invoke("confluentcloud:index/getIdentityPool:getIdentityPool", args, &rv, opts...)
 	if err != nil {

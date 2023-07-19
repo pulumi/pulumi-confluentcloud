@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupRoleBinding(ctx *pulumi.Context, args *LookupRoleBindingArgs, opts ...pulumi.InvokeOption) (*LookupRoleBindingResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRoleBindingResult
 	err := ctx.Invoke("confluentcloud:index/getRoleBinding:getRoleBinding", args, &rv, opts...)
 	if err != nil {

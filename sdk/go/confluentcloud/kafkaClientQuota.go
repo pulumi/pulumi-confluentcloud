@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -101,6 +102,7 @@ func NewKafkaClientQuota(ctx *pulumi.Context,
 	if args.Throughput == nil {
 		return nil, errors.New("invalid value for required argument 'Throughput'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KafkaClientQuota
 	err := ctx.RegisterResource("confluentcloud:index/kafkaClientQuota:KafkaClientQuota", name, args, &resource, opts...)
 	if err != nil {

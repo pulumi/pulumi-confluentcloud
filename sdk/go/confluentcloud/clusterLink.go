@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,6 +51,7 @@ func NewClusterLink(ctx *pulumi.Context,
 	if args.SourceKafkaCluster == nil {
 		return nil, errors.New("invalid value for required argument 'SourceKafkaCluster'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterLink
 	err := ctx.RegisterResource("confluentcloud:index/clusterLink:ClusterLink", name, args, &resource, opts...)
 	if err != nil {

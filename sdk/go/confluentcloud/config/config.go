@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 // The Confluent Cloud API Key.
 func GetCloudApiKey(ctx *pulumi.Context) string {
