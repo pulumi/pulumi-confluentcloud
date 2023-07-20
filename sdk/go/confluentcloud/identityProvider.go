@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -121,6 +122,7 @@ func NewIdentityProvider(ctx *pulumi.Context,
 	if args.JwksUri == nil {
 		return nil, errors.New("invalid value for required argument 'JwksUri'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityProvider
 	err := ctx.RegisterResource("confluentcloud:index/identityProvider:IdentityProvider", name, args, &resource, opts...)
 	if err != nil {

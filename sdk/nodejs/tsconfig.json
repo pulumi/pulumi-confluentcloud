@@ -45,6 +45,7 @@
         "getSchemaRegistryCluster.ts",
         "getSchemaRegistryClusterConfig.ts",
         "getSchemaRegistryClusterMode.ts",
+        "getSchemaRegistryClusters.ts",
         "getSchemaRegistryRegion.ts",
         "getSchemas.ts",
         "getServiceAccount.ts",

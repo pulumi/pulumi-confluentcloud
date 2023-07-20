@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupBusinessMetadata(ctx *pulumi.Context, args *LookupBusinessMetadataArgs, opts ...pulumi.InvokeOption) (*LookupBusinessMetadataResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBusinessMetadataResult
 	err := ctx.Invoke("confluentcloud:index/getBusinessMetadata:getBusinessMetadata", args, &rv, opts...)
 	if err != nil {

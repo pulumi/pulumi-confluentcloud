@@ -153,6 +153,10 @@ export const getSchemaRegistryClusterMode: typeof import("./getSchemaRegistryClu
 export const getSchemaRegistryClusterModeOutput: typeof import("./getSchemaRegistryClusterMode").getSchemaRegistryClusterModeOutput = null as any;
 utilities.lazyLoad(exports, ["getSchemaRegistryClusterMode","getSchemaRegistryClusterModeOutput"], () => require("./getSchemaRegistryClusterMode"));
 
+export { GetSchemaRegistryClustersResult } from "./getSchemaRegistryClusters";
+export const getSchemaRegistryClusters: typeof import("./getSchemaRegistryClusters").getSchemaRegistryClusters = null as any;
+utilities.lazyLoad(exports, ["getSchemaRegistryClusters"], () => require("./getSchemaRegistryClusters"));
+
 export { GetSchemaRegistryRegionArgs, GetSchemaRegistryRegionResult, GetSchemaRegistryRegionOutputArgs } from "./getSchemaRegistryRegion";
 export const getSchemaRegistryRegion: typeof import("./getSchemaRegistryRegion").getSchemaRegistryRegion = null as any;
 export const getSchemaRegistryRegionOutput: typeof import("./getSchemaRegistryRegion").getSchemaRegistryRegionOutput = null as any;

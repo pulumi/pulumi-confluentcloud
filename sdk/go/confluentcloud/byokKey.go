@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ func NewByokKey(ctx *pulumi.Context,
 		args = &ByokKeyArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ByokKey
 	err := ctx.RegisterResource("confluentcloud:index/byokKey:ByokKey", name, args, &resource, opts...)
 	if err != nil {

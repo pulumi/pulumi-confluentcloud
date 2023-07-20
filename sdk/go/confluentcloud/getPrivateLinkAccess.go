@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,6 +55,7 @@ import (
 //
 // ```
 func LookupPrivateLinkAccess(ctx *pulumi.Context, args *LookupPrivateLinkAccessArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkAccessResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPrivateLinkAccessResult
 	err := ctx.Invoke("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", args, &rv, opts...)
 	if err != nil {

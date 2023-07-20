@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,6 +45,7 @@ import (
 //
 // ```
 func LookupNetworkLinkEndpoint(ctx *pulumi.Context, args *LookupNetworkLinkEndpointArgs, opts ...pulumi.InvokeOption) (*LookupNetworkLinkEndpointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkLinkEndpointResult
 	err := ctx.Invoke("confluentcloud:index/getNetworkLinkEndpoint:getNetworkLinkEndpoint", args, &rv, opts...)
 	if err != nil {

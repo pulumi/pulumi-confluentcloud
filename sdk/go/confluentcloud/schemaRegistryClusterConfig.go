@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,6 +48,7 @@ func NewSchemaRegistryClusterConfig(ctx *pulumi.Context,
 		"credentials",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SchemaRegistryClusterConfig
 	err := ctx.RegisterResource("confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig", name, args, &resource, opts...)
 	if err != nil {

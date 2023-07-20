@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,6 +44,7 @@ import (
 //
 // ```
 func GetSchemaRegistryRegion(ctx *pulumi.Context, args *GetSchemaRegistryRegionArgs, opts ...pulumi.InvokeOption) (*GetSchemaRegistryRegionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSchemaRegistryRegionResult
 	err := ctx.Invoke("confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion", args, &rv, opts...)
 	if err != nil {

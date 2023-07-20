@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupKafkaTopic(ctx *pulumi.Context, args *LookupKafkaTopicArgs, opts ...pulumi.InvokeOption) (*LookupKafkaTopicResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKafkaTopicResult
 	err := ctx.Invoke("confluentcloud:index/getKafkaTopic:getKafkaTopic", args, &rv, opts...)
 	if err != nil {

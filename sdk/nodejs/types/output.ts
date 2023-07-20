@@ -721,6 +721,59 @@ export interface GetSchemaRegistryClusterRegion {
     id: string;
 }
 
+export interface GetSchemaRegistryClustersCluster {
+    /**
+     * (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.
+     */
+    apiVersion: string;
+    /**
+     * (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
+     */
+    displayName: string;
+    /**
+     * (Required Object) exports the following attributes:
+     */
+    environment: outputs.GetSchemaRegistryClustersClusterEnvironment;
+    /**
+     * (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+     */
+    id: string;
+    /**
+     * (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.
+     */
+    kind: string;
+    /**
+     * (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+     */
+    package: string;
+    /**
+     * (Required Configuration Block) supports the following:
+     */
+    regions: outputs.GetSchemaRegistryClustersClusterRegion[];
+    /**
+     * (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
+     */
+    resourceName: string;
+    /**
+     * (Required String) The HTTP endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-west-2.aws.confluent.cloud`.
+     */
+    restEndpoint: string;
+}
+
+export interface GetSchemaRegistryClustersClusterEnvironment {
+    /**
+     * (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+     */
+    id: string;
+}
+
+export interface GetSchemaRegistryClustersClusterRegion {
+    /**
+     * (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+     */
+    id: string;
+}
+
 export interface GetSchemaSchemaReference {
     /**
      * (Required String) The name of the subject, representing the subject under which the referenced schema is registered.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,6 +74,7 @@ func NewKsqlCluster(ctx *pulumi.Context,
 	if args.KafkaCluster == nil {
 		return nil, errors.New("invalid value for required argument 'KafkaCluster'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KsqlCluster
 	err := ctx.RegisterResource("confluentcloud:index/ksqlCluster:KsqlCluster", name, args, &resource, opts...)
 	if err != nil {

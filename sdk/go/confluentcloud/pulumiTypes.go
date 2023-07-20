@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ApiKeyManagedResource struct {
 	// The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
@@ -17836,6 +17839,326 @@ func (o GetSchemaRegistryClusterRegionArrayOutput) Index(i pulumi.IntInput) GetS
 	}).(GetSchemaRegistryClusterRegionOutput)
 }
 
+type GetSchemaRegistryClustersCluster struct {
+	// (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.
+	ApiVersion string `pulumi:"apiVersion"`
+	// (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
+	DisplayName string `pulumi:"displayName"`
+	// (Required Object) exports the following attributes:
+	Environment GetSchemaRegistryClustersClusterEnvironment `pulumi:"environment"`
+	// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+	Id string `pulumi:"id"`
+	// (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.
+	Kind string `pulumi:"kind"`
+	// (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+	Package string `pulumi:"package"`
+	// (Required Configuration Block) supports the following:
+	Regions []GetSchemaRegistryClustersClusterRegion `pulumi:"regions"`
+	// (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
+	ResourceName string `pulumi:"resourceName"`
+	// (Required String) The HTTP endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-west-2.aws.confluent.cloud`.
+	RestEndpoint string `pulumi:"restEndpoint"`
+}
+
+// GetSchemaRegistryClustersClusterInput is an input type that accepts GetSchemaRegistryClustersClusterArgs and GetSchemaRegistryClustersClusterOutput values.
+// You can construct a concrete instance of `GetSchemaRegistryClustersClusterInput` via:
+//
+//	GetSchemaRegistryClustersClusterArgs{...}
+type GetSchemaRegistryClustersClusterInput interface {
+	pulumi.Input
+
+	ToGetSchemaRegistryClustersClusterOutput() GetSchemaRegistryClustersClusterOutput
+	ToGetSchemaRegistryClustersClusterOutputWithContext(context.Context) GetSchemaRegistryClustersClusterOutput
+}
+
+type GetSchemaRegistryClustersClusterArgs struct {
+	// (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.
+	ApiVersion pulumi.StringInput `pulumi:"apiVersion"`
+	// (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// (Required Object) exports the following attributes:
+	Environment GetSchemaRegistryClustersClusterEnvironmentInput `pulumi:"environment"`
+	// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+	Id pulumi.StringInput `pulumi:"id"`
+	// (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+	Package pulumi.StringInput `pulumi:"package"`
+	// (Required Configuration Block) supports the following:
+	Regions GetSchemaRegistryClustersClusterRegionArrayInput `pulumi:"regions"`
+	// (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// (Required String) The HTTP endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-west-2.aws.confluent.cloud`.
+	RestEndpoint pulumi.StringInput `pulumi:"restEndpoint"`
+}
+
+func (GetSchemaRegistryClustersClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClustersCluster)(nil)).Elem()
+}
+
+func (i GetSchemaRegistryClustersClusterArgs) ToGetSchemaRegistryClustersClusterOutput() GetSchemaRegistryClustersClusterOutput {
+	return i.ToGetSchemaRegistryClustersClusterOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRegistryClustersClusterArgs) ToGetSchemaRegistryClustersClusterOutputWithContext(ctx context.Context) GetSchemaRegistryClustersClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClustersClusterOutput)
+}
+
+// GetSchemaRegistryClustersClusterArrayInput is an input type that accepts GetSchemaRegistryClustersClusterArray and GetSchemaRegistryClustersClusterArrayOutput values.
+// You can construct a concrete instance of `GetSchemaRegistryClustersClusterArrayInput` via:
+//
+//	GetSchemaRegistryClustersClusterArray{ GetSchemaRegistryClustersClusterArgs{...} }
+type GetSchemaRegistryClustersClusterArrayInput interface {
+	pulumi.Input
+
+	ToGetSchemaRegistryClustersClusterArrayOutput() GetSchemaRegistryClustersClusterArrayOutput
+	ToGetSchemaRegistryClustersClusterArrayOutputWithContext(context.Context) GetSchemaRegistryClustersClusterArrayOutput
+}
+
+type GetSchemaRegistryClustersClusterArray []GetSchemaRegistryClustersClusterInput
+
+func (GetSchemaRegistryClustersClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemaRegistryClustersCluster)(nil)).Elem()
+}
+
+func (i GetSchemaRegistryClustersClusterArray) ToGetSchemaRegistryClustersClusterArrayOutput() GetSchemaRegistryClustersClusterArrayOutput {
+	return i.ToGetSchemaRegistryClustersClusterArrayOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRegistryClustersClusterArray) ToGetSchemaRegistryClustersClusterArrayOutputWithContext(ctx context.Context) GetSchemaRegistryClustersClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClustersClusterArrayOutput)
+}
+
+type GetSchemaRegistryClustersClusterOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRegistryClustersClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClustersCluster)(nil)).Elem()
+}
+
+func (o GetSchemaRegistryClustersClusterOutput) ToGetSchemaRegistryClustersClusterOutput() GetSchemaRegistryClustersClusterOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClustersClusterOutput) ToGetSchemaRegistryClustersClusterOutputWithContext(ctx context.Context) GetSchemaRegistryClustersClusterOutput {
+	return o
+}
+
+// (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.
+func (o GetSchemaRegistryClustersClusterOutput) ApiVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersCluster) string { return v.ApiVersion }).(pulumi.StringOutput)
+}
+
+// (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
+func (o GetSchemaRegistryClustersClusterOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersCluster) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// (Required Object) exports the following attributes:
+func (o GetSchemaRegistryClustersClusterOutput) Environment() GetSchemaRegistryClustersClusterEnvironmentOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersCluster) GetSchemaRegistryClustersClusterEnvironment {
+		return v.Environment
+	}).(GetSchemaRegistryClustersClusterEnvironmentOutput)
+}
+
+// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+func (o GetSchemaRegistryClustersClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.
+func (o GetSchemaRegistryClustersClusterOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersCluster) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// (Required String) The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
+func (o GetSchemaRegistryClustersClusterOutput) Package() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersCluster) string { return v.Package }).(pulumi.StringOutput)
+}
+
+// (Required Configuration Block) supports the following:
+func (o GetSchemaRegistryClustersClusterOutput) Regions() GetSchemaRegistryClustersClusterRegionArrayOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersCluster) []GetSchemaRegistryClustersClusterRegion { return v.Regions }).(GetSchemaRegistryClustersClusterRegionArrayOutput)
+}
+
+// (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
+func (o GetSchemaRegistryClustersClusterOutput) ResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersCluster) string { return v.ResourceName }).(pulumi.StringOutput)
+}
+
+// (Required String) The HTTP endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-west-2.aws.confluent.cloud`.
+func (o GetSchemaRegistryClustersClusterOutput) RestEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersCluster) string { return v.RestEndpoint }).(pulumi.StringOutput)
+}
+
+type GetSchemaRegistryClustersClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRegistryClustersClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemaRegistryClustersCluster)(nil)).Elem()
+}
+
+func (o GetSchemaRegistryClustersClusterArrayOutput) ToGetSchemaRegistryClustersClusterArrayOutput() GetSchemaRegistryClustersClusterArrayOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClustersClusterArrayOutput) ToGetSchemaRegistryClustersClusterArrayOutputWithContext(ctx context.Context) GetSchemaRegistryClustersClusterArrayOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClustersClusterArrayOutput) Index(i pulumi.IntInput) GetSchemaRegistryClustersClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSchemaRegistryClustersCluster {
+		return vs[0].([]GetSchemaRegistryClustersCluster)[vs[1].(int)]
+	}).(GetSchemaRegistryClustersClusterOutput)
+}
+
+type GetSchemaRegistryClustersClusterEnvironment struct {
+	// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+	Id string `pulumi:"id"`
+}
+
+// GetSchemaRegistryClustersClusterEnvironmentInput is an input type that accepts GetSchemaRegistryClustersClusterEnvironmentArgs and GetSchemaRegistryClustersClusterEnvironmentOutput values.
+// You can construct a concrete instance of `GetSchemaRegistryClustersClusterEnvironmentInput` via:
+//
+//	GetSchemaRegistryClustersClusterEnvironmentArgs{...}
+type GetSchemaRegistryClustersClusterEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetSchemaRegistryClustersClusterEnvironmentOutput() GetSchemaRegistryClustersClusterEnvironmentOutput
+	ToGetSchemaRegistryClustersClusterEnvironmentOutputWithContext(context.Context) GetSchemaRegistryClustersClusterEnvironmentOutput
+}
+
+type GetSchemaRegistryClustersClusterEnvironmentArgs struct {
+	// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetSchemaRegistryClustersClusterEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClustersClusterEnvironment)(nil)).Elem()
+}
+
+func (i GetSchemaRegistryClustersClusterEnvironmentArgs) ToGetSchemaRegistryClustersClusterEnvironmentOutput() GetSchemaRegistryClustersClusterEnvironmentOutput {
+	return i.ToGetSchemaRegistryClustersClusterEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRegistryClustersClusterEnvironmentArgs) ToGetSchemaRegistryClustersClusterEnvironmentOutputWithContext(ctx context.Context) GetSchemaRegistryClustersClusterEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClustersClusterEnvironmentOutput)
+}
+
+type GetSchemaRegistryClustersClusterEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRegistryClustersClusterEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClustersClusterEnvironment)(nil)).Elem()
+}
+
+func (o GetSchemaRegistryClustersClusterEnvironmentOutput) ToGetSchemaRegistryClustersClusterEnvironmentOutput() GetSchemaRegistryClustersClusterEnvironmentOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClustersClusterEnvironmentOutput) ToGetSchemaRegistryClustersClusterEnvironmentOutputWithContext(ctx context.Context) GetSchemaRegistryClustersClusterEnvironmentOutput {
+	return o
+}
+
+// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+func (o GetSchemaRegistryClustersClusterEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetSchemaRegistryClustersClusterRegion struct {
+	// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+	Id string `pulumi:"id"`
+}
+
+// GetSchemaRegistryClustersClusterRegionInput is an input type that accepts GetSchemaRegistryClustersClusterRegionArgs and GetSchemaRegistryClustersClusterRegionOutput values.
+// You can construct a concrete instance of `GetSchemaRegistryClustersClusterRegionInput` via:
+//
+//	GetSchemaRegistryClustersClusterRegionArgs{...}
+type GetSchemaRegistryClustersClusterRegionInput interface {
+	pulumi.Input
+
+	ToGetSchemaRegistryClustersClusterRegionOutput() GetSchemaRegistryClustersClusterRegionOutput
+	ToGetSchemaRegistryClustersClusterRegionOutputWithContext(context.Context) GetSchemaRegistryClustersClusterRegionOutput
+}
+
+type GetSchemaRegistryClustersClusterRegionArgs struct {
+	// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetSchemaRegistryClustersClusterRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClustersClusterRegion)(nil)).Elem()
+}
+
+func (i GetSchemaRegistryClustersClusterRegionArgs) ToGetSchemaRegistryClustersClusterRegionOutput() GetSchemaRegistryClustersClusterRegionOutput {
+	return i.ToGetSchemaRegistryClustersClusterRegionOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRegistryClustersClusterRegionArgs) ToGetSchemaRegistryClustersClusterRegionOutputWithContext(ctx context.Context) GetSchemaRegistryClustersClusterRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClustersClusterRegionOutput)
+}
+
+// GetSchemaRegistryClustersClusterRegionArrayInput is an input type that accepts GetSchemaRegistryClustersClusterRegionArray and GetSchemaRegistryClustersClusterRegionArrayOutput values.
+// You can construct a concrete instance of `GetSchemaRegistryClustersClusterRegionArrayInput` via:
+//
+//	GetSchemaRegistryClustersClusterRegionArray{ GetSchemaRegistryClustersClusterRegionArgs{...} }
+type GetSchemaRegistryClustersClusterRegionArrayInput interface {
+	pulumi.Input
+
+	ToGetSchemaRegistryClustersClusterRegionArrayOutput() GetSchemaRegistryClustersClusterRegionArrayOutput
+	ToGetSchemaRegistryClustersClusterRegionArrayOutputWithContext(context.Context) GetSchemaRegistryClustersClusterRegionArrayOutput
+}
+
+type GetSchemaRegistryClustersClusterRegionArray []GetSchemaRegistryClustersClusterRegionInput
+
+func (GetSchemaRegistryClustersClusterRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemaRegistryClustersClusterRegion)(nil)).Elem()
+}
+
+func (i GetSchemaRegistryClustersClusterRegionArray) ToGetSchemaRegistryClustersClusterRegionArrayOutput() GetSchemaRegistryClustersClusterRegionArrayOutput {
+	return i.ToGetSchemaRegistryClustersClusterRegionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRegistryClustersClusterRegionArray) ToGetSchemaRegistryClustersClusterRegionArrayOutputWithContext(ctx context.Context) GetSchemaRegistryClustersClusterRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClustersClusterRegionArrayOutput)
+}
+
+type GetSchemaRegistryClustersClusterRegionOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRegistryClustersClusterRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClustersClusterRegion)(nil)).Elem()
+}
+
+func (o GetSchemaRegistryClustersClusterRegionOutput) ToGetSchemaRegistryClustersClusterRegionOutput() GetSchemaRegistryClustersClusterRegionOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClustersClusterRegionOutput) ToGetSchemaRegistryClustersClusterRegionOutputWithContext(ctx context.Context) GetSchemaRegistryClustersClusterRegionOutput {
+	return o
+}
+
+// (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
+func (o GetSchemaRegistryClustersClusterRegionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersClusterRegion) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetSchemaRegistryClustersClusterRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRegistryClustersClusterRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemaRegistryClustersClusterRegion)(nil)).Elem()
+}
+
+func (o GetSchemaRegistryClustersClusterRegionArrayOutput) ToGetSchemaRegistryClustersClusterRegionArrayOutput() GetSchemaRegistryClustersClusterRegionArrayOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClustersClusterRegionArrayOutput) ToGetSchemaRegistryClustersClusterRegionArrayOutputWithContext(ctx context.Context) GetSchemaRegistryClustersClusterRegionArrayOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClustersClusterRegionArrayOutput) Index(i pulumi.IntInput) GetSchemaRegistryClustersClusterRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSchemaRegistryClustersClusterRegion {
+		return vs[0].([]GetSchemaRegistryClustersClusterRegion)[vs[1].(int)]
+	}).(GetSchemaRegistryClustersClusterRegionOutput)
+}
+
 type GetSchemaSchemaReference struct {
 	// (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
 	Name string `pulumi:"name"`
@@ -20534,6 +20857,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterModeSchemaRegistryClusterPtrInput)(nil)).Elem(), GetSchemaRegistryClusterModeSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterRegionInput)(nil)).Elem(), GetSchemaRegistryClusterRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterRegionArrayInput)(nil)).Elem(), GetSchemaRegistryClusterRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClustersClusterInput)(nil)).Elem(), GetSchemaRegistryClustersClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClustersClusterArrayInput)(nil)).Elem(), GetSchemaRegistryClustersClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClustersClusterEnvironmentInput)(nil)).Elem(), GetSchemaRegistryClustersClusterEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClustersClusterRegionInput)(nil)).Elem(), GetSchemaRegistryClustersClusterRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClustersClusterRegionArrayInput)(nil)).Elem(), GetSchemaRegistryClustersClusterRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaSchemaReferenceInput)(nil)).Elem(), GetSchemaSchemaReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaSchemaReferenceArrayInput)(nil)).Elem(), GetSchemaSchemaReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaSchemaRegistryClusterInput)(nil)).Elem(), GetSchemaSchemaRegistryClusterArgs{})
@@ -20832,6 +21160,11 @@ func init() {
 	pulumi.RegisterOutputType(GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput{})
 	pulumi.RegisterOutputType(GetSchemaRegistryClusterRegionOutput{})
 	pulumi.RegisterOutputType(GetSchemaRegistryClusterRegionArrayOutput{})
+	pulumi.RegisterOutputType(GetSchemaRegistryClustersClusterOutput{})
+	pulumi.RegisterOutputType(GetSchemaRegistryClustersClusterArrayOutput{})
+	pulumi.RegisterOutputType(GetSchemaRegistryClustersClusterEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetSchemaRegistryClustersClusterRegionOutput{})
+	pulumi.RegisterOutputType(GetSchemaRegistryClustersClusterRegionArrayOutput{})
 	pulumi.RegisterOutputType(GetSchemaSchemaReferenceOutput{})
 	pulumi.RegisterOutputType(GetSchemaSchemaReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetSchemaSchemaRegistryClusterOutput{})

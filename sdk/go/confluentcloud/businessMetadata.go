@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,6 +54,7 @@ func NewBusinessMetadata(ctx *pulumi.Context,
 		"credentials",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BusinessMetadata
 	err := ctx.RegisterResource("confluentcloud:index/businessMetadata:BusinessMetadata", name, args, &resource, opts...)
 	if err != nil {

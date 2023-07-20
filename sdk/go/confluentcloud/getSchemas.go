@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetSchemas(ctx *pulumi.Context, args *GetSchemasArgs, opts ...pulumi.InvokeOption) (*GetSchemasResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSchemasResult
 	err := ctx.Invoke("confluentcloud:index/getSchemas:getSchemas", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,6 +80,7 @@ import (
 //
 // ```
 func GetUser(ctx *pulumi.Context, args *GetUserArgs, opts ...pulumi.InvokeOption) (*GetUserResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserResult
 	err := ctx.Invoke("confluentcloud:index/getUser:getUser", args, &rv, opts...)
 	if err != nil {

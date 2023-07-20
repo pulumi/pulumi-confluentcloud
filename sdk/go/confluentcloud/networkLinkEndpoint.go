@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,6 +56,7 @@ func NewNetworkLinkEndpoint(ctx *pulumi.Context,
 	if args.NetworkLinkService == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkLinkService'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkLinkEndpoint
 	err := ctx.RegisterResource("confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint", name, args, &resource, opts...)
 	if err != nil {

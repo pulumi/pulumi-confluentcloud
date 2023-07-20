@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupInvitation(ctx *pulumi.Context, args *LookupInvitationArgs, opts ...pulumi.InvokeOption) (*LookupInvitationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInvitationResult
 	err := ctx.Invoke("confluentcloud:index/getInvitation:getInvitation", args, &rv, opts...)
 	if err != nil {

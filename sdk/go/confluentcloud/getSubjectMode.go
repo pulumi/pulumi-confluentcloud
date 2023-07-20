@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupSubjectMode(ctx *pulumi.Context, args *LookupSubjectModeArgs, opts ...pulumi.InvokeOption) (*LookupSubjectModeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubjectModeResult
 	err := ctx.Invoke("confluentcloud:index/getSubjectMode:getSubjectMode", args, &rv, opts...)
 	if err != nil {
