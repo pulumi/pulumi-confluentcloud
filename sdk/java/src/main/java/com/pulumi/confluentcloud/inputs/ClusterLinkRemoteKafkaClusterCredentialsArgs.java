@@ -9,9 +9,9 @@ import java.lang.String;
 import java.util.Objects;
 
 
-public final class ClusterLinkSourceKafkaClusterCredentialsArgs extends com.pulumi.resources.ResourceArgs {
+public final class ClusterLinkRemoteKafkaClusterCredentialsArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final ClusterLinkSourceKafkaClusterCredentialsArgs Empty = new ClusterLinkSourceKafkaClusterCredentialsArgs();
+    public static final ClusterLinkRemoteKafkaClusterCredentialsArgs Empty = new ClusterLinkRemoteKafkaClusterCredentialsArgs();
 
     /**
      * The Kafka API Key.
@@ -47,9 +47,9 @@ public final class ClusterLinkSourceKafkaClusterCredentialsArgs extends com.pulu
         return this.secret;
     }
 
-    private ClusterLinkSourceKafkaClusterCredentialsArgs() {}
+    private ClusterLinkRemoteKafkaClusterCredentialsArgs() {}
 
-    private ClusterLinkSourceKafkaClusterCredentialsArgs(ClusterLinkSourceKafkaClusterCredentialsArgs $) {
+    private ClusterLinkRemoteKafkaClusterCredentialsArgs(ClusterLinkRemoteKafkaClusterCredentialsArgs $) {
         this.key = $.key;
         this.secret = $.secret;
     }
@@ -57,19 +57,19 @@ public final class ClusterLinkSourceKafkaClusterCredentialsArgs extends com.pulu
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(ClusterLinkSourceKafkaClusterCredentialsArgs defaults) {
+    public static Builder builder(ClusterLinkRemoteKafkaClusterCredentialsArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private ClusterLinkSourceKafkaClusterCredentialsArgs $;
+        private ClusterLinkRemoteKafkaClusterCredentialsArgs $;
 
         public Builder() {
-            $ = new ClusterLinkSourceKafkaClusterCredentialsArgs();
+            $ = new ClusterLinkRemoteKafkaClusterCredentialsArgs();
         }
 
-        public Builder(ClusterLinkSourceKafkaClusterCredentialsArgs defaults) {
-            $ = new ClusterLinkSourceKafkaClusterCredentialsArgs(Objects.requireNonNull(defaults));
+        public Builder(ClusterLinkRemoteKafkaClusterCredentialsArgs defaults) {
+            $ = new ClusterLinkRemoteKafkaClusterCredentialsArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -118,7 +118,7 @@ public final class ClusterLinkSourceKafkaClusterCredentialsArgs extends com.pulu
             return secret(Output.of(secret));
         }
 
-        public ClusterLinkSourceKafkaClusterCredentialsArgs build() {
+        public ClusterLinkRemoteKafkaClusterCredentialsArgs build() {
             $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
             $.secret = Objects.requireNonNull($.secret, "expected parameter 'secret' to be non-null");
             return $;

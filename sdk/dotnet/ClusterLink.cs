@@ -12,10 +12,18 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Import
     /// 
-    /// You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode, source Kafka cluster ID, and destination Kafka cluster ID, in the format `&lt;Cluster link name&gt;/&lt;Cluster link mode&gt;/&lt;Cluster connection mode&gt;/&lt;Source Kafka cluster ID&gt;/&lt;Destination Kafka cluster ID&gt;`, for example$ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="&lt;source_kafka_bootstrap_endpoint&gt;" $ export IMPORT_SOURCE_KAFKA_API_KEY="&lt;source_kafka_api_key&gt;" $ export IMPORT_SOURCE_KAFKA_API_SECRET="&lt;source_kafka_api_secret&gt;" $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="&lt;destination_kafka_rest_endpoint&gt;" $ export IMPORT_DESTINATION_KAFKA_API_KEY="&lt;destination_kafka_api_key&gt;" $ export IMPORT_DESTINATION_KAFKA_API_SECRET="&lt;destination_kafka_api_secret&gt;"
+    /// You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode, source (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote
+    /// 
+    /// for bidirectional cluster links) Kafka cluster ID, in the format `&lt;Cluster link name&gt;/&lt;Cluster link mode&gt;/&lt;Cluster connection mode&gt;/&lt;Source (Local) Kafka cluster ID&gt;/&lt;Destination (Remote) Kafka cluster ID&gt;`, for exampleOption #1 when using source-initiated or destination-initiated cluster links $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="&lt;source_kafka_bootstrap_endpoint&gt;" $ export IMPORT_SOURCE_KAFKA_API_KEY="&lt;source_kafka_api_key&gt;" $ export IMPORT_SOURCE_KAFKA_API_SECRET="&lt;source_kafka_api_secret&gt;" $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="&lt;destination_kafka_rest_endpoint&gt;" $ export IMPORT_DESTINATION_KAFKA_API_KEY="&lt;destination_kafka_api_key&gt;" $ export IMPORT_DESTINATION_KAFKA_API_SECRET="&lt;destination_kafka_api_secret&gt;"
     /// 
     /// ```sh
     ///  $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456
+    /// ```
+    /// 
+    ///  Option #2 when using bidirectional cluster links $ export IMPORT_LOCAL_KAFKA_BOOTSTRAP_ENDPOINT="&lt;local_kafka_bootstrap_endpoint&gt;" $ export IMPORT_LOCAL_KAFKA_API_KEY="&lt;local_kafka_api_key&gt;" $ export IMPORT_LOCAL_KAFKA_API_SECRET="&lt;local_kafka_api_secret&gt;" $ export IMPORT_REMOTE_KAFKA_REST_ENDPOINT="&lt;remote_kafka_rest_endpoint&gt;" $ export IMPORT_REMOTE_KAFKA_API_KEY="&lt;remote_kafka_api_key&gt;" $ export IMPORT_REMOTE_KAFKA_API_SECRET="&lt;remote_kafka_api_secret&gt;"
+    /// 
+    /// ```sh
+    ///  $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456
     /// ```
     /// 
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
@@ -36,7 +44,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> ConnectionMode { get; private set; } = null!;
 
         [Output("destinationKafkaCluster")]
-        public Output<Outputs.ClusterLinkDestinationKafkaCluster> DestinationKafkaCluster { get; private set; } = null!;
+        public Output<Outputs.ClusterLinkDestinationKafkaCluster?> DestinationKafkaCluster { get; private set; } = null!;
 
         /// <summary>
         /// The name of the cluster link, for example, `my-cluster-link`.
@@ -45,13 +53,19 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Link { get; private set; } = null!;
 
         /// <summary>
-        /// The mode of the cluster link. The supported values are `"DESTINATION"` and `"SOURCE"`. Defaults to `"DESTINATION"`.
+        /// The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
         /// </summary>
         [Output("linkMode")]
         public Output<string?> LinkMode { get; private set; } = null!;
 
+        [Output("localKafkaCluster")]
+        public Output<Outputs.ClusterLinkLocalKafkaCluster?> LocalKafkaCluster { get; private set; } = null!;
+
+        [Output("remoteKafkaCluster")]
+        public Output<Outputs.ClusterLinkRemoteKafkaCluster?> RemoteKafkaCluster { get; private set; } = null!;
+
         [Output("sourceKafkaCluster")]
-        public Output<Outputs.ClusterLinkSourceKafkaCluster> SourceKafkaCluster { get; private set; } = null!;
+        public Output<Outputs.ClusterLinkSourceKafkaCluster?> SourceKafkaCluster { get; private set; } = null!;
 
 
         /// <summary>
@@ -61,7 +75,7 @@ namespace Pulumi.ConfluentCloud
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ClusterLink(string name, ClusterLinkArgs args, CustomResourceOptions? options = null)
+        public ClusterLink(string name, ClusterLinkArgs? args = null, CustomResourceOptions? options = null)
             : base("confluentcloud:index/clusterLink:ClusterLink", name, args ?? new ClusterLinkArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -117,8 +131,8 @@ namespace Pulumi.ConfluentCloud
         [Input("connectionMode")]
         public Input<string>? ConnectionMode { get; set; }
 
-        [Input("destinationKafkaCluster", required: true)]
-        public Input<Inputs.ClusterLinkDestinationKafkaClusterArgs> DestinationKafkaCluster { get; set; } = null!;
+        [Input("destinationKafkaCluster")]
+        public Input<Inputs.ClusterLinkDestinationKafkaClusterArgs>? DestinationKafkaCluster { get; set; }
 
         /// <summary>
         /// The name of the cluster link, for example, `my-cluster-link`.
@@ -127,13 +141,19 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Link { get; set; }
 
         /// <summary>
-        /// The mode of the cluster link. The supported values are `"DESTINATION"` and `"SOURCE"`. Defaults to `"DESTINATION"`.
+        /// The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
         /// </summary>
         [Input("linkMode")]
         public Input<string>? LinkMode { get; set; }
 
-        [Input("sourceKafkaCluster", required: true)]
-        public Input<Inputs.ClusterLinkSourceKafkaClusterArgs> SourceKafkaCluster { get; set; } = null!;
+        [Input("localKafkaCluster")]
+        public Input<Inputs.ClusterLinkLocalKafkaClusterArgs>? LocalKafkaCluster { get; set; }
+
+        [Input("remoteKafkaCluster")]
+        public Input<Inputs.ClusterLinkRemoteKafkaClusterArgs>? RemoteKafkaCluster { get; set; }
+
+        [Input("sourceKafkaCluster")]
+        public Input<Inputs.ClusterLinkSourceKafkaClusterArgs>? SourceKafkaCluster { get; set; }
 
         public ClusterLinkArgs()
         {
@@ -171,10 +191,16 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Link { get; set; }
 
         /// <summary>
-        /// The mode of the cluster link. The supported values are `"DESTINATION"` and `"SOURCE"`. Defaults to `"DESTINATION"`.
+        /// The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
         /// </summary>
         [Input("linkMode")]
         public Input<string>? LinkMode { get; set; }
+
+        [Input("localKafkaCluster")]
+        public Input<Inputs.ClusterLinkLocalKafkaClusterGetArgs>? LocalKafkaCluster { get; set; }
+
+        [Input("remoteKafkaCluster")]
+        public Input<Inputs.ClusterLinkRemoteKafkaClusterGetArgs>? RemoteKafkaCluster { get; set; }
 
         [Input("sourceKafkaCluster")]
         public Input<Inputs.ClusterLinkSourceKafkaClusterGetArgs>? SourceKafkaCluster { get; set; }

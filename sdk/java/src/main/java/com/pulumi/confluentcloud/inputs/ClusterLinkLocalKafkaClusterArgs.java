@@ -3,7 +3,7 @@
 
 package com.pulumi.confluentcloud.inputs;
 
-import com.pulumi.confluentcloud.inputs.ClusterLinkSourceKafkaClusterCredentialsArgs;
+import com.pulumi.confluentcloud.inputs.ClusterLinkLocalKafkaClusterCredentialsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -12,9 +12,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
+public final class ClusterLinkLocalKafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final ClusterLinkSourceKafkaClusterArgs Empty = new ClusterLinkSourceKafkaClusterArgs();
+    public static final ClusterLinkLocalKafkaClusterArgs Empty = new ClusterLinkLocalKafkaClusterArgs();
 
     /**
      * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -32,9 +32,9 @@ public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resource
     }
 
     @Import(name="credentials")
-    private @Nullable Output<ClusterLinkSourceKafkaClusterCredentialsArgs> credentials;
+    private @Nullable Output<ClusterLinkLocalKafkaClusterCredentialsArgs> credentials;
 
-    public Optional<Output<ClusterLinkSourceKafkaClusterCredentialsArgs>> credentials() {
+    public Optional<Output<ClusterLinkLocalKafkaClusterCredentialsArgs>> credentials() {
         return Optional.ofNullable(this.credentials);
     }
 
@@ -68,9 +68,9 @@ public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resource
         return Optional.ofNullable(this.restEndpoint);
     }
 
-    private ClusterLinkSourceKafkaClusterArgs() {}
+    private ClusterLinkLocalKafkaClusterArgs() {}
 
-    private ClusterLinkSourceKafkaClusterArgs(ClusterLinkSourceKafkaClusterArgs $) {
+    private ClusterLinkLocalKafkaClusterArgs(ClusterLinkLocalKafkaClusterArgs $) {
         this.bootstrapEndpoint = $.bootstrapEndpoint;
         this.credentials = $.credentials;
         this.id = $.id;
@@ -80,19 +80,19 @@ public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resource
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(ClusterLinkSourceKafkaClusterArgs defaults) {
+    public static Builder builder(ClusterLinkLocalKafkaClusterArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private ClusterLinkSourceKafkaClusterArgs $;
+        private ClusterLinkLocalKafkaClusterArgs $;
 
         public Builder() {
-            $ = new ClusterLinkSourceKafkaClusterArgs();
+            $ = new ClusterLinkLocalKafkaClusterArgs();
         }
 
-        public Builder(ClusterLinkSourceKafkaClusterArgs defaults) {
-            $ = new ClusterLinkSourceKafkaClusterArgs(Objects.requireNonNull(defaults));
+        public Builder(ClusterLinkLocalKafkaClusterArgs defaults) {
+            $ = new ClusterLinkLocalKafkaClusterArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -116,12 +116,12 @@ public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resource
             return bootstrapEndpoint(Output.of(bootstrapEndpoint));
         }
 
-        public Builder credentials(@Nullable Output<ClusterLinkSourceKafkaClusterCredentialsArgs> credentials) {
+        public Builder credentials(@Nullable Output<ClusterLinkLocalKafkaClusterCredentialsArgs> credentials) {
             $.credentials = credentials;
             return this;
         }
 
-        public Builder credentials(ClusterLinkSourceKafkaClusterCredentialsArgs credentials) {
+        public Builder credentials(ClusterLinkLocalKafkaClusterCredentialsArgs credentials) {
             return credentials(Output.of(credentials));
         }
 
@@ -167,7 +167,7 @@ public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resource
             return restEndpoint(Output.of(restEndpoint));
         }
 
-        public ClusterLinkSourceKafkaClusterArgs build() {
+        public ClusterLinkLocalKafkaClusterArgs build() {
             $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
             return $;
         }

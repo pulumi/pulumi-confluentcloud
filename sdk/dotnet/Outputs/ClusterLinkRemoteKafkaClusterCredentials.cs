@@ -11,7 +11,7 @@ namespace Pulumi.ConfluentCloud.Outputs
 {
 
     [OutputType]
-    public sealed class ClusterLinkSourceKafkaClusterCredentials
+    public sealed class ClusterLinkRemoteKafkaClusterCredentials
     {
         /// <summary>
         /// The Kafka API Key.
@@ -25,7 +25,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         public readonly string Secret;
 
         [OutputConstructor]
-        private ClusterLinkSourceKafkaClusterCredentials(
+        private ClusterLinkRemoteKafkaClusterCredentials(
             string key,
 
             string secret)
