@@ -9,7 +9,7 @@ replace (
 
 require (
 	github.com/confluentinc/terraform-provider-confluent v1.32.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.54.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.54.1
 	github.com/pulumi/pulumi/sdk/v3 v3.75.0
 )
 
@@ -90,7 +90,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/iam v0.10.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/identity-provider v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/kafka-quotas v0.4.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.13.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.14.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.7.0 // indirect
