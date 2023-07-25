@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class ClusterLinkDestinationKafkaClusterArgs : global::Pulumi.ResourceArgs
+    public sealed class ClusterLinkRemoteKafkaClusterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -19,14 +19,14 @@ namespace Pulumi.ConfluentCloud.Inputs
         public Input<string>? BootstrapEndpoint { get; set; }
 
         [Input("credentials")]
-        private Input<Inputs.ClusterLinkDestinationKafkaClusterCredentialsArgs>? _credentials;
-        public Input<Inputs.ClusterLinkDestinationKafkaClusterCredentialsArgs>? Credentials
+        private Input<Inputs.ClusterLinkRemoteKafkaClusterCredentialsGetArgs>? _credentials;
+        public Input<Inputs.ClusterLinkRemoteKafkaClusterCredentialsGetArgs>? Credentials
         {
             get => _credentials;
             set
             {
                 var emptySecret = Output.CreateSecret(0);
-                _credentials = Output.Tuple<Input<Inputs.ClusterLinkDestinationKafkaClusterCredentialsArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
+                _credentials = Output.Tuple<Input<Inputs.ClusterLinkRemoteKafkaClusterCredentialsGetArgs>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 
@@ -42,9 +42,9 @@ namespace Pulumi.ConfluentCloud.Inputs
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
 
-        public ClusterLinkDestinationKafkaClusterArgs()
+        public ClusterLinkRemoteKafkaClusterGetArgs()
         {
         }
-        public static new ClusterLinkDestinationKafkaClusterArgs Empty => new ClusterLinkDestinationKafkaClusterArgs();
+        public static new ClusterLinkRemoteKafkaClusterGetArgs Empty => new ClusterLinkRemoteKafkaClusterGetArgs();
     }
 }

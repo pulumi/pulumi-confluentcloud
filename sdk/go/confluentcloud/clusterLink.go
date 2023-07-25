@@ -7,18 +7,27 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // ## Import
 //
-// You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode, source Kafka cluster ID, and destination Kafka cluster ID, in the format `<Cluster link name>/<Cluster link mode>/<Cluster connection mode>/<Source Kafka cluster ID>/<Destination Kafka cluster ID>`, for example$ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="<source_kafka_bootstrap_endpoint>" $ export IMPORT_SOURCE_KAFKA_API_KEY="<source_kafka_api_key>" $ export IMPORT_SOURCE_KAFKA_API_SECRET="<source_kafka_api_secret>" $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="<destination_kafka_rest_endpoint>" $ export IMPORT_DESTINATION_KAFKA_API_KEY="<destination_kafka_api_key>" $ export IMPORT_DESTINATION_KAFKA_API_SECRET="<destination_kafka_api_secret>"
+// # You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode, source (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote
+//
+// for bidirectional cluster links) Kafka cluster ID, in the format `<Cluster link name>/<Cluster link mode>/<Cluster connection mode>/<Source (Local) Kafka cluster ID>/<Destination (Remote) Kafka cluster ID>`, for exampleOption #1 when using source-initiated or destination-initiated cluster links $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="<source_kafka_bootstrap_endpoint>" $ export IMPORT_SOURCE_KAFKA_API_KEY="<source_kafka_api_key>" $ export IMPORT_SOURCE_KAFKA_API_SECRET="<source_kafka_api_secret>" $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="<destination_kafka_rest_endpoint>" $ export IMPORT_DESTINATION_KAFKA_API_KEY="<destination_kafka_api_key>" $ export IMPORT_DESTINATION_KAFKA_API_SECRET="<destination_kafka_api_secret>"
 //
 // ```sh
 //
 //	$ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456
+//
+// ```
+//
+//	Option #2 when using bidirectional cluster links $ export IMPORT_LOCAL_KAFKA_BOOTSTRAP_ENDPOINT="<local_kafka_bootstrap_endpoint>" $ export IMPORT_LOCAL_KAFKA_API_KEY="<local_kafka_api_key>" $ export IMPORT_LOCAL_KAFKA_API_SECRET="<local_kafka_api_secret>" $ export IMPORT_REMOTE_KAFKA_REST_ENDPOINT="<remote_kafka_rest_endpoint>" $ export IMPORT_REMOTE_KAFKA_API_KEY="<remote_kafka_api_key>" $ export IMPORT_REMOTE_KAFKA_API_SECRET="<remote_kafka_api_secret>"
+//
+// ```sh
+//
+//	$ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456
 //
 // ```
 //
@@ -29,28 +38,24 @@ type ClusterLink struct {
 	// The custom cluster link settings to set:
 	Config pulumi.StringMapOutput `pulumi:"config"`
 	// The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
-	ConnectionMode          pulumi.StringPtrOutput                   `pulumi:"connectionMode"`
-	DestinationKafkaCluster ClusterLinkDestinationKafkaClusterOutput `pulumi:"destinationKafkaCluster"`
+	ConnectionMode          pulumi.StringPtrOutput                      `pulumi:"connectionMode"`
+	DestinationKafkaCluster ClusterLinkDestinationKafkaClusterPtrOutput `pulumi:"destinationKafkaCluster"`
 	// The name of the cluster link, for example, `my-cluster-link`.
 	Link pulumi.StringOutput `pulumi:"link"`
-	// The mode of the cluster link. The supported values are `"DESTINATION"` and `"SOURCE"`. Defaults to `"DESTINATION"`.
-	LinkMode           pulumi.StringPtrOutput              `pulumi:"linkMode"`
-	SourceKafkaCluster ClusterLinkSourceKafkaClusterOutput `pulumi:"sourceKafkaCluster"`
+	// The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
+	LinkMode           pulumi.StringPtrOutput                 `pulumi:"linkMode"`
+	LocalKafkaCluster  ClusterLinkLocalKafkaClusterPtrOutput  `pulumi:"localKafkaCluster"`
+	RemoteKafkaCluster ClusterLinkRemoteKafkaClusterPtrOutput `pulumi:"remoteKafkaCluster"`
+	SourceKafkaCluster ClusterLinkSourceKafkaClusterPtrOutput `pulumi:"sourceKafkaCluster"`
 }
 
 // NewClusterLink registers a new resource with the given unique name, arguments, and options.
 func NewClusterLink(ctx *pulumi.Context,
 	name string, args *ClusterLinkArgs, opts ...pulumi.ResourceOption) (*ClusterLink, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ClusterLinkArgs{}
 	}
 
-	if args.DestinationKafkaCluster == nil {
-		return nil, errors.New("invalid value for required argument 'DestinationKafkaCluster'")
-	}
-	if args.SourceKafkaCluster == nil {
-		return nil, errors.New("invalid value for required argument 'SourceKafkaCluster'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterLink
 	err := ctx.RegisterResource("confluentcloud:index/clusterLink:ClusterLink", name, args, &resource, opts...)
@@ -81,8 +86,10 @@ type clusterLinkState struct {
 	DestinationKafkaCluster *ClusterLinkDestinationKafkaCluster `pulumi:"destinationKafkaCluster"`
 	// The name of the cluster link, for example, `my-cluster-link`.
 	Link *string `pulumi:"link"`
-	// The mode of the cluster link. The supported values are `"DESTINATION"` and `"SOURCE"`. Defaults to `"DESTINATION"`.
+	// The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
 	LinkMode           *string                        `pulumi:"linkMode"`
+	LocalKafkaCluster  *ClusterLinkLocalKafkaCluster  `pulumi:"localKafkaCluster"`
+	RemoteKafkaCluster *ClusterLinkRemoteKafkaCluster `pulumi:"remoteKafkaCluster"`
 	SourceKafkaCluster *ClusterLinkSourceKafkaCluster `pulumi:"sourceKafkaCluster"`
 }
 
@@ -94,8 +101,10 @@ type ClusterLinkState struct {
 	DestinationKafkaCluster ClusterLinkDestinationKafkaClusterPtrInput
 	// The name of the cluster link, for example, `my-cluster-link`.
 	Link pulumi.StringPtrInput
-	// The mode of the cluster link. The supported values are `"DESTINATION"` and `"SOURCE"`. Defaults to `"DESTINATION"`.
+	// The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
 	LinkMode           pulumi.StringPtrInput
+	LocalKafkaCluster  ClusterLinkLocalKafkaClusterPtrInput
+	RemoteKafkaCluster ClusterLinkRemoteKafkaClusterPtrInput
 	SourceKafkaCluster ClusterLinkSourceKafkaClusterPtrInput
 }
 
@@ -107,13 +116,15 @@ type clusterLinkArgs struct {
 	// The custom cluster link settings to set:
 	Config map[string]string `pulumi:"config"`
 	// The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
-	ConnectionMode          *string                            `pulumi:"connectionMode"`
-	DestinationKafkaCluster ClusterLinkDestinationKafkaCluster `pulumi:"destinationKafkaCluster"`
+	ConnectionMode          *string                             `pulumi:"connectionMode"`
+	DestinationKafkaCluster *ClusterLinkDestinationKafkaCluster `pulumi:"destinationKafkaCluster"`
 	// The name of the cluster link, for example, `my-cluster-link`.
 	Link *string `pulumi:"link"`
-	// The mode of the cluster link. The supported values are `"DESTINATION"` and `"SOURCE"`. Defaults to `"DESTINATION"`.
-	LinkMode           *string                       `pulumi:"linkMode"`
-	SourceKafkaCluster ClusterLinkSourceKafkaCluster `pulumi:"sourceKafkaCluster"`
+	// The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
+	LinkMode           *string                        `pulumi:"linkMode"`
+	LocalKafkaCluster  *ClusterLinkLocalKafkaCluster  `pulumi:"localKafkaCluster"`
+	RemoteKafkaCluster *ClusterLinkRemoteKafkaCluster `pulumi:"remoteKafkaCluster"`
+	SourceKafkaCluster *ClusterLinkSourceKafkaCluster `pulumi:"sourceKafkaCluster"`
 }
 
 // The set of arguments for constructing a ClusterLink resource.
@@ -122,12 +133,14 @@ type ClusterLinkArgs struct {
 	Config pulumi.StringMapInput
 	// The connection mode of the cluster link. The supported values are `"INBOUND"` and `"OUTBOUND"`. Defaults to `"OUTBOUND"`.
 	ConnectionMode          pulumi.StringPtrInput
-	DestinationKafkaCluster ClusterLinkDestinationKafkaClusterInput
+	DestinationKafkaCluster ClusterLinkDestinationKafkaClusterPtrInput
 	// The name of the cluster link, for example, `my-cluster-link`.
 	Link pulumi.StringPtrInput
-	// The mode of the cluster link. The supported values are `"DESTINATION"` and `"SOURCE"`. Defaults to `"DESTINATION"`.
+	// The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
 	LinkMode           pulumi.StringPtrInput
-	SourceKafkaCluster ClusterLinkSourceKafkaClusterInput
+	LocalKafkaCluster  ClusterLinkLocalKafkaClusterPtrInput
+	RemoteKafkaCluster ClusterLinkRemoteKafkaClusterPtrInput
+	SourceKafkaCluster ClusterLinkSourceKafkaClusterPtrInput
 }
 
 func (ClusterLinkArgs) ElementType() reflect.Type {
@@ -227,8 +240,8 @@ func (o ClusterLinkOutput) ConnectionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLink) pulumi.StringPtrOutput { return v.ConnectionMode }).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterLinkOutput) DestinationKafkaCluster() ClusterLinkDestinationKafkaClusterOutput {
-	return o.ApplyT(func(v *ClusterLink) ClusterLinkDestinationKafkaClusterOutput { return v.DestinationKafkaCluster }).(ClusterLinkDestinationKafkaClusterOutput)
+func (o ClusterLinkOutput) DestinationKafkaCluster() ClusterLinkDestinationKafkaClusterPtrOutput {
+	return o.ApplyT(func(v *ClusterLink) ClusterLinkDestinationKafkaClusterPtrOutput { return v.DestinationKafkaCluster }).(ClusterLinkDestinationKafkaClusterPtrOutput)
 }
 
 // The name of the cluster link, for example, `my-cluster-link`.
@@ -236,13 +249,21 @@ func (o ClusterLinkOutput) Link() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterLink) pulumi.StringOutput { return v.Link }).(pulumi.StringOutput)
 }
 
-// The mode of the cluster link. The supported values are `"DESTINATION"` and `"SOURCE"`. Defaults to `"DESTINATION"`.
+// The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
 func (o ClusterLinkOutput) LinkMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLink) pulumi.StringPtrOutput { return v.LinkMode }).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterLinkOutput) SourceKafkaCluster() ClusterLinkSourceKafkaClusterOutput {
-	return o.ApplyT(func(v *ClusterLink) ClusterLinkSourceKafkaClusterOutput { return v.SourceKafkaCluster }).(ClusterLinkSourceKafkaClusterOutput)
+func (o ClusterLinkOutput) LocalKafkaCluster() ClusterLinkLocalKafkaClusterPtrOutput {
+	return o.ApplyT(func(v *ClusterLink) ClusterLinkLocalKafkaClusterPtrOutput { return v.LocalKafkaCluster }).(ClusterLinkLocalKafkaClusterPtrOutput)
+}
+
+func (o ClusterLinkOutput) RemoteKafkaCluster() ClusterLinkRemoteKafkaClusterPtrOutput {
+	return o.ApplyT(func(v *ClusterLink) ClusterLinkRemoteKafkaClusterPtrOutput { return v.RemoteKafkaCluster }).(ClusterLinkRemoteKafkaClusterPtrOutput)
+}
+
+func (o ClusterLinkOutput) SourceKafkaCluster() ClusterLinkSourceKafkaClusterPtrOutput {
+	return o.ApplyT(func(v *ClusterLink) ClusterLinkSourceKafkaClusterPtrOutput { return v.SourceKafkaCluster }).(ClusterLinkSourceKafkaClusterPtrOutput)
 }
 
 type ClusterLinkArrayOutput struct{ *pulumi.OutputState }

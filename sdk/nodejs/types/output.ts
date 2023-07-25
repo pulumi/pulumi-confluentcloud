@@ -135,16 +135,16 @@ export interface ByokKeyAzure {
 
 export interface ClusterLinkDestinationKafkaCluster {
     /**
-     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: string;
     credentials?: outputs.ClusterLinkDestinationKafkaClusterCredentials;
     /**
-     * The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+     * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
      */
     id: string;
     /**
-     * The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: string;
 }
@@ -156,22 +156,82 @@ export interface ClusterLinkDestinationKafkaClusterCredentials {
     key: string;
     /**
      * The Kafka API Secret.
+     *
+     * > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+     */
+    secret: string;
+}
+
+export interface ClusterLinkLocalKafkaCluster {
+    /**
+     * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     */
+    bootstrapEndpoint?: string;
+    credentials?: outputs.ClusterLinkLocalKafkaClusterCredentials;
+    /**
+     * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: string;
+    /**
+     * The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
+    restEndpoint?: string;
+}
+
+export interface ClusterLinkLocalKafkaClusterCredentials {
+    /**
+     * The Kafka API Key.
+     */
+    key: string;
+    /**
+     * The Kafka API Secret.
+     *
+     * > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+     */
+    secret: string;
+}
+
+export interface ClusterLinkRemoteKafkaCluster {
+    /**
+     * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     */
+    bootstrapEndpoint?: string;
+    credentials?: outputs.ClusterLinkRemoteKafkaClusterCredentials;
+    /**
+     * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+     */
+    id: string;
+    /**
+     * The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
+    restEndpoint?: string;
+}
+
+export interface ClusterLinkRemoteKafkaClusterCredentials {
+    /**
+     * The Kafka API Key.
+     */
+    key: string;
+    /**
+     * The Kafka API Secret.
+     *
+     * > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      */
     secret: string;
 }
 
 export interface ClusterLinkSourceKafkaCluster {
     /**
-     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: string;
     credentials?: outputs.ClusterLinkSourceKafkaClusterCredentials;
     /**
-     * The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+     * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
      */
     id: string;
     /**
-     * The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: string;
 }
@@ -183,6 +243,8 @@ export interface ClusterLinkSourceKafkaClusterCredentials {
     key: string;
     /**
      * The Kafka API Secret.
+     *
+     * > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      */
     secret: string;
 }

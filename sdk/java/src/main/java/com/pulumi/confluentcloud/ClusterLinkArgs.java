@@ -4,6 +4,8 @@
 package com.pulumi.confluentcloud;
 
 import com.pulumi.confluentcloud.inputs.ClusterLinkDestinationKafkaClusterArgs;
+import com.pulumi.confluentcloud.inputs.ClusterLinkLocalKafkaClusterArgs;
+import com.pulumi.confluentcloud.inputs.ClusterLinkRemoteKafkaClusterArgs;
 import com.pulumi.confluentcloud.inputs.ClusterLinkSourceKafkaClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -48,11 +50,11 @@ public final class ClusterLinkArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.connectionMode);
     }
 
-    @Import(name="destinationKafkaCluster", required=true)
-    private Output<ClusterLinkDestinationKafkaClusterArgs> destinationKafkaCluster;
+    @Import(name="destinationKafkaCluster")
+    private @Nullable Output<ClusterLinkDestinationKafkaClusterArgs> destinationKafkaCluster;
 
-    public Output<ClusterLinkDestinationKafkaClusterArgs> destinationKafkaCluster() {
-        return this.destinationKafkaCluster;
+    public Optional<Output<ClusterLinkDestinationKafkaClusterArgs>> destinationKafkaCluster() {
+        return Optional.ofNullable(this.destinationKafkaCluster);
     }
 
     /**
@@ -71,25 +73,39 @@ public final class ClusterLinkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The mode of the cluster link. The supported values are `&#34;DESTINATION&#34;` and `&#34;SOURCE&#34;`. Defaults to `&#34;DESTINATION&#34;`.
+     * The mode of the cluster link. The supported values are `&#34;DESTINATION&#34;`, `&#34;SOURCE&#34;`, and `&#34;BIDIRECTIONAL&#34;`. Defaults to `&#34;DESTINATION&#34;`.
      * 
      */
     @Import(name="linkMode")
     private @Nullable Output<String> linkMode;
 
     /**
-     * @return The mode of the cluster link. The supported values are `&#34;DESTINATION&#34;` and `&#34;SOURCE&#34;`. Defaults to `&#34;DESTINATION&#34;`.
+     * @return The mode of the cluster link. The supported values are `&#34;DESTINATION&#34;`, `&#34;SOURCE&#34;`, and `&#34;BIDIRECTIONAL&#34;`. Defaults to `&#34;DESTINATION&#34;`.
      * 
      */
     public Optional<Output<String>> linkMode() {
         return Optional.ofNullable(this.linkMode);
     }
 
-    @Import(name="sourceKafkaCluster", required=true)
-    private Output<ClusterLinkSourceKafkaClusterArgs> sourceKafkaCluster;
+    @Import(name="localKafkaCluster")
+    private @Nullable Output<ClusterLinkLocalKafkaClusterArgs> localKafkaCluster;
 
-    public Output<ClusterLinkSourceKafkaClusterArgs> sourceKafkaCluster() {
-        return this.sourceKafkaCluster;
+    public Optional<Output<ClusterLinkLocalKafkaClusterArgs>> localKafkaCluster() {
+        return Optional.ofNullable(this.localKafkaCluster);
+    }
+
+    @Import(name="remoteKafkaCluster")
+    private @Nullable Output<ClusterLinkRemoteKafkaClusterArgs> remoteKafkaCluster;
+
+    public Optional<Output<ClusterLinkRemoteKafkaClusterArgs>> remoteKafkaCluster() {
+        return Optional.ofNullable(this.remoteKafkaCluster);
+    }
+
+    @Import(name="sourceKafkaCluster")
+    private @Nullable Output<ClusterLinkSourceKafkaClusterArgs> sourceKafkaCluster;
+
+    public Optional<Output<ClusterLinkSourceKafkaClusterArgs>> sourceKafkaCluster() {
+        return Optional.ofNullable(this.sourceKafkaCluster);
     }
 
     private ClusterLinkArgs() {}
@@ -100,6 +116,8 @@ public final class ClusterLinkArgs extends com.pulumi.resources.ResourceArgs {
         this.destinationKafkaCluster = $.destinationKafkaCluster;
         this.link = $.link;
         this.linkMode = $.linkMode;
+        this.localKafkaCluster = $.localKafkaCluster;
+        this.remoteKafkaCluster = $.remoteKafkaCluster;
         this.sourceKafkaCluster = $.sourceKafkaCluster;
     }
 
@@ -163,7 +181,7 @@ public final class ClusterLinkArgs extends com.pulumi.resources.ResourceArgs {
             return connectionMode(Output.of(connectionMode));
         }
 
-        public Builder destinationKafkaCluster(Output<ClusterLinkDestinationKafkaClusterArgs> destinationKafkaCluster) {
+        public Builder destinationKafkaCluster(@Nullable Output<ClusterLinkDestinationKafkaClusterArgs> destinationKafkaCluster) {
             $.destinationKafkaCluster = destinationKafkaCluster;
             return this;
         }
@@ -194,7 +212,7 @@ public final class ClusterLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param linkMode The mode of the cluster link. The supported values are `&#34;DESTINATION&#34;` and `&#34;SOURCE&#34;`. Defaults to `&#34;DESTINATION&#34;`.
+         * @param linkMode The mode of the cluster link. The supported values are `&#34;DESTINATION&#34;`, `&#34;SOURCE&#34;`, and `&#34;BIDIRECTIONAL&#34;`. Defaults to `&#34;DESTINATION&#34;`.
          * 
          * @return builder
          * 
@@ -205,7 +223,7 @@ public final class ClusterLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param linkMode The mode of the cluster link. The supported values are `&#34;DESTINATION&#34;` and `&#34;SOURCE&#34;`. Defaults to `&#34;DESTINATION&#34;`.
+         * @param linkMode The mode of the cluster link. The supported values are `&#34;DESTINATION&#34;`, `&#34;SOURCE&#34;`, and `&#34;BIDIRECTIONAL&#34;`. Defaults to `&#34;DESTINATION&#34;`.
          * 
          * @return builder
          * 
@@ -214,7 +232,25 @@ public final class ClusterLinkArgs extends com.pulumi.resources.ResourceArgs {
             return linkMode(Output.of(linkMode));
         }
 
-        public Builder sourceKafkaCluster(Output<ClusterLinkSourceKafkaClusterArgs> sourceKafkaCluster) {
+        public Builder localKafkaCluster(@Nullable Output<ClusterLinkLocalKafkaClusterArgs> localKafkaCluster) {
+            $.localKafkaCluster = localKafkaCluster;
+            return this;
+        }
+
+        public Builder localKafkaCluster(ClusterLinkLocalKafkaClusterArgs localKafkaCluster) {
+            return localKafkaCluster(Output.of(localKafkaCluster));
+        }
+
+        public Builder remoteKafkaCluster(@Nullable Output<ClusterLinkRemoteKafkaClusterArgs> remoteKafkaCluster) {
+            $.remoteKafkaCluster = remoteKafkaCluster;
+            return this;
+        }
+
+        public Builder remoteKafkaCluster(ClusterLinkRemoteKafkaClusterArgs remoteKafkaCluster) {
+            return remoteKafkaCluster(Output.of(remoteKafkaCluster));
+        }
+
+        public Builder sourceKafkaCluster(@Nullable Output<ClusterLinkSourceKafkaClusterArgs> sourceKafkaCluster) {
             $.sourceKafkaCluster = sourceKafkaCluster;
             return this;
         }
@@ -224,8 +260,6 @@ public final class ClusterLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterLinkArgs build() {
-            $.destinationKafkaCluster = Objects.requireNonNull($.destinationKafkaCluster, "expected parameter 'destinationKafkaCluster' to be non-null");
-            $.sourceKafkaCluster = Objects.requireNonNull($.sourceKafkaCluster, "expected parameter 'sourceKafkaCluster' to be non-null");
             return $;
         }
     }

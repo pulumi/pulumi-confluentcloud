@@ -1590,12 +1590,12 @@ func (o ByokKeyAzurePtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 type ClusterLinkDestinationKafkaCluster struct {
-	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint *string                                        `pulumi:"bootstrapEndpoint"`
 	Credentials       *ClusterLinkDestinationKafkaClusterCredentials `pulumi:"credentials"`
-	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
-	// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 }
 
@@ -1611,12 +1611,12 @@ type ClusterLinkDestinationKafkaClusterInput interface {
 }
 
 type ClusterLinkDestinationKafkaClusterArgs struct {
-	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringPtrInput                                 `pulumi:"bootstrapEndpoint"`
 	Credentials       ClusterLinkDestinationKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
-	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint pulumi.StringPtrInput `pulumi:"restEndpoint"`
 }
 
@@ -1697,7 +1697,7 @@ func (o ClusterLinkDestinationKafkaClusterOutput) ToClusterLinkDestinationKafkaC
 	}).(ClusterLinkDestinationKafkaClusterPtrOutput)
 }
 
-// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o ClusterLinkDestinationKafkaClusterOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -1708,12 +1708,12 @@ func (o ClusterLinkDestinationKafkaClusterOutput) Credentials() ClusterLinkDesti
 	}).(ClusterLinkDestinationKafkaClusterCredentialsPtrOutput)
 }
 
-// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 func (o ClusterLinkDestinationKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 func (o ClusterLinkDestinationKafkaClusterOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaCluster) *string { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -1742,7 +1742,7 @@ func (o ClusterLinkDestinationKafkaClusterPtrOutput) Elem() ClusterLinkDestinati
 	}).(ClusterLinkDestinationKafkaClusterOutput)
 }
 
-// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o ClusterLinkDestinationKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkDestinationKafkaCluster) *string {
 		if v == nil {
@@ -1761,7 +1761,7 @@ func (o ClusterLinkDestinationKafkaClusterPtrOutput) Credentials() ClusterLinkDe
 	}).(ClusterLinkDestinationKafkaClusterCredentialsPtrOutput)
 }
 
-// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 func (o ClusterLinkDestinationKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkDestinationKafkaCluster) *string {
 		if v == nil {
@@ -1771,7 +1771,7 @@ func (o ClusterLinkDestinationKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 func (o ClusterLinkDestinationKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkDestinationKafkaCluster) *string {
 		if v == nil {
@@ -1785,6 +1785,8 @@ type ClusterLinkDestinationKafkaClusterCredentials struct {
 	// The Kafka API Key.
 	Key string `pulumi:"key"`
 	// The Kafka API Secret.
+	//
+	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	Secret string `pulumi:"secret"`
 }
 
@@ -1803,6 +1805,8 @@ type ClusterLinkDestinationKafkaClusterCredentialsArgs struct {
 	// The Kafka API Key.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The Kafka API Secret.
+	//
+	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -1889,6 +1893,8 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) Key() pulumi.String
 }
 
 // The Kafka API Secret.
+//
+// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -1928,6 +1934,8 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Key() pulumi.Str
 }
 
 // The Kafka API Secret.
+//
+// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkDestinationKafkaClusterCredentials) *string {
 		if v == nil {
@@ -1937,13 +1945,721 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Secret() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterLinkLocalKafkaCluster struct {
+	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	BootstrapEndpoint *string                                  `pulumi:"bootstrapEndpoint"`
+	Credentials       *ClusterLinkLocalKafkaClusterCredentials `pulumi:"credentials"`
+	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+	Id string `pulumi:"id"`
+	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint *string `pulumi:"restEndpoint"`
+}
+
+// ClusterLinkLocalKafkaClusterInput is an input type that accepts ClusterLinkLocalKafkaClusterArgs and ClusterLinkLocalKafkaClusterOutput values.
+// You can construct a concrete instance of `ClusterLinkLocalKafkaClusterInput` via:
+//
+//	ClusterLinkLocalKafkaClusterArgs{...}
+type ClusterLinkLocalKafkaClusterInput interface {
+	pulumi.Input
+
+	ToClusterLinkLocalKafkaClusterOutput() ClusterLinkLocalKafkaClusterOutput
+	ToClusterLinkLocalKafkaClusterOutputWithContext(context.Context) ClusterLinkLocalKafkaClusterOutput
+}
+
+type ClusterLinkLocalKafkaClusterArgs struct {
+	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	BootstrapEndpoint pulumi.StringPtrInput                           `pulumi:"bootstrapEndpoint"`
+	Credentials       ClusterLinkLocalKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
+	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint pulumi.StringPtrInput `pulumi:"restEndpoint"`
+}
+
+func (ClusterLinkLocalKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkLocalKafkaCluster)(nil)).Elem()
+}
+
+func (i ClusterLinkLocalKafkaClusterArgs) ToClusterLinkLocalKafkaClusterOutput() ClusterLinkLocalKafkaClusterOutput {
+	return i.ToClusterLinkLocalKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkLocalKafkaClusterArgs) ToClusterLinkLocalKafkaClusterOutputWithContext(ctx context.Context) ClusterLinkLocalKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkLocalKafkaClusterOutput)
+}
+
+func (i ClusterLinkLocalKafkaClusterArgs) ToClusterLinkLocalKafkaClusterPtrOutput() ClusterLinkLocalKafkaClusterPtrOutput {
+	return i.ToClusterLinkLocalKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkLocalKafkaClusterArgs) ToClusterLinkLocalKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkLocalKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkLocalKafkaClusterOutput).ToClusterLinkLocalKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// ClusterLinkLocalKafkaClusterPtrInput is an input type that accepts ClusterLinkLocalKafkaClusterArgs, ClusterLinkLocalKafkaClusterPtr and ClusterLinkLocalKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `ClusterLinkLocalKafkaClusterPtrInput` via:
+//
+//	        ClusterLinkLocalKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterLinkLocalKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToClusterLinkLocalKafkaClusterPtrOutput() ClusterLinkLocalKafkaClusterPtrOutput
+	ToClusterLinkLocalKafkaClusterPtrOutputWithContext(context.Context) ClusterLinkLocalKafkaClusterPtrOutput
+}
+
+type clusterLinkLocalKafkaClusterPtrType ClusterLinkLocalKafkaClusterArgs
+
+func ClusterLinkLocalKafkaClusterPtr(v *ClusterLinkLocalKafkaClusterArgs) ClusterLinkLocalKafkaClusterPtrInput {
+	return (*clusterLinkLocalKafkaClusterPtrType)(v)
+}
+
+func (*clusterLinkLocalKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkLocalKafkaCluster)(nil)).Elem()
+}
+
+func (i *clusterLinkLocalKafkaClusterPtrType) ToClusterLinkLocalKafkaClusterPtrOutput() ClusterLinkLocalKafkaClusterPtrOutput {
+	return i.ToClusterLinkLocalKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterLinkLocalKafkaClusterPtrType) ToClusterLinkLocalKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkLocalKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkLocalKafkaClusterPtrOutput)
+}
+
+type ClusterLinkLocalKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkLocalKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkLocalKafkaCluster)(nil)).Elem()
+}
+
+func (o ClusterLinkLocalKafkaClusterOutput) ToClusterLinkLocalKafkaClusterOutput() ClusterLinkLocalKafkaClusterOutput {
+	return o
+}
+
+func (o ClusterLinkLocalKafkaClusterOutput) ToClusterLinkLocalKafkaClusterOutputWithContext(ctx context.Context) ClusterLinkLocalKafkaClusterOutput {
+	return o
+}
+
+func (o ClusterLinkLocalKafkaClusterOutput) ToClusterLinkLocalKafkaClusterPtrOutput() ClusterLinkLocalKafkaClusterPtrOutput {
+	return o.ToClusterLinkLocalKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterLinkLocalKafkaClusterOutput) ToClusterLinkLocalKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkLocalKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkLocalKafkaCluster) *ClusterLinkLocalKafkaCluster {
+		return &v
+	}).(ClusterLinkLocalKafkaClusterPtrOutput)
+}
+
+// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+func (o ClusterLinkLocalKafkaClusterOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLinkLocalKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLinkLocalKafkaClusterOutput) Credentials() ClusterLinkLocalKafkaClusterCredentialsPtrOutput {
+	return o.ApplyT(func(v ClusterLinkLocalKafkaCluster) *ClusterLinkLocalKafkaClusterCredentials { return v.Credentials }).(ClusterLinkLocalKafkaClusterCredentialsPtrOutput)
+}
+
+// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+func (o ClusterLinkLocalKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLinkLocalKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o ClusterLinkLocalKafkaClusterOutput) RestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLinkLocalKafkaCluster) *string { return v.RestEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type ClusterLinkLocalKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkLocalKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkLocalKafkaCluster)(nil)).Elem()
+}
+
+func (o ClusterLinkLocalKafkaClusterPtrOutput) ToClusterLinkLocalKafkaClusterPtrOutput() ClusterLinkLocalKafkaClusterPtrOutput {
+	return o
+}
+
+func (o ClusterLinkLocalKafkaClusterPtrOutput) ToClusterLinkLocalKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkLocalKafkaClusterPtrOutput {
+	return o
+}
+
+func (o ClusterLinkLocalKafkaClusterPtrOutput) Elem() ClusterLinkLocalKafkaClusterOutput {
+	return o.ApplyT(func(v *ClusterLinkLocalKafkaCluster) ClusterLinkLocalKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLinkLocalKafkaCluster
+		return ret
+	}).(ClusterLinkLocalKafkaClusterOutput)
+}
+
+// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+func (o ClusterLinkLocalKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkLocalKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BootstrapEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLinkLocalKafkaClusterPtrOutput) Credentials() ClusterLinkLocalKafkaClusterCredentialsPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkLocalKafkaCluster) *ClusterLinkLocalKafkaClusterCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(ClusterLinkLocalKafkaClusterCredentialsPtrOutput)
+}
+
+// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+func (o ClusterLinkLocalKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkLocalKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o ClusterLinkLocalKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkLocalKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterLinkLocalKafkaClusterCredentials struct {
+	// The Kafka API Key.
+	Key string `pulumi:"key"`
+	// The Kafka API Secret.
+	//
+	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+	Secret string `pulumi:"secret"`
+}
+
+// ClusterLinkLocalKafkaClusterCredentialsInput is an input type that accepts ClusterLinkLocalKafkaClusterCredentialsArgs and ClusterLinkLocalKafkaClusterCredentialsOutput values.
+// You can construct a concrete instance of `ClusterLinkLocalKafkaClusterCredentialsInput` via:
+//
+//	ClusterLinkLocalKafkaClusterCredentialsArgs{...}
+type ClusterLinkLocalKafkaClusterCredentialsInput interface {
+	pulumi.Input
+
+	ToClusterLinkLocalKafkaClusterCredentialsOutput() ClusterLinkLocalKafkaClusterCredentialsOutput
+	ToClusterLinkLocalKafkaClusterCredentialsOutputWithContext(context.Context) ClusterLinkLocalKafkaClusterCredentialsOutput
+}
+
+type ClusterLinkLocalKafkaClusterCredentialsArgs struct {
+	// The Kafka API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Kafka API Secret.
+	//
+	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (ClusterLinkLocalKafkaClusterCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkLocalKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (i ClusterLinkLocalKafkaClusterCredentialsArgs) ToClusterLinkLocalKafkaClusterCredentialsOutput() ClusterLinkLocalKafkaClusterCredentialsOutput {
+	return i.ToClusterLinkLocalKafkaClusterCredentialsOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkLocalKafkaClusterCredentialsArgs) ToClusterLinkLocalKafkaClusterCredentialsOutputWithContext(ctx context.Context) ClusterLinkLocalKafkaClusterCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkLocalKafkaClusterCredentialsOutput)
+}
+
+func (i ClusterLinkLocalKafkaClusterCredentialsArgs) ToClusterLinkLocalKafkaClusterCredentialsPtrOutput() ClusterLinkLocalKafkaClusterCredentialsPtrOutput {
+	return i.ToClusterLinkLocalKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkLocalKafkaClusterCredentialsArgs) ToClusterLinkLocalKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkLocalKafkaClusterCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkLocalKafkaClusterCredentialsOutput).ToClusterLinkLocalKafkaClusterCredentialsPtrOutputWithContext(ctx)
+}
+
+// ClusterLinkLocalKafkaClusterCredentialsPtrInput is an input type that accepts ClusterLinkLocalKafkaClusterCredentialsArgs, ClusterLinkLocalKafkaClusterCredentialsPtr and ClusterLinkLocalKafkaClusterCredentialsPtrOutput values.
+// You can construct a concrete instance of `ClusterLinkLocalKafkaClusterCredentialsPtrInput` via:
+//
+//	        ClusterLinkLocalKafkaClusterCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterLinkLocalKafkaClusterCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToClusterLinkLocalKafkaClusterCredentialsPtrOutput() ClusterLinkLocalKafkaClusterCredentialsPtrOutput
+	ToClusterLinkLocalKafkaClusterCredentialsPtrOutputWithContext(context.Context) ClusterLinkLocalKafkaClusterCredentialsPtrOutput
+}
+
+type clusterLinkLocalKafkaClusterCredentialsPtrType ClusterLinkLocalKafkaClusterCredentialsArgs
+
+func ClusterLinkLocalKafkaClusterCredentialsPtr(v *ClusterLinkLocalKafkaClusterCredentialsArgs) ClusterLinkLocalKafkaClusterCredentialsPtrInput {
+	return (*clusterLinkLocalKafkaClusterCredentialsPtrType)(v)
+}
+
+func (*clusterLinkLocalKafkaClusterCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkLocalKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (i *clusterLinkLocalKafkaClusterCredentialsPtrType) ToClusterLinkLocalKafkaClusterCredentialsPtrOutput() ClusterLinkLocalKafkaClusterCredentialsPtrOutput {
+	return i.ToClusterLinkLocalKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterLinkLocalKafkaClusterCredentialsPtrType) ToClusterLinkLocalKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkLocalKafkaClusterCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkLocalKafkaClusterCredentialsPtrOutput)
+}
+
+type ClusterLinkLocalKafkaClusterCredentialsOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkLocalKafkaClusterCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkLocalKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (o ClusterLinkLocalKafkaClusterCredentialsOutput) ToClusterLinkLocalKafkaClusterCredentialsOutput() ClusterLinkLocalKafkaClusterCredentialsOutput {
+	return o
+}
+
+func (o ClusterLinkLocalKafkaClusterCredentialsOutput) ToClusterLinkLocalKafkaClusterCredentialsOutputWithContext(ctx context.Context) ClusterLinkLocalKafkaClusterCredentialsOutput {
+	return o
+}
+
+func (o ClusterLinkLocalKafkaClusterCredentialsOutput) ToClusterLinkLocalKafkaClusterCredentialsPtrOutput() ClusterLinkLocalKafkaClusterCredentialsPtrOutput {
+	return o.ToClusterLinkLocalKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterLinkLocalKafkaClusterCredentialsOutput) ToClusterLinkLocalKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkLocalKafkaClusterCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkLocalKafkaClusterCredentials) *ClusterLinkLocalKafkaClusterCredentials {
+		return &v
+	}).(ClusterLinkLocalKafkaClusterCredentialsPtrOutput)
+}
+
+// The Kafka API Key.
+func (o ClusterLinkLocalKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLinkLocalKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Kafka API Secret.
+//
+// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+func (o ClusterLinkLocalKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLinkLocalKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type ClusterLinkLocalKafkaClusterCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkLocalKafkaClusterCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkLocalKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) ToClusterLinkLocalKafkaClusterCredentialsPtrOutput() ClusterLinkLocalKafkaClusterCredentialsPtrOutput {
+	return o
+}
+
+func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) ToClusterLinkLocalKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkLocalKafkaClusterCredentialsPtrOutput {
+	return o
+}
+
+func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Elem() ClusterLinkLocalKafkaClusterCredentialsOutput {
+	return o.ApplyT(func(v *ClusterLinkLocalKafkaClusterCredentials) ClusterLinkLocalKafkaClusterCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLinkLocalKafkaClusterCredentials
+		return ret
+	}).(ClusterLinkLocalKafkaClusterCredentialsOutput)
+}
+
+// The Kafka API Key.
+func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkLocalKafkaClusterCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kafka API Secret.
+//
+// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkLocalKafkaClusterCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterLinkRemoteKafkaCluster struct {
+	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	BootstrapEndpoint *string                                   `pulumi:"bootstrapEndpoint"`
+	Credentials       *ClusterLinkRemoteKafkaClusterCredentials `pulumi:"credentials"`
+	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+	Id string `pulumi:"id"`
+	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint *string `pulumi:"restEndpoint"`
+}
+
+// ClusterLinkRemoteKafkaClusterInput is an input type that accepts ClusterLinkRemoteKafkaClusterArgs and ClusterLinkRemoteKafkaClusterOutput values.
+// You can construct a concrete instance of `ClusterLinkRemoteKafkaClusterInput` via:
+//
+//	ClusterLinkRemoteKafkaClusterArgs{...}
+type ClusterLinkRemoteKafkaClusterInput interface {
+	pulumi.Input
+
+	ToClusterLinkRemoteKafkaClusterOutput() ClusterLinkRemoteKafkaClusterOutput
+	ToClusterLinkRemoteKafkaClusterOutputWithContext(context.Context) ClusterLinkRemoteKafkaClusterOutput
+}
+
+type ClusterLinkRemoteKafkaClusterArgs struct {
+	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	BootstrapEndpoint pulumi.StringPtrInput                            `pulumi:"bootstrapEndpoint"`
+	Credentials       ClusterLinkRemoteKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
+	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint pulumi.StringPtrInput `pulumi:"restEndpoint"`
+}
+
+func (ClusterLinkRemoteKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkRemoteKafkaCluster)(nil)).Elem()
+}
+
+func (i ClusterLinkRemoteKafkaClusterArgs) ToClusterLinkRemoteKafkaClusterOutput() ClusterLinkRemoteKafkaClusterOutput {
+	return i.ToClusterLinkRemoteKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkRemoteKafkaClusterArgs) ToClusterLinkRemoteKafkaClusterOutputWithContext(ctx context.Context) ClusterLinkRemoteKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkRemoteKafkaClusterOutput)
+}
+
+func (i ClusterLinkRemoteKafkaClusterArgs) ToClusterLinkRemoteKafkaClusterPtrOutput() ClusterLinkRemoteKafkaClusterPtrOutput {
+	return i.ToClusterLinkRemoteKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkRemoteKafkaClusterArgs) ToClusterLinkRemoteKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkRemoteKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkRemoteKafkaClusterOutput).ToClusterLinkRemoteKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// ClusterLinkRemoteKafkaClusterPtrInput is an input type that accepts ClusterLinkRemoteKafkaClusterArgs, ClusterLinkRemoteKafkaClusterPtr and ClusterLinkRemoteKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `ClusterLinkRemoteKafkaClusterPtrInput` via:
+//
+//	        ClusterLinkRemoteKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterLinkRemoteKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToClusterLinkRemoteKafkaClusterPtrOutput() ClusterLinkRemoteKafkaClusterPtrOutput
+	ToClusterLinkRemoteKafkaClusterPtrOutputWithContext(context.Context) ClusterLinkRemoteKafkaClusterPtrOutput
+}
+
+type clusterLinkRemoteKafkaClusterPtrType ClusterLinkRemoteKafkaClusterArgs
+
+func ClusterLinkRemoteKafkaClusterPtr(v *ClusterLinkRemoteKafkaClusterArgs) ClusterLinkRemoteKafkaClusterPtrInput {
+	return (*clusterLinkRemoteKafkaClusterPtrType)(v)
+}
+
+func (*clusterLinkRemoteKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkRemoteKafkaCluster)(nil)).Elem()
+}
+
+func (i *clusterLinkRemoteKafkaClusterPtrType) ToClusterLinkRemoteKafkaClusterPtrOutput() ClusterLinkRemoteKafkaClusterPtrOutput {
+	return i.ToClusterLinkRemoteKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterLinkRemoteKafkaClusterPtrType) ToClusterLinkRemoteKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkRemoteKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkRemoteKafkaClusterPtrOutput)
+}
+
+type ClusterLinkRemoteKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkRemoteKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkRemoteKafkaCluster)(nil)).Elem()
+}
+
+func (o ClusterLinkRemoteKafkaClusterOutput) ToClusterLinkRemoteKafkaClusterOutput() ClusterLinkRemoteKafkaClusterOutput {
+	return o
+}
+
+func (o ClusterLinkRemoteKafkaClusterOutput) ToClusterLinkRemoteKafkaClusterOutputWithContext(ctx context.Context) ClusterLinkRemoteKafkaClusterOutput {
+	return o
+}
+
+func (o ClusterLinkRemoteKafkaClusterOutput) ToClusterLinkRemoteKafkaClusterPtrOutput() ClusterLinkRemoteKafkaClusterPtrOutput {
+	return o.ToClusterLinkRemoteKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterLinkRemoteKafkaClusterOutput) ToClusterLinkRemoteKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkRemoteKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkRemoteKafkaCluster) *ClusterLinkRemoteKafkaCluster {
+		return &v
+	}).(ClusterLinkRemoteKafkaClusterPtrOutput)
+}
+
+// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+func (o ClusterLinkRemoteKafkaClusterOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLinkRemoteKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLinkRemoteKafkaClusterOutput) Credentials() ClusterLinkRemoteKafkaClusterCredentialsPtrOutput {
+	return o.ApplyT(func(v ClusterLinkRemoteKafkaCluster) *ClusterLinkRemoteKafkaClusterCredentials { return v.Credentials }).(ClusterLinkRemoteKafkaClusterCredentialsPtrOutput)
+}
+
+// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+func (o ClusterLinkRemoteKafkaClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLinkRemoteKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o ClusterLinkRemoteKafkaClusterOutput) RestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLinkRemoteKafkaCluster) *string { return v.RestEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type ClusterLinkRemoteKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkRemoteKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkRemoteKafkaCluster)(nil)).Elem()
+}
+
+func (o ClusterLinkRemoteKafkaClusterPtrOutput) ToClusterLinkRemoteKafkaClusterPtrOutput() ClusterLinkRemoteKafkaClusterPtrOutput {
+	return o
+}
+
+func (o ClusterLinkRemoteKafkaClusterPtrOutput) ToClusterLinkRemoteKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkRemoteKafkaClusterPtrOutput {
+	return o
+}
+
+func (o ClusterLinkRemoteKafkaClusterPtrOutput) Elem() ClusterLinkRemoteKafkaClusterOutput {
+	return o.ApplyT(func(v *ClusterLinkRemoteKafkaCluster) ClusterLinkRemoteKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLinkRemoteKafkaCluster
+		return ret
+	}).(ClusterLinkRemoteKafkaClusterOutput)
+}
+
+// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+func (o ClusterLinkRemoteKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkRemoteKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BootstrapEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterLinkRemoteKafkaClusterPtrOutput) Credentials() ClusterLinkRemoteKafkaClusterCredentialsPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkRemoteKafkaCluster) *ClusterLinkRemoteKafkaClusterCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(ClusterLinkRemoteKafkaClusterCredentialsPtrOutput)
+}
+
+// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+func (o ClusterLinkRemoteKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkRemoteKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o ClusterLinkRemoteKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkRemoteKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterLinkRemoteKafkaClusterCredentials struct {
+	// The Kafka API Key.
+	Key string `pulumi:"key"`
+	// The Kafka API Secret.
+	//
+	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+	Secret string `pulumi:"secret"`
+}
+
+// ClusterLinkRemoteKafkaClusterCredentialsInput is an input type that accepts ClusterLinkRemoteKafkaClusterCredentialsArgs and ClusterLinkRemoteKafkaClusterCredentialsOutput values.
+// You can construct a concrete instance of `ClusterLinkRemoteKafkaClusterCredentialsInput` via:
+//
+//	ClusterLinkRemoteKafkaClusterCredentialsArgs{...}
+type ClusterLinkRemoteKafkaClusterCredentialsInput interface {
+	pulumi.Input
+
+	ToClusterLinkRemoteKafkaClusterCredentialsOutput() ClusterLinkRemoteKafkaClusterCredentialsOutput
+	ToClusterLinkRemoteKafkaClusterCredentialsOutputWithContext(context.Context) ClusterLinkRemoteKafkaClusterCredentialsOutput
+}
+
+type ClusterLinkRemoteKafkaClusterCredentialsArgs struct {
+	// The Kafka API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Kafka API Secret.
+	//
+	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (ClusterLinkRemoteKafkaClusterCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkRemoteKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (i ClusterLinkRemoteKafkaClusterCredentialsArgs) ToClusterLinkRemoteKafkaClusterCredentialsOutput() ClusterLinkRemoteKafkaClusterCredentialsOutput {
+	return i.ToClusterLinkRemoteKafkaClusterCredentialsOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkRemoteKafkaClusterCredentialsArgs) ToClusterLinkRemoteKafkaClusterCredentialsOutputWithContext(ctx context.Context) ClusterLinkRemoteKafkaClusterCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkRemoteKafkaClusterCredentialsOutput)
+}
+
+func (i ClusterLinkRemoteKafkaClusterCredentialsArgs) ToClusterLinkRemoteKafkaClusterCredentialsPtrOutput() ClusterLinkRemoteKafkaClusterCredentialsPtrOutput {
+	return i.ToClusterLinkRemoteKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterLinkRemoteKafkaClusterCredentialsArgs) ToClusterLinkRemoteKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkRemoteKafkaClusterCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkRemoteKafkaClusterCredentialsOutput).ToClusterLinkRemoteKafkaClusterCredentialsPtrOutputWithContext(ctx)
+}
+
+// ClusterLinkRemoteKafkaClusterCredentialsPtrInput is an input type that accepts ClusterLinkRemoteKafkaClusterCredentialsArgs, ClusterLinkRemoteKafkaClusterCredentialsPtr and ClusterLinkRemoteKafkaClusterCredentialsPtrOutput values.
+// You can construct a concrete instance of `ClusterLinkRemoteKafkaClusterCredentialsPtrInput` via:
+//
+//	        ClusterLinkRemoteKafkaClusterCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterLinkRemoteKafkaClusterCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToClusterLinkRemoteKafkaClusterCredentialsPtrOutput() ClusterLinkRemoteKafkaClusterCredentialsPtrOutput
+	ToClusterLinkRemoteKafkaClusterCredentialsPtrOutputWithContext(context.Context) ClusterLinkRemoteKafkaClusterCredentialsPtrOutput
+}
+
+type clusterLinkRemoteKafkaClusterCredentialsPtrType ClusterLinkRemoteKafkaClusterCredentialsArgs
+
+func ClusterLinkRemoteKafkaClusterCredentialsPtr(v *ClusterLinkRemoteKafkaClusterCredentialsArgs) ClusterLinkRemoteKafkaClusterCredentialsPtrInput {
+	return (*clusterLinkRemoteKafkaClusterCredentialsPtrType)(v)
+}
+
+func (*clusterLinkRemoteKafkaClusterCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkRemoteKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (i *clusterLinkRemoteKafkaClusterCredentialsPtrType) ToClusterLinkRemoteKafkaClusterCredentialsPtrOutput() ClusterLinkRemoteKafkaClusterCredentialsPtrOutput {
+	return i.ToClusterLinkRemoteKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterLinkRemoteKafkaClusterCredentialsPtrType) ToClusterLinkRemoteKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkRemoteKafkaClusterCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkRemoteKafkaClusterCredentialsPtrOutput)
+}
+
+type ClusterLinkRemoteKafkaClusterCredentialsOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkRemoteKafkaClusterCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLinkRemoteKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) ToClusterLinkRemoteKafkaClusterCredentialsOutput() ClusterLinkRemoteKafkaClusterCredentialsOutput {
+	return o
+}
+
+func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) ToClusterLinkRemoteKafkaClusterCredentialsOutputWithContext(ctx context.Context) ClusterLinkRemoteKafkaClusterCredentialsOutput {
+	return o
+}
+
+func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) ToClusterLinkRemoteKafkaClusterCredentialsPtrOutput() ClusterLinkRemoteKafkaClusterCredentialsPtrOutput {
+	return o.ToClusterLinkRemoteKafkaClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) ToClusterLinkRemoteKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkRemoteKafkaClusterCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkRemoteKafkaClusterCredentials) *ClusterLinkRemoteKafkaClusterCredentials {
+		return &v
+	}).(ClusterLinkRemoteKafkaClusterCredentialsPtrOutput)
+}
+
+// The Kafka API Key.
+func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLinkRemoteKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Kafka API Secret.
+//
+// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLinkRemoteKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type ClusterLinkRemoteKafkaClusterCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLinkRemoteKafkaClusterCredentials)(nil)).Elem()
+}
+
+func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) ToClusterLinkRemoteKafkaClusterCredentialsPtrOutput() ClusterLinkRemoteKafkaClusterCredentialsPtrOutput {
+	return o
+}
+
+func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) ToClusterLinkRemoteKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkRemoteKafkaClusterCredentialsPtrOutput {
+	return o
+}
+
+func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Elem() ClusterLinkRemoteKafkaClusterCredentialsOutput {
+	return o.ApplyT(func(v *ClusterLinkRemoteKafkaClusterCredentials) ClusterLinkRemoteKafkaClusterCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLinkRemoteKafkaClusterCredentials
+		return ret
+	}).(ClusterLinkRemoteKafkaClusterCredentialsOutput)
+}
+
+// The Kafka API Key.
+func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkRemoteKafkaClusterCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kafka API Secret.
+//
+// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLinkRemoteKafkaClusterCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterLinkSourceKafkaCluster struct {
-	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint *string                                   `pulumi:"bootstrapEndpoint"`
 	Credentials       *ClusterLinkSourceKafkaClusterCredentials `pulumi:"credentials"`
-	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
-	// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 }
 
@@ -1959,12 +2675,12 @@ type ClusterLinkSourceKafkaClusterInput interface {
 }
 
 type ClusterLinkSourceKafkaClusterArgs struct {
-	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringPtrInput                            `pulumi:"bootstrapEndpoint"`
 	Credentials       ClusterLinkSourceKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
-	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint pulumi.StringPtrInput `pulumi:"restEndpoint"`
 }
 
@@ -2045,7 +2761,7 @@ func (o ClusterLinkSourceKafkaClusterOutput) ToClusterLinkSourceKafkaClusterPtrO
 	}).(ClusterLinkSourceKafkaClusterPtrOutput)
 }
 
-// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o ClusterLinkSourceKafkaClusterOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -2054,12 +2770,12 @@ func (o ClusterLinkSourceKafkaClusterOutput) Credentials() ClusterLinkSourceKafk
 	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) *ClusterLinkSourceKafkaClusterCredentials { return v.Credentials }).(ClusterLinkSourceKafkaClusterCredentialsPtrOutput)
 }
 
-// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 func (o ClusterLinkSourceKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 func (o ClusterLinkSourceKafkaClusterOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) *string { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -2088,7 +2804,7 @@ func (o ClusterLinkSourceKafkaClusterPtrOutput) Elem() ClusterLinkSourceKafkaClu
 	}).(ClusterLinkSourceKafkaClusterOutput)
 }
 
-// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o ClusterLinkSourceKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkSourceKafkaCluster) *string {
 		if v == nil {
@@ -2107,7 +2823,7 @@ func (o ClusterLinkSourceKafkaClusterPtrOutput) Credentials() ClusterLinkSourceK
 	}).(ClusterLinkSourceKafkaClusterCredentialsPtrOutput)
 }
 
-// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 func (o ClusterLinkSourceKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkSourceKafkaCluster) *string {
 		if v == nil {
@@ -2117,7 +2833,7 @@ func (o ClusterLinkSourceKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 func (o ClusterLinkSourceKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkSourceKafkaCluster) *string {
 		if v == nil {
@@ -2131,6 +2847,8 @@ type ClusterLinkSourceKafkaClusterCredentials struct {
 	// The Kafka API Key.
 	Key string `pulumi:"key"`
 	// The Kafka API Secret.
+	//
+	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	Secret string `pulumi:"secret"`
 }
 
@@ -2149,6 +2867,8 @@ type ClusterLinkSourceKafkaClusterCredentialsArgs struct {
 	// The Kafka API Key.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The Kafka API Secret.
+	//
+	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -2235,6 +2955,8 @@ func (o ClusterLinkSourceKafkaClusterCredentialsOutput) Key() pulumi.StringOutpu
 }
 
 // The Kafka API Secret.
+//
+// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o ClusterLinkSourceKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkSourceKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -2274,6 +2996,8 @@ func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPt
 }
 
 // The Kafka API Secret.
+//
+// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkSourceKafkaClusterCredentials) *string {
 		if v == nil {
@@ -20618,6 +21342,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterPtrInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterCredentialsInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterCredentialsPtrInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkLocalKafkaClusterInput)(nil)).Elem(), ClusterLinkLocalKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkLocalKafkaClusterPtrInput)(nil)).Elem(), ClusterLinkLocalKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkLocalKafkaClusterCredentialsInput)(nil)).Elem(), ClusterLinkLocalKafkaClusterCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkLocalKafkaClusterCredentialsPtrInput)(nil)).Elem(), ClusterLinkLocalKafkaClusterCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkRemoteKafkaClusterInput)(nil)).Elem(), ClusterLinkRemoteKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkRemoteKafkaClusterPtrInput)(nil)).Elem(), ClusterLinkRemoteKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkRemoteKafkaClusterCredentialsInput)(nil)).Elem(), ClusterLinkRemoteKafkaClusterCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkRemoteKafkaClusterCredentialsPtrInput)(nil)).Elem(), ClusterLinkRemoteKafkaClusterCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkSourceKafkaClusterInput)(nil)).Elem(), ClusterLinkSourceKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkSourceKafkaClusterPtrInput)(nil)).Elem(), ClusterLinkSourceKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkSourceKafkaClusterCredentialsInput)(nil)).Elem(), ClusterLinkSourceKafkaClusterCredentialsArgs{})
@@ -20921,6 +21653,14 @@ func init() {
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterCredentialsOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLinkLocalKafkaClusterOutput{})
+	pulumi.RegisterOutputType(ClusterLinkLocalKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLinkLocalKafkaClusterCredentialsOutput{})
+	pulumi.RegisterOutputType(ClusterLinkLocalKafkaClusterCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLinkRemoteKafkaClusterOutput{})
+	pulumi.RegisterOutputType(ClusterLinkRemoteKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLinkRemoteKafkaClusterCredentialsOutput{})
+	pulumi.RegisterOutputType(ClusterLinkRemoteKafkaClusterCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLinkSourceKafkaClusterOutput{})
 	pulumi.RegisterOutputType(ClusterLinkSourceKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLinkSourceKafkaClusterCredentialsOutput{})

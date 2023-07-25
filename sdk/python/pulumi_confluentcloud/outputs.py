@@ -23,6 +23,10 @@ __all__ = [
     'ByokKeyAzure',
     'ClusterLinkDestinationKafkaCluster',
     'ClusterLinkDestinationKafkaClusterCredentials',
+    'ClusterLinkLocalKafkaCluster',
+    'ClusterLinkLocalKafkaClusterCredentials',
+    'ClusterLinkRemoteKafkaCluster',
+    'ClusterLinkRemoteKafkaClusterCredentials',
     'ClusterLinkSourceKafkaCluster',
     'ClusterLinkSourceKafkaClusterCredentials',
     'ConnectorEnvironment',
@@ -645,9 +649,9 @@ class ClusterLinkDestinationKafkaCluster(dict):
                  credentials: Optional['outputs.ClusterLinkDestinationKafkaClusterCredentials'] = None,
                  rest_endpoint: Optional[str] = None):
         """
-        :param str id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
-        :param str bootstrap_endpoint: The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-        :param str rest_endpoint: The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param str id: The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+        :param str bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param str rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "id", id)
         if bootstrap_endpoint is not None:
@@ -661,7 +665,7 @@ class ClusterLinkDestinationKafkaCluster(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        The ID of the remote Kafka cluster, for example, `lkc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -669,7 +673,7 @@ class ClusterLinkDestinationKafkaCluster(dict):
     @pulumi.getter(name="bootstrapEndpoint")
     def bootstrap_endpoint(self) -> Optional[str]:
         """
-        The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
@@ -682,7 +686,7 @@ class ClusterLinkDestinationKafkaCluster(dict):
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[str]:
         """
-        The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -695,6 +699,8 @@ class ClusterLinkDestinationKafkaClusterCredentials(dict):
         """
         :param str key: The Kafka API Key.
         :param str secret: The Kafka API Secret.
+               
+               > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -712,6 +718,212 @@ class ClusterLinkDestinationKafkaClusterCredentials(dict):
     def secret(self) -> str:
         """
         The Kafka API Secret.
+
+        > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class ClusterLinkLocalKafkaCluster(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bootstrapEndpoint":
+            suggest = "bootstrap_endpoint"
+        elif key == "restEndpoint":
+            suggest = "rest_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterLinkLocalKafkaCluster. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterLinkLocalKafkaCluster.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterLinkLocalKafkaCluster.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 bootstrap_endpoint: Optional[str] = None,
+                 credentials: Optional['outputs.ClusterLinkLocalKafkaClusterCredentials'] = None,
+                 rest_endpoint: Optional[str] = None):
+        """
+        :param str id: The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+        :param str bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param str rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        pulumi.set(__self__, "id", id)
+        if bootstrap_endpoint is not None:
+            pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if rest_endpoint is not None:
+            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="bootstrapEndpoint")
+    def bootstrap_endpoint(self) -> Optional[str]:
+        """
+        The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        """
+        return pulumi.get(self, "bootstrap_endpoint")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.ClusterLinkLocalKafkaClusterCredentials']:
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> Optional[str]:
+        """
+        The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "rest_endpoint")
+
+
+@pulumi.output_type
+class ClusterLinkLocalKafkaClusterCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Kafka API Key.
+        :param str secret: The Kafka API Secret.
+               
+               > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Kafka API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Kafka API Secret.
+
+        > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class ClusterLinkRemoteKafkaCluster(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bootstrapEndpoint":
+            suggest = "bootstrap_endpoint"
+        elif key == "restEndpoint":
+            suggest = "rest_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterLinkRemoteKafkaCluster. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterLinkRemoteKafkaCluster.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterLinkRemoteKafkaCluster.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 bootstrap_endpoint: Optional[str] = None,
+                 credentials: Optional['outputs.ClusterLinkRemoteKafkaClusterCredentials'] = None,
+                 rest_endpoint: Optional[str] = None):
+        """
+        :param str id: The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+        :param str bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param str rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        pulumi.set(__self__, "id", id)
+        if bootstrap_endpoint is not None:
+            pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if rest_endpoint is not None:
+            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="bootstrapEndpoint")
+    def bootstrap_endpoint(self) -> Optional[str]:
+        """
+        The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        """
+        return pulumi.get(self, "bootstrap_endpoint")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.ClusterLinkRemoteKafkaClusterCredentials']:
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> Optional[str]:
+        """
+        The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "rest_endpoint")
+
+
+@pulumi.output_type
+class ClusterLinkRemoteKafkaClusterCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Kafka API Key.
+        :param str secret: The Kafka API Secret.
+               
+               > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Kafka API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Kafka API Secret.
+
+        > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         return pulumi.get(self, "secret")
 
@@ -743,9 +955,9 @@ class ClusterLinkSourceKafkaCluster(dict):
                  credentials: Optional['outputs.ClusterLinkSourceKafkaClusterCredentials'] = None,
                  rest_endpoint: Optional[str] = None):
         """
-        :param str id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
-        :param str bootstrap_endpoint: The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-        :param str rest_endpoint: The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param str id: The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+        :param str bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param str rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "id", id)
         if bootstrap_endpoint is not None:
@@ -759,7 +971,7 @@ class ClusterLinkSourceKafkaCluster(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        The ID of the remote Kafka cluster, for example, `lkc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -767,7 +979,7 @@ class ClusterLinkSourceKafkaCluster(dict):
     @pulumi.getter(name="bootstrapEndpoint")
     def bootstrap_endpoint(self) -> Optional[str]:
         """
-        The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
@@ -780,7 +992,7 @@ class ClusterLinkSourceKafkaCluster(dict):
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[str]:
         """
-        The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -793,6 +1005,8 @@ class ClusterLinkSourceKafkaClusterCredentials(dict):
         """
         :param str key: The Kafka API Key.
         :param str secret: The Kafka API Secret.
+               
+               > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -810,6 +1024,8 @@ class ClusterLinkSourceKafkaClusterCredentials(dict):
     def secret(self) -> str:
         """
         The Kafka API Secret.
+
+        > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         return pulumi.get(self, "secret")
 

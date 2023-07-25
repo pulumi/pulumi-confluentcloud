@@ -119,6 +119,26 @@
                     },
                     "link_mode": {},
                     "link_name": {},
+                    "local_kafka_cluster": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "credentials": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "remote_kafka_cluster": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "credentials": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
                     "source_kafka_cluster": {
                         "maxItemsOne": true,
                         "elem": {
@@ -1536,6 +1556,14 @@
                 "bootstrapEndpoint": "bootstrap_endpoint",
                 "restEndpoint": "rest_endpoint"
             },
+            "confluentcloud:index/ClusterLinkLocalKafkaCluster:ClusterLinkLocalKafkaCluster": {
+                "bootstrapEndpoint": "bootstrap_endpoint",
+                "restEndpoint": "rest_endpoint"
+            },
+            "confluentcloud:index/ClusterLinkRemoteKafkaCluster:ClusterLinkRemoteKafkaCluster": {
+                "bootstrapEndpoint": "bootstrap_endpoint",
+                "restEndpoint": "rest_endpoint"
+            },
             "confluentcloud:index/ClusterLinkSourceKafkaCluster:ClusterLinkSourceKafkaCluster": {
                 "bootstrapEndpoint": "bootstrap_endpoint",
                 "restEndpoint": "rest_endpoint"
@@ -1609,6 +1637,8 @@
                 "destinationKafkaCluster": "destination_kafka_cluster",
                 "link": "link_name",
                 "linkMode": "link_mode",
+                "localKafkaCluster": "local_kafka_cluster",
+                "remoteKafkaCluster": "remote_kafka_cluster",
                 "sourceKafkaCluster": "source_kafka_cluster"
             },
             "confluentcloud:index/connector:Connector": {

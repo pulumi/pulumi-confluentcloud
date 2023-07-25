@@ -7,6 +7,8 @@ import com.pulumi.confluentcloud.ClusterLinkArgs;
 import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.ClusterLinkState;
 import com.pulumi.confluentcloud.outputs.ClusterLinkDestinationKafkaCluster;
+import com.pulumi.confluentcloud.outputs.ClusterLinkLocalKafkaCluster;
+import com.pulumi.confluentcloud.outputs.ClusterLinkRemoteKafkaCluster;
 import com.pulumi.confluentcloud.outputs.ClusterLinkSourceKafkaCluster;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -20,10 +22,18 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode, source Kafka cluster ID, and destination Kafka cluster ID, in the format `&lt;Cluster link name&gt;/&lt;Cluster link mode&gt;/&lt;Cluster connection mode&gt;/&lt;Source Kafka cluster ID&gt;/&lt;Destination Kafka cluster ID&gt;`, for example$ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT=&#34;&lt;source_kafka_bootstrap_endpoint&gt;&#34; $ export IMPORT_SOURCE_KAFKA_API_KEY=&#34;&lt;source_kafka_api_key&gt;&#34; $ export IMPORT_SOURCE_KAFKA_API_SECRET=&#34;&lt;source_kafka_api_secret&gt;&#34; $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT=&#34;&lt;destination_kafka_rest_endpoint&gt;&#34; $ export IMPORT_DESTINATION_KAFKA_API_KEY=&#34;&lt;destination_kafka_api_key&gt;&#34; $ export IMPORT_DESTINATION_KAFKA_API_SECRET=&#34;&lt;destination_kafka_api_secret&gt;&#34;
+ * You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode, source (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote
+ * 
+ * for bidirectional cluster links) Kafka cluster ID, in the format `&lt;Cluster link name&gt;/&lt;Cluster link mode&gt;/&lt;Cluster connection mode&gt;/&lt;Source (Local) Kafka cluster ID&gt;/&lt;Destination (Remote) Kafka cluster ID&gt;`, for exampleOption #1 when using source-initiated or destination-initiated cluster links $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT=&#34;&lt;source_kafka_bootstrap_endpoint&gt;&#34; $ export IMPORT_SOURCE_KAFKA_API_KEY=&#34;&lt;source_kafka_api_key&gt;&#34; $ export IMPORT_SOURCE_KAFKA_API_SECRET=&#34;&lt;source_kafka_api_secret&gt;&#34; $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT=&#34;&lt;destination_kafka_rest_endpoint&gt;&#34; $ export IMPORT_DESTINATION_KAFKA_API_KEY=&#34;&lt;destination_kafka_api_key&gt;&#34; $ export IMPORT_DESTINATION_KAFKA_API_SECRET=&#34;&lt;destination_kafka_api_secret&gt;&#34;
  * 
  * ```sh
  *  $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456
+ * ```
+ * 
+ *  Option #2 when using bidirectional cluster links $ export IMPORT_LOCAL_KAFKA_BOOTSTRAP_ENDPOINT=&#34;&lt;local_kafka_bootstrap_endpoint&gt;&#34; $ export IMPORT_LOCAL_KAFKA_API_KEY=&#34;&lt;local_kafka_api_key&gt;&#34; $ export IMPORT_LOCAL_KAFKA_API_SECRET=&#34;&lt;local_kafka_api_secret&gt;&#34; $ export IMPORT_REMOTE_KAFKA_REST_ENDPOINT=&#34;&lt;remote_kafka_rest_endpoint&gt;&#34; $ export IMPORT_REMOTE_KAFKA_API_KEY=&#34;&lt;remote_kafka_api_key&gt;&#34; $ export IMPORT_REMOTE_KAFKA_API_SECRET=&#34;&lt;remote_kafka_api_secret&gt;&#34;
+ * 
+ * ```sh
+ *  $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456
  * ```
  * 
  *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
@@ -60,10 +70,10 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.connectionMode);
     }
     @Export(name="destinationKafkaCluster", type=ClusterLinkDestinationKafkaCluster.class, parameters={})
-    private Output<ClusterLinkDestinationKafkaCluster> destinationKafkaCluster;
+    private Output</* @Nullable */ ClusterLinkDestinationKafkaCluster> destinationKafkaCluster;
 
-    public Output<ClusterLinkDestinationKafkaCluster> destinationKafkaCluster() {
-        return this.destinationKafkaCluster;
+    public Output<Optional<ClusterLinkDestinationKafkaCluster>> destinationKafkaCluster() {
+        return Codegen.optional(this.destinationKafkaCluster);
     }
     /**
      * The name of the cluster link, for example, `my-cluster-link`.
@@ -80,24 +90,36 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
         return this.link;
     }
     /**
-     * The mode of the cluster link. The supported values are `&#34;DESTINATION&#34;` and `&#34;SOURCE&#34;`. Defaults to `&#34;DESTINATION&#34;`.
+     * The mode of the cluster link. The supported values are `&#34;DESTINATION&#34;`, `&#34;SOURCE&#34;`, and `&#34;BIDIRECTIONAL&#34;`. Defaults to `&#34;DESTINATION&#34;`.
      * 
      */
     @Export(name="linkMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> linkMode;
 
     /**
-     * @return The mode of the cluster link. The supported values are `&#34;DESTINATION&#34;` and `&#34;SOURCE&#34;`. Defaults to `&#34;DESTINATION&#34;`.
+     * @return The mode of the cluster link. The supported values are `&#34;DESTINATION&#34;`, `&#34;SOURCE&#34;`, and `&#34;BIDIRECTIONAL&#34;`. Defaults to `&#34;DESTINATION&#34;`.
      * 
      */
     public Output<Optional<String>> linkMode() {
         return Codegen.optional(this.linkMode);
     }
-    @Export(name="sourceKafkaCluster", type=ClusterLinkSourceKafkaCluster.class, parameters={})
-    private Output<ClusterLinkSourceKafkaCluster> sourceKafkaCluster;
+    @Export(name="localKafkaCluster", type=ClusterLinkLocalKafkaCluster.class, parameters={})
+    private Output</* @Nullable */ ClusterLinkLocalKafkaCluster> localKafkaCluster;
 
-    public Output<ClusterLinkSourceKafkaCluster> sourceKafkaCluster() {
-        return this.sourceKafkaCluster;
+    public Output<Optional<ClusterLinkLocalKafkaCluster>> localKafkaCluster() {
+        return Codegen.optional(this.localKafkaCluster);
+    }
+    @Export(name="remoteKafkaCluster", type=ClusterLinkRemoteKafkaCluster.class, parameters={})
+    private Output</* @Nullable */ ClusterLinkRemoteKafkaCluster> remoteKafkaCluster;
+
+    public Output<Optional<ClusterLinkRemoteKafkaCluster>> remoteKafkaCluster() {
+        return Codegen.optional(this.remoteKafkaCluster);
+    }
+    @Export(name="sourceKafkaCluster", type=ClusterLinkSourceKafkaCluster.class, parameters={})
+    private Output</* @Nullable */ ClusterLinkSourceKafkaCluster> sourceKafkaCluster;
+
+    public Output<Optional<ClusterLinkSourceKafkaCluster>> sourceKafkaCluster() {
+        return Codegen.optional(this.sourceKafkaCluster);
     }
 
     /**
@@ -112,7 +134,7 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ClusterLink(String name, ClusterLinkArgs args) {
+    public ClusterLink(String name, @Nullable ClusterLinkArgs args) {
         this(name, args, null);
     }
     /**
@@ -121,7 +143,7 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ClusterLink(String name, ClusterLinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ClusterLink(String name, @Nullable ClusterLinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("confluentcloud:index/clusterLink:ClusterLink", name, args == null ? ClusterLinkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

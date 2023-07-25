@@ -363,7 +363,7 @@
             "properties": {
                 "bootstrapEndpoint": {
                     "type": "string",
-                    "description": "The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
+                    "description": "The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
                     "willReplaceOnChanges": true
                 },
                 "credentials": {
@@ -372,12 +372,12 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of the destination Kafka cluster, for example, `lkc-abc123`.\n",
+                    "description": "The ID of the remote Kafka cluster, for example, `lkc-abc123`.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "description": "The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -395,7 +395,99 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Kafka API Secret.\n",
+                    "description": "The Kafka API Secret.\n\n\u003e **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/ClusterLinkLocalKafkaCluster:ClusterLinkLocalKafkaCluster": {
+            "properties": {
+                "bootstrapEndpoint": {
+                    "type": "string",
+                    "description": "The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
+                    "willReplaceOnChanges": true
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/ClusterLinkLocalKafkaClusterCredentials:ClusterLinkLocalKafkaClusterCredentials",
+                    "secret": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the remote Kafka cluster, for example, `lkc-abc123`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/ClusterLinkLocalKafkaClusterCredentials:ClusterLinkLocalKafkaClusterCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Kafka API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Kafka API Secret.\n\n\u003e **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/ClusterLinkRemoteKafkaCluster:ClusterLinkRemoteKafkaCluster": {
+            "properties": {
+                "bootstrapEndpoint": {
+                    "type": "string",
+                    "description": "The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
+                    "willReplaceOnChanges": true
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/ClusterLinkRemoteKafkaClusterCredentials:ClusterLinkRemoteKafkaClusterCredentials",
+                    "secret": true
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the remote Kafka cluster, for example, `lkc-abc123`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/ClusterLinkRemoteKafkaClusterCredentials:ClusterLinkRemoteKafkaClusterCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Kafka API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Kafka API Secret.\n\n\u003e **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).\n",
                     "secret": true
                 }
             },
@@ -409,7 +501,7 @@
             "properties": {
                 "bootstrapEndpoint": {
                     "type": "string",
-                    "description": "The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
+                    "description": "The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
                     "willReplaceOnChanges": true
                 },
                 "credentials": {
@@ -418,12 +510,12 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of the destination Kafka cluster, for example, `lkc-abc123`.\n",
+                    "description": "The ID of the remote Kafka cluster, for example, `lkc-abc123`.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "description": "The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -441,7 +533,7 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Kafka API Secret.\n",
+                    "description": "The Kafka API Secret.\n\n\u003e **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).\n",
                     "secret": true
                 }
             },
@@ -3466,7 +3558,7 @@
             }
         },
         "confluentcloud:index/clusterLink:ClusterLink": {
-            "description": "\n\n\n## Import\n\nYou can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode, source Kafka cluster ID, and destination Kafka cluster ID, in the format `\u003cCluster link name\u003e/\u003cCluster link mode\u003e/\u003cCluster connection mode\u003e/\u003cSource Kafka cluster ID\u003e/\u003cDestination Kafka cluster ID\u003e`, for example$ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT=\"\u003csource_kafka_bootstrap_endpoint\u003e\" $ export IMPORT_SOURCE_KAFKA_API_KEY=\"\u003csource_kafka_api_key\u003e\" $ export IMPORT_SOURCE_KAFKA_API_SECRET=\"\u003csource_kafka_api_secret\u003e\" $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT=\"\u003cdestination_kafka_rest_endpoint\u003e\" $ export IMPORT_DESTINATION_KAFKA_API_KEY=\"\u003cdestination_kafka_api_key\u003e\" $ export IMPORT_DESTINATION_KAFKA_API_SECRET=\"\u003cdestination_kafka_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "description": "\n\n\n## Import\n\nYou can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode, source (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote\n\nfor bidirectional cluster links) Kafka cluster ID, in the format `\u003cCluster link name\u003e/\u003cCluster link mode\u003e/\u003cCluster connection mode\u003e/\u003cSource (Local) Kafka cluster ID\u003e/\u003cDestination (Remote) Kafka cluster ID\u003e`, for exampleOption #1 when using source-initiated or destination-initiated cluster links $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT=\"\u003csource_kafka_bootstrap_endpoint\u003e\" $ export IMPORT_SOURCE_KAFKA_API_KEY=\"\u003csource_kafka_api_key\u003e\" $ export IMPORT_SOURCE_KAFKA_API_SECRET=\"\u003csource_kafka_api_secret\u003e\" $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT=\"\u003cdestination_kafka_rest_endpoint\u003e\" $ export IMPORT_DESTINATION_KAFKA_API_KEY=\"\u003cdestination_kafka_api_key\u003e\" $ export IMPORT_DESTINATION_KAFKA_API_SECRET=\"\u003cdestination_kafka_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456\n```\n\n Option #2 when using bidirectional cluster links $ export IMPORT_LOCAL_KAFKA_BOOTSTRAP_ENDPOINT=\"\u003clocal_kafka_bootstrap_endpoint\u003e\" $ export IMPORT_LOCAL_KAFKA_API_KEY=\"\u003clocal_kafka_api_key\u003e\" $ export IMPORT_LOCAL_KAFKA_API_SECRET=\"\u003clocal_kafka_api_secret\u003e\" $ export IMPORT_REMOTE_KAFKA_REST_ENDPOINT=\"\u003cremote_kafka_rest_endpoint\u003e\" $ export IMPORT_REMOTE_KAFKA_API_KEY=\"\u003cremote_kafka_api_key\u003e\" $ export IMPORT_REMOTE_KAFKA_API_SECRET=\"\u003cremote_kafka_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
             "properties": {
                 "config": {
                     "type": "object",
@@ -3488,7 +3580,13 @@
                 },
                 "linkMode": {
                     "type": "string",
-                    "description": "The mode of the cluster link. The supported values are `\"DESTINATION\"` and `\"SOURCE\"`. Defaults to `\"DESTINATION\"`.\n"
+                    "description": "The mode of the cluster link. The supported values are `\"DESTINATION\"`, `\"SOURCE\"`, and `\"BIDIRECTIONAL\"`. Defaults to `\"DESTINATION\"`.\n"
+                },
+                "localKafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/ClusterLinkLocalKafkaCluster:ClusterLinkLocalKafkaCluster"
+                },
+                "remoteKafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/ClusterLinkRemoteKafkaCluster:ClusterLinkRemoteKafkaCluster"
                 },
                 "sourceKafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/ClusterLinkSourceKafkaCluster:ClusterLinkSourceKafkaCluster"
@@ -3496,9 +3594,7 @@
             },
             "required": [
                 "config",
-                "destinationKafkaCluster",
-                "link",
-                "sourceKafkaCluster"
+                "link"
             ],
             "inputProperties": {
                 "config": {
@@ -3523,17 +3619,19 @@
                 },
                 "linkMode": {
                     "type": "string",
-                    "description": "The mode of the cluster link. The supported values are `\"DESTINATION\"` and `\"SOURCE\"`. Defaults to `\"DESTINATION\"`.\n",
+                    "description": "The mode of the cluster link. The supported values are `\"DESTINATION\"`, `\"SOURCE\"`, and `\"BIDIRECTIONAL\"`. Defaults to `\"DESTINATION\"`.\n",
                     "willReplaceOnChanges": true
+                },
+                "localKafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/ClusterLinkLocalKafkaCluster:ClusterLinkLocalKafkaCluster"
+                },
+                "remoteKafkaCluster": {
+                    "$ref": "#/types/confluentcloud:index/ClusterLinkRemoteKafkaCluster:ClusterLinkRemoteKafkaCluster"
                 },
                 "sourceKafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/ClusterLinkSourceKafkaCluster:ClusterLinkSourceKafkaCluster"
                 }
             },
-            "requiredInputs": [
-                "destinationKafkaCluster",
-                "sourceKafkaCluster"
-            ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering ClusterLink resources.\n",
                 "properties": {
@@ -3559,8 +3657,14 @@
                     },
                     "linkMode": {
                         "type": "string",
-                        "description": "The mode of the cluster link. The supported values are `\"DESTINATION\"` and `\"SOURCE\"`. Defaults to `\"DESTINATION\"`.\n",
+                        "description": "The mode of the cluster link. The supported values are `\"DESTINATION\"`, `\"SOURCE\"`, and `\"BIDIRECTIONAL\"`. Defaults to `\"DESTINATION\"`.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "localKafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/ClusterLinkLocalKafkaCluster:ClusterLinkLocalKafkaCluster"
+                    },
+                    "remoteKafkaCluster": {
+                        "$ref": "#/types/confluentcloud:index/ClusterLinkRemoteKafkaCluster:ClusterLinkRemoteKafkaCluster"
                     },
                     "sourceKafkaCluster": {
                         "$ref": "#/types/confluentcloud:index/ClusterLinkSourceKafkaCluster:ClusterLinkSourceKafkaCluster"

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud.Inputs
 {
 
-    public sealed class ClusterLinkDestinationKafkaClusterCredentialsGetArgs : global::Pulumi.ResourceArgs
+    public sealed class ClusterLinkRemoteKafkaClusterCredentialsArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         private Input<string>? _key;
@@ -46,9 +46,9 @@ namespace Pulumi.ConfluentCloud.Inputs
             }
         }
 
-        public ClusterLinkDestinationKafkaClusterCredentialsGetArgs()
+        public ClusterLinkRemoteKafkaClusterCredentialsArgs()
         {
         }
-        public static new ClusterLinkDestinationKafkaClusterCredentialsGetArgs Empty => new ClusterLinkDestinationKafkaClusterCredentialsGetArgs();
+        public static new ClusterLinkRemoteKafkaClusterCredentialsArgs Empty => new ClusterLinkRemoteKafkaClusterCredentialsArgs();
     }
 }

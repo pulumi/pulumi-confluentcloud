@@ -11,13 +11,13 @@ namespace Pulumi.ConfluentCloud.Outputs
 {
 
     [OutputType]
-    public sealed class ClusterLinkSourceKafkaCluster
+    public sealed class ClusterLinkRemoteKafkaCluster
     {
         /// <summary>
         /// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         /// </summary>
         public readonly string? BootstrapEndpoint;
-        public readonly Outputs.ClusterLinkSourceKafkaClusterCredentials? Credentials;
+        public readonly Outputs.ClusterLinkRemoteKafkaClusterCredentials? Credentials;
         /// <summary>
         /// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
         /// </summary>
@@ -28,10 +28,10 @@ namespace Pulumi.ConfluentCloud.Outputs
         public readonly string? RestEndpoint;
 
         [OutputConstructor]
-        private ClusterLinkSourceKafkaCluster(
+        private ClusterLinkRemoteKafkaCluster(
             string? bootstrapEndpoint,
 
-            Outputs.ClusterLinkSourceKafkaClusterCredentials? credentials,
+            Outputs.ClusterLinkRemoteKafkaClusterCredentials? credentials,
 
             string id,
 

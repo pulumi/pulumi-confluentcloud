@@ -3,7 +3,7 @@
 
 package com.pulumi.confluentcloud.outputs;
 
-import com.pulumi.confluentcloud.outputs.ClusterLinkDestinationKafkaClusterCredentials;
+import com.pulumi.confluentcloud.outputs.ClusterLinkLocalKafkaClusterCredentials;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
@@ -11,13 +11,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
-public final class ClusterLinkDestinationKafkaCluster {
+public final class ClusterLinkLocalKafkaCluster {
     /**
      * @return The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      * 
      */
     private @Nullable String bootstrapEndpoint;
-    private @Nullable ClusterLinkDestinationKafkaClusterCredentials credentials;
+    private @Nullable ClusterLinkLocalKafkaClusterCredentials credentials;
     /**
      * @return The ID of the remote Kafka cluster, for example, `lkc-abc123`.
      * 
@@ -29,7 +29,7 @@ public final class ClusterLinkDestinationKafkaCluster {
      */
     private @Nullable String restEndpoint;
 
-    private ClusterLinkDestinationKafkaCluster() {}
+    private ClusterLinkLocalKafkaCluster() {}
     /**
      * @return The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      * 
@@ -37,7 +37,7 @@ public final class ClusterLinkDestinationKafkaCluster {
     public Optional<String> bootstrapEndpoint() {
         return Optional.ofNullable(this.bootstrapEndpoint);
     }
-    public Optional<ClusterLinkDestinationKafkaClusterCredentials> credentials() {
+    public Optional<ClusterLinkLocalKafkaClusterCredentials> credentials() {
         return Optional.ofNullable(this.credentials);
     }
     /**
@@ -59,17 +59,17 @@ public final class ClusterLinkDestinationKafkaCluster {
         return new Builder();
     }
 
-    public static Builder builder(ClusterLinkDestinationKafkaCluster defaults) {
+    public static Builder builder(ClusterLinkLocalKafkaCluster defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String bootstrapEndpoint;
-        private @Nullable ClusterLinkDestinationKafkaClusterCredentials credentials;
+        private @Nullable ClusterLinkLocalKafkaClusterCredentials credentials;
         private String id;
         private @Nullable String restEndpoint;
         public Builder() {}
-        public Builder(ClusterLinkDestinationKafkaCluster defaults) {
+        public Builder(ClusterLinkLocalKafkaCluster defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bootstrapEndpoint = defaults.bootstrapEndpoint;
     	      this.credentials = defaults.credentials;
@@ -83,7 +83,7 @@ public final class ClusterLinkDestinationKafkaCluster {
             return this;
         }
         @CustomType.Setter
-        public Builder credentials(@Nullable ClusterLinkDestinationKafkaClusterCredentials credentials) {
+        public Builder credentials(@Nullable ClusterLinkLocalKafkaClusterCredentials credentials) {
             this.credentials = credentials;
             return this;
         }
@@ -97,8 +97,8 @@ public final class ClusterLinkDestinationKafkaCluster {
             this.restEndpoint = restEndpoint;
             return this;
         }
-        public ClusterLinkDestinationKafkaCluster build() {
-            final var o = new ClusterLinkDestinationKafkaCluster();
+        public ClusterLinkLocalKafkaCluster build() {
+            final var o = new ClusterLinkLocalKafkaCluster();
             o.bootstrapEndpoint = bootstrapEndpoint;
             o.credentials = credentials;
             o.id = id;

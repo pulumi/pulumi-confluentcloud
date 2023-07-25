@@ -8,7 +8,7 @@ import java.lang.String;
 import java.util.Objects;
 
 @CustomType
-public final class ClusterLinkDestinationKafkaClusterCredentials {
+public final class ClusterLinkRemoteKafkaClusterCredentials {
     /**
      * @return The Kafka API Key.
      * 
@@ -22,7 +22,7 @@ public final class ClusterLinkDestinationKafkaClusterCredentials {
      */
     private String secret;
 
-    private ClusterLinkDestinationKafkaClusterCredentials() {}
+    private ClusterLinkRemoteKafkaClusterCredentials() {}
     /**
      * @return The Kafka API Key.
      * 
@@ -44,7 +44,7 @@ public final class ClusterLinkDestinationKafkaClusterCredentials {
         return new Builder();
     }
 
-    public static Builder builder(ClusterLinkDestinationKafkaClusterCredentials defaults) {
+    public static Builder builder(ClusterLinkRemoteKafkaClusterCredentials defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -52,7 +52,7 @@ public final class ClusterLinkDestinationKafkaClusterCredentials {
         private String key;
         private String secret;
         public Builder() {}
-        public Builder(ClusterLinkDestinationKafkaClusterCredentials defaults) {
+        public Builder(ClusterLinkRemoteKafkaClusterCredentials defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.secret = defaults.secret;
@@ -68,8 +68,8 @@ public final class ClusterLinkDestinationKafkaClusterCredentials {
             this.secret = Objects.requireNonNull(secret);
             return this;
         }
-        public ClusterLinkDestinationKafkaClusterCredentials build() {
-            final var o = new ClusterLinkDestinationKafkaClusterCredentials();
+        public ClusterLinkRemoteKafkaClusterCredentials build() {
+            final var o = new ClusterLinkRemoteKafkaClusterCredentials();
             o.key = key;
             o.secret = secret;
             return o;
