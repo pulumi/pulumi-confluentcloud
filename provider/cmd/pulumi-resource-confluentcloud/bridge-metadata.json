@@ -346,6 +346,9 @@
                         }
                     },
                     "display_name": {},
+                    "enterprise": {
+                        "maxItemsOne": false
+                    },
                     "environment": {
                         "maxItemsOne": true,
                         "elem": {
@@ -761,6 +764,43 @@
                     }
                 }
             },
+            "confluent_private_link_attachment": {
+                "current": "confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment",
+                "fields": {
+                    "aws": {
+                        "maxItemsOne": false
+                    },
+                    "azure": {
+                        "maxItemsOne": false
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "gcp": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_private_link_attachment_connection": {
+                "current": "confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection",
+                "fields": {
+                    "aws": {
+                        "maxItemsOne": true
+                    },
+                    "azure": {
+                        "maxItemsOne": true
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "gcp": {
+                        "maxItemsOne": true
+                    },
+                    "private_link_attachment": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_role_binding": {
                 "current": "confluentcloud:index/roleBinding:RoleBinding",
                 "fields": {
@@ -1127,6 +1167,9 @@
                             }
                         }
                     },
+                    "enterprise": {
+                        "maxItemsOne": false
+                    },
                     "environment": {
                         "maxItemsOne": true
                     },
@@ -1276,6 +1319,43 @@
                         "maxItemsOne": false
                     },
                     "network": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_private_link_attachment": {
+                "current": "confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment",
+                "fields": {
+                    "aws": {
+                        "maxItemsOne": false
+                    },
+                    "azure": {
+                        "maxItemsOne": false
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "gcp": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "confluent_private_link_attachment_connection": {
+                "current": "confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection",
+                "fields": {
+                    "aws": {
+                        "maxItemsOne": false
+                    },
+                    "azure": {
+                        "maxItemsOne": false
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "gcp": {
+                        "maxItemsOne": false
+                    },
+                    "private_link_attachment": {
                         "maxItemsOne": false
                     }
                 }
@@ -1483,6 +1563,8 @@
             "confluentcloud:index/networkLinkService:NetworkLinkService": "confluent_network_link_service",
             "confluentcloud:index/peering:Peering": "confluent_peering",
             "confluentcloud:index/privateLinkAccess:PrivateLinkAccess": "confluent_private_link_access",
+            "confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment": "confluent_private_link_attachment",
+            "confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection": "confluent_private_link_attachment_connection",
             "confluentcloud:index/roleBinding:RoleBinding": "confluent_role_binding",
             "confluentcloud:index/schema:Schema": "confluent_schema",
             "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster": "confluent_schema_registry_cluster",
@@ -1515,6 +1597,8 @@
             "confluentcloud:index/getOrganization:getOrganization": "confluent_organization",
             "confluentcloud:index/getPeering:getPeering": "confluent_peering",
             "confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess": "confluent_private_link_access",
+            "confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment": "confluent_private_link_attachment",
+            "confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection": "confluent_private_link_attachment_connection",
             "confluentcloud:index/getRoleBinding:getRoleBinding": "confluent_role_binding",
             "confluentcloud:index/getSchema:getSchema": "confluent_schema",
             "confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster": "confluent_schema_registry_cluster",
@@ -1606,6 +1690,25 @@
             "confluentcloud:index/PeeringGcp:PeeringGcp": {
                 "importCustomRoutes": "import_custom_routes",
                 "vpcNetwork": "vpc_network"
+            },
+            "confluentcloud:index/PrivateLinkAttachmentAw:PrivateLinkAttachmentAw": {
+                "vpcEndpointServiceName": "vpc_endpoint_service_name"
+            },
+            "confluentcloud:index/PrivateLinkAttachmentAzure:PrivateLinkAttachmentAzure": {
+                "privateLinkServiceAlias": "private_link_service_alias",
+                "privateLinkServiceResourceId": "private_link_service_resource_id"
+            },
+            "confluentcloud:index/PrivateLinkAttachmentConnectionAws:PrivateLinkAttachmentConnectionAws": {
+                "vpcEndpointId": "vpc_endpoint_id"
+            },
+            "confluentcloud:index/PrivateLinkAttachmentConnectionAzure:PrivateLinkAttachmentConnectionAzure": {
+                "privateEndpointResourceId": "private_endpoint_resource_id"
+            },
+            "confluentcloud:index/PrivateLinkAttachmentConnectionGcp:PrivateLinkAttachmentConnectionGcp": {
+                "privateServiceConnectConnectionId": "private_service_connect_connection_id"
+            },
+            "confluentcloud:index/PrivateLinkAttachmentGcp:PrivateLinkAttachmentGcp": {
+                "privateServiceConnectServiceAttachment": "private_service_connect_service_attachment"
             },
             "confluentcloud:index/SchemaSchemaReference:SchemaSchemaReference": {
                 "subjectName": "subject_name"
@@ -1714,6 +1817,7 @@
                 "bootstrapEndpoint": "bootstrap_endpoint",
                 "byokKeys": "byok_key",
                 "displayName": "display_name",
+                "enterprises": "enterprise",
                 "networks": "network",
                 "rbacCrn": "rbac_crn",
                 "restEndpoint": "rest_endpoint",
@@ -1798,6 +1902,39 @@
                 "displayName": "display_name",
                 "gcps": "gcp",
                 "networks": "network"
+            },
+            "confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment": {
+                "azures": "azure",
+                "displayName": "display_name",
+                "dnsDomain": "dns_domain",
+                "gcps": "gcp",
+                "resourceName": "resource_name"
+            },
+            "confluentcloud:index/getPrivateLinkAttachmentAw:getPrivateLinkAttachmentAw": {
+                "vpcEndpointServiceName": "vpc_endpoint_service_name"
+            },
+            "confluentcloud:index/getPrivateLinkAttachmentAzure:getPrivateLinkAttachmentAzure": {
+                "privateLinkServiceAlias": "private_link_service_alias",
+                "privateLinkServiceResourceId": "private_link_service_resource_id"
+            },
+            "confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection": {
+                "azures": "azure",
+                "displayName": "display_name",
+                "gcps": "gcp",
+                "privateLinkAttachments": "private_link_attachment",
+                "resourceName": "resource_name"
+            },
+            "confluentcloud:index/getPrivateLinkAttachmentConnectionAw:getPrivateLinkAttachmentConnectionAw": {
+                "vpcEndpointId": "vpc_endpoint_id"
+            },
+            "confluentcloud:index/getPrivateLinkAttachmentConnectionAzure:getPrivateLinkAttachmentConnectionAzure": {
+                "privateEndpointResourceId": "private_endpoint_resource_id"
+            },
+            "confluentcloud:index/getPrivateLinkAttachmentConnectionGcp:getPrivateLinkAttachmentConnectionGcp": {
+                "privateServiceConnectConnectionId": "private_service_connect_connection_id"
+            },
+            "confluentcloud:index/getPrivateLinkAttachmentGcp:getPrivateLinkAttachmentGcp": {
+                "privateServiceConnectServiceAttachment": "private_service_connect_service_attachment"
             },
             "confluentcloud:index/getRoleBinding:getRoleBinding": {
                 "crnPattern": "crn_pattern",
@@ -1926,6 +2063,7 @@
                 "bootstrapEndpoint": "bootstrap_endpoint",
                 "byokKey": "byok_key",
                 "displayName": "display_name",
+                "enterprises": "enterprise",
                 "rbacCrn": "rbac_crn",
                 "restEndpoint": "rest_endpoint"
             },
@@ -1982,6 +2120,18 @@
             },
             "confluentcloud:index/privateLinkAccess:PrivateLinkAccess": {
                 "displayName": "display_name"
+            },
+            "confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment": {
+                "azures": "azure",
+                "displayName": "display_name",
+                "dnsDomain": "dns_domain",
+                "gcps": "gcp",
+                "resourceName": "resource_name"
+            },
+            "confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection": {
+                "displayName": "display_name",
+                "privateLinkAttachment": "private_link_attachment",
+                "resourceName": "resource_name"
             },
             "confluentcloud:index/roleBinding:RoleBinding": {
                 "crnPattern": "crn_pattern",
