@@ -44,6 +44,7 @@ __all__ = [
     'KafkaClusterConfigCredentials',
     'KafkaClusterConfigKafkaCluster',
     'KafkaClusterDedicated',
+    'KafkaClusterEnterprise',
     'KafkaClusterEnvironment',
     'KafkaClusterNetwork',
     'KafkaClusterStandard',
@@ -78,6 +79,15 @@ __all__ = [
     'PrivateLinkAccessEnvironment',
     'PrivateLinkAccessGcp',
     'PrivateLinkAccessNetwork',
+    'PrivateLinkAttachmentAw',
+    'PrivateLinkAttachmentAzure',
+    'PrivateLinkAttachmentConnectionAws',
+    'PrivateLinkAttachmentConnectionAzure',
+    'PrivateLinkAttachmentConnectionEnvironment',
+    'PrivateLinkAttachmentConnectionGcp',
+    'PrivateLinkAttachmentConnectionPrivateLinkAttachment',
+    'PrivateLinkAttachmentEnvironment',
+    'PrivateLinkAttachmentGcp',
     'SchemaCredentials',
     'SchemaRegistryClusterConfigCredentials',
     'SchemaRegistryClusterConfigSchemaRegistryCluster',
@@ -114,6 +124,7 @@ __all__ = [
     'GetKafkaClusterBasicResult',
     'GetKafkaClusterByokKeyResult',
     'GetKafkaClusterDedicatedResult',
+    'GetKafkaClusterEnterpriseResult',
     'GetKafkaClusterEnvironmentResult',
     'GetKafkaClusterNetworkResult',
     'GetKafkaClusterStandardResult',
@@ -144,6 +155,15 @@ __all__ = [
     'GetPrivateLinkAccessEnvironmentResult',
     'GetPrivateLinkAccessGcpResult',
     'GetPrivateLinkAccessNetworkResult',
+    'GetPrivateLinkAttachmentAwResult',
+    'GetPrivateLinkAttachmentAzureResult',
+    'GetPrivateLinkAttachmentConnectionAwResult',
+    'GetPrivateLinkAttachmentConnectionAzureResult',
+    'GetPrivateLinkAttachmentConnectionEnvironmentResult',
+    'GetPrivateLinkAttachmentConnectionGcpResult',
+    'GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentResult',
+    'GetPrivateLinkAttachmentEnvironmentResult',
+    'GetPrivateLinkAttachmentGcpResult',
     'GetSchemaCredentialsResult',
     'GetSchemaRegistryClusterConfigCredentialsResult',
     'GetSchemaRegistryClusterConfigSchemaRegistryClusterResult',
@@ -1406,6 +1426,12 @@ class KafkaClusterDedicated(dict):
 
 
 @pulumi.output_type
+class KafkaClusterEnterprise(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
 class KafkaClusterEnvironment(dict):
     def __init__(__self__, *,
                  id: str):
@@ -2421,6 +2447,275 @@ class PrivateLinkAccessNetwork(dict):
 
 
 @pulumi.output_type
+class PrivateLinkAttachmentAw(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcEndpointServiceName":
+            suggest = "vpc_endpoint_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkAttachmentAw. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkAttachmentAw.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkAttachmentAw.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vpc_endpoint_service_name: Optional[str] = None):
+        """
+        :param str vpc_endpoint_service_name: (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+        """
+        if vpc_endpoint_service_name is not None:
+            pulumi.set(__self__, "vpc_endpoint_service_name", vpc_endpoint_service_name)
+
+    @property
+    @pulumi.getter(name="vpcEndpointServiceName")
+    def vpc_endpoint_service_name(self) -> Optional[str]:
+        """
+        (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+        """
+        return pulumi.get(self, "vpc_endpoint_service_name")
+
+
+@pulumi.output_type
+class PrivateLinkAttachmentAzure(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceAlias":
+            suggest = "private_link_service_alias"
+        elif key == "privateLinkServiceResourceId":
+            suggest = "private_link_service_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkAttachmentAzure. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkAttachmentAzure.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkAttachmentAzure.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_link_service_alias: Optional[str] = None,
+                 private_link_service_resource_id: Optional[str] = None,
+                 zone: Optional[str] = None):
+        if private_link_service_alias is not None:
+            pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
+        if private_link_service_resource_id is not None:
+            pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceAlias")
+    def private_link_service_alias(self) -> Optional[str]:
+        return pulumi.get(self, "private_link_service_alias")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceResourceId")
+    def private_link_service_resource_id(self) -> Optional[str]:
+        return pulumi.get(self, "private_link_service_resource_id")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> Optional[str]:
+        return pulumi.get(self, "zone")
+
+
+@pulumi.output_type
+class PrivateLinkAttachmentConnectionAws(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcEndpointId":
+            suggest = "vpc_endpoint_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkAttachmentConnectionAws. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkAttachmentConnectionAws.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkAttachmentConnectionAws.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vpc_endpoint_id: str):
+        """
+        :param str vpc_endpoint_id: Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+        """
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> str:
+        """
+        Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+
+@pulumi.output_type
+class PrivateLinkAttachmentConnectionAzure(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateEndpointResourceId":
+            suggest = "private_endpoint_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkAttachmentConnectionAzure. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkAttachmentConnectionAzure.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkAttachmentConnectionAzure.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_endpoint_resource_id: str):
+        pulumi.set(__self__, "private_endpoint_resource_id", private_endpoint_resource_id)
+
+    @property
+    @pulumi.getter(name="privateEndpointResourceId")
+    def private_endpoint_resource_id(self) -> str:
+        return pulumi.get(self, "private_endpoint_resource_id")
+
+
+@pulumi.output_type
+class PrivateLinkAttachmentConnectionEnvironment(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The unique identifier for the private link attachment.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique identifier for the private link attachment.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateLinkAttachmentConnectionGcp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateServiceConnectConnectionId":
+            suggest = "private_service_connect_connection_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkAttachmentConnectionGcp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkAttachmentConnectionGcp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkAttachmentConnectionGcp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_service_connect_connection_id: str):
+        pulumi.set(__self__, "private_service_connect_connection_id", private_service_connect_connection_id)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectConnectionId")
+    def private_service_connect_connection_id(self) -> str:
+        return pulumi.get(self, "private_service_connect_connection_id")
+
+
+@pulumi.output_type
+class PrivateLinkAttachmentConnectionPrivateLinkAttachment(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The unique identifier for the private link attachment.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique identifier for the private link attachment.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateLinkAttachmentEnvironment(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateLinkAttachmentGcp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateServiceConnectServiceAttachment":
+            suggest = "private_service_connect_service_attachment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkAttachmentGcp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkAttachmentGcp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkAttachmentGcp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_service_connect_service_attachment: Optional[str] = None,
+                 zone: Optional[str] = None):
+        if private_service_connect_service_attachment is not None:
+            pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectServiceAttachment")
+    def private_service_connect_service_attachment(self) -> Optional[str]:
+        return pulumi.get(self, "private_service_connect_service_attachment")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> Optional[str]:
+        return pulumi.get(self, "zone")
+
+
+@pulumi.output_type
 class SchemaCredentials(dict):
     def __init__(__self__, *,
                  key: str,
@@ -3384,6 +3679,12 @@ class GetKafkaClusterDedicatedResult(dict):
 
 
 @pulumi.output_type
+class GetKafkaClusterEnterpriseResult(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
 class GetKafkaClusterEnvironmentResult(dict):
     def __init__(__self__, *,
                  id: str):
@@ -4103,6 +4404,165 @@ class GetPrivateLinkAccessNetworkResult(dict):
         > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetPrivateLinkAttachmentAwResult(dict):
+    def __init__(__self__, *,
+                 vpc_endpoint_service_name: str):
+        """
+        :param str vpc_endpoint_service_name: (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+        """
+        pulumi.set(__self__, "vpc_endpoint_service_name", vpc_endpoint_service_name)
+
+    @property
+    @pulumi.getter(name="vpcEndpointServiceName")
+    def vpc_endpoint_service_name(self) -> str:
+        """
+        (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+        """
+        return pulumi.get(self, "vpc_endpoint_service_name")
+
+
+@pulumi.output_type
+class GetPrivateLinkAttachmentAzureResult(dict):
+    def __init__(__self__, *,
+                 private_link_service_alias: str,
+                 private_link_service_resource_id: str,
+                 zone: str):
+        pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
+        pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceAlias")
+    def private_link_service_alias(self) -> str:
+        return pulumi.get(self, "private_link_service_alias")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceResourceId")
+    def private_link_service_resource_id(self) -> str:
+        return pulumi.get(self, "private_link_service_resource_id")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> str:
+        return pulumi.get(self, "zone")
+
+
+@pulumi.output_type
+class GetPrivateLinkAttachmentConnectionAwResult(dict):
+    def __init__(__self__, *,
+                 vpc_endpoint_id: str):
+        """
+        :param str vpc_endpoint_id: (Required String) Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+        """
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> str:
+        """
+        (Required String) Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+
+@pulumi.output_type
+class GetPrivateLinkAttachmentConnectionAzureResult(dict):
+    def __init__(__self__, *,
+                 private_endpoint_resource_id: str):
+        pulumi.set(__self__, "private_endpoint_resource_id", private_endpoint_resource_id)
+
+    @property
+    @pulumi.getter(name="privateEndpointResourceId")
+    def private_endpoint_resource_id(self) -> str:
+        return pulumi.get(self, "private_endpoint_resource_id")
+
+
+@pulumi.output_type
+class GetPrivateLinkAttachmentConnectionEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetPrivateLinkAttachmentConnectionGcpResult(dict):
+    def __init__(__self__, *,
+                 private_service_connect_connection_id: str):
+        pulumi.set(__self__, "private_service_connect_connection_id", private_service_connect_connection_id)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectConnectionId")
+    def private_service_connect_connection_id(self) -> str:
+        return pulumi.get(self, "private_service_connect_connection_id")
+
+
+@pulumi.output_type
+class GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetPrivateLinkAttachmentEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetPrivateLinkAttachmentGcpResult(dict):
+    def __init__(__self__, *,
+                 private_service_connect_service_attachment: str,
+                 zone: str):
+        pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectServiceAttachment")
+    def private_service_connect_service_attachment(self) -> str:
+        return pulumi.get(self, "private_service_connect_service_attachment")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> str:
+        return pulumi.get(self, "zone")
 
 
 @pulumi.output_type

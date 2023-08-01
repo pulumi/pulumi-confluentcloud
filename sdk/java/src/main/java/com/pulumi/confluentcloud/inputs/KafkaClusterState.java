@@ -6,12 +6,14 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterBasicArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterByokKeyArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterDedicatedArgs;
+import com.pulumi.confluentcloud.inputs.KafkaClusterEnterpriseArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterNetworkArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -134,6 +136,21 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The configuration of the Enterprise Kafka cluster.
+     * 
+     */
+    @Import(name="enterprises")
+    private @Nullable Output<List<KafkaClusterEnterpriseArgs>> enterprises;
+
+    /**
+     * @return The configuration of the Enterprise Kafka cluster.
+     * 
+     */
+    public Optional<Output<List<KafkaClusterEnterpriseArgs>>> enterprises() {
+        return Optional.ofNullable(this.enterprises);
+    }
+
+    /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
@@ -251,6 +268,7 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
         this.cloud = $.cloud;
         this.dedicated = $.dedicated;
         this.displayName = $.displayName;
+        this.enterprises = $.enterprises;
         this.environment = $.environment;
         this.kind = $.kind;
         this.network = $.network;
@@ -432,6 +450,37 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
+        }
+
+        /**
+         * @param enterprises The configuration of the Enterprise Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enterprises(@Nullable Output<List<KafkaClusterEnterpriseArgs>> enterprises) {
+            $.enterprises = enterprises;
+            return this;
+        }
+
+        /**
+         * @param enterprises The configuration of the Enterprise Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enterprises(List<KafkaClusterEnterpriseArgs> enterprises) {
+            return enterprises(Output.of(enterprises));
+        }
+
+        /**
+         * @param enterprises The configuration of the Enterprise Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enterprises(KafkaClusterEnterpriseArgs... enterprises) {
+            return enterprises(List.of(enterprises));
         }
 
         /**

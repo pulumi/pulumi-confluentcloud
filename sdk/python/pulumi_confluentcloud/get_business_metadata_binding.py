@@ -123,7 +123,7 @@ def get_business_metadata_binding(business_metadata_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
-    :param str entity_name: The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+    :param str entity_name: The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
     :param str entity_type: The entity type, for example, `sr_schema`.
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """
@@ -160,7 +160,7 @@ def get_business_metadata_binding_output(business_metadata_name: Optional[pulumi
     Use this data source to access information about an existing resource.
 
     :param str business_metadata_name: The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
-    :param str entity_name: The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+    :param str entity_name: The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
     :param str entity_type: The entity type, for example, `sr_schema`.
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """

@@ -26,7 +26,7 @@ type LookupBusinessMetadataBindingArgs struct {
 	// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	BusinessMetadataName string                                 `pulumi:"businessMetadataName"`
 	Credentials          *GetBusinessMetadataBindingCredentials `pulumi:"credentials"`
-	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+	// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName string `pulumi:"entityName"`
 	// The entity type, for example, `srSchema`.
 	EntityType string `pulumi:"entityType"`
@@ -67,7 +67,7 @@ type LookupBusinessMetadataBindingOutputArgs struct {
 	// The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	BusinessMetadataName pulumi.StringInput                            `pulumi:"businessMetadataName"`
 	Credentials          GetBusinessMetadataBindingCredentialsPtrInput `pulumi:"credentials"`
-	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+	// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName pulumi.StringInput `pulumi:"entityName"`
 	// The entity type, for example, `srSchema`.
 	EntityType pulumi.StringInput `pulumi:"entityType"`

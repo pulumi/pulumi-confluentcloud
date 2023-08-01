@@ -9,6 +9,7 @@ import com.pulumi.confluentcloud.inputs.KafkaClusterState;
 import com.pulumi.confluentcloud.outputs.KafkaClusterBasic;
 import com.pulumi.confluentcloud.outputs.KafkaClusterByokKey;
 import com.pulumi.confluentcloud.outputs.KafkaClusterDedicated;
+import com.pulumi.confluentcloud.outputs.KafkaClusterEnterprise;
 import com.pulumi.confluentcloud.outputs.KafkaClusterEnvironment;
 import com.pulumi.confluentcloud.outputs.KafkaClusterNetwork;
 import com.pulumi.confluentcloud.outputs.KafkaClusterStandard;
@@ -17,6 +18,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -137,6 +139,20 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> displayName() {
         return this.displayName;
+    }
+    /**
+     * The configuration of the Enterprise Kafka cluster.
+     * 
+     */
+    @Export(name="enterprises", type=List.class, parameters={KafkaClusterEnterprise.class})
+    private Output</* @Nullable */ List<KafkaClusterEnterprise>> enterprises;
+
+    /**
+     * @return The configuration of the Enterprise Kafka cluster.
+     * 
+     */
+    public Output<Optional<List<KafkaClusterEnterprise>>> enterprises() {
+        return Codegen.optional(this.enterprises);
     }
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.

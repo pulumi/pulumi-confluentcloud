@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterBasicArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterDedicatedArgs;
+import com.pulumi.confluentcloud.inputs.GetKafkaClusterEnterpriseArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterStandardArgs;
 import com.pulumi.core.Output;
@@ -65,6 +66,21 @@ public final class GetKafkaClusterArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.displayName);
     }
 
+    /**
+     * (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+     * 
+     */
+    @Import(name="enterprises")
+    private @Nullable Output<List<GetKafkaClusterEnterpriseArgs>> enterprises;
+
+    /**
+     * @return (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+     * 
+     */
+    public Optional<Output<List<GetKafkaClusterEnterpriseArgs>>> enterprises() {
+        return Optional.ofNullable(this.enterprises);
+    }
+
     @Import(name="environment", required=true)
     private Output<GetKafkaClusterEnvironmentArgs> environment;
 
@@ -112,6 +128,7 @@ public final class GetKafkaClusterArgs extends com.pulumi.resources.InvokeArgs {
         this.basics = $.basics;
         this.dedicated = $.dedicated;
         this.displayName = $.displayName;
+        this.enterprises = $.enterprises;
         this.environment = $.environment;
         this.id = $.id;
         this.standards = $.standards;
@@ -206,6 +223,37 @@ public final class GetKafkaClusterArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
+        }
+
+        /**
+         * @param enterprises (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enterprises(@Nullable Output<List<GetKafkaClusterEnterpriseArgs>> enterprises) {
+            $.enterprises = enterprises;
+            return this;
+        }
+
+        /**
+         * @param enterprises (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enterprises(List<GetKafkaClusterEnterpriseArgs> enterprises) {
+            return enterprises(Output.of(enterprises));
+        }
+
+        /**
+         * @param enterprises (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enterprises(GetKafkaClusterEnterpriseArgs... enterprises) {
+            return enterprises(List.of(enterprises));
         }
 
         public Builder environment(Output<GetKafkaClusterEnvironmentArgs> environment) {

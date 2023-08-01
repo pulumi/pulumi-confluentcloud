@@ -17,21 +17,22 @@
     },
     "language": {
         "csharp": {
-            "compatibility": "tfbridge20",
+            "packageReferences": {
+                "Pulumi": "3.*"
+            },
             "namespaces": {
                 "confluentcloud": "ConfluentCloud"
             },
-            "packageReferences": {
-                "Pulumi": "3.*"
-            }
+            "compatibility": "tfbridge20"
         },
         "go": {
-            "generateExtraInputTypes": true,
+            "importBasePath": "github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud",
             "generateResourceContainerTypes": true,
-            "importBasePath": "github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+            "generateExtraInputTypes": true
         },
         "nodejs": {
-            "compatibility": "tfbridge20",
+            "packageDescription": "A Pulumi package for creating and managing Confluent cloud resources.",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/confluentinc/terraform-provider-confluent)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-confluentcloud` repo](https://github.com/pulumi/pulumi-confluentcloud/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-confluent` repo](https://github.com/confluentinc/terraform-provider-confluent/issues).",
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0"
             },
@@ -39,20 +40,16 @@
                 "@types/mime": "^2.0.0",
                 "@types/node": "^10.0.0"
             },
-            "disableUnionOutputTypes": true,
-            "packageDescription": "A Pulumi package for creating and managing Confluent cloud resources.",
-            "packageName": "",
-            "pluginName": "",
-            "pluginVersion": "",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/confluentinc/terraform-provider-confluent)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-confluentcloud` repo](https://github.com/pulumi/pulumi-confluentcloud/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-confluent` repo](https://github.com/confluentinc/terraform-provider-confluent/issues).",
-            "typescriptVersion": ""
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true
         },
         "python": {
-            "compatibility": "tfbridge20",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/confluentinc/terraform-provider-confluent)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-confluentcloud` repo](https://github.com/pulumi/pulumi-confluentcloud/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-confluent` repo](https://github.com/confluentinc/terraform-provider-confluent/issues).",
             "requires": {
                 "pulumi": "\u003e=3.0.0,\u003c4.0.0"
-            }
+            },
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/confluentinc/terraform-provider-confluent)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-confluentcloud` repo](https://github.com/pulumi/pulumi-confluentcloud/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-confluent` repo](https://github.com/confluentinc/terraform-provider-confluent/issues).",
+            "compatibility": "tfbridge20",
+            "pyproject": {}
         }
     },
     "config": {
@@ -766,6 +763,9 @@
                 }
             }
         },
+        "confluentcloud:index/KafkaClusterEnterprise:KafkaClusterEnterprise": {
+            "type": "object"
+        },
         "confluentcloud:index/KafkaClusterEnvironment:KafkaClusterEnvironment": {
             "properties": {
                 "id": {
@@ -1319,6 +1319,140 @@
             "required": [
                 "id"
             ]
+        },
+        "confluentcloud:index/PrivateLinkAttachmentAw:PrivateLinkAttachmentAw": {
+            "properties": {
+                "vpcEndpointServiceName": {
+                    "type": "string",
+                    "description": "(Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "vpcEndpointServiceName"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/PrivateLinkAttachmentAzure:PrivateLinkAttachmentAzure": {
+            "properties": {
+                "privateLinkServiceAlias": {
+                    "type": "string"
+                },
+                "privateLinkServiceResourceId": {
+                    "type": "string"
+                },
+                "zone": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "privateLinkServiceAlias",
+                        "privateLinkServiceResourceId",
+                        "zone"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/PrivateLinkAttachmentConnectionAws:PrivateLinkAttachmentConnectionAws": {
+            "properties": {
+                "vpcEndpointId": {
+                    "type": "string",
+                    "description": "Id of a VPC Endpoint that is connected to the VPC Endpoint service.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "vpcEndpointId"
+            ]
+        },
+        "confluentcloud:index/PrivateLinkAttachmentConnectionAzure:PrivateLinkAttachmentConnectionAzure": {
+            "properties": {
+                "privateEndpointResourceId": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "privateEndpointResourceId"
+            ]
+        },
+        "confluentcloud:index/PrivateLinkAttachmentConnectionEnvironment:PrivateLinkAttachmentConnectionEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the private link attachment.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/PrivateLinkAttachmentConnectionGcp:PrivateLinkAttachmentConnectionGcp": {
+            "properties": {
+                "privateServiceConnectConnectionId": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "privateServiceConnectConnectionId"
+            ]
+        },
+        "confluentcloud:index/PrivateLinkAttachmentConnectionPrivateLinkAttachment:PrivateLinkAttachmentConnectionPrivateLinkAttachment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the private link attachment.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/PrivateLinkAttachmentEnvironment:PrivateLinkAttachmentEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/PrivateLinkAttachmentGcp:PrivateLinkAttachmentGcp": {
+            "properties": {
+                "privateServiceConnectServiceAttachment": {
+                    "type": "string"
+                },
+                "zone": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "privateServiceConnectServiceAttachment",
+                        "zone"
+                    ]
+                }
+            }
         },
         "confluentcloud:index/SchemaCredentials:SchemaCredentials": {
             "properties": {
@@ -1970,6 +2104,9 @@
                 }
             }
         },
+        "confluentcloud:index/getKafkaClusterEnterprise:getKafkaClusterEnterprise": {
+            "type": "object"
+        },
         "confluentcloud:index/getKafkaClusterEnvironment:getKafkaClusterEnvironment": {
             "properties": {
                 "id": {
@@ -2500,6 +2637,157 @@
             "type": "object",
             "required": [
                 "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getPrivateLinkAttachmentAw:getPrivateLinkAttachmentAw": {
+            "properties": {
+                "vpcEndpointServiceName": {
+                    "type": "string",
+                    "description": "(Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "vpcEndpointServiceName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getPrivateLinkAttachmentAzure:getPrivateLinkAttachmentAzure": {
+            "properties": {
+                "privateLinkServiceAlias": {
+                    "type": "string"
+                },
+                "privateLinkServiceResourceId": {
+                    "type": "string"
+                },
+                "zone": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "privateLinkServiceAlias",
+                "privateLinkServiceResourceId",
+                "zone"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getPrivateLinkAttachmentConnectionAw:getPrivateLinkAttachmentConnectionAw": {
+            "properties": {
+                "vpcEndpointId": {
+                    "type": "string",
+                    "description": "(Required String) Id of a VPC Endpoint that is connected to the VPC Endpoint service.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "vpcEndpointId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getPrivateLinkAttachmentConnectionAzure:getPrivateLinkAttachmentConnectionAzure": {
+            "properties": {
+                "privateEndpointResourceId": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "privateEndpointResourceId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getPrivateLinkAttachmentConnectionEnvironment:getPrivateLinkAttachmentConnectionEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getPrivateLinkAttachmentConnectionGcp:getPrivateLinkAttachmentConnectionGcp": {
+            "properties": {
+                "privateServiceConnectConnectionId": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "privateServiceConnectConnectionId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getPrivateLinkAttachmentConnectionPrivateLinkAttachment:getPrivateLinkAttachmentConnectionPrivateLinkAttachment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getPrivateLinkAttachmentEnvironment:getPrivateLinkAttachmentEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getPrivateLinkAttachmentGcp:getPrivateLinkAttachmentGcp": {
+            "properties": {
+                "privateServiceConnectServiceAttachment": {
+                    "type": "string"
+                },
+                "zone": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "privateServiceConnectServiceAttachment",
+                "zone"
             ],
             "language": {
                 "nodejs": {
@@ -3406,7 +3694,7 @@
                 },
                 "entityName": {
                     "type": "string",
-                    "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n"
+                    "description": "The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.\n"
                 },
                 "entityType": {
                     "type": "string",
@@ -3446,7 +3734,7 @@
                 },
                 "entityName": {
                     "type": "string",
-                    "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n",
+                    "description": "The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.\n",
                     "willReplaceOnChanges": true
                 },
                 "entityType": {
@@ -3491,7 +3779,7 @@
                     },
                     "entityName": {
                         "type": "string",
-                        "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n",
+                        "description": "The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.\n",
                         "willReplaceOnChanges": true
                     },
                     "entityType": {
@@ -4395,6 +4683,13 @@
                     "type": "string",
                     "description": "The name of the Kafka cluster.\n"
                 },
+                "enterprises": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/KafkaClusterEnterprise:KafkaClusterEnterprise"
+                    },
+                    "description": "The configuration of the Enterprise Kafka cluster.\n"
+                },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/KafkaClusterEnvironment:KafkaClusterEnvironment",
                     "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
@@ -4464,6 +4759,13 @@
                     "type": "string",
                     "description": "The name of the Kafka cluster.\n"
                 },
+                "enterprises": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/KafkaClusterEnterprise:KafkaClusterEnterprise"
+                    },
+                    "description": "The configuration of the Enterprise Kafka cluster.\n"
+                },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/KafkaClusterEnvironment:KafkaClusterEnvironment",
                     "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
@@ -4524,6 +4826,13 @@
                     "displayName": {
                         "type": "string",
                         "description": "The name of the Kafka cluster.\n"
+                    },
+                    "enterprises": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/KafkaClusterEnterprise:KafkaClusterEnterprise"
+                        },
+                        "description": "The configuration of the Enterprise Kafka cluster.\n"
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/KafkaClusterEnvironment:KafkaClusterEnvironment",
@@ -5674,6 +5983,247 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment": {
+            "description": "[![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n[![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-limited-availability@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Limited%20Availability\u0026body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Limited%20Availability%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)\n\n\u003e **Note:** `confluentcloud.PrivateLinkAttachment` resource is available in **Limited Availability** for early adopters. Limited Availability features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Limited Availability** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Limited Availability features. Limited Availability features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Limited Availability releases of the Limited Availability features at any time in Confluent’s sole discretion.\n\n`confluentcloud.PrivateLinkAttachment` provides a Private Link Attachment resource that enables creating, editing, and deleting Private Link Attachments on Confluent Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = new confluentcloud.PrivateLinkAttachment(\"main\", {\n    cloud: \"AWS\",\n    region: \"us-west-2\",\n    displayName: \"staging-platt\",\n    environment: {\n        id: \"env-3732nw\",\n    },\n});\nexport const privateLinkAttachment = main;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.PrivateLinkAttachment(\"main\",\n    cloud=\"AWS\",\n    region=\"us-west-2\",\n    display_name=\"staging-platt\",\n    environment=confluentcloud.PrivateLinkAttachmentEnvironmentArgs(\n        id=\"env-3732nw\",\n    ))\npulumi.export(\"privateLinkAttachment\", main)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = new ConfluentCloud.PrivateLinkAttachment(\"main\", new()\n    {\n        Cloud = \"AWS\",\n        Region = \"us-west-2\",\n        DisplayName = \"staging-platt\",\n        Environment = new ConfluentCloud.Inputs.PrivateLinkAttachmentEnvironmentArgs\n        {\n            Id = \"env-3732nw\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"privateLinkAttachment\"] = main,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.NewPrivateLinkAttachment(ctx, \"main\", \u0026confluentcloud.PrivateLinkAttachmentArgs{\n\t\t\tCloud:       pulumi.String(\"AWS\"),\n\t\t\tRegion:      pulumi.String(\"us-west-2\"),\n\t\t\tDisplayName: pulumi.String(\"staging-platt\"),\n\t\t\tEnvironment: \u0026confluentcloud.PrivateLinkAttachmentEnvironmentArgs{\n\t\t\t\tId: pulumi.String(\"env-3732nw\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"privateLinkAttachment\", main)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.PrivateLinkAttachment;\nimport com.pulumi.confluentcloud.PrivateLinkAttachmentArgs;\nimport com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var main = new PrivateLinkAttachment(\"main\", PrivateLinkAttachmentArgs.builder()        \n            .cloud(\"AWS\")\n            .region(\"us-west-2\")\n            .displayName(\"staging-platt\")\n            .environment(PrivateLinkAttachmentEnvironmentArgs.builder()\n                .id(\"env-3732nw\")\n                .build())\n            .build());\n\n        ctx.export(\"privateLinkAttachment\", main);\n    }\n}\n```\n```yaml\nresources:\n  main:\n    type: confluentcloud:PrivateLinkAttachment\n    properties:\n      cloud: AWS\n      region: us-west-2\n      displayName: staging-platt\n      environment:\n        id: env-3732nw\noutputs:\n  privateLinkAttachment: ${main}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nYou can import a Private Link Attachment by using Environment ID and Private Link Attachment ID, in the format `\u003cEnvironment ID\u003e/\u003cPrivate Link Attachment ID\u003e`. The following example shows how to import a Private Link Attachment$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment main env-abc123/platt-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "aws": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentAw:PrivateLinkAttachmentAw"
+                    },
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "azures": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentAzure:PrivateLinkAttachmentAzure"
+                    }
+                },
+                "cloud": {
+                    "type": "string",
+                    "description": "The cloud service provider that hosts the resources to access with the Private Link Attachment.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Private Link Attachment.\n"
+                },
+                "dnsDomain": {
+                    "type": "string",
+                    "description": "(Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentEnvironment:PrivateLinkAttachmentEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                },
+                "gcps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentGcp:PrivateLinkAttachmentGcp"
+                    }
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.\n"
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "(Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.\n"
+                }
+            },
+            "required": [
+                "aws",
+                "azures",
+                "cloud",
+                "displayName",
+                "dnsDomain",
+                "environment",
+                "gcps",
+                "region",
+                "resourceName"
+            ],
+            "inputProperties": {
+                "cloud": {
+                    "type": "string",
+                    "description": "The cloud service provider that hosts the resources to access with the Private Link Attachment.\n",
+                    "willReplaceOnChanges": true
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Private Link Attachment.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentEnvironment:PrivateLinkAttachmentEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "cloud",
+                "environment",
+                "region"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PrivateLinkAttachment resources.\n",
+                "properties": {
+                    "aws": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentAw:PrivateLinkAttachmentAw"
+                        },
+                        "description": "(Optional Configuration Block) supports the following:\n"
+                    },
+                    "azures": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentAzure:PrivateLinkAttachmentAzure"
+                        }
+                    },
+                    "cloud": {
+                        "type": "string",
+                        "description": "The cloud service provider that hosts the resources to access with the Private Link Attachment.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the Private Link Attachment.\n"
+                    },
+                    "dnsDomain": {
+                        "type": "string",
+                        "description": "(Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentEnvironment:PrivateLinkAttachmentEnvironment",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "gcps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentGcp:PrivateLinkAttachmentGcp"
+                        }
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "resourceName": {
+                        "type": "string",
+                        "description": "(Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection": {
+            "description": "[![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n[![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-limited-availability@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Limited%20Availability\u0026body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Limited%20Availability%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)\n\n\u003e **Note:** `confluentcloud.PrivateLinkAttachmentConnection` resource is available in **Limited Availability** for early adopters. Limited Availability features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Limited Availability** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Limited Availability features. Limited Availability features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Limited Availability releases of the Limited Availability features at any time in Confluent’s sole discretion.\n\n`confluentcloud.PrivateLinkAttachmentConnection` provides a Private Link Attachment Connection resource that enables creating, editing, and deleting Private Link Attachment Connections on Confluent Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = new confluentcloud.PrivateLinkAttachmentConnection(\"main\", {\n    displayName: \"my_endpoint\",\n    environment: {\n        id: \"env-8gv0v5\",\n    },\n    aws: {\n        vpcEndpointId: \"vpce-0ed4d51f5d6ef9b6d\",\n    },\n    privateLinkAttachment: {\n        id: \"platt-plyvyl\",\n    },\n});\nexport const privateLinkAttachmentConnection = main;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.PrivateLinkAttachmentConnection(\"main\",\n    display_name=\"my_endpoint\",\n    environment=confluentcloud.PrivateLinkAttachmentConnectionEnvironmentArgs(\n        id=\"env-8gv0v5\",\n    ),\n    aws=confluentcloud.PrivateLinkAttachmentConnectionAwsArgs(\n        vpc_endpoint_id=\"vpce-0ed4d51f5d6ef9b6d\",\n    ),\n    private_link_attachment=confluentcloud.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs(\n        id=\"platt-plyvyl\",\n    ))\npulumi.export(\"privateLinkAttachmentConnection\", main)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = new ConfluentCloud.PrivateLinkAttachmentConnection(\"main\", new()\n    {\n        DisplayName = \"my_endpoint\",\n        Environment = new ConfluentCloud.Inputs.PrivateLinkAttachmentConnectionEnvironmentArgs\n        {\n            Id = \"env-8gv0v5\",\n        },\n        Aws = new ConfluentCloud.Inputs.PrivateLinkAttachmentConnectionAwsArgs\n        {\n            VpcEndpointId = \"vpce-0ed4d51f5d6ef9b6d\",\n        },\n        PrivateLinkAttachment = new ConfluentCloud.Inputs.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs\n        {\n            Id = \"platt-plyvyl\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"privateLinkAttachmentConnection\"] = main,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.NewPrivateLinkAttachmentConnection(ctx, \"main\", \u0026confluentcloud.PrivateLinkAttachmentConnectionArgs{\n\t\t\tDisplayName: pulumi.String(\"my_endpoint\"),\n\t\t\tEnvironment: \u0026confluentcloud.PrivateLinkAttachmentConnectionEnvironmentArgs{\n\t\t\t\tId: pulumi.String(\"env-8gv0v5\"),\n\t\t\t},\n\t\t\tAws: \u0026confluentcloud.PrivateLinkAttachmentConnectionAwsArgs{\n\t\t\t\tVpcEndpointId: pulumi.String(\"vpce-0ed4d51f5d6ef9b6d\"),\n\t\t\t},\n\t\t\tPrivateLinkAttachment: \u0026confluentcloud.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs{\n\t\t\t\tId: pulumi.String(\"platt-plyvyl\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"privateLinkAttachmentConnection\", main)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.PrivateLinkAttachmentConnection;\nimport com.pulumi.confluentcloud.PrivateLinkAttachmentConnectionArgs;\nimport com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentConnectionEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentConnectionAwsArgs;\nimport com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var main = new PrivateLinkAttachmentConnection(\"main\", PrivateLinkAttachmentConnectionArgs.builder()        \n            .displayName(\"my_endpoint\")\n            .environment(PrivateLinkAttachmentConnectionEnvironmentArgs.builder()\n                .id(\"env-8gv0v5\")\n                .build())\n            .aws(PrivateLinkAttachmentConnectionAwsArgs.builder()\n                .vpcEndpointId(\"vpce-0ed4d51f5d6ef9b6d\")\n                .build())\n            .privateLinkAttachment(PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs.builder()\n                .id(\"platt-plyvyl\")\n                .build())\n            .build());\n\n        ctx.export(\"privateLinkAttachmentConnection\", main);\n    }\n}\n```\n```yaml\nresources:\n  main:\n    type: confluentcloud:PrivateLinkAttachmentConnection\n    properties:\n      displayName: my_endpoint\n      environment:\n        id: env-8gv0v5\n      aws:\n        vpcEndpointId: vpce-0ed4d51f5d6ef9b6d\n      privateLinkAttachment:\n        id: platt-plyvyl\noutputs:\n  privateLinkAttachmentConnection: ${main}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nYou can import a Private Link Attachment Connection by using Environment ID and Private Link Attachment Connection ID, in the format `\u003cEnvironment ID\u003e/\u003cPrivate Link Attachment Connection ID\u003e`. The following example shows how to import a Private Link Attachment Connection$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection main env-abc123/plattc-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "aws": {
+                    "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionAws:PrivateLinkAttachmentConnectionAws"
+                },
+                "azure": {
+                    "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionAzure:PrivateLinkAttachmentConnectionAzure"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Private Link Attachment Connection.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionEnvironment:PrivateLinkAttachmentConnectionEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                },
+                "gcp": {
+                    "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionGcp:PrivateLinkAttachmentConnectionGcp"
+                },
+                "privateLinkAttachment": {
+                    "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionPrivateLinkAttachment:PrivateLinkAttachmentConnectionPrivateLinkAttachment",
+                    "description": "The private_link_attachment to which this belongs.\n"
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "(Required String) The Confluent Resource Name of the Private Link Attachment Connection, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0/private-link-attachment-connection=plattc-77zq2w`.\n"
+                }
+            },
+            "required": [
+                "displayName",
+                "environment",
+                "privateLinkAttachment",
+                "resourceName"
+            ],
+            "inputProperties": {
+                "aws": {
+                    "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionAws:PrivateLinkAttachmentConnectionAws",
+                    "willReplaceOnChanges": true
+                },
+                "azure": {
+                    "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionAzure:PrivateLinkAttachmentConnectionAzure",
+                    "willReplaceOnChanges": true
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Private Link Attachment Connection.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionEnvironment:PrivateLinkAttachmentConnectionEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "gcp": {
+                    "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionGcp:PrivateLinkAttachmentConnectionGcp",
+                    "willReplaceOnChanges": true
+                },
+                "privateLinkAttachment": {
+                    "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionPrivateLinkAttachment:PrivateLinkAttachmentConnectionPrivateLinkAttachment",
+                    "description": "The private_link_attachment to which this belongs.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "environment",
+                "privateLinkAttachment"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PrivateLinkAttachmentConnection resources.\n",
+                "properties": {
+                    "aws": {
+                        "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionAws:PrivateLinkAttachmentConnectionAws",
+                        "willReplaceOnChanges": true
+                    },
+                    "azure": {
+                        "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionAzure:PrivateLinkAttachmentConnectionAzure",
+                        "willReplaceOnChanges": true
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the Private Link Attachment Connection.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionEnvironment:PrivateLinkAttachmentConnectionEnvironment",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "gcp": {
+                        "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionGcp:PrivateLinkAttachmentConnectionGcp",
+                        "willReplaceOnChanges": true
+                    },
+                    "privateLinkAttachment": {
+                        "$ref": "#/types/confluentcloud:index/PrivateLinkAttachmentConnectionPrivateLinkAttachment:PrivateLinkAttachmentConnectionPrivateLinkAttachment",
+                        "description": "The private_link_attachment to which this belongs.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "resourceName": {
+                        "type": "string",
+                        "description": "(Required String) The Confluent Resource Name of the Private Link Attachment Connection, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0/private-link-attachment-connection=plattc-77zq2w`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/roleBinding:RoleBinding": {
             "description": "\n\n\n## Import\n\nYou can import a Role Binding by using Role Binding ID, for example$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/roleBinding:RoleBinding my_rb rb-f3a90de\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
             "properties": {
@@ -6510,7 +7060,7 @@
                 },
                 "entityName": {
                     "type": "string",
-                    "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n"
+                    "description": "The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.\n"
                 },
                 "entityType": {
                     "type": "string",
@@ -6541,7 +7091,7 @@
                 },
                 "entityName": {
                     "type": "string",
-                    "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n",
+                    "description": "The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.\n",
                     "willReplaceOnChanges": true
                 },
                 "entityType": {
@@ -6579,7 +7129,7 @@
                     },
                     "entityName": {
                         "type": "string",
-                        "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n",
+                        "description": "The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.\n",
                         "willReplaceOnChanges": true
                     },
                     "entityType": {
@@ -6815,7 +7365,7 @@
                     },
                     "entityName": {
                         "type": "string",
-                        "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n"
+                        "description": "The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.\n"
                     },
                     "entityType": {
                         "type": "string",
@@ -7262,6 +7812,13 @@
                         "type": "string",
                         "description": "A human-readable name for the Kafka cluster.\n"
                     },
+                    "enterprises": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getKafkaClusterEnterprise:getKafkaClusterEnterprise"
+                        },
+                        "description": "(Optional Configuration Block) The configuration of the Enterprise Kafka cluster.\n"
+                    },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/getKafkaClusterEnvironment:getKafkaClusterEnvironment"
                     },
@@ -7322,6 +7879,13 @@
                     "displayName": {
                         "type": "string",
                         "description": "(Required String) The name of the Kafka cluster.\n"
+                    },
+                    "enterprises": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getKafkaClusterEnterprise:getKafkaClusterEnterprise"
+                        },
+                        "description": "(Optional Configuration Block) The configuration of the Enterprise Kafka cluster.\n"
                     },
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/getKafkaClusterEnvironment:getKafkaClusterEnvironment"
@@ -8028,6 +8592,166 @@
                 ]
             }
         },
+        "confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment": {
+            "description": "[![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n[![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-limited-availability@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Limited%20Availability\u0026body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Limited%20Availability%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)\n\n\u003e **Note:** `confluentcloud.PrivateLinkAttachment` data source is available in **Limited Availability** for early adopters. Limited Availability features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Limited Availability** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Limited Availability features. Limited Availability features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Limited Availability releases of the Limited Availability features at any time in Confluent’s sole discretion.\n\n`confluentcloud.PrivateLinkAttachment` describes a Private Link Attachment data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getPrivateLinkAttachment({\n    id: \"platt-abcde\",\n    environment: {\n        id: \"env-1234\",\n    },\n});\nexport const platt = main;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_private_link_attachment(id=\"platt-abcde\",\n    environment=confluentcloud.GetPrivateLinkAttachmentEnvironmentArgs(\n        id=\"env-1234\",\n    ))\npulumi.export(\"platt\", main)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetPrivateLinkAttachment.Invoke(new()\n    {\n        Id = \"platt-abcde\",\n        Environment = new ConfluentCloud.Inputs.GetPrivateLinkAttachmentEnvironmentInputArgs\n        {\n            Id = \"env-1234\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"platt\"] = main,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.LookupPrivateLinkAttachment(ctx, \u0026confluentcloud.LookupPrivateLinkAttachmentArgs{\n\t\t\tId: \"platt-abcde\",\n\t\t\tEnvironment: confluentcloud.GetPrivateLinkAttachmentEnvironment{\n\t\t\t\tId: \"env-1234\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"platt\", main)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentArgs;\nimport com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs.builder()\n            .id(\"platt-abcde\")\n            .environment(GetPrivateLinkAttachmentEnvironmentArgs.builder()\n                .id(\"env-1234\")\n                .build())\n            .build());\n\n        ctx.export(\"platt\", main.applyValue(getPrivateLinkAttachmentResult -\u003e getPrivateLinkAttachmentResult));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getPrivateLinkAttachment\n      Arguments:\n        id: platt-abcde\n        environment:\n          id: env-1234\noutputs:\n  platt: ${main}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getPrivateLinkAttachment.\n",
+                "properties": {
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getPrivateLinkAttachmentEnvironment:getPrivateLinkAttachmentEnvironment"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environment",
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPrivateLinkAttachment.\n",
+                "properties": {
+                    "aws": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getPrivateLinkAttachmentAw:getPrivateLinkAttachmentAw"
+                        },
+                        "description": "(Optional Configuration Block) supports the following:\n"
+                    },
+                    "azures": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getPrivateLinkAttachmentAzure:getPrivateLinkAttachmentAzure"
+                        }
+                    },
+                    "cloud": {
+                        "type": "string",
+                        "description": "(Optional String) The cloud service provider that hosts the resources to access with the Private Link Attachment.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "(Optional String) The name of the Private Link Attachment.\n"
+                    },
+                    "dnsDomain": {
+                        "type": "string",
+                        "description": "(Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getPrivateLinkAttachmentEnvironment:getPrivateLinkAttachmentEnvironment"
+                    },
+                    "gcps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getPrivateLinkAttachmentGcp:getPrivateLinkAttachmentGcp"
+                        }
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "(Optional String) The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.\n"
+                    },
+                    "resourceName": {
+                        "type": "string",
+                        "description": "(Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "aws",
+                    "azures",
+                    "cloud",
+                    "displayName",
+                    "dnsDomain",
+                    "environment",
+                    "gcps",
+                    "id",
+                    "region",
+                    "resourceName"
+                ]
+            }
+        },
+        "confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection": {
+            "description": "[![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n[![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-limited-availability@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Limited%20Availability\u0026body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Limited%20Availability%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)\n\n\u003e **Note:** `confluentcloud.PrivateLinkAttachmentConnection` data source is available in **Limited Availability** for early adopters. Limited Availability features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Limited Availability** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Limited Availability features. Limited Availability features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Limited Availability releases of the Limited Availability features at any time in Confluent’s sole discretion.\n\n`confluentcloud.PrivateLinkAttachmentConnection` describes a Private Link Attachment Connection data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getPrivateLinkAttachmentConnection({\n    id: \"plattc-p5j3ov\",\n    environment: {\n        id: \"env-8gv0v5\",\n    },\n});\nexport const plattc = main;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_private_link_attachment_connection(id=\"plattc-p5j3ov\",\n    environment=confluentcloud.GetPrivateLinkAttachmentConnectionEnvironmentArgs(\n        id=\"env-8gv0v5\",\n    ))\npulumi.export(\"plattc\", main)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetPrivateLinkAttachmentConnection.Invoke(new()\n    {\n        Id = \"plattc-p5j3ov\",\n        Environment = new ConfluentCloud.Inputs.GetPrivateLinkAttachmentConnectionEnvironmentInputArgs\n        {\n            Id = \"env-8gv0v5\",\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"plattc\"] = main,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.LookupPrivateLinkAttachmentConnection(ctx, \u0026confluentcloud.LookupPrivateLinkAttachmentConnectionArgs{\n\t\t\tId: \"plattc-p5j3ov\",\n\t\t\tEnvironment: confluentcloud.GetPrivateLinkAttachmentConnectionEnvironment{\n\t\t\t\tId: \"env-8gv0v5\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"plattc\", main)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionArgs;\nimport com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionEnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs.builder()\n            .id(\"plattc-p5j3ov\")\n            .environment(GetPrivateLinkAttachmentConnectionEnvironmentArgs.builder()\n                .id(\"env-8gv0v5\")\n                .build())\n            .build());\n\n        ctx.export(\"plattc\", main.applyValue(getPrivateLinkAttachmentConnectionResult -\u003e getPrivateLinkAttachmentConnectionResult));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getPrivateLinkAttachmentConnection\n      Arguments:\n        id: plattc-p5j3ov\n        environment:\n          id: env-8gv0v5\noutputs:\n  plattc: ${main}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getPrivateLinkAttachmentConnection.\n",
+                "properties": {
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getPrivateLinkAttachmentConnectionEnvironment:getPrivateLinkAttachmentConnectionEnvironment"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "environment",
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPrivateLinkAttachmentConnection.\n",
+                "properties": {
+                    "aws": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getPrivateLinkAttachmentConnectionAw:getPrivateLinkAttachmentConnectionAw"
+                        },
+                        "description": "(Optional Configuration Block) supports the following:\n"
+                    },
+                    "azures": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getPrivateLinkAttachmentConnectionAzure:getPrivateLinkAttachmentConnectionAzure"
+                        }
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "(Optional String) The name of the Private Link Attachment Connection.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/getPrivateLinkAttachmentConnectionEnvironment:getPrivateLinkAttachmentConnectionEnvironment"
+                    },
+                    "gcps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getPrivateLinkAttachmentConnectionGcp:getPrivateLinkAttachmentConnectionGcp"
+                        }
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The unique identifier for the private link attachment.\n"
+                    },
+                    "privateLinkAttachments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getPrivateLinkAttachmentConnectionPrivateLinkAttachment:getPrivateLinkAttachmentConnectionPrivateLinkAttachment"
+                        },
+                        "description": "(Optional Configuration Block) supports the following:\n"
+                    },
+                    "resourceName": {
+                        "type": "string",
+                        "description": "(Required String) The Confluent Resource Name of the Private Link Attachment Connection, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0/private-link-attachment-connection=plattc-77zq2w`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "aws",
+                    "azures",
+                    "displayName",
+                    "environment",
+                    "gcps",
+                    "id",
+                    "privateLinkAttachments",
+                    "resourceName"
+                ]
+            }
+        },
         "confluentcloud:index/getRoleBinding:getRoleBinding": {
             "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.RoleBinding` describes a Role Binding.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleRoleBinding = confluentcloud.getRoleBinding({\n    id: \"rb-abc123\",\n});\nexport const example = exampleRoleBinding;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_role_binding = confluentcloud.get_role_binding(id=\"rb-abc123\")\npulumi.export(\"example\", example_role_binding)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleRoleBinding = ConfluentCloud.GetRoleBinding.Invoke(new()\n    {\n        Id = \"rb-abc123\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = exampleRoleBinding,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleRoleBinding, err := confluentcloud.LookupRoleBinding(ctx, \u0026confluentcloud.LookupRoleBindingArgs{\n\t\t\tId: \"rb-abc123\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", exampleRoleBinding)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetRoleBindingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleRoleBinding = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()\n            .id(\"rb-abc123\")\n            .build());\n\n        ctx.export(\"example\", exampleRoleBinding.applyValue(getRoleBindingResult -\u003e getRoleBindingResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleRoleBinding:\n    fn::invoke:\n      Function: confluentcloud:getRoleBinding\n      Arguments:\n        id: rb-abc123\noutputs:\n  example: ${exampleRoleBinding}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -8721,7 +9445,7 @@
                     },
                     "entityName": {
                         "type": "string",
-                        "description": "The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.\n"
+                        "description": "The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.\n"
                     },
                     "entityType": {
                         "type": "string",

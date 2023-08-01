@@ -41,6 +41,8 @@ type KafkaCluster struct {
 	Dedicated KafkaClusterDedicatedPtrOutput `pulumi:"dedicated"`
 	// The name of the Kafka cluster.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// The configuration of the Enterprise Kafka cluster.
+	Enterprises KafkaClusterEnterpriseArrayOutput `pulumi:"enterprises"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment KafkaClusterEnvironmentOutput `pulumi:"environment"`
 	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
@@ -115,6 +117,8 @@ type kafkaClusterState struct {
 	Dedicated *KafkaClusterDedicated `pulumi:"dedicated"`
 	// The name of the Kafka cluster.
 	DisplayName *string `pulumi:"displayName"`
+	// The configuration of the Enterprise Kafka cluster.
+	Enterprises []KafkaClusterEnterprise `pulumi:"enterprises"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *KafkaClusterEnvironment `pulumi:"environment"`
 	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
@@ -148,6 +152,8 @@ type KafkaClusterState struct {
 	Dedicated KafkaClusterDedicatedPtrInput
 	// The name of the Kafka cluster.
 	DisplayName pulumi.StringPtrInput
+	// The configuration of the Enterprise Kafka cluster.
+	Enterprises KafkaClusterEnterpriseArrayInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment KafkaClusterEnvironmentPtrInput
 	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
@@ -181,6 +187,8 @@ type kafkaClusterArgs struct {
 	Dedicated *KafkaClusterDedicated `pulumi:"dedicated"`
 	// The name of the Kafka cluster.
 	DisplayName *string `pulumi:"displayName"`
+	// The configuration of the Enterprise Kafka cluster.
+	Enterprises []KafkaClusterEnterprise `pulumi:"enterprises"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment KafkaClusterEnvironment `pulumi:"environment"`
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -205,6 +213,8 @@ type KafkaClusterArgs struct {
 	Dedicated KafkaClusterDedicatedPtrInput
 	// The name of the Kafka cluster.
 	DisplayName pulumi.StringPtrInput
+	// The configuration of the Enterprise Kafka cluster.
+	Enterprises KafkaClusterEnterpriseArrayInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment KafkaClusterEnvironmentInput
 	// Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -340,6 +350,11 @@ func (o KafkaClusterOutput) Dedicated() KafkaClusterDedicatedPtrOutput {
 // The name of the Kafka cluster.
 func (o KafkaClusterOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The configuration of the Enterprise Kafka cluster.
+func (o KafkaClusterOutput) Enterprises() KafkaClusterEnterpriseArrayOutput {
+	return o.ApplyT(func(v *KafkaCluster) KafkaClusterEnterpriseArrayOutput { return v.Enterprises }).(KafkaClusterEnterpriseArrayOutput)
 }
 
 // Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.

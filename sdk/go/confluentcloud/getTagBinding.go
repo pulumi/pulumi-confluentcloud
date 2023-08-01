@@ -24,7 +24,7 @@ func LookupTagBinding(ctx *pulumi.Context, args *LookupTagBindingArgs, opts ...p
 // A collection of arguments for invoking getTagBinding.
 type LookupTagBindingArgs struct {
 	Credentials *GetTagBindingCredentials `pulumi:"credentials"`
-	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+	// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName string `pulumi:"entityName"`
 	// The entity type, for example, `srSchema`.
 	//
@@ -65,7 +65,7 @@ func LookupTagBindingOutput(ctx *pulumi.Context, args LookupTagBindingOutputArgs
 // A collection of arguments for invoking getTagBinding.
 type LookupTagBindingOutputArgs struct {
 	Credentials GetTagBindingCredentialsPtrInput `pulumi:"credentials"`
-	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+	// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName pulumi.StringInput `pulumi:"entityName"`
 	// The entity type, for example, `srSchema`.
 	//

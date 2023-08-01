@@ -393,6 +393,12 @@ export interface GetKafkaClusterDedicatedArgs {
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface GetKafkaClusterEnterprise {
+}
+
+export interface GetKafkaClusterEnterpriseArgs {
+}
+
 export interface GetKafkaClusterEnvironment {
     /**
      * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
@@ -657,6 +663,34 @@ export interface GetPrivateLinkAccessEnvironmentArgs {
      * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
      *
      * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetPrivateLinkAttachmentConnectionEnvironment {
+    /**
+     * The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetPrivateLinkAttachmentConnectionEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface GetPrivateLinkAttachmentEnvironment {
+    /**
+     * The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetPrivateLinkAttachmentEnvironmentArgs {
+    /**
+     * The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
      */
     id: pulumi.Input<string>;
 }
@@ -1135,6 +1169,9 @@ export interface KafkaClusterDedicated {
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface KafkaClusterEnterprise {
+}
+
 export interface KafkaClusterEnvironment {
     /**
      * The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
@@ -1454,6 +1491,60 @@ export interface PrivateLinkAccessNetwork {
      * The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
      */
     id: pulumi.Input<string>;
+}
+
+export interface PrivateLinkAttachmentAw {
+    /**
+     * (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+     */
+    vpcEndpointServiceName?: pulumi.Input<string>;
+}
+
+export interface PrivateLinkAttachmentAzure {
+    privateLinkServiceAlias?: pulumi.Input<string>;
+    privateLinkServiceResourceId?: pulumi.Input<string>;
+    zone?: pulumi.Input<string>;
+}
+
+export interface PrivateLinkAttachmentConnectionAws {
+    /**
+     * Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+     */
+    vpcEndpointId: pulumi.Input<string>;
+}
+
+export interface PrivateLinkAttachmentConnectionAzure {
+    privateEndpointResourceId: pulumi.Input<string>;
+}
+
+export interface PrivateLinkAttachmentConnectionEnvironment {
+    /**
+     * The unique identifier for the private link attachment.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface PrivateLinkAttachmentConnectionGcp {
+    privateServiceConnectConnectionId: pulumi.Input<string>;
+}
+
+export interface PrivateLinkAttachmentConnectionPrivateLinkAttachment {
+    /**
+     * The unique identifier for the private link attachment.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface PrivateLinkAttachmentEnvironment {
+    /**
+     * The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface PrivateLinkAttachmentGcp {
+    privateServiceConnectServiceAttachment?: pulumi.Input<string>;
+    zone?: pulumi.Input<string>;
 }
 
 export interface SchemaCredentials {

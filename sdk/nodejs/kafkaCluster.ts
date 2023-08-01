@@ -75,6 +75,10 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
+     * The configuration of the Enterprise Kafka cluster.
+     */
+    public readonly enterprises!: pulumi.Output<outputs.KafkaClusterEnterprise[] | undefined>;
+    /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     public readonly environment!: pulumi.Output<outputs.KafkaClusterEnvironment>;
@@ -125,6 +129,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["cloud"] = state ? state.cloud : undefined;
             resourceInputs["dedicated"] = state ? state.dedicated : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["enterprises"] = state ? state.enterprises : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["network"] = state ? state.network : undefined;
@@ -152,6 +157,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["cloud"] = args ? args.cloud : undefined;
             resourceInputs["dedicated"] = args ? args.dedicated : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["enterprises"] = args ? args.enterprises : undefined;
             resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["network"] = args ? args.network : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
@@ -200,6 +206,10 @@ export interface KafkaClusterState {
      * The name of the Kafka cluster.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * The configuration of the Enterprise Kafka cluster.
+     */
+    enterprises?: pulumi.Input<pulumi.Input<inputs.KafkaClusterEnterprise>[]>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
@@ -256,6 +266,10 @@ export interface KafkaClusterArgs {
      * The name of the Kafka cluster.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * The configuration of the Enterprise Kafka cluster.
+     */
+    enterprises?: pulumi.Input<pulumi.Input<inputs.KafkaClusterEnterprise>[]>;
     /**
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */

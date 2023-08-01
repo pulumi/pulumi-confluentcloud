@@ -28,7 +28,7 @@ type TagBinding struct {
 
 	// The Cluster API Credentials.
 	Credentials TagBindingCredentialsPtrOutput `pulumi:"credentials"`
-	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+	// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName pulumi.StringOutput `pulumi:"entityName"`
 	// The entity type.
 	EntityType pulumi.StringOutput `pulumi:"entityType"`
@@ -87,7 +87,7 @@ func GetTagBinding(ctx *pulumi.Context,
 type tagBindingState struct {
 	// The Cluster API Credentials.
 	Credentials *TagBindingCredentials `pulumi:"credentials"`
-	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+	// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName *string `pulumi:"entityName"`
 	// The entity type.
 	EntityType *string `pulumi:"entityType"`
@@ -101,7 +101,7 @@ type tagBindingState struct {
 type TagBindingState struct {
 	// The Cluster API Credentials.
 	Credentials TagBindingCredentialsPtrInput
-	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+	// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName pulumi.StringPtrInput
 	// The entity type.
 	EntityType pulumi.StringPtrInput
@@ -119,7 +119,7 @@ func (TagBindingState) ElementType() reflect.Type {
 type tagBindingArgs struct {
 	// The Cluster API Credentials.
 	Credentials *TagBindingCredentials `pulumi:"credentials"`
-	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+	// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName string `pulumi:"entityName"`
 	// The entity type.
 	EntityType string `pulumi:"entityType"`
@@ -134,7 +134,7 @@ type tagBindingArgs struct {
 type TagBindingArgs struct {
 	// The Cluster API Credentials.
 	Credentials TagBindingCredentialsPtrInput
-	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+	// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName pulumi.StringInput
 	// The entity type.
 	EntityType pulumi.StringInput
@@ -237,7 +237,7 @@ func (o TagBindingOutput) Credentials() TagBindingCredentialsPtrOutput {
 	return o.ApplyT(func(v *TagBinding) TagBindingCredentialsPtrOutput { return v.Credentials }).(TagBindingCredentialsPtrOutput)
 }
 
-// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 func (o TagBindingOutput) EntityName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagBinding) pulumi.StringOutput { return v.EntityName }).(pulumi.StringOutput)
 }

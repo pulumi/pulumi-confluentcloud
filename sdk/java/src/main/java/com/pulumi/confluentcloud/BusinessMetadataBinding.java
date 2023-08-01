@@ -75,14 +75,14 @@ public class BusinessMetadataBinding extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.credentials);
     }
     /**
-     * The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+     * The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
      * 
      */
     @Export(name="entityName", type=String.class, parameters={})
     private Output<String> entityName;
 
     /**
-     * @return The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+     * @return The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
      * 
      */
     public Output<String> entityName() {

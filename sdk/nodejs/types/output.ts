@@ -435,6 +435,9 @@ export interface GetKafkaClusterDedicated {
     zones: string[];
 }
 
+export interface GetKafkaClusterEnterprise {
+}
+
 export interface GetKafkaClusterEnvironment {
     /**
      * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
@@ -714,6 +717,60 @@ export interface GetPrivateLinkAccessNetwork {
      * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: string;
+}
+
+export interface GetPrivateLinkAttachmentAw {
+    /**
+     * (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+     */
+    vpcEndpointServiceName: string;
+}
+
+export interface GetPrivateLinkAttachmentAzure {
+    privateLinkServiceAlias: string;
+    privateLinkServiceResourceId: string;
+    zone: string;
+}
+
+export interface GetPrivateLinkAttachmentConnectionAw {
+    /**
+     * (Required String) Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+     */
+    vpcEndpointId: string;
+}
+
+export interface GetPrivateLinkAttachmentConnectionAzure {
+    privateEndpointResourceId: string;
+}
+
+export interface GetPrivateLinkAttachmentConnectionEnvironment {
+    /**
+     * The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetPrivateLinkAttachmentConnectionGcp {
+    privateServiceConnectConnectionId: string;
+}
+
+export interface GetPrivateLinkAttachmentConnectionPrivateLinkAttachment {
+    /**
+     * The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetPrivateLinkAttachmentEnvironment {
+    /**
+     * The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface GetPrivateLinkAttachmentGcp {
+    privateServiceConnectServiceAttachment: string;
+    zone: string;
 }
 
 export interface GetSchemaCredentials {
@@ -1158,6 +1215,9 @@ export interface KafkaClusterDedicated {
     zones: string[];
 }
 
+export interface KafkaClusterEnterprise {
+}
+
 export interface KafkaClusterEnvironment {
     /**
      * The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
@@ -1477,6 +1537,60 @@ export interface PrivateLinkAccessNetwork {
      * The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
      */
     id: string;
+}
+
+export interface PrivateLinkAttachmentAw {
+    /**
+     * (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+     */
+    vpcEndpointServiceName: string;
+}
+
+export interface PrivateLinkAttachmentAzure {
+    privateLinkServiceAlias: string;
+    privateLinkServiceResourceId: string;
+    zone: string;
+}
+
+export interface PrivateLinkAttachmentConnectionAws {
+    /**
+     * Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+     */
+    vpcEndpointId: string;
+}
+
+export interface PrivateLinkAttachmentConnectionAzure {
+    privateEndpointResourceId: string;
+}
+
+export interface PrivateLinkAttachmentConnectionEnvironment {
+    /**
+     * The unique identifier for the private link attachment.
+     */
+    id: string;
+}
+
+export interface PrivateLinkAttachmentConnectionGcp {
+    privateServiceConnectConnectionId: string;
+}
+
+export interface PrivateLinkAttachmentConnectionPrivateLinkAttachment {
+    /**
+     * The unique identifier for the private link attachment.
+     */
+    id: string;
+}
+
+export interface PrivateLinkAttachmentEnvironment {
+    /**
+     * The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+     */
+    id: string;
+}
+
+export interface PrivateLinkAttachmentGcp {
+    privateServiceConnectServiceAttachment: string;
+    zone: string;
 }
 
 export interface SchemaCredentials {

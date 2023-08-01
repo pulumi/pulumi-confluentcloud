@@ -78,8 +78,10 @@ type LookupKafkaClusterArgs struct {
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated *GetKafkaClusterDedicated `pulumi:"dedicated"`
 	// A human-readable name for the Kafka cluster.
-	DisplayName *string                    `pulumi:"displayName"`
-	Environment GetKafkaClusterEnvironment `pulumi:"environment"`
+	DisplayName *string `pulumi:"displayName"`
+	// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+	Enterprises []GetKafkaClusterEnterprise `pulumi:"enterprises"`
+	Environment GetKafkaClusterEnvironment  `pulumi:"environment"`
 	// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
 	//
 	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
@@ -105,8 +107,10 @@ type LookupKafkaClusterResult struct {
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated *GetKafkaClusterDedicated `pulumi:"dedicated"`
 	// (Required String) The name of the Kafka cluster.
-	DisplayName string                     `pulumi:"displayName"`
-	Environment GetKafkaClusterEnvironment `pulumi:"environment"`
+	DisplayName string `pulumi:"displayName"`
+	// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+	Enterprises []GetKafkaClusterEnterprise `pulumi:"enterprises"`
+	Environment GetKafkaClusterEnvironment  `pulumi:"environment"`
 	// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 	Id string `pulumi:"id"`
 	// (Required String) A kind of the Kafka cluster, for example, `Cluster`.
@@ -143,8 +147,10 @@ type LookupKafkaClusterOutputArgs struct {
 	// (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
 	Dedicated GetKafkaClusterDedicatedPtrInput `pulumi:"dedicated"`
 	// A human-readable name for the Kafka cluster.
-	DisplayName pulumi.StringPtrInput           `pulumi:"displayName"`
-	Environment GetKafkaClusterEnvironmentInput `pulumi:"environment"`
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+	Enterprises GetKafkaClusterEnterpriseArrayInput `pulumi:"enterprises"`
+	Environment GetKafkaClusterEnvironmentInput     `pulumi:"environment"`
 	// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
 	//
 	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
@@ -210,6 +216,11 @@ func (o LookupKafkaClusterResultOutput) Dedicated() GetKafkaClusterDedicatedPtrO
 // (Required String) The name of the Kafka cluster.
 func (o LookupKafkaClusterResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKafkaClusterResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+func (o LookupKafkaClusterResultOutput) Enterprises() GetKafkaClusterEnterpriseArrayOutput {
+	return o.ApplyT(func(v LookupKafkaClusterResult) []GetKafkaClusterEnterprise { return v.Enterprises }).(GetKafkaClusterEnterpriseArrayOutput)
 }
 
 func (o LookupKafkaClusterResultOutput) Environment() GetKafkaClusterEnvironmentOutput {
