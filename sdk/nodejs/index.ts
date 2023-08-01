@@ -128,6 +128,16 @@ export const getPrivateLinkAccess: typeof import("./getPrivateLinkAccess").getPr
 export const getPrivateLinkAccessOutput: typeof import("./getPrivateLinkAccess").getPrivateLinkAccessOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateLinkAccess","getPrivateLinkAccessOutput"], () => require("./getPrivateLinkAccess"));
 
+export { GetPrivateLinkAttachmentArgs, GetPrivateLinkAttachmentResult, GetPrivateLinkAttachmentOutputArgs } from "./getPrivateLinkAttachment";
+export const getPrivateLinkAttachment: typeof import("./getPrivateLinkAttachment").getPrivateLinkAttachment = null as any;
+export const getPrivateLinkAttachmentOutput: typeof import("./getPrivateLinkAttachment").getPrivateLinkAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLinkAttachment","getPrivateLinkAttachmentOutput"], () => require("./getPrivateLinkAttachment"));
+
+export { GetPrivateLinkAttachmentConnectionArgs, GetPrivateLinkAttachmentConnectionResult, GetPrivateLinkAttachmentConnectionOutputArgs } from "./getPrivateLinkAttachmentConnection";
+export const getPrivateLinkAttachmentConnection: typeof import("./getPrivateLinkAttachmentConnection").getPrivateLinkAttachmentConnection = null as any;
+export const getPrivateLinkAttachmentConnectionOutput: typeof import("./getPrivateLinkAttachmentConnection").getPrivateLinkAttachmentConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLinkAttachmentConnection","getPrivateLinkAttachmentConnectionOutput"], () => require("./getPrivateLinkAttachmentConnection"));
+
 export { GetRoleBindingArgs, GetRoleBindingResult, GetRoleBindingOutputArgs } from "./getRoleBinding";
 export const getRoleBinding: typeof import("./getRoleBinding").getRoleBinding = null as any;
 export const getRoleBindingOutput: typeof import("./getRoleBinding").getRoleBindingOutput = null as any;
@@ -281,6 +291,16 @@ export type PrivateLinkAccess = import("./privateLinkAccess").PrivateLinkAccess;
 export const PrivateLinkAccess: typeof import("./privateLinkAccess").PrivateLinkAccess = null as any;
 utilities.lazyLoad(exports, ["PrivateLinkAccess"], () => require("./privateLinkAccess"));
 
+export { PrivateLinkAttachmentArgs, PrivateLinkAttachmentState } from "./privateLinkAttachment";
+export type PrivateLinkAttachment = import("./privateLinkAttachment").PrivateLinkAttachment;
+export const PrivateLinkAttachment: typeof import("./privateLinkAttachment").PrivateLinkAttachment = null as any;
+utilities.lazyLoad(exports, ["PrivateLinkAttachment"], () => require("./privateLinkAttachment"));
+
+export { PrivateLinkAttachmentConnectionArgs, PrivateLinkAttachmentConnectionState } from "./privateLinkAttachmentConnection";
+export type PrivateLinkAttachmentConnection = import("./privateLinkAttachmentConnection").PrivateLinkAttachmentConnection;
+export const PrivateLinkAttachmentConnection: typeof import("./privateLinkAttachmentConnection").PrivateLinkAttachmentConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateLinkAttachmentConnection"], () => require("./privateLinkAttachmentConnection"));
+
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
 export const Provider: typeof import("./provider").Provider = null as any;
@@ -404,6 +424,10 @@ const _module = {
                 return new Peering(name, <any>undefined, { urn })
             case "confluentcloud:index/privateLinkAccess:PrivateLinkAccess":
                 return new PrivateLinkAccess(name, <any>undefined, { urn })
+            case "confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment":
+                return new PrivateLinkAttachment(name, <any>undefined, { urn })
+            case "confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection":
+                return new PrivateLinkAttachmentConnection(name, <any>undefined, { urn })
             case "confluentcloud:index/roleBinding:RoleBinding":
                 return new RoleBinding(name, <any>undefined, { urn })
             case "confluentcloud:index/schema:Schema":
@@ -455,6 +479,8 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/networkLinkEndpoi
 pulumi.runtime.registerResourceModule("confluentcloud", "index/networkLinkService", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/peering", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAccess", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAttachment", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAttachmentConnection", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/roleBinding", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schema", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryCluster", _module)

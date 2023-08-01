@@ -29,7 +29,7 @@ export interface GetBusinessMetadataBindingArgs {
     businessMetadataName: string;
     credentials?: inputs.GetBusinessMetadataBindingCredentials;
     /**
-     * The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+     * The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
      */
     entityName: string;
     /**
@@ -76,7 +76,7 @@ export interface GetBusinessMetadataBindingOutputArgs {
     businessMetadataName: pulumi.Input<string>;
     credentials?: pulumi.Input<inputs.GetBusinessMetadataBindingCredentialsArgs>;
     /**
-     * The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+     * The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
      */
     entityName: pulumi.Input<string>;
     /**

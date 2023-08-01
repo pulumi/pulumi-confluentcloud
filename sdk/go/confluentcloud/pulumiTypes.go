@@ -5110,6 +5110,94 @@ func (o KafkaClusterDedicatedPtrOutput) Zones() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type KafkaClusterEnterprise struct {
+}
+
+// KafkaClusterEnterpriseInput is an input type that accepts KafkaClusterEnterpriseArgs and KafkaClusterEnterpriseOutput values.
+// You can construct a concrete instance of `KafkaClusterEnterpriseInput` via:
+//
+//	KafkaClusterEnterpriseArgs{...}
+type KafkaClusterEnterpriseInput interface {
+	pulumi.Input
+
+	ToKafkaClusterEnterpriseOutput() KafkaClusterEnterpriseOutput
+	ToKafkaClusterEnterpriseOutputWithContext(context.Context) KafkaClusterEnterpriseOutput
+}
+
+type KafkaClusterEnterpriseArgs struct {
+}
+
+func (KafkaClusterEnterpriseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterEnterprise)(nil)).Elem()
+}
+
+func (i KafkaClusterEnterpriseArgs) ToKafkaClusterEnterpriseOutput() KafkaClusterEnterpriseOutput {
+	return i.ToKafkaClusterEnterpriseOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterEnterpriseArgs) ToKafkaClusterEnterpriseOutputWithContext(ctx context.Context) KafkaClusterEnterpriseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterEnterpriseOutput)
+}
+
+// KafkaClusterEnterpriseArrayInput is an input type that accepts KafkaClusterEnterpriseArray and KafkaClusterEnterpriseArrayOutput values.
+// You can construct a concrete instance of `KafkaClusterEnterpriseArrayInput` via:
+//
+//	KafkaClusterEnterpriseArray{ KafkaClusterEnterpriseArgs{...} }
+type KafkaClusterEnterpriseArrayInput interface {
+	pulumi.Input
+
+	ToKafkaClusterEnterpriseArrayOutput() KafkaClusterEnterpriseArrayOutput
+	ToKafkaClusterEnterpriseArrayOutputWithContext(context.Context) KafkaClusterEnterpriseArrayOutput
+}
+
+type KafkaClusterEnterpriseArray []KafkaClusterEnterpriseInput
+
+func (KafkaClusterEnterpriseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterEnterprise)(nil)).Elem()
+}
+
+func (i KafkaClusterEnterpriseArray) ToKafkaClusterEnterpriseArrayOutput() KafkaClusterEnterpriseArrayOutput {
+	return i.ToKafkaClusterEnterpriseArrayOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterEnterpriseArray) ToKafkaClusterEnterpriseArrayOutputWithContext(ctx context.Context) KafkaClusterEnterpriseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterEnterpriseArrayOutput)
+}
+
+type KafkaClusterEnterpriseOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterEnterpriseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterEnterprise)(nil)).Elem()
+}
+
+func (o KafkaClusterEnterpriseOutput) ToKafkaClusterEnterpriseOutput() KafkaClusterEnterpriseOutput {
+	return o
+}
+
+func (o KafkaClusterEnterpriseOutput) ToKafkaClusterEnterpriseOutputWithContext(ctx context.Context) KafkaClusterEnterpriseOutput {
+	return o
+}
+
+type KafkaClusterEnterpriseArrayOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterEnterpriseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterEnterprise)(nil)).Elem()
+}
+
+func (o KafkaClusterEnterpriseArrayOutput) ToKafkaClusterEnterpriseArrayOutput() KafkaClusterEnterpriseArrayOutput {
+	return o
+}
+
+func (o KafkaClusterEnterpriseArrayOutput) ToKafkaClusterEnterpriseArrayOutputWithContext(ctx context.Context) KafkaClusterEnterpriseArrayOutput {
+	return o
+}
+
+func (o KafkaClusterEnterpriseArrayOutput) Index(i pulumi.IntInput) KafkaClusterEnterpriseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KafkaClusterEnterprise {
+		return vs[0].([]KafkaClusterEnterprise)[vs[1].(int)]
+	}).(KafkaClusterEnterpriseOutput)
+}
+
 type KafkaClusterEnvironment struct {
 	// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 	Id string `pulumi:"id"`
@@ -9944,6 +10032,1123 @@ func (o PrivateLinkAccessNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type PrivateLinkAttachmentAw struct {
+	// (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+	VpcEndpointServiceName *string `pulumi:"vpcEndpointServiceName"`
+}
+
+// PrivateLinkAttachmentAwInput is an input type that accepts PrivateLinkAttachmentAwArgs and PrivateLinkAttachmentAwOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentAwInput` via:
+//
+//	PrivateLinkAttachmentAwArgs{...}
+type PrivateLinkAttachmentAwInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentAwOutput() PrivateLinkAttachmentAwOutput
+	ToPrivateLinkAttachmentAwOutputWithContext(context.Context) PrivateLinkAttachmentAwOutput
+}
+
+type PrivateLinkAttachmentAwArgs struct {
+	// (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+	VpcEndpointServiceName pulumi.StringPtrInput `pulumi:"vpcEndpointServiceName"`
+}
+
+func (PrivateLinkAttachmentAwArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentAw)(nil)).Elem()
+}
+
+func (i PrivateLinkAttachmentAwArgs) ToPrivateLinkAttachmentAwOutput() PrivateLinkAttachmentAwOutput {
+	return i.ToPrivateLinkAttachmentAwOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentAwArgs) ToPrivateLinkAttachmentAwOutputWithContext(ctx context.Context) PrivateLinkAttachmentAwOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentAwOutput)
+}
+
+// PrivateLinkAttachmentAwArrayInput is an input type that accepts PrivateLinkAttachmentAwArray and PrivateLinkAttachmentAwArrayOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentAwArrayInput` via:
+//
+//	PrivateLinkAttachmentAwArray{ PrivateLinkAttachmentAwArgs{...} }
+type PrivateLinkAttachmentAwArrayInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentAwArrayOutput() PrivateLinkAttachmentAwArrayOutput
+	ToPrivateLinkAttachmentAwArrayOutputWithContext(context.Context) PrivateLinkAttachmentAwArrayOutput
+}
+
+type PrivateLinkAttachmentAwArray []PrivateLinkAttachmentAwInput
+
+func (PrivateLinkAttachmentAwArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkAttachmentAw)(nil)).Elem()
+}
+
+func (i PrivateLinkAttachmentAwArray) ToPrivateLinkAttachmentAwArrayOutput() PrivateLinkAttachmentAwArrayOutput {
+	return i.ToPrivateLinkAttachmentAwArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentAwArray) ToPrivateLinkAttachmentAwArrayOutputWithContext(ctx context.Context) PrivateLinkAttachmentAwArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentAwArrayOutput)
+}
+
+type PrivateLinkAttachmentAwOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentAwOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentAw)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentAwOutput) ToPrivateLinkAttachmentAwOutput() PrivateLinkAttachmentAwOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentAwOutput) ToPrivateLinkAttachmentAwOutputWithContext(ctx context.Context) PrivateLinkAttachmentAwOutput {
+	return o
+}
+
+// (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+func (o PrivateLinkAttachmentAwOutput) VpcEndpointServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkAttachmentAw) *string { return v.VpcEndpointServiceName }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkAttachmentAwArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentAwArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkAttachmentAw)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentAwArrayOutput) ToPrivateLinkAttachmentAwArrayOutput() PrivateLinkAttachmentAwArrayOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentAwArrayOutput) ToPrivateLinkAttachmentAwArrayOutputWithContext(ctx context.Context) PrivateLinkAttachmentAwArrayOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentAwArrayOutput) Index(i pulumi.IntInput) PrivateLinkAttachmentAwOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkAttachmentAw {
+		return vs[0].([]PrivateLinkAttachmentAw)[vs[1].(int)]
+	}).(PrivateLinkAttachmentAwOutput)
+}
+
+type PrivateLinkAttachmentAzure struct {
+	PrivateLinkServiceAlias      *string `pulumi:"privateLinkServiceAlias"`
+	PrivateLinkServiceResourceId *string `pulumi:"privateLinkServiceResourceId"`
+	Zone                         *string `pulumi:"zone"`
+}
+
+// PrivateLinkAttachmentAzureInput is an input type that accepts PrivateLinkAttachmentAzureArgs and PrivateLinkAttachmentAzureOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentAzureInput` via:
+//
+//	PrivateLinkAttachmentAzureArgs{...}
+type PrivateLinkAttachmentAzureInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentAzureOutput() PrivateLinkAttachmentAzureOutput
+	ToPrivateLinkAttachmentAzureOutputWithContext(context.Context) PrivateLinkAttachmentAzureOutput
+}
+
+type PrivateLinkAttachmentAzureArgs struct {
+	PrivateLinkServiceAlias      pulumi.StringPtrInput `pulumi:"privateLinkServiceAlias"`
+	PrivateLinkServiceResourceId pulumi.StringPtrInput `pulumi:"privateLinkServiceResourceId"`
+	Zone                         pulumi.StringPtrInput `pulumi:"zone"`
+}
+
+func (PrivateLinkAttachmentAzureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentAzure)(nil)).Elem()
+}
+
+func (i PrivateLinkAttachmentAzureArgs) ToPrivateLinkAttachmentAzureOutput() PrivateLinkAttachmentAzureOutput {
+	return i.ToPrivateLinkAttachmentAzureOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentAzureArgs) ToPrivateLinkAttachmentAzureOutputWithContext(ctx context.Context) PrivateLinkAttachmentAzureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentAzureOutput)
+}
+
+// PrivateLinkAttachmentAzureArrayInput is an input type that accepts PrivateLinkAttachmentAzureArray and PrivateLinkAttachmentAzureArrayOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentAzureArrayInput` via:
+//
+//	PrivateLinkAttachmentAzureArray{ PrivateLinkAttachmentAzureArgs{...} }
+type PrivateLinkAttachmentAzureArrayInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentAzureArrayOutput() PrivateLinkAttachmentAzureArrayOutput
+	ToPrivateLinkAttachmentAzureArrayOutputWithContext(context.Context) PrivateLinkAttachmentAzureArrayOutput
+}
+
+type PrivateLinkAttachmentAzureArray []PrivateLinkAttachmentAzureInput
+
+func (PrivateLinkAttachmentAzureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkAttachmentAzure)(nil)).Elem()
+}
+
+func (i PrivateLinkAttachmentAzureArray) ToPrivateLinkAttachmentAzureArrayOutput() PrivateLinkAttachmentAzureArrayOutput {
+	return i.ToPrivateLinkAttachmentAzureArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentAzureArray) ToPrivateLinkAttachmentAzureArrayOutputWithContext(ctx context.Context) PrivateLinkAttachmentAzureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentAzureArrayOutput)
+}
+
+type PrivateLinkAttachmentAzureOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentAzureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentAzure)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentAzureOutput) ToPrivateLinkAttachmentAzureOutput() PrivateLinkAttachmentAzureOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentAzureOutput) ToPrivateLinkAttachmentAzureOutputWithContext(ctx context.Context) PrivateLinkAttachmentAzureOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentAzureOutput) PrivateLinkServiceAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkAttachmentAzure) *string { return v.PrivateLinkServiceAlias }).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkAttachmentAzureOutput) PrivateLinkServiceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkAttachmentAzure) *string { return v.PrivateLinkServiceResourceId }).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkAttachmentAzureOutput) Zone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkAttachmentAzure) *string { return v.Zone }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkAttachmentAzureArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentAzureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkAttachmentAzure)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentAzureArrayOutput) ToPrivateLinkAttachmentAzureArrayOutput() PrivateLinkAttachmentAzureArrayOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentAzureArrayOutput) ToPrivateLinkAttachmentAzureArrayOutputWithContext(ctx context.Context) PrivateLinkAttachmentAzureArrayOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentAzureArrayOutput) Index(i pulumi.IntInput) PrivateLinkAttachmentAzureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkAttachmentAzure {
+		return vs[0].([]PrivateLinkAttachmentAzure)[vs[1].(int)]
+	}).(PrivateLinkAttachmentAzureOutput)
+}
+
+type PrivateLinkAttachmentConnectionAws struct {
+	// Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+	VpcEndpointId string `pulumi:"vpcEndpointId"`
+}
+
+// PrivateLinkAttachmentConnectionAwsInput is an input type that accepts PrivateLinkAttachmentConnectionAwsArgs and PrivateLinkAttachmentConnectionAwsOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentConnectionAwsInput` via:
+//
+//	PrivateLinkAttachmentConnectionAwsArgs{...}
+type PrivateLinkAttachmentConnectionAwsInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentConnectionAwsOutput() PrivateLinkAttachmentConnectionAwsOutput
+	ToPrivateLinkAttachmentConnectionAwsOutputWithContext(context.Context) PrivateLinkAttachmentConnectionAwsOutput
+}
+
+type PrivateLinkAttachmentConnectionAwsArgs struct {
+	// Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
+}
+
+func (PrivateLinkAttachmentConnectionAwsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentConnectionAws)(nil)).Elem()
+}
+
+func (i PrivateLinkAttachmentConnectionAwsArgs) ToPrivateLinkAttachmentConnectionAwsOutput() PrivateLinkAttachmentConnectionAwsOutput {
+	return i.ToPrivateLinkAttachmentConnectionAwsOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentConnectionAwsArgs) ToPrivateLinkAttachmentConnectionAwsOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAwsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionAwsOutput)
+}
+
+func (i PrivateLinkAttachmentConnectionAwsArgs) ToPrivateLinkAttachmentConnectionAwsPtrOutput() PrivateLinkAttachmentConnectionAwsPtrOutput {
+	return i.ToPrivateLinkAttachmentConnectionAwsPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentConnectionAwsArgs) ToPrivateLinkAttachmentConnectionAwsPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAwsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionAwsOutput).ToPrivateLinkAttachmentConnectionAwsPtrOutputWithContext(ctx)
+}
+
+// PrivateLinkAttachmentConnectionAwsPtrInput is an input type that accepts PrivateLinkAttachmentConnectionAwsArgs, PrivateLinkAttachmentConnectionAwsPtr and PrivateLinkAttachmentConnectionAwsPtrOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentConnectionAwsPtrInput` via:
+//
+//	        PrivateLinkAttachmentConnectionAwsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrivateLinkAttachmentConnectionAwsPtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentConnectionAwsPtrOutput() PrivateLinkAttachmentConnectionAwsPtrOutput
+	ToPrivateLinkAttachmentConnectionAwsPtrOutputWithContext(context.Context) PrivateLinkAttachmentConnectionAwsPtrOutput
+}
+
+type privateLinkAttachmentConnectionAwsPtrType PrivateLinkAttachmentConnectionAwsArgs
+
+func PrivateLinkAttachmentConnectionAwsPtr(v *PrivateLinkAttachmentConnectionAwsArgs) PrivateLinkAttachmentConnectionAwsPtrInput {
+	return (*privateLinkAttachmentConnectionAwsPtrType)(v)
+}
+
+func (*privateLinkAttachmentConnectionAwsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAttachmentConnectionAws)(nil)).Elem()
+}
+
+func (i *privateLinkAttachmentConnectionAwsPtrType) ToPrivateLinkAttachmentConnectionAwsPtrOutput() PrivateLinkAttachmentConnectionAwsPtrOutput {
+	return i.ToPrivateLinkAttachmentConnectionAwsPtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkAttachmentConnectionAwsPtrType) ToPrivateLinkAttachmentConnectionAwsPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAwsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionAwsPtrOutput)
+}
+
+type PrivateLinkAttachmentConnectionAwsOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentConnectionAwsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentConnectionAws)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentConnectionAwsOutput) ToPrivateLinkAttachmentConnectionAwsOutput() PrivateLinkAttachmentConnectionAwsOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionAwsOutput) ToPrivateLinkAttachmentConnectionAwsOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAwsOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionAwsOutput) ToPrivateLinkAttachmentConnectionAwsPtrOutput() PrivateLinkAttachmentConnectionAwsPtrOutput {
+	return o.ToPrivateLinkAttachmentConnectionAwsPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkAttachmentConnectionAwsOutput) ToPrivateLinkAttachmentConnectionAwsPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAwsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkAttachmentConnectionAws) *PrivateLinkAttachmentConnectionAws {
+		return &v
+	}).(PrivateLinkAttachmentConnectionAwsPtrOutput)
+}
+
+// Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+func (o PrivateLinkAttachmentConnectionAwsOutput) VpcEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkAttachmentConnectionAws) string { return v.VpcEndpointId }).(pulumi.StringOutput)
+}
+
+type PrivateLinkAttachmentConnectionAwsPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentConnectionAwsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAttachmentConnectionAws)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentConnectionAwsPtrOutput) ToPrivateLinkAttachmentConnectionAwsPtrOutput() PrivateLinkAttachmentConnectionAwsPtrOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionAwsPtrOutput) ToPrivateLinkAttachmentConnectionAwsPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAwsPtrOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionAwsPtrOutput) Elem() PrivateLinkAttachmentConnectionAwsOutput {
+	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionAws) PrivateLinkAttachmentConnectionAws {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkAttachmentConnectionAws
+		return ret
+	}).(PrivateLinkAttachmentConnectionAwsOutput)
+}
+
+// Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+func (o PrivateLinkAttachmentConnectionAwsPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionAws) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcEndpointId
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkAttachmentConnectionAzure struct {
+	PrivateEndpointResourceId string `pulumi:"privateEndpointResourceId"`
+}
+
+// PrivateLinkAttachmentConnectionAzureInput is an input type that accepts PrivateLinkAttachmentConnectionAzureArgs and PrivateLinkAttachmentConnectionAzureOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentConnectionAzureInput` via:
+//
+//	PrivateLinkAttachmentConnectionAzureArgs{...}
+type PrivateLinkAttachmentConnectionAzureInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentConnectionAzureOutput() PrivateLinkAttachmentConnectionAzureOutput
+	ToPrivateLinkAttachmentConnectionAzureOutputWithContext(context.Context) PrivateLinkAttachmentConnectionAzureOutput
+}
+
+type PrivateLinkAttachmentConnectionAzureArgs struct {
+	PrivateEndpointResourceId pulumi.StringInput `pulumi:"privateEndpointResourceId"`
+}
+
+func (PrivateLinkAttachmentConnectionAzureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentConnectionAzure)(nil)).Elem()
+}
+
+func (i PrivateLinkAttachmentConnectionAzureArgs) ToPrivateLinkAttachmentConnectionAzureOutput() PrivateLinkAttachmentConnectionAzureOutput {
+	return i.ToPrivateLinkAttachmentConnectionAzureOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentConnectionAzureArgs) ToPrivateLinkAttachmentConnectionAzureOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAzureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionAzureOutput)
+}
+
+func (i PrivateLinkAttachmentConnectionAzureArgs) ToPrivateLinkAttachmentConnectionAzurePtrOutput() PrivateLinkAttachmentConnectionAzurePtrOutput {
+	return i.ToPrivateLinkAttachmentConnectionAzurePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentConnectionAzureArgs) ToPrivateLinkAttachmentConnectionAzurePtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAzurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionAzureOutput).ToPrivateLinkAttachmentConnectionAzurePtrOutputWithContext(ctx)
+}
+
+// PrivateLinkAttachmentConnectionAzurePtrInput is an input type that accepts PrivateLinkAttachmentConnectionAzureArgs, PrivateLinkAttachmentConnectionAzurePtr and PrivateLinkAttachmentConnectionAzurePtrOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentConnectionAzurePtrInput` via:
+//
+//	        PrivateLinkAttachmentConnectionAzureArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrivateLinkAttachmentConnectionAzurePtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentConnectionAzurePtrOutput() PrivateLinkAttachmentConnectionAzurePtrOutput
+	ToPrivateLinkAttachmentConnectionAzurePtrOutputWithContext(context.Context) PrivateLinkAttachmentConnectionAzurePtrOutput
+}
+
+type privateLinkAttachmentConnectionAzurePtrType PrivateLinkAttachmentConnectionAzureArgs
+
+func PrivateLinkAttachmentConnectionAzurePtr(v *PrivateLinkAttachmentConnectionAzureArgs) PrivateLinkAttachmentConnectionAzurePtrInput {
+	return (*privateLinkAttachmentConnectionAzurePtrType)(v)
+}
+
+func (*privateLinkAttachmentConnectionAzurePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAttachmentConnectionAzure)(nil)).Elem()
+}
+
+func (i *privateLinkAttachmentConnectionAzurePtrType) ToPrivateLinkAttachmentConnectionAzurePtrOutput() PrivateLinkAttachmentConnectionAzurePtrOutput {
+	return i.ToPrivateLinkAttachmentConnectionAzurePtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkAttachmentConnectionAzurePtrType) ToPrivateLinkAttachmentConnectionAzurePtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAzurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionAzurePtrOutput)
+}
+
+type PrivateLinkAttachmentConnectionAzureOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentConnectionAzureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentConnectionAzure)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentConnectionAzureOutput) ToPrivateLinkAttachmentConnectionAzureOutput() PrivateLinkAttachmentConnectionAzureOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionAzureOutput) ToPrivateLinkAttachmentConnectionAzureOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAzureOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionAzureOutput) ToPrivateLinkAttachmentConnectionAzurePtrOutput() PrivateLinkAttachmentConnectionAzurePtrOutput {
+	return o.ToPrivateLinkAttachmentConnectionAzurePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkAttachmentConnectionAzureOutput) ToPrivateLinkAttachmentConnectionAzurePtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAzurePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkAttachmentConnectionAzure) *PrivateLinkAttachmentConnectionAzure {
+		return &v
+	}).(PrivateLinkAttachmentConnectionAzurePtrOutput)
+}
+
+func (o PrivateLinkAttachmentConnectionAzureOutput) PrivateEndpointResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkAttachmentConnectionAzure) string { return v.PrivateEndpointResourceId }).(pulumi.StringOutput)
+}
+
+type PrivateLinkAttachmentConnectionAzurePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentConnectionAzurePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAttachmentConnectionAzure)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentConnectionAzurePtrOutput) ToPrivateLinkAttachmentConnectionAzurePtrOutput() PrivateLinkAttachmentConnectionAzurePtrOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionAzurePtrOutput) ToPrivateLinkAttachmentConnectionAzurePtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAzurePtrOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionAzurePtrOutput) Elem() PrivateLinkAttachmentConnectionAzureOutput {
+	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionAzure) PrivateLinkAttachmentConnectionAzure {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkAttachmentConnectionAzure
+		return ret
+	}).(PrivateLinkAttachmentConnectionAzureOutput)
+}
+
+func (o PrivateLinkAttachmentConnectionAzurePtrOutput) PrivateEndpointResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionAzure) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateEndpointResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkAttachmentConnectionEnvironment struct {
+	// The unique identifier for the private link attachment.
+	Id string `pulumi:"id"`
+}
+
+// PrivateLinkAttachmentConnectionEnvironmentInput is an input type that accepts PrivateLinkAttachmentConnectionEnvironmentArgs and PrivateLinkAttachmentConnectionEnvironmentOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentConnectionEnvironmentInput` via:
+//
+//	PrivateLinkAttachmentConnectionEnvironmentArgs{...}
+type PrivateLinkAttachmentConnectionEnvironmentInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentConnectionEnvironmentOutput() PrivateLinkAttachmentConnectionEnvironmentOutput
+	ToPrivateLinkAttachmentConnectionEnvironmentOutputWithContext(context.Context) PrivateLinkAttachmentConnectionEnvironmentOutput
+}
+
+type PrivateLinkAttachmentConnectionEnvironmentArgs struct {
+	// The unique identifier for the private link attachment.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (PrivateLinkAttachmentConnectionEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentConnectionEnvironment)(nil)).Elem()
+}
+
+func (i PrivateLinkAttachmentConnectionEnvironmentArgs) ToPrivateLinkAttachmentConnectionEnvironmentOutput() PrivateLinkAttachmentConnectionEnvironmentOutput {
+	return i.ToPrivateLinkAttachmentConnectionEnvironmentOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentConnectionEnvironmentArgs) ToPrivateLinkAttachmentConnectionEnvironmentOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionEnvironmentOutput)
+}
+
+func (i PrivateLinkAttachmentConnectionEnvironmentArgs) ToPrivateLinkAttachmentConnectionEnvironmentPtrOutput() PrivateLinkAttachmentConnectionEnvironmentPtrOutput {
+	return i.ToPrivateLinkAttachmentConnectionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentConnectionEnvironmentArgs) ToPrivateLinkAttachmentConnectionEnvironmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionEnvironmentOutput).ToPrivateLinkAttachmentConnectionEnvironmentPtrOutputWithContext(ctx)
+}
+
+// PrivateLinkAttachmentConnectionEnvironmentPtrInput is an input type that accepts PrivateLinkAttachmentConnectionEnvironmentArgs, PrivateLinkAttachmentConnectionEnvironmentPtr and PrivateLinkAttachmentConnectionEnvironmentPtrOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentConnectionEnvironmentPtrInput` via:
+//
+//	        PrivateLinkAttachmentConnectionEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrivateLinkAttachmentConnectionEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentConnectionEnvironmentPtrOutput() PrivateLinkAttachmentConnectionEnvironmentPtrOutput
+	ToPrivateLinkAttachmentConnectionEnvironmentPtrOutputWithContext(context.Context) PrivateLinkAttachmentConnectionEnvironmentPtrOutput
+}
+
+type privateLinkAttachmentConnectionEnvironmentPtrType PrivateLinkAttachmentConnectionEnvironmentArgs
+
+func PrivateLinkAttachmentConnectionEnvironmentPtr(v *PrivateLinkAttachmentConnectionEnvironmentArgs) PrivateLinkAttachmentConnectionEnvironmentPtrInput {
+	return (*privateLinkAttachmentConnectionEnvironmentPtrType)(v)
+}
+
+func (*privateLinkAttachmentConnectionEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAttachmentConnectionEnvironment)(nil)).Elem()
+}
+
+func (i *privateLinkAttachmentConnectionEnvironmentPtrType) ToPrivateLinkAttachmentConnectionEnvironmentPtrOutput() PrivateLinkAttachmentConnectionEnvironmentPtrOutput {
+	return i.ToPrivateLinkAttachmentConnectionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkAttachmentConnectionEnvironmentPtrType) ToPrivateLinkAttachmentConnectionEnvironmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionEnvironmentPtrOutput)
+}
+
+type PrivateLinkAttachmentConnectionEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentConnectionEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentConnectionEnvironment)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentConnectionEnvironmentOutput) ToPrivateLinkAttachmentConnectionEnvironmentOutput() PrivateLinkAttachmentConnectionEnvironmentOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionEnvironmentOutput) ToPrivateLinkAttachmentConnectionEnvironmentOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionEnvironmentOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionEnvironmentOutput) ToPrivateLinkAttachmentConnectionEnvironmentPtrOutput() PrivateLinkAttachmentConnectionEnvironmentPtrOutput {
+	return o.ToPrivateLinkAttachmentConnectionEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkAttachmentConnectionEnvironmentOutput) ToPrivateLinkAttachmentConnectionEnvironmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkAttachmentConnectionEnvironment) *PrivateLinkAttachmentConnectionEnvironment {
+		return &v
+	}).(PrivateLinkAttachmentConnectionEnvironmentPtrOutput)
+}
+
+// The unique identifier for the private link attachment.
+func (o PrivateLinkAttachmentConnectionEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkAttachmentConnectionEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type PrivateLinkAttachmentConnectionEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentConnectionEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAttachmentConnectionEnvironment)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentConnectionEnvironmentPtrOutput) ToPrivateLinkAttachmentConnectionEnvironmentPtrOutput() PrivateLinkAttachmentConnectionEnvironmentPtrOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionEnvironmentPtrOutput) ToPrivateLinkAttachmentConnectionEnvironmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionEnvironmentPtrOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionEnvironmentPtrOutput) Elem() PrivateLinkAttachmentConnectionEnvironmentOutput {
+	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionEnvironment) PrivateLinkAttachmentConnectionEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkAttachmentConnectionEnvironment
+		return ret
+	}).(PrivateLinkAttachmentConnectionEnvironmentOutput)
+}
+
+// The unique identifier for the private link attachment.
+func (o PrivateLinkAttachmentConnectionEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkAttachmentConnectionGcp struct {
+	PrivateServiceConnectConnectionId string `pulumi:"privateServiceConnectConnectionId"`
+}
+
+// PrivateLinkAttachmentConnectionGcpInput is an input type that accepts PrivateLinkAttachmentConnectionGcpArgs and PrivateLinkAttachmentConnectionGcpOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentConnectionGcpInput` via:
+//
+//	PrivateLinkAttachmentConnectionGcpArgs{...}
+type PrivateLinkAttachmentConnectionGcpInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentConnectionGcpOutput() PrivateLinkAttachmentConnectionGcpOutput
+	ToPrivateLinkAttachmentConnectionGcpOutputWithContext(context.Context) PrivateLinkAttachmentConnectionGcpOutput
+}
+
+type PrivateLinkAttachmentConnectionGcpArgs struct {
+	PrivateServiceConnectConnectionId pulumi.StringInput `pulumi:"privateServiceConnectConnectionId"`
+}
+
+func (PrivateLinkAttachmentConnectionGcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentConnectionGcp)(nil)).Elem()
+}
+
+func (i PrivateLinkAttachmentConnectionGcpArgs) ToPrivateLinkAttachmentConnectionGcpOutput() PrivateLinkAttachmentConnectionGcpOutput {
+	return i.ToPrivateLinkAttachmentConnectionGcpOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentConnectionGcpArgs) ToPrivateLinkAttachmentConnectionGcpOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionGcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionGcpOutput)
+}
+
+func (i PrivateLinkAttachmentConnectionGcpArgs) ToPrivateLinkAttachmentConnectionGcpPtrOutput() PrivateLinkAttachmentConnectionGcpPtrOutput {
+	return i.ToPrivateLinkAttachmentConnectionGcpPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentConnectionGcpArgs) ToPrivateLinkAttachmentConnectionGcpPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionGcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionGcpOutput).ToPrivateLinkAttachmentConnectionGcpPtrOutputWithContext(ctx)
+}
+
+// PrivateLinkAttachmentConnectionGcpPtrInput is an input type that accepts PrivateLinkAttachmentConnectionGcpArgs, PrivateLinkAttachmentConnectionGcpPtr and PrivateLinkAttachmentConnectionGcpPtrOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentConnectionGcpPtrInput` via:
+//
+//	        PrivateLinkAttachmentConnectionGcpArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrivateLinkAttachmentConnectionGcpPtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentConnectionGcpPtrOutput() PrivateLinkAttachmentConnectionGcpPtrOutput
+	ToPrivateLinkAttachmentConnectionGcpPtrOutputWithContext(context.Context) PrivateLinkAttachmentConnectionGcpPtrOutput
+}
+
+type privateLinkAttachmentConnectionGcpPtrType PrivateLinkAttachmentConnectionGcpArgs
+
+func PrivateLinkAttachmentConnectionGcpPtr(v *PrivateLinkAttachmentConnectionGcpArgs) PrivateLinkAttachmentConnectionGcpPtrInput {
+	return (*privateLinkAttachmentConnectionGcpPtrType)(v)
+}
+
+func (*privateLinkAttachmentConnectionGcpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAttachmentConnectionGcp)(nil)).Elem()
+}
+
+func (i *privateLinkAttachmentConnectionGcpPtrType) ToPrivateLinkAttachmentConnectionGcpPtrOutput() PrivateLinkAttachmentConnectionGcpPtrOutput {
+	return i.ToPrivateLinkAttachmentConnectionGcpPtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkAttachmentConnectionGcpPtrType) ToPrivateLinkAttachmentConnectionGcpPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionGcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionGcpPtrOutput)
+}
+
+type PrivateLinkAttachmentConnectionGcpOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentConnectionGcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentConnectionGcp)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentConnectionGcpOutput) ToPrivateLinkAttachmentConnectionGcpOutput() PrivateLinkAttachmentConnectionGcpOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionGcpOutput) ToPrivateLinkAttachmentConnectionGcpOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionGcpOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionGcpOutput) ToPrivateLinkAttachmentConnectionGcpPtrOutput() PrivateLinkAttachmentConnectionGcpPtrOutput {
+	return o.ToPrivateLinkAttachmentConnectionGcpPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkAttachmentConnectionGcpOutput) ToPrivateLinkAttachmentConnectionGcpPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionGcpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkAttachmentConnectionGcp) *PrivateLinkAttachmentConnectionGcp {
+		return &v
+	}).(PrivateLinkAttachmentConnectionGcpPtrOutput)
+}
+
+func (o PrivateLinkAttachmentConnectionGcpOutput) PrivateServiceConnectConnectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkAttachmentConnectionGcp) string { return v.PrivateServiceConnectConnectionId }).(pulumi.StringOutput)
+}
+
+type PrivateLinkAttachmentConnectionGcpPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentConnectionGcpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAttachmentConnectionGcp)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentConnectionGcpPtrOutput) ToPrivateLinkAttachmentConnectionGcpPtrOutput() PrivateLinkAttachmentConnectionGcpPtrOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionGcpPtrOutput) ToPrivateLinkAttachmentConnectionGcpPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionGcpPtrOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionGcpPtrOutput) Elem() PrivateLinkAttachmentConnectionGcpOutput {
+	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionGcp) PrivateLinkAttachmentConnectionGcp {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkAttachmentConnectionGcp
+		return ret
+	}).(PrivateLinkAttachmentConnectionGcpOutput)
+}
+
+func (o PrivateLinkAttachmentConnectionGcpPtrOutput) PrivateServiceConnectConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionGcp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateServiceConnectConnectionId
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkAttachmentConnectionPrivateLinkAttachment struct {
+	// The unique identifier for the private link attachment.
+	Id string `pulumi:"id"`
+}
+
+// PrivateLinkAttachmentConnectionPrivateLinkAttachmentInput is an input type that accepts PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs and PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentConnectionPrivateLinkAttachmentInput` via:
+//
+//	PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs{...}
+type PrivateLinkAttachmentConnectionPrivateLinkAttachmentInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput() PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput
+	ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutputWithContext(context.Context) PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput
+}
+
+type PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs struct {
+	// The unique identifier for the private link attachment.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentConnectionPrivateLinkAttachment)(nil)).Elem()
+}
+
+func (i PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs) ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput() PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
+	return i.ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs) ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput)
+}
+
+func (i PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs) ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput() PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput {
+	return i.ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs) ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput).ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutputWithContext(ctx)
+}
+
+// PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrInput is an input type that accepts PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs, PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtr and PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrInput` via:
+//
+//	        PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput() PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput
+	ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutputWithContext(context.Context) PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput
+}
+
+type privateLinkAttachmentConnectionPrivateLinkAttachmentPtrType PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs
+
+func PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtr(v *PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs) PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrInput {
+	return (*privateLinkAttachmentConnectionPrivateLinkAttachmentPtrType)(v)
+}
+
+func (*privateLinkAttachmentConnectionPrivateLinkAttachmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAttachmentConnectionPrivateLinkAttachment)(nil)).Elem()
+}
+
+func (i *privateLinkAttachmentConnectionPrivateLinkAttachmentPtrType) ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput() PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput {
+	return i.ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkAttachmentConnectionPrivateLinkAttachmentPtrType) ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput)
+}
+
+type PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentConnectionPrivateLinkAttachment)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput() PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput() PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput {
+	return o.ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkAttachmentConnectionPrivateLinkAttachment) *PrivateLinkAttachmentConnectionPrivateLinkAttachment {
+		return &v
+	}).(PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput)
+}
+
+// The unique identifier for the private link attachment.
+func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkAttachmentConnectionPrivateLinkAttachment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAttachmentConnectionPrivateLinkAttachment)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput) ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput() PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput) ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput) Elem() PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
+	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionPrivateLinkAttachment) PrivateLinkAttachmentConnectionPrivateLinkAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkAttachmentConnectionPrivateLinkAttachment
+		return ret
+	}).(PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput)
+}
+
+// The unique identifier for the private link attachment.
+func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionPrivateLinkAttachment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkAttachmentEnvironment struct {
+	// The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// PrivateLinkAttachmentEnvironmentInput is an input type that accepts PrivateLinkAttachmentEnvironmentArgs and PrivateLinkAttachmentEnvironmentOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentEnvironmentInput` via:
+//
+//	PrivateLinkAttachmentEnvironmentArgs{...}
+type PrivateLinkAttachmentEnvironmentInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentEnvironmentOutput() PrivateLinkAttachmentEnvironmentOutput
+	ToPrivateLinkAttachmentEnvironmentOutputWithContext(context.Context) PrivateLinkAttachmentEnvironmentOutput
+}
+
+type PrivateLinkAttachmentEnvironmentArgs struct {
+	// The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (PrivateLinkAttachmentEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentEnvironment)(nil)).Elem()
+}
+
+func (i PrivateLinkAttachmentEnvironmentArgs) ToPrivateLinkAttachmentEnvironmentOutput() PrivateLinkAttachmentEnvironmentOutput {
+	return i.ToPrivateLinkAttachmentEnvironmentOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentEnvironmentArgs) ToPrivateLinkAttachmentEnvironmentOutputWithContext(ctx context.Context) PrivateLinkAttachmentEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentEnvironmentOutput)
+}
+
+func (i PrivateLinkAttachmentEnvironmentArgs) ToPrivateLinkAttachmentEnvironmentPtrOutput() PrivateLinkAttachmentEnvironmentPtrOutput {
+	return i.ToPrivateLinkAttachmentEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentEnvironmentArgs) ToPrivateLinkAttachmentEnvironmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentEnvironmentOutput).ToPrivateLinkAttachmentEnvironmentPtrOutputWithContext(ctx)
+}
+
+// PrivateLinkAttachmentEnvironmentPtrInput is an input type that accepts PrivateLinkAttachmentEnvironmentArgs, PrivateLinkAttachmentEnvironmentPtr and PrivateLinkAttachmentEnvironmentPtrOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentEnvironmentPtrInput` via:
+//
+//	        PrivateLinkAttachmentEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrivateLinkAttachmentEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentEnvironmentPtrOutput() PrivateLinkAttachmentEnvironmentPtrOutput
+	ToPrivateLinkAttachmentEnvironmentPtrOutputWithContext(context.Context) PrivateLinkAttachmentEnvironmentPtrOutput
+}
+
+type privateLinkAttachmentEnvironmentPtrType PrivateLinkAttachmentEnvironmentArgs
+
+func PrivateLinkAttachmentEnvironmentPtr(v *PrivateLinkAttachmentEnvironmentArgs) PrivateLinkAttachmentEnvironmentPtrInput {
+	return (*privateLinkAttachmentEnvironmentPtrType)(v)
+}
+
+func (*privateLinkAttachmentEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAttachmentEnvironment)(nil)).Elem()
+}
+
+func (i *privateLinkAttachmentEnvironmentPtrType) ToPrivateLinkAttachmentEnvironmentPtrOutput() PrivateLinkAttachmentEnvironmentPtrOutput {
+	return i.ToPrivateLinkAttachmentEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkAttachmentEnvironmentPtrType) ToPrivateLinkAttachmentEnvironmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentEnvironmentPtrOutput)
+}
+
+type PrivateLinkAttachmentEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentEnvironment)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentEnvironmentOutput) ToPrivateLinkAttachmentEnvironmentOutput() PrivateLinkAttachmentEnvironmentOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentEnvironmentOutput) ToPrivateLinkAttachmentEnvironmentOutputWithContext(ctx context.Context) PrivateLinkAttachmentEnvironmentOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentEnvironmentOutput) ToPrivateLinkAttachmentEnvironmentPtrOutput() PrivateLinkAttachmentEnvironmentPtrOutput {
+	return o.ToPrivateLinkAttachmentEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkAttachmentEnvironmentOutput) ToPrivateLinkAttachmentEnvironmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkAttachmentEnvironment) *PrivateLinkAttachmentEnvironment {
+		return &v
+	}).(PrivateLinkAttachmentEnvironmentPtrOutput)
+}
+
+// The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+func (o PrivateLinkAttachmentEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkAttachmentEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type PrivateLinkAttachmentEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAttachmentEnvironment)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentEnvironmentPtrOutput) ToPrivateLinkAttachmentEnvironmentPtrOutput() PrivateLinkAttachmentEnvironmentPtrOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentEnvironmentPtrOutput) ToPrivateLinkAttachmentEnvironmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentEnvironmentPtrOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentEnvironmentPtrOutput) Elem() PrivateLinkAttachmentEnvironmentOutput {
+	return o.ApplyT(func(v *PrivateLinkAttachmentEnvironment) PrivateLinkAttachmentEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkAttachmentEnvironment
+		return ret
+	}).(PrivateLinkAttachmentEnvironmentOutput)
+}
+
+// The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+func (o PrivateLinkAttachmentEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkAttachmentEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkAttachmentGcp struct {
+	PrivateServiceConnectServiceAttachment *string `pulumi:"privateServiceConnectServiceAttachment"`
+	Zone                                   *string `pulumi:"zone"`
+}
+
+// PrivateLinkAttachmentGcpInput is an input type that accepts PrivateLinkAttachmentGcpArgs and PrivateLinkAttachmentGcpOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentGcpInput` via:
+//
+//	PrivateLinkAttachmentGcpArgs{...}
+type PrivateLinkAttachmentGcpInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentGcpOutput() PrivateLinkAttachmentGcpOutput
+	ToPrivateLinkAttachmentGcpOutputWithContext(context.Context) PrivateLinkAttachmentGcpOutput
+}
+
+type PrivateLinkAttachmentGcpArgs struct {
+	PrivateServiceConnectServiceAttachment pulumi.StringPtrInput `pulumi:"privateServiceConnectServiceAttachment"`
+	Zone                                   pulumi.StringPtrInput `pulumi:"zone"`
+}
+
+func (PrivateLinkAttachmentGcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentGcp)(nil)).Elem()
+}
+
+func (i PrivateLinkAttachmentGcpArgs) ToPrivateLinkAttachmentGcpOutput() PrivateLinkAttachmentGcpOutput {
+	return i.ToPrivateLinkAttachmentGcpOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentGcpArgs) ToPrivateLinkAttachmentGcpOutputWithContext(ctx context.Context) PrivateLinkAttachmentGcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentGcpOutput)
+}
+
+// PrivateLinkAttachmentGcpArrayInput is an input type that accepts PrivateLinkAttachmentGcpArray and PrivateLinkAttachmentGcpArrayOutput values.
+// You can construct a concrete instance of `PrivateLinkAttachmentGcpArrayInput` via:
+//
+//	PrivateLinkAttachmentGcpArray{ PrivateLinkAttachmentGcpArgs{...} }
+type PrivateLinkAttachmentGcpArrayInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAttachmentGcpArrayOutput() PrivateLinkAttachmentGcpArrayOutput
+	ToPrivateLinkAttachmentGcpArrayOutputWithContext(context.Context) PrivateLinkAttachmentGcpArrayOutput
+}
+
+type PrivateLinkAttachmentGcpArray []PrivateLinkAttachmentGcpInput
+
+func (PrivateLinkAttachmentGcpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkAttachmentGcp)(nil)).Elem()
+}
+
+func (i PrivateLinkAttachmentGcpArray) ToPrivateLinkAttachmentGcpArrayOutput() PrivateLinkAttachmentGcpArrayOutput {
+	return i.ToPrivateLinkAttachmentGcpArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAttachmentGcpArray) ToPrivateLinkAttachmentGcpArrayOutputWithContext(ctx context.Context) PrivateLinkAttachmentGcpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentGcpArrayOutput)
+}
+
+type PrivateLinkAttachmentGcpOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentGcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAttachmentGcp)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentGcpOutput) ToPrivateLinkAttachmentGcpOutput() PrivateLinkAttachmentGcpOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentGcpOutput) ToPrivateLinkAttachmentGcpOutputWithContext(ctx context.Context) PrivateLinkAttachmentGcpOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentGcpOutput) PrivateServiceConnectServiceAttachment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkAttachmentGcp) *string { return v.PrivateServiceConnectServiceAttachment }).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkAttachmentGcpOutput) Zone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkAttachmentGcp) *string { return v.Zone }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkAttachmentGcpArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAttachmentGcpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkAttachmentGcp)(nil)).Elem()
+}
+
+func (o PrivateLinkAttachmentGcpArrayOutput) ToPrivateLinkAttachmentGcpArrayOutput() PrivateLinkAttachmentGcpArrayOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentGcpArrayOutput) ToPrivateLinkAttachmentGcpArrayOutputWithContext(ctx context.Context) PrivateLinkAttachmentGcpArrayOutput {
+	return o
+}
+
+func (o PrivateLinkAttachmentGcpArrayOutput) Index(i pulumi.IntInput) PrivateLinkAttachmentGcpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkAttachmentGcp {
+		return vs[0].([]PrivateLinkAttachmentGcp)[vs[1].(int)]
+	}).(PrivateLinkAttachmentGcpOutput)
+}
+
 type SchemaCredentials struct {
 	// The Schema Registry API Key.
 	Key    string `pulumi:"key"`
@@ -14738,6 +15943,94 @@ func (o GetKafkaClusterDedicatedPtrOutput) Zones() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type GetKafkaClusterEnterprise struct {
+}
+
+// GetKafkaClusterEnterpriseInput is an input type that accepts GetKafkaClusterEnterpriseArgs and GetKafkaClusterEnterpriseOutput values.
+// You can construct a concrete instance of `GetKafkaClusterEnterpriseInput` via:
+//
+//	GetKafkaClusterEnterpriseArgs{...}
+type GetKafkaClusterEnterpriseInput interface {
+	pulumi.Input
+
+	ToGetKafkaClusterEnterpriseOutput() GetKafkaClusterEnterpriseOutput
+	ToGetKafkaClusterEnterpriseOutputWithContext(context.Context) GetKafkaClusterEnterpriseOutput
+}
+
+type GetKafkaClusterEnterpriseArgs struct {
+}
+
+func (GetKafkaClusterEnterpriseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClusterEnterprise)(nil)).Elem()
+}
+
+func (i GetKafkaClusterEnterpriseArgs) ToGetKafkaClusterEnterpriseOutput() GetKafkaClusterEnterpriseOutput {
+	return i.ToGetKafkaClusterEnterpriseOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClusterEnterpriseArgs) ToGetKafkaClusterEnterpriseOutputWithContext(ctx context.Context) GetKafkaClusterEnterpriseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterEnterpriseOutput)
+}
+
+// GetKafkaClusterEnterpriseArrayInput is an input type that accepts GetKafkaClusterEnterpriseArray and GetKafkaClusterEnterpriseArrayOutput values.
+// You can construct a concrete instance of `GetKafkaClusterEnterpriseArrayInput` via:
+//
+//	GetKafkaClusterEnterpriseArray{ GetKafkaClusterEnterpriseArgs{...} }
+type GetKafkaClusterEnterpriseArrayInput interface {
+	pulumi.Input
+
+	ToGetKafkaClusterEnterpriseArrayOutput() GetKafkaClusterEnterpriseArrayOutput
+	ToGetKafkaClusterEnterpriseArrayOutputWithContext(context.Context) GetKafkaClusterEnterpriseArrayOutput
+}
+
+type GetKafkaClusterEnterpriseArray []GetKafkaClusterEnterpriseInput
+
+func (GetKafkaClusterEnterpriseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClusterEnterprise)(nil)).Elem()
+}
+
+func (i GetKafkaClusterEnterpriseArray) ToGetKafkaClusterEnterpriseArrayOutput() GetKafkaClusterEnterpriseArrayOutput {
+	return i.ToGetKafkaClusterEnterpriseArrayOutputWithContext(context.Background())
+}
+
+func (i GetKafkaClusterEnterpriseArray) ToGetKafkaClusterEnterpriseArrayOutputWithContext(ctx context.Context) GetKafkaClusterEnterpriseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterEnterpriseArrayOutput)
+}
+
+type GetKafkaClusterEnterpriseOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClusterEnterpriseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKafkaClusterEnterprise)(nil)).Elem()
+}
+
+func (o GetKafkaClusterEnterpriseOutput) ToGetKafkaClusterEnterpriseOutput() GetKafkaClusterEnterpriseOutput {
+	return o
+}
+
+func (o GetKafkaClusterEnterpriseOutput) ToGetKafkaClusterEnterpriseOutputWithContext(ctx context.Context) GetKafkaClusterEnterpriseOutput {
+	return o
+}
+
+type GetKafkaClusterEnterpriseArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKafkaClusterEnterpriseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKafkaClusterEnterprise)(nil)).Elem()
+}
+
+func (o GetKafkaClusterEnterpriseArrayOutput) ToGetKafkaClusterEnterpriseArrayOutput() GetKafkaClusterEnterpriseArrayOutput {
+	return o
+}
+
+func (o GetKafkaClusterEnterpriseArrayOutput) ToGetKafkaClusterEnterpriseArrayOutputWithContext(ctx context.Context) GetKafkaClusterEnterpriseArrayOutput {
+	return o
+}
+
+func (o GetKafkaClusterEnterpriseArrayOutput) Index(i pulumi.IntInput) GetKafkaClusterEnterpriseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKafkaClusterEnterprise {
+		return vs[0].([]GetKafkaClusterEnterprise)[vs[1].(int)]
+	}).(GetKafkaClusterEnterpriseOutput)
+}
+
 type GetKafkaClusterEnvironment struct {
 	// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
 	//
@@ -17650,6 +18943,795 @@ func (o GetPrivateLinkAccessNetworkArrayOutput) Index(i pulumi.IntInput) GetPriv
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrivateLinkAccessNetwork {
 		return vs[0].([]GetPrivateLinkAccessNetwork)[vs[1].(int)]
 	}).(GetPrivateLinkAccessNetworkOutput)
+}
+
+type GetPrivateLinkAttachmentAw struct {
+	// (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+	VpcEndpointServiceName string `pulumi:"vpcEndpointServiceName"`
+}
+
+// GetPrivateLinkAttachmentAwInput is an input type that accepts GetPrivateLinkAttachmentAwArgs and GetPrivateLinkAttachmentAwOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentAwInput` via:
+//
+//	GetPrivateLinkAttachmentAwArgs{...}
+type GetPrivateLinkAttachmentAwInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentAwOutput() GetPrivateLinkAttachmentAwOutput
+	ToGetPrivateLinkAttachmentAwOutputWithContext(context.Context) GetPrivateLinkAttachmentAwOutput
+}
+
+type GetPrivateLinkAttachmentAwArgs struct {
+	// (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+	VpcEndpointServiceName pulumi.StringInput `pulumi:"vpcEndpointServiceName"`
+}
+
+func (GetPrivateLinkAttachmentAwArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentAw)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentAwArgs) ToGetPrivateLinkAttachmentAwOutput() GetPrivateLinkAttachmentAwOutput {
+	return i.ToGetPrivateLinkAttachmentAwOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentAwArgs) ToGetPrivateLinkAttachmentAwOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentAwOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentAwOutput)
+}
+
+// GetPrivateLinkAttachmentAwArrayInput is an input type that accepts GetPrivateLinkAttachmentAwArray and GetPrivateLinkAttachmentAwArrayOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentAwArrayInput` via:
+//
+//	GetPrivateLinkAttachmentAwArray{ GetPrivateLinkAttachmentAwArgs{...} }
+type GetPrivateLinkAttachmentAwArrayInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentAwArrayOutput() GetPrivateLinkAttachmentAwArrayOutput
+	ToGetPrivateLinkAttachmentAwArrayOutputWithContext(context.Context) GetPrivateLinkAttachmentAwArrayOutput
+}
+
+type GetPrivateLinkAttachmentAwArray []GetPrivateLinkAttachmentAwInput
+
+func (GetPrivateLinkAttachmentAwArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAttachmentAw)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentAwArray) ToGetPrivateLinkAttachmentAwArrayOutput() GetPrivateLinkAttachmentAwArrayOutput {
+	return i.ToGetPrivateLinkAttachmentAwArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentAwArray) ToGetPrivateLinkAttachmentAwArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentAwArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentAwArrayOutput)
+}
+
+type GetPrivateLinkAttachmentAwOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentAwOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentAw)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentAwOutput) ToGetPrivateLinkAttachmentAwOutput() GetPrivateLinkAttachmentAwOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentAwOutput) ToGetPrivateLinkAttachmentAwOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentAwOutput {
+	return o
+}
+
+// (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+func (o GetPrivateLinkAttachmentAwOutput) VpcEndpointServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAttachmentAw) string { return v.VpcEndpointServiceName }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkAttachmentAwArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentAwArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAttachmentAw)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentAwArrayOutput) ToGetPrivateLinkAttachmentAwArrayOutput() GetPrivateLinkAttachmentAwArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentAwArrayOutput) ToGetPrivateLinkAttachmentAwArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentAwArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentAwArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAttachmentAwOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrivateLinkAttachmentAw {
+		return vs[0].([]GetPrivateLinkAttachmentAw)[vs[1].(int)]
+	}).(GetPrivateLinkAttachmentAwOutput)
+}
+
+type GetPrivateLinkAttachmentAzure struct {
+	PrivateLinkServiceAlias      string `pulumi:"privateLinkServiceAlias"`
+	PrivateLinkServiceResourceId string `pulumi:"privateLinkServiceResourceId"`
+	Zone                         string `pulumi:"zone"`
+}
+
+// GetPrivateLinkAttachmentAzureInput is an input type that accepts GetPrivateLinkAttachmentAzureArgs and GetPrivateLinkAttachmentAzureOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentAzureInput` via:
+//
+//	GetPrivateLinkAttachmentAzureArgs{...}
+type GetPrivateLinkAttachmentAzureInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentAzureOutput() GetPrivateLinkAttachmentAzureOutput
+	ToGetPrivateLinkAttachmentAzureOutputWithContext(context.Context) GetPrivateLinkAttachmentAzureOutput
+}
+
+type GetPrivateLinkAttachmentAzureArgs struct {
+	PrivateLinkServiceAlias      pulumi.StringInput `pulumi:"privateLinkServiceAlias"`
+	PrivateLinkServiceResourceId pulumi.StringInput `pulumi:"privateLinkServiceResourceId"`
+	Zone                         pulumi.StringInput `pulumi:"zone"`
+}
+
+func (GetPrivateLinkAttachmentAzureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentAzure)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentAzureArgs) ToGetPrivateLinkAttachmentAzureOutput() GetPrivateLinkAttachmentAzureOutput {
+	return i.ToGetPrivateLinkAttachmentAzureOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentAzureArgs) ToGetPrivateLinkAttachmentAzureOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentAzureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentAzureOutput)
+}
+
+// GetPrivateLinkAttachmentAzureArrayInput is an input type that accepts GetPrivateLinkAttachmentAzureArray and GetPrivateLinkAttachmentAzureArrayOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentAzureArrayInput` via:
+//
+//	GetPrivateLinkAttachmentAzureArray{ GetPrivateLinkAttachmentAzureArgs{...} }
+type GetPrivateLinkAttachmentAzureArrayInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentAzureArrayOutput() GetPrivateLinkAttachmentAzureArrayOutput
+	ToGetPrivateLinkAttachmentAzureArrayOutputWithContext(context.Context) GetPrivateLinkAttachmentAzureArrayOutput
+}
+
+type GetPrivateLinkAttachmentAzureArray []GetPrivateLinkAttachmentAzureInput
+
+func (GetPrivateLinkAttachmentAzureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAttachmentAzure)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentAzureArray) ToGetPrivateLinkAttachmentAzureArrayOutput() GetPrivateLinkAttachmentAzureArrayOutput {
+	return i.ToGetPrivateLinkAttachmentAzureArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentAzureArray) ToGetPrivateLinkAttachmentAzureArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentAzureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentAzureArrayOutput)
+}
+
+type GetPrivateLinkAttachmentAzureOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentAzureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentAzure)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentAzureOutput) ToGetPrivateLinkAttachmentAzureOutput() GetPrivateLinkAttachmentAzureOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentAzureOutput) ToGetPrivateLinkAttachmentAzureOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentAzureOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentAzureOutput) PrivateLinkServiceAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAttachmentAzure) string { return v.PrivateLinkServiceAlias }).(pulumi.StringOutput)
+}
+
+func (o GetPrivateLinkAttachmentAzureOutput) PrivateLinkServiceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAttachmentAzure) string { return v.PrivateLinkServiceResourceId }).(pulumi.StringOutput)
+}
+
+func (o GetPrivateLinkAttachmentAzureOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAttachmentAzure) string { return v.Zone }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkAttachmentAzureArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentAzureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAttachmentAzure)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentAzureArrayOutput) ToGetPrivateLinkAttachmentAzureArrayOutput() GetPrivateLinkAttachmentAzureArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentAzureArrayOutput) ToGetPrivateLinkAttachmentAzureArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentAzureArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentAzureArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAttachmentAzureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrivateLinkAttachmentAzure {
+		return vs[0].([]GetPrivateLinkAttachmentAzure)[vs[1].(int)]
+	}).(GetPrivateLinkAttachmentAzureOutput)
+}
+
+type GetPrivateLinkAttachmentConnectionAw struct {
+	// (Required String) Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+	VpcEndpointId string `pulumi:"vpcEndpointId"`
+}
+
+// GetPrivateLinkAttachmentConnectionAwInput is an input type that accepts GetPrivateLinkAttachmentConnectionAwArgs and GetPrivateLinkAttachmentConnectionAwOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentConnectionAwInput` via:
+//
+//	GetPrivateLinkAttachmentConnectionAwArgs{...}
+type GetPrivateLinkAttachmentConnectionAwInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentConnectionAwOutput() GetPrivateLinkAttachmentConnectionAwOutput
+	ToGetPrivateLinkAttachmentConnectionAwOutputWithContext(context.Context) GetPrivateLinkAttachmentConnectionAwOutput
+}
+
+type GetPrivateLinkAttachmentConnectionAwArgs struct {
+	// (Required String) Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
+}
+
+func (GetPrivateLinkAttachmentConnectionAwArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentConnectionAw)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentConnectionAwArgs) ToGetPrivateLinkAttachmentConnectionAwOutput() GetPrivateLinkAttachmentConnectionAwOutput {
+	return i.ToGetPrivateLinkAttachmentConnectionAwOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentConnectionAwArgs) ToGetPrivateLinkAttachmentConnectionAwOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionAwOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionAwOutput)
+}
+
+// GetPrivateLinkAttachmentConnectionAwArrayInput is an input type that accepts GetPrivateLinkAttachmentConnectionAwArray and GetPrivateLinkAttachmentConnectionAwArrayOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentConnectionAwArrayInput` via:
+//
+//	GetPrivateLinkAttachmentConnectionAwArray{ GetPrivateLinkAttachmentConnectionAwArgs{...} }
+type GetPrivateLinkAttachmentConnectionAwArrayInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentConnectionAwArrayOutput() GetPrivateLinkAttachmentConnectionAwArrayOutput
+	ToGetPrivateLinkAttachmentConnectionAwArrayOutputWithContext(context.Context) GetPrivateLinkAttachmentConnectionAwArrayOutput
+}
+
+type GetPrivateLinkAttachmentConnectionAwArray []GetPrivateLinkAttachmentConnectionAwInput
+
+func (GetPrivateLinkAttachmentConnectionAwArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAttachmentConnectionAw)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentConnectionAwArray) ToGetPrivateLinkAttachmentConnectionAwArrayOutput() GetPrivateLinkAttachmentConnectionAwArrayOutput {
+	return i.ToGetPrivateLinkAttachmentConnectionAwArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentConnectionAwArray) ToGetPrivateLinkAttachmentConnectionAwArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionAwArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionAwArrayOutput)
+}
+
+type GetPrivateLinkAttachmentConnectionAwOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentConnectionAwOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentConnectionAw)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentConnectionAwOutput) ToGetPrivateLinkAttachmentConnectionAwOutput() GetPrivateLinkAttachmentConnectionAwOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionAwOutput) ToGetPrivateLinkAttachmentConnectionAwOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionAwOutput {
+	return o
+}
+
+// (Required String) Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+func (o GetPrivateLinkAttachmentConnectionAwOutput) VpcEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAttachmentConnectionAw) string { return v.VpcEndpointId }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkAttachmentConnectionAwArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentConnectionAwArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAttachmentConnectionAw)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentConnectionAwArrayOutput) ToGetPrivateLinkAttachmentConnectionAwArrayOutput() GetPrivateLinkAttachmentConnectionAwArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionAwArrayOutput) ToGetPrivateLinkAttachmentConnectionAwArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionAwArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionAwArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAttachmentConnectionAwOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrivateLinkAttachmentConnectionAw {
+		return vs[0].([]GetPrivateLinkAttachmentConnectionAw)[vs[1].(int)]
+	}).(GetPrivateLinkAttachmentConnectionAwOutput)
+}
+
+type GetPrivateLinkAttachmentConnectionAzure struct {
+	PrivateEndpointResourceId string `pulumi:"privateEndpointResourceId"`
+}
+
+// GetPrivateLinkAttachmentConnectionAzureInput is an input type that accepts GetPrivateLinkAttachmentConnectionAzureArgs and GetPrivateLinkAttachmentConnectionAzureOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentConnectionAzureInput` via:
+//
+//	GetPrivateLinkAttachmentConnectionAzureArgs{...}
+type GetPrivateLinkAttachmentConnectionAzureInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentConnectionAzureOutput() GetPrivateLinkAttachmentConnectionAzureOutput
+	ToGetPrivateLinkAttachmentConnectionAzureOutputWithContext(context.Context) GetPrivateLinkAttachmentConnectionAzureOutput
+}
+
+type GetPrivateLinkAttachmentConnectionAzureArgs struct {
+	PrivateEndpointResourceId pulumi.StringInput `pulumi:"privateEndpointResourceId"`
+}
+
+func (GetPrivateLinkAttachmentConnectionAzureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentConnectionAzure)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentConnectionAzureArgs) ToGetPrivateLinkAttachmentConnectionAzureOutput() GetPrivateLinkAttachmentConnectionAzureOutput {
+	return i.ToGetPrivateLinkAttachmentConnectionAzureOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentConnectionAzureArgs) ToGetPrivateLinkAttachmentConnectionAzureOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionAzureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionAzureOutput)
+}
+
+// GetPrivateLinkAttachmentConnectionAzureArrayInput is an input type that accepts GetPrivateLinkAttachmentConnectionAzureArray and GetPrivateLinkAttachmentConnectionAzureArrayOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentConnectionAzureArrayInput` via:
+//
+//	GetPrivateLinkAttachmentConnectionAzureArray{ GetPrivateLinkAttachmentConnectionAzureArgs{...} }
+type GetPrivateLinkAttachmentConnectionAzureArrayInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentConnectionAzureArrayOutput() GetPrivateLinkAttachmentConnectionAzureArrayOutput
+	ToGetPrivateLinkAttachmentConnectionAzureArrayOutputWithContext(context.Context) GetPrivateLinkAttachmentConnectionAzureArrayOutput
+}
+
+type GetPrivateLinkAttachmentConnectionAzureArray []GetPrivateLinkAttachmentConnectionAzureInput
+
+func (GetPrivateLinkAttachmentConnectionAzureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAttachmentConnectionAzure)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentConnectionAzureArray) ToGetPrivateLinkAttachmentConnectionAzureArrayOutput() GetPrivateLinkAttachmentConnectionAzureArrayOutput {
+	return i.ToGetPrivateLinkAttachmentConnectionAzureArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentConnectionAzureArray) ToGetPrivateLinkAttachmentConnectionAzureArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionAzureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionAzureArrayOutput)
+}
+
+type GetPrivateLinkAttachmentConnectionAzureOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentConnectionAzureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentConnectionAzure)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentConnectionAzureOutput) ToGetPrivateLinkAttachmentConnectionAzureOutput() GetPrivateLinkAttachmentConnectionAzureOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionAzureOutput) ToGetPrivateLinkAttachmentConnectionAzureOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionAzureOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionAzureOutput) PrivateEndpointResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAttachmentConnectionAzure) string { return v.PrivateEndpointResourceId }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkAttachmentConnectionAzureArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentConnectionAzureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAttachmentConnectionAzure)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentConnectionAzureArrayOutput) ToGetPrivateLinkAttachmentConnectionAzureArrayOutput() GetPrivateLinkAttachmentConnectionAzureArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionAzureArrayOutput) ToGetPrivateLinkAttachmentConnectionAzureArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionAzureArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionAzureArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAttachmentConnectionAzureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrivateLinkAttachmentConnectionAzure {
+		return vs[0].([]GetPrivateLinkAttachmentConnectionAzure)[vs[1].(int)]
+	}).(GetPrivateLinkAttachmentConnectionAzureOutput)
+}
+
+type GetPrivateLinkAttachmentConnectionEnvironment struct {
+	// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetPrivateLinkAttachmentConnectionEnvironmentInput is an input type that accepts GetPrivateLinkAttachmentConnectionEnvironmentArgs and GetPrivateLinkAttachmentConnectionEnvironmentOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentConnectionEnvironmentInput` via:
+//
+//	GetPrivateLinkAttachmentConnectionEnvironmentArgs{...}
+type GetPrivateLinkAttachmentConnectionEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentConnectionEnvironmentOutput() GetPrivateLinkAttachmentConnectionEnvironmentOutput
+	ToGetPrivateLinkAttachmentConnectionEnvironmentOutputWithContext(context.Context) GetPrivateLinkAttachmentConnectionEnvironmentOutput
+}
+
+type GetPrivateLinkAttachmentConnectionEnvironmentArgs struct {
+	// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetPrivateLinkAttachmentConnectionEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentConnectionEnvironment)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentConnectionEnvironmentArgs) ToGetPrivateLinkAttachmentConnectionEnvironmentOutput() GetPrivateLinkAttachmentConnectionEnvironmentOutput {
+	return i.ToGetPrivateLinkAttachmentConnectionEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentConnectionEnvironmentArgs) ToGetPrivateLinkAttachmentConnectionEnvironmentOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionEnvironmentOutput)
+}
+
+type GetPrivateLinkAttachmentConnectionEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentConnectionEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentConnectionEnvironment)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentConnectionEnvironmentOutput) ToGetPrivateLinkAttachmentConnectionEnvironmentOutput() GetPrivateLinkAttachmentConnectionEnvironmentOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionEnvironmentOutput) ToGetPrivateLinkAttachmentConnectionEnvironmentOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+func (o GetPrivateLinkAttachmentConnectionEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAttachmentConnectionEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkAttachmentConnectionGcp struct {
+	PrivateServiceConnectConnectionId string `pulumi:"privateServiceConnectConnectionId"`
+}
+
+// GetPrivateLinkAttachmentConnectionGcpInput is an input type that accepts GetPrivateLinkAttachmentConnectionGcpArgs and GetPrivateLinkAttachmentConnectionGcpOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentConnectionGcpInput` via:
+//
+//	GetPrivateLinkAttachmentConnectionGcpArgs{...}
+type GetPrivateLinkAttachmentConnectionGcpInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentConnectionGcpOutput() GetPrivateLinkAttachmentConnectionGcpOutput
+	ToGetPrivateLinkAttachmentConnectionGcpOutputWithContext(context.Context) GetPrivateLinkAttachmentConnectionGcpOutput
+}
+
+type GetPrivateLinkAttachmentConnectionGcpArgs struct {
+	PrivateServiceConnectConnectionId pulumi.StringInput `pulumi:"privateServiceConnectConnectionId"`
+}
+
+func (GetPrivateLinkAttachmentConnectionGcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentConnectionGcp)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentConnectionGcpArgs) ToGetPrivateLinkAttachmentConnectionGcpOutput() GetPrivateLinkAttachmentConnectionGcpOutput {
+	return i.ToGetPrivateLinkAttachmentConnectionGcpOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentConnectionGcpArgs) ToGetPrivateLinkAttachmentConnectionGcpOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionGcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionGcpOutput)
+}
+
+// GetPrivateLinkAttachmentConnectionGcpArrayInput is an input type that accepts GetPrivateLinkAttachmentConnectionGcpArray and GetPrivateLinkAttachmentConnectionGcpArrayOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentConnectionGcpArrayInput` via:
+//
+//	GetPrivateLinkAttachmentConnectionGcpArray{ GetPrivateLinkAttachmentConnectionGcpArgs{...} }
+type GetPrivateLinkAttachmentConnectionGcpArrayInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentConnectionGcpArrayOutput() GetPrivateLinkAttachmentConnectionGcpArrayOutput
+	ToGetPrivateLinkAttachmentConnectionGcpArrayOutputWithContext(context.Context) GetPrivateLinkAttachmentConnectionGcpArrayOutput
+}
+
+type GetPrivateLinkAttachmentConnectionGcpArray []GetPrivateLinkAttachmentConnectionGcpInput
+
+func (GetPrivateLinkAttachmentConnectionGcpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAttachmentConnectionGcp)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentConnectionGcpArray) ToGetPrivateLinkAttachmentConnectionGcpArrayOutput() GetPrivateLinkAttachmentConnectionGcpArrayOutput {
+	return i.ToGetPrivateLinkAttachmentConnectionGcpArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentConnectionGcpArray) ToGetPrivateLinkAttachmentConnectionGcpArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionGcpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionGcpArrayOutput)
+}
+
+type GetPrivateLinkAttachmentConnectionGcpOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentConnectionGcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentConnectionGcp)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentConnectionGcpOutput) ToGetPrivateLinkAttachmentConnectionGcpOutput() GetPrivateLinkAttachmentConnectionGcpOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionGcpOutput) ToGetPrivateLinkAttachmentConnectionGcpOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionGcpOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionGcpOutput) PrivateServiceConnectConnectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAttachmentConnectionGcp) string { return v.PrivateServiceConnectConnectionId }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkAttachmentConnectionGcpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentConnectionGcpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAttachmentConnectionGcp)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentConnectionGcpArrayOutput) ToGetPrivateLinkAttachmentConnectionGcpArrayOutput() GetPrivateLinkAttachmentConnectionGcpArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionGcpArrayOutput) ToGetPrivateLinkAttachmentConnectionGcpArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionGcpArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionGcpArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAttachmentConnectionGcpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrivateLinkAttachmentConnectionGcp {
+		return vs[0].([]GetPrivateLinkAttachmentConnectionGcp)[vs[1].(int)]
+	}).(GetPrivateLinkAttachmentConnectionGcpOutput)
+}
+
+type GetPrivateLinkAttachmentConnectionPrivateLinkAttachment struct {
+	// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentInput is an input type that accepts GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs and GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentInput` via:
+//
+//	GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs{...}
+type GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput() GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput
+	ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutputWithContext(context.Context) GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput
+}
+
+type GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs struct {
+	// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentConnectionPrivateLinkAttachment)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs) ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput() GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
+	return i.ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs) ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput)
+}
+
+// GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayInput is an input type that accepts GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArray and GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayInput` via:
+//
+//	GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArray{ GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs{...} }
+type GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput() GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput
+	ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutputWithContext(context.Context) GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput
+}
+
+type GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArray []GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentInput
+
+func (GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAttachmentConnectionPrivateLinkAttachment)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArray) ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput() GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput {
+	return i.ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArray) ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput)
+}
+
+type GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentConnectionPrivateLinkAttachment)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput() GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAttachmentConnectionPrivateLinkAttachment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAttachmentConnectionPrivateLinkAttachment)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput) ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput() GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput) ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrivateLinkAttachmentConnectionPrivateLinkAttachment {
+		return vs[0].([]GetPrivateLinkAttachmentConnectionPrivateLinkAttachment)[vs[1].(int)]
+	}).(GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput)
+}
+
+type GetPrivateLinkAttachmentEnvironment struct {
+	// The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+	Id string `pulumi:"id"`
+}
+
+// GetPrivateLinkAttachmentEnvironmentInput is an input type that accepts GetPrivateLinkAttachmentEnvironmentArgs and GetPrivateLinkAttachmentEnvironmentOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentEnvironmentInput` via:
+//
+//	GetPrivateLinkAttachmentEnvironmentArgs{...}
+type GetPrivateLinkAttachmentEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentEnvironmentOutput() GetPrivateLinkAttachmentEnvironmentOutput
+	ToGetPrivateLinkAttachmentEnvironmentOutputWithContext(context.Context) GetPrivateLinkAttachmentEnvironmentOutput
+}
+
+type GetPrivateLinkAttachmentEnvironmentArgs struct {
+	// The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetPrivateLinkAttachmentEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentEnvironment)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentEnvironmentArgs) ToGetPrivateLinkAttachmentEnvironmentOutput() GetPrivateLinkAttachmentEnvironmentOutput {
+	return i.ToGetPrivateLinkAttachmentEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentEnvironmentArgs) ToGetPrivateLinkAttachmentEnvironmentOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentEnvironmentOutput)
+}
+
+type GetPrivateLinkAttachmentEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentEnvironment)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentEnvironmentOutput) ToGetPrivateLinkAttachmentEnvironmentOutput() GetPrivateLinkAttachmentEnvironmentOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentEnvironmentOutput) ToGetPrivateLinkAttachmentEnvironmentOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+func (o GetPrivateLinkAttachmentEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAttachmentEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkAttachmentGcp struct {
+	PrivateServiceConnectServiceAttachment string `pulumi:"privateServiceConnectServiceAttachment"`
+	Zone                                   string `pulumi:"zone"`
+}
+
+// GetPrivateLinkAttachmentGcpInput is an input type that accepts GetPrivateLinkAttachmentGcpArgs and GetPrivateLinkAttachmentGcpOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentGcpInput` via:
+//
+//	GetPrivateLinkAttachmentGcpArgs{...}
+type GetPrivateLinkAttachmentGcpInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentGcpOutput() GetPrivateLinkAttachmentGcpOutput
+	ToGetPrivateLinkAttachmentGcpOutputWithContext(context.Context) GetPrivateLinkAttachmentGcpOutput
+}
+
+type GetPrivateLinkAttachmentGcpArgs struct {
+	PrivateServiceConnectServiceAttachment pulumi.StringInput `pulumi:"privateServiceConnectServiceAttachment"`
+	Zone                                   pulumi.StringInput `pulumi:"zone"`
+}
+
+func (GetPrivateLinkAttachmentGcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentGcp)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentGcpArgs) ToGetPrivateLinkAttachmentGcpOutput() GetPrivateLinkAttachmentGcpOutput {
+	return i.ToGetPrivateLinkAttachmentGcpOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentGcpArgs) ToGetPrivateLinkAttachmentGcpOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentGcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentGcpOutput)
+}
+
+// GetPrivateLinkAttachmentGcpArrayInput is an input type that accepts GetPrivateLinkAttachmentGcpArray and GetPrivateLinkAttachmentGcpArrayOutput values.
+// You can construct a concrete instance of `GetPrivateLinkAttachmentGcpArrayInput` via:
+//
+//	GetPrivateLinkAttachmentGcpArray{ GetPrivateLinkAttachmentGcpArgs{...} }
+type GetPrivateLinkAttachmentGcpArrayInput interface {
+	pulumi.Input
+
+	ToGetPrivateLinkAttachmentGcpArrayOutput() GetPrivateLinkAttachmentGcpArrayOutput
+	ToGetPrivateLinkAttachmentGcpArrayOutputWithContext(context.Context) GetPrivateLinkAttachmentGcpArrayOutput
+}
+
+type GetPrivateLinkAttachmentGcpArray []GetPrivateLinkAttachmentGcpInput
+
+func (GetPrivateLinkAttachmentGcpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAttachmentGcp)(nil)).Elem()
+}
+
+func (i GetPrivateLinkAttachmentGcpArray) ToGetPrivateLinkAttachmentGcpArrayOutput() GetPrivateLinkAttachmentGcpArrayOutput {
+	return i.ToGetPrivateLinkAttachmentGcpArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrivateLinkAttachmentGcpArray) ToGetPrivateLinkAttachmentGcpArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentGcpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentGcpArrayOutput)
+}
+
+type GetPrivateLinkAttachmentGcpOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentGcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrivateLinkAttachmentGcp)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentGcpOutput) ToGetPrivateLinkAttachmentGcpOutput() GetPrivateLinkAttachmentGcpOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentGcpOutput) ToGetPrivateLinkAttachmentGcpOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentGcpOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentGcpOutput) PrivateServiceConnectServiceAttachment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAttachmentGcp) string { return v.PrivateServiceConnectServiceAttachment }).(pulumi.StringOutput)
+}
+
+func (o GetPrivateLinkAttachmentGcpOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrivateLinkAttachmentGcp) string { return v.Zone }).(pulumi.StringOutput)
+}
+
+type GetPrivateLinkAttachmentGcpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrivateLinkAttachmentGcpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrivateLinkAttachmentGcp)(nil)).Elem()
+}
+
+func (o GetPrivateLinkAttachmentGcpArrayOutput) ToGetPrivateLinkAttachmentGcpArrayOutput() GetPrivateLinkAttachmentGcpArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentGcpArrayOutput) ToGetPrivateLinkAttachmentGcpArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentGcpArrayOutput {
+	return o
+}
+
+func (o GetPrivateLinkAttachmentGcpArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAttachmentGcpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrivateLinkAttachmentGcp {
+		return vs[0].([]GetPrivateLinkAttachmentGcp)[vs[1].(int)]
+	}).(GetPrivateLinkAttachmentGcpOutput)
 }
 
 type GetSchemaCredentials struct {
@@ -21384,6 +23466,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterConfigKafkaClusterPtrInput)(nil)).Elem(), KafkaClusterConfigKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterDedicatedInput)(nil)).Elem(), KafkaClusterDedicatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterDedicatedPtrInput)(nil)).Elem(), KafkaClusterDedicatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterEnterpriseInput)(nil)).Elem(), KafkaClusterEnterpriseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterEnterpriseArrayInput)(nil)).Elem(), KafkaClusterEnterpriseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterEnvironmentInput)(nil)).Elem(), KafkaClusterEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterEnvironmentPtrInput)(nil)).Elem(), KafkaClusterEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterNetworkInput)(nil)).Elem(), KafkaClusterNetworkArgs{})
@@ -21452,6 +23536,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessGcpPtrInput)(nil)).Elem(), PrivateLinkAccessGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessNetworkInput)(nil)).Elem(), PrivateLinkAccessNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAccessNetworkPtrInput)(nil)).Elem(), PrivateLinkAccessNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentAwInput)(nil)).Elem(), PrivateLinkAttachmentAwArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentAwArrayInput)(nil)).Elem(), PrivateLinkAttachmentAwArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentAzureInput)(nil)).Elem(), PrivateLinkAttachmentAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentAzureArrayInput)(nil)).Elem(), PrivateLinkAttachmentAzureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentConnectionAwsInput)(nil)).Elem(), PrivateLinkAttachmentConnectionAwsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentConnectionAwsPtrInput)(nil)).Elem(), PrivateLinkAttachmentConnectionAwsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentConnectionAzureInput)(nil)).Elem(), PrivateLinkAttachmentConnectionAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentConnectionAzurePtrInput)(nil)).Elem(), PrivateLinkAttachmentConnectionAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentConnectionEnvironmentInput)(nil)).Elem(), PrivateLinkAttachmentConnectionEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentConnectionEnvironmentPtrInput)(nil)).Elem(), PrivateLinkAttachmentConnectionEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentConnectionGcpInput)(nil)).Elem(), PrivateLinkAttachmentConnectionGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentConnectionGcpPtrInput)(nil)).Elem(), PrivateLinkAttachmentConnectionGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentConnectionPrivateLinkAttachmentInput)(nil)).Elem(), PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrInput)(nil)).Elem(), PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentEnvironmentInput)(nil)).Elem(), PrivateLinkAttachmentEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentEnvironmentPtrInput)(nil)).Elem(), PrivateLinkAttachmentEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentGcpInput)(nil)).Elem(), PrivateLinkAttachmentGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentGcpArrayInput)(nil)).Elem(), PrivateLinkAttachmentGcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCredentialsInput)(nil)).Elem(), SchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCredentialsPtrInput)(nil)).Elem(), SchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterConfigCredentialsInput)(nil)).Elem(), SchemaRegistryClusterConfigCredentialsArgs{})
@@ -21523,6 +23625,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterByokKeyArrayInput)(nil)).Elem(), GetKafkaClusterByokKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterDedicatedInput)(nil)).Elem(), GetKafkaClusterDedicatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterDedicatedPtrInput)(nil)).Elem(), GetKafkaClusterDedicatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterEnterpriseInput)(nil)).Elem(), GetKafkaClusterEnterpriseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterEnterpriseArrayInput)(nil)).Elem(), GetKafkaClusterEnterpriseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterEnvironmentInput)(nil)).Elem(), GetKafkaClusterEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterNetworkInput)(nil)).Elem(), GetKafkaClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClusterNetworkArrayInput)(nil)).Elem(), GetKafkaClusterNetworkArray{})
@@ -21576,6 +23680,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessGcpArrayInput)(nil)).Elem(), GetPrivateLinkAccessGcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessNetworkInput)(nil)).Elem(), GetPrivateLinkAccessNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAccessNetworkArrayInput)(nil)).Elem(), GetPrivateLinkAccessNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentAwInput)(nil)).Elem(), GetPrivateLinkAttachmentAwArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentAwArrayInput)(nil)).Elem(), GetPrivateLinkAttachmentAwArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentAzureInput)(nil)).Elem(), GetPrivateLinkAttachmentAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentAzureArrayInput)(nil)).Elem(), GetPrivateLinkAttachmentAzureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentConnectionAwInput)(nil)).Elem(), GetPrivateLinkAttachmentConnectionAwArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentConnectionAwArrayInput)(nil)).Elem(), GetPrivateLinkAttachmentConnectionAwArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentConnectionAzureInput)(nil)).Elem(), GetPrivateLinkAttachmentConnectionAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentConnectionAzureArrayInput)(nil)).Elem(), GetPrivateLinkAttachmentConnectionAzureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentConnectionEnvironmentInput)(nil)).Elem(), GetPrivateLinkAttachmentConnectionEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentConnectionGcpInput)(nil)).Elem(), GetPrivateLinkAttachmentConnectionGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentConnectionGcpArrayInput)(nil)).Elem(), GetPrivateLinkAttachmentConnectionGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentInput)(nil)).Elem(), GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayInput)(nil)).Elem(), GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentEnvironmentInput)(nil)).Elem(), GetPrivateLinkAttachmentEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentGcpInput)(nil)).Elem(), GetPrivateLinkAttachmentGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentGcpArrayInput)(nil)).Elem(), GetPrivateLinkAttachmentGcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaCredentialsInput)(nil)).Elem(), GetSchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaCredentialsPtrInput)(nil)).Elem(), GetSchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterConfigCredentialsInput)(nil)).Elem(), GetSchemaRegistryClusterConfigCredentialsArgs{})
@@ -21695,6 +23815,8 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClusterConfigKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterDedicatedOutput{})
 	pulumi.RegisterOutputType(KafkaClusterDedicatedPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterEnterpriseOutput{})
+	pulumi.RegisterOutputType(KafkaClusterEnterpriseArrayOutput{})
 	pulumi.RegisterOutputType(KafkaClusterEnvironmentOutput{})
 	pulumi.RegisterOutputType(KafkaClusterEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterNetworkOutput{})
@@ -21763,6 +23885,24 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkAccessGcpPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAccessNetworkOutput{})
 	pulumi.RegisterOutputType(PrivateLinkAccessNetworkPtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentAwOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentAwArrayOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentAzureOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentAzureArrayOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentConnectionAwsOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentConnectionAwsPtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentConnectionAzureOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentConnectionAzurePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentConnectionEnvironmentOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentConnectionEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentConnectionGcpOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentConnectionGcpPtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentEnvironmentOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentGcpOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAttachmentGcpArrayOutput{})
 	pulumi.RegisterOutputType(SchemaCredentialsOutput{})
 	pulumi.RegisterOutputType(SchemaCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryClusterConfigCredentialsOutput{})
@@ -21834,6 +23974,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKafkaClusterByokKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterDedicatedOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterDedicatedPtrOutput{})
+	pulumi.RegisterOutputType(GetKafkaClusterEnterpriseOutput{})
+	pulumi.RegisterOutputType(GetKafkaClusterEnterpriseArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterNetworkOutput{})
 	pulumi.RegisterOutputType(GetKafkaClusterNetworkArrayOutput{})
@@ -21887,6 +24029,22 @@ func init() {
 	pulumi.RegisterOutputType(GetPrivateLinkAccessGcpArrayOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAccessNetworkOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkAccessNetworkArrayOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentAwOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentAwArrayOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentAzureOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentAzureArrayOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentConnectionAwOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentConnectionAwArrayOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentConnectionAzureOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentConnectionAzureArrayOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentConnectionEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentConnectionGcpOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentConnectionGcpArrayOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentGcpOutput{})
+	pulumi.RegisterOutputType(GetPrivateLinkAttachmentGcpArrayOutput{})
 	pulumi.RegisterOutputType(GetSchemaCredentialsOutput{})
 	pulumi.RegisterOutputType(GetSchemaCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetSchemaRegistryClusterConfigCredentialsOutput{})

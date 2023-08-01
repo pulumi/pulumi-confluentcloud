@@ -23,7 +23,7 @@ class GetKafkaClusterResult:
     """
     A collection of values returned by getKafkaCluster.
     """
-    def __init__(__self__, api_version=None, availability=None, basics=None, bootstrap_endpoint=None, byok_keys=None, cloud=None, dedicated=None, display_name=None, environment=None, id=None, kind=None, networks=None, rbac_crn=None, region=None, rest_endpoint=None, standards=None):
+    def __init__(__self__, api_version=None, availability=None, basics=None, bootstrap_endpoint=None, byok_keys=None, cloud=None, dedicated=None, display_name=None, enterprises=None, environment=None, id=None, kind=None, networks=None, rbac_crn=None, region=None, rest_endpoint=None, standards=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
@@ -48,6 +48,9 @@ class GetKafkaClusterResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if enterprises and not isinstance(enterprises, list):
+            raise TypeError("Expected argument 'enterprises' to be a list")
+        pulumi.set(__self__, "enterprises", enterprises)
         if environment and not isinstance(environment, dict):
             raise TypeError("Expected argument 'environment' to be a dict")
         pulumi.set(__self__, "environment", environment)
@@ -139,6 +142,14 @@ class GetKafkaClusterResult:
 
     @property
     @pulumi.getter
+    def enterprises(self) -> Optional[Sequence['outputs.GetKafkaClusterEnterpriseResult']]:
+        """
+        (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+        """
+        return pulumi.get(self, "enterprises")
+
+    @property
+    @pulumi.getter
     def environment(self) -> 'outputs.GetKafkaClusterEnvironmentResult':
         return pulumi.get(self, "environment")
 
@@ -213,6 +224,7 @@ class AwaitableGetKafkaClusterResult(GetKafkaClusterResult):
             cloud=self.cloud,
             dedicated=self.dedicated,
             display_name=self.display_name,
+            enterprises=self.enterprises,
             environment=self.environment,
             id=self.id,
             kind=self.kind,
@@ -226,6 +238,7 @@ class AwaitableGetKafkaClusterResult(GetKafkaClusterResult):
 def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaClusterBasicArgs']]] = None,
                       dedicated: Optional[pulumi.InputType['GetKafkaClusterDedicatedArgs']] = None,
                       display_name: Optional[str] = None,
+                      enterprises: Optional[Sequence[pulumi.InputType['GetKafkaClusterEnterpriseArgs']]] = None,
                       environment: Optional[pulumi.InputType['GetKafkaClusterEnvironmentArgs']] = None,
                       id: Optional[str] = None,
                       standards: Optional[Sequence[pulumi.InputType['GetKafkaClusterStandardArgs']]] = None,
@@ -257,6 +270,7 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
     :param Sequence[pulumi.InputType['GetKafkaClusterBasicArgs']] basics: (Optional Configuration Block) The configuration of the Basic Kafka cluster.
     :param pulumi.InputType['GetKafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
     :param str display_name: A human-readable name for the Kafka cluster.
+    :param Sequence[pulumi.InputType['GetKafkaClusterEnterpriseArgs']] enterprises: (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
     :param str id: The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
            
            > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
@@ -266,6 +280,7 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
     __args__['basics'] = basics
     __args__['dedicated'] = dedicated
     __args__['displayName'] = display_name
+    __args__['enterprises'] = enterprises
     __args__['environment'] = environment
     __args__['id'] = id
     __args__['standards'] = standards
@@ -281,6 +296,7 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
         cloud=pulumi.get(__ret__, 'cloud'),
         dedicated=pulumi.get(__ret__, 'dedicated'),
         display_name=pulumi.get(__ret__, 'display_name'),
+        enterprises=pulumi.get(__ret__, 'enterprises'),
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -295,6 +311,7 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
 def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKafkaClusterBasicArgs']]]]] = None,
                              dedicated: Optional[pulumi.Input[Optional[pulumi.InputType['GetKafkaClusterDedicatedArgs']]]] = None,
                              display_name: Optional[pulumi.Input[Optional[str]]] = None,
+                             enterprises: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKafkaClusterEnterpriseArgs']]]]] = None,
                              environment: Optional[pulumi.Input[pulumi.InputType['GetKafkaClusterEnvironmentArgs']]] = None,
                              id: Optional[pulumi.Input[Optional[str]]] = None,
                              standards: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKafkaClusterStandardArgs']]]]] = None,
@@ -326,6 +343,7 @@ def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[pul
     :param Sequence[pulumi.InputType['GetKafkaClusterBasicArgs']] basics: (Optional Configuration Block) The configuration of the Basic Kafka cluster.
     :param pulumi.InputType['GetKafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
     :param str display_name: A human-readable name for the Kafka cluster.
+    :param Sequence[pulumi.InputType['GetKafkaClusterEnterpriseArgs']] enterprises: (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
     :param str id: The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
            
            > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.

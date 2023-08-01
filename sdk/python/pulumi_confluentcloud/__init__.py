@@ -30,6 +30,8 @@ from .get_network_link_service import *
 from .get_organization import *
 from .get_peering import *
 from .get_private_link_access import *
+from .get_private_link_attachment import *
+from .get_private_link_attachment_connection import *
 from .get_role_binding import *
 from .get_schema import *
 from .get_schema_registry_cluster import *
@@ -61,6 +63,8 @@ from .network_link_endpoint import *
 from .network_link_service import *
 from .peering import *
 from .private_link_access import *
+from .private_link_attachment import *
+from .private_link_attachment_connection import *
 from .provider import *
 from .role_binding import *
 from .schema import *
@@ -261,6 +265,22 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/privateLinkAccess:PrivateLinkAccess": "PrivateLinkAccess"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/privateLinkAttachment",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment": "PrivateLinkAttachment"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/privateLinkAttachmentConnection",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection": "PrivateLinkAttachmentConnection"
   }
  },
  {

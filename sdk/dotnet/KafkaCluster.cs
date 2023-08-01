@@ -69,6 +69,12 @@ namespace Pulumi.ConfluentCloud
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration of the Enterprise Kafka cluster.
+        /// </summary>
+        [Output("enterprises")]
+        public Output<ImmutableArray<Outputs.KafkaClusterEnterprise>> Enterprises { get; private set; } = null!;
+
+        /// <summary>
         /// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         /// </summary>
         [Output("environment")]
@@ -190,6 +196,18 @@ namespace Pulumi.ConfluentCloud
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        [Input("enterprises")]
+        private InputList<Inputs.KafkaClusterEnterpriseArgs>? _enterprises;
+
+        /// <summary>
+        /// The configuration of the Enterprise Kafka cluster.
+        /// </summary>
+        public InputList<Inputs.KafkaClusterEnterpriseArgs> Enterprises
+        {
+            get => _enterprises ?? (_enterprises = new InputList<Inputs.KafkaClusterEnterpriseArgs>());
+            set => _enterprises = value;
+        }
+
         /// <summary>
         /// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         /// </summary>
@@ -267,6 +285,18 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        [Input("enterprises")]
+        private InputList<Inputs.KafkaClusterEnterpriseGetArgs>? _enterprises;
+
+        /// <summary>
+        /// The configuration of the Enterprise Kafka cluster.
+        /// </summary>
+        public InputList<Inputs.KafkaClusterEnterpriseGetArgs> Enterprises
+        {
+            get => _enterprises ?? (_enterprises = new InputList<Inputs.KafkaClusterEnterpriseGetArgs>());
+            set => _enterprises = value;
+        }
 
         /// <summary>
         /// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.

@@ -40,6 +40,7 @@ export function getKafkaCluster(args: GetKafkaClusterArgs, opts?: pulumi.InvokeO
         "basics": args.basics,
         "dedicated": args.dedicated,
         "displayName": args.displayName,
+        "enterprises": args.enterprises,
         "environment": args.environment,
         "id": args.id,
         "standards": args.standards,
@@ -62,6 +63,10 @@ export interface GetKafkaClusterArgs {
      * A human-readable name for the Kafka cluster.
      */
     displayName?: string;
+    /**
+     * (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+     */
+    enterprises?: inputs.GetKafkaClusterEnterprise[];
     environment: inputs.GetKafkaClusterEnvironment;
     /**
      * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
@@ -111,6 +116,10 @@ export interface GetKafkaClusterResult {
      * (Required String) The name of the Kafka cluster.
      */
     readonly displayName: string;
+    /**
+     * (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+     */
+    readonly enterprises?: outputs.GetKafkaClusterEnterprise[];
     readonly environment: outputs.GetKafkaClusterEnvironment;
     /**
      * (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
@@ -188,6 +197,10 @@ export interface GetKafkaClusterOutputArgs {
      * A human-readable name for the Kafka cluster.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+     */
+    enterprises?: pulumi.Input<pulumi.Input<inputs.GetKafkaClusterEnterpriseArgs>[]>;
     environment: pulumi.Input<inputs.GetKafkaClusterEnvironmentArgs>;
     /**
      * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.

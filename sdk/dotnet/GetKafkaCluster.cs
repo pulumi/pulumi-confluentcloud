@@ -143,6 +143,18 @@ namespace Pulumi.ConfluentCloud
         [Input("displayName")]
         public string? DisplayName { get; set; }
 
+        [Input("enterprises")]
+        private List<Inputs.GetKafkaClusterEnterpriseArgs>? _enterprises;
+
+        /// <summary>
+        /// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+        /// </summary>
+        public List<Inputs.GetKafkaClusterEnterpriseArgs> Enterprises
+        {
+            get => _enterprises ?? (_enterprises = new List<Inputs.GetKafkaClusterEnterpriseArgs>());
+            set => _enterprises = value;
+        }
+
         [Input("environment", required: true)]
         public Inputs.GetKafkaClusterEnvironmentArgs Environment { get; set; } = null!;
 
@@ -197,6 +209,18 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        [Input("enterprises")]
+        private InputList<Inputs.GetKafkaClusterEnterpriseInputArgs>? _enterprises;
+
+        /// <summary>
+        /// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+        /// </summary>
+        public InputList<Inputs.GetKafkaClusterEnterpriseInputArgs> Enterprises
+        {
+            get => _enterprises ?? (_enterprises = new InputList<Inputs.GetKafkaClusterEnterpriseInputArgs>());
+            set => _enterprises = value;
+        }
 
         [Input("environment", required: true)]
         public Input<Inputs.GetKafkaClusterEnvironmentInputArgs> Environment { get; set; } = null!;
@@ -263,6 +287,10 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) The name of the Kafka cluster.
         /// </summary>
         public readonly string DisplayName;
+        /// <summary>
+        /// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKafkaClusterEnterpriseResult> Enterprises;
         public readonly Outputs.GetKafkaClusterEnvironmentResult Environment;
         /// <summary>
         /// (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
@@ -311,6 +339,8 @@ namespace Pulumi.ConfluentCloud
 
             string displayName,
 
+            ImmutableArray<Outputs.GetKafkaClusterEnterpriseResult> enterprises,
+
             Outputs.GetKafkaClusterEnvironmentResult environment,
 
             string id,
@@ -335,6 +365,7 @@ namespace Pulumi.ConfluentCloud
             Cloud = cloud;
             Dedicated = dedicated;
             DisplayName = displayName;
+            Enterprises = enterprises;
             Environment = environment;
             Id = id;
             Kind = kind;

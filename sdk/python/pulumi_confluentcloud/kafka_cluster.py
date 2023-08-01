@@ -24,6 +24,7 @@ class KafkaClusterArgs:
                  byok_key: Optional[pulumi.Input['KafkaClusterByokKeyArgs']] = None,
                  dedicated: Optional[pulumi.Input['KafkaClusterDedicatedArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 enterprises: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]]] = None,
                  network: Optional[pulumi.Input['KafkaClusterNetworkArgs']] = None,
                  standard: Optional[pulumi.Input['KafkaClusterStandardArgs']] = None):
         """
@@ -35,6 +36,7 @@ class KafkaClusterArgs:
         :param pulumi.Input['KafkaClusterBasicArgs'] basic: The configuration of the Basic Kafka cluster.
         :param pulumi.Input['KafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]] enterprises: The configuration of the Enterprise Kafka cluster.
         :param pulumi.Input['KafkaClusterNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         :param pulumi.Input['KafkaClusterStandardArgs'] standard: The configuration of the Standard Kafka cluster.
@@ -51,6 +53,8 @@ class KafkaClusterArgs:
             pulumi.set(__self__, "dedicated", dedicated)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if enterprises is not None:
+            pulumi.set(__self__, "enterprises", enterprises)
         if network is not None:
             pulumi.set(__self__, "network", network)
         if standard is not None:
@@ -151,6 +155,18 @@ class KafkaClusterArgs:
 
     @property
     @pulumi.getter
+    def enterprises(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]]]:
+        """
+        The configuration of the Enterprise Kafka cluster.
+        """
+        return pulumi.get(self, "enterprises")
+
+    @enterprises.setter
+    def enterprises(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]]]):
+        pulumi.set(self, "enterprises", value)
+
+    @property
+    @pulumi.getter
     def network(self) -> Optional[pulumi.Input['KafkaClusterNetworkArgs']]:
         """
         Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -186,6 +202,7 @@ class _KafkaClusterState:
                  cloud: Optional[pulumi.Input[str]] = None,
                  dedicated: Optional[pulumi.Input['KafkaClusterDedicatedArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 enterprises: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]]] = None,
                  environment: Optional[pulumi.Input['KafkaClusterEnvironmentArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['KafkaClusterNetworkArgs']] = None,
@@ -202,6 +219,7 @@ class _KafkaClusterState:
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input['KafkaClusterDedicatedArgs'] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]] enterprises: The configuration of the Enterprise Kafka cluster.
         :param pulumi.Input['KafkaClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] kind: (Required String) A kind of the Kafka cluster, for example, `Cluster`.
         :param pulumi.Input['KafkaClusterNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -227,6 +245,8 @@ class _KafkaClusterState:
             pulumi.set(__self__, "dedicated", dedicated)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if enterprises is not None:
+            pulumi.set(__self__, "enterprises", enterprises)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
         if kind is not None:
@@ -337,6 +357,18 @@ class _KafkaClusterState:
 
     @property
     @pulumi.getter
+    def enterprises(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]]]:
+        """
+        The configuration of the Enterprise Kafka cluster.
+        """
+        return pulumi.get(self, "enterprises")
+
+    @enterprises.setter
+    def enterprises(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]]]):
+        pulumi.set(self, "enterprises", value)
+
+    @property
+    @pulumi.getter
     def environment(self) -> Optional[pulumi.Input['KafkaClusterEnvironmentArgs']]:
         """
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -432,6 +464,7 @@ class KafkaCluster(pulumi.CustomResource):
                  cloud: Optional[pulumi.Input[str]] = None,
                  dedicated: Optional[pulumi.Input[pulumi.InputType['KafkaClusterDedicatedArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 enterprises: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterEnterpriseArgs']]]]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']]] = None,
                  region: Optional[pulumi.Input[str]] = None,
@@ -455,6 +488,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[pulumi.InputType['KafkaClusterDedicatedArgs']] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterEnterpriseArgs']]]] enterprises: The configuration of the Enterprise Kafka cluster.
         :param pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
@@ -499,6 +533,7 @@ class KafkaCluster(pulumi.CustomResource):
                  cloud: Optional[pulumi.Input[str]] = None,
                  dedicated: Optional[pulumi.Input[pulumi.InputType['KafkaClusterDedicatedArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 enterprises: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterEnterpriseArgs']]]]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']]] = None,
                  region: Optional[pulumi.Input[str]] = None,
@@ -522,6 +557,7 @@ class KafkaCluster(pulumi.CustomResource):
             __props__.__dict__["cloud"] = cloud
             __props__.__dict__["dedicated"] = dedicated
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["enterprises"] = enterprises
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
@@ -553,6 +589,7 @@ class KafkaCluster(pulumi.CustomResource):
             cloud: Optional[pulumi.Input[str]] = None,
             dedicated: Optional[pulumi.Input[pulumi.InputType['KafkaClusterDedicatedArgs']]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
+            enterprises: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterEnterpriseArgs']]]]] = None,
             environment: Optional[pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             network: Optional[pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']]] = None,
@@ -574,6 +611,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
         :param pulumi.Input[pulumi.InputType['KafkaClusterDedicatedArgs']] dedicated: (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
         :param pulumi.Input[str] display_name: The name of the Kafka cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KafkaClusterEnterpriseArgs']]]] enterprises: The configuration of the Enterprise Kafka cluster.
         :param pulumi.Input[pulumi.InputType['KafkaClusterEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] kind: (Required String) A kind of the Kafka cluster, for example, `Cluster`.
         :param pulumi.Input[pulumi.InputType['KafkaClusterNetworkArgs']] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
@@ -595,6 +633,7 @@ class KafkaCluster(pulumi.CustomResource):
         __props__.__dict__["cloud"] = cloud
         __props__.__dict__["dedicated"] = dedicated
         __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["enterprises"] = enterprises
         __props__.__dict__["environment"] = environment
         __props__.__dict__["kind"] = kind
         __props__.__dict__["network"] = network
@@ -664,6 +703,14 @@ class KafkaCluster(pulumi.CustomResource):
         The name of the Kafka cluster.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def enterprises(self) -> pulumi.Output[Optional[Sequence['outputs.KafkaClusterEnterprise']]]:
+        """
+        The configuration of the Enterprise Kafka cluster.
+        """
+        return pulumi.get(self, "enterprises")
 
     @property
     @pulumi.getter

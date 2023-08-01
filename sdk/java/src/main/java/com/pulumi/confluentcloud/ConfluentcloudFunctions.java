@@ -36,6 +36,10 @@ import com.pulumi.confluentcloud.inputs.GetPeeringArgs;
 import com.pulumi.confluentcloud.inputs.GetPeeringPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessArgs;
 import com.pulumi.confluentcloud.inputs.GetPrivateLinkAccessPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentArgs;
+import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionArgs;
+import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetRoleBindingArgs;
 import com.pulumi.confluentcloud.inputs.GetRoleBindingPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaArgs;
@@ -82,6 +86,8 @@ import com.pulumi.confluentcloud.outputs.GetNetworkResult;
 import com.pulumi.confluentcloud.outputs.GetOrganizationResult;
 import com.pulumi.confluentcloud.outputs.GetPeeringResult;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAccessResult;
+import com.pulumi.confluentcloud.outputs.GetPrivateLinkAttachmentConnectionResult;
+import com.pulumi.confluentcloud.outputs.GetPrivateLinkAttachmentResult;
 import com.pulumi.confluentcloud.outputs.GetRoleBindingResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterConfigResult;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterModeResult;
@@ -3335,6 +3341,390 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetPrivateLinkAccessResult> getPrivateLinkAccessPlain(GetPrivateLinkAccessPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", TypeShape.of(GetPrivateLinkAccessResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-limited-availability@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Limited%20Availability&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Limited%20Availability%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * &gt; **Note:** `confluentcloud.PrivateLinkAttachment` data source is available in **Limited Availability** for early adopters. Limited Availability features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Limited Availability** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Limited Availability features. Limited Availability features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Limited Availability releases of the Limited Availability features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.PrivateLinkAttachment` describes a Private Link Attachment data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs.builder()
+     *             .id(&#34;platt-abcde&#34;)
+     *             .environment(GetPrivateLinkAttachmentEnvironmentArgs.builder()
+     *                 .id(&#34;env-1234&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;platt&#34;, main.applyValue(getPrivateLinkAttachmentResult -&gt; getPrivateLinkAttachmentResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPrivateLinkAttachmentResult> getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs args) {
+        return getPrivateLinkAttachment(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-limited-availability@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Limited%20Availability&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Limited%20Availability%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * &gt; **Note:** `confluentcloud.PrivateLinkAttachment` data source is available in **Limited Availability** for early adopters. Limited Availability features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Limited Availability** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Limited Availability features. Limited Availability features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Limited Availability releases of the Limited Availability features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.PrivateLinkAttachment` describes a Private Link Attachment data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs.builder()
+     *             .id(&#34;platt-abcde&#34;)
+     *             .environment(GetPrivateLinkAttachmentEnvironmentArgs.builder()
+     *                 .id(&#34;env-1234&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;platt&#34;, main.applyValue(getPrivateLinkAttachmentResult -&gt; getPrivateLinkAttachmentResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPrivateLinkAttachmentResult> getPrivateLinkAttachmentPlain(GetPrivateLinkAttachmentPlainArgs args) {
+        return getPrivateLinkAttachmentPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-limited-availability@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Limited%20Availability&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Limited%20Availability%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * &gt; **Note:** `confluentcloud.PrivateLinkAttachment` data source is available in **Limited Availability** for early adopters. Limited Availability features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Limited Availability** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Limited Availability features. Limited Availability features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Limited Availability releases of the Limited Availability features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.PrivateLinkAttachment` describes a Private Link Attachment data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs.builder()
+     *             .id(&#34;platt-abcde&#34;)
+     *             .environment(GetPrivateLinkAttachmentEnvironmentArgs.builder()
+     *                 .id(&#34;env-1234&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;platt&#34;, main.applyValue(getPrivateLinkAttachmentResult -&gt; getPrivateLinkAttachmentResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPrivateLinkAttachmentResult> getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment", TypeShape.of(GetPrivateLinkAttachmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-limited-availability@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Limited%20Availability&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Limited%20Availability%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * &gt; **Note:** `confluentcloud.PrivateLinkAttachment` data source is available in **Limited Availability** for early adopters. Limited Availability features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Limited Availability** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Limited Availability features. Limited Availability features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Limited Availability releases of the Limited Availability features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.PrivateLinkAttachment` describes a Private Link Attachment data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs.builder()
+     *             .id(&#34;platt-abcde&#34;)
+     *             .environment(GetPrivateLinkAttachmentEnvironmentArgs.builder()
+     *                 .id(&#34;env-1234&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;platt&#34;, main.applyValue(getPrivateLinkAttachmentResult -&gt; getPrivateLinkAttachmentResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPrivateLinkAttachmentResult> getPrivateLinkAttachmentPlain(GetPrivateLinkAttachmentPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment", TypeShape.of(GetPrivateLinkAttachmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-limited-availability@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Limited%20Availability&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Limited%20Availability%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * &gt; **Note:** `confluentcloud.PrivateLinkAttachmentConnection` data source is available in **Limited Availability** for early adopters. Limited Availability features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Limited Availability** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Limited Availability features. Limited Availability features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Limited Availability releases of the Limited Availability features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.PrivateLinkAttachmentConnection` describes a Private Link Attachment Connection data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs.builder()
+     *             .id(&#34;plattc-p5j3ov&#34;)
+     *             .environment(GetPrivateLinkAttachmentConnectionEnvironmentArgs.builder()
+     *                 .id(&#34;env-8gv0v5&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;plattc&#34;, main.applyValue(getPrivateLinkAttachmentConnectionResult -&gt; getPrivateLinkAttachmentConnectionResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs args) {
+        return getPrivateLinkAttachmentConnection(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-limited-availability@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Limited%20Availability&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Limited%20Availability%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * &gt; **Note:** `confluentcloud.PrivateLinkAttachmentConnection` data source is available in **Limited Availability** for early adopters. Limited Availability features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Limited Availability** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Limited Availability features. Limited Availability features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Limited Availability releases of the Limited Availability features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.PrivateLinkAttachmentConnection` describes a Private Link Attachment Connection data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs.builder()
+     *             .id(&#34;plattc-p5j3ov&#34;)
+     *             .environment(GetPrivateLinkAttachmentConnectionEnvironmentArgs.builder()
+     *                 .id(&#34;env-8gv0v5&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;plattc&#34;, main.applyValue(getPrivateLinkAttachmentConnectionResult -&gt; getPrivateLinkAttachmentConnectionResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnectionPlain(GetPrivateLinkAttachmentConnectionPlainArgs args) {
+        return getPrivateLinkAttachmentConnectionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-limited-availability@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Limited%20Availability&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Limited%20Availability%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * &gt; **Note:** `confluentcloud.PrivateLinkAttachmentConnection` data source is available in **Limited Availability** for early adopters. Limited Availability features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Limited Availability** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Limited Availability features. Limited Availability features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Limited Availability releases of the Limited Availability features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.PrivateLinkAttachmentConnection` describes a Private Link Attachment Connection data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs.builder()
+     *             .id(&#34;plattc-p5j3ov&#34;)
+     *             .environment(GetPrivateLinkAttachmentConnectionEnvironmentArgs.builder()
+     *                 .id(&#34;env-8gv0v5&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;plattc&#34;, main.applyValue(getPrivateLinkAttachmentConnectionResult -&gt; getPrivateLinkAttachmentConnectionResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection", TypeShape.of(GetPrivateLinkAttachmentConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * [![Request Access To Networking v1](https://img.shields.io/badge/-Request%20Access%20To%20Networking%20v1-%23bc8540)](mailto:ccloud-api-access+networking-v1-limited-availability@confluent.io?subject=Request%20to%20join%20networking/v1%20API%20Limited%20Availability&amp;body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Limited%20Availability%20for%20networking/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
+     * 
+     * &gt; **Note:** `confluentcloud.PrivateLinkAttachmentConnection` data source is available in **Limited Availability** for early adopters. Limited Availability features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Limited Availability** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Limited Availability features. Limited Availability features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Limited Availability releases of the Limited Availability features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.PrivateLinkAttachmentConnection` describes a Private Link Attachment Connection data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionArgs;
+     * import com.pulumi.confluentcloud.inputs.GetPrivateLinkAttachmentConnectionEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs.builder()
+     *             .id(&#34;plattc-p5j3ov&#34;)
+     *             .environment(GetPrivateLinkAttachmentConnectionEnvironmentArgs.builder()
+     *                 .id(&#34;env-8gv0v5&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;plattc&#34;, main.applyValue(getPrivateLinkAttachmentConnectionResult -&gt; getPrivateLinkAttachmentConnectionResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnectionPlain(GetPrivateLinkAttachmentConnectionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection", TypeShape.of(GetPrivateLinkAttachmentConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

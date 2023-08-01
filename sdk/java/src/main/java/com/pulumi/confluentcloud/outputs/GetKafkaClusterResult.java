@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterBasic;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterByokKey;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterDedicated;
+import com.pulumi.confluentcloud.outputs.GetKafkaClusterEnterprise;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterEnvironment;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterNetwork;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterStandard;
@@ -58,6 +59,11 @@ public final class GetKafkaClusterResult {
      * 
      */
     private String displayName;
+    /**
+     * @return (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+     * 
+     */
+    private @Nullable List<GetKafkaClusterEnterprise> enterprises;
     private GetKafkaClusterEnvironment environment;
     /**
      * @return (Required String) The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
@@ -152,6 +158,13 @@ public final class GetKafkaClusterResult {
     public String displayName() {
         return this.displayName;
     }
+    /**
+     * @return (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
+     * 
+     */
+    public List<GetKafkaClusterEnterprise> enterprises() {
+        return this.enterprises == null ? List.of() : this.enterprises;
+    }
     public GetKafkaClusterEnvironment environment() {
         return this.environment;
     }
@@ -222,6 +235,7 @@ public final class GetKafkaClusterResult {
         private String cloud;
         private @Nullable GetKafkaClusterDedicated dedicated;
         private String displayName;
+        private @Nullable List<GetKafkaClusterEnterprise> enterprises;
         private GetKafkaClusterEnvironment environment;
         private String id;
         private String kind;
@@ -241,6 +255,7 @@ public final class GetKafkaClusterResult {
     	      this.cloud = defaults.cloud;
     	      this.dedicated = defaults.dedicated;
     	      this.displayName = defaults.displayName;
+    	      this.enterprises = defaults.enterprises;
     	      this.environment = defaults.environment;
     	      this.id = defaults.id;
     	      this.kind = defaults.kind;
@@ -298,6 +313,14 @@ public final class GetKafkaClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder enterprises(@Nullable List<GetKafkaClusterEnterprise> enterprises) {
+            this.enterprises = enterprises;
+            return this;
+        }
+        public Builder enterprises(GetKafkaClusterEnterprise... enterprises) {
+            return enterprises(List.of(enterprises));
+        }
+        @CustomType.Setter
         public Builder environment(GetKafkaClusterEnvironment environment) {
             this.environment = Objects.requireNonNull(environment);
             return this;
@@ -353,6 +376,7 @@ public final class GetKafkaClusterResult {
             o.cloud = cloud;
             o.dedicated = dedicated;
             o.displayName = displayName;
+            o.enterprises = enterprises;
             o.environment = environment;
             o.id = id;
             o.kind = kind;

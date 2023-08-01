@@ -32,7 +32,7 @@ type BusinessMetadataBinding struct {
 	BusinessMetadataName pulumi.StringOutput `pulumi:"businessMetadataName"`
 	// The Cluster API Credentials.
 	Credentials BusinessMetadataBindingCredentialsPtrOutput `pulumi:"credentials"`
-	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+	// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName pulumi.StringOutput `pulumi:"entityName"`
 	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType pulumi.StringOutput `pulumi:"entityType"`
@@ -93,7 +93,7 @@ type businessMetadataBindingState struct {
 	BusinessMetadataName *string `pulumi:"businessMetadataName"`
 	// The Cluster API Credentials.
 	Credentials *BusinessMetadataBindingCredentials `pulumi:"credentials"`
-	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+	// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName *string `pulumi:"entityName"`
 	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType *string `pulumi:"entityType"`
@@ -109,7 +109,7 @@ type BusinessMetadataBindingState struct {
 	BusinessMetadataName pulumi.StringPtrInput
 	// The Cluster API Credentials.
 	Credentials BusinessMetadataBindingCredentialsPtrInput
-	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+	// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName pulumi.StringPtrInput
 	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType pulumi.StringPtrInput
@@ -129,7 +129,7 @@ type businessMetadataBindingArgs struct {
 	BusinessMetadataName string `pulumi:"businessMetadataName"`
 	// The Cluster API Credentials.
 	Credentials *BusinessMetadataBindingCredentials `pulumi:"credentials"`
-	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+	// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName string `pulumi:"entityName"`
 	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType string `pulumi:"entityType"`
@@ -146,7 +146,7 @@ type BusinessMetadataBindingArgs struct {
 	BusinessMetadataName pulumi.StringInput
 	// The Cluster API Credentials.
 	Credentials BusinessMetadataBindingCredentialsPtrInput
-	// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+	// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 	EntityName pulumi.StringInput
 	// The entity type, for example, `srSchema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
 	EntityType pulumi.StringInput
@@ -257,7 +257,7 @@ func (o BusinessMetadataBindingOutput) Credentials() BusinessMetadataBindingCred
 	return o.ApplyT(func(v *BusinessMetadataBinding) BusinessMetadataBindingCredentialsPtrOutput { return v.Credentials }).(BusinessMetadataBindingCredentialsPtrOutput)
 }
 
-// The qualified name of the entity., for example, `lsrc-8wrx70:.:100001`.
+// The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
 func (o BusinessMetadataBindingOutput) EntityName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessMetadataBinding) pulumi.StringOutput { return v.EntityName }).(pulumi.StringOutput)
 }

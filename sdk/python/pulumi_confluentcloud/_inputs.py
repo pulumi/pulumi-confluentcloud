@@ -43,6 +43,7 @@ __all__ = [
     'KafkaClusterConfigCredentialsArgs',
     'KafkaClusterConfigKafkaClusterArgs',
     'KafkaClusterDedicatedArgs',
+    'KafkaClusterEnterpriseArgs',
     'KafkaClusterEnvironmentArgs',
     'KafkaClusterNetworkArgs',
     'KafkaClusterStandardArgs',
@@ -77,6 +78,15 @@ __all__ = [
     'PrivateLinkAccessEnvironmentArgs',
     'PrivateLinkAccessGcpArgs',
     'PrivateLinkAccessNetworkArgs',
+    'PrivateLinkAttachmentAwArgs',
+    'PrivateLinkAttachmentAzureArgs',
+    'PrivateLinkAttachmentConnectionAwsArgs',
+    'PrivateLinkAttachmentConnectionAzureArgs',
+    'PrivateLinkAttachmentConnectionEnvironmentArgs',
+    'PrivateLinkAttachmentConnectionGcpArgs',
+    'PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs',
+    'PrivateLinkAttachmentEnvironmentArgs',
+    'PrivateLinkAttachmentGcpArgs',
     'SchemaCredentialsArgs',
     'SchemaRegistryClusterConfigCredentialsArgs',
     'SchemaRegistryClusterConfigSchemaRegistryClusterArgs',
@@ -104,6 +114,7 @@ __all__ = [
     'GetIdentityPoolIdentityProviderArgs',
     'GetKafkaClusterBasicArgs',
     'GetKafkaClusterDedicatedArgs',
+    'GetKafkaClusterEnterpriseArgs',
     'GetKafkaClusterEnvironmentArgs',
     'GetKafkaClusterStandardArgs',
     'GetKafkaTopicCredentialsArgs',
@@ -119,6 +130,8 @@ __all__ = [
     'GetNetworkLinkServiceEnvironmentArgs',
     'GetPeeringEnvironmentArgs',
     'GetPrivateLinkAccessEnvironmentArgs',
+    'GetPrivateLinkAttachmentConnectionEnvironmentArgs',
+    'GetPrivateLinkAttachmentEnvironmentArgs',
     'GetSchemaCredentialsArgs',
     'GetSchemaRegistryClusterConfigCredentialsArgs',
     'GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs',
@@ -1443,6 +1456,12 @@ class KafkaClusterDedicatedArgs:
 
 
 @pulumi.input_type
+class KafkaClusterEnterpriseArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
 class KafkaClusterEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -2484,6 +2503,219 @@ class PrivateLinkAccessNetworkArgs:
 
 
 @pulumi.input_type
+class PrivateLinkAttachmentAwArgs:
+    def __init__(__self__, *,
+                 vpc_endpoint_service_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] vpc_endpoint_service_name: (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+        """
+        if vpc_endpoint_service_name is not None:
+            pulumi.set(__self__, "vpc_endpoint_service_name", vpc_endpoint_service_name)
+
+    @property
+    @pulumi.getter(name="vpcEndpointServiceName")
+    def vpc_endpoint_service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+        """
+        return pulumi.get(self, "vpc_endpoint_service_name")
+
+    @vpc_endpoint_service_name.setter
+    def vpc_endpoint_service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_endpoint_service_name", value)
+
+
+@pulumi.input_type
+class PrivateLinkAttachmentAzureArgs:
+    def __init__(__self__, *,
+                 private_link_service_alias: Optional[pulumi.Input[str]] = None,
+                 private_link_service_resource_id: Optional[pulumi.Input[str]] = None,
+                 zone: Optional[pulumi.Input[str]] = None):
+        if private_link_service_alias is not None:
+            pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
+        if private_link_service_resource_id is not None:
+            pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceAlias")
+    def private_link_service_alias(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "private_link_service_alias")
+
+    @private_link_service_alias.setter
+    def private_link_service_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link_service_alias", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceResourceId")
+    def private_link_service_resource_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "private_link_service_resource_id")
+
+    @private_link_service_resource_id.setter
+    def private_link_service_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link_service_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "zone")
+
+    @zone.setter
+    def zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone", value)
+
+
+@pulumi.input_type
+class PrivateLinkAttachmentConnectionAwsArgs:
+    def __init__(__self__, *,
+                 vpc_endpoint_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] vpc_endpoint_id: Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+        """
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> pulumi.Input[str]:
+        """
+        Id of a VPC Endpoint that is connected to the VPC Endpoint service.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_endpoint_id", value)
+
+
+@pulumi.input_type
+class PrivateLinkAttachmentConnectionAzureArgs:
+    def __init__(__self__, *,
+                 private_endpoint_resource_id: pulumi.Input[str]):
+        pulumi.set(__self__, "private_endpoint_resource_id", private_endpoint_resource_id)
+
+    @property
+    @pulumi.getter(name="privateEndpointResourceId")
+    def private_endpoint_resource_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "private_endpoint_resource_id")
+
+    @private_endpoint_resource_id.setter
+    def private_endpoint_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_endpoint_resource_id", value)
+
+
+@pulumi.input_type
+class PrivateLinkAttachmentConnectionEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The unique identifier for the private link attachment.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier for the private link attachment.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class PrivateLinkAttachmentConnectionGcpArgs:
+    def __init__(__self__, *,
+                 private_service_connect_connection_id: pulumi.Input[str]):
+        pulumi.set(__self__, "private_service_connect_connection_id", private_service_connect_connection_id)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectConnectionId")
+    def private_service_connect_connection_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "private_service_connect_connection_id")
+
+    @private_service_connect_connection_id.setter
+    def private_service_connect_connection_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_service_connect_connection_id", value)
+
+
+@pulumi.input_type
+class PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The unique identifier for the private link attachment.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier for the private link attachment.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class PrivateLinkAttachmentEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class PrivateLinkAttachmentGcpArgs:
+    def __init__(__self__, *,
+                 private_service_connect_service_attachment: Optional[pulumi.Input[str]] = None,
+                 zone: Optional[pulumi.Input[str]] = None):
+        if private_service_connect_service_attachment is not None:
+            pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter(name="privateServiceConnectServiceAttachment")
+    def private_service_connect_service_attachment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "private_service_connect_service_attachment")
+
+    @private_service_connect_service_attachment.setter
+    def private_service_connect_service_attachment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_service_connect_service_attachment", value)
+
+    @property
+    @pulumi.getter
+    def zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "zone")
+
+    @zone.setter
+    def zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone", value)
+
+
+@pulumi.input_type
 class SchemaCredentialsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -3297,6 +3529,12 @@ class GetKafkaClusterDedicatedArgs:
 
 
 @pulumi.input_type
+class GetKafkaClusterEnterpriseArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
 class GetKafkaClusterEnvironmentArgs:
     def __init__(__self__, *,
                  id: str):
@@ -3712,6 +3950,50 @@ class GetPrivateLinkAccessEnvironmentArgs:
         The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
 
         > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetPrivateLinkAttachmentConnectionEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetPrivateLinkAttachmentEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
         """
         return pulumi.get(self, "id")
 
