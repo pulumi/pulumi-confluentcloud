@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-confluentcloud/provider
 
-go 1.19
+go 1.20
 
 replace (
 	github.com/confluentinc/terraform-provider-confluent => ../upstream
