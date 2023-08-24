@@ -23,6 +23,25 @@ public final class GetKafkaTopicPlainArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.credentials);
     }
 
+    /**
+     * @deprecated
+     * This parameter has been deprecated in favour of Rest Endpoint
+     * 
+     */
+    @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
+    @Import(name="httpEndpoint")
+    private @Nullable String httpEndpoint;
+
+    /**
+     * @deprecated
+     * This parameter has been deprecated in favour of Rest Endpoint
+     * 
+     */
+    @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
+    public Optional<String> httpEndpoint() {
+        return Optional.ofNullable(this.httpEndpoint);
+    }
+
     @Import(name="kafkaCluster")
     private @Nullable GetKafkaTopicKafkaCluster kafkaCluster;
 
@@ -64,6 +83,7 @@ public final class GetKafkaTopicPlainArgs extends com.pulumi.resources.InvokeArg
 
     private GetKafkaTopicPlainArgs(GetKafkaTopicPlainArgs $) {
         this.credentials = $.credentials;
+        this.httpEndpoint = $.httpEndpoint;
         this.kafkaCluster = $.kafkaCluster;
         this.restEndpoint = $.restEndpoint;
         this.topicName = $.topicName;
@@ -89,6 +109,19 @@ public final class GetKafkaTopicPlainArgs extends com.pulumi.resources.InvokeArg
 
         public Builder credentials(@Nullable GetKafkaTopicCredentials credentials) {
             $.credentials = credentials;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This parameter has been deprecated in favour of Rest Endpoint
+         * 
+         */
+        @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
+        public Builder httpEndpoint(@Nullable String httpEndpoint) {
+            $.httpEndpoint = httpEndpoint;
             return this;
         }
 

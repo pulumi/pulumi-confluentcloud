@@ -23,13 +23,16 @@ class GetKafkaTopicResult:
     """
     A collection of values returned by getKafkaTopic.
     """
-    def __init__(__self__, config=None, credentials=None, id=None, kafka_cluster=None, partitions_count=None, rest_endpoint=None, topic_name=None):
+    def __init__(__self__, config=None, credentials=None, http_endpoint=None, id=None, kafka_cluster=None, partitions_count=None, rest_endpoint=None, topic_name=None):
         if config and not isinstance(config, dict):
             raise TypeError("Expected argument 'config' to be a dict")
         pulumi.set(__self__, "config", config)
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
+        if http_endpoint and not isinstance(http_endpoint, str):
+            raise TypeError("Expected argument 'http_endpoint' to be a str")
+        pulumi.set(__self__, "http_endpoint", http_endpoint)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -58,6 +61,14 @@ class GetKafkaTopicResult:
     @pulumi.getter
     def credentials(self) -> Optional['outputs.GetKafkaTopicCredentialsResult']:
         return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="httpEndpoint")
+    def http_endpoint(self) -> str:
+        warnings.warn("""This parameter has been deprecated in favour of Rest Endpoint""", DeprecationWarning)
+        pulumi.log.warn("""http_endpoint is deprecated: This parameter has been deprecated in favour of Rest Endpoint""")
+
+        return pulumi.get(self, "http_endpoint")
 
     @property
     @pulumi.getter
@@ -99,6 +110,7 @@ class AwaitableGetKafkaTopicResult(GetKafkaTopicResult):
         return GetKafkaTopicResult(
             config=self.config,
             credentials=self.credentials,
+            http_endpoint=self.http_endpoint,
             id=self.id,
             kafka_cluster=self.kafka_cluster,
             partitions_count=self.partitions_count,
@@ -107,6 +119,7 @@ class AwaitableGetKafkaTopicResult(GetKafkaTopicResult):
 
 
 def get_kafka_topic(credentials: Optional[pulumi.InputType['GetKafkaTopicCredentialsArgs']] = None,
+                    http_endpoint: Optional[str] = None,
                     kafka_cluster: Optional[pulumi.InputType['GetKafkaTopicKafkaClusterArgs']] = None,
                     rest_endpoint: Optional[str] = None,
                     topic_name: Optional[str] = None,
@@ -119,6 +132,7 @@ def get_kafka_topic(credentials: Optional[pulumi.InputType['GetKafkaTopicCredent
     """
     __args__ = dict()
     __args__['credentials'] = credentials
+    __args__['httpEndpoint'] = http_endpoint
     __args__['kafkaCluster'] = kafka_cluster
     __args__['restEndpoint'] = rest_endpoint
     __args__['topicName'] = topic_name
@@ -128,6 +142,7 @@ def get_kafka_topic(credentials: Optional[pulumi.InputType['GetKafkaTopicCredent
     return AwaitableGetKafkaTopicResult(
         config=pulumi.get(__ret__, 'config'),
         credentials=pulumi.get(__ret__, 'credentials'),
+        http_endpoint=pulumi.get(__ret__, 'http_endpoint'),
         id=pulumi.get(__ret__, 'id'),
         kafka_cluster=pulumi.get(__ret__, 'kafka_cluster'),
         partitions_count=pulumi.get(__ret__, 'partitions_count'),
@@ -137,6 +152,7 @@ def get_kafka_topic(credentials: Optional[pulumi.InputType['GetKafkaTopicCredent
 
 @_utilities.lift_output_func(get_kafka_topic)
 def get_kafka_topic_output(credentials: Optional[pulumi.Input[Optional[pulumi.InputType['GetKafkaTopicCredentialsArgs']]]] = None,
+                           http_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                            kafka_cluster: Optional[pulumi.Input[Optional[pulumi.InputType['GetKafkaTopicKafkaClusterArgs']]]] = None,
                            rest_endpoint: Optional[pulumi.Input[str]] = None,
                            topic_name: Optional[pulumi.Input[str]] = None,

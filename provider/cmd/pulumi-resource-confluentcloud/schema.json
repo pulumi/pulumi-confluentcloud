@@ -7951,6 +7951,10 @@
                         "$ref": "#/types/confluentcloud:index/getKafkaTopicCredentials:getKafkaTopicCredentials",
                         "secret": true
                     },
+                    "httpEndpoint": {
+                        "type": "string",
+                        "deprecationMessage": "This parameter has been deprecated in favour of Rest Endpoint"
+                    },
                     "kafkaCluster": {
                         "$ref": "#/types/confluentcloud:index/getKafkaTopicKafkaCluster:getKafkaTopicKafkaCluster"
                     },
@@ -7983,6 +7987,10 @@
                         "$ref": "#/types/confluentcloud:index/getKafkaTopicCredentials:getKafkaTopicCredentials",
                         "secret": true
                     },
+                    "httpEndpoint": {
+                        "type": "string",
+                        "deprecationMessage": "This parameter has been deprecated in favour of Rest Endpoint"
+                    },
                     "id": {
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
@@ -8004,6 +8012,7 @@
                 "type": "object",
                 "required": [
                     "config",
+                    "httpEndpoint",
                     "partitionsCount",
                     "restEndpoint",
                     "topicName",

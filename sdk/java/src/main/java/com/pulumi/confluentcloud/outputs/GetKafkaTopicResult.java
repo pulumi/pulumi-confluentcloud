@@ -22,6 +22,13 @@ public final class GetKafkaTopicResult {
     private Map<String,String> config;
     private @Nullable GetKafkaTopicCredentials credentials;
     /**
+     * @deprecated
+     * This parameter has been deprecated in favour of Rest Endpoint
+     * 
+     */
+    @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
+    private String httpEndpoint;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -45,6 +52,15 @@ public final class GetKafkaTopicResult {
     }
     public Optional<GetKafkaTopicCredentials> credentials() {
         return Optional.ofNullable(this.credentials);
+    }
+    /**
+     * @deprecated
+     * This parameter has been deprecated in favour of Rest Endpoint
+     * 
+     */
+    @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
+    public String httpEndpoint() {
+        return this.httpEndpoint;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -81,6 +97,7 @@ public final class GetKafkaTopicResult {
     public static final class Builder {
         private Map<String,String> config;
         private @Nullable GetKafkaTopicCredentials credentials;
+        private String httpEndpoint;
         private String id;
         private @Nullable GetKafkaTopicKafkaCluster kafkaCluster;
         private Integer partitionsCount;
@@ -91,6 +108,7 @@ public final class GetKafkaTopicResult {
     	      Objects.requireNonNull(defaults);
     	      this.config = defaults.config;
     	      this.credentials = defaults.credentials;
+    	      this.httpEndpoint = defaults.httpEndpoint;
     	      this.id = defaults.id;
     	      this.kafkaCluster = defaults.kafkaCluster;
     	      this.partitionsCount = defaults.partitionsCount;
@@ -106,6 +124,11 @@ public final class GetKafkaTopicResult {
         @CustomType.Setter
         public Builder credentials(@Nullable GetKafkaTopicCredentials credentials) {
             this.credentials = credentials;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder httpEndpoint(String httpEndpoint) {
+            this.httpEndpoint = Objects.requireNonNull(httpEndpoint);
             return this;
         }
         @CustomType.Setter
@@ -137,6 +160,7 @@ public final class GetKafkaTopicResult {
             final var o = new GetKafkaTopicResult();
             o.config = config;
             o.credentials = credentials;
+            o.httpEndpoint = httpEndpoint;
             o.id = id;
             o.kafkaCluster = kafkaCluster;
             o.partitionsCount = partitionsCount;
