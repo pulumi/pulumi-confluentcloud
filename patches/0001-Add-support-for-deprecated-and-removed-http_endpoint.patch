@@ -1,7 +1,44 @@
-diff --git b/internal/provider/resource_kafka_topic.go a/internal/provider/resource_kafka_topic.go
+From 370769e695bbad71cdf775c497940044f20a7edd Mon Sep 17 00:00:00 2001
+From: Ramon Quitales <ramon@pulumi.com>
+Date: Thu, 24 Aug 2023 10:00:27 -0700
+Subject: [PATCH 1/2] Add support for deprecated and removed http_endpoint
+ field
+
+---
+ internal/provider/data_source_kafka_topic.go |  7 +++++
+ internal/provider/resource_kafka_topic.go    | 28 ++++++++++++++++----
+ internal/provider/state_upgraders.go         | 13 ++++-----
+ 3 files changed, 37 insertions(+), 11 deletions(-)
+
+diff --git a/internal/provider/data_source_kafka_topic.go b/internal/provider/data_source_kafka_topic.go
+index b952f18..378d791 100644
+--- a/internal/provider/data_source_kafka_topic.go
++++ b/internal/provider/data_source_kafka_topic.go
+@@ -17,6 +17,7 @@ package provider
+ import (
+ 	"context"
+ 	"fmt"
++
+ 	"github.com/hashicorp/terraform-plugin-log/tflog"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+@@ -31,6 +32,12 @@ func kafkaTopicDataSource() *schema.Resource {
+ 				Type:     schema.TypeString,
+ 				Required: true,
+ 			},
++			paramHttpEndpoint: {
++				Deprecated: "This parameter has been deprecated in favour of Rest Endpoint",
++				Type:       schema.TypeString,
++				Optional:   true,
++				Computed:   true,
++			},
+ 			paramRestEndpoint: {
+ 				Type:     schema.TypeString,
+ 				Required: true,
+diff --git a/internal/provider/resource_kafka_topic.go b/internal/provider/resource_kafka_topic.go
 index 459471d..90e6b7f 100644
---- b/internal/provider/resource_kafka_topic.go
-+++ a/internal/provider/resource_kafka_topic.go
+--- a/internal/provider/resource_kafka_topic.go
++++ b/internal/provider/resource_kafka_topic.go
 @@ -18,15 +18,16 @@ import (
  	"context"
  	"encoding/json"
@@ -63,11 +100,23 @@ index 459471d..90e6b7f 100644
  	}
  
  	d.SetId(createKafkaTopicId(c.clusterId, topicName))
-diff --git b/internal/provider/state_upgraders.go a/internal/provider/state_upgraders.go
-index 4d3ed5b..b6be930 100644
---- b/internal/provider/state_upgraders.go
-+++ a/internal/provider/state_upgraders.go
-@@ -88,11 +88,11 @@ func kafkaResourceV0() *schema.Resource {
+diff --git a/internal/provider/state_upgraders.go b/internal/provider/state_upgraders.go
+index 4d3ed5b..43323da 100644
+--- a/internal/provider/state_upgraders.go
++++ b/internal/provider/state_upgraders.go
+@@ -16,9 +16,10 @@ package provider
+ 
+ import (
+ 	"context"
++	"regexp"
++
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
+-	"regexp"
+ )
+ 
+ func kafkaResourceV0() *schema.Resource {
+@@ -88,11 +89,11 @@ func kafkaResourceV0() *schema.Resource {
  // Modifies the attribute(s) appropriately for the migration.
  func kafkaStateUpgradeV0(ctx context.Context, rawState map[string]interface{}, meta interface{}) (map[string]interface{}, error) {
  	// 1. When upgrading from 0.10.0, rename "http_endpoint" to "rest_endpoint" by copying the value and deleting "http_endpoint" attribute
@@ -76,11 +125,14 @@ index 4d3ed5b..b6be930 100644
 -		rawState[paramRestEndpoint] = httpEndpointString
 -		delete(rawState, paramHttpEndpoint)
 -	}
-+	//if httpEndpoint, found := rawState[paramHttpEndpoint]; found {
-+	//	httpEndpointString := httpEndpoint.(string)
-+	//	rawState[paramRestEndpoint] = httpEndpointString
-+	//	delete(rawState, paramHttpEndpoint)
-+	//}
++	// if httpEndpoint, found := rawState[paramHttpEndpoint]; found {
++	// 	httpEndpointString := httpEndpoint.(string)
++	// 	rawState[paramRestEndpoint] = httpEndpointString
++	// 	delete(rawState, paramHttpEndpoint)
++	// }
  	// 2. When upgrading from 0.11.0 no changes are necessary: "rest_endpoint" exists already
  
  	return rawState, nil
+-- 
+2.39.2 (Apple Git-143)
+
