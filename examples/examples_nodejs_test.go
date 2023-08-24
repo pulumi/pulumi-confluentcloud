@@ -23,11 +23,13 @@ func TestAccEnvironmentTs(t *testing.T) {
 func TestKafkaTopicPatch(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "kafka-topic-patch", "ts", "step1"),
+			Dir:                    path.Join(getCwd(t), "kafka-topic-patch", "ts", "step1"),
+			SkipEmptyPreviewUpdate: true,
 			EditDirs: []integration.EditDir{
 				{
-					Dir:      path.Join(getCwd(t), "kafka-topic-patch", "ts", "step2"),
-					Additive: true,
+					Dir:             path.Join(getCwd(t), "kafka-topic-patch", "ts", "step2"),
+					Additive:        true,
+					ExpectNoChanges: false,
 				},
 			},
 		})
