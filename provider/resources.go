@@ -112,11 +112,12 @@ func Provider() tfbridge.ProviderInfo {
 					// The user has set both httpEndpoint and restEndpoint. These are semantically
 					// the same, so it is forbidden to set both.
 					if _, ok := config[restEndpoint]; ok {
-						return config, fmt.Errorf(`Cannot specify both "httpEndpoint" and "restEndpoint"` +
-							`, please set only "restEndpoint"`)
+						return config, fmt.Errorf(`Cannot specify both "%s" and "%s"`+
+							`, please set only "%[2]s"`, httpEndpoint, restEndpoint)
 					}
 
-					tfbridge.GetLogger(ctx).Warn(`"httpEndpoint" is deprecated, use "restEndpoint" instead.`)
+					tfbridge.GetLogger(ctx).
+						Warn(`"` + httpEndpoint + `" is deprecated, use "` + restEndpoint + `" instead.`)
 
 					delete(config, httpEndpoint)
 					config[restEndpoint] = endpoint
