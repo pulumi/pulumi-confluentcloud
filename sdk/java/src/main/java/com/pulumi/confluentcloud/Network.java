@@ -39,7 +39,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
      * 
      */
-    @Export(name="aws", type=List.class, parameters={NetworkAw.class})
+    @Export(name="aws", refs={List.class,NetworkAw.class}, tree="[0,1]")
     private Output<List<NetworkAw>> aws;
 
     /**
@@ -53,7 +53,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
      * 
      */
-    @Export(name="azures", type=List.class, parameters={NetworkAzure.class})
+    @Export(name="azures", refs={List.class,NetworkAzure.class}, tree="[0,1]")
     private Output<List<NetworkAzure>> azures;
 
     /**
@@ -69,7 +69,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it&#39;s available only for AWS networks with PEERING connection type.
      * 
      */
-    @Export(name="cidr", type=String.class, parameters={})
+    @Export(name="cidr", refs={String.class}, tree="[0]")
     private Output<String> cidr;
 
     /**
@@ -85,7 +85,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      * 
      */
-    @Export(name="cloud", type=String.class, parameters={})
+    @Export(name="cloud", refs={String.class}, tree="[0]")
     private Output<String> cloud;
 
     /**
@@ -99,7 +99,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * The list of connection types that may be used with the network. Accepted connection types are: `PEERING`, `TRANSITGATEWAY`, and `PRIVATELINK`.
      * 
      */
-    @Export(name="connectionTypes", type=List.class, parameters={String.class})
+    @Export(name="connectionTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> connectionTypes;
 
     /**
@@ -113,7 +113,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * The name of the Network.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -127,7 +127,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * Network DNS config. It applies only to the PRIVATELINK network connection type.
      * 
      */
-    @Export(name="dnsConfig", type=NetworkDnsConfig.class, parameters={})
+    @Export(name="dnsConfig", refs={NetworkDnsConfig.class}, tree="[0]")
     private Output<NetworkDnsConfig> dnsConfig;
 
     /**
@@ -141,7 +141,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
      * 
      */
-    @Export(name="dnsDomain", type=String.class, parameters={})
+    @Export(name="dnsDomain", refs={String.class}, tree="[0]")
     private Output<String> dnsDomain;
 
     /**
@@ -155,7 +155,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
-    @Export(name="environment", type=NetworkEnvironment.class, parameters={})
+    @Export(name="environment", refs={NetworkEnvironment.class}, tree="[0]")
     private Output<NetworkEnvironment> environment;
 
     /**
@@ -169,7 +169,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
      * 
      */
-    @Export(name="gcps", type=List.class, parameters={NetworkGcp.class})
+    @Export(name="gcps", refs={List.class,NetworkGcp.class}, tree="[0,1]")
     private Output<List<NetworkGcp>> gcps;
 
     /**
@@ -183,7 +183,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * The cloud provider region where the network exists.
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
@@ -197,7 +197,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
      * 
      */
-    @Export(name="reservedCidr", type=String.class, parameters={})
+    @Export(name="reservedCidr", refs={String.class}, tree="[0]")
     private Output<String> reservedCidr;
 
     /**
@@ -211,7 +211,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * (Required String) The Confluent Resource Name of the Network.
      * 
      */
-    @Export(name="resourceName", type=String.class, parameters={})
+    @Export(name="resourceName", refs={String.class}, tree="[0]")
     private Output<String> resourceName;
 
     /**
@@ -225,7 +225,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * (Optional Map) The DNS subdomain for each zone. Present on networks that support Private Link. Keys are zone names, for example, `use2-az1` and values are DNS domains, for example, `use2-az1.pr123a.us-east-2.aws.confluent.cloud`.
      * 
      */
-    @Export(name="zonalSubdomains", type=Map.class, parameters={String.class, String.class})
+    @Export(name="zonalSubdomains", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> zonalSubdomains;
 
     /**
@@ -239,7 +239,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * Each item represents information related to a single zone.
      * 
      */
-    @Export(name="zoneInfos", type=List.class, parameters={NetworkZoneInfo.class})
+    @Export(name="zoneInfos", refs={List.class,NetworkZoneInfo.class}, tree="[0,1]")
     private Output<List<NetworkZoneInfo>> zoneInfos;
 
     /**
@@ -258,7 +258,7 @@ public class Network extends com.pulumi.resources.CustomResource {
      * On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
      * 
      */
-    @Export(name="zones", type=List.class, parameters={String.class})
+    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> zones;
 
     /**

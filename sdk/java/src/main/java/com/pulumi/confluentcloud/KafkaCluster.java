@@ -40,7 +40,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
      * 
      */
-    @Export(name="apiVersion", type=String.class, parameters={})
+    @Export(name="apiVersion", refs={String.class}, tree="[0]")
     private Output<String> apiVersion;
 
     /**
@@ -54,7 +54,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
      * 
      */
-    @Export(name="availability", type=String.class, parameters={})
+    @Export(name="availability", refs={String.class}, tree="[0]")
     private Output<String> availability;
 
     /**
@@ -68,7 +68,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * The configuration of the Basic Kafka cluster.
      * 
      */
-    @Export(name="basic", type=KafkaClusterBasic.class, parameters={})
+    @Export(name="basic", refs={KafkaClusterBasic.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterBasic> basic;
 
     /**
@@ -82,7 +82,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * (Required String) The bootstrap endpoint used by Kafka clients to connect to the Kafka cluster. (e.g., `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      * 
      */
-    @Export(name="bootstrapEndpoint", type=String.class, parameters={})
+    @Export(name="bootstrapEndpoint", refs={String.class}, tree="[0]")
     private Output<String> bootstrapEndpoint;
 
     /**
@@ -92,7 +92,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
     public Output<String> bootstrapEndpoint() {
         return this.bootstrapEndpoint;
     }
-    @Export(name="byokKey", type=KafkaClusterByokKey.class, parameters={})
+    @Export(name="byokKey", refs={KafkaClusterByokKey.class}, tree="[0]")
     private Output<KafkaClusterByokKey> byokKey;
 
     public Output<KafkaClusterByokKey> byokKey() {
@@ -102,7 +102,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * The cloud service provider that runs the Kafka cluster. Accepted values are: `AWS`, `AZURE`, and `GCP`.
      * 
      */
-    @Export(name="cloud", type=String.class, parameters={})
+    @Export(name="cloud", refs={String.class}, tree="[0]")
     private Output<String> cloud;
 
     /**
@@ -116,7 +116,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * (Optional Configuration Block) The configuration of the Dedicated Kafka cluster. It supports the following:
      * 
      */
-    @Export(name="dedicated", type=KafkaClusterDedicated.class, parameters={})
+    @Export(name="dedicated", refs={KafkaClusterDedicated.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterDedicated> dedicated;
 
     /**
@@ -130,7 +130,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * The name of the Kafka cluster.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -144,7 +144,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * The configuration of the Enterprise Kafka cluster.
      * 
      */
-    @Export(name="enterprises", type=List.class, parameters={KafkaClusterEnterprise.class})
+    @Export(name="enterprises", refs={List.class,KafkaClusterEnterprise.class}, tree="[0,1]")
     private Output</* @Nullable */ List<KafkaClusterEnterprise>> enterprises;
 
     /**
@@ -158,7 +158,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
-    @Export(name="environment", type=KafkaClusterEnvironment.class, parameters={})
+    @Export(name="environment", refs={KafkaClusterEnvironment.class}, tree="[0]")
     private Output<KafkaClusterEnvironment> environment;
 
     /**
@@ -172,7 +172,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * (Required String) A kind of the Kafka cluster, for example, `Cluster`.
      * 
      */
-    @Export(name="kind", type=String.class, parameters={})
+    @Export(name="kind", refs={String.class}, tree="[0]")
     private Output<String> kind;
 
     /**
@@ -187,7 +187,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * accounts.
      * 
      */
-    @Export(name="network", type=KafkaClusterNetwork.class, parameters={})
+    @Export(name="network", refs={KafkaClusterNetwork.class}, tree="[0]")
     private Output<KafkaClusterNetwork> network;
 
     /**
@@ -202,7 +202,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * (Required String) The Confluent Resource Name of the Kafka cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/cloud-cluster=lkc-abc123`.
      * 
      */
-    @Export(name="rbacCrn", type=String.class, parameters={})
+    @Export(name="rbacCrn", refs={String.class}, tree="[0]")
     private Output<String> rbacCrn;
 
     /**
@@ -216,7 +216,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * The cloud service provider region where the Kafka cluster is running, for example, `us-west-2`. See [Cloud Providers and Regions](https://docs.confluent.io/cloud/current/clusters/regions.html#cloud-providers-and-regions) for a full list of options for AWS, Azure, and GCP.
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
@@ -230,7 +230,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
-    @Export(name="restEndpoint", type=String.class, parameters={})
+    @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output<String> restEndpoint;
 
     /**
@@ -244,7 +244,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * The configuration of the Standard Kafka cluster.
      * 
      */
-    @Export(name="standard", type=KafkaClusterStandard.class, parameters={})
+    @Export(name="standard", refs={KafkaClusterStandard.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterStandard> standard;
 
     /**

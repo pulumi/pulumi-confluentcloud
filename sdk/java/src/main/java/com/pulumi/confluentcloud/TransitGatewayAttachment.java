@@ -35,7 +35,7 @@ public class TransitGatewayAttachment extends com.pulumi.resources.CustomResourc
      * (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
      * 
      */
-    @Export(name="aws", type=TransitGatewayAttachmentAws.class, parameters={})
+    @Export(name="aws", refs={TransitGatewayAttachmentAws.class}, tree="[0]")
     private Output</* @Nullable */ TransitGatewayAttachmentAws> aws;
 
     /**
@@ -49,7 +49,7 @@ public class TransitGatewayAttachment extends com.pulumi.resources.CustomResourc
      * The name of the Transit Gateway Attachment.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -63,7 +63,7 @@ public class TransitGatewayAttachment extends com.pulumi.resources.CustomResourc
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
-    @Export(name="environment", type=TransitGatewayAttachmentEnvironment.class, parameters={})
+    @Export(name="environment", refs={TransitGatewayAttachmentEnvironment.class}, tree="[0]")
     private Output<TransitGatewayAttachmentEnvironment> environment;
 
     /**
@@ -78,7 +78,7 @@ public class TransitGatewayAttachment extends com.pulumi.resources.CustomResourc
      * accounts.
      * 
      */
-    @Export(name="network", type=TransitGatewayAttachmentNetwork.class, parameters={})
+    @Export(name="network", refs={TransitGatewayAttachmentNetwork.class}, tree="[0]")
     private Output<TransitGatewayAttachmentNetwork> network;
 
     /**

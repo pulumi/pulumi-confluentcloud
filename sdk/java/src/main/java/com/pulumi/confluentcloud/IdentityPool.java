@@ -131,7 +131,7 @@ public class IdentityPool extends com.pulumi.resources.CustomResource {
      * A description for the Identity Pool.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -145,7 +145,7 @@ public class IdentityPool extends com.pulumi.resources.CustomResource {
      * A human-readable name for the Identity Pool.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -159,7 +159,7 @@ public class IdentityPool extends com.pulumi.resources.CustomResource {
      * A filter expression in [Supported Common Expression Language (CEL)](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#supported-common-expression-language-cel-filters) that specifies which identities can authenticate using your identity pool (see [Set identity pool filters](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html#set-identity-pool-filters) for more details).
      * 
      */
-    @Export(name="filter", type=String.class, parameters={})
+    @Export(name="filter", refs={String.class}, tree="[0]")
     private Output<String> filter;
 
     /**
@@ -173,7 +173,7 @@ public class IdentityPool extends com.pulumi.resources.CustomResource {
      * The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that &#34;identity Z used identity pool X to access topic A&#34;.
      * 
      */
-    @Export(name="identityClaim", type=String.class, parameters={})
+    @Export(name="identityClaim", refs={String.class}, tree="[0]")
     private Output<String> identityClaim;
 
     /**
@@ -187,7 +187,7 @@ public class IdentityPool extends com.pulumi.resources.CustomResource {
      * Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
      * 
      */
-    @Export(name="identityProvider", type=IdentityPoolIdentityProvider.class, parameters={})
+    @Export(name="identityProvider", refs={IdentityPoolIdentityProvider.class}, tree="[0]")
     private Output<IdentityPoolIdentityProvider> identityProvider;
 
     /**

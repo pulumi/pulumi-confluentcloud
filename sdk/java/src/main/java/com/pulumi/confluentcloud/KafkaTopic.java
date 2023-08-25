@@ -123,7 +123,7 @@ public class KafkaTopic extends com.pulumi.resources.CustomResource {
      * The custom topic settings to set:
      * 
      */
-    @Export(name="config", type=Map.class, parameters={String.class, String.class})
+    @Export(name="config", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> config;
 
     /**
@@ -137,7 +137,7 @@ public class KafkaTopic extends com.pulumi.resources.CustomResource {
      * The Cluster API Credentials.
      * 
      */
-    @Export(name="credentials", type=KafkaTopicCredentials.class, parameters={})
+    @Export(name="credentials", refs={KafkaTopicCredentials.class}, tree="[0]")
     private Output</* @Nullable */ KafkaTopicCredentials> credentials;
 
     /**
@@ -148,24 +148,18 @@ public class KafkaTopic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.credentials);
     }
     /**
-     * The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-     * 
      * @deprecated
-     * This parameter has been deprecated in favour of Rest Endpoint
+     * This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
      * 
      */
-    @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
-    @Export(name="httpEndpoint", type=String.class, parameters={})
+    @Deprecated /* This property has been deprecated. Please use ""restEndpoint"" instead. */
+    @Export(name="httpEndpoint", refs={String.class}, tree="[0]")
     private Output<String> httpEndpoint;
 
-    /**
-     * @return The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-     * 
-     */
     public Output<String> httpEndpoint() {
         return this.httpEndpoint;
     }
-    @Export(name="kafkaCluster", type=KafkaTopicKafkaCluster.class, parameters={})
+    @Export(name="kafkaCluster", refs={KafkaTopicKafkaCluster.class}, tree="[0]")
     private Output</* @Nullable */ KafkaTopicKafkaCluster> kafkaCluster;
 
     public Output<Optional<KafkaTopicKafkaCluster>> kafkaCluster() {
@@ -175,7 +169,7 @@ public class KafkaTopic extends com.pulumi.resources.CustomResource {
      * The number of partitions to create in the topic. Defaults to `6`.
      * 
      */
-    @Export(name="partitionsCount", type=Integer.class, parameters={})
+    @Export(name="partitionsCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> partitionsCount;
 
     /**
@@ -189,7 +183,7 @@ public class KafkaTopic extends com.pulumi.resources.CustomResource {
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
-    @Export(name="restEndpoint", type=String.class, parameters={})
+    @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
@@ -203,7 +197,7 @@ public class KafkaTopic extends com.pulumi.resources.CustomResource {
      * The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
      * 
      */
-    @Export(name="topicName", type=String.class, parameters={})
+    @Export(name="topicName", refs={String.class}, tree="[0]")
     private Output<String> topicName;
 
     /**

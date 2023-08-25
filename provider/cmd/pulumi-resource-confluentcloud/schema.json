@@ -5044,8 +5044,7 @@
                 },
                 "httpEndpoint": {
                     "type": "string",
-                    "description": "The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
-                    "deprecationMessage": "This parameter has been deprecated in favour of Rest Endpoint"
+                    "deprecationMessage": "This property has been deprecated. Please use \"restEndpoint\" instead."
                 },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/KafkaTopicKafkaCluster:KafkaTopicKafkaCluster"
@@ -5083,8 +5082,7 @@
                 },
                 "httpEndpoint": {
                     "type": "string",
-                    "description": "The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
-                    "deprecationMessage": "This parameter has been deprecated in favour of Rest Endpoint"
+                    "deprecationMessage": "This property has been deprecated. Please use \"restEndpoint\" instead."
                 },
                 "kafkaCluster": {
                     "$ref": "#/types/confluentcloud:index/KafkaTopicKafkaCluster:KafkaTopicKafkaCluster",
@@ -5125,8 +5123,7 @@
                     },
                     "httpEndpoint": {
                         "type": "string",
-                        "description": "The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
-                        "deprecationMessage": "This parameter has been deprecated in favour of Rest Endpoint"
+                        "deprecationMessage": "This property has been deprecated. Please use \"restEndpoint\" instead."
                     },
                     "kafkaCluster": {
                         "$ref": "#/types/confluentcloud:index/KafkaTopicKafkaCluster:KafkaTopicKafkaCluster",

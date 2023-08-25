@@ -27,7 +27,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Confluent Cloud API Key.
      * 
      */
-    @Export(name="cloudApiKey", type=String.class, parameters={})
+    @Export(name="cloudApiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cloudApiKey;
 
     /**
@@ -41,7 +41,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Confluent Cloud API Secret.
      * 
      */
-    @Export(name="cloudApiSecret", type=String.class, parameters={})
+    @Export(name="cloudApiSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cloudApiSecret;
 
     /**
@@ -55,7 +55,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The base endpoint of Confluent Cloud API.
      * 
      */
-    @Export(name="endpoint", type=String.class, parameters={})
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpoint;
 
     /**
@@ -69,7 +69,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Kafka Cluster API Key.
      * 
      */
-    @Export(name="kafkaApiKey", type=String.class, parameters={})
+    @Export(name="kafkaApiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kafkaApiKey;
 
     /**
@@ -83,7 +83,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Kafka Cluster API Secret.
      * 
      */
-    @Export(name="kafkaApiSecret", type=String.class, parameters={})
+    @Export(name="kafkaApiSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kafkaApiSecret;
 
     /**
@@ -97,7 +97,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Kafka Cluster ID.
      * 
      */
-    @Export(name="kafkaId", type=String.class, parameters={})
+    @Export(name="kafkaId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kafkaId;
 
     /**
@@ -111,7 +111,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Kafka Cluster REST Endpoint.
      * 
      */
-    @Export(name="kafkaRestEndpoint", type=String.class, parameters={})
+    @Export(name="kafkaRestEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kafkaRestEndpoint;
 
     /**
@@ -125,7 +125,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Schema Registry Cluster API Key.
      * 
      */
-    @Export(name="schemaRegistryApiKey", type=String.class, parameters={})
+    @Export(name="schemaRegistryApiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schemaRegistryApiKey;
 
     /**
@@ -139,7 +139,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Schema Registry Cluster API Secret.
      * 
      */
-    @Export(name="schemaRegistryApiSecret", type=String.class, parameters={})
+    @Export(name="schemaRegistryApiSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schemaRegistryApiSecret;
 
     /**
@@ -153,7 +153,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Schema Registry Cluster ID.
      * 
      */
-    @Export(name="schemaRegistryId", type=String.class, parameters={})
+    @Export(name="schemaRegistryId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schemaRegistryId;
 
     /**
@@ -167,7 +167,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The Schema Registry Cluster REST Endpoint.
      * 
      */
-    @Export(name="schemaRegistryRestEndpoint", type=String.class, parameters={})
+    @Export(name="schemaRegistryRestEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schemaRegistryRestEndpoint;
 
     /**

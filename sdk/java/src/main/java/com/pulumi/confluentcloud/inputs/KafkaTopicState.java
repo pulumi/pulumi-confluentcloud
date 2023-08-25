@@ -50,24 +50,20 @@ public final class KafkaTopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-     * 
      * @deprecated
-     * This parameter has been deprecated in favour of Rest Endpoint
+     * This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
      * 
      */
-    @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
+    @Deprecated /* This property has been deprecated. Please use ""restEndpoint"" instead. */
     @Import(name="httpEndpoint")
     private @Nullable Output<String> httpEndpoint;
 
     /**
-     * @return The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-     * 
      * @deprecated
-     * This parameter has been deprecated in favour of Rest Endpoint
+     * This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
      * 
      */
-    @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
+    @Deprecated /* This property has been deprecated. Please use ""restEndpoint"" instead. */
     public Optional<Output<String>> httpEndpoint() {
         return Optional.ofNullable(this.httpEndpoint);
     }
@@ -197,30 +193,26 @@ public final class KafkaTopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpEndpoint The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-         * 
          * @return builder
          * 
          * @deprecated
-         * This parameter has been deprecated in favour of Rest Endpoint
+         * This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
          * 
          */
-        @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
+        @Deprecated /* This property has been deprecated. Please use ""restEndpoint"" instead. */
         public Builder httpEndpoint(@Nullable Output<String> httpEndpoint) {
             $.httpEndpoint = httpEndpoint;
             return this;
         }
 
         /**
-         * @param httpEndpoint The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-         * 
          * @return builder
          * 
          * @deprecated
-         * This parameter has been deprecated in favour of Rest Endpoint
+         * This property has been deprecated. Please use &#34;restEndpoint&#34; instead.
          * 
          */
-        @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
+        @Deprecated /* This property has been deprecated. Please use ""restEndpoint"" instead. */
         public Builder httpEndpoint(String httpEndpoint) {
             return httpEndpoint(Output.of(httpEndpoint));
         }

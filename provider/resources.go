@@ -17,15 +17,19 @@ package confluentcloud
 import (
 	"fmt"
 	// embed is used to store bridge-metadata.json in the compiled binary
+	"context"
 	_ "embed"
 	"path/filepath"
 
-	"github.com/confluentinc/terraform-provider-confluent/shim"
-	"github.com/pulumi/pulumi-confluentcloud/provider/pkg/version"
+	tfschema "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+
+	"github.com/confluentinc/terraform-provider-confluent/shim"
+	"github.com/pulumi/pulumi-confluentcloud/provider/pkg/version"
 )
 
 // all of the token components used below.
@@ -90,11 +94,56 @@ func Provider() tfbridge.ProviderInfo {
 				}},
 			"confluent_kafka_cluster_config": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaClusterConfig")},
 			"confluent_kafka_mirror_topic":   {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaMirrorTopic")},
-			"confluent_kafka_topic":          {Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaTopic")},
-			"confluent_network":              {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Network")},
-			"confluent_peering":              {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Peering")},
-			"confluent_private_link_access":  {Tok: tfbridge.MakeResource(mainPkg, mainMod, "PrivateLinkAccess")},
-			"confluent_role_binding":         {Tok: tfbridge.MakeResource(mainPkg, mainMod, "RoleBinding")},
+			"confluent_kafka_topic": {
+				Tok: tfbridge.MakeResource(mainPkg, mainMod, "KafkaTopic"),
+				PreCheckCallback: func(
+					ctx context.Context, config resource.PropertyMap, _ resource.PropertyMap,
+				) (resource.PropertyMap, error) {
+					const (
+						httpEndpoint = "httpEndpoint"
+						restEndpoint = "restEndpoint"
+					)
+					endpoint, ok := config[httpEndpoint]
+					if !ok {
+						// The optional key is not present, so we can return the config as is.
+						return config, nil
+					}
+
+					// The user has set both httpEndpoint and restEndpoint. These are semantically
+					// the same, so it is forbidden to set both.
+					if _, ok := config[restEndpoint]; ok {
+						return config, fmt.Errorf(`Cannot specify both "%s" and "%s"`+
+							`, please set only "%[2]s"`, httpEndpoint, restEndpoint)
+					}
+
+					tfbridge.GetLogger(ctx).
+						Warn(`"` + httpEndpoint + `" is deprecated, use "` + restEndpoint + `" instead.`)
+
+					delete(config, httpEndpoint)
+					config[restEndpoint] = endpoint
+
+					return config, nil
+				},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"http_endpoint": func() *tfbridge.SchemaInfo {
+						p.ResourcesMap().Get("confluent_kafka_topic").Schema().
+							Set("http_endpoint", shimv2.NewSchema(&tfschema.Schema{
+								Type:     tfschema.TypeString,
+								Optional: true,
+								Computed: true,
+							}))
+						return &tfbridge.SchemaInfo{
+							Name: "httpEndpoint",
+							DeprecationMessage: "This property has been deprecated. " +
+								`Please use "restEndpoint" instead.`,
+						}
+					}(),
+				},
+			},
+			"confluent_network":             {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Network")},
+			"confluent_peering":             {Tok: tfbridge.MakeResource(mainPkg, mainMod, "Peering")},
+			"confluent_private_link_access": {Tok: tfbridge.MakeResource(mainPkg, mainMod, "PrivateLinkAccess")},
+			"confluent_role_binding":        {Tok: tfbridge.MakeResource(mainPkg, mainMod, "RoleBinding")},
 			"confluent_service_account": {
 				Tok: tfbridge.MakeResource(mainPkg, mainMod, "ServiceAccount"),
 				Fields: map[string]*tfbridge.SchemaInfo{

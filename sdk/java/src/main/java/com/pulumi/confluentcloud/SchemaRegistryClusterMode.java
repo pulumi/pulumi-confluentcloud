@@ -35,7 +35,7 @@ public class SchemaRegistryClusterMode extends com.pulumi.resources.CustomResour
      * The Cluster API Credentials.
      * 
      */
-    @Export(name="credentials", type=SchemaRegistryClusterModeCredentials.class, parameters={})
+    @Export(name="credentials", refs={SchemaRegistryClusterModeCredentials.class}, tree="[0]")
     private Output</* @Nullable */ SchemaRegistryClusterModeCredentials> credentials;
 
     /**
@@ -49,7 +49,7 @@ public class SchemaRegistryClusterMode extends com.pulumi.resources.CustomResour
      * The global Schema Registry mode. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
      * 
      */
-    @Export(name="mode", type=String.class, parameters={})
+    @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
@@ -63,7 +63,7 @@ public class SchemaRegistryClusterMode extends com.pulumi.resources.CustomResour
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
-    @Export(name="restEndpoint", type=String.class, parameters={})
+    @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
@@ -73,7 +73,7 @@ public class SchemaRegistryClusterMode extends com.pulumi.resources.CustomResour
     public Output<Optional<String>> restEndpoint() {
         return Codegen.optional(this.restEndpoint);
     }
-    @Export(name="schemaRegistryCluster", type=SchemaRegistryClusterModeSchemaRegistryCluster.class, parameters={})
+    @Export(name="schemaRegistryCluster", refs={SchemaRegistryClusterModeSchemaRegistryCluster.class}, tree="[0]")
     private Output</* @Nullable */ SchemaRegistryClusterModeSchemaRegistryCluster> schemaRegistryCluster;
 
     public Output<Optional<SchemaRegistryClusterModeSchemaRegistryCluster>> schemaRegistryCluster() {

@@ -33,13 +33,13 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="confluentcloud:index/privateLinkAccess:PrivateLinkAccess")
 public class PrivateLinkAccess extends com.pulumi.resources.CustomResource {
-    @Export(name="aws", type=PrivateLinkAccessAws.class, parameters={})
+    @Export(name="aws", refs={PrivateLinkAccessAws.class}, tree="[0]")
     private Output</* @Nullable */ PrivateLinkAccessAws> aws;
 
     public Output<Optional<PrivateLinkAccessAws>> aws() {
         return Codegen.optional(this.aws);
     }
-    @Export(name="azure", type=PrivateLinkAccessAzure.class, parameters={})
+    @Export(name="azure", refs={PrivateLinkAccessAzure.class}, tree="[0]")
     private Output</* @Nullable */ PrivateLinkAccessAzure> azure;
 
     public Output<Optional<PrivateLinkAccessAzure>> azure() {
@@ -49,7 +49,7 @@ public class PrivateLinkAccess extends com.pulumi.resources.CustomResource {
      * The name of the Private Link Access.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -63,7 +63,7 @@ public class PrivateLinkAccess extends com.pulumi.resources.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
-    @Export(name="environment", type=PrivateLinkAccessEnvironment.class, parameters={})
+    @Export(name="environment", refs={PrivateLinkAccessEnvironment.class}, tree="[0]")
     private Output<PrivateLinkAccessEnvironment> environment;
 
     /**
@@ -73,7 +73,7 @@ public class PrivateLinkAccess extends com.pulumi.resources.CustomResource {
     public Output<PrivateLinkAccessEnvironment> environment() {
         return this.environment;
     }
-    @Export(name="gcp", type=PrivateLinkAccessGcp.class, parameters={})
+    @Export(name="gcp", refs={PrivateLinkAccessGcp.class}, tree="[0]")
     private Output</* @Nullable */ PrivateLinkAccessGcp> gcp;
 
     public Output<Optional<PrivateLinkAccessGcp>> gcp() {
@@ -84,7 +84,7 @@ public class PrivateLinkAccess extends com.pulumi.resources.CustomResource {
      * accounts.
      * 
      */
-    @Export(name="network", type=PrivateLinkAccessNetwork.class, parameters={})
+    @Export(name="network", refs={PrivateLinkAccessNetwork.class}, tree="[0]")
     private Output<PrivateLinkAccessNetwork> network;
 
     /**

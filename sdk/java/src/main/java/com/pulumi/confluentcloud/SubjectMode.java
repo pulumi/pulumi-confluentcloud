@@ -35,7 +35,7 @@ public class SubjectMode extends com.pulumi.resources.CustomResource {
      * The Cluster API Credentials.
      * 
      */
-    @Export(name="credentials", type=SubjectModeCredentials.class, parameters={})
+    @Export(name="credentials", refs={SubjectModeCredentials.class}, tree="[0]")
     private Output</* @Nullable */ SubjectModeCredentials> credentials;
 
     /**
@@ -49,7 +49,7 @@ public class SubjectMode extends com.pulumi.resources.CustomResource {
      * The mode of the specified subject. Accepted values are: `READWRITE`, `READONLY`, `READONLY_OVERRIDE`, and `IMPORT`.
      * 
      */
-    @Export(name="mode", type=String.class, parameters={})
+    @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
@@ -63,7 +63,7 @@ public class SubjectMode extends com.pulumi.resources.CustomResource {
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
-    @Export(name="restEndpoint", type=String.class, parameters={})
+    @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
@@ -73,7 +73,7 @@ public class SubjectMode extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> restEndpoint() {
         return Codegen.optional(this.restEndpoint);
     }
-    @Export(name="schemaRegistryCluster", type=SubjectModeSchemaRegistryCluster.class, parameters={})
+    @Export(name="schemaRegistryCluster", refs={SubjectModeSchemaRegistryCluster.class}, tree="[0]")
     private Output</* @Nullable */ SubjectModeSchemaRegistryCluster> schemaRegistryCluster;
 
     public Output<Optional<SubjectModeSchemaRegistryCluster>> schemaRegistryCluster() {
@@ -83,7 +83,7 @@ public class SubjectMode extends com.pulumi.resources.CustomResource {
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
      * 
      */
-    @Export(name="subjectName", type=String.class, parameters={})
+    @Export(name="subjectName", refs={String.class}, tree="[0]")
     private Output<String> subjectName;
 
     /**

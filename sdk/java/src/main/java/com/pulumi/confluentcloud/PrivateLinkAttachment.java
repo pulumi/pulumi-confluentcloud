@@ -81,7 +81,7 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
      * (Optional Configuration Block) supports the following:
      * 
      */
-    @Export(name="aws", type=List.class, parameters={PrivateLinkAttachmentAw.class})
+    @Export(name="aws", refs={List.class,PrivateLinkAttachmentAw.class}, tree="[0,1]")
     private Output<List<PrivateLinkAttachmentAw>> aws;
 
     /**
@@ -91,7 +91,7 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
     public Output<List<PrivateLinkAttachmentAw>> aws() {
         return this.aws;
     }
-    @Export(name="azures", type=List.class, parameters={PrivateLinkAttachmentAzure.class})
+    @Export(name="azures", refs={List.class,PrivateLinkAttachmentAzure.class}, tree="[0,1]")
     private Output<List<PrivateLinkAttachmentAzure>> azures;
 
     public Output<List<PrivateLinkAttachmentAzure>> azures() {
@@ -101,7 +101,7 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
      * The cloud service provider that hosts the resources to access with the Private Link Attachment.
      * 
      */
-    @Export(name="cloud", type=String.class, parameters={})
+    @Export(name="cloud", refs={String.class}, tree="[0]")
     private Output<String> cloud;
 
     /**
@@ -115,7 +115,7 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
      * The name of the Private Link Attachment.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -129,7 +129,7 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
      * (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
      * 
      */
-    @Export(name="dnsDomain", type=String.class, parameters={})
+    @Export(name="dnsDomain", refs={String.class}, tree="[0]")
     private Output<String> dnsDomain;
 
     /**
@@ -143,7 +143,7 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
-    @Export(name="environment", type=PrivateLinkAttachmentEnvironment.class, parameters={})
+    @Export(name="environment", refs={PrivateLinkAttachmentEnvironment.class}, tree="[0]")
     private Output<PrivateLinkAttachmentEnvironment> environment;
 
     /**
@@ -153,7 +153,7 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
     public Output<PrivateLinkAttachmentEnvironment> environment() {
         return this.environment;
     }
-    @Export(name="gcps", type=List.class, parameters={PrivateLinkAttachmentGcp.class})
+    @Export(name="gcps", refs={List.class,PrivateLinkAttachmentGcp.class}, tree="[0,1]")
     private Output<List<PrivateLinkAttachmentGcp>> gcps;
 
     public Output<List<PrivateLinkAttachmentGcp>> gcps() {
@@ -163,7 +163,7 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
      * The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
      * 
      */
-    @Export(name="region", type=String.class, parameters={})
+    @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
@@ -177,7 +177,7 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
      * (Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.
      * 
      */
-    @Export(name="resourceName", type=String.class, parameters={})
+    @Export(name="resourceName", refs={String.class}, tree="[0]")
     private Output<String> resourceName;
 
     /**

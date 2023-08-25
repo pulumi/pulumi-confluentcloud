@@ -83,7 +83,7 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
      * The description of the Kafka Client Quota.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -97,7 +97,7 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
      * The name of the Kafka Client Quota.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -111,7 +111,7 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
-    @Export(name="environment", type=KafkaClientQuotaEnvironment.class, parameters={})
+    @Export(name="environment", refs={KafkaClientQuotaEnvironment.class}, tree="[0]")
     private Output<KafkaClientQuotaEnvironment> environment;
 
     /**
@@ -121,7 +121,7 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
     public Output<KafkaClientQuotaEnvironment> environment() {
         return this.environment;
     }
-    @Export(name="kafkaCluster", type=KafkaClientQuotaKafkaCluster.class, parameters={})
+    @Export(name="kafkaCluster", refs={KafkaClientQuotaKafkaCluster.class}, tree="[0]")
     private Output<KafkaClientQuotaKafkaCluster> kafkaCluster;
 
     public Output<KafkaClientQuotaKafkaCluster> kafkaCluster() {
@@ -131,7 +131,7 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
      * The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, &#34;&lt;default&gt;&#34;, to represent the default quota for all users and service accounts.
      * 
      */
-    @Export(name="principals", type=List.class, parameters={String.class})
+    @Export(name="principals", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> principals;
 
     /**
@@ -145,7 +145,7 @@ public class KafkaClientQuota extends com.pulumi.resources.CustomResource {
      * Block for representing a Kafka Quota.
      * 
      */
-    @Export(name="throughput", type=KafkaClientQuotaThroughput.class, parameters={})
+    @Export(name="throughput", refs={KafkaClientQuotaThroughput.class}, tree="[0]")
     private Output<KafkaClientQuotaThroughput> throughput;
 
     /**

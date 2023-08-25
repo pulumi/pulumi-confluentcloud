@@ -32,7 +32,7 @@ public class ByokKey extends com.pulumi.resources.CustomResource {
      * (Optional Configuration Block) supports the following:
      * 
      */
-    @Export(name="aws", type=ByokKeyAws.class, parameters={})
+    @Export(name="aws", refs={ByokKeyAws.class}, tree="[0]")
     private Output<ByokKeyAws> aws;
 
     /**
@@ -46,7 +46,7 @@ public class ByokKey extends com.pulumi.resources.CustomResource {
      * (Optional Configuration Block) supports the following:
      * 
      */
-    @Export(name="azure", type=ByokKeyAzure.class, parameters={})
+    @Export(name="azure", refs={ByokKeyAzure.class}, tree="[0]")
     private Output<ByokKeyAzure> azure;
 
     /**

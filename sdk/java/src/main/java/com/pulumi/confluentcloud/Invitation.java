@@ -73,7 +73,7 @@ public class Invitation extends com.pulumi.resources.CustomResource {
      * (Optional String) The timestamp that the invitation was accepted.
      * 
      */
-    @Export(name="acceptedAt", type=String.class, parameters={})
+    @Export(name="acceptedAt", refs={String.class}, tree="[0]")
     private Output<String> acceptedAt;
 
     /**
@@ -87,7 +87,7 @@ public class Invitation extends com.pulumi.resources.CustomResource {
      * Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee&#39;s authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user&#39;s auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user&#39;s auth_type is `AUTH_TYPE_LOCAL` by default.
      * 
      */
-    @Export(name="authType", type=String.class, parameters={})
+    @Export(name="authType", refs={String.class}, tree="[0]")
     private Output<String> authType;
 
     /**
@@ -101,7 +101,7 @@ public class Invitation extends com.pulumi.resources.CustomResource {
      * (Required Configuration Block) supports the following:
      * 
      */
-    @Export(name="creators", type=List.class, parameters={InvitationCreator.class})
+    @Export(name="creators", refs={List.class,InvitationCreator.class}, tree="[0,1]")
     private Output<List<InvitationCreator>> creators;
 
     /**
@@ -115,7 +115,7 @@ public class Invitation extends com.pulumi.resources.CustomResource {
      * The user/invitee&#39;s email address.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
@@ -129,7 +129,7 @@ public class Invitation extends com.pulumi.resources.CustomResource {
      * (Optional String) The timestamp that the invitation will expire.
      * 
      */
-    @Export(name="expiresAt", type=String.class, parameters={})
+    @Export(name="expiresAt", refs={String.class}, tree="[0]")
     private Output<String> expiresAt;
 
     /**
@@ -143,7 +143,7 @@ public class Invitation extends com.pulumi.resources.CustomResource {
      * (Optional String) The status of invitations. Accepted values are: `INVITE_STATUS_SENT`,`INVITE_STATUS_STAGED`,`INVITE_STATUS_ACCEPTED`,`INVITE_STATUS_EXPIRED`, and `INVITE_STATUS_DEACTIVATED`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -157,7 +157,7 @@ public class Invitation extends com.pulumi.resources.CustomResource {
      * (Required Configuration Block) supports the following:
      * 
      */
-    @Export(name="users", type=List.class, parameters={InvitationUser.class})
+    @Export(name="users", refs={List.class,InvitationUser.class}, tree="[0,1]")
     private Output<List<InvitationUser>> users;
 
     /**

@@ -41,7 +41,7 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
      * The Cluster API Credentials.
      * 
      */
-    @Export(name="credentials", type=KafkaAclCredentials.class, parameters={})
+    @Export(name="credentials", refs={KafkaAclCredentials.class}, tree="[0]")
     private Output</* @Nullable */ KafkaAclCredentials> credentials;
 
     /**
@@ -55,7 +55,7 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
      * The host for the ACL.
      * 
      */
-    @Export(name="host", type=String.class, parameters={})
+    @Export(name="host", refs={String.class}, tree="[0]")
     private Output<String> host;
 
     /**
@@ -65,7 +65,7 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
     public Output<String> host() {
         return this.host;
     }
-    @Export(name="kafkaCluster", type=KafkaAclKafkaCluster.class, parameters={})
+    @Export(name="kafkaCluster", refs={KafkaAclKafkaCluster.class}, tree="[0]")
     private Output</* @Nullable */ KafkaAclKafkaCluster> kafkaCluster;
 
     public Output<Optional<KafkaAclKafkaCluster>> kafkaCluster() {
@@ -75,7 +75,7 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
      * The operation type for the ACL. Accepted values are: `ALL`, `READ`, `WRITE`, `CREATE`, `DELETE`, `ALTER`, `DESCRIBE`, `CLUSTER_ACTION`, `DESCRIBE_CONFIGS`, `ALTER_CONFIGS`, and `IDEMPOTENT_WRITE`.  See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
      * 
      */
-    @Export(name="operation", type=String.class, parameters={})
+    @Export(name="operation", refs={String.class}, tree="[0]")
     private Output<String> operation;
 
     /**
@@ -89,7 +89,7 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
      * The pattern type for the ACL. Accepted values are: `LITERAL` and `PREFIXED`.
      * 
      */
-    @Export(name="patternType", type=String.class, parameters={})
+    @Export(name="patternType", refs={String.class}, tree="[0]")
     private Output<String> patternType;
 
     /**
@@ -103,7 +103,7 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
      * The permission for the ACL. Accepted values are: `DENY` and `ALLOW`.
      * 
      */
-    @Export(name="permission", type=String.class, parameters={})
+    @Export(name="permission", refs={String.class}, tree="[0]")
     private Output<String> permission;
 
     /**
@@ -117,7 +117,7 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
      * The principal for the ACL.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -131,7 +131,7 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
      * The resource name for the ACL. Must be `kafka-cluster` if `resource_type` equals to `CLUSTER`.
      * 
      */
-    @Export(name="resourceName", type=String.class, parameters={})
+    @Export(name="resourceName", refs={String.class}, tree="[0]")
     private Output<String> resourceName;
 
     /**
@@ -145,7 +145,7 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
      * The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
      * 
      */
-    @Export(name="resourceType", type=String.class, parameters={})
+    @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
     /**
@@ -159,7 +159,7 @@ public class KafkaAcl extends com.pulumi.resources.CustomResource {
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
      * 
      */
-    @Export(name="restEndpoint", type=String.class, parameters={})
+    @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**

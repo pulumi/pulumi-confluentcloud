@@ -35,7 +35,7 @@ public class SubjectConfig extends com.pulumi.resources.CustomResource {
      * The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      * 
      */
-    @Export(name="compatibilityLevel", type=String.class, parameters={})
+    @Export(name="compatibilityLevel", refs={String.class}, tree="[0]")
     private Output<String> compatibilityLevel;
 
     /**
@@ -49,7 +49,7 @@ public class SubjectConfig extends com.pulumi.resources.CustomResource {
      * The Cluster API Credentials.
      * 
      */
-    @Export(name="credentials", type=SubjectConfigCredentials.class, parameters={})
+    @Export(name="credentials", refs={SubjectConfigCredentials.class}, tree="[0]")
     private Output</* @Nullable */ SubjectConfigCredentials> credentials;
 
     /**
@@ -63,7 +63,7 @@ public class SubjectConfig extends com.pulumi.resources.CustomResource {
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
-    @Export(name="restEndpoint", type=String.class, parameters={})
+    @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
@@ -73,7 +73,7 @@ public class SubjectConfig extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> restEndpoint() {
         return Codegen.optional(this.restEndpoint);
     }
-    @Export(name="schemaRegistryCluster", type=SubjectConfigSchemaRegistryCluster.class, parameters={})
+    @Export(name="schemaRegistryCluster", refs={SubjectConfigSchemaRegistryCluster.class}, tree="[0]")
     private Output</* @Nullable */ SubjectConfigSchemaRegistryCluster> schemaRegistryCluster;
 
     public Output<Optional<SubjectConfigSchemaRegistryCluster>> schemaRegistryCluster() {
@@ -83,7 +83,7 @@ public class SubjectConfig extends com.pulumi.resources.CustomResource {
      * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
      * 
      */
-    @Export(name="subjectName", type=String.class, parameters={})
+    @Export(name="subjectName", refs={String.class}, tree="[0]")
     private Output<String> subjectName;
 
     /**

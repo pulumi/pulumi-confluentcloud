@@ -31,7 +31,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, &#34;Development&#34;. The name can contain hyphens and underscores.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -45,7 +45,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
      * 
      */
-    @Export(name="resourceName", type=String.class, parameters={})
+    @Export(name="resourceName", refs={String.class}, tree="[0]")
     private Output<String> resourceName;
 
     /**

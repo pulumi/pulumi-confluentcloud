@@ -44,7 +44,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * The Cluster API Credentials.
      * 
      */
-    @Export(name="credentials", type=SchemaCredentials.class, parameters={})
+    @Export(name="credentials", refs={SchemaCredentials.class}, tree="[0]")
     private Output</* @Nullable */ SchemaCredentials> credentials;
 
     /**
@@ -58,7 +58,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
      * 
      */
-    @Export(name="format", type=String.class, parameters={})
+    @Export(name="format", refs={String.class}, tree="[0]")
     private Output<String> format;
 
     /**
@@ -72,7 +72,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
      * 
      */
-    @Export(name="hardDelete", type=Boolean.class, parameters={})
+    @Export(name="hardDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hardDelete;
 
     /**
@@ -86,7 +86,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
      * 
      */
-    @Export(name="recreateOnUpdate", type=Boolean.class, parameters={})
+    @Export(name="recreateOnUpdate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> recreateOnUpdate;
 
     /**
@@ -100,7 +100,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
-    @Export(name="restEndpoint", type=String.class, parameters={})
+    @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
@@ -114,7 +114,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -128,7 +128,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
      * 
      */
-    @Export(name="schemaIdentifier", type=Integer.class, parameters={})
+    @Export(name="schemaIdentifier", refs={Integer.class}, tree="[0]")
     private Output<Integer> schemaIdentifier;
 
     /**
@@ -142,7 +142,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
      * 
      */
-    @Export(name="schemaReferences", type=List.class, parameters={SchemaSchemaReference.class})
+    @Export(name="schemaReferences", refs={List.class,SchemaSchemaReference.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SchemaSchemaReference>> schemaReferences;
 
     /**
@@ -152,7 +152,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<SchemaSchemaReference>>> schemaReferences() {
         return Codegen.optional(this.schemaReferences);
     }
-    @Export(name="schemaRegistryCluster", type=SchemaSchemaRegistryCluster.class, parameters={})
+    @Export(name="schemaRegistryCluster", refs={SchemaSchemaRegistryCluster.class}, tree="[0]")
     private Output</* @Nullable */ SchemaSchemaRegistryCluster> schemaRegistryCluster;
 
     public Output<Optional<SchemaSchemaRegistryCluster>> schemaRegistryCluster() {
@@ -162,7 +162,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
      * 
      */
-    @Export(name="subjectName", type=String.class, parameters={})
+    @Export(name="subjectName", refs={String.class}, tree="[0]")
     private Output<String> subjectName;
 
     /**
@@ -176,7 +176,7 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * The version, representing the exact version of the schema under the registered subject.
      * 
      */
-    @Export(name="version", type=Integer.class, parameters={})
+    @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**

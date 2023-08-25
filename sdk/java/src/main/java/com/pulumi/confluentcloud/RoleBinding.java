@@ -31,7 +31,7 @@ public class RoleBinding extends com.pulumi.resources.CustomResource {
      * A [Confluent Resource Name(CRN)](&lt;https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)&gt;) that specifies the scope and resource patterns necessary for the role to bind.
      * 
      */
-    @Export(name="crnPattern", type=String.class, parameters={})
+    @Export(name="crnPattern", refs={String.class}, tree="[0]")
     private Output<String> crnPattern;
 
     /**
@@ -45,7 +45,7 @@ public class RoleBinding extends com.pulumi.resources.CustomResource {
      * A principal User to bind the role to, for example, &#34;User:u-111aaa&#34; for binding to a user &#34;u-111aaa&#34;, or &#34;User:sa-111aaa&#34; for binding to a service account &#34;sa-111aaa&#34;.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -59,7 +59,7 @@ public class RoleBinding extends com.pulumi.resources.CustomResource {
      * A name of the role to bind to the principal. See [Confluent Cloud RBAC Roles](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#ccloud-rbac-roles) for a full list of supported role names.
      * 
      */
-    @Export(name="roleName", type=String.class, parameters={})
+    @Export(name="roleName", refs={String.class}, tree="[0]")
     private Output<String> roleName;
 
     /**
