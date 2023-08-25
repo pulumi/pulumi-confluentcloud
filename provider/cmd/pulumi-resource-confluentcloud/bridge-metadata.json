@@ -1827,7 +1827,6 @@
                 "encryptionKey": "encryption_key"
             },
             "confluentcloud:index/getKafkaTopic:getKafkaTopic": {
-                "httpEndpoint": "http_endpoint",
                 "kafkaCluster": "kafka_cluster",
                 "partitionsCount": "partitions_count",
                 "restEndpoint": "rest_endpoint",

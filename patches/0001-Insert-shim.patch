@@ -1,7 +1,7 @@
-From 1ccb7127739cf3a3a6dbe124f1937cd4b4fcdbe1 Mon Sep 17 00:00:00 2001
+From 84980b38abac2616149d8218d59b61687a580fb9 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Thu, 9 Mar 2023 18:22:25 +0100
-Subject: [PATCH 2/2] Insert shim
+Subject: [PATCH] Insert shim
 
 ---
  shim/shim.go | 10 ++++++++++
@@ -25,5 +25,5 @@ index 0000000..ac43027
 +	return provider.New(version, customUserAgent)()
 +}
 -- 
-2.39.2 (Apple Git-143)
+2.41.0
 
