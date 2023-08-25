@@ -24,25 +24,6 @@ public final class GetKafkaTopicArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.credentials);
     }
 
-    /**
-     * @deprecated
-     * This parameter has been deprecated in favour of Rest Endpoint
-     * 
-     */
-    @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
-    @Import(name="httpEndpoint")
-    private @Nullable Output<String> httpEndpoint;
-
-    /**
-     * @deprecated
-     * This parameter has been deprecated in favour of Rest Endpoint
-     * 
-     */
-    @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
-    public Optional<Output<String>> httpEndpoint() {
-        return Optional.ofNullable(this.httpEndpoint);
-    }
-
     @Import(name="kafkaCluster")
     private @Nullable Output<GetKafkaTopicKafkaClusterArgs> kafkaCluster;
 
@@ -84,7 +65,6 @@ public final class GetKafkaTopicArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetKafkaTopicArgs(GetKafkaTopicArgs $) {
         this.credentials = $.credentials;
-        this.httpEndpoint = $.httpEndpoint;
         this.kafkaCluster = $.kafkaCluster;
         this.restEndpoint = $.restEndpoint;
         this.topicName = $.topicName;
@@ -115,31 +95,6 @@ public final class GetKafkaTopicArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder credentials(GetKafkaTopicCredentialsArgs credentials) {
             return credentials(Output.of(credentials));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This parameter has been deprecated in favour of Rest Endpoint
-         * 
-         */
-        @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
-        public Builder httpEndpoint(@Nullable Output<String> httpEndpoint) {
-            $.httpEndpoint = httpEndpoint;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This parameter has been deprecated in favour of Rest Endpoint
-         * 
-         */
-        @Deprecated /* This parameter has been deprecated in favour of Rest Endpoint */
-        public Builder httpEndpoint(String httpEndpoint) {
-            return httpEndpoint(Output.of(httpEndpoint));
         }
 
         public Builder kafkaCluster(@Nullable Output<GetKafkaTopicKafkaClusterArgs> kafkaCluster) {

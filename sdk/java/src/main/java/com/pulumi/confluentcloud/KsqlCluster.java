@@ -39,7 +39,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      * (Required String) An API Version of the schema version of the ksqlDB cluster, for example, `ksqldbcm/v2`.
      * 
      */
-    @Export(name="apiVersion", type=String.class, parameters={})
+    @Export(name="apiVersion", refs={String.class}, tree="[0]")
     private Output<String> apiVersion;
 
     /**
@@ -49,7 +49,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
     public Output<String> apiVersion() {
         return this.apiVersion;
     }
-    @Export(name="credentialIdentity", type=KsqlClusterCredentialIdentity.class, parameters={})
+    @Export(name="credentialIdentity", refs={KsqlClusterCredentialIdentity.class}, tree="[0]")
     private Output<KsqlClusterCredentialIdentity> credentialIdentity;
 
     public Output<KsqlClusterCredentialIdentity> credentialIdentity() {
@@ -59,7 +59,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      * The number of Confluent Streaming Units (CSUs) for the ksqlDB cluster.
      * 
      */
-    @Export(name="csu", type=Integer.class, parameters={})
+    @Export(name="csu", refs={Integer.class}, tree="[0]")
     private Output<Integer> csu;
 
     /**
@@ -73,7 +73,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      * The name of the ksqlDB cluster.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -87,7 +87,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
-    @Export(name="environment", type=KsqlClusterEnvironment.class, parameters={})
+    @Export(name="environment", refs={KsqlClusterEnvironment.class}, tree="[0]")
     private Output<KsqlClusterEnvironment> environment;
 
     /**
@@ -97,7 +97,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
     public Output<KsqlClusterEnvironment> environment() {
         return this.environment;
     }
-    @Export(name="kafkaCluster", type=KsqlClusterKafkaCluster.class, parameters={})
+    @Export(name="kafkaCluster", refs={KsqlClusterKafkaCluster.class}, tree="[0]")
     private Output<KsqlClusterKafkaCluster> kafkaCluster;
 
     public Output<KsqlClusterKafkaCluster> kafkaCluster() {
@@ -107,7 +107,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      * (Required String) A kind of the ksqlDB cluster, for example, `Cluster`.
      * 
      */
-    @Export(name="kind", type=String.class, parameters={})
+    @Export(name="kind", refs={String.class}, tree="[0]")
     private Output<String> kind;
 
     /**
@@ -121,7 +121,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      * (Required String) The Confluent Resource Name of the ksqlDB cluster.
      * 
      */
-    @Export(name="resourceName", type=String.class, parameters={})
+    @Export(name="resourceName", refs={String.class}, tree="[0]")
     private Output<String> resourceName;
 
     /**
@@ -135,7 +135,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      * (Required String) The API endpoint of the ksqlDB cluster, for example, `https://pksqlc-00000.us-central1.gcp.glb.confluent.cloud`.
      * 
      */
-    @Export(name="restEndpoint", type=String.class, parameters={})
+    @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output<String> restEndpoint;
 
     /**
@@ -149,7 +149,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      * (Required Integer) The amount of storage (in GB) provisioned to the ksqlDB cluster.
      * 
      */
-    @Export(name="storage", type=Integer.class, parameters={})
+    @Export(name="storage", refs={Integer.class}, tree="[0]")
     private Output<Integer> storage;
 
     /**
@@ -163,7 +163,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      * (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
      * 
      */
-    @Export(name="topicPrefix", type=String.class, parameters={})
+    @Export(name="topicPrefix", refs={String.class}, tree="[0]")
     private Output<String> topicPrefix;
 
     /**
@@ -177,7 +177,7 @@ public class KsqlCluster extends com.pulumi.resources.CustomResource {
      * Controls whether the row data should be included in the processing log topic. Set it to `false` if you don&#39;t want to emit sensitive information to the processing log. Defaults to `true`.
      * 
      */
-    @Export(name="useDetailedProcessingLog", type=Boolean.class, parameters={})
+    @Export(name="useDetailedProcessingLog", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useDetailedProcessingLog;
 
     /**

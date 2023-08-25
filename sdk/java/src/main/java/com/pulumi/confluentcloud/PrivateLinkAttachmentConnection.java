@@ -84,13 +84,13 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection")
 public class PrivateLinkAttachmentConnection extends com.pulumi.resources.CustomResource {
-    @Export(name="aws", type=PrivateLinkAttachmentConnectionAws.class, parameters={})
+    @Export(name="aws", refs={PrivateLinkAttachmentConnectionAws.class}, tree="[0]")
     private Output</* @Nullable */ PrivateLinkAttachmentConnectionAws> aws;
 
     public Output<Optional<PrivateLinkAttachmentConnectionAws>> aws() {
         return Codegen.optional(this.aws);
     }
-    @Export(name="azure", type=PrivateLinkAttachmentConnectionAzure.class, parameters={})
+    @Export(name="azure", refs={PrivateLinkAttachmentConnectionAzure.class}, tree="[0]")
     private Output</* @Nullable */ PrivateLinkAttachmentConnectionAzure> azure;
 
     public Output<Optional<PrivateLinkAttachmentConnectionAzure>> azure() {
@@ -100,7 +100,7 @@ public class PrivateLinkAttachmentConnection extends com.pulumi.resources.Custom
      * The name of the Private Link Attachment Connection.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -114,7 +114,7 @@ public class PrivateLinkAttachmentConnection extends com.pulumi.resources.Custom
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
-    @Export(name="environment", type=PrivateLinkAttachmentConnectionEnvironment.class, parameters={})
+    @Export(name="environment", refs={PrivateLinkAttachmentConnectionEnvironment.class}, tree="[0]")
     private Output<PrivateLinkAttachmentConnectionEnvironment> environment;
 
     /**
@@ -124,7 +124,7 @@ public class PrivateLinkAttachmentConnection extends com.pulumi.resources.Custom
     public Output<PrivateLinkAttachmentConnectionEnvironment> environment() {
         return this.environment;
     }
-    @Export(name="gcp", type=PrivateLinkAttachmentConnectionGcp.class, parameters={})
+    @Export(name="gcp", refs={PrivateLinkAttachmentConnectionGcp.class}, tree="[0]")
     private Output</* @Nullable */ PrivateLinkAttachmentConnectionGcp> gcp;
 
     public Output<Optional<PrivateLinkAttachmentConnectionGcp>> gcp() {
@@ -134,7 +134,7 @@ public class PrivateLinkAttachmentConnection extends com.pulumi.resources.Custom
      * The private_link_attachment to which this belongs.
      * 
      */
-    @Export(name="privateLinkAttachment", type=PrivateLinkAttachmentConnectionPrivateLinkAttachment.class, parameters={})
+    @Export(name="privateLinkAttachment", refs={PrivateLinkAttachmentConnectionPrivateLinkAttachment.class}, tree="[0]")
     private Output<PrivateLinkAttachmentConnectionPrivateLinkAttachment> privateLinkAttachment;
 
     /**
@@ -148,7 +148,7 @@ public class PrivateLinkAttachmentConnection extends com.pulumi.resources.Custom
      * (Required String) The Confluent Resource Name of the Private Link Attachment Connection, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0/private-link-attachment-connection=plattc-77zq2w`.
      * 
      */
-    @Export(name="resourceName", type=String.class, parameters={})
+    @Export(name="resourceName", refs={String.class}, tree="[0]")
     private Output<String> resourceName;
 
     /**

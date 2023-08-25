@@ -140,9 +140,7 @@ export class KafkaTopic extends pulumi.CustomResource {
      */
     public readonly credentials!: pulumi.Output<outputs.KafkaTopicCredentials | undefined>;
     /**
-     * The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-     *
-     * @deprecated This parameter has been deprecated in favour of Rest Endpoint
+     * @deprecated This property has been deprecated. Please use "restEndpoint" instead.
      */
     public readonly httpEndpoint!: pulumi.Output<string>;
     public readonly kafkaCluster!: pulumi.Output<outputs.KafkaTopicKafkaCluster | undefined>;
@@ -212,9 +210,7 @@ export interface KafkaTopicState {
      */
     credentials?: pulumi.Input<inputs.KafkaTopicCredentials>;
     /**
-     * The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-     *
-     * @deprecated This parameter has been deprecated in favour of Rest Endpoint
+     * @deprecated This property has been deprecated. Please use "restEndpoint" instead.
      */
     httpEndpoint?: pulumi.Input<string>;
     kafkaCluster?: pulumi.Input<inputs.KafkaTopicKafkaCluster>;
@@ -245,9 +241,7 @@ export interface KafkaTopicArgs {
      */
     credentials?: pulumi.Input<inputs.KafkaTopicCredentials>;
     /**
-     * The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-     *
-     * @deprecated This parameter has been deprecated in favour of Rest Endpoint
+     * @deprecated This property has been deprecated. Please use "restEndpoint" instead.
      */
     httpEndpoint?: pulumi.Input<string>;
     kafkaCluster?: pulumi.Input<inputs.KafkaTopicKafkaCluster>;

@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 
 @ResourceType(type="confluentcloud:index/tfImporter:TfImporter")
 public class TfImporter extends com.pulumi.resources.CustomResource {
-    @Export(name="outputPath", type=String.class, parameters={})
+    @Export(name="outputPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> outputPath;
 
     public Output<Optional<String>> outputPath() {
@@ -27,7 +27,7 @@ public class TfImporter extends com.pulumi.resources.CustomResource {
      * A list of resources names to export. Defaults to all exportable resources.
      * 
      */
-    @Export(name="resources", type=List.class, parameters={String.class})
+    @Export(name="resources", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> resources;
 
     /**

@@ -34,7 +34,7 @@ public class NetworkLinkEndpoint extends com.pulumi.resources.CustomResource {
      * The description of the Network Link Endpoint.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -48,7 +48,7 @@ public class NetworkLinkEndpoint extends com.pulumi.resources.CustomResource {
      * The name of the Network Link Endpoint.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -62,7 +62,7 @@ public class NetworkLinkEndpoint extends com.pulumi.resources.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
-    @Export(name="environment", type=NetworkLinkEndpointEnvironment.class, parameters={})
+    @Export(name="environment", refs={NetworkLinkEndpointEnvironment.class}, tree="[0]")
     private Output<NetworkLinkEndpointEnvironment> environment;
 
     /**
@@ -77,7 +77,7 @@ public class NetworkLinkEndpoint extends com.pulumi.resources.CustomResource {
      * accounts.
      * 
      */
-    @Export(name="network", type=NetworkLinkEndpointNetwork.class, parameters={})
+    @Export(name="network", refs={NetworkLinkEndpointNetwork.class}, tree="[0]")
     private Output<NetworkLinkEndpointNetwork> network;
 
     /**
@@ -88,7 +88,7 @@ public class NetworkLinkEndpoint extends com.pulumi.resources.CustomResource {
     public Output<NetworkLinkEndpointNetwork> network() {
         return this.network;
     }
-    @Export(name="networkLinkService", type=NetworkLinkEndpointNetworkLinkService.class, parameters={})
+    @Export(name="networkLinkService", refs={NetworkLinkEndpointNetworkLinkService.class}, tree="[0]")
     private Output<NetworkLinkEndpointNetworkLinkService> networkLinkService;
 
     public Output<NetworkLinkEndpointNetworkLinkService> networkLinkService() {
@@ -98,7 +98,7 @@ public class NetworkLinkEndpoint extends com.pulumi.resources.CustomResource {
      * (Required String) The Confluent Resource Name of the Network Link Endpoint.
      * 
      */
-    @Export(name="resourceName", type=String.class, parameters={})
+    @Export(name="resourceName", refs={String.class}, tree="[0]")
     private Output<String> resourceName;
 
     /**

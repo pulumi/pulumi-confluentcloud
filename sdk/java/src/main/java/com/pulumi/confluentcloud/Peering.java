@@ -33,13 +33,13 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="confluentcloud:index/peering:Peering")
 public class Peering extends com.pulumi.resources.CustomResource {
-    @Export(name="aws", type=PeeringAws.class, parameters={})
+    @Export(name="aws", refs={PeeringAws.class}, tree="[0]")
     private Output</* @Nullable */ PeeringAws> aws;
 
     public Output<Optional<PeeringAws>> aws() {
         return Codegen.optional(this.aws);
     }
-    @Export(name="azure", type=PeeringAzure.class, parameters={})
+    @Export(name="azure", refs={PeeringAzure.class}, tree="[0]")
     private Output</* @Nullable */ PeeringAzure> azure;
 
     public Output<Optional<PeeringAzure>> azure() {
@@ -49,7 +49,7 @@ public class Peering extends com.pulumi.resources.CustomResource {
      * The name of the Peering.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -63,7 +63,7 @@ public class Peering extends com.pulumi.resources.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
-    @Export(name="environment", type=PeeringEnvironment.class, parameters={})
+    @Export(name="environment", refs={PeeringEnvironment.class}, tree="[0]")
     private Output<PeeringEnvironment> environment;
 
     /**
@@ -73,7 +73,7 @@ public class Peering extends com.pulumi.resources.CustomResource {
     public Output<PeeringEnvironment> environment() {
         return this.environment;
     }
-    @Export(name="gcp", type=PeeringGcp.class, parameters={})
+    @Export(name="gcp", refs={PeeringGcp.class}, tree="[0]")
     private Output</* @Nullable */ PeeringGcp> gcp;
 
     public Output<Optional<PeeringGcp>> gcp() {
@@ -84,7 +84,7 @@ public class Peering extends com.pulumi.resources.CustomResource {
      * accounts.
      * 
      */
-    @Export(name="network", type=PeeringNetwork.class, parameters={})
+    @Export(name="network", refs={PeeringNetwork.class}, tree="[0]")
     private Output<PeeringNetwork> network;
 
     /**

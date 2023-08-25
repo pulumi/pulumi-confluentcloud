@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="confluentcloud:index/networkLinkService:NetworkLinkService")
 public class NetworkLinkService extends com.pulumi.resources.CustomResource {
-    @Export(name="accept", type=NetworkLinkServiceAccept.class, parameters={})
+    @Export(name="accept", refs={NetworkLinkServiceAccept.class}, tree="[0]")
     private Output<NetworkLinkServiceAccept> accept;
 
     public Output<NetworkLinkServiceAccept> accept() {
@@ -40,7 +40,7 @@ public class NetworkLinkService extends com.pulumi.resources.CustomResource {
      * The description of the Network Link Service.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -54,7 +54,7 @@ public class NetworkLinkService extends com.pulumi.resources.CustomResource {
      * The name of the Network Link Service.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -68,7 +68,7 @@ public class NetworkLinkService extends com.pulumi.resources.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
-    @Export(name="environment", type=NetworkLinkServiceEnvironment.class, parameters={})
+    @Export(name="environment", refs={NetworkLinkServiceEnvironment.class}, tree="[0]")
     private Output<NetworkLinkServiceEnvironment> environment;
 
     /**
@@ -83,7 +83,7 @@ public class NetworkLinkService extends com.pulumi.resources.CustomResource {
      * accounts.
      * 
      */
-    @Export(name="network", type=NetworkLinkServiceNetwork.class, parameters={})
+    @Export(name="network", refs={NetworkLinkServiceNetwork.class}, tree="[0]")
     private Output<NetworkLinkServiceNetwork> network;
 
     /**
@@ -98,7 +98,7 @@ public class NetworkLinkService extends com.pulumi.resources.CustomResource {
      * (Required String) The Confluent Resource Name of the Network Link Service.
      * 
      */
-    @Export(name="resourceName", type=String.class, parameters={})
+    @Export(name="resourceName", refs={String.class}, tree="[0]")
     private Output<String> resourceName;
 
     /**

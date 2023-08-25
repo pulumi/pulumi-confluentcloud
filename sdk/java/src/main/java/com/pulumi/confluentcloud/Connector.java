@@ -33,7 +33,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * Block for custom *nonsensitive* configuration properties that are *not* labelled with &#34;Type: password&#34; under &#34;Configuration Properties&#34; section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      * 
      */
-    @Export(name="configNonsensitive", type=Map.class, parameters={String.class, String.class})
+    @Export(name="configNonsensitive", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> configNonsensitive;
 
     /**
@@ -47,7 +47,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * Block for custom *sensitive* configuration properties that are labelled with &#34;Type: password&#34; under &#34;Configuration Properties&#34; section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
      * 
      */
-    @Export(name="configSensitive", type=Map.class, parameters={String.class, String.class})
+    @Export(name="configSensitive", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> configSensitive;
 
     /**
@@ -61,7 +61,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
-    @Export(name="environment", type=ConnectorEnvironment.class, parameters={})
+    @Export(name="environment", refs={ConnectorEnvironment.class}, tree="[0]")
     private Output<ConnectorEnvironment> environment;
 
     /**
@@ -71,13 +71,13 @@ public class Connector extends com.pulumi.resources.CustomResource {
     public Output<ConnectorEnvironment> environment() {
         return this.environment;
     }
-    @Export(name="kafkaCluster", type=ConnectorKafkaCluster.class, parameters={})
+    @Export(name="kafkaCluster", refs={ConnectorKafkaCluster.class}, tree="[0]")
     private Output<ConnectorKafkaCluster> kafkaCluster;
 
     public Output<ConnectorKafkaCluster> kafkaCluster() {
         return this.kafkaCluster;
     }
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     public Output<String> status() {

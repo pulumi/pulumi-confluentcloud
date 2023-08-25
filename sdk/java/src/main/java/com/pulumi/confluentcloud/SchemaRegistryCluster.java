@@ -82,7 +82,7 @@ public class SchemaRegistryCluster extends com.pulumi.resources.CustomResource {
      * (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `srcm/v2`.
      * 
      */
-    @Export(name="apiVersion", type=String.class, parameters={})
+    @Export(name="apiVersion", refs={String.class}, tree="[0]")
     private Output<String> apiVersion;
 
     /**
@@ -96,7 +96,7 @@ public class SchemaRegistryCluster extends com.pulumi.resources.CustomResource {
      * (Required String) The name of the Schema Registry cluster, for example, `Stream Governance Package`.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -110,7 +110,7 @@ public class SchemaRegistryCluster extends com.pulumi.resources.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      * 
      */
-    @Export(name="environment", type=SchemaRegistryClusterEnvironment.class, parameters={})
+    @Export(name="environment", refs={SchemaRegistryClusterEnvironment.class}, tree="[0]")
     private Output<SchemaRegistryClusterEnvironment> environment;
 
     /**
@@ -124,7 +124,7 @@ public class SchemaRegistryCluster extends com.pulumi.resources.CustomResource {
      * (Required String) A kind of the Schema Registry cluster, for example, `Cluster`.
      * 
      */
-    @Export(name="kind", type=String.class, parameters={})
+    @Export(name="kind", refs={String.class}, tree="[0]")
     private Output<String> kind;
 
     /**
@@ -138,7 +138,7 @@ public class SchemaRegistryCluster extends com.pulumi.resources.CustomResource {
      * The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
      * 
      */
-    @Export(name="package", type=String.class, parameters={})
+    @Export(name="package", refs={String.class}, tree="[0]")
     private Output<String> package_;
 
     /**
@@ -148,7 +148,7 @@ public class SchemaRegistryCluster extends com.pulumi.resources.CustomResource {
     public Output<String> package_() {
         return this.package_;
     }
-    @Export(name="region", type=SchemaRegistryClusterRegion.class, parameters={})
+    @Export(name="region", refs={SchemaRegistryClusterRegion.class}, tree="[0]")
     private Output<SchemaRegistryClusterRegion> region;
 
     public Output<SchemaRegistryClusterRegion> region() {
@@ -158,7 +158,7 @@ public class SchemaRegistryCluster extends com.pulumi.resources.CustomResource {
      * (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
      * 
      */
-    @Export(name="resourceName", type=String.class, parameters={})
+    @Export(name="resourceName", refs={String.class}, tree="[0]")
     private Output<String> resourceName;
 
     /**
@@ -172,7 +172,7 @@ public class SchemaRegistryCluster extends com.pulumi.resources.CustomResource {
      * (Required String) The HTTP endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-west-2.aws.confluent.cloud`.
      * 
      */
-    @Export(name="restEndpoint", type=String.class, parameters={})
+    @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output<String> restEndpoint;
 
     /**

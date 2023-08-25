@@ -42,7 +42,7 @@ public class KafkaClusterConfig extends com.pulumi.resources.CustomResource {
      * The custom cluster settings to set:
      * 
      */
-    @Export(name="config", type=Map.class, parameters={String.class, String.class})
+    @Export(name="config", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> config;
 
     /**
@@ -56,7 +56,7 @@ public class KafkaClusterConfig extends com.pulumi.resources.CustomResource {
      * The Cluster API Credentials.
      * 
      */
-    @Export(name="credentials", type=KafkaClusterConfigCredentials.class, parameters={})
+    @Export(name="credentials", refs={KafkaClusterConfigCredentials.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterConfigCredentials> credentials;
 
     /**
@@ -66,7 +66,7 @@ public class KafkaClusterConfig extends com.pulumi.resources.CustomResource {
     public Output<Optional<KafkaClusterConfigCredentials>> credentials() {
         return Codegen.optional(this.credentials);
     }
-    @Export(name="kafkaCluster", type=KafkaClusterConfigKafkaCluster.class, parameters={})
+    @Export(name="kafkaCluster", refs={KafkaClusterConfigKafkaCluster.class}, tree="[0]")
     private Output</* @Nullable */ KafkaClusterConfigKafkaCluster> kafkaCluster;
 
     public Output<Optional<KafkaClusterConfigKafkaCluster>> kafkaCluster() {
@@ -76,7 +76,7 @@ public class KafkaClusterConfig extends com.pulumi.resources.CustomResource {
      * The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
-    @Export(name="restEndpoint", type=String.class, parameters={})
+    @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**

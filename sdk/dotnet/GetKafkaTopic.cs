@@ -29,9 +29,6 @@ namespace Pulumi.ConfluentCloud
             set => _credentials = value;
         }
 
-        [Input("httpEndpoint")]
-        public string? HttpEndpoint { get; set; }
-
         [Input("kafkaCluster")]
         public Inputs.GetKafkaTopicKafkaClusterArgs? KafkaCluster { get; set; }
 
@@ -67,9 +64,6 @@ namespace Pulumi.ConfluentCloud
             }
         }
 
-        [Input("httpEndpoint")]
-        public Input<string>? HttpEndpoint { get; set; }
-
         [Input("kafkaCluster")]
         public Input<Inputs.GetKafkaTopicKafkaClusterInputArgs>? KafkaCluster { get; set; }
 
@@ -100,7 +94,6 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableDictionary<string, string> Config;
         public readonly Outputs.GetKafkaTopicCredentialsResult? Credentials;
-        public readonly string HttpEndpoint;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -119,8 +112,6 @@ namespace Pulumi.ConfluentCloud
 
             Outputs.GetKafkaTopicCredentialsResult? credentials,
 
-            string httpEndpoint,
-
             string id,
 
             Outputs.GetKafkaTopicKafkaClusterResult? kafkaCluster,
@@ -133,7 +124,6 @@ namespace Pulumi.ConfluentCloud
         {
             Config = config;
             Credentials = credentials;
-            HttpEndpoint = httpEndpoint;
             Id = id;
             KafkaCluster = kafkaCluster;
             PartitionsCount = partitionsCount;

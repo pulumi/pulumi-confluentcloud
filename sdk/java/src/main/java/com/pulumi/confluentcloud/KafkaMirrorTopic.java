@@ -30,13 +30,13 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic")
 public class KafkaMirrorTopic extends com.pulumi.resources.CustomResource {
-    @Export(name="clusterLink", type=KafkaMirrorTopicClusterLink.class, parameters={})
+    @Export(name="clusterLink", refs={KafkaMirrorTopicClusterLink.class}, tree="[0]")
     private Output<KafkaMirrorTopicClusterLink> clusterLink;
 
     public Output<KafkaMirrorTopicClusterLink> clusterLink() {
         return this.clusterLink;
     }
-    @Export(name="kafkaCluster", type=KafkaMirrorTopicKafkaCluster.class, parameters={})
+    @Export(name="kafkaCluster", refs={KafkaMirrorTopicKafkaCluster.class}, tree="[0]")
     private Output<KafkaMirrorTopicKafkaCluster> kafkaCluster;
 
     public Output<KafkaMirrorTopicKafkaCluster> kafkaCluster() {
@@ -46,7 +46,7 @@ public class KafkaMirrorTopic extends com.pulumi.resources.CustomResource {
      * The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `&lt;prefix&gt;` is configured for the cluster link, the mirror topic name has to be of the format `&lt;prefix&gt;&lt;source_topic_name&gt;`.
      * 
      */
-    @Export(name="mirrorTopicName", type=String.class, parameters={})
+    @Export(name="mirrorTopicName", refs={String.class}, tree="[0]")
     private Output<String> mirrorTopicName;
 
     /**
@@ -56,13 +56,13 @@ public class KafkaMirrorTopic extends com.pulumi.resources.CustomResource {
     public Output<String> mirrorTopicName() {
         return this.mirrorTopicName;
     }
-    @Export(name="sourceKafkaTopic", type=KafkaMirrorTopicSourceKafkaTopic.class, parameters={})
+    @Export(name="sourceKafkaTopic", refs={KafkaMirrorTopicSourceKafkaTopic.class}, tree="[0]")
     private Output<KafkaMirrorTopicSourceKafkaTopic> sourceKafkaTopic;
 
     public Output<KafkaMirrorTopicSourceKafkaTopic> sourceKafkaTopic() {
         return this.sourceKafkaTopic;
     }
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     public Output<String> status() {

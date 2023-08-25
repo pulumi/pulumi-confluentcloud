@@ -36,7 +36,7 @@ public class BusinessMetadataBinding extends com.pulumi.resources.CustomResource
      * The attributes.
      * 
      */
-    @Export(name="attributes", type=Map.class, parameters={String.class, String.class})
+    @Export(name="attributes", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> attributes;
 
     /**
@@ -50,7 +50,7 @@ public class BusinessMetadataBinding extends com.pulumi.resources.CustomResource
      * The name of the Business Metadata to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
-    @Export(name="businessMetadataName", type=String.class, parameters={})
+    @Export(name="businessMetadataName", refs={String.class}, tree="[0]")
     private Output<String> businessMetadataName;
 
     /**
@@ -64,7 +64,7 @@ public class BusinessMetadataBinding extends com.pulumi.resources.CustomResource
      * The Cluster API Credentials.
      * 
      */
-    @Export(name="credentials", type=BusinessMetadataBindingCredentials.class, parameters={})
+    @Export(name="credentials", refs={BusinessMetadataBindingCredentials.class}, tree="[0]")
     private Output</* @Nullable */ BusinessMetadataBindingCredentials> credentials;
 
     /**
@@ -78,7 +78,7 @@ public class BusinessMetadataBinding extends com.pulumi.resources.CustomResource
      * The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
      * 
      */
-    @Export(name="entityName", type=String.class, parameters={})
+    @Export(name="entityName", refs={String.class}, tree="[0]")
     private Output<String> entityName;
 
     /**
@@ -92,7 +92,7 @@ public class BusinessMetadataBinding extends com.pulumi.resources.CustomResource
      * The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
      * 
      */
-    @Export(name="entityType", type=String.class, parameters={})
+    @Export(name="entityType", refs={String.class}, tree="[0]")
     private Output<String> entityType;
 
     /**
@@ -106,7 +106,7 @@ public class BusinessMetadataBinding extends com.pulumi.resources.CustomResource
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
-    @Export(name="restEndpoint", type=String.class, parameters={})
+    @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
@@ -116,7 +116,7 @@ public class BusinessMetadataBinding extends com.pulumi.resources.CustomResource
     public Output<Optional<String>> restEndpoint() {
         return Codegen.optional(this.restEndpoint);
     }
-    @Export(name="schemaRegistryCluster", type=BusinessMetadataBindingSchemaRegistryCluster.class, parameters={})
+    @Export(name="schemaRegistryCluster", refs={BusinessMetadataBindingSchemaRegistryCluster.class}, tree="[0]")
     private Output</* @Nullable */ BusinessMetadataBindingSchemaRegistryCluster> schemaRegistryCluster;
 
     public Output<Optional<BusinessMetadataBindingSchemaRegistryCluster>> schemaRegistryCluster() {

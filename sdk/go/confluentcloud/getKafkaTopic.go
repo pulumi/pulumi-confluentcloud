@@ -23,9 +23,7 @@ func LookupKafkaTopic(ctx *pulumi.Context, args *LookupKafkaTopicArgs, opts ...p
 
 // A collection of arguments for invoking getKafkaTopic.
 type LookupKafkaTopicArgs struct {
-	Credentials *GetKafkaTopicCredentials `pulumi:"credentials"`
-	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
-	HttpEndpoint *string                    `pulumi:"httpEndpoint"`
+	Credentials  *GetKafkaTopicCredentials  `pulumi:"credentials"`
 	KafkaCluster *GetKafkaTopicKafkaCluster `pulumi:"kafkaCluster"`
 	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint string `pulumi:"restEndpoint"`
@@ -38,8 +36,6 @@ type LookupKafkaTopicResult struct {
 	// (Optional Map) The custom topic settings:
 	Config      map[string]string         `pulumi:"config"`
 	Credentials *GetKafkaTopicCredentials `pulumi:"credentials"`
-	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
-	HttpEndpoint string `pulumi:"httpEndpoint"`
 	// The provider-assigned unique ID for this managed resource.
 	Id           string                     `pulumi:"id"`
 	KafkaCluster *GetKafkaTopicKafkaCluster `pulumi:"kafkaCluster"`
@@ -64,9 +60,7 @@ func LookupKafkaTopicOutput(ctx *pulumi.Context, args LookupKafkaTopicOutputArgs
 
 // A collection of arguments for invoking getKafkaTopic.
 type LookupKafkaTopicOutputArgs struct {
-	Credentials GetKafkaTopicCredentialsPtrInput `pulumi:"credentials"`
-	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
-	HttpEndpoint pulumi.StringPtrInput             `pulumi:"httpEndpoint"`
+	Credentials  GetKafkaTopicCredentialsPtrInput  `pulumi:"credentials"`
 	KafkaCluster GetKafkaTopicKafkaClusterPtrInput `pulumi:"kafkaCluster"`
 	// The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint pulumi.StringInput `pulumi:"restEndpoint"`
@@ -100,11 +94,6 @@ func (o LookupKafkaTopicResultOutput) Config() pulumi.StringMapOutput {
 
 func (o LookupKafkaTopicResultOutput) Credentials() GetKafkaTopicCredentialsPtrOutput {
 	return o.ApplyT(func(v LookupKafkaTopicResult) *GetKafkaTopicCredentials { return v.Credentials }).(GetKafkaTopicCredentialsPtrOutput)
-}
-
-// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
-func (o LookupKafkaTopicResultOutput) HttpEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupKafkaTopicResult) string { return v.HttpEndpoint }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

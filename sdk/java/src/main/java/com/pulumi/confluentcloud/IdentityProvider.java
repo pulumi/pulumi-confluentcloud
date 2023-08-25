@@ -104,7 +104,7 @@ public class IdentityProvider extends com.pulumi.resources.CustomResource {
      * A description for the Identity Provider.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -118,7 +118,7 @@ public class IdentityProvider extends com.pulumi.resources.CustomResource {
      * A human-readable name for the Identity Provider.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -132,7 +132,7 @@ public class IdentityProvider extends com.pulumi.resources.CustomResource {
      * A publicly reachable issuer URI for the Identity Provider. The unique issuer URI string represents the entity for issuing tokens.
      * 
      */
-    @Export(name="issuer", type=String.class, parameters={})
+    @Export(name="issuer", refs={String.class}, tree="[0]")
     private Output<String> issuer;
 
     /**
@@ -148,7 +148,7 @@ public class IdentityProvider extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** When using Azure AD identity provider, you can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
      * 
      */
-    @Export(name="jwksUri", type=String.class, parameters={})
+    @Export(name="jwksUri", refs={String.class}, tree="[0]")
     private Output<String> jwksUri;
 
     /**

@@ -11,7 +11,6 @@ export function getKafkaTopic(args: GetKafkaTopicArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getKafkaTopic:getKafkaTopic", {
         "credentials": args.credentials,
-        "httpEndpoint": args.httpEndpoint,
         "kafkaCluster": args.kafkaCluster,
         "restEndpoint": args.restEndpoint,
         "topicName": args.topicName,
@@ -23,10 +22,6 @@ export function getKafkaTopic(args: GetKafkaTopicArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetKafkaTopicArgs {
     credentials?: inputs.GetKafkaTopicCredentials;
-    /**
-     * @deprecated This parameter has been deprecated in favour of Rest Endpoint
-     */
-    httpEndpoint?: string;
     kafkaCluster?: inputs.GetKafkaTopicKafkaCluster;
     /**
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -48,10 +43,6 @@ export interface GetKafkaTopicResult {
     readonly config: {[key: string]: string};
     readonly credentials?: outputs.GetKafkaTopicCredentials;
     /**
-     * @deprecated This parameter has been deprecated in favour of Rest Endpoint
-     */
-    readonly httpEndpoint: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -72,10 +63,6 @@ export function getKafkaTopicOutput(args: GetKafkaTopicOutputArgs, opts?: pulumi
  */
 export interface GetKafkaTopicOutputArgs {
     credentials?: pulumi.Input<inputs.GetKafkaTopicCredentialsArgs>;
-    /**
-     * @deprecated This parameter has been deprecated in favour of Rest Endpoint
-     */
-    httpEndpoint?: pulumi.Input<string>;
     kafkaCluster?: pulumi.Input<inputs.GetKafkaTopicKafkaClusterArgs>;
     /**
      * The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).

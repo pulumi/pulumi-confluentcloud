@@ -118,9 +118,7 @@ type KafkaTopic struct {
 	Config pulumi.StringMapOutput `pulumi:"config"`
 	// The Cluster API Credentials.
 	Credentials KafkaTopicCredentialsPtrOutput `pulumi:"credentials"`
-	// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	//
-	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
+	// Deprecated: This property has been deprecated. Please use "restEndpoint" instead.
 	HttpEndpoint pulumi.StringOutput             `pulumi:"httpEndpoint"`
 	KafkaCluster KafkaTopicKafkaClusterPtrOutput `pulumi:"kafkaCluster"`
 	// The number of partitions to create in the topic. Defaults to `6`.
@@ -175,9 +173,7 @@ type kafkaTopicState struct {
 	Config map[string]string `pulumi:"config"`
 	// The Cluster API Credentials.
 	Credentials *KafkaTopicCredentials `pulumi:"credentials"`
-	// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	//
-	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
+	// Deprecated: This property has been deprecated. Please use "restEndpoint" instead.
 	HttpEndpoint *string                 `pulumi:"httpEndpoint"`
 	KafkaCluster *KafkaTopicKafkaCluster `pulumi:"kafkaCluster"`
 	// The number of partitions to create in the topic. Defaults to `6`.
@@ -193,9 +189,7 @@ type KafkaTopicState struct {
 	Config pulumi.StringMapInput
 	// The Cluster API Credentials.
 	Credentials KafkaTopicCredentialsPtrInput
-	// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	//
-	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
+	// Deprecated: This property has been deprecated. Please use "restEndpoint" instead.
 	HttpEndpoint pulumi.StringPtrInput
 	KafkaCluster KafkaTopicKafkaClusterPtrInput
 	// The number of partitions to create in the topic. Defaults to `6`.
@@ -215,9 +209,7 @@ type kafkaTopicArgs struct {
 	Config map[string]string `pulumi:"config"`
 	// The Cluster API Credentials.
 	Credentials *KafkaTopicCredentials `pulumi:"credentials"`
-	// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	//
-	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
+	// Deprecated: This property has been deprecated. Please use "restEndpoint" instead.
 	HttpEndpoint *string                 `pulumi:"httpEndpoint"`
 	KafkaCluster *KafkaTopicKafkaCluster `pulumi:"kafkaCluster"`
 	// The number of partitions to create in the topic. Defaults to `6`.
@@ -234,9 +226,7 @@ type KafkaTopicArgs struct {
 	Config pulumi.StringMapInput
 	// The Cluster API Credentials.
 	Credentials KafkaTopicCredentialsPtrInput
-	// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-	//
-	// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
+	// Deprecated: This property has been deprecated. Please use "restEndpoint" instead.
 	HttpEndpoint pulumi.StringPtrInput
 	KafkaCluster KafkaTopicKafkaClusterPtrInput
 	// The number of partitions to create in the topic. Defaults to `6`.
@@ -344,9 +334,7 @@ func (o KafkaTopicOutput) Credentials() KafkaTopicCredentialsPtrOutput {
 	return o.ApplyT(func(v *KafkaTopic) KafkaTopicCredentialsPtrOutput { return v.Credentials }).(KafkaTopicCredentialsPtrOutput)
 }
 
-// The HTTP endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
-//
-// Deprecated: This parameter has been deprecated in favour of Rest Endpoint
+// Deprecated: This property has been deprecated. Please use "restEndpoint" instead.
 func (o KafkaTopicOutput) HttpEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaTopic) pulumi.StringOutput { return v.HttpEndpoint }).(pulumi.StringOutput)
 }

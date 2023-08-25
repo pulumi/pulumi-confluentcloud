@@ -37,7 +37,7 @@ public class BusinessMetadata extends com.pulumi.resources.CustomResource {
      * The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
      * 
      */
-    @Export(name="attributeDefinitions", type=List.class, parameters={BusinessMetadataAttributeDefinition.class})
+    @Export(name="attributeDefinitions", refs={List.class,BusinessMetadataAttributeDefinition.class}, tree="[0,1]")
     private Output<List<BusinessMetadataAttributeDefinition>> attributeDefinitions;
 
     /**
@@ -51,7 +51,7 @@ public class BusinessMetadata extends com.pulumi.resources.CustomResource {
      * The Cluster API Credentials.
      * 
      */
-    @Export(name="credentials", type=BusinessMetadataCredentials.class, parameters={})
+    @Export(name="credentials", refs={BusinessMetadataCredentials.class}, tree="[0]")
     private Output</* @Nullable */ BusinessMetadataCredentials> credentials;
 
     /**
@@ -65,7 +65,7 @@ public class BusinessMetadata extends com.pulumi.resources.CustomResource {
      * The description of the Business Metadata.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -79,7 +79,7 @@ public class BusinessMetadata extends com.pulumi.resources.CustomResource {
      * The name of the attribute.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -93,7 +93,7 @@ public class BusinessMetadata extends com.pulumi.resources.CustomResource {
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
-    @Export(name="restEndpoint", type=String.class, parameters={})
+    @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
@@ -103,7 +103,7 @@ public class BusinessMetadata extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> restEndpoint() {
         return Codegen.optional(this.restEndpoint);
     }
-    @Export(name="schemaRegistryCluster", type=BusinessMetadataSchemaRegistryCluster.class, parameters={})
+    @Export(name="schemaRegistryCluster", refs={BusinessMetadataSchemaRegistryCluster.class}, tree="[0]")
     private Output</* @Nullable */ BusinessMetadataSchemaRegistryCluster> schemaRegistryCluster;
 
     public Output<Optional<BusinessMetadataSchemaRegistryCluster>> schemaRegistryCluster() {
@@ -113,7 +113,7 @@ public class BusinessMetadata extends com.pulumi.resources.CustomResource {
      * (Required Integer) The version of the Business Metadata, for example, `1`.
      * 
      */
-    @Export(name="version", type=Integer.class, parameters={})
+    @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**

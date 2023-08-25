@@ -32,7 +32,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * (Required String) An API Version of the schema version of the Service Account, for example, `iam/v2`.
      * 
      */
-    @Export(name="apiVersion", type=String.class, parameters={})
+    @Export(name="apiVersion", refs={String.class}, tree="[0]")
     private Output<String> apiVersion;
 
     /**
@@ -46,7 +46,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * A free-form description of the Service Account.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -60,7 +60,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * A human-readable name for the Service Account.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -74,7 +74,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * (Required String) A kind of the Service Account, for example, `ServiceAccount`.
      * 
      */
-    @Export(name="kind", type=String.class, parameters={})
+    @Export(name="kind", refs={String.class}, tree="[0]")
     private Output<String> kind;
 
     /**

@@ -45,7 +45,7 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
      * The custom cluster link settings to set:
      * 
      */
-    @Export(name="config", type=Map.class, parameters={String.class, String.class})
+    @Export(name="config", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> config;
 
     /**
@@ -59,7 +59,7 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
      * The connection mode of the cluster link. The supported values are `&#34;INBOUND&#34;` and `&#34;OUTBOUND&#34;`. Defaults to `&#34;OUTBOUND&#34;`.
      * 
      */
-    @Export(name="connectionMode", type=String.class, parameters={})
+    @Export(name="connectionMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionMode;
 
     /**
@@ -69,7 +69,7 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> connectionMode() {
         return Codegen.optional(this.connectionMode);
     }
-    @Export(name="destinationKafkaCluster", type=ClusterLinkDestinationKafkaCluster.class, parameters={})
+    @Export(name="destinationKafkaCluster", refs={ClusterLinkDestinationKafkaCluster.class}, tree="[0]")
     private Output</* @Nullable */ ClusterLinkDestinationKafkaCluster> destinationKafkaCluster;
 
     public Output<Optional<ClusterLinkDestinationKafkaCluster>> destinationKafkaCluster() {
@@ -79,7 +79,7 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
      * The name of the cluster link, for example, `my-cluster-link`.
      * 
      */
-    @Export(name="link", type=String.class, parameters={})
+    @Export(name="link", refs={String.class}, tree="[0]")
     private Output<String> link;
 
     /**
@@ -93,7 +93,7 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
      * The mode of the cluster link. The supported values are `&#34;DESTINATION&#34;`, `&#34;SOURCE&#34;`, and `&#34;BIDIRECTIONAL&#34;`. Defaults to `&#34;DESTINATION&#34;`.
      * 
      */
-    @Export(name="linkMode", type=String.class, parameters={})
+    @Export(name="linkMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> linkMode;
 
     /**
@@ -103,19 +103,19 @@ public class ClusterLink extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> linkMode() {
         return Codegen.optional(this.linkMode);
     }
-    @Export(name="localKafkaCluster", type=ClusterLinkLocalKafkaCluster.class, parameters={})
+    @Export(name="localKafkaCluster", refs={ClusterLinkLocalKafkaCluster.class}, tree="[0]")
     private Output</* @Nullable */ ClusterLinkLocalKafkaCluster> localKafkaCluster;
 
     public Output<Optional<ClusterLinkLocalKafkaCluster>> localKafkaCluster() {
         return Codegen.optional(this.localKafkaCluster);
     }
-    @Export(name="remoteKafkaCluster", type=ClusterLinkRemoteKafkaCluster.class, parameters={})
+    @Export(name="remoteKafkaCluster", refs={ClusterLinkRemoteKafkaCluster.class}, tree="[0]")
     private Output</* @Nullable */ ClusterLinkRemoteKafkaCluster> remoteKafkaCluster;
 
     public Output<Optional<ClusterLinkRemoteKafkaCluster>> remoteKafkaCluster() {
         return Codegen.optional(this.remoteKafkaCluster);
     }
-    @Export(name="sourceKafkaCluster", type=ClusterLinkSourceKafkaCluster.class, parameters={})
+    @Export(name="sourceKafkaCluster", refs={ClusterLinkSourceKafkaCluster.class}, tree="[0]")
     private Output</* @Nullable */ ClusterLinkSourceKafkaCluster> sourceKafkaCluster;
 
     public Output<Optional<ClusterLinkSourceKafkaCluster>> sourceKafkaCluster() {

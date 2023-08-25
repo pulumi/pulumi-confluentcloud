@@ -42,7 +42,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * A free-form description of the API Account.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -56,7 +56,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * An optional flag to disable wait-for-readiness on create. Its primary use case is for Cluster API Keys for private networking options when readiness check fails. Must be unset when importing. Defaults to `false`.
      * 
      */
-    @Export(name="disableWaitForReady", type=Boolean.class, parameters={})
+    @Export(name="disableWaitForReady", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableWaitForReady;
 
     /**
@@ -70,7 +70,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * A human-readable name for the API Key.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -84,7 +84,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * The resource associated with this object. The only resource that is supported is &#39;cmk.v2.Cluster&#39;, &#39;srcm.v2.Cluster&#39;.
      * 
      */
-    @Export(name="managedResource", type=ApiKeyManagedResource.class, parameters={})
+    @Export(name="managedResource", refs={ApiKeyManagedResource.class}, tree="[0]")
     private Output</* @Nullable */ ApiKeyManagedResource> managedResource;
 
     /**
@@ -98,7 +98,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * The owner to which the API Key belongs. The owner can be one of &#39;iam.v2.User&#39;, &#39;iam.v2.ServiceAccount&#39;.
      * 
      */
-    @Export(name="owner", type=ApiKeyOwner.class, parameters={})
+    @Export(name="owner", refs={ApiKeyOwner.class}, tree="[0]")
     private Output<ApiKeyOwner> owner;
 
     /**
@@ -112,7 +112,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * (Required String, Sensitive) The secret of the API Key.
      * 
      */
-    @Export(name="secret", type=String.class, parameters={})
+    @Export(name="secret", refs={String.class}, tree="[0]")
     private Output<String> secret;
 
     /**

@@ -35,7 +35,7 @@ public class SchemaRegistryClusterConfig extends com.pulumi.resources.CustomReso
      * The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
      * 
      */
-    @Export(name="compatibilityLevel", type=String.class, parameters={})
+    @Export(name="compatibilityLevel", refs={String.class}, tree="[0]")
     private Output<String> compatibilityLevel;
 
     /**
@@ -49,7 +49,7 @@ public class SchemaRegistryClusterConfig extends com.pulumi.resources.CustomReso
      * The Cluster API Credentials.
      * 
      */
-    @Export(name="credentials", type=SchemaRegistryClusterConfigCredentials.class, parameters={})
+    @Export(name="credentials", refs={SchemaRegistryClusterConfigCredentials.class}, tree="[0]")
     private Output</* @Nullable */ SchemaRegistryClusterConfigCredentials> credentials;
 
     /**
@@ -63,7 +63,7 @@ public class SchemaRegistryClusterConfig extends com.pulumi.resources.CustomReso
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
-    @Export(name="restEndpoint", type=String.class, parameters={})
+    @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
@@ -73,7 +73,7 @@ public class SchemaRegistryClusterConfig extends com.pulumi.resources.CustomReso
     public Output<Optional<String>> restEndpoint() {
         return Codegen.optional(this.restEndpoint);
     }
-    @Export(name="schemaRegistryCluster", type=SchemaRegistryClusterConfigSchemaRegistryCluster.class, parameters={})
+    @Export(name="schemaRegistryCluster", refs={SchemaRegistryClusterConfigSchemaRegistryCluster.class}, tree="[0]")
     private Output</* @Nullable */ SchemaRegistryClusterConfigSchemaRegistryCluster> schemaRegistryCluster;
 
     public Output<Optional<SchemaRegistryClusterConfigSchemaRegistryCluster>> schemaRegistryCluster() {

@@ -35,7 +35,7 @@ public class TagBinding extends com.pulumi.resources.CustomResource {
      * The Cluster API Credentials.
      * 
      */
-    @Export(name="credentials", type=TagBindingCredentials.class, parameters={})
+    @Export(name="credentials", refs={TagBindingCredentials.class}, tree="[0]")
     private Output</* @Nullable */ TagBindingCredentials> credentials;
 
     /**
@@ -49,7 +49,7 @@ public class TagBinding extends com.pulumi.resources.CustomResource {
      * The qualified name of the entity., for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.
      * 
      */
-    @Export(name="entityName", type=String.class, parameters={})
+    @Export(name="entityName", refs={String.class}, tree="[0]")
     private Output<String> entityName;
 
     /**
@@ -63,7 +63,7 @@ public class TagBinding extends com.pulumi.resources.CustomResource {
      * The entity type.
      * 
      */
-    @Export(name="entityType", type=String.class, parameters={})
+    @Export(name="entityType", refs={String.class}, tree="[0]")
     private Output<String> entityType;
 
     /**
@@ -77,7 +77,7 @@ public class TagBinding extends com.pulumi.resources.CustomResource {
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
-    @Export(name="restEndpoint", type=String.class, parameters={})
+    @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
@@ -87,7 +87,7 @@ public class TagBinding extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> restEndpoint() {
         return Codegen.optional(this.restEndpoint);
     }
-    @Export(name="schemaRegistryCluster", type=TagBindingSchemaRegistryCluster.class, parameters={})
+    @Export(name="schemaRegistryCluster", refs={TagBindingSchemaRegistryCluster.class}, tree="[0]")
     private Output</* @Nullable */ TagBindingSchemaRegistryCluster> schemaRegistryCluster;
 
     public Output<Optional<TagBindingSchemaRegistryCluster>> schemaRegistryCluster() {
@@ -97,7 +97,7 @@ public class TagBinding extends com.pulumi.resources.CustomResource {
      * The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
-    @Export(name="tagName", type=String.class, parameters={})
+    @Export(name="tagName", refs={String.class}, tree="[0]")
     private Output<String> tagName;
 
     /**
