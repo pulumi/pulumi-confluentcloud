@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-confluentcloud/provider
 
-go 1.20
+go 1.21
 
 replace (
 	github.com/confluentinc/terraform-provider-confluent => ../upstream
@@ -9,6 +9,7 @@ replace (
 
 require (
 	github.com/confluentinc/terraform-provider-confluent v1.32.0
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.24.1
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.57.0
 	github.com/pulumi/pulumi/sdk/v3 v3.76.1
 )
@@ -161,7 +162,6 @@ require (
 	github.com/hashicorp/terraform-plugin-go v0.16.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk v1.9.1 // indirect
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.24.1 // indirect
 	github.com/hashicorp/terraform-registry-address v0.2.1 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/vault/api v1.8.2 // indirect
