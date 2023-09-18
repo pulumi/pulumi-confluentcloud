@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -104,6 +105,12 @@ func (o LookupRoleBindingResultOutput) ToLookupRoleBindingResultOutput() LookupR
 
 func (o LookupRoleBindingResultOutput) ToLookupRoleBindingResultOutputWithContext(ctx context.Context) LookupRoleBindingResultOutput {
 	return o
+}
+
+func (o LookupRoleBindingResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRoleBindingResult] {
+	return pulumix.Output[LookupRoleBindingResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) A [Confluent Resource Name(CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.

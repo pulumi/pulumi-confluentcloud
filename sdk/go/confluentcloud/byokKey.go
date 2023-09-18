@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -116,6 +117,12 @@ func (i *ByokKey) ToByokKeyOutputWithContext(ctx context.Context) ByokKeyOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyOutput)
 }
 
+func (i *ByokKey) ToOutput(ctx context.Context) pulumix.Output[*ByokKey] {
+	return pulumix.Output[*ByokKey]{
+		OutputState: i.ToByokKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ByokKeyArrayInput is an input type that accepts ByokKeyArray and ByokKeyArrayOutput values.
 // You can construct a concrete instance of `ByokKeyArrayInput` via:
 //
@@ -139,6 +146,12 @@ func (i ByokKeyArray) ToByokKeyArrayOutput() ByokKeyArrayOutput {
 
 func (i ByokKeyArray) ToByokKeyArrayOutputWithContext(ctx context.Context) ByokKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyArrayOutput)
+}
+
+func (i ByokKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ByokKey] {
+	return pulumix.Output[[]*ByokKey]{
+		OutputState: i.ToByokKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ByokKeyMapInput is an input type that accepts ByokKeyMap and ByokKeyMapOutput values.
@@ -166,6 +179,12 @@ func (i ByokKeyMap) ToByokKeyMapOutputWithContext(ctx context.Context) ByokKeyMa
 	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyMapOutput)
 }
 
+func (i ByokKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ByokKey] {
+	return pulumix.Output[map[string]*ByokKey]{
+		OutputState: i.ToByokKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ByokKeyOutput struct{ *pulumi.OutputState }
 
 func (ByokKeyOutput) ElementType() reflect.Type {
@@ -178,6 +197,12 @@ func (o ByokKeyOutput) ToByokKeyOutput() ByokKeyOutput {
 
 func (o ByokKeyOutput) ToByokKeyOutputWithContext(ctx context.Context) ByokKeyOutput {
 	return o
+}
+
+func (o ByokKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*ByokKey] {
+	return pulumix.Output[*ByokKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional Configuration Block) supports the following:
@@ -204,6 +229,12 @@ func (o ByokKeyArrayOutput) ToByokKeyArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ByokKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ByokKey] {
+	return pulumix.Output[[]*ByokKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ByokKeyArrayOutput) Index(i pulumi.IntInput) ByokKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ByokKey {
 		return vs[0].([]*ByokKey)[vs[1].(int)]
@@ -222,6 +253,12 @@ func (o ByokKeyMapOutput) ToByokKeyMapOutput() ByokKeyMapOutput {
 
 func (o ByokKeyMapOutput) ToByokKeyMapOutputWithContext(ctx context.Context) ByokKeyMapOutput {
 	return o
+}
+
+func (o ByokKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ByokKey] {
+	return pulumix.Output[map[string]*ByokKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ByokKeyMapOutput) MapIndex(k pulumi.StringInput) ByokKeyOutput {

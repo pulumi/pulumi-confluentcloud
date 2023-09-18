@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -249,6 +250,12 @@ func (i *KafkaCluster) ToKafkaClusterOutputWithContext(ctx context.Context) Kafk
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterOutput)
 }
 
+func (i *KafkaCluster) ToOutput(ctx context.Context) pulumix.Output[*KafkaCluster] {
+	return pulumix.Output[*KafkaCluster]{
+		OutputState: i.ToKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KafkaClusterArrayInput is an input type that accepts KafkaClusterArray and KafkaClusterArrayOutput values.
 // You can construct a concrete instance of `KafkaClusterArrayInput` via:
 //
@@ -272,6 +279,12 @@ func (i KafkaClusterArray) ToKafkaClusterArrayOutput() KafkaClusterArrayOutput {
 
 func (i KafkaClusterArray) ToKafkaClusterArrayOutputWithContext(ctx context.Context) KafkaClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterArrayOutput)
+}
+
+func (i KafkaClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*KafkaCluster] {
+	return pulumix.Output[[]*KafkaCluster]{
+		OutputState: i.ToKafkaClusterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // KafkaClusterMapInput is an input type that accepts KafkaClusterMap and KafkaClusterMapOutput values.
@@ -299,6 +312,12 @@ func (i KafkaClusterMap) ToKafkaClusterMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterMapOutput)
 }
 
+func (i KafkaClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KafkaCluster] {
+	return pulumix.Output[map[string]*KafkaCluster]{
+		OutputState: i.ToKafkaClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterOutput) ElementType() reflect.Type {
@@ -311,6 +330,12 @@ func (o KafkaClusterOutput) ToKafkaClusterOutput() KafkaClusterOutput {
 
 func (o KafkaClusterOutput) ToKafkaClusterOutputWithContext(ctx context.Context) KafkaClusterOutput {
 	return o
+}
+
+func (o KafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaCluster] {
+	return pulumix.Output[*KafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
@@ -407,6 +432,12 @@ func (o KafkaClusterArrayOutput) ToKafkaClusterArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o KafkaClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KafkaCluster] {
+	return pulumix.Output[[]*KafkaCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KafkaClusterArrayOutput) Index(i pulumi.IntInput) KafkaClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KafkaCluster {
 		return vs[0].([]*KafkaCluster)[vs[1].(int)]
@@ -425,6 +456,12 @@ func (o KafkaClusterMapOutput) ToKafkaClusterMapOutput() KafkaClusterMapOutput {
 
 func (o KafkaClusterMapOutput) ToKafkaClusterMapOutputWithContext(ctx context.Context) KafkaClusterMapOutput {
 	return o
+}
+
+func (o KafkaClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KafkaCluster] {
+	return pulumix.Output[map[string]*KafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClusterMapOutput) MapIndex(k pulumi.StringInput) KafkaClusterOutput {

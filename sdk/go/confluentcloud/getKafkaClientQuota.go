@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -113,6 +114,12 @@ func (o LookupKafkaClientQuotaResultOutput) ToLookupKafkaClientQuotaResultOutput
 
 func (o LookupKafkaClientQuotaResultOutput) ToLookupKafkaClientQuotaResultOutputWithContext(ctx context.Context) LookupKafkaClientQuotaResultOutput {
 	return o
+}
+
+func (o LookupKafkaClientQuotaResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupKafkaClientQuotaResult] {
+	return pulumix.Output[LookupKafkaClientQuotaResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The description of the Kafka Client Quota.

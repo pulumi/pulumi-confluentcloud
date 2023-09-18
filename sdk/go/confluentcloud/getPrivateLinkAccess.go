@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -136,6 +137,12 @@ func (o LookupPrivateLinkAccessResultOutput) ToLookupPrivateLinkAccessResultOutp
 
 func (o LookupPrivateLinkAccessResultOutput) ToLookupPrivateLinkAccessResultOutputWithContext(ctx context.Context) LookupPrivateLinkAccessResultOutput {
 	return o
+}
+
+func (o LookupPrivateLinkAccessResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPrivateLinkAccessResult] {
+	return pulumix.Output[LookupPrivateLinkAccessResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional Configuration Block) The AWS-specific Private Link Access details if available. It supports the following:

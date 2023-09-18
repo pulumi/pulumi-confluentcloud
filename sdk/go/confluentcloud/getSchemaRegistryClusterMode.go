@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupSchemaRegistryClusterMode(ctx *pulumi.Context, args *LookupSchemaRegistryClusterModeArgs, opts ...pulumi.InvokeOption) (*LookupSchemaRegistryClusterModeResult, error) {
@@ -78,6 +79,12 @@ func (o LookupSchemaRegistryClusterModeResultOutput) ToLookupSchemaRegistryClust
 
 func (o LookupSchemaRegistryClusterModeResultOutput) ToLookupSchemaRegistryClusterModeResultOutputWithContext(ctx context.Context) LookupSchemaRegistryClusterModeResultOutput {
 	return o
+}
+
+func (o LookupSchemaRegistryClusterModeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSchemaRegistryClusterModeResult] {
+	return pulumix.Output[LookupSchemaRegistryClusterModeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupSchemaRegistryClusterModeResultOutput) Credentials() GetSchemaRegistryClusterModeCredentialsPtrOutput {

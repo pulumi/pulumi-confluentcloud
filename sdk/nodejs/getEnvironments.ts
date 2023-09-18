@@ -42,3 +42,24 @@ export interface GetEnvironmentsResult {
      */
     readonly ids: string[];
 }
+/**
+ * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * > **Note:** `confluentcloud.getEnvironments` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+ * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+ *
+ * `confluentcloud.getEnvironments` describes a data source for Environments.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const main = confluentcloud.getEnvironments({});
+ * export const environments = main.then(main => main.ids);
+ * ```
+ */
+export function getEnvironmentsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentsResult> {
+    return pulumi.output(getEnvironments(opts))
+}

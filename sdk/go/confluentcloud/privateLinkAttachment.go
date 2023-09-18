@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -210,6 +211,12 @@ func (i *PrivateLinkAttachment) ToPrivateLinkAttachmentOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentOutput)
 }
 
+func (i *PrivateLinkAttachment) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachment] {
+	return pulumix.Output[*PrivateLinkAttachment]{
+		OutputState: i.ToPrivateLinkAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PrivateLinkAttachmentArrayInput is an input type that accepts PrivateLinkAttachmentArray and PrivateLinkAttachmentArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkAttachmentArrayInput` via:
 //
@@ -233,6 +240,12 @@ func (i PrivateLinkAttachmentArray) ToPrivateLinkAttachmentArrayOutput() Private
 
 func (i PrivateLinkAttachmentArray) ToPrivateLinkAttachmentArrayOutputWithContext(ctx context.Context) PrivateLinkAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentArrayOutput)
+}
+
+func (i PrivateLinkAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLinkAttachment] {
+	return pulumix.Output[[]*PrivateLinkAttachment]{
+		OutputState: i.ToPrivateLinkAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PrivateLinkAttachmentMapInput is an input type that accepts PrivateLinkAttachmentMap and PrivateLinkAttachmentMapOutput values.
@@ -260,6 +273,12 @@ func (i PrivateLinkAttachmentMap) ToPrivateLinkAttachmentMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentMapOutput)
 }
 
+func (i PrivateLinkAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLinkAttachment] {
+	return pulumix.Output[map[string]*PrivateLinkAttachment]{
+		OutputState: i.ToPrivateLinkAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAttachmentOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAttachmentOutput) ElementType() reflect.Type {
@@ -272,6 +291,12 @@ func (o PrivateLinkAttachmentOutput) ToPrivateLinkAttachmentOutput() PrivateLink
 
 func (o PrivateLinkAttachmentOutput) ToPrivateLinkAttachmentOutputWithContext(ctx context.Context) PrivateLinkAttachmentOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachment] {
+	return pulumix.Output[*PrivateLinkAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional Configuration Block) supports the following:
@@ -331,6 +356,12 @@ func (o PrivateLinkAttachmentArrayOutput) ToPrivateLinkAttachmentArrayOutputWith
 	return o
 }
 
+func (o PrivateLinkAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLinkAttachment] {
+	return pulumix.Output[[]*PrivateLinkAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PrivateLinkAttachmentArrayOutput) Index(i pulumi.IntInput) PrivateLinkAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrivateLinkAttachment {
 		return vs[0].([]*PrivateLinkAttachment)[vs[1].(int)]
@@ -349,6 +380,12 @@ func (o PrivateLinkAttachmentMapOutput) ToPrivateLinkAttachmentMapOutput() Priva
 
 func (o PrivateLinkAttachmentMapOutput) ToPrivateLinkAttachmentMapOutputWithContext(ctx context.Context) PrivateLinkAttachmentMapOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLinkAttachment] {
+	return pulumix.Output[map[string]*PrivateLinkAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAttachmentMapOutput) MapIndex(k pulumi.StringInput) PrivateLinkAttachmentOutput {

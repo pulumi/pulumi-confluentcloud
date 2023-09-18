@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -159,6 +160,12 @@ func (i *NetworkLinkService) ToNetworkLinkServiceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceOutput)
 }
 
+func (i *NetworkLinkService) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkService] {
+	return pulumix.Output[*NetworkLinkService]{
+		OutputState: i.ToNetworkLinkServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkLinkServiceArrayInput is an input type that accepts NetworkLinkServiceArray and NetworkLinkServiceArrayOutput values.
 // You can construct a concrete instance of `NetworkLinkServiceArrayInput` via:
 //
@@ -182,6 +189,12 @@ func (i NetworkLinkServiceArray) ToNetworkLinkServiceArrayOutput() NetworkLinkSe
 
 func (i NetworkLinkServiceArray) ToNetworkLinkServiceArrayOutputWithContext(ctx context.Context) NetworkLinkServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceArrayOutput)
+}
+
+func (i NetworkLinkServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkLinkService] {
+	return pulumix.Output[[]*NetworkLinkService]{
+		OutputState: i.ToNetworkLinkServiceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkLinkServiceMapInput is an input type that accepts NetworkLinkServiceMap and NetworkLinkServiceMapOutput values.
@@ -209,6 +222,12 @@ func (i NetworkLinkServiceMap) ToNetworkLinkServiceMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceMapOutput)
 }
 
+func (i NetworkLinkServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkLinkService] {
+	return pulumix.Output[map[string]*NetworkLinkService]{
+		OutputState: i.ToNetworkLinkServiceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkLinkServiceOutput struct{ *pulumi.OutputState }
 
 func (NetworkLinkServiceOutput) ElementType() reflect.Type {
@@ -221,6 +240,12 @@ func (o NetworkLinkServiceOutput) ToNetworkLinkServiceOutput() NetworkLinkServic
 
 func (o NetworkLinkServiceOutput) ToNetworkLinkServiceOutputWithContext(ctx context.Context) NetworkLinkServiceOutput {
 	return o
+}
+
+func (o NetworkLinkServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkService] {
+	return pulumix.Output[*NetworkLinkService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkLinkServiceOutput) Accept() NetworkLinkServiceAcceptOutput {
@@ -267,6 +292,12 @@ func (o NetworkLinkServiceArrayOutput) ToNetworkLinkServiceArrayOutputWithContex
 	return o
 }
 
+func (o NetworkLinkServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkLinkService] {
+	return pulumix.Output[[]*NetworkLinkService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkLinkServiceArrayOutput) Index(i pulumi.IntInput) NetworkLinkServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkLinkService {
 		return vs[0].([]*NetworkLinkService)[vs[1].(int)]
@@ -285,6 +316,12 @@ func (o NetworkLinkServiceMapOutput) ToNetworkLinkServiceMapOutput() NetworkLink
 
 func (o NetworkLinkServiceMapOutput) ToNetworkLinkServiceMapOutputWithContext(ctx context.Context) NetworkLinkServiceMapOutput {
 	return o
+}
+
+func (o NetworkLinkServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkLinkService] {
+	return pulumix.Output[map[string]*NetworkLinkService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkLinkServiceMapOutput) MapIndex(k pulumi.StringInput) NetworkLinkServiceOutput {

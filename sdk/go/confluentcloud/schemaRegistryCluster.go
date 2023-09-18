@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -205,6 +206,12 @@ func (i *SchemaRegistryCluster) ToSchemaRegistryClusterOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterOutput)
 }
 
+func (i *SchemaRegistryCluster) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryCluster] {
+	return pulumix.Output[*SchemaRegistryCluster]{
+		OutputState: i.ToSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SchemaRegistryClusterArrayInput is an input type that accepts SchemaRegistryClusterArray and SchemaRegistryClusterArrayOutput values.
 // You can construct a concrete instance of `SchemaRegistryClusterArrayInput` via:
 //
@@ -228,6 +235,12 @@ func (i SchemaRegistryClusterArray) ToSchemaRegistryClusterArrayOutput() SchemaR
 
 func (i SchemaRegistryClusterArray) ToSchemaRegistryClusterArrayOutputWithContext(ctx context.Context) SchemaRegistryClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterArrayOutput)
+}
+
+func (i SchemaRegistryClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*SchemaRegistryCluster] {
+	return pulumix.Output[[]*SchemaRegistryCluster]{
+		OutputState: i.ToSchemaRegistryClusterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SchemaRegistryClusterMapInput is an input type that accepts SchemaRegistryClusterMap and SchemaRegistryClusterMapOutput values.
@@ -255,6 +268,12 @@ func (i SchemaRegistryClusterMap) ToSchemaRegistryClusterMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterMapOutput)
 }
 
+func (i SchemaRegistryClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SchemaRegistryCluster] {
+	return pulumix.Output[map[string]*SchemaRegistryCluster]{
+		OutputState: i.ToSchemaRegistryClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (SchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -267,6 +286,12 @@ func (o SchemaRegistryClusterOutput) ToSchemaRegistryClusterOutput() SchemaRegis
 
 func (o SchemaRegistryClusterOutput) ToSchemaRegistryClusterOutputWithContext(ctx context.Context) SchemaRegistryClusterOutput {
 	return o
+}
+
+func (o SchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryCluster] {
+	return pulumix.Output[*SchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `srcm/v2`.
@@ -322,6 +347,12 @@ func (o SchemaRegistryClusterArrayOutput) ToSchemaRegistryClusterArrayOutputWith
 	return o
 }
 
+func (o SchemaRegistryClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SchemaRegistryCluster] {
+	return pulumix.Output[[]*SchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SchemaRegistryClusterArrayOutput) Index(i pulumi.IntInput) SchemaRegistryClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SchemaRegistryCluster {
 		return vs[0].([]*SchemaRegistryCluster)[vs[1].(int)]
@@ -340,6 +371,12 @@ func (o SchemaRegistryClusterMapOutput) ToSchemaRegistryClusterMapOutput() Schem
 
 func (o SchemaRegistryClusterMapOutput) ToSchemaRegistryClusterMapOutputWithContext(ctx context.Context) SchemaRegistryClusterMapOutput {
 	return o
+}
+
+func (o SchemaRegistryClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SchemaRegistryCluster] {
+	return pulumix.Output[map[string]*SchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaRegistryClusterMapOutput) MapIndex(k pulumi.StringInput) SchemaRegistryClusterOutput {

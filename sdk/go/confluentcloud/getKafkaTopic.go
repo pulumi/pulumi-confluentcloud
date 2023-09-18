@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupKafkaTopic(ctx *pulumi.Context, args *LookupKafkaTopicArgs, opts ...pulumi.InvokeOption) (*LookupKafkaTopicResult, error) {
@@ -85,6 +86,12 @@ func (o LookupKafkaTopicResultOutput) ToLookupKafkaTopicResultOutput() LookupKaf
 
 func (o LookupKafkaTopicResultOutput) ToLookupKafkaTopicResultOutputWithContext(ctx context.Context) LookupKafkaTopicResultOutput {
 	return o
+}
+
+func (o LookupKafkaTopicResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupKafkaTopicResult] {
+	return pulumix.Output[LookupKafkaTopicResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional Map) The custom topic settings:

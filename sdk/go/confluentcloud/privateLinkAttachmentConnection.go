@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -198,6 +199,12 @@ func (i *PrivateLinkAttachmentConnection) ToPrivateLinkAttachmentConnectionOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionOutput)
 }
 
+func (i *PrivateLinkAttachmentConnection) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachmentConnection] {
+	return pulumix.Output[*PrivateLinkAttachmentConnection]{
+		OutputState: i.ToPrivateLinkAttachmentConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PrivateLinkAttachmentConnectionArrayInput is an input type that accepts PrivateLinkAttachmentConnectionArray and PrivateLinkAttachmentConnectionArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkAttachmentConnectionArrayInput` via:
 //
@@ -221,6 +228,12 @@ func (i PrivateLinkAttachmentConnectionArray) ToPrivateLinkAttachmentConnectionA
 
 func (i PrivateLinkAttachmentConnectionArray) ToPrivateLinkAttachmentConnectionArrayOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionArrayOutput)
+}
+
+func (i PrivateLinkAttachmentConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLinkAttachmentConnection] {
+	return pulumix.Output[[]*PrivateLinkAttachmentConnection]{
+		OutputState: i.ToPrivateLinkAttachmentConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PrivateLinkAttachmentConnectionMapInput is an input type that accepts PrivateLinkAttachmentConnectionMap and PrivateLinkAttachmentConnectionMapOutput values.
@@ -248,6 +261,12 @@ func (i PrivateLinkAttachmentConnectionMap) ToPrivateLinkAttachmentConnectionMap
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionMapOutput)
 }
 
+func (i PrivateLinkAttachmentConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLinkAttachmentConnection] {
+	return pulumix.Output[map[string]*PrivateLinkAttachmentConnection]{
+		OutputState: i.ToPrivateLinkAttachmentConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAttachmentConnectionOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAttachmentConnectionOutput) ElementType() reflect.Type {
@@ -260,6 +279,12 @@ func (o PrivateLinkAttachmentConnectionOutput) ToPrivateLinkAttachmentConnection
 
 func (o PrivateLinkAttachmentConnectionOutput) ToPrivateLinkAttachmentConnectionOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachmentConnection] {
+	return pulumix.Output[*PrivateLinkAttachmentConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAttachmentConnectionOutput) Aws() PrivateLinkAttachmentConnectionAwsPtrOutput {
@@ -312,6 +337,12 @@ func (o PrivateLinkAttachmentConnectionArrayOutput) ToPrivateLinkAttachmentConne
 	return o
 }
 
+func (o PrivateLinkAttachmentConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLinkAttachmentConnection] {
+	return pulumix.Output[[]*PrivateLinkAttachmentConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PrivateLinkAttachmentConnectionArrayOutput) Index(i pulumi.IntInput) PrivateLinkAttachmentConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrivateLinkAttachmentConnection {
 		return vs[0].([]*PrivateLinkAttachmentConnection)[vs[1].(int)]
@@ -330,6 +361,12 @@ func (o PrivateLinkAttachmentConnectionMapOutput) ToPrivateLinkAttachmentConnect
 
 func (o PrivateLinkAttachmentConnectionMapOutput) ToPrivateLinkAttachmentConnectionMapOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionMapOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLinkAttachmentConnection] {
+	return pulumix.Output[map[string]*PrivateLinkAttachmentConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAttachmentConnectionMapOutput) MapIndex(k pulumi.StringInput) PrivateLinkAttachmentConnectionOutput {
