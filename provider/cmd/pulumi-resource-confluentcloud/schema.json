@@ -392,7 +392,7 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Kafka API Secret.\n\n\u003e **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).\n",
+                    "description": "The Kafka API Secret.\n",
                     "secret": true
                 }
             },
@@ -438,7 +438,7 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Kafka API Secret.\n\n\u003e **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).\n",
+                    "description": "The Kafka API Secret.\n",
                     "secret": true
                 }
             },
@@ -484,7 +484,7 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Kafka API Secret.\n\n\u003e **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).\n",
+                    "description": "The Kafka API Secret.\n",
                     "secret": true
                 }
             },
@@ -530,7 +530,7 @@
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Kafka API Secret.\n\n\u003e **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).\n",
+                    "description": "The Kafka API Secret.\n",
                     "secret": true
                 }
             },
@@ -1470,6 +1470,74 @@
             "required": [
                 "key",
                 "secret"
+            ]
+        },
+        "confluentcloud:index/SchemaExporterCredentials:SchemaExporterCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Schema Registry API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Schema Registry API Secret.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/SchemaExporterDestinationSchemaRegistryCluster:SchemaExporterDestinationSchemaRegistryCluster": {
+            "properties": {
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/SchemaExporterDestinationSchemaRegistryClusterCredentials:SchemaExporterDestinationSchemaRegistryClusterCredentials",
+                    "secret": true
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "credentials",
+                "restEndpoint"
+            ]
+        },
+        "confluentcloud:index/SchemaExporterDestinationSchemaRegistryClusterCredentials:SchemaExporterDestinationSchemaRegistryClusterCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Schema Registry API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Schema Registry API Secret.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/SchemaExporterSchemaRegistryCluster:SchemaExporterSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
             ]
         },
         "confluentcloud:index/SchemaRegistryClusterConfigCredentials:SchemaRegistryClusterConfigCredentials": {
@@ -4372,7 +4440,7 @@
             }
         },
         "confluentcloud:index/kafkaAcl:KafkaAcl": {
-            "description": "\n\n\n## Import\n\nYou can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `\u003cKafka cluster ID\u003e/\u003cKafka ACL resource type\u003e#\u003cKafka ACL resource name\u003e#\u003cKafka ACL pattern type\u003e#\u003cKafka ACL principal\u003e#\u003cKafka ACL host\u003e#\u003cKafka ACL operation\u003e#\u003cKafka ACL permission\u003e`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\" $ export IMPORT_KAFKA_API_KEY=\"\u003ckafka_api_key\u003e\" $ export IMPORT_KAFKA_API_SECRET=\"\u003ckafka_api_secret\u003e\" $ export IMPORT_KAFKA_REST_ENDPOINT=\"\u003ckafka_rest_endpoint\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster \"lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW\"\n```\n\n Option #2Manage a single Kafka cluster in the same Terraform workspace $ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster \"lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW\"\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "description": "\n\n\n## Import\n\nYou can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `\u003cKafka cluster ID\u003e/\u003cKafka ACL resource type\u003e#\u003cKafka ACL resource name\u003e#\u003cKafka ACL pattern type\u003e#\u003cKafka ACL principal\u003e#\u003cKafka ACL host\u003e#\u003cKafka ACL operation\u003e#\u003cKafka ACL permission\u003e`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY=\"\u003ckafka_api_key\u003e\" $ export IMPORT_KAFKA_API_SECRET=\"\u003ckafka_api_secret\u003e\" $ export IMPORT_KAFKA_REST_ENDPOINT=\"\u003ckafka_rest_endpoint\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster \"lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW\"\n```\n\n Option #2Manage a single Kafka cluster in the same Terraform workspace $ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster \"lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW\"\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
             "properties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/KafkaAclCredentials:KafkaAclCredentials",
@@ -6463,6 +6531,197 @@
                     "version": {
                         "type": "integer",
                         "description": "The version, representing the exact version of the schema under the registered subject.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/schemaExporter:SchemaExporter": {
+            "description": "\n\n\n## Import\n\nYou can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `\u003cSchema Registry cluster ID\u003e/\u003cSchema Exporter name\u003e`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/schemaExporter:SchemaExporter main lsrc-8wrx70/test-exporter\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "config": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Block for custom *nonsensitive* configuration properties:\n"
+                },
+                "context": {
+                    "type": "string",
+                    "description": "Customized context of the exporter if `context_type` is set to `CUSTOM`.\n"
+                },
+                "contextType": {
+                    "type": "string",
+                    "description": "Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.\n"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/SchemaExporterCredentials:SchemaExporterCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "destinationSchemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/SchemaExporterDestinationSchemaRegistryCluster:SchemaExporterDestinationSchemaRegistryCluster"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The configuration setting name.\n"
+                },
+                "resetOnUpdate": {
+                    "type": "boolean",
+                    "description": "The flag to control whether to reset the exporter when updating configs. Defaults to `false`.\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/SchemaExporterSchemaRegistryCluster:SchemaExporterSchemaRegistryCluster"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.\n"
+                },
+                "subjectRenameFormat": {
+                    "type": "string",
+                    "description": "Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.\n"
+                },
+                "subjects": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Name of each exporter subject.\n"
+                }
+            },
+            "required": [
+                "config",
+                "context",
+                "contextType",
+                "destinationSchemaRegistryCluster",
+                "name",
+                "status",
+                "subjectRenameFormat",
+                "subjects"
+            ],
+            "inputProperties": {
+                "config": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Block for custom *nonsensitive* configuration properties:\n"
+                },
+                "context": {
+                    "type": "string",
+                    "description": "Customized context of the exporter if `context_type` is set to `CUSTOM`.\n"
+                },
+                "contextType": {
+                    "type": "string",
+                    "description": "Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.\n"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/SchemaExporterCredentials:SchemaExporterCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "destinationSchemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/SchemaExporterDestinationSchemaRegistryCluster:SchemaExporterDestinationSchemaRegistryCluster"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The configuration setting name.\n",
+                    "willReplaceOnChanges": true
+                },
+                "resetOnUpdate": {
+                    "type": "boolean",
+                    "description": "The flag to control whether to reset the exporter when updating configs. Defaults to `false`.\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "willReplaceOnChanges": true
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/SchemaExporterSchemaRegistryCluster:SchemaExporterSchemaRegistryCluster",
+                    "willReplaceOnChanges": true
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.\n"
+                },
+                "subjectRenameFormat": {
+                    "type": "string",
+                    "description": "Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.\n"
+                },
+                "subjects": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Name of each exporter subject.\n"
+                }
+            },
+            "requiredInputs": [
+                "destinationSchemaRegistryCluster"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SchemaExporter resources.\n",
+                "properties": {
+                    "config": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "Block for custom *nonsensitive* configuration properties:\n"
+                    },
+                    "context": {
+                        "type": "string",
+                        "description": "Customized context of the exporter if `context_type` is set to `CUSTOM`.\n"
+                    },
+                    "contextType": {
+                        "type": "string",
+                        "description": "Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.\n"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/SchemaExporterCredentials:SchemaExporterCredentials",
+                        "description": "The Cluster API Credentials.\n",
+                        "secret": true
+                    },
+                    "destinationSchemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/SchemaExporterDestinationSchemaRegistryCluster:SchemaExporterDestinationSchemaRegistryCluster"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The configuration setting name.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "resetOnUpdate": {
+                        "type": "boolean",
+                        "description": "The flag to control whether to reset the exporter when updating configs. Defaults to `false`.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/SchemaExporterSchemaRegistryCluster:SchemaExporterSchemaRegistryCluster",
+                        "willReplaceOnChanges": true
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.\n"
+                    },
+                    "subjectRenameFormat": {
+                        "type": "string",
+                        "description": "Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.\n"
+                    },
+                    "subjects": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Name of each exporter subject.\n"
                     }
                 },
                 "type": "object"
@@ -8750,7 +9009,7 @@
             }
         },
         "confluentcloud:index/getRoleBinding:getRoleBinding": {
-            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.RoleBinding` describes a Role Binding.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleRoleBinding = confluentcloud.getRoleBinding({\n    id: \"rb-abc123\",\n});\nexport const example = exampleRoleBinding;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_role_binding = confluentcloud.get_role_binding(id=\"rb-abc123\")\npulumi.export(\"example\", example_role_binding)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleRoleBinding = ConfluentCloud.GetRoleBinding.Invoke(new()\n    {\n        Id = \"rb-abc123\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = exampleRoleBinding,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleRoleBinding, err := confluentcloud.LookupRoleBinding(ctx, \u0026confluentcloud.LookupRoleBindingArgs{\n\t\t\tId: \"rb-abc123\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", exampleRoleBinding)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetRoleBindingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleRoleBinding = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()\n            .id(\"rb-abc123\")\n            .build());\n\n        ctx.export(\"example\", exampleRoleBinding.applyValue(getRoleBindingResult -\u003e getRoleBindingResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleRoleBinding:\n    fn::invoke:\n      Function: confluentcloud:getRoleBinding\n      Arguments:\n        id: rb-abc123\noutputs:\n  example: ${exampleRoleBinding}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.RoleBinding` describes a Role Binding.\n\n\u003e **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleRoleBinding = confluentcloud.getRoleBinding({\n    id: \"rb-abc123\",\n});\nexport const example = exampleRoleBinding;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_role_binding = confluentcloud.get_role_binding(id=\"rb-abc123\")\npulumi.export(\"example\", example_role_binding)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleRoleBinding = ConfluentCloud.GetRoleBinding.Invoke(new()\n    {\n        Id = \"rb-abc123\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = exampleRoleBinding,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleRoleBinding, err := confluentcloud.LookupRoleBinding(ctx, \u0026confluentcloud.LookupRoleBindingArgs{\n\t\t\tId: \"rb-abc123\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", exampleRoleBinding)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetRoleBindingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleRoleBinding = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()\n            .id(\"rb-abc123\")\n            .build());\n\n        ctx.export(\"example\", exampleRoleBinding.applyValue(getRoleBindingResult -\u003e getRoleBindingResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleRoleBinding:\n    fn::invoke:\n      Function: confluentcloud:getRoleBinding\n      Arguments:\n        id: rb-abc123\noutputs:\n  example: ${exampleRoleBinding}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getRoleBinding.\n",
                 "properties": {

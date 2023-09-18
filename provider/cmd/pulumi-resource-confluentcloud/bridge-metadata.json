@@ -849,6 +849,30 @@
                     "version": {}
                 }
             },
+            "confluent_schema_exporter": {
+                "current": "confluentcloud:index/schemaExporter:SchemaExporter",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "destination_schema_registry_cluster": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "credentials": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    },
+                    "subjects": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "confluent_schema_registry_cluster": {
                 "current": "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster",
                 "fields": {
@@ -1567,6 +1591,7 @@
             "confluentcloud:index/privateLinkAttachmentConnection:PrivateLinkAttachmentConnection": "confluent_private_link_attachment_connection",
             "confluentcloud:index/roleBinding:RoleBinding": "confluent_role_binding",
             "confluentcloud:index/schema:Schema": "confluent_schema",
+            "confluentcloud:index/schemaExporter:SchemaExporter": "confluent_schema_exporter",
             "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster": "confluent_schema_registry_cluster",
             "confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig": "confluent_schema_registry_cluster_config",
             "confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode": "confluent_schema_registry_cluster_mode",
@@ -1709,6 +1734,9 @@
             },
             "confluentcloud:index/PrivateLinkAttachmentGcp:PrivateLinkAttachmentGcp": {
                 "privateServiceConnectServiceAttachment": "private_service_connect_service_attachment"
+            },
+            "confluentcloud:index/SchemaExporterDestinationSchemaRegistryCluster:SchemaExporterDestinationSchemaRegistryCluster": {
+                "restEndpoint": "rest_endpoint"
             },
             "confluentcloud:index/SchemaSchemaReference:SchemaSchemaReference": {
                 "subjectName": "subject_name"
@@ -2145,6 +2173,14 @@
                 "schemaReferences": "schema_reference",
                 "schemaRegistryCluster": "schema_registry_cluster",
                 "subjectName": "subject_name"
+            },
+            "confluentcloud:index/schemaExporter:SchemaExporter": {
+                "contextType": "context_type",
+                "destinationSchemaRegistryCluster": "destination_schema_registry_cluster",
+                "resetOnUpdate": "reset_on_update",
+                "restEndpoint": "rest_endpoint",
+                "schemaRegistryCluster": "schema_registry_cluster",
+                "subjectRenameFormat": "subject_rename_format"
             },
             "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster": {
                 "apiVersion": "api_version",
