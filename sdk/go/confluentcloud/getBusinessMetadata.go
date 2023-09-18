@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupBusinessMetadata(ctx *pulumi.Context, args *LookupBusinessMetadataArgs, opts ...pulumi.InvokeOption) (*LookupBusinessMetadataResult, error) {
@@ -92,6 +93,12 @@ func (o LookupBusinessMetadataResultOutput) ToLookupBusinessMetadataResultOutput
 
 func (o LookupBusinessMetadataResultOutput) ToLookupBusinessMetadataResultOutputWithContext(ctx context.Context) LookupBusinessMetadataResultOutput {
 	return o
+}
+
+func (o LookupBusinessMetadataResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBusinessMetadataResult] {
+	return pulumix.Output[LookupBusinessMetadataResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional List) The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):

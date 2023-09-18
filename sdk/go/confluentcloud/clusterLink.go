@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -166,6 +167,12 @@ func (i *ClusterLink) ToClusterLinkOutputWithContext(ctx context.Context) Cluste
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkOutput)
 }
 
+func (i *ClusterLink) ToOutput(ctx context.Context) pulumix.Output[*ClusterLink] {
+	return pulumix.Output[*ClusterLink]{
+		OutputState: i.ToClusterLinkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterLinkArrayInput is an input type that accepts ClusterLinkArray and ClusterLinkArrayOutput values.
 // You can construct a concrete instance of `ClusterLinkArrayInput` via:
 //
@@ -189,6 +196,12 @@ func (i ClusterLinkArray) ToClusterLinkArrayOutput() ClusterLinkArrayOutput {
 
 func (i ClusterLinkArray) ToClusterLinkArrayOutputWithContext(ctx context.Context) ClusterLinkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkArrayOutput)
+}
+
+func (i ClusterLinkArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterLink] {
+	return pulumix.Output[[]*ClusterLink]{
+		OutputState: i.ToClusterLinkArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClusterLinkMapInput is an input type that accepts ClusterLinkMap and ClusterLinkMapOutput values.
@@ -216,6 +229,12 @@ func (i ClusterLinkMap) ToClusterLinkMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkMapOutput)
 }
 
+func (i ClusterLinkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterLink] {
+	return pulumix.Output[map[string]*ClusterLink]{
+		OutputState: i.ToClusterLinkMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLinkOutput struct{ *pulumi.OutputState }
 
 func (ClusterLinkOutput) ElementType() reflect.Type {
@@ -228,6 +247,12 @@ func (o ClusterLinkOutput) ToClusterLinkOutput() ClusterLinkOutput {
 
 func (o ClusterLinkOutput) ToClusterLinkOutputWithContext(ctx context.Context) ClusterLinkOutput {
 	return o
+}
+
+func (o ClusterLinkOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLink] {
+	return pulumix.Output[*ClusterLink]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The custom cluster link settings to set:
@@ -280,6 +305,12 @@ func (o ClusterLinkArrayOutput) ToClusterLinkArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ClusterLinkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterLink] {
+	return pulumix.Output[[]*ClusterLink]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterLinkArrayOutput) Index(i pulumi.IntInput) ClusterLinkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterLink {
 		return vs[0].([]*ClusterLink)[vs[1].(int)]
@@ -298,6 +329,12 @@ func (o ClusterLinkMapOutput) ToClusterLinkMapOutput() ClusterLinkMapOutput {
 
 func (o ClusterLinkMapOutput) ToClusterLinkMapOutputWithContext(ctx context.Context) ClusterLinkMapOutput {
 	return o
+}
+
+func (o ClusterLinkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterLink] {
+	return pulumix.Output[map[string]*ClusterLink]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLinkMapOutput) MapIndex(k pulumi.StringInput) ClusterLinkOutput {

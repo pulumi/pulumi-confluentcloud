@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -152,6 +153,12 @@ func (i *SubjectMode) ToSubjectModeOutputWithContext(ctx context.Context) Subjec
 	return pulumi.ToOutputWithContext(ctx, i).(SubjectModeOutput)
 }
 
+func (i *SubjectMode) ToOutput(ctx context.Context) pulumix.Output[*SubjectMode] {
+	return pulumix.Output[*SubjectMode]{
+		OutputState: i.ToSubjectModeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubjectModeArrayInput is an input type that accepts SubjectModeArray and SubjectModeArrayOutput values.
 // You can construct a concrete instance of `SubjectModeArrayInput` via:
 //
@@ -175,6 +182,12 @@ func (i SubjectModeArray) ToSubjectModeArrayOutput() SubjectModeArrayOutput {
 
 func (i SubjectModeArray) ToSubjectModeArrayOutputWithContext(ctx context.Context) SubjectModeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubjectModeArrayOutput)
+}
+
+func (i SubjectModeArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubjectMode] {
+	return pulumix.Output[[]*SubjectMode]{
+		OutputState: i.ToSubjectModeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SubjectModeMapInput is an input type that accepts SubjectModeMap and SubjectModeMapOutput values.
@@ -202,6 +215,12 @@ func (i SubjectModeMap) ToSubjectModeMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SubjectModeMapOutput)
 }
 
+func (i SubjectModeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubjectMode] {
+	return pulumix.Output[map[string]*SubjectMode]{
+		OutputState: i.ToSubjectModeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubjectModeOutput struct{ *pulumi.OutputState }
 
 func (SubjectModeOutput) ElementType() reflect.Type {
@@ -214,6 +233,12 @@ func (o SubjectModeOutput) ToSubjectModeOutput() SubjectModeOutput {
 
 func (o SubjectModeOutput) ToSubjectModeOutputWithContext(ctx context.Context) SubjectModeOutput {
 	return o
+}
+
+func (o SubjectModeOutput) ToOutput(ctx context.Context) pulumix.Output[*SubjectMode] {
+	return pulumix.Output[*SubjectMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Cluster API Credentials.
@@ -254,6 +279,12 @@ func (o SubjectModeArrayOutput) ToSubjectModeArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o SubjectModeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubjectMode] {
+	return pulumix.Output[[]*SubjectMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SubjectModeArrayOutput) Index(i pulumi.IntInput) SubjectModeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubjectMode {
 		return vs[0].([]*SubjectMode)[vs[1].(int)]
@@ -272,6 +303,12 @@ func (o SubjectModeMapOutput) ToSubjectModeMapOutput() SubjectModeMapOutput {
 
 func (o SubjectModeMapOutput) ToSubjectModeMapOutputWithContext(ctx context.Context) SubjectModeMapOutput {
 	return o
+}
+
+func (o SubjectModeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubjectMode] {
+	return pulumix.Output[map[string]*SubjectMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubjectModeMapOutput) MapIndex(k pulumi.StringInput) SubjectModeOutput {

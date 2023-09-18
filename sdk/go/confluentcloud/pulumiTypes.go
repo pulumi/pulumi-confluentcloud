@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -56,6 +57,12 @@ func (i ApiKeyManagedResourceArgs) ToApiKeyManagedResourceOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyManagedResourceOutput)
 }
 
+func (i ApiKeyManagedResourceArgs) ToOutput(ctx context.Context) pulumix.Output[ApiKeyManagedResource] {
+	return pulumix.Output[ApiKeyManagedResource]{
+		OutputState: i.ToApiKeyManagedResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiKeyManagedResourceArgs) ToApiKeyManagedResourcePtrOutput() ApiKeyManagedResourcePtrOutput {
 	return i.ToApiKeyManagedResourcePtrOutputWithContext(context.Background())
 }
@@ -97,6 +104,12 @@ func (i *apiKeyManagedResourcePtrType) ToApiKeyManagedResourcePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyManagedResourcePtrOutput)
 }
 
+func (i *apiKeyManagedResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiKeyManagedResource] {
+	return pulumix.Output[*ApiKeyManagedResource]{
+		OutputState: i.ToApiKeyManagedResourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiKeyManagedResourceOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyManagedResourceOutput) ElementType() reflect.Type {
@@ -119,6 +132,12 @@ func (o ApiKeyManagedResourceOutput) ToApiKeyManagedResourcePtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiKeyManagedResource) *ApiKeyManagedResource {
 		return &v
 	}).(ApiKeyManagedResourcePtrOutput)
+}
+
+func (o ApiKeyManagedResourceOutput) ToOutput(ctx context.Context) pulumix.Output[ApiKeyManagedResource] {
+	return pulumix.Output[ApiKeyManagedResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
@@ -152,6 +171,12 @@ func (o ApiKeyManagedResourcePtrOutput) ToApiKeyManagedResourcePtrOutput() ApiKe
 
 func (o ApiKeyManagedResourcePtrOutput) ToApiKeyManagedResourcePtrOutputWithContext(ctx context.Context) ApiKeyManagedResourcePtrOutput {
 	return o
+}
+
+func (o ApiKeyManagedResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiKeyManagedResource] {
+	return pulumix.Output[*ApiKeyManagedResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiKeyManagedResourcePtrOutput) Elem() ApiKeyManagedResourceOutput {
@@ -236,6 +261,12 @@ func (i ApiKeyManagedResourceEnvironmentArgs) ToApiKeyManagedResourceEnvironment
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyManagedResourceEnvironmentOutput)
 }
 
+func (i ApiKeyManagedResourceEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[ApiKeyManagedResourceEnvironment] {
+	return pulumix.Output[ApiKeyManagedResourceEnvironment]{
+		OutputState: i.ToApiKeyManagedResourceEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiKeyManagedResourceEnvironmentArgs) ToApiKeyManagedResourceEnvironmentPtrOutput() ApiKeyManagedResourceEnvironmentPtrOutput {
 	return i.ToApiKeyManagedResourceEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -277,6 +308,12 @@ func (i *apiKeyManagedResourceEnvironmentPtrType) ToApiKeyManagedResourceEnviron
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyManagedResourceEnvironmentPtrOutput)
 }
 
+func (i *apiKeyManagedResourceEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiKeyManagedResourceEnvironment] {
+	return pulumix.Output[*ApiKeyManagedResourceEnvironment]{
+		OutputState: i.ToApiKeyManagedResourceEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiKeyManagedResourceEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyManagedResourceEnvironmentOutput) ElementType() reflect.Type {
@@ -301,6 +338,12 @@ func (o ApiKeyManagedResourceEnvironmentOutput) ToApiKeyManagedResourceEnvironme
 	}).(ApiKeyManagedResourceEnvironmentPtrOutput)
 }
 
+func (o ApiKeyManagedResourceEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[ApiKeyManagedResourceEnvironment] {
+	return pulumix.Output[ApiKeyManagedResourceEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
 func (o ApiKeyManagedResourceEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyManagedResourceEnvironment) string { return v.Id }).(pulumi.StringOutput)
@@ -318,6 +361,12 @@ func (o ApiKeyManagedResourceEnvironmentPtrOutput) ToApiKeyManagedResourceEnviro
 
 func (o ApiKeyManagedResourceEnvironmentPtrOutput) ToApiKeyManagedResourceEnvironmentPtrOutputWithContext(ctx context.Context) ApiKeyManagedResourceEnvironmentPtrOutput {
 	return o
+}
+
+func (o ApiKeyManagedResourceEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiKeyManagedResourceEnvironment] {
+	return pulumix.Output[*ApiKeyManagedResourceEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiKeyManagedResourceEnvironmentPtrOutput) Elem() ApiKeyManagedResourceEnvironmentOutput {
@@ -381,6 +430,12 @@ func (i ApiKeyOwnerArgs) ToApiKeyOwnerOutputWithContext(ctx context.Context) Api
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyOwnerOutput)
 }
 
+func (i ApiKeyOwnerArgs) ToOutput(ctx context.Context) pulumix.Output[ApiKeyOwner] {
+	return pulumix.Output[ApiKeyOwner]{
+		OutputState: i.ToApiKeyOwnerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApiKeyOwnerArgs) ToApiKeyOwnerPtrOutput() ApiKeyOwnerPtrOutput {
 	return i.ToApiKeyOwnerPtrOutputWithContext(context.Background())
 }
@@ -422,6 +477,12 @@ func (i *apiKeyOwnerPtrType) ToApiKeyOwnerPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyOwnerPtrOutput)
 }
 
+func (i *apiKeyOwnerPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiKeyOwner] {
+	return pulumix.Output[*ApiKeyOwner]{
+		OutputState: i.ToApiKeyOwnerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiKeyOwnerOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyOwnerOutput) ElementType() reflect.Type {
@@ -444,6 +505,12 @@ func (o ApiKeyOwnerOutput) ToApiKeyOwnerPtrOutputWithContext(ctx context.Context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiKeyOwner) *ApiKeyOwner {
 		return &v
 	}).(ApiKeyOwnerPtrOutput)
+}
+
+func (o ApiKeyOwnerOutput) ToOutput(ctx context.Context) pulumix.Output[ApiKeyOwner] {
+	return pulumix.Output[ApiKeyOwner]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
@@ -473,6 +540,12 @@ func (o ApiKeyOwnerPtrOutput) ToApiKeyOwnerPtrOutput() ApiKeyOwnerPtrOutput {
 
 func (o ApiKeyOwnerPtrOutput) ToApiKeyOwnerPtrOutputWithContext(ctx context.Context) ApiKeyOwnerPtrOutput {
 	return o
+}
+
+func (o ApiKeyOwnerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiKeyOwner] {
+	return pulumix.Output[*ApiKeyOwner]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiKeyOwnerPtrOutput) Elem() ApiKeyOwnerOutput {
@@ -568,6 +641,12 @@ func (i BusinessMetadataAttributeDefinitionArgs) ToBusinessMetadataAttributeDefi
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataAttributeDefinitionOutput)
 }
 
+func (i BusinessMetadataAttributeDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[BusinessMetadataAttributeDefinition] {
+	return pulumix.Output[BusinessMetadataAttributeDefinition]{
+		OutputState: i.ToBusinessMetadataAttributeDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BusinessMetadataAttributeDefinitionArrayInput is an input type that accepts BusinessMetadataAttributeDefinitionArray and BusinessMetadataAttributeDefinitionArrayOutput values.
 // You can construct a concrete instance of `BusinessMetadataAttributeDefinitionArrayInput` via:
 //
@@ -593,6 +672,12 @@ func (i BusinessMetadataAttributeDefinitionArray) ToBusinessMetadataAttributeDef
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataAttributeDefinitionArrayOutput)
 }
 
+func (i BusinessMetadataAttributeDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]BusinessMetadataAttributeDefinition] {
+	return pulumix.Output[[]BusinessMetadataAttributeDefinition]{
+		OutputState: i.ToBusinessMetadataAttributeDefinitionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BusinessMetadataAttributeDefinitionOutput struct{ *pulumi.OutputState }
 
 func (BusinessMetadataAttributeDefinitionOutput) ElementType() reflect.Type {
@@ -605,6 +690,12 @@ func (o BusinessMetadataAttributeDefinitionOutput) ToBusinessMetadataAttributeDe
 
 func (o BusinessMetadataAttributeDefinitionOutput) ToBusinessMetadataAttributeDefinitionOutputWithContext(ctx context.Context) BusinessMetadataAttributeDefinitionOutput {
 	return o
+}
+
+func (o BusinessMetadataAttributeDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[BusinessMetadataAttributeDefinition] {
+	return pulumix.Output[BusinessMetadataAttributeDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default value of this attribute.
@@ -651,6 +742,12 @@ func (o BusinessMetadataAttributeDefinitionArrayOutput) ToBusinessMetadataAttrib
 	return o
 }
 
+func (o BusinessMetadataAttributeDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BusinessMetadataAttributeDefinition] {
+	return pulumix.Output[[]BusinessMetadataAttributeDefinition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BusinessMetadataAttributeDefinitionArrayOutput) Index(i pulumi.IntInput) BusinessMetadataAttributeDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BusinessMetadataAttributeDefinition {
 		return vs[0].([]BusinessMetadataAttributeDefinition)[vs[1].(int)]
@@ -694,6 +791,12 @@ func (i BusinessMetadataBindingCredentialsArgs) ToBusinessMetadataBindingCredent
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataBindingCredentialsOutput)
 }
 
+func (i BusinessMetadataBindingCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[BusinessMetadataBindingCredentials] {
+	return pulumix.Output[BusinessMetadataBindingCredentials]{
+		OutputState: i.ToBusinessMetadataBindingCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BusinessMetadataBindingCredentialsArgs) ToBusinessMetadataBindingCredentialsPtrOutput() BusinessMetadataBindingCredentialsPtrOutput {
 	return i.ToBusinessMetadataBindingCredentialsPtrOutputWithContext(context.Background())
 }
@@ -735,6 +838,12 @@ func (i *businessMetadataBindingCredentialsPtrType) ToBusinessMetadataBindingCre
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataBindingCredentialsPtrOutput)
 }
 
+func (i *businessMetadataBindingCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BusinessMetadataBindingCredentials] {
+	return pulumix.Output[*BusinessMetadataBindingCredentials]{
+		OutputState: i.ToBusinessMetadataBindingCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BusinessMetadataBindingCredentialsOutput struct{ *pulumi.OutputState }
 
 func (BusinessMetadataBindingCredentialsOutput) ElementType() reflect.Type {
@@ -759,6 +868,12 @@ func (o BusinessMetadataBindingCredentialsOutput) ToBusinessMetadataBindingCrede
 	}).(BusinessMetadataBindingCredentialsPtrOutput)
 }
 
+func (o BusinessMetadataBindingCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[BusinessMetadataBindingCredentials] {
+	return pulumix.Output[BusinessMetadataBindingCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o BusinessMetadataBindingCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BusinessMetadataBindingCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -781,6 +896,12 @@ func (o BusinessMetadataBindingCredentialsPtrOutput) ToBusinessMetadataBindingCr
 
 func (o BusinessMetadataBindingCredentialsPtrOutput) ToBusinessMetadataBindingCredentialsPtrOutputWithContext(ctx context.Context) BusinessMetadataBindingCredentialsPtrOutput {
 	return o
+}
+
+func (o BusinessMetadataBindingCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BusinessMetadataBindingCredentials] {
+	return pulumix.Output[*BusinessMetadataBindingCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BusinessMetadataBindingCredentialsPtrOutput) Elem() BusinessMetadataBindingCredentialsOutput {
@@ -846,6 +967,12 @@ func (i BusinessMetadataBindingSchemaRegistryClusterArgs) ToBusinessMetadataBind
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataBindingSchemaRegistryClusterOutput)
 }
 
+func (i BusinessMetadataBindingSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[BusinessMetadataBindingSchemaRegistryCluster] {
+	return pulumix.Output[BusinessMetadataBindingSchemaRegistryCluster]{
+		OutputState: i.ToBusinessMetadataBindingSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BusinessMetadataBindingSchemaRegistryClusterArgs) ToBusinessMetadataBindingSchemaRegistryClusterPtrOutput() BusinessMetadataBindingSchemaRegistryClusterPtrOutput {
 	return i.ToBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -887,6 +1014,12 @@ func (i *businessMetadataBindingSchemaRegistryClusterPtrType) ToBusinessMetadata
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataBindingSchemaRegistryClusterPtrOutput)
 }
 
+func (i *businessMetadataBindingSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BusinessMetadataBindingSchemaRegistryCluster] {
+	return pulumix.Output[*BusinessMetadataBindingSchemaRegistryCluster]{
+		OutputState: i.ToBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BusinessMetadataBindingSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (BusinessMetadataBindingSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -911,6 +1044,12 @@ func (o BusinessMetadataBindingSchemaRegistryClusterOutput) ToBusinessMetadataBi
 	}).(BusinessMetadataBindingSchemaRegistryClusterPtrOutput)
 }
 
+func (o BusinessMetadataBindingSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[BusinessMetadataBindingSchemaRegistryCluster] {
+	return pulumix.Output[BusinessMetadataBindingSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o BusinessMetadataBindingSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v BusinessMetadataBindingSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -928,6 +1067,12 @@ func (o BusinessMetadataBindingSchemaRegistryClusterPtrOutput) ToBusinessMetadat
 
 func (o BusinessMetadataBindingSchemaRegistryClusterPtrOutput) ToBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) BusinessMetadataBindingSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o BusinessMetadataBindingSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BusinessMetadataBindingSchemaRegistryCluster] {
+	return pulumix.Output[*BusinessMetadataBindingSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BusinessMetadataBindingSchemaRegistryClusterPtrOutput) Elem() BusinessMetadataBindingSchemaRegistryClusterOutput {
@@ -985,6 +1130,12 @@ func (i BusinessMetadataCredentialsArgs) ToBusinessMetadataCredentialsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataCredentialsOutput)
 }
 
+func (i BusinessMetadataCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[BusinessMetadataCredentials] {
+	return pulumix.Output[BusinessMetadataCredentials]{
+		OutputState: i.ToBusinessMetadataCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BusinessMetadataCredentialsArgs) ToBusinessMetadataCredentialsPtrOutput() BusinessMetadataCredentialsPtrOutput {
 	return i.ToBusinessMetadataCredentialsPtrOutputWithContext(context.Background())
 }
@@ -1026,6 +1177,12 @@ func (i *businessMetadataCredentialsPtrType) ToBusinessMetadataCredentialsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataCredentialsPtrOutput)
 }
 
+func (i *businessMetadataCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BusinessMetadataCredentials] {
+	return pulumix.Output[*BusinessMetadataCredentials]{
+		OutputState: i.ToBusinessMetadataCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BusinessMetadataCredentialsOutput struct{ *pulumi.OutputState }
 
 func (BusinessMetadataCredentialsOutput) ElementType() reflect.Type {
@@ -1050,6 +1207,12 @@ func (o BusinessMetadataCredentialsOutput) ToBusinessMetadataCredentialsPtrOutpu
 	}).(BusinessMetadataCredentialsPtrOutput)
 }
 
+func (o BusinessMetadataCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[BusinessMetadataCredentials] {
+	return pulumix.Output[BusinessMetadataCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o BusinessMetadataCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BusinessMetadataCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -1071,6 +1234,12 @@ func (o BusinessMetadataCredentialsPtrOutput) ToBusinessMetadataCredentialsPtrOu
 
 func (o BusinessMetadataCredentialsPtrOutput) ToBusinessMetadataCredentialsPtrOutputWithContext(ctx context.Context) BusinessMetadataCredentialsPtrOutput {
 	return o
+}
+
+func (o BusinessMetadataCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BusinessMetadataCredentials] {
+	return pulumix.Output[*BusinessMetadataCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BusinessMetadataCredentialsPtrOutput) Elem() BusinessMetadataCredentialsOutput {
@@ -1135,6 +1304,12 @@ func (i BusinessMetadataSchemaRegistryClusterArgs) ToBusinessMetadataSchemaRegis
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataSchemaRegistryClusterOutput)
 }
 
+func (i BusinessMetadataSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[BusinessMetadataSchemaRegistryCluster] {
+	return pulumix.Output[BusinessMetadataSchemaRegistryCluster]{
+		OutputState: i.ToBusinessMetadataSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BusinessMetadataSchemaRegistryClusterArgs) ToBusinessMetadataSchemaRegistryClusterPtrOutput() BusinessMetadataSchemaRegistryClusterPtrOutput {
 	return i.ToBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -1176,6 +1351,12 @@ func (i *businessMetadataSchemaRegistryClusterPtrType) ToBusinessMetadataSchemaR
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataSchemaRegistryClusterPtrOutput)
 }
 
+func (i *businessMetadataSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BusinessMetadataSchemaRegistryCluster] {
+	return pulumix.Output[*BusinessMetadataSchemaRegistryCluster]{
+		OutputState: i.ToBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BusinessMetadataSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (BusinessMetadataSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -1200,6 +1381,12 @@ func (o BusinessMetadataSchemaRegistryClusterOutput) ToBusinessMetadataSchemaReg
 	}).(BusinessMetadataSchemaRegistryClusterPtrOutput)
 }
 
+func (o BusinessMetadataSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[BusinessMetadataSchemaRegistryCluster] {
+	return pulumix.Output[BusinessMetadataSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o BusinessMetadataSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v BusinessMetadataSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -1217,6 +1404,12 @@ func (o BusinessMetadataSchemaRegistryClusterPtrOutput) ToBusinessMetadataSchema
 
 func (o BusinessMetadataSchemaRegistryClusterPtrOutput) ToBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) BusinessMetadataSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o BusinessMetadataSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BusinessMetadataSchemaRegistryCluster] {
+	return pulumix.Output[*BusinessMetadataSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BusinessMetadataSchemaRegistryClusterPtrOutput) Elem() BusinessMetadataSchemaRegistryClusterOutput {
@@ -1276,6 +1469,12 @@ func (i ByokKeyAwsArgs) ToByokKeyAwsOutputWithContext(ctx context.Context) ByokK
 	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyAwsOutput)
 }
 
+func (i ByokKeyAwsArgs) ToOutput(ctx context.Context) pulumix.Output[ByokKeyAws] {
+	return pulumix.Output[ByokKeyAws]{
+		OutputState: i.ToByokKeyAwsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ByokKeyAwsArgs) ToByokKeyAwsPtrOutput() ByokKeyAwsPtrOutput {
 	return i.ToByokKeyAwsPtrOutputWithContext(context.Background())
 }
@@ -1317,6 +1516,12 @@ func (i *byokKeyAwsPtrType) ToByokKeyAwsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyAwsPtrOutput)
 }
 
+func (i *byokKeyAwsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ByokKeyAws] {
+	return pulumix.Output[*ByokKeyAws]{
+		OutputState: i.ToByokKeyAwsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ByokKeyAwsOutput struct{ *pulumi.OutputState }
 
 func (ByokKeyAwsOutput) ElementType() reflect.Type {
@@ -1341,6 +1546,12 @@ func (o ByokKeyAwsOutput) ToByokKeyAwsPtrOutputWithContext(ctx context.Context) 
 	}).(ByokKeyAwsPtrOutput)
 }
 
+func (o ByokKeyAwsOutput) ToOutput(ctx context.Context) pulumix.Output[ByokKeyAws] {
+	return pulumix.Output[ByokKeyAws]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon Resource Name (ARN) of an AWS KMS key.
 func (o ByokKeyAwsOutput) KeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ByokKeyAws) string { return v.KeyArn }).(pulumi.StringOutput)
@@ -1363,6 +1574,12 @@ func (o ByokKeyAwsPtrOutput) ToByokKeyAwsPtrOutput() ByokKeyAwsPtrOutput {
 
 func (o ByokKeyAwsPtrOutput) ToByokKeyAwsPtrOutputWithContext(ctx context.Context) ByokKeyAwsPtrOutput {
 	return o
+}
+
+func (o ByokKeyAwsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ByokKeyAws] {
+	return pulumix.Output[*ByokKeyAws]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ByokKeyAwsPtrOutput) Elem() ByokKeyAwsOutput {
@@ -1440,6 +1657,12 @@ func (i ByokKeyAzureArgs) ToByokKeyAzureOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyAzureOutput)
 }
 
+func (i ByokKeyAzureArgs) ToOutput(ctx context.Context) pulumix.Output[ByokKeyAzure] {
+	return pulumix.Output[ByokKeyAzure]{
+		OutputState: i.ToByokKeyAzureOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ByokKeyAzureArgs) ToByokKeyAzurePtrOutput() ByokKeyAzurePtrOutput {
 	return i.ToByokKeyAzurePtrOutputWithContext(context.Background())
 }
@@ -1481,6 +1704,12 @@ func (i *byokKeyAzurePtrType) ToByokKeyAzurePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyAzurePtrOutput)
 }
 
+func (i *byokKeyAzurePtrType) ToOutput(ctx context.Context) pulumix.Output[*ByokKeyAzure] {
+	return pulumix.Output[*ByokKeyAzure]{
+		OutputState: i.ToByokKeyAzurePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ByokKeyAzureOutput struct{ *pulumi.OutputState }
 
 func (ByokKeyAzureOutput) ElementType() reflect.Type {
@@ -1503,6 +1732,12 @@ func (o ByokKeyAzureOutput) ToByokKeyAzurePtrOutputWithContext(ctx context.Conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ByokKeyAzure) *ByokKeyAzure {
 		return &v
 	}).(ByokKeyAzurePtrOutput)
+}
+
+func (o ByokKeyAzureOutput) ToOutput(ctx context.Context) pulumix.Output[ByokKeyAzure] {
+	return pulumix.Output[ByokKeyAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional String) The Application ID created for this key-environment combination.
@@ -1537,6 +1772,12 @@ func (o ByokKeyAzurePtrOutput) ToByokKeyAzurePtrOutput() ByokKeyAzurePtrOutput {
 
 func (o ByokKeyAzurePtrOutput) ToByokKeyAzurePtrOutputWithContext(ctx context.Context) ByokKeyAzurePtrOutput {
 	return o
+}
+
+func (o ByokKeyAzurePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ByokKeyAzure] {
+	return pulumix.Output[*ByokKeyAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ByokKeyAzurePtrOutput) Elem() ByokKeyAzureOutput {
@@ -1632,6 +1873,12 @@ func (i ClusterLinkDestinationKafkaClusterArgs) ToClusterLinkDestinationKafkaClu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkDestinationKafkaClusterOutput)
 }
 
+func (i ClusterLinkDestinationKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkDestinationKafkaCluster] {
+	return pulumix.Output[ClusterLinkDestinationKafkaCluster]{
+		OutputState: i.ToClusterLinkDestinationKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLinkDestinationKafkaClusterArgs) ToClusterLinkDestinationKafkaClusterPtrOutput() ClusterLinkDestinationKafkaClusterPtrOutput {
 	return i.ToClusterLinkDestinationKafkaClusterPtrOutputWithContext(context.Background())
 }
@@ -1673,6 +1920,12 @@ func (i *clusterLinkDestinationKafkaClusterPtrType) ToClusterLinkDestinationKafk
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkDestinationKafkaClusterPtrOutput)
 }
 
+func (i *clusterLinkDestinationKafkaClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkDestinationKafkaCluster] {
+	return pulumix.Output[*ClusterLinkDestinationKafkaCluster]{
+		OutputState: i.ToClusterLinkDestinationKafkaClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLinkDestinationKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterLinkDestinationKafkaClusterOutput) ElementType() reflect.Type {
@@ -1695,6 +1948,12 @@ func (o ClusterLinkDestinationKafkaClusterOutput) ToClusterLinkDestinationKafkaC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkDestinationKafkaCluster) *ClusterLinkDestinationKafkaCluster {
 		return &v
 	}).(ClusterLinkDestinationKafkaClusterPtrOutput)
+}
+
+func (o ClusterLinkDestinationKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkDestinationKafkaCluster] {
+	return pulumix.Output[ClusterLinkDestinationKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -1730,6 +1989,12 @@ func (o ClusterLinkDestinationKafkaClusterPtrOutput) ToClusterLinkDestinationKaf
 
 func (o ClusterLinkDestinationKafkaClusterPtrOutput) ToClusterLinkDestinationKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkDestinationKafkaClusterPtrOutput {
 	return o
+}
+
+func (o ClusterLinkDestinationKafkaClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkDestinationKafkaCluster] {
+	return pulumix.Output[*ClusterLinkDestinationKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLinkDestinationKafkaClusterPtrOutput) Elem() ClusterLinkDestinationKafkaClusterOutput {
@@ -1822,6 +2087,12 @@ func (i ClusterLinkDestinationKafkaClusterCredentialsArgs) ToClusterLinkDestinat
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkDestinationKafkaClusterCredentialsOutput)
 }
 
+func (i ClusterLinkDestinationKafkaClusterCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkDestinationKafkaClusterCredentials] {
+	return pulumix.Output[ClusterLinkDestinationKafkaClusterCredentials]{
+		OutputState: i.ToClusterLinkDestinationKafkaClusterCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLinkDestinationKafkaClusterCredentialsArgs) ToClusterLinkDestinationKafkaClusterCredentialsPtrOutput() ClusterLinkDestinationKafkaClusterCredentialsPtrOutput {
 	return i.ToClusterLinkDestinationKafkaClusterCredentialsPtrOutputWithContext(context.Background())
 }
@@ -1863,6 +2134,12 @@ func (i *clusterLinkDestinationKafkaClusterCredentialsPtrType) ToClusterLinkDest
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkDestinationKafkaClusterCredentialsPtrOutput)
 }
 
+func (i *clusterLinkDestinationKafkaClusterCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkDestinationKafkaClusterCredentials] {
+	return pulumix.Output[*ClusterLinkDestinationKafkaClusterCredentials]{
+		OutputState: i.ToClusterLinkDestinationKafkaClusterCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLinkDestinationKafkaClusterCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ClusterLinkDestinationKafkaClusterCredentialsOutput) ElementType() reflect.Type {
@@ -1885,6 +2162,12 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) ToClusterLinkDestin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkDestinationKafkaClusterCredentials) *ClusterLinkDestinationKafkaClusterCredentials {
 		return &v
 	}).(ClusterLinkDestinationKafkaClusterCredentialsPtrOutput)
+}
+
+func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkDestinationKafkaClusterCredentials] {
+	return pulumix.Output[ClusterLinkDestinationKafkaClusterCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Kafka API Key.
@@ -1911,6 +2194,12 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) ToClusterLinkDes
 
 func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) ToClusterLinkDestinationKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkDestinationKafkaClusterCredentialsPtrOutput {
 	return o
+}
+
+func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkDestinationKafkaClusterCredentials] {
+	return pulumix.Output[*ClusterLinkDestinationKafkaClusterCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Elem() ClusterLinkDestinationKafkaClusterCredentialsOutput {
@@ -1988,6 +2277,12 @@ func (i ClusterLinkLocalKafkaClusterArgs) ToClusterLinkLocalKafkaClusterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkLocalKafkaClusterOutput)
 }
 
+func (i ClusterLinkLocalKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkLocalKafkaCluster] {
+	return pulumix.Output[ClusterLinkLocalKafkaCluster]{
+		OutputState: i.ToClusterLinkLocalKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLinkLocalKafkaClusterArgs) ToClusterLinkLocalKafkaClusterPtrOutput() ClusterLinkLocalKafkaClusterPtrOutput {
 	return i.ToClusterLinkLocalKafkaClusterPtrOutputWithContext(context.Background())
 }
@@ -2029,6 +2324,12 @@ func (i *clusterLinkLocalKafkaClusterPtrType) ToClusterLinkLocalKafkaClusterPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkLocalKafkaClusterPtrOutput)
 }
 
+func (i *clusterLinkLocalKafkaClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkLocalKafkaCluster] {
+	return pulumix.Output[*ClusterLinkLocalKafkaCluster]{
+		OutputState: i.ToClusterLinkLocalKafkaClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLinkLocalKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterLinkLocalKafkaClusterOutput) ElementType() reflect.Type {
@@ -2051,6 +2352,12 @@ func (o ClusterLinkLocalKafkaClusterOutput) ToClusterLinkLocalKafkaClusterPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkLocalKafkaCluster) *ClusterLinkLocalKafkaCluster {
 		return &v
 	}).(ClusterLinkLocalKafkaClusterPtrOutput)
+}
+
+func (o ClusterLinkLocalKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkLocalKafkaCluster] {
+	return pulumix.Output[ClusterLinkLocalKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -2084,6 +2391,12 @@ func (o ClusterLinkLocalKafkaClusterPtrOutput) ToClusterLinkLocalKafkaClusterPtr
 
 func (o ClusterLinkLocalKafkaClusterPtrOutput) ToClusterLinkLocalKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkLocalKafkaClusterPtrOutput {
 	return o
+}
+
+func (o ClusterLinkLocalKafkaClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkLocalKafkaCluster] {
+	return pulumix.Output[*ClusterLinkLocalKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLinkLocalKafkaClusterPtrOutput) Elem() ClusterLinkLocalKafkaClusterOutput {
@@ -2176,6 +2489,12 @@ func (i ClusterLinkLocalKafkaClusterCredentialsArgs) ToClusterLinkLocalKafkaClus
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkLocalKafkaClusterCredentialsOutput)
 }
 
+func (i ClusterLinkLocalKafkaClusterCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkLocalKafkaClusterCredentials] {
+	return pulumix.Output[ClusterLinkLocalKafkaClusterCredentials]{
+		OutputState: i.ToClusterLinkLocalKafkaClusterCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLinkLocalKafkaClusterCredentialsArgs) ToClusterLinkLocalKafkaClusterCredentialsPtrOutput() ClusterLinkLocalKafkaClusterCredentialsPtrOutput {
 	return i.ToClusterLinkLocalKafkaClusterCredentialsPtrOutputWithContext(context.Background())
 }
@@ -2217,6 +2536,12 @@ func (i *clusterLinkLocalKafkaClusterCredentialsPtrType) ToClusterLinkLocalKafka
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkLocalKafkaClusterCredentialsPtrOutput)
 }
 
+func (i *clusterLinkLocalKafkaClusterCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkLocalKafkaClusterCredentials] {
+	return pulumix.Output[*ClusterLinkLocalKafkaClusterCredentials]{
+		OutputState: i.ToClusterLinkLocalKafkaClusterCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLinkLocalKafkaClusterCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ClusterLinkLocalKafkaClusterCredentialsOutput) ElementType() reflect.Type {
@@ -2239,6 +2564,12 @@ func (o ClusterLinkLocalKafkaClusterCredentialsOutput) ToClusterLinkLocalKafkaCl
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkLocalKafkaClusterCredentials) *ClusterLinkLocalKafkaClusterCredentials {
 		return &v
 	}).(ClusterLinkLocalKafkaClusterCredentialsPtrOutput)
+}
+
+func (o ClusterLinkLocalKafkaClusterCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkLocalKafkaClusterCredentials] {
+	return pulumix.Output[ClusterLinkLocalKafkaClusterCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Kafka API Key.
@@ -2265,6 +2596,12 @@ func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) ToClusterLinkLocalKafk
 
 func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) ToClusterLinkLocalKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkLocalKafkaClusterCredentialsPtrOutput {
 	return o
+}
+
+func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkLocalKafkaClusterCredentials] {
+	return pulumix.Output[*ClusterLinkLocalKafkaClusterCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Elem() ClusterLinkLocalKafkaClusterCredentialsOutput {
@@ -2342,6 +2679,12 @@ func (i ClusterLinkRemoteKafkaClusterArgs) ToClusterLinkRemoteKafkaClusterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkRemoteKafkaClusterOutput)
 }
 
+func (i ClusterLinkRemoteKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkRemoteKafkaCluster] {
+	return pulumix.Output[ClusterLinkRemoteKafkaCluster]{
+		OutputState: i.ToClusterLinkRemoteKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLinkRemoteKafkaClusterArgs) ToClusterLinkRemoteKafkaClusterPtrOutput() ClusterLinkRemoteKafkaClusterPtrOutput {
 	return i.ToClusterLinkRemoteKafkaClusterPtrOutputWithContext(context.Background())
 }
@@ -2383,6 +2726,12 @@ func (i *clusterLinkRemoteKafkaClusterPtrType) ToClusterLinkRemoteKafkaClusterPt
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkRemoteKafkaClusterPtrOutput)
 }
 
+func (i *clusterLinkRemoteKafkaClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkRemoteKafkaCluster] {
+	return pulumix.Output[*ClusterLinkRemoteKafkaCluster]{
+		OutputState: i.ToClusterLinkRemoteKafkaClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLinkRemoteKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterLinkRemoteKafkaClusterOutput) ElementType() reflect.Type {
@@ -2405,6 +2754,12 @@ func (o ClusterLinkRemoteKafkaClusterOutput) ToClusterLinkRemoteKafkaClusterPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkRemoteKafkaCluster) *ClusterLinkRemoteKafkaCluster {
 		return &v
 	}).(ClusterLinkRemoteKafkaClusterPtrOutput)
+}
+
+func (o ClusterLinkRemoteKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkRemoteKafkaCluster] {
+	return pulumix.Output[ClusterLinkRemoteKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -2438,6 +2793,12 @@ func (o ClusterLinkRemoteKafkaClusterPtrOutput) ToClusterLinkRemoteKafkaClusterP
 
 func (o ClusterLinkRemoteKafkaClusterPtrOutput) ToClusterLinkRemoteKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkRemoteKafkaClusterPtrOutput {
 	return o
+}
+
+func (o ClusterLinkRemoteKafkaClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkRemoteKafkaCluster] {
+	return pulumix.Output[*ClusterLinkRemoteKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLinkRemoteKafkaClusterPtrOutput) Elem() ClusterLinkRemoteKafkaClusterOutput {
@@ -2530,6 +2891,12 @@ func (i ClusterLinkRemoteKafkaClusterCredentialsArgs) ToClusterLinkRemoteKafkaCl
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkRemoteKafkaClusterCredentialsOutput)
 }
 
+func (i ClusterLinkRemoteKafkaClusterCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkRemoteKafkaClusterCredentials] {
+	return pulumix.Output[ClusterLinkRemoteKafkaClusterCredentials]{
+		OutputState: i.ToClusterLinkRemoteKafkaClusterCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLinkRemoteKafkaClusterCredentialsArgs) ToClusterLinkRemoteKafkaClusterCredentialsPtrOutput() ClusterLinkRemoteKafkaClusterCredentialsPtrOutput {
 	return i.ToClusterLinkRemoteKafkaClusterCredentialsPtrOutputWithContext(context.Background())
 }
@@ -2571,6 +2938,12 @@ func (i *clusterLinkRemoteKafkaClusterCredentialsPtrType) ToClusterLinkRemoteKaf
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkRemoteKafkaClusterCredentialsPtrOutput)
 }
 
+func (i *clusterLinkRemoteKafkaClusterCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkRemoteKafkaClusterCredentials] {
+	return pulumix.Output[*ClusterLinkRemoteKafkaClusterCredentials]{
+		OutputState: i.ToClusterLinkRemoteKafkaClusterCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLinkRemoteKafkaClusterCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ClusterLinkRemoteKafkaClusterCredentialsOutput) ElementType() reflect.Type {
@@ -2593,6 +2966,12 @@ func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) ToClusterLinkRemoteKafka
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkRemoteKafkaClusterCredentials) *ClusterLinkRemoteKafkaClusterCredentials {
 		return &v
 	}).(ClusterLinkRemoteKafkaClusterCredentialsPtrOutput)
+}
+
+func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkRemoteKafkaClusterCredentials] {
+	return pulumix.Output[ClusterLinkRemoteKafkaClusterCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Kafka API Key.
@@ -2619,6 +2998,12 @@ func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) ToClusterLinkRemoteKa
 
 func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) ToClusterLinkRemoteKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkRemoteKafkaClusterCredentialsPtrOutput {
 	return o
+}
+
+func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkRemoteKafkaClusterCredentials] {
+	return pulumix.Output[*ClusterLinkRemoteKafkaClusterCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Elem() ClusterLinkRemoteKafkaClusterCredentialsOutput {
@@ -2696,6 +3081,12 @@ func (i ClusterLinkSourceKafkaClusterArgs) ToClusterLinkSourceKafkaClusterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkSourceKafkaClusterOutput)
 }
 
+func (i ClusterLinkSourceKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkSourceKafkaCluster] {
+	return pulumix.Output[ClusterLinkSourceKafkaCluster]{
+		OutputState: i.ToClusterLinkSourceKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLinkSourceKafkaClusterArgs) ToClusterLinkSourceKafkaClusterPtrOutput() ClusterLinkSourceKafkaClusterPtrOutput {
 	return i.ToClusterLinkSourceKafkaClusterPtrOutputWithContext(context.Background())
 }
@@ -2737,6 +3128,12 @@ func (i *clusterLinkSourceKafkaClusterPtrType) ToClusterLinkSourceKafkaClusterPt
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkSourceKafkaClusterPtrOutput)
 }
 
+func (i *clusterLinkSourceKafkaClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkSourceKafkaCluster] {
+	return pulumix.Output[*ClusterLinkSourceKafkaCluster]{
+		OutputState: i.ToClusterLinkSourceKafkaClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLinkSourceKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterLinkSourceKafkaClusterOutput) ElementType() reflect.Type {
@@ -2759,6 +3156,12 @@ func (o ClusterLinkSourceKafkaClusterOutput) ToClusterLinkSourceKafkaClusterPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkSourceKafkaCluster) *ClusterLinkSourceKafkaCluster {
 		return &v
 	}).(ClusterLinkSourceKafkaClusterPtrOutput)
+}
+
+func (o ClusterLinkSourceKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkSourceKafkaCluster] {
+	return pulumix.Output[ClusterLinkSourceKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -2792,6 +3195,12 @@ func (o ClusterLinkSourceKafkaClusterPtrOutput) ToClusterLinkSourceKafkaClusterP
 
 func (o ClusterLinkSourceKafkaClusterPtrOutput) ToClusterLinkSourceKafkaClusterPtrOutputWithContext(ctx context.Context) ClusterLinkSourceKafkaClusterPtrOutput {
 	return o
+}
+
+func (o ClusterLinkSourceKafkaClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkSourceKafkaCluster] {
+	return pulumix.Output[*ClusterLinkSourceKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLinkSourceKafkaClusterPtrOutput) Elem() ClusterLinkSourceKafkaClusterOutput {
@@ -2884,6 +3293,12 @@ func (i ClusterLinkSourceKafkaClusterCredentialsArgs) ToClusterLinkSourceKafkaCl
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkSourceKafkaClusterCredentialsOutput)
 }
 
+func (i ClusterLinkSourceKafkaClusterCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkSourceKafkaClusterCredentials] {
+	return pulumix.Output[ClusterLinkSourceKafkaClusterCredentials]{
+		OutputState: i.ToClusterLinkSourceKafkaClusterCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLinkSourceKafkaClusterCredentialsArgs) ToClusterLinkSourceKafkaClusterCredentialsPtrOutput() ClusterLinkSourceKafkaClusterCredentialsPtrOutput {
 	return i.ToClusterLinkSourceKafkaClusterCredentialsPtrOutputWithContext(context.Background())
 }
@@ -2925,6 +3340,12 @@ func (i *clusterLinkSourceKafkaClusterCredentialsPtrType) ToClusterLinkSourceKaf
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLinkSourceKafkaClusterCredentialsPtrOutput)
 }
 
+func (i *clusterLinkSourceKafkaClusterCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkSourceKafkaClusterCredentials] {
+	return pulumix.Output[*ClusterLinkSourceKafkaClusterCredentials]{
+		OutputState: i.ToClusterLinkSourceKafkaClusterCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLinkSourceKafkaClusterCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ClusterLinkSourceKafkaClusterCredentialsOutput) ElementType() reflect.Type {
@@ -2947,6 +3368,12 @@ func (o ClusterLinkSourceKafkaClusterCredentialsOutput) ToClusterLinkSourceKafka
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLinkSourceKafkaClusterCredentials) *ClusterLinkSourceKafkaClusterCredentials {
 		return &v
 	}).(ClusterLinkSourceKafkaClusterCredentialsPtrOutput)
+}
+
+func (o ClusterLinkSourceKafkaClusterCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLinkSourceKafkaClusterCredentials] {
+	return pulumix.Output[ClusterLinkSourceKafkaClusterCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Kafka API Key.
@@ -2973,6 +3400,12 @@ func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) ToClusterLinkSourceKa
 
 func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) ToClusterLinkSourceKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) ClusterLinkSourceKafkaClusterCredentialsPtrOutput {
 	return o
+}
+
+func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLinkSourceKafkaClusterCredentials] {
+	return pulumix.Output[*ClusterLinkSourceKafkaClusterCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Elem() ClusterLinkSourceKafkaClusterCredentialsOutput {
@@ -3040,6 +3473,12 @@ func (i ConnectorEnvironmentArgs) ToConnectorEnvironmentOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorEnvironmentOutput)
 }
 
+func (i ConnectorEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorEnvironment] {
+	return pulumix.Output[ConnectorEnvironment]{
+		OutputState: i.ToConnectorEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorEnvironmentArgs) ToConnectorEnvironmentPtrOutput() ConnectorEnvironmentPtrOutput {
 	return i.ToConnectorEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -3081,6 +3520,12 @@ func (i *connectorEnvironmentPtrType) ToConnectorEnvironmentPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorEnvironmentPtrOutput)
 }
 
+func (i *connectorEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorEnvironment] {
+	return pulumix.Output[*ConnectorEnvironment]{
+		OutputState: i.ToConnectorEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (ConnectorEnvironmentOutput) ElementType() reflect.Type {
@@ -3105,6 +3550,12 @@ func (o ConnectorEnvironmentOutput) ToConnectorEnvironmentPtrOutputWithContext(c
 	}).(ConnectorEnvironmentPtrOutput)
 }
 
+func (o ConnectorEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorEnvironment] {
+	return pulumix.Output[ConnectorEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
 func (o ConnectorEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorEnvironment) string { return v.Id }).(pulumi.StringOutput)
@@ -3122,6 +3573,12 @@ func (o ConnectorEnvironmentPtrOutput) ToConnectorEnvironmentPtrOutput() Connect
 
 func (o ConnectorEnvironmentPtrOutput) ToConnectorEnvironmentPtrOutputWithContext(ctx context.Context) ConnectorEnvironmentPtrOutput {
 	return o
+}
+
+func (o ConnectorEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorEnvironment] {
+	return pulumix.Output[*ConnectorEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorEnvironmentPtrOutput) Elem() ConnectorEnvironmentOutput {
@@ -3177,6 +3634,12 @@ func (i ConnectorKafkaClusterArgs) ToConnectorKafkaClusterOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterOutput)
 }
 
+func (i ConnectorKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaCluster] {
+	return pulumix.Output[ConnectorKafkaCluster]{
+		OutputState: i.ToConnectorKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorKafkaClusterArgs) ToConnectorKafkaClusterPtrOutput() ConnectorKafkaClusterPtrOutput {
 	return i.ToConnectorKafkaClusterPtrOutputWithContext(context.Background())
 }
@@ -3218,6 +3681,12 @@ func (i *connectorKafkaClusterPtrType) ToConnectorKafkaClusterPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterPtrOutput)
 }
 
+func (i *connectorKafkaClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaCluster] {
+	return pulumix.Output[*ConnectorKafkaCluster]{
+		OutputState: i.ToConnectorKafkaClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (ConnectorKafkaClusterOutput) ElementType() reflect.Type {
@@ -3242,6 +3711,12 @@ func (o ConnectorKafkaClusterOutput) ToConnectorKafkaClusterPtrOutputWithContext
 	}).(ConnectorKafkaClusterPtrOutput)
 }
 
+func (o ConnectorKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaCluster] {
+	return pulumix.Output[ConnectorKafkaCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
 func (o ConnectorKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -3259,6 +3734,12 @@ func (o ConnectorKafkaClusterPtrOutput) ToConnectorKafkaClusterPtrOutput() Conne
 
 func (o ConnectorKafkaClusterPtrOutput) ToConnectorKafkaClusterPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterPtrOutput {
 	return o
+}
+
+func (o ConnectorKafkaClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaCluster] {
+	return pulumix.Output[*ConnectorKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorKafkaClusterPtrOutput) Elem() ConnectorKafkaClusterOutput {
@@ -3314,6 +3795,12 @@ func (i IdentityPoolIdentityProviderArgs) ToIdentityPoolIdentityProviderOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolIdentityProviderOutput)
 }
 
+func (i IdentityPoolIdentityProviderArgs) ToOutput(ctx context.Context) pulumix.Output[IdentityPoolIdentityProvider] {
+	return pulumix.Output[IdentityPoolIdentityProvider]{
+		OutputState: i.ToIdentityPoolIdentityProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IdentityPoolIdentityProviderArgs) ToIdentityPoolIdentityProviderPtrOutput() IdentityPoolIdentityProviderPtrOutput {
 	return i.ToIdentityPoolIdentityProviderPtrOutputWithContext(context.Background())
 }
@@ -3355,6 +3842,12 @@ func (i *identityPoolIdentityProviderPtrType) ToIdentityPoolIdentityProviderPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolIdentityProviderPtrOutput)
 }
 
+func (i *identityPoolIdentityProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*IdentityPoolIdentityProvider] {
+	return pulumix.Output[*IdentityPoolIdentityProvider]{
+		OutputState: i.ToIdentityPoolIdentityProviderPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IdentityPoolIdentityProviderOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolIdentityProviderOutput) ElementType() reflect.Type {
@@ -3379,6 +3872,12 @@ func (o IdentityPoolIdentityProviderOutput) ToIdentityPoolIdentityProviderPtrOut
 	}).(IdentityPoolIdentityProviderPtrOutput)
 }
 
+func (o IdentityPoolIdentityProviderOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityPoolIdentityProvider] {
+	return pulumix.Output[IdentityPoolIdentityProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
 func (o IdentityPoolIdentityProviderOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPoolIdentityProvider) string { return v.Id }).(pulumi.StringOutput)
@@ -3396,6 +3895,12 @@ func (o IdentityPoolIdentityProviderPtrOutput) ToIdentityPoolIdentityProviderPtr
 
 func (o IdentityPoolIdentityProviderPtrOutput) ToIdentityPoolIdentityProviderPtrOutputWithContext(ctx context.Context) IdentityPoolIdentityProviderPtrOutput {
 	return o
+}
+
+func (o IdentityPoolIdentityProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityPoolIdentityProvider] {
+	return pulumix.Output[*IdentityPoolIdentityProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentityPoolIdentityProviderPtrOutput) Elem() IdentityPoolIdentityProviderOutput {
@@ -3451,6 +3956,12 @@ func (i InvitationCreatorArgs) ToInvitationCreatorOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InvitationCreatorOutput)
 }
 
+func (i InvitationCreatorArgs) ToOutput(ctx context.Context) pulumix.Output[InvitationCreator] {
+	return pulumix.Output[InvitationCreator]{
+		OutputState: i.ToInvitationCreatorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InvitationCreatorArrayInput is an input type that accepts InvitationCreatorArray and InvitationCreatorArrayOutput values.
 // You can construct a concrete instance of `InvitationCreatorArrayInput` via:
 //
@@ -3476,6 +3987,12 @@ func (i InvitationCreatorArray) ToInvitationCreatorArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(InvitationCreatorArrayOutput)
 }
 
+func (i InvitationCreatorArray) ToOutput(ctx context.Context) pulumix.Output[[]InvitationCreator] {
+	return pulumix.Output[[]InvitationCreator]{
+		OutputState: i.ToInvitationCreatorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InvitationCreatorOutput struct{ *pulumi.OutputState }
 
 func (InvitationCreatorOutput) ElementType() reflect.Type {
@@ -3488,6 +4005,12 @@ func (o InvitationCreatorOutput) ToInvitationCreatorOutput() InvitationCreatorOu
 
 func (o InvitationCreatorOutput) ToInvitationCreatorOutputWithContext(ctx context.Context) InvitationCreatorOutput {
 	return o
+}
+
+func (o InvitationCreatorOutput) ToOutput(ctx context.Context) pulumix.Output[InvitationCreator] {
+	return pulumix.Output[InvitationCreator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The id of invitation creator.
@@ -3507,6 +4030,12 @@ func (o InvitationCreatorArrayOutput) ToInvitationCreatorArrayOutput() Invitatio
 
 func (o InvitationCreatorArrayOutput) ToInvitationCreatorArrayOutputWithContext(ctx context.Context) InvitationCreatorArrayOutput {
 	return o
+}
+
+func (o InvitationCreatorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InvitationCreator] {
+	return pulumix.Output[[]InvitationCreator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InvitationCreatorArrayOutput) Index(i pulumi.IntInput) InvitationCreatorOutput {
@@ -3548,6 +4077,12 @@ func (i InvitationUserArgs) ToInvitationUserOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(InvitationUserOutput)
 }
 
+func (i InvitationUserArgs) ToOutput(ctx context.Context) pulumix.Output[InvitationUser] {
+	return pulumix.Output[InvitationUser]{
+		OutputState: i.ToInvitationUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InvitationUserArrayInput is an input type that accepts InvitationUserArray and InvitationUserArrayOutput values.
 // You can construct a concrete instance of `InvitationUserArrayInput` via:
 //
@@ -3573,6 +4108,12 @@ func (i InvitationUserArray) ToInvitationUserArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InvitationUserArrayOutput)
 }
 
+func (i InvitationUserArray) ToOutput(ctx context.Context) pulumix.Output[[]InvitationUser] {
+	return pulumix.Output[[]InvitationUser]{
+		OutputState: i.ToInvitationUserArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InvitationUserOutput struct{ *pulumi.OutputState }
 
 func (InvitationUserOutput) ElementType() reflect.Type {
@@ -3585,6 +4126,12 @@ func (o InvitationUserOutput) ToInvitationUserOutput() InvitationUserOutput {
 
 func (o InvitationUserOutput) ToInvitationUserOutputWithContext(ctx context.Context) InvitationUserOutput {
 	return o
+}
+
+func (o InvitationUserOutput) ToOutput(ctx context.Context) pulumix.Output[InvitationUser] {
+	return pulumix.Output[InvitationUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The id of invitation creator.
@@ -3604,6 +4151,12 @@ func (o InvitationUserArrayOutput) ToInvitationUserArrayOutput() InvitationUserA
 
 func (o InvitationUserArrayOutput) ToInvitationUserArrayOutputWithContext(ctx context.Context) InvitationUserArrayOutput {
 	return o
+}
+
+func (o InvitationUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InvitationUser] {
+	return pulumix.Output[[]InvitationUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InvitationUserArrayOutput) Index(i pulumi.IntInput) InvitationUserOutput {
@@ -3649,6 +4202,12 @@ func (i KafkaAclCredentialsArgs) ToKafkaAclCredentialsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaAclCredentialsOutput)
 }
 
+func (i KafkaAclCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaAclCredentials] {
+	return pulumix.Output[KafkaAclCredentials]{
+		OutputState: i.ToKafkaAclCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaAclCredentialsArgs) ToKafkaAclCredentialsPtrOutput() KafkaAclCredentialsPtrOutput {
 	return i.ToKafkaAclCredentialsPtrOutputWithContext(context.Background())
 }
@@ -3690,6 +4249,12 @@ func (i *kafkaAclCredentialsPtrType) ToKafkaAclCredentialsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaAclCredentialsPtrOutput)
 }
 
+func (i *kafkaAclCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaAclCredentials] {
+	return pulumix.Output[*KafkaAclCredentials]{
+		OutputState: i.ToKafkaAclCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaAclCredentialsOutput struct{ *pulumi.OutputState }
 
 func (KafkaAclCredentialsOutput) ElementType() reflect.Type {
@@ -3714,6 +4279,12 @@ func (o KafkaAclCredentialsOutput) ToKafkaAclCredentialsPtrOutputWithContext(ctx
 	}).(KafkaAclCredentialsPtrOutput)
 }
 
+func (o KafkaAclCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaAclCredentials] {
+	return pulumix.Output[KafkaAclCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Kafka API Key.
 func (o KafkaAclCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaAclCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -3736,6 +4307,12 @@ func (o KafkaAclCredentialsPtrOutput) ToKafkaAclCredentialsPtrOutput() KafkaAclC
 
 func (o KafkaAclCredentialsPtrOutput) ToKafkaAclCredentialsPtrOutputWithContext(ctx context.Context) KafkaAclCredentialsPtrOutput {
 	return o
+}
+
+func (o KafkaAclCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaAclCredentials] {
+	return pulumix.Output[*KafkaAclCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaAclCredentialsPtrOutput) Elem() KafkaAclCredentialsOutput {
@@ -3801,6 +4378,12 @@ func (i KafkaAclKafkaClusterArgs) ToKafkaAclKafkaClusterOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaAclKafkaClusterOutput)
 }
 
+func (i KafkaAclKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaAclKafkaCluster] {
+	return pulumix.Output[KafkaAclKafkaCluster]{
+		OutputState: i.ToKafkaAclKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaAclKafkaClusterArgs) ToKafkaAclKafkaClusterPtrOutput() KafkaAclKafkaClusterPtrOutput {
 	return i.ToKafkaAclKafkaClusterPtrOutputWithContext(context.Background())
 }
@@ -3842,6 +4425,12 @@ func (i *kafkaAclKafkaClusterPtrType) ToKafkaAclKafkaClusterPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaAclKafkaClusterPtrOutput)
 }
 
+func (i *kafkaAclKafkaClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaAclKafkaCluster] {
+	return pulumix.Output[*KafkaAclKafkaCluster]{
+		OutputState: i.ToKafkaAclKafkaClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaAclKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (KafkaAclKafkaClusterOutput) ElementType() reflect.Type {
@@ -3866,6 +4455,12 @@ func (o KafkaAclKafkaClusterOutput) ToKafkaAclKafkaClusterPtrOutputWithContext(c
 	}).(KafkaAclKafkaClusterPtrOutput)
 }
 
+func (o KafkaAclKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaAclKafkaCluster] {
+	return pulumix.Output[KafkaAclKafkaCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Kafka cluster, for example, `lkc-abc123`.
 func (o KafkaAclKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaAclKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -3883,6 +4478,12 @@ func (o KafkaAclKafkaClusterPtrOutput) ToKafkaAclKafkaClusterPtrOutput() KafkaAc
 
 func (o KafkaAclKafkaClusterPtrOutput) ToKafkaAclKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaAclKafkaClusterPtrOutput {
 	return o
+}
+
+func (o KafkaAclKafkaClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaAclKafkaCluster] {
+	return pulumix.Output[*KafkaAclKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaAclKafkaClusterPtrOutput) Elem() KafkaAclKafkaClusterOutput {
@@ -3946,6 +4547,12 @@ func (i KafkaClientQuotaEnvironmentArgs) ToKafkaClientQuotaEnvironmentOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaEnvironmentOutput)
 }
 
+func (i KafkaClientQuotaEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClientQuotaEnvironment] {
+	return pulumix.Output[KafkaClientQuotaEnvironment]{
+		OutputState: i.ToKafkaClientQuotaEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaClientQuotaEnvironmentArgs) ToKafkaClientQuotaEnvironmentPtrOutput() KafkaClientQuotaEnvironmentPtrOutput {
 	return i.ToKafkaClientQuotaEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -3987,6 +4594,12 @@ func (i *kafkaClientQuotaEnvironmentPtrType) ToKafkaClientQuotaEnvironmentPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaEnvironmentPtrOutput)
 }
 
+func (i *kafkaClientQuotaEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClientQuotaEnvironment] {
+	return pulumix.Output[*KafkaClientQuotaEnvironment]{
+		OutputState: i.ToKafkaClientQuotaEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaClientQuotaEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (KafkaClientQuotaEnvironmentOutput) ElementType() reflect.Type {
@@ -4011,6 +4624,12 @@ func (o KafkaClientQuotaEnvironmentOutput) ToKafkaClientQuotaEnvironmentPtrOutpu
 	}).(KafkaClientQuotaEnvironmentPtrOutput)
 }
 
+func (o KafkaClientQuotaEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClientQuotaEnvironment] {
+	return pulumix.Output[KafkaClientQuotaEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
 //
 // > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
@@ -4032,6 +4651,12 @@ func (o KafkaClientQuotaEnvironmentPtrOutput) ToKafkaClientQuotaEnvironmentPtrOu
 
 func (o KafkaClientQuotaEnvironmentPtrOutput) ToKafkaClientQuotaEnvironmentPtrOutputWithContext(ctx context.Context) KafkaClientQuotaEnvironmentPtrOutput {
 	return o
+}
+
+func (o KafkaClientQuotaEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClientQuotaEnvironment] {
+	return pulumix.Output[*KafkaClientQuotaEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClientQuotaEnvironmentPtrOutput) Elem() KafkaClientQuotaEnvironmentOutput {
@@ -4099,6 +4724,12 @@ func (i KafkaClientQuotaKafkaClusterArgs) ToKafkaClientQuotaKafkaClusterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaKafkaClusterOutput)
 }
 
+func (i KafkaClientQuotaKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClientQuotaKafkaCluster] {
+	return pulumix.Output[KafkaClientQuotaKafkaCluster]{
+		OutputState: i.ToKafkaClientQuotaKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaClientQuotaKafkaClusterArgs) ToKafkaClientQuotaKafkaClusterPtrOutput() KafkaClientQuotaKafkaClusterPtrOutput {
 	return i.ToKafkaClientQuotaKafkaClusterPtrOutputWithContext(context.Background())
 }
@@ -4140,6 +4771,12 @@ func (i *kafkaClientQuotaKafkaClusterPtrType) ToKafkaClientQuotaKafkaClusterPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaKafkaClusterPtrOutput)
 }
 
+func (i *kafkaClientQuotaKafkaClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClientQuotaKafkaCluster] {
+	return pulumix.Output[*KafkaClientQuotaKafkaCluster]{
+		OutputState: i.ToKafkaClientQuotaKafkaClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaClientQuotaKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (KafkaClientQuotaKafkaClusterOutput) ElementType() reflect.Type {
@@ -4164,6 +4801,12 @@ func (o KafkaClientQuotaKafkaClusterOutput) ToKafkaClientQuotaKafkaClusterPtrOut
 	}).(KafkaClientQuotaKafkaClusterPtrOutput)
 }
 
+func (o KafkaClientQuotaKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClientQuotaKafkaCluster] {
+	return pulumix.Output[KafkaClientQuotaKafkaCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
 //
 // > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
@@ -4185,6 +4828,12 @@ func (o KafkaClientQuotaKafkaClusterPtrOutput) ToKafkaClientQuotaKafkaClusterPtr
 
 func (o KafkaClientQuotaKafkaClusterPtrOutput) ToKafkaClientQuotaKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClientQuotaKafkaClusterPtrOutput {
 	return o
+}
+
+func (o KafkaClientQuotaKafkaClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClientQuotaKafkaCluster] {
+	return pulumix.Output[*KafkaClientQuotaKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClientQuotaKafkaClusterPtrOutput) Elem() KafkaClientQuotaKafkaClusterOutput {
@@ -4248,6 +4897,12 @@ func (i KafkaClientQuotaThroughputArgs) ToKafkaClientQuotaThroughputOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaThroughputOutput)
 }
 
+func (i KafkaClientQuotaThroughputArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClientQuotaThroughput] {
+	return pulumix.Output[KafkaClientQuotaThroughput]{
+		OutputState: i.ToKafkaClientQuotaThroughputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaClientQuotaThroughputArgs) ToKafkaClientQuotaThroughputPtrOutput() KafkaClientQuotaThroughputPtrOutput {
 	return i.ToKafkaClientQuotaThroughputPtrOutputWithContext(context.Background())
 }
@@ -4289,6 +4944,12 @@ func (i *kafkaClientQuotaThroughputPtrType) ToKafkaClientQuotaThroughputPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaThroughputPtrOutput)
 }
 
+func (i *kafkaClientQuotaThroughputPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClientQuotaThroughput] {
+	return pulumix.Output[*KafkaClientQuotaThroughput]{
+		OutputState: i.ToKafkaClientQuotaThroughputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaClientQuotaThroughputOutput struct{ *pulumi.OutputState }
 
 func (KafkaClientQuotaThroughputOutput) ElementType() reflect.Type {
@@ -4313,6 +4974,12 @@ func (o KafkaClientQuotaThroughputOutput) ToKafkaClientQuotaThroughputPtrOutputW
 	}).(KafkaClientQuotaThroughputPtrOutput)
 }
 
+func (o KafkaClientQuotaThroughputOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClientQuotaThroughput] {
+	return pulumix.Output[KafkaClientQuotaThroughput]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The egress throughput limit in bytes per second.
 func (o KafkaClientQuotaThroughputOutput) EgressByteRate() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClientQuotaThroughput) string { return v.EgressByteRate }).(pulumi.StringOutput)
@@ -4335,6 +5002,12 @@ func (o KafkaClientQuotaThroughputPtrOutput) ToKafkaClientQuotaThroughputPtrOutp
 
 func (o KafkaClientQuotaThroughputPtrOutput) ToKafkaClientQuotaThroughputPtrOutputWithContext(ctx context.Context) KafkaClientQuotaThroughputPtrOutput {
 	return o
+}
+
+func (o KafkaClientQuotaThroughputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClientQuotaThroughput] {
+	return pulumix.Output[*KafkaClientQuotaThroughput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClientQuotaThroughputPtrOutput) Elem() KafkaClientQuotaThroughputOutput {
@@ -4396,6 +5069,12 @@ func (i KafkaClusterBasicArgs) ToKafkaClusterBasicOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterBasicOutput)
 }
 
+func (i KafkaClusterBasicArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterBasic] {
+	return pulumix.Output[KafkaClusterBasic]{
+		OutputState: i.ToKafkaClusterBasicOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaClusterBasicArgs) ToKafkaClusterBasicPtrOutput() KafkaClusterBasicPtrOutput {
 	return i.ToKafkaClusterBasicPtrOutputWithContext(context.Background())
 }
@@ -4437,6 +5116,12 @@ func (i *kafkaClusterBasicPtrType) ToKafkaClusterBasicPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterBasicPtrOutput)
 }
 
+func (i *kafkaClusterBasicPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterBasic] {
+	return pulumix.Output[*KafkaClusterBasic]{
+		OutputState: i.ToKafkaClusterBasicPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaClusterBasicOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterBasicOutput) ElementType() reflect.Type {
@@ -4461,6 +5146,12 @@ func (o KafkaClusterBasicOutput) ToKafkaClusterBasicPtrOutputWithContext(ctx con
 	}).(KafkaClusterBasicPtrOutput)
 }
 
+func (o KafkaClusterBasicOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterBasic] {
+	return pulumix.Output[KafkaClusterBasic]{
+		OutputState: o.OutputState,
+	}
+}
+
 type KafkaClusterBasicPtrOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterBasicPtrOutput) ElementType() reflect.Type {
@@ -4473,6 +5164,12 @@ func (o KafkaClusterBasicPtrOutput) ToKafkaClusterBasicPtrOutput() KafkaClusterB
 
 func (o KafkaClusterBasicPtrOutput) ToKafkaClusterBasicPtrOutputWithContext(ctx context.Context) KafkaClusterBasicPtrOutput {
 	return o
+}
+
+func (o KafkaClusterBasicPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterBasic] {
+	return pulumix.Output[*KafkaClusterBasic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClusterBasicPtrOutput) Elem() KafkaClusterBasicOutput {
@@ -4518,6 +5215,12 @@ func (i KafkaClusterByokKeyArgs) ToKafkaClusterByokKeyOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterByokKeyOutput)
 }
 
+func (i KafkaClusterByokKeyArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterByokKey] {
+	return pulumix.Output[KafkaClusterByokKey]{
+		OutputState: i.ToKafkaClusterByokKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaClusterByokKeyArgs) ToKafkaClusterByokKeyPtrOutput() KafkaClusterByokKeyPtrOutput {
 	return i.ToKafkaClusterByokKeyPtrOutputWithContext(context.Background())
 }
@@ -4559,6 +5262,12 @@ func (i *kafkaClusterByokKeyPtrType) ToKafkaClusterByokKeyPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterByokKeyPtrOutput)
 }
 
+func (i *kafkaClusterByokKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterByokKey] {
+	return pulumix.Output[*KafkaClusterByokKey]{
+		OutputState: i.ToKafkaClusterByokKeyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaClusterByokKeyOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterByokKeyOutput) ElementType() reflect.Type {
@@ -4583,6 +5292,12 @@ func (o KafkaClusterByokKeyOutput) ToKafkaClusterByokKeyPtrOutputWithContext(ctx
 	}).(KafkaClusterByokKeyPtrOutput)
 }
 
+func (o KafkaClusterByokKeyOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterByokKey] {
+	return pulumix.Output[KafkaClusterByokKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 func (o KafkaClusterByokKeyOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterByokKey) string { return v.Id }).(pulumi.StringOutput)
@@ -4600,6 +5315,12 @@ func (o KafkaClusterByokKeyPtrOutput) ToKafkaClusterByokKeyPtrOutput() KafkaClus
 
 func (o KafkaClusterByokKeyPtrOutput) ToKafkaClusterByokKeyPtrOutputWithContext(ctx context.Context) KafkaClusterByokKeyPtrOutput {
 	return o
+}
+
+func (o KafkaClusterByokKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterByokKey] {
+	return pulumix.Output[*KafkaClusterByokKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClusterByokKeyPtrOutput) Elem() KafkaClusterByokKeyOutput {
@@ -4667,6 +5388,12 @@ func (i KafkaClusterConfigCredentialsArgs) ToKafkaClusterConfigCredentialsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterConfigCredentialsOutput)
 }
 
+func (i KafkaClusterConfigCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterConfigCredentials] {
+	return pulumix.Output[KafkaClusterConfigCredentials]{
+		OutputState: i.ToKafkaClusterConfigCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaClusterConfigCredentialsArgs) ToKafkaClusterConfigCredentialsPtrOutput() KafkaClusterConfigCredentialsPtrOutput {
 	return i.ToKafkaClusterConfigCredentialsPtrOutputWithContext(context.Background())
 }
@@ -4708,6 +5435,12 @@ func (i *kafkaClusterConfigCredentialsPtrType) ToKafkaClusterConfigCredentialsPt
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterConfigCredentialsPtrOutput)
 }
 
+func (i *kafkaClusterConfigCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterConfigCredentials] {
+	return pulumix.Output[*KafkaClusterConfigCredentials]{
+		OutputState: i.ToKafkaClusterConfigCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaClusterConfigCredentialsOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterConfigCredentialsOutput) ElementType() reflect.Type {
@@ -4730,6 +5463,12 @@ func (o KafkaClusterConfigCredentialsOutput) ToKafkaClusterConfigCredentialsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterConfigCredentials) *KafkaClusterConfigCredentials {
 		return &v
 	}).(KafkaClusterConfigCredentialsPtrOutput)
+}
+
+func (o KafkaClusterConfigCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterConfigCredentials] {
+	return pulumix.Output[KafkaClusterConfigCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Kafka API Key.
@@ -4758,6 +5497,12 @@ func (o KafkaClusterConfigCredentialsPtrOutput) ToKafkaClusterConfigCredentialsP
 
 func (o KafkaClusterConfigCredentialsPtrOutput) ToKafkaClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) KafkaClusterConfigCredentialsPtrOutput {
 	return o
+}
+
+func (o KafkaClusterConfigCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterConfigCredentials] {
+	return pulumix.Output[*KafkaClusterConfigCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClusterConfigCredentialsPtrOutput) Elem() KafkaClusterConfigCredentialsOutput {
@@ -4827,6 +5572,12 @@ func (i KafkaClusterConfigKafkaClusterArgs) ToKafkaClusterConfigKafkaClusterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterConfigKafkaClusterOutput)
 }
 
+func (i KafkaClusterConfigKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterConfigKafkaCluster] {
+	return pulumix.Output[KafkaClusterConfigKafkaCluster]{
+		OutputState: i.ToKafkaClusterConfigKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaClusterConfigKafkaClusterArgs) ToKafkaClusterConfigKafkaClusterPtrOutput() KafkaClusterConfigKafkaClusterPtrOutput {
 	return i.ToKafkaClusterConfigKafkaClusterPtrOutputWithContext(context.Background())
 }
@@ -4868,6 +5619,12 @@ func (i *kafkaClusterConfigKafkaClusterPtrType) ToKafkaClusterConfigKafkaCluster
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterConfigKafkaClusterPtrOutput)
 }
 
+func (i *kafkaClusterConfigKafkaClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterConfigKafkaCluster] {
+	return pulumix.Output[*KafkaClusterConfigKafkaCluster]{
+		OutputState: i.ToKafkaClusterConfigKafkaClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaClusterConfigKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterConfigKafkaClusterOutput) ElementType() reflect.Type {
@@ -4892,6 +5649,12 @@ func (o KafkaClusterConfigKafkaClusterOutput) ToKafkaClusterConfigKafkaClusterPt
 	}).(KafkaClusterConfigKafkaClusterPtrOutput)
 }
 
+func (o KafkaClusterConfigKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterConfigKafkaCluster] {
+	return pulumix.Output[KafkaClusterConfigKafkaCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
 func (o KafkaClusterConfigKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterConfigKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -4909,6 +5672,12 @@ func (o KafkaClusterConfigKafkaClusterPtrOutput) ToKafkaClusterConfigKafkaCluste
 
 func (o KafkaClusterConfigKafkaClusterPtrOutput) ToKafkaClusterConfigKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaClusterConfigKafkaClusterPtrOutput {
 	return o
+}
+
+func (o KafkaClusterConfigKafkaClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterConfigKafkaCluster] {
+	return pulumix.Output[*KafkaClusterConfigKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClusterConfigKafkaClusterPtrOutput) Elem() KafkaClusterConfigKafkaClusterOutput {
@@ -4974,6 +5743,12 @@ func (i KafkaClusterDedicatedArgs) ToKafkaClusterDedicatedOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterDedicatedOutput)
 }
 
+func (i KafkaClusterDedicatedArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterDedicated] {
+	return pulumix.Output[KafkaClusterDedicated]{
+		OutputState: i.ToKafkaClusterDedicatedOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaClusterDedicatedArgs) ToKafkaClusterDedicatedPtrOutput() KafkaClusterDedicatedPtrOutput {
 	return i.ToKafkaClusterDedicatedPtrOutputWithContext(context.Background())
 }
@@ -5015,6 +5790,12 @@ func (i *kafkaClusterDedicatedPtrType) ToKafkaClusterDedicatedPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterDedicatedPtrOutput)
 }
 
+func (i *kafkaClusterDedicatedPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterDedicated] {
+	return pulumix.Output[*KafkaClusterDedicated]{
+		OutputState: i.ToKafkaClusterDedicatedPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaClusterDedicatedOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterDedicatedOutput) ElementType() reflect.Type {
@@ -5037,6 +5818,12 @@ func (o KafkaClusterDedicatedOutput) ToKafkaClusterDedicatedPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterDedicated) *KafkaClusterDedicated {
 		return &v
 	}).(KafkaClusterDedicatedPtrOutput)
+}
+
+func (o KafkaClusterDedicatedOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterDedicated] {
+	return pulumix.Output[KafkaClusterDedicated]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClusterDedicatedOutput) Cku() pulumi.IntOutput {
@@ -5067,6 +5854,12 @@ func (o KafkaClusterDedicatedPtrOutput) ToKafkaClusterDedicatedPtrOutput() Kafka
 
 func (o KafkaClusterDedicatedPtrOutput) ToKafkaClusterDedicatedPtrOutputWithContext(ctx context.Context) KafkaClusterDedicatedPtrOutput {
 	return o
+}
+
+func (o KafkaClusterDedicatedPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterDedicated] {
+	return pulumix.Output[*KafkaClusterDedicated]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClusterDedicatedPtrOutput) Elem() KafkaClusterDedicatedOutput {
@@ -5139,6 +5932,12 @@ func (i KafkaClusterEnterpriseArgs) ToKafkaClusterEnterpriseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterEnterpriseOutput)
 }
 
+func (i KafkaClusterEnterpriseArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterEnterprise] {
+	return pulumix.Output[KafkaClusterEnterprise]{
+		OutputState: i.ToKafkaClusterEnterpriseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KafkaClusterEnterpriseArrayInput is an input type that accepts KafkaClusterEnterpriseArray and KafkaClusterEnterpriseArrayOutput values.
 // You can construct a concrete instance of `KafkaClusterEnterpriseArrayInput` via:
 //
@@ -5164,6 +5963,12 @@ func (i KafkaClusterEnterpriseArray) ToKafkaClusterEnterpriseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterEnterpriseArrayOutput)
 }
 
+func (i KafkaClusterEnterpriseArray) ToOutput(ctx context.Context) pulumix.Output[[]KafkaClusterEnterprise] {
+	return pulumix.Output[[]KafkaClusterEnterprise]{
+		OutputState: i.ToKafkaClusterEnterpriseArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaClusterEnterpriseOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterEnterpriseOutput) ElementType() reflect.Type {
@@ -5178,6 +5983,12 @@ func (o KafkaClusterEnterpriseOutput) ToKafkaClusterEnterpriseOutputWithContext(
 	return o
 }
 
+func (o KafkaClusterEnterpriseOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterEnterprise] {
+	return pulumix.Output[KafkaClusterEnterprise]{
+		OutputState: o.OutputState,
+	}
+}
+
 type KafkaClusterEnterpriseArrayOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterEnterpriseArrayOutput) ElementType() reflect.Type {
@@ -5190,6 +6001,12 @@ func (o KafkaClusterEnterpriseArrayOutput) ToKafkaClusterEnterpriseArrayOutput()
 
 func (o KafkaClusterEnterpriseArrayOutput) ToKafkaClusterEnterpriseArrayOutputWithContext(ctx context.Context) KafkaClusterEnterpriseArrayOutput {
 	return o
+}
+
+func (o KafkaClusterEnterpriseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KafkaClusterEnterprise] {
+	return pulumix.Output[[]KafkaClusterEnterprise]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClusterEnterpriseArrayOutput) Index(i pulumi.IntInput) KafkaClusterEnterpriseOutput {
@@ -5229,6 +6046,12 @@ func (i KafkaClusterEnvironmentArgs) ToKafkaClusterEnvironmentOutput() KafkaClus
 
 func (i KafkaClusterEnvironmentArgs) ToKafkaClusterEnvironmentOutputWithContext(ctx context.Context) KafkaClusterEnvironmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterEnvironmentOutput)
+}
+
+func (i KafkaClusterEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterEnvironment] {
+	return pulumix.Output[KafkaClusterEnvironment]{
+		OutputState: i.ToKafkaClusterEnvironmentOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i KafkaClusterEnvironmentArgs) ToKafkaClusterEnvironmentPtrOutput() KafkaClusterEnvironmentPtrOutput {
@@ -5272,6 +6095,12 @@ func (i *kafkaClusterEnvironmentPtrType) ToKafkaClusterEnvironmentPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterEnvironmentPtrOutput)
 }
 
+func (i *kafkaClusterEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterEnvironment] {
+	return pulumix.Output[*KafkaClusterEnvironment]{
+		OutputState: i.ToKafkaClusterEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaClusterEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterEnvironmentOutput) ElementType() reflect.Type {
@@ -5296,6 +6125,12 @@ func (o KafkaClusterEnvironmentOutput) ToKafkaClusterEnvironmentPtrOutputWithCon
 	}).(KafkaClusterEnvironmentPtrOutput)
 }
 
+func (o KafkaClusterEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterEnvironment] {
+	return pulumix.Output[KafkaClusterEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 func (o KafkaClusterEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
@@ -5313,6 +6148,12 @@ func (o KafkaClusterEnvironmentPtrOutput) ToKafkaClusterEnvironmentPtrOutput() K
 
 func (o KafkaClusterEnvironmentPtrOutput) ToKafkaClusterEnvironmentPtrOutputWithContext(ctx context.Context) KafkaClusterEnvironmentPtrOutput {
 	return o
+}
+
+func (o KafkaClusterEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterEnvironment] {
+	return pulumix.Output[*KafkaClusterEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClusterEnvironmentPtrOutput) Elem() KafkaClusterEnvironmentOutput {
@@ -5368,6 +6209,12 @@ func (i KafkaClusterNetworkArgs) ToKafkaClusterNetworkOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterNetworkOutput)
 }
 
+func (i KafkaClusterNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterNetwork] {
+	return pulumix.Output[KafkaClusterNetwork]{
+		OutputState: i.ToKafkaClusterNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaClusterNetworkArgs) ToKafkaClusterNetworkPtrOutput() KafkaClusterNetworkPtrOutput {
 	return i.ToKafkaClusterNetworkPtrOutputWithContext(context.Background())
 }
@@ -5409,6 +6256,12 @@ func (i *kafkaClusterNetworkPtrType) ToKafkaClusterNetworkPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterNetworkPtrOutput)
 }
 
+func (i *kafkaClusterNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterNetwork] {
+	return pulumix.Output[*KafkaClusterNetwork]{
+		OutputState: i.ToKafkaClusterNetworkPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaClusterNetworkOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterNetworkOutput) ElementType() reflect.Type {
@@ -5433,6 +6286,12 @@ func (o KafkaClusterNetworkOutput) ToKafkaClusterNetworkPtrOutputWithContext(ctx
 	}).(KafkaClusterNetworkPtrOutput)
 }
 
+func (o KafkaClusterNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterNetwork] {
+	return pulumix.Output[KafkaClusterNetwork]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
 func (o KafkaClusterNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterNetwork) string { return v.Id }).(pulumi.StringOutput)
@@ -5450,6 +6309,12 @@ func (o KafkaClusterNetworkPtrOutput) ToKafkaClusterNetworkPtrOutput() KafkaClus
 
 func (o KafkaClusterNetworkPtrOutput) ToKafkaClusterNetworkPtrOutputWithContext(ctx context.Context) KafkaClusterNetworkPtrOutput {
 	return o
+}
+
+func (o KafkaClusterNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterNetwork] {
+	return pulumix.Output[*KafkaClusterNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClusterNetworkPtrOutput) Elem() KafkaClusterNetworkOutput {
@@ -5501,6 +6366,12 @@ func (i KafkaClusterStandardArgs) ToKafkaClusterStandardOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterStandardOutput)
 }
 
+func (i KafkaClusterStandardArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterStandard] {
+	return pulumix.Output[KafkaClusterStandard]{
+		OutputState: i.ToKafkaClusterStandardOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaClusterStandardArgs) ToKafkaClusterStandardPtrOutput() KafkaClusterStandardPtrOutput {
 	return i.ToKafkaClusterStandardPtrOutputWithContext(context.Background())
 }
@@ -5542,6 +6413,12 @@ func (i *kafkaClusterStandardPtrType) ToKafkaClusterStandardPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterStandardPtrOutput)
 }
 
+func (i *kafkaClusterStandardPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterStandard] {
+	return pulumix.Output[*KafkaClusterStandard]{
+		OutputState: i.ToKafkaClusterStandardPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaClusterStandardOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterStandardOutput) ElementType() reflect.Type {
@@ -5566,6 +6443,12 @@ func (o KafkaClusterStandardOutput) ToKafkaClusterStandardPtrOutputWithContext(c
 	}).(KafkaClusterStandardPtrOutput)
 }
 
+func (o KafkaClusterStandardOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterStandard] {
+	return pulumix.Output[KafkaClusterStandard]{
+		OutputState: o.OutputState,
+	}
+}
+
 type KafkaClusterStandardPtrOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterStandardPtrOutput) ElementType() reflect.Type {
@@ -5578,6 +6461,12 @@ func (o KafkaClusterStandardPtrOutput) ToKafkaClusterStandardPtrOutput() KafkaCl
 
 func (o KafkaClusterStandardPtrOutput) ToKafkaClusterStandardPtrOutputWithContext(ctx context.Context) KafkaClusterStandardPtrOutput {
 	return o
+}
+
+func (o KafkaClusterStandardPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterStandard] {
+	return pulumix.Output[*KafkaClusterStandard]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClusterStandardPtrOutput) Elem() KafkaClusterStandardOutput {
@@ -5623,6 +6512,12 @@ func (i KafkaMirrorTopicClusterLinkArgs) ToKafkaMirrorTopicClusterLinkOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicClusterLinkOutput)
 }
 
+func (i KafkaMirrorTopicClusterLinkArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaMirrorTopicClusterLink] {
+	return pulumix.Output[KafkaMirrorTopicClusterLink]{
+		OutputState: i.ToKafkaMirrorTopicClusterLinkOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaMirrorTopicClusterLinkArgs) ToKafkaMirrorTopicClusterLinkPtrOutput() KafkaMirrorTopicClusterLinkPtrOutput {
 	return i.ToKafkaMirrorTopicClusterLinkPtrOutputWithContext(context.Background())
 }
@@ -5664,6 +6559,12 @@ func (i *kafkaMirrorTopicClusterLinkPtrType) ToKafkaMirrorTopicClusterLinkPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicClusterLinkPtrOutput)
 }
 
+func (i *kafkaMirrorTopicClusterLinkPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaMirrorTopicClusterLink] {
+	return pulumix.Output[*KafkaMirrorTopicClusterLink]{
+		OutputState: i.ToKafkaMirrorTopicClusterLinkPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaMirrorTopicClusterLinkOutput struct{ *pulumi.OutputState }
 
 func (KafkaMirrorTopicClusterLinkOutput) ElementType() reflect.Type {
@@ -5688,6 +6589,12 @@ func (o KafkaMirrorTopicClusterLinkOutput) ToKafkaMirrorTopicClusterLinkPtrOutpu
 	}).(KafkaMirrorTopicClusterLinkPtrOutput)
 }
 
+func (o KafkaMirrorTopicClusterLinkOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaMirrorTopicClusterLink] {
+	return pulumix.Output[KafkaMirrorTopicClusterLink]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
 func (o KafkaMirrorTopicClusterLinkOutput) LinkName() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaMirrorTopicClusterLink) string { return v.LinkName }).(pulumi.StringOutput)
@@ -5705,6 +6612,12 @@ func (o KafkaMirrorTopicClusterLinkPtrOutput) ToKafkaMirrorTopicClusterLinkPtrOu
 
 func (o KafkaMirrorTopicClusterLinkPtrOutput) ToKafkaMirrorTopicClusterLinkPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicClusterLinkPtrOutput {
 	return o
+}
+
+func (o KafkaMirrorTopicClusterLinkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaMirrorTopicClusterLink] {
+	return pulumix.Output[*KafkaMirrorTopicClusterLink]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaMirrorTopicClusterLinkPtrOutput) Elem() KafkaMirrorTopicClusterLinkOutput {
@@ -5766,6 +6679,12 @@ func (i KafkaMirrorTopicKafkaClusterArgs) ToKafkaMirrorTopicKafkaClusterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicKafkaClusterOutput)
 }
 
+func (i KafkaMirrorTopicKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaMirrorTopicKafkaCluster] {
+	return pulumix.Output[KafkaMirrorTopicKafkaCluster]{
+		OutputState: i.ToKafkaMirrorTopicKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaMirrorTopicKafkaClusterArgs) ToKafkaMirrorTopicKafkaClusterPtrOutput() KafkaMirrorTopicKafkaClusterPtrOutput {
 	return i.ToKafkaMirrorTopicKafkaClusterPtrOutputWithContext(context.Background())
 }
@@ -5807,6 +6726,12 @@ func (i *kafkaMirrorTopicKafkaClusterPtrType) ToKafkaMirrorTopicKafkaClusterPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicKafkaClusterPtrOutput)
 }
 
+func (i *kafkaMirrorTopicKafkaClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaMirrorTopicKafkaCluster] {
+	return pulumix.Output[*KafkaMirrorTopicKafkaCluster]{
+		OutputState: i.ToKafkaMirrorTopicKafkaClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaMirrorTopicKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (KafkaMirrorTopicKafkaClusterOutput) ElementType() reflect.Type {
@@ -5829,6 +6754,12 @@ func (o KafkaMirrorTopicKafkaClusterOutput) ToKafkaMirrorTopicKafkaClusterPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaMirrorTopicKafkaCluster) *KafkaMirrorTopicKafkaCluster {
 		return &v
 	}).(KafkaMirrorTopicKafkaClusterPtrOutput)
+}
+
+func (o KafkaMirrorTopicKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaMirrorTopicKafkaCluster] {
+	return pulumix.Output[KafkaMirrorTopicKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaMirrorTopicKafkaClusterOutput) Credentials() KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
@@ -5857,6 +6788,12 @@ func (o KafkaMirrorTopicKafkaClusterPtrOutput) ToKafkaMirrorTopicKafkaClusterPtr
 
 func (o KafkaMirrorTopicKafkaClusterPtrOutput) ToKafkaMirrorTopicKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicKafkaClusterPtrOutput {
 	return o
+}
+
+func (o KafkaMirrorTopicKafkaClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaMirrorTopicKafkaCluster] {
+	return pulumix.Output[*KafkaMirrorTopicKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaMirrorTopicKafkaClusterPtrOutput) Elem() KafkaMirrorTopicKafkaClusterOutput {
@@ -5935,6 +6872,12 @@ func (i KafkaMirrorTopicKafkaClusterCredentialsArgs) ToKafkaMirrorTopicKafkaClus
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicKafkaClusterCredentialsOutput)
 }
 
+func (i KafkaMirrorTopicKafkaClusterCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaMirrorTopicKafkaClusterCredentials] {
+	return pulumix.Output[KafkaMirrorTopicKafkaClusterCredentials]{
+		OutputState: i.ToKafkaMirrorTopicKafkaClusterCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaMirrorTopicKafkaClusterCredentialsArgs) ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutput() KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
 	return i.ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutputWithContext(context.Background())
 }
@@ -5976,6 +6919,12 @@ func (i *kafkaMirrorTopicKafkaClusterCredentialsPtrType) ToKafkaMirrorTopicKafka
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicKafkaClusterCredentialsPtrOutput)
 }
 
+func (i *kafkaMirrorTopicKafkaClusterCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaMirrorTopicKafkaClusterCredentials] {
+	return pulumix.Output[*KafkaMirrorTopicKafkaClusterCredentials]{
+		OutputState: i.ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaMirrorTopicKafkaClusterCredentialsOutput struct{ *pulumi.OutputState }
 
 func (KafkaMirrorTopicKafkaClusterCredentialsOutput) ElementType() reflect.Type {
@@ -6000,6 +6949,12 @@ func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) ToKafkaMirrorTopicKafkaCl
 	}).(KafkaMirrorTopicKafkaClusterCredentialsPtrOutput)
 }
 
+func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaMirrorTopicKafkaClusterCredentials] {
+	return pulumix.Output[KafkaMirrorTopicKafkaClusterCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Kafka API Key.
 func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaMirrorTopicKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -6022,6 +6977,12 @@ func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) ToKafkaMirrorTopicKafk
 
 func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) ToKafkaMirrorTopicKafkaClusterCredentialsPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
 	return o
+}
+
+func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaMirrorTopicKafkaClusterCredentials] {
+	return pulumix.Output[*KafkaMirrorTopicKafkaClusterCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) Elem() KafkaMirrorTopicKafkaClusterCredentialsOutput {
@@ -6087,6 +7048,12 @@ func (i KafkaMirrorTopicSourceKafkaTopicArgs) ToKafkaMirrorTopicSourceKafkaTopic
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicSourceKafkaTopicOutput)
 }
 
+func (i KafkaMirrorTopicSourceKafkaTopicArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaMirrorTopicSourceKafkaTopic] {
+	return pulumix.Output[KafkaMirrorTopicSourceKafkaTopic]{
+		OutputState: i.ToKafkaMirrorTopicSourceKafkaTopicOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaMirrorTopicSourceKafkaTopicArgs) ToKafkaMirrorTopicSourceKafkaTopicPtrOutput() KafkaMirrorTopicSourceKafkaTopicPtrOutput {
 	return i.ToKafkaMirrorTopicSourceKafkaTopicPtrOutputWithContext(context.Background())
 }
@@ -6128,6 +7095,12 @@ func (i *kafkaMirrorTopicSourceKafkaTopicPtrType) ToKafkaMirrorTopicSourceKafkaT
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicSourceKafkaTopicPtrOutput)
 }
 
+func (i *kafkaMirrorTopicSourceKafkaTopicPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaMirrorTopicSourceKafkaTopic] {
+	return pulumix.Output[*KafkaMirrorTopicSourceKafkaTopic]{
+		OutputState: i.ToKafkaMirrorTopicSourceKafkaTopicPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaMirrorTopicSourceKafkaTopicOutput struct{ *pulumi.OutputState }
 
 func (KafkaMirrorTopicSourceKafkaTopicOutput) ElementType() reflect.Type {
@@ -6152,6 +7125,12 @@ func (o KafkaMirrorTopicSourceKafkaTopicOutput) ToKafkaMirrorTopicSourceKafkaTop
 	}).(KafkaMirrorTopicSourceKafkaTopicPtrOutput)
 }
 
+func (o KafkaMirrorTopicSourceKafkaTopicOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaMirrorTopicSourceKafkaTopic] {
+	return pulumix.Output[KafkaMirrorTopicSourceKafkaTopic]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
 func (o KafkaMirrorTopicSourceKafkaTopicOutput) TopicName() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaMirrorTopicSourceKafkaTopic) string { return v.TopicName }).(pulumi.StringOutput)
@@ -6169,6 +7148,12 @@ func (o KafkaMirrorTopicSourceKafkaTopicPtrOutput) ToKafkaMirrorTopicSourceKafka
 
 func (o KafkaMirrorTopicSourceKafkaTopicPtrOutput) ToKafkaMirrorTopicSourceKafkaTopicPtrOutputWithContext(ctx context.Context) KafkaMirrorTopicSourceKafkaTopicPtrOutput {
 	return o
+}
+
+func (o KafkaMirrorTopicSourceKafkaTopicPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaMirrorTopicSourceKafkaTopic] {
+	return pulumix.Output[*KafkaMirrorTopicSourceKafkaTopic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaMirrorTopicSourceKafkaTopicPtrOutput) Elem() KafkaMirrorTopicSourceKafkaTopicOutput {
@@ -6236,6 +7221,12 @@ func (i KafkaTopicCredentialsArgs) ToKafkaTopicCredentialsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaTopicCredentialsOutput)
 }
 
+func (i KafkaTopicCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaTopicCredentials] {
+	return pulumix.Output[KafkaTopicCredentials]{
+		OutputState: i.ToKafkaTopicCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaTopicCredentialsArgs) ToKafkaTopicCredentialsPtrOutput() KafkaTopicCredentialsPtrOutput {
 	return i.ToKafkaTopicCredentialsPtrOutputWithContext(context.Background())
 }
@@ -6277,6 +7268,12 @@ func (i *kafkaTopicCredentialsPtrType) ToKafkaTopicCredentialsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaTopicCredentialsPtrOutput)
 }
 
+func (i *kafkaTopicCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaTopicCredentials] {
+	return pulumix.Output[*KafkaTopicCredentials]{
+		OutputState: i.ToKafkaTopicCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaTopicCredentialsOutput struct{ *pulumi.OutputState }
 
 func (KafkaTopicCredentialsOutput) ElementType() reflect.Type {
@@ -6299,6 +7296,12 @@ func (o KafkaTopicCredentialsOutput) ToKafkaTopicCredentialsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaTopicCredentials) *KafkaTopicCredentials {
 		return &v
 	}).(KafkaTopicCredentialsPtrOutput)
+}
+
+func (o KafkaTopicCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaTopicCredentials] {
+	return pulumix.Output[KafkaTopicCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Kafka API Key.
@@ -6327,6 +7330,12 @@ func (o KafkaTopicCredentialsPtrOutput) ToKafkaTopicCredentialsPtrOutput() Kafka
 
 func (o KafkaTopicCredentialsPtrOutput) ToKafkaTopicCredentialsPtrOutputWithContext(ctx context.Context) KafkaTopicCredentialsPtrOutput {
 	return o
+}
+
+func (o KafkaTopicCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaTopicCredentials] {
+	return pulumix.Output[*KafkaTopicCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaTopicCredentialsPtrOutput) Elem() KafkaTopicCredentialsOutput {
@@ -6396,6 +7405,12 @@ func (i KafkaTopicKafkaClusterArgs) ToKafkaTopicKafkaClusterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaTopicKafkaClusterOutput)
 }
 
+func (i KafkaTopicKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaTopicKafkaCluster] {
+	return pulumix.Output[KafkaTopicKafkaCluster]{
+		OutputState: i.ToKafkaTopicKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KafkaTopicKafkaClusterArgs) ToKafkaTopicKafkaClusterPtrOutput() KafkaTopicKafkaClusterPtrOutput {
 	return i.ToKafkaTopicKafkaClusterPtrOutputWithContext(context.Background())
 }
@@ -6437,6 +7452,12 @@ func (i *kafkaTopicKafkaClusterPtrType) ToKafkaTopicKafkaClusterPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaTopicKafkaClusterPtrOutput)
 }
 
+func (i *kafkaTopicKafkaClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaTopicKafkaCluster] {
+	return pulumix.Output[*KafkaTopicKafkaCluster]{
+		OutputState: i.ToKafkaTopicKafkaClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaTopicKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (KafkaTopicKafkaClusterOutput) ElementType() reflect.Type {
@@ -6461,6 +7482,12 @@ func (o KafkaTopicKafkaClusterOutput) ToKafkaTopicKafkaClusterPtrOutputWithConte
 	}).(KafkaTopicKafkaClusterPtrOutput)
 }
 
+func (o KafkaTopicKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaTopicKafkaCluster] {
+	return pulumix.Output[KafkaTopicKafkaCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Kafka cluster, for example, `lkc-abc123`.
 func (o KafkaTopicKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaTopicKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -6478,6 +7505,12 @@ func (o KafkaTopicKafkaClusterPtrOutput) ToKafkaTopicKafkaClusterPtrOutput() Kaf
 
 func (o KafkaTopicKafkaClusterPtrOutput) ToKafkaTopicKafkaClusterPtrOutputWithContext(ctx context.Context) KafkaTopicKafkaClusterPtrOutput {
 	return o
+}
+
+func (o KafkaTopicKafkaClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaTopicKafkaCluster] {
+	return pulumix.Output[*KafkaTopicKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaTopicKafkaClusterPtrOutput) Elem() KafkaTopicKafkaClusterOutput {
@@ -6533,6 +7566,12 @@ func (i KsqlClusterCredentialIdentityArgs) ToKsqlClusterCredentialIdentityOutput
 	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterCredentialIdentityOutput)
 }
 
+func (i KsqlClusterCredentialIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[KsqlClusterCredentialIdentity] {
+	return pulumix.Output[KsqlClusterCredentialIdentity]{
+		OutputState: i.ToKsqlClusterCredentialIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KsqlClusterCredentialIdentityArgs) ToKsqlClusterCredentialIdentityPtrOutput() KsqlClusterCredentialIdentityPtrOutput {
 	return i.ToKsqlClusterCredentialIdentityPtrOutputWithContext(context.Background())
 }
@@ -6574,6 +7613,12 @@ func (i *ksqlClusterCredentialIdentityPtrType) ToKsqlClusterCredentialIdentityPt
 	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterCredentialIdentityPtrOutput)
 }
 
+func (i *ksqlClusterCredentialIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*KsqlClusterCredentialIdentity] {
+	return pulumix.Output[*KsqlClusterCredentialIdentity]{
+		OutputState: i.ToKsqlClusterCredentialIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KsqlClusterCredentialIdentityOutput struct{ *pulumi.OutputState }
 
 func (KsqlClusterCredentialIdentityOutput) ElementType() reflect.Type {
@@ -6598,6 +7643,12 @@ func (o KsqlClusterCredentialIdentityOutput) ToKsqlClusterCredentialIdentityPtrO
 	}).(KsqlClusterCredentialIdentityPtrOutput)
 }
 
+func (o KsqlClusterCredentialIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[KsqlClusterCredentialIdentity] {
+	return pulumix.Output[KsqlClusterCredentialIdentity]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the associated service or user account, for example, `sa-abc123`.
 func (o KsqlClusterCredentialIdentityOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KsqlClusterCredentialIdentity) string { return v.Id }).(pulumi.StringOutput)
@@ -6615,6 +7666,12 @@ func (o KsqlClusterCredentialIdentityPtrOutput) ToKsqlClusterCredentialIdentityP
 
 func (o KsqlClusterCredentialIdentityPtrOutput) ToKsqlClusterCredentialIdentityPtrOutputWithContext(ctx context.Context) KsqlClusterCredentialIdentityPtrOutput {
 	return o
+}
+
+func (o KsqlClusterCredentialIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KsqlClusterCredentialIdentity] {
+	return pulumix.Output[*KsqlClusterCredentialIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KsqlClusterCredentialIdentityPtrOutput) Elem() KsqlClusterCredentialIdentityOutput {
@@ -6670,6 +7727,12 @@ func (i KsqlClusterEnvironmentArgs) ToKsqlClusterEnvironmentOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterEnvironmentOutput)
 }
 
+func (i KsqlClusterEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[KsqlClusterEnvironment] {
+	return pulumix.Output[KsqlClusterEnvironment]{
+		OutputState: i.ToKsqlClusterEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KsqlClusterEnvironmentArgs) ToKsqlClusterEnvironmentPtrOutput() KsqlClusterEnvironmentPtrOutput {
 	return i.ToKsqlClusterEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -6711,6 +7774,12 @@ func (i *ksqlClusterEnvironmentPtrType) ToKsqlClusterEnvironmentPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterEnvironmentPtrOutput)
 }
 
+func (i *ksqlClusterEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*KsqlClusterEnvironment] {
+	return pulumix.Output[*KsqlClusterEnvironment]{
+		OutputState: i.ToKsqlClusterEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KsqlClusterEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (KsqlClusterEnvironmentOutput) ElementType() reflect.Type {
@@ -6735,6 +7804,12 @@ func (o KsqlClusterEnvironmentOutput) ToKsqlClusterEnvironmentPtrOutputWithConte
 	}).(KsqlClusterEnvironmentPtrOutput)
 }
 
+func (o KsqlClusterEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[KsqlClusterEnvironment] {
+	return pulumix.Output[KsqlClusterEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the associated service or user account, for example, `sa-abc123`.
 func (o KsqlClusterEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KsqlClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
@@ -6752,6 +7827,12 @@ func (o KsqlClusterEnvironmentPtrOutput) ToKsqlClusterEnvironmentPtrOutput() Ksq
 
 func (o KsqlClusterEnvironmentPtrOutput) ToKsqlClusterEnvironmentPtrOutputWithContext(ctx context.Context) KsqlClusterEnvironmentPtrOutput {
 	return o
+}
+
+func (o KsqlClusterEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KsqlClusterEnvironment] {
+	return pulumix.Output[*KsqlClusterEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KsqlClusterEnvironmentPtrOutput) Elem() KsqlClusterEnvironmentOutput {
@@ -6807,6 +7888,12 @@ func (i KsqlClusterKafkaClusterArgs) ToKsqlClusterKafkaClusterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterKafkaClusterOutput)
 }
 
+func (i KsqlClusterKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[KsqlClusterKafkaCluster] {
+	return pulumix.Output[KsqlClusterKafkaCluster]{
+		OutputState: i.ToKsqlClusterKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KsqlClusterKafkaClusterArgs) ToKsqlClusterKafkaClusterPtrOutput() KsqlClusterKafkaClusterPtrOutput {
 	return i.ToKsqlClusterKafkaClusterPtrOutputWithContext(context.Background())
 }
@@ -6848,6 +7935,12 @@ func (i *ksqlClusterKafkaClusterPtrType) ToKsqlClusterKafkaClusterPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterKafkaClusterPtrOutput)
 }
 
+func (i *ksqlClusterKafkaClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*KsqlClusterKafkaCluster] {
+	return pulumix.Output[*KsqlClusterKafkaCluster]{
+		OutputState: i.ToKsqlClusterKafkaClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KsqlClusterKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (KsqlClusterKafkaClusterOutput) ElementType() reflect.Type {
@@ -6872,6 +7965,12 @@ func (o KsqlClusterKafkaClusterOutput) ToKsqlClusterKafkaClusterPtrOutputWithCon
 	}).(KsqlClusterKafkaClusterPtrOutput)
 }
 
+func (o KsqlClusterKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[KsqlClusterKafkaCluster] {
+	return pulumix.Output[KsqlClusterKafkaCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the associated service or user account, for example, `sa-abc123`.
 func (o KsqlClusterKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KsqlClusterKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -6889,6 +7988,12 @@ func (o KsqlClusterKafkaClusterPtrOutput) ToKsqlClusterKafkaClusterPtrOutput() K
 
 func (o KsqlClusterKafkaClusterPtrOutput) ToKsqlClusterKafkaClusterPtrOutputWithContext(ctx context.Context) KsqlClusterKafkaClusterPtrOutput {
 	return o
+}
+
+func (o KsqlClusterKafkaClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KsqlClusterKafkaCluster] {
+	return pulumix.Output[*KsqlClusterKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KsqlClusterKafkaClusterPtrOutput) Elem() KsqlClusterKafkaClusterOutput {
@@ -6952,6 +8057,12 @@ func (i NetworkAwArgs) ToNetworkAwOutputWithContext(ctx context.Context) Network
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAwOutput)
 }
 
+func (i NetworkAwArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkAw] {
+	return pulumix.Output[NetworkAw]{
+		OutputState: i.ToNetworkAwOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkAwArrayInput is an input type that accepts NetworkAwArray and NetworkAwArrayOutput values.
 // You can construct a concrete instance of `NetworkAwArrayInput` via:
 //
@@ -6977,6 +8088,12 @@ func (i NetworkAwArray) ToNetworkAwArrayOutputWithContext(ctx context.Context) N
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAwArrayOutput)
 }
 
+func (i NetworkAwArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkAw] {
+	return pulumix.Output[[]NetworkAw]{
+		OutputState: i.ToNetworkAwArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkAwOutput struct{ *pulumi.OutputState }
 
 func (NetworkAwOutput) ElementType() reflect.Type {
@@ -6989,6 +8106,12 @@ func (o NetworkAwOutput) ToNetworkAwOutput() NetworkAwOutput {
 
 func (o NetworkAwOutput) ToNetworkAwOutputWithContext(ctx context.Context) NetworkAwOutput {
 	return o
+}
+
+func (o NetworkAwOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkAw] {
+	return pulumix.Output[NetworkAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The AWS account ID associated with the Confluent Cloud VPC.
@@ -7018,6 +8141,12 @@ func (o NetworkAwArrayOutput) ToNetworkAwArrayOutput() NetworkAwArrayOutput {
 
 func (o NetworkAwArrayOutput) ToNetworkAwArrayOutputWithContext(ctx context.Context) NetworkAwArrayOutput {
 	return o
+}
+
+func (o NetworkAwArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkAw] {
+	return pulumix.Output[[]NetworkAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkAwArrayOutput) Index(i pulumi.IntInput) NetworkAwOutput {
@@ -7059,6 +8188,12 @@ func (i NetworkAzureArgs) ToNetworkAzureOutputWithContext(ctx context.Context) N
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAzureOutput)
 }
 
+func (i NetworkAzureArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkAzure] {
+	return pulumix.Output[NetworkAzure]{
+		OutputState: i.ToNetworkAzureOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkAzureArrayInput is an input type that accepts NetworkAzureArray and NetworkAzureArrayOutput values.
 // You can construct a concrete instance of `NetworkAzureArrayInput` via:
 //
@@ -7084,6 +8219,12 @@ func (i NetworkAzureArray) ToNetworkAzureArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAzureArrayOutput)
 }
 
+func (i NetworkAzureArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkAzure] {
+	return pulumix.Output[[]NetworkAzure]{
+		OutputState: i.ToNetworkAzureArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkAzureOutput struct{ *pulumi.OutputState }
 
 func (NetworkAzureOutput) ElementType() reflect.Type {
@@ -7096,6 +8237,12 @@ func (o NetworkAzureOutput) ToNetworkAzureOutput() NetworkAzureOutput {
 
 func (o NetworkAzureOutput) ToNetworkAzureOutputWithContext(ctx context.Context) NetworkAzureOutput {
 	return o
+}
+
+func (o NetworkAzureOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkAzure] {
+	return pulumix.Output[NetworkAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zone names, for example, `1` and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service), for example, `s-nk99e-privatelink-1.8c43dcd0-695c-1234-bc35-11fe6abb303a.centralus.azure.privatelinkservice`.
@@ -7115,6 +8262,12 @@ func (o NetworkAzureArrayOutput) ToNetworkAzureArrayOutput() NetworkAzureArrayOu
 
 func (o NetworkAzureArrayOutput) ToNetworkAzureArrayOutputWithContext(ctx context.Context) NetworkAzureArrayOutput {
 	return o
+}
+
+func (o NetworkAzureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkAzure] {
+	return pulumix.Output[[]NetworkAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkAzureArrayOutput) Index(i pulumi.IntInput) NetworkAzureOutput {
@@ -7160,6 +8313,12 @@ func (i NetworkDnsConfigArgs) ToNetworkDnsConfigOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkDnsConfigOutput)
 }
 
+func (i NetworkDnsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkDnsConfig] {
+	return pulumix.Output[NetworkDnsConfig]{
+		OutputState: i.ToNetworkDnsConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NetworkDnsConfigArgs) ToNetworkDnsConfigPtrOutput() NetworkDnsConfigPtrOutput {
 	return i.ToNetworkDnsConfigPtrOutputWithContext(context.Background())
 }
@@ -7201,6 +8360,12 @@ func (i *networkDnsConfigPtrType) ToNetworkDnsConfigPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkDnsConfigPtrOutput)
 }
 
+func (i *networkDnsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkDnsConfig] {
+	return pulumix.Output[*NetworkDnsConfig]{
+		OutputState: i.ToNetworkDnsConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkDnsConfigOutput struct{ *pulumi.OutputState }
 
 func (NetworkDnsConfigOutput) ElementType() reflect.Type {
@@ -7225,6 +8390,12 @@ func (o NetworkDnsConfigOutput) ToNetworkDnsConfigPtrOutputWithContext(ctx conte
 	}).(NetworkDnsConfigPtrOutput)
 }
 
+func (o NetworkDnsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkDnsConfig] {
+	return pulumix.Output[NetworkDnsConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Network DNS resolution.
 // When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
 // When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
@@ -7244,6 +8415,12 @@ func (o NetworkDnsConfigPtrOutput) ToNetworkDnsConfigPtrOutput() NetworkDnsConfi
 
 func (o NetworkDnsConfigPtrOutput) ToNetworkDnsConfigPtrOutputWithContext(ctx context.Context) NetworkDnsConfigPtrOutput {
 	return o
+}
+
+func (o NetworkDnsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkDnsConfig] {
+	return pulumix.Output[*NetworkDnsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkDnsConfigPtrOutput) Elem() NetworkDnsConfigOutput {
@@ -7301,6 +8478,12 @@ func (i NetworkEnvironmentArgs) ToNetworkEnvironmentOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkEnvironmentOutput)
 }
 
+func (i NetworkEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkEnvironment] {
+	return pulumix.Output[NetworkEnvironment]{
+		OutputState: i.ToNetworkEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NetworkEnvironmentArgs) ToNetworkEnvironmentPtrOutput() NetworkEnvironmentPtrOutput {
 	return i.ToNetworkEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -7342,6 +8525,12 @@ func (i *networkEnvironmentPtrType) ToNetworkEnvironmentPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkEnvironmentPtrOutput)
 }
 
+func (i *networkEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkEnvironment] {
+	return pulumix.Output[*NetworkEnvironment]{
+		OutputState: i.ToNetworkEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (NetworkEnvironmentOutput) ElementType() reflect.Type {
@@ -7366,6 +8555,12 @@ func (o NetworkEnvironmentOutput) ToNetworkEnvironmentPtrOutputWithContext(ctx c
 	}).(NetworkEnvironmentPtrOutput)
 }
 
+func (o NetworkEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkEnvironment] {
+	return pulumix.Output[NetworkEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Environment that the Network belongs to, for example, `env-abc123`.
 func (o NetworkEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkEnvironment) string { return v.Id }).(pulumi.StringOutput)
@@ -7383,6 +8578,12 @@ func (o NetworkEnvironmentPtrOutput) ToNetworkEnvironmentPtrOutput() NetworkEnvi
 
 func (o NetworkEnvironmentPtrOutput) ToNetworkEnvironmentPtrOutputWithContext(ctx context.Context) NetworkEnvironmentPtrOutput {
 	return o
+}
+
+func (o NetworkEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkEnvironment] {
+	return pulumix.Output[*NetworkEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkEnvironmentPtrOutput) Elem() NetworkEnvironmentOutput {
@@ -7446,6 +8647,12 @@ func (i NetworkGcpArgs) ToNetworkGcpOutputWithContext(ctx context.Context) Netwo
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkGcpOutput)
 }
 
+func (i NetworkGcpArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkGcp] {
+	return pulumix.Output[NetworkGcp]{
+		OutputState: i.ToNetworkGcpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkGcpArrayInput is an input type that accepts NetworkGcpArray and NetworkGcpArrayOutput values.
 // You can construct a concrete instance of `NetworkGcpArrayInput` via:
 //
@@ -7471,6 +8678,12 @@ func (i NetworkGcpArray) ToNetworkGcpArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkGcpArrayOutput)
 }
 
+func (i NetworkGcpArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkGcp] {
+	return pulumix.Output[[]NetworkGcp]{
+		OutputState: i.ToNetworkGcpArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkGcpOutput struct{ *pulumi.OutputState }
 
 func (NetworkGcpOutput) ElementType() reflect.Type {
@@ -7483,6 +8696,12 @@ func (o NetworkGcpOutput) ToNetworkGcpOutput() NetworkGcpOutput {
 
 func (o NetworkGcpOutput) ToNetworkGcpOutputWithContext(ctx context.Context) NetworkGcpOutput {
 	return o
+}
+
+func (o NetworkGcpOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkGcp] {
+	return pulumix.Output[NetworkGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
@@ -7512,6 +8731,12 @@ func (o NetworkGcpArrayOutput) ToNetworkGcpArrayOutput() NetworkGcpArrayOutput {
 
 func (o NetworkGcpArrayOutput) ToNetworkGcpArrayOutputWithContext(ctx context.Context) NetworkGcpArrayOutput {
 	return o
+}
+
+func (o NetworkGcpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkGcp] {
+	return pulumix.Output[[]NetworkGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkGcpArrayOutput) Index(i pulumi.IntInput) NetworkGcpOutput {
@@ -7551,6 +8776,12 @@ func (i NetworkLinkEndpointEnvironmentArgs) ToNetworkLinkEndpointEnvironmentOutp
 
 func (i NetworkLinkEndpointEnvironmentArgs) ToNetworkLinkEndpointEnvironmentOutputWithContext(ctx context.Context) NetworkLinkEndpointEnvironmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointEnvironmentOutput)
+}
+
+func (i NetworkLinkEndpointEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkLinkEndpointEnvironment] {
+	return pulumix.Output[NetworkLinkEndpointEnvironment]{
+		OutputState: i.ToNetworkLinkEndpointEnvironmentOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i NetworkLinkEndpointEnvironmentArgs) ToNetworkLinkEndpointEnvironmentPtrOutput() NetworkLinkEndpointEnvironmentPtrOutput {
@@ -7594,6 +8825,12 @@ func (i *networkLinkEndpointEnvironmentPtrType) ToNetworkLinkEndpointEnvironment
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointEnvironmentPtrOutput)
 }
 
+func (i *networkLinkEndpointEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkEndpointEnvironment] {
+	return pulumix.Output[*NetworkLinkEndpointEnvironment]{
+		OutputState: i.ToNetworkLinkEndpointEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkLinkEndpointEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (NetworkLinkEndpointEnvironmentOutput) ElementType() reflect.Type {
@@ -7618,6 +8855,12 @@ func (o NetworkLinkEndpointEnvironmentOutput) ToNetworkLinkEndpointEnvironmentPt
 	}).(NetworkLinkEndpointEnvironmentPtrOutput)
 }
 
+func (o NetworkLinkEndpointEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkLinkEndpointEnvironment] {
+	return pulumix.Output[NetworkLinkEndpointEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
 func (o NetworkLinkEndpointEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkLinkEndpointEnvironment) string { return v.Id }).(pulumi.StringOutput)
@@ -7635,6 +8878,12 @@ func (o NetworkLinkEndpointEnvironmentPtrOutput) ToNetworkLinkEndpointEnvironmen
 
 func (o NetworkLinkEndpointEnvironmentPtrOutput) ToNetworkLinkEndpointEnvironmentPtrOutputWithContext(ctx context.Context) NetworkLinkEndpointEnvironmentPtrOutput {
 	return o
+}
+
+func (o NetworkLinkEndpointEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkEndpointEnvironment] {
+	return pulumix.Output[*NetworkLinkEndpointEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkLinkEndpointEnvironmentPtrOutput) Elem() NetworkLinkEndpointEnvironmentOutput {
@@ -7690,6 +8939,12 @@ func (i NetworkLinkEndpointNetworkArgs) ToNetworkLinkEndpointNetworkOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointNetworkOutput)
 }
 
+func (i NetworkLinkEndpointNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkLinkEndpointNetwork] {
+	return pulumix.Output[NetworkLinkEndpointNetwork]{
+		OutputState: i.ToNetworkLinkEndpointNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NetworkLinkEndpointNetworkArgs) ToNetworkLinkEndpointNetworkPtrOutput() NetworkLinkEndpointNetworkPtrOutput {
 	return i.ToNetworkLinkEndpointNetworkPtrOutputWithContext(context.Background())
 }
@@ -7731,6 +8986,12 @@ func (i *networkLinkEndpointNetworkPtrType) ToNetworkLinkEndpointNetworkPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointNetworkPtrOutput)
 }
 
+func (i *networkLinkEndpointNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkEndpointNetwork] {
+	return pulumix.Output[*NetworkLinkEndpointNetwork]{
+		OutputState: i.ToNetworkLinkEndpointNetworkPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkLinkEndpointNetworkOutput struct{ *pulumi.OutputState }
 
 func (NetworkLinkEndpointNetworkOutput) ElementType() reflect.Type {
@@ -7755,6 +9016,12 @@ func (o NetworkLinkEndpointNetworkOutput) ToNetworkLinkEndpointNetworkPtrOutputW
 	}).(NetworkLinkEndpointNetworkPtrOutput)
 }
 
+func (o NetworkLinkEndpointNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkLinkEndpointNetwork] {
+	return pulumix.Output[NetworkLinkEndpointNetwork]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
 func (o NetworkLinkEndpointNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkLinkEndpointNetwork) string { return v.Id }).(pulumi.StringOutput)
@@ -7772,6 +9039,12 @@ func (o NetworkLinkEndpointNetworkPtrOutput) ToNetworkLinkEndpointNetworkPtrOutp
 
 func (o NetworkLinkEndpointNetworkPtrOutput) ToNetworkLinkEndpointNetworkPtrOutputWithContext(ctx context.Context) NetworkLinkEndpointNetworkPtrOutput {
 	return o
+}
+
+func (o NetworkLinkEndpointNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkEndpointNetwork] {
+	return pulumix.Output[*NetworkLinkEndpointNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkLinkEndpointNetworkPtrOutput) Elem() NetworkLinkEndpointNetworkOutput {
@@ -7827,6 +9100,12 @@ func (i NetworkLinkEndpointNetworkLinkServiceArgs) ToNetworkLinkEndpointNetworkL
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointNetworkLinkServiceOutput)
 }
 
+func (i NetworkLinkEndpointNetworkLinkServiceArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkLinkEndpointNetworkLinkService] {
+	return pulumix.Output[NetworkLinkEndpointNetworkLinkService]{
+		OutputState: i.ToNetworkLinkEndpointNetworkLinkServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NetworkLinkEndpointNetworkLinkServiceArgs) ToNetworkLinkEndpointNetworkLinkServicePtrOutput() NetworkLinkEndpointNetworkLinkServicePtrOutput {
 	return i.ToNetworkLinkEndpointNetworkLinkServicePtrOutputWithContext(context.Background())
 }
@@ -7868,6 +9147,12 @@ func (i *networkLinkEndpointNetworkLinkServicePtrType) ToNetworkLinkEndpointNetw
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointNetworkLinkServicePtrOutput)
 }
 
+func (i *networkLinkEndpointNetworkLinkServicePtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkEndpointNetworkLinkService] {
+	return pulumix.Output[*NetworkLinkEndpointNetworkLinkService]{
+		OutputState: i.ToNetworkLinkEndpointNetworkLinkServicePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkLinkEndpointNetworkLinkServiceOutput struct{ *pulumi.OutputState }
 
 func (NetworkLinkEndpointNetworkLinkServiceOutput) ElementType() reflect.Type {
@@ -7892,6 +9177,12 @@ func (o NetworkLinkEndpointNetworkLinkServiceOutput) ToNetworkLinkEndpointNetwor
 	}).(NetworkLinkEndpointNetworkLinkServicePtrOutput)
 }
 
+func (o NetworkLinkEndpointNetworkLinkServiceOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkLinkEndpointNetworkLinkService] {
+	return pulumix.Output[NetworkLinkEndpointNetworkLinkService]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
 func (o NetworkLinkEndpointNetworkLinkServiceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkLinkEndpointNetworkLinkService) string { return v.Id }).(pulumi.StringOutput)
@@ -7909,6 +9200,12 @@ func (o NetworkLinkEndpointNetworkLinkServicePtrOutput) ToNetworkLinkEndpointNet
 
 func (o NetworkLinkEndpointNetworkLinkServicePtrOutput) ToNetworkLinkEndpointNetworkLinkServicePtrOutputWithContext(ctx context.Context) NetworkLinkEndpointNetworkLinkServicePtrOutput {
 	return o
+}
+
+func (o NetworkLinkEndpointNetworkLinkServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkEndpointNetworkLinkService] {
+	return pulumix.Output[*NetworkLinkEndpointNetworkLinkService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkLinkEndpointNetworkLinkServicePtrOutput) Elem() NetworkLinkEndpointNetworkLinkServiceOutput {
@@ -7968,6 +9265,12 @@ func (i NetworkLinkServiceAcceptArgs) ToNetworkLinkServiceAcceptOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceAcceptOutput)
 }
 
+func (i NetworkLinkServiceAcceptArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkLinkServiceAccept] {
+	return pulumix.Output[NetworkLinkServiceAccept]{
+		OutputState: i.ToNetworkLinkServiceAcceptOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NetworkLinkServiceAcceptArgs) ToNetworkLinkServiceAcceptPtrOutput() NetworkLinkServiceAcceptPtrOutput {
 	return i.ToNetworkLinkServiceAcceptPtrOutputWithContext(context.Background())
 }
@@ -8009,6 +9312,12 @@ func (i *networkLinkServiceAcceptPtrType) ToNetworkLinkServiceAcceptPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceAcceptPtrOutput)
 }
 
+func (i *networkLinkServiceAcceptPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkServiceAccept] {
+	return pulumix.Output[*NetworkLinkServiceAccept]{
+		OutputState: i.ToNetworkLinkServiceAcceptPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkLinkServiceAcceptOutput struct{ *pulumi.OutputState }
 
 func (NetworkLinkServiceAcceptOutput) ElementType() reflect.Type {
@@ -8033,6 +9342,12 @@ func (o NetworkLinkServiceAcceptOutput) ToNetworkLinkServiceAcceptPtrOutputWithC
 	}).(NetworkLinkServiceAcceptPtrOutput)
 }
 
+func (o NetworkLinkServiceAcceptOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkLinkServiceAccept] {
+	return pulumix.Output[NetworkLinkServiceAccept]{
+		OutputState: o.OutputState,
+	}
+}
+
 // List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
 func (o NetworkLinkServiceAcceptOutput) Environments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkLinkServiceAccept) []string { return v.Environments }).(pulumi.StringArrayOutput)
@@ -8055,6 +9370,12 @@ func (o NetworkLinkServiceAcceptPtrOutput) ToNetworkLinkServiceAcceptPtrOutput()
 
 func (o NetworkLinkServiceAcceptPtrOutput) ToNetworkLinkServiceAcceptPtrOutputWithContext(ctx context.Context) NetworkLinkServiceAcceptPtrOutput {
 	return o
+}
+
+func (o NetworkLinkServiceAcceptPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkServiceAccept] {
+	return pulumix.Output[*NetworkLinkServiceAccept]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkLinkServiceAcceptPtrOutput) Elem() NetworkLinkServiceAcceptOutput {
@@ -8120,6 +9441,12 @@ func (i NetworkLinkServiceEnvironmentArgs) ToNetworkLinkServiceEnvironmentOutput
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceEnvironmentOutput)
 }
 
+func (i NetworkLinkServiceEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkLinkServiceEnvironment] {
+	return pulumix.Output[NetworkLinkServiceEnvironment]{
+		OutputState: i.ToNetworkLinkServiceEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NetworkLinkServiceEnvironmentArgs) ToNetworkLinkServiceEnvironmentPtrOutput() NetworkLinkServiceEnvironmentPtrOutput {
 	return i.ToNetworkLinkServiceEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -8161,6 +9488,12 @@ func (i *networkLinkServiceEnvironmentPtrType) ToNetworkLinkServiceEnvironmentPt
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceEnvironmentPtrOutput)
 }
 
+func (i *networkLinkServiceEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkServiceEnvironment] {
+	return pulumix.Output[*NetworkLinkServiceEnvironment]{
+		OutputState: i.ToNetworkLinkServiceEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkLinkServiceEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (NetworkLinkServiceEnvironmentOutput) ElementType() reflect.Type {
@@ -8185,6 +9518,12 @@ func (o NetworkLinkServiceEnvironmentOutput) ToNetworkLinkServiceEnvironmentPtrO
 	}).(NetworkLinkServiceEnvironmentPtrOutput)
 }
 
+func (o NetworkLinkServiceEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkLinkServiceEnvironment] {
+	return pulumix.Output[NetworkLinkServiceEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
 func (o NetworkLinkServiceEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkLinkServiceEnvironment) string { return v.Id }).(pulumi.StringOutput)
@@ -8202,6 +9541,12 @@ func (o NetworkLinkServiceEnvironmentPtrOutput) ToNetworkLinkServiceEnvironmentP
 
 func (o NetworkLinkServiceEnvironmentPtrOutput) ToNetworkLinkServiceEnvironmentPtrOutputWithContext(ctx context.Context) NetworkLinkServiceEnvironmentPtrOutput {
 	return o
+}
+
+func (o NetworkLinkServiceEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkServiceEnvironment] {
+	return pulumix.Output[*NetworkLinkServiceEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkLinkServiceEnvironmentPtrOutput) Elem() NetworkLinkServiceEnvironmentOutput {
@@ -8257,6 +9602,12 @@ func (i NetworkLinkServiceNetworkArgs) ToNetworkLinkServiceNetworkOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceNetworkOutput)
 }
 
+func (i NetworkLinkServiceNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkLinkServiceNetwork] {
+	return pulumix.Output[NetworkLinkServiceNetwork]{
+		OutputState: i.ToNetworkLinkServiceNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NetworkLinkServiceNetworkArgs) ToNetworkLinkServiceNetworkPtrOutput() NetworkLinkServiceNetworkPtrOutput {
 	return i.ToNetworkLinkServiceNetworkPtrOutputWithContext(context.Background())
 }
@@ -8298,6 +9649,12 @@ func (i *networkLinkServiceNetworkPtrType) ToNetworkLinkServiceNetworkPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkServiceNetworkPtrOutput)
 }
 
+func (i *networkLinkServiceNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkServiceNetwork] {
+	return pulumix.Output[*NetworkLinkServiceNetwork]{
+		OutputState: i.ToNetworkLinkServiceNetworkPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkLinkServiceNetworkOutput struct{ *pulumi.OutputState }
 
 func (NetworkLinkServiceNetworkOutput) ElementType() reflect.Type {
@@ -8322,6 +9679,12 @@ func (o NetworkLinkServiceNetworkOutput) ToNetworkLinkServiceNetworkPtrOutputWit
 	}).(NetworkLinkServiceNetworkPtrOutput)
 }
 
+func (o NetworkLinkServiceNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkLinkServiceNetwork] {
+	return pulumix.Output[NetworkLinkServiceNetwork]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
 func (o NetworkLinkServiceNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkLinkServiceNetwork) string { return v.Id }).(pulumi.StringOutput)
@@ -8339,6 +9702,12 @@ func (o NetworkLinkServiceNetworkPtrOutput) ToNetworkLinkServiceNetworkPtrOutput
 
 func (o NetworkLinkServiceNetworkPtrOutput) ToNetworkLinkServiceNetworkPtrOutputWithContext(ctx context.Context) NetworkLinkServiceNetworkPtrOutput {
 	return o
+}
+
+func (o NetworkLinkServiceNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkServiceNetwork] {
+	return pulumix.Output[*NetworkLinkServiceNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkLinkServiceNetworkPtrOutput) Elem() NetworkLinkServiceNetworkOutput {
@@ -8402,6 +9771,12 @@ func (i NetworkZoneInfoArgs) ToNetworkZoneInfoOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkZoneInfoOutput)
 }
 
+func (i NetworkZoneInfoArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkZoneInfo] {
+	return pulumix.Output[NetworkZoneInfo]{
+		OutputState: i.ToNetworkZoneInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkZoneInfoArrayInput is an input type that accepts NetworkZoneInfoArray and NetworkZoneInfoArrayOutput values.
 // You can construct a concrete instance of `NetworkZoneInfoArrayInput` via:
 //
@@ -8427,6 +9802,12 @@ func (i NetworkZoneInfoArray) ToNetworkZoneInfoArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkZoneInfoArrayOutput)
 }
 
+func (i NetworkZoneInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkZoneInfo] {
+	return pulumix.Output[[]NetworkZoneInfo]{
+		OutputState: i.ToNetworkZoneInfoArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkZoneInfoOutput struct{ *pulumi.OutputState }
 
 func (NetworkZoneInfoOutput) ElementType() reflect.Type {
@@ -8439,6 +9820,12 @@ func (o NetworkZoneInfoOutput) ToNetworkZoneInfoOutput() NetworkZoneInfoOutput {
 
 func (o NetworkZoneInfoOutput) ToNetworkZoneInfoOutputWithContext(ctx context.Context) NetworkZoneInfoOutput {
 	return o
+}
+
+func (o NetworkZoneInfoOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkZoneInfo] {
+	return pulumix.Output[NetworkZoneInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
@@ -8465,6 +9852,12 @@ func (o NetworkZoneInfoArrayOutput) ToNetworkZoneInfoArrayOutput() NetworkZoneIn
 
 func (o NetworkZoneInfoArrayOutput) ToNetworkZoneInfoArrayOutputWithContext(ctx context.Context) NetworkZoneInfoArrayOutput {
 	return o
+}
+
+func (o NetworkZoneInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkZoneInfo] {
+	return pulumix.Output[[]NetworkZoneInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkZoneInfoArrayOutput) Index(i pulumi.IntInput) NetworkZoneInfoOutput {
@@ -8518,6 +9911,12 @@ func (i PeeringAwsArgs) ToPeeringAwsOutputWithContext(ctx context.Context) Peeri
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringAwsOutput)
 }
 
+func (i PeeringAwsArgs) ToOutput(ctx context.Context) pulumix.Output[PeeringAws] {
+	return pulumix.Output[PeeringAws]{
+		OutputState: i.ToPeeringAwsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PeeringAwsArgs) ToPeeringAwsPtrOutput() PeeringAwsPtrOutput {
 	return i.ToPeeringAwsPtrOutputWithContext(context.Background())
 }
@@ -8559,6 +9958,12 @@ func (i *peeringAwsPtrType) ToPeeringAwsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringAwsPtrOutput)
 }
 
+func (i *peeringAwsPtrType) ToOutput(ctx context.Context) pulumix.Output[*PeeringAws] {
+	return pulumix.Output[*PeeringAws]{
+		OutputState: i.ToPeeringAwsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PeeringAwsOutput struct{ *pulumi.OutputState }
 
 func (PeeringAwsOutput) ElementType() reflect.Type {
@@ -8581,6 +9986,12 @@ func (o PeeringAwsOutput) ToPeeringAwsPtrOutputWithContext(ctx context.Context) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringAws) *PeeringAws {
 		return &v
 	}).(PeeringAwsPtrOutput)
+}
+
+func (o PeeringAwsOutput) ToOutput(ctx context.Context) pulumix.Output[PeeringAws] {
+	return pulumix.Output[PeeringAws]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
@@ -8615,6 +10026,12 @@ func (o PeeringAwsPtrOutput) ToPeeringAwsPtrOutput() PeeringAwsPtrOutput {
 
 func (o PeeringAwsPtrOutput) ToPeeringAwsPtrOutputWithContext(ctx context.Context) PeeringAwsPtrOutput {
 	return o
+}
+
+func (o PeeringAwsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PeeringAws] {
+	return pulumix.Output[*PeeringAws]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PeeringAwsPtrOutput) Elem() PeeringAwsOutput {
@@ -8708,6 +10125,12 @@ func (i PeeringAzureArgs) ToPeeringAzureOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringAzureOutput)
 }
 
+func (i PeeringAzureArgs) ToOutput(ctx context.Context) pulumix.Output[PeeringAzure] {
+	return pulumix.Output[PeeringAzure]{
+		OutputState: i.ToPeeringAzureOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PeeringAzureArgs) ToPeeringAzurePtrOutput() PeeringAzurePtrOutput {
 	return i.ToPeeringAzurePtrOutputWithContext(context.Background())
 }
@@ -8749,6 +10172,12 @@ func (i *peeringAzurePtrType) ToPeeringAzurePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringAzurePtrOutput)
 }
 
+func (i *peeringAzurePtrType) ToOutput(ctx context.Context) pulumix.Output[*PeeringAzure] {
+	return pulumix.Output[*PeeringAzure]{
+		OutputState: i.ToPeeringAzurePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PeeringAzureOutput struct{ *pulumi.OutputState }
 
 func (PeeringAzureOutput) ElementType() reflect.Type {
@@ -8771,6 +10200,12 @@ func (o PeeringAzureOutput) ToPeeringAzurePtrOutputWithContext(ctx context.Conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringAzure) *PeeringAzure {
 		return &v
 	}).(PeeringAzurePtrOutput)
+}
+
+func (o PeeringAzureOutput) ToOutput(ctx context.Context) pulumix.Output[PeeringAzure] {
+	return pulumix.Output[PeeringAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The region of the Azure peer VNet.
@@ -8800,6 +10235,12 @@ func (o PeeringAzurePtrOutput) ToPeeringAzurePtrOutput() PeeringAzurePtrOutput {
 
 func (o PeeringAzurePtrOutput) ToPeeringAzurePtrOutputWithContext(ctx context.Context) PeeringAzurePtrOutput {
 	return o
+}
+
+func (o PeeringAzurePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PeeringAzure] {
+	return pulumix.Output[*PeeringAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PeeringAzurePtrOutput) Elem() PeeringAzureOutput {
@@ -8875,6 +10316,12 @@ func (i PeeringEnvironmentArgs) ToPeeringEnvironmentOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringEnvironmentOutput)
 }
 
+func (i PeeringEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[PeeringEnvironment] {
+	return pulumix.Output[PeeringEnvironment]{
+		OutputState: i.ToPeeringEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PeeringEnvironmentArgs) ToPeeringEnvironmentPtrOutput() PeeringEnvironmentPtrOutput {
 	return i.ToPeeringEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -8916,6 +10363,12 @@ func (i *peeringEnvironmentPtrType) ToPeeringEnvironmentPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringEnvironmentPtrOutput)
 }
 
+func (i *peeringEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*PeeringEnvironment] {
+	return pulumix.Output[*PeeringEnvironment]{
+		OutputState: i.ToPeeringEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PeeringEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (PeeringEnvironmentOutput) ElementType() reflect.Type {
@@ -8940,6 +10393,12 @@ func (o PeeringEnvironmentOutput) ToPeeringEnvironmentPtrOutputWithContext(ctx c
 	}).(PeeringEnvironmentPtrOutput)
 }
 
+func (o PeeringEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[PeeringEnvironment] {
+	return pulumix.Output[PeeringEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Network that the Peering belongs to, for example, `n-abc123`.
 func (o PeeringEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PeeringEnvironment) string { return v.Id }).(pulumi.StringOutput)
@@ -8957,6 +10416,12 @@ func (o PeeringEnvironmentPtrOutput) ToPeeringEnvironmentPtrOutput() PeeringEnvi
 
 func (o PeeringEnvironmentPtrOutput) ToPeeringEnvironmentPtrOutputWithContext(ctx context.Context) PeeringEnvironmentPtrOutput {
 	return o
+}
+
+func (o PeeringEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PeeringEnvironment] {
+	return pulumix.Output[*PeeringEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PeeringEnvironmentPtrOutput) Elem() PeeringEnvironmentOutput {
@@ -9036,6 +10501,12 @@ func (i PeeringGcpArgs) ToPeeringGcpOutputWithContext(ctx context.Context) Peeri
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringGcpOutput)
 }
 
+func (i PeeringGcpArgs) ToOutput(ctx context.Context) pulumix.Output[PeeringGcp] {
+	return pulumix.Output[PeeringGcp]{
+		OutputState: i.ToPeeringGcpOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PeeringGcpArgs) ToPeeringGcpPtrOutput() PeeringGcpPtrOutput {
 	return i.ToPeeringGcpPtrOutputWithContext(context.Background())
 }
@@ -9077,6 +10548,12 @@ func (i *peeringGcpPtrType) ToPeeringGcpPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringGcpPtrOutput)
 }
 
+func (i *peeringGcpPtrType) ToOutput(ctx context.Context) pulumix.Output[*PeeringGcp] {
+	return pulumix.Output[*PeeringGcp]{
+		OutputState: i.ToPeeringGcpPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PeeringGcpOutput struct{ *pulumi.OutputState }
 
 func (PeeringGcpOutput) ElementType() reflect.Type {
@@ -9099,6 +10576,12 @@ func (o PeeringGcpOutput) ToPeeringGcpPtrOutputWithContext(ctx context.Context) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringGcp) *PeeringGcp {
 		return &v
 	}).(PeeringGcpPtrOutput)
+}
+
+func (o PeeringGcpOutput) ToOutput(ctx context.Context) pulumix.Output[PeeringGcp] {
+	return pulumix.Output[PeeringGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
@@ -9136,6 +10619,12 @@ func (o PeeringGcpPtrOutput) ToPeeringGcpPtrOutput() PeeringGcpPtrOutput {
 
 func (o PeeringGcpPtrOutput) ToPeeringGcpPtrOutputWithContext(ctx context.Context) PeeringGcpPtrOutput {
 	return o
+}
+
+func (o PeeringGcpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PeeringGcp] {
+	return pulumix.Output[*PeeringGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PeeringGcpPtrOutput) Elem() PeeringGcpOutput {
@@ -9219,6 +10708,12 @@ func (i PeeringNetworkArgs) ToPeeringNetworkOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringNetworkOutput)
 }
 
+func (i PeeringNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[PeeringNetwork] {
+	return pulumix.Output[PeeringNetwork]{
+		OutputState: i.ToPeeringNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PeeringNetworkArgs) ToPeeringNetworkPtrOutput() PeeringNetworkPtrOutput {
 	return i.ToPeeringNetworkPtrOutputWithContext(context.Background())
 }
@@ -9260,6 +10755,12 @@ func (i *peeringNetworkPtrType) ToPeeringNetworkPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringNetworkPtrOutput)
 }
 
+func (i *peeringNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*PeeringNetwork] {
+	return pulumix.Output[*PeeringNetwork]{
+		OutputState: i.ToPeeringNetworkPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PeeringNetworkOutput struct{ *pulumi.OutputState }
 
 func (PeeringNetworkOutput) ElementType() reflect.Type {
@@ -9284,6 +10785,12 @@ func (o PeeringNetworkOutput) ToPeeringNetworkPtrOutputWithContext(ctx context.C
 	}).(PeeringNetworkPtrOutput)
 }
 
+func (o PeeringNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[PeeringNetwork] {
+	return pulumix.Output[PeeringNetwork]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Network that the Peering belongs to, for example, `n-abc123`.
 func (o PeeringNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PeeringNetwork) string { return v.Id }).(pulumi.StringOutput)
@@ -9301,6 +10808,12 @@ func (o PeeringNetworkPtrOutput) ToPeeringNetworkPtrOutput() PeeringNetworkPtrOu
 
 func (o PeeringNetworkPtrOutput) ToPeeringNetworkPtrOutputWithContext(ctx context.Context) PeeringNetworkPtrOutput {
 	return o
+}
+
+func (o PeeringNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PeeringNetwork] {
+	return pulumix.Output[*PeeringNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PeeringNetworkPtrOutput) Elem() PeeringNetworkOutput {
@@ -9356,6 +10869,12 @@ func (i PrivateLinkAccessAwsArgs) ToPrivateLinkAccessAwsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessAwsOutput)
 }
 
+func (i PrivateLinkAccessAwsArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAccessAws] {
+	return pulumix.Output[PrivateLinkAccessAws]{
+		OutputState: i.ToPrivateLinkAccessAwsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PrivateLinkAccessAwsArgs) ToPrivateLinkAccessAwsPtrOutput() PrivateLinkAccessAwsPtrOutput {
 	return i.ToPrivateLinkAccessAwsPtrOutputWithContext(context.Background())
 }
@@ -9397,6 +10916,12 @@ func (i *privateLinkAccessAwsPtrType) ToPrivateLinkAccessAwsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessAwsPtrOutput)
 }
 
+func (i *privateLinkAccessAwsPtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAccessAws] {
+	return pulumix.Output[*PrivateLinkAccessAws]{
+		OutputState: i.ToPrivateLinkAccessAwsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAccessAwsOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAccessAwsOutput) ElementType() reflect.Type {
@@ -9421,6 +10946,12 @@ func (o PrivateLinkAccessAwsOutput) ToPrivateLinkAccessAwsPtrOutputWithContext(c
 	}).(PrivateLinkAccessAwsPtrOutput)
 }
 
+func (o PrivateLinkAccessAwsOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAccessAws] {
+	return pulumix.Output[PrivateLinkAccessAws]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
 func (o PrivateLinkAccessAwsOutput) Account() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAccessAws) string { return v.Account }).(pulumi.StringOutput)
@@ -9438,6 +10969,12 @@ func (o PrivateLinkAccessAwsPtrOutput) ToPrivateLinkAccessAwsPtrOutput() Private
 
 func (o PrivateLinkAccessAwsPtrOutput) ToPrivateLinkAccessAwsPtrOutputWithContext(ctx context.Context) PrivateLinkAccessAwsPtrOutput {
 	return o
+}
+
+func (o PrivateLinkAccessAwsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAccessAws] {
+	return pulumix.Output[*PrivateLinkAccessAws]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAccessAwsPtrOutput) Elem() PrivateLinkAccessAwsOutput {
@@ -9493,6 +11030,12 @@ func (i PrivateLinkAccessAzureArgs) ToPrivateLinkAccessAzureOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessAzureOutput)
 }
 
+func (i PrivateLinkAccessAzureArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAccessAzure] {
+	return pulumix.Output[PrivateLinkAccessAzure]{
+		OutputState: i.ToPrivateLinkAccessAzureOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PrivateLinkAccessAzureArgs) ToPrivateLinkAccessAzurePtrOutput() PrivateLinkAccessAzurePtrOutput {
 	return i.ToPrivateLinkAccessAzurePtrOutputWithContext(context.Background())
 }
@@ -9534,6 +11077,12 @@ func (i *privateLinkAccessAzurePtrType) ToPrivateLinkAccessAzurePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessAzurePtrOutput)
 }
 
+func (i *privateLinkAccessAzurePtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAccessAzure] {
+	return pulumix.Output[*PrivateLinkAccessAzure]{
+		OutputState: i.ToPrivateLinkAccessAzurePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAccessAzureOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAccessAzureOutput) ElementType() reflect.Type {
@@ -9558,6 +11107,12 @@ func (o PrivateLinkAccessAzureOutput) ToPrivateLinkAccessAzurePtrOutputWithConte
 	}).(PrivateLinkAccessAzurePtrOutput)
 }
 
+func (o PrivateLinkAccessAzureOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAccessAzure] {
+	return pulumix.Output[PrivateLinkAccessAzure]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
 func (o PrivateLinkAccessAzureOutput) Subscription() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAccessAzure) string { return v.Subscription }).(pulumi.StringOutput)
@@ -9575,6 +11130,12 @@ func (o PrivateLinkAccessAzurePtrOutput) ToPrivateLinkAccessAzurePtrOutput() Pri
 
 func (o PrivateLinkAccessAzurePtrOutput) ToPrivateLinkAccessAzurePtrOutputWithContext(ctx context.Context) PrivateLinkAccessAzurePtrOutput {
 	return o
+}
+
+func (o PrivateLinkAccessAzurePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAccessAzure] {
+	return pulumix.Output[*PrivateLinkAccessAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAccessAzurePtrOutput) Elem() PrivateLinkAccessAzureOutput {
@@ -9630,6 +11191,12 @@ func (i PrivateLinkAccessEnvironmentArgs) ToPrivateLinkAccessEnvironmentOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessEnvironmentOutput)
 }
 
+func (i PrivateLinkAccessEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAccessEnvironment] {
+	return pulumix.Output[PrivateLinkAccessEnvironment]{
+		OutputState: i.ToPrivateLinkAccessEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PrivateLinkAccessEnvironmentArgs) ToPrivateLinkAccessEnvironmentPtrOutput() PrivateLinkAccessEnvironmentPtrOutput {
 	return i.ToPrivateLinkAccessEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -9671,6 +11238,12 @@ func (i *privateLinkAccessEnvironmentPtrType) ToPrivateLinkAccessEnvironmentPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessEnvironmentPtrOutput)
 }
 
+func (i *privateLinkAccessEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAccessEnvironment] {
+	return pulumix.Output[*PrivateLinkAccessEnvironment]{
+		OutputState: i.ToPrivateLinkAccessEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAccessEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAccessEnvironmentOutput) ElementType() reflect.Type {
@@ -9695,6 +11268,12 @@ func (o PrivateLinkAccessEnvironmentOutput) ToPrivateLinkAccessEnvironmentPtrOut
 	}).(PrivateLinkAccessEnvironmentPtrOutput)
 }
 
+func (o PrivateLinkAccessEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAccessEnvironment] {
+	return pulumix.Output[PrivateLinkAccessEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
 func (o PrivateLinkAccessEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAccessEnvironment) string { return v.Id }).(pulumi.StringOutput)
@@ -9712,6 +11291,12 @@ func (o PrivateLinkAccessEnvironmentPtrOutput) ToPrivateLinkAccessEnvironmentPtr
 
 func (o PrivateLinkAccessEnvironmentPtrOutput) ToPrivateLinkAccessEnvironmentPtrOutputWithContext(ctx context.Context) PrivateLinkAccessEnvironmentPtrOutput {
 	return o
+}
+
+func (o PrivateLinkAccessEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAccessEnvironment] {
+	return pulumix.Output[*PrivateLinkAccessEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAccessEnvironmentPtrOutput) Elem() PrivateLinkAccessEnvironmentOutput {
@@ -9779,6 +11364,12 @@ func (i PrivateLinkAccessGcpArgs) ToPrivateLinkAccessGcpOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessGcpOutput)
 }
 
+func (i PrivateLinkAccessGcpArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAccessGcp] {
+	return pulumix.Output[PrivateLinkAccessGcp]{
+		OutputState: i.ToPrivateLinkAccessGcpOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PrivateLinkAccessGcpArgs) ToPrivateLinkAccessGcpPtrOutput() PrivateLinkAccessGcpPtrOutput {
 	return i.ToPrivateLinkAccessGcpPtrOutputWithContext(context.Background())
 }
@@ -9820,6 +11411,12 @@ func (i *privateLinkAccessGcpPtrType) ToPrivateLinkAccessGcpPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessGcpPtrOutput)
 }
 
+func (i *privateLinkAccessGcpPtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAccessGcp] {
+	return pulumix.Output[*PrivateLinkAccessGcp]{
+		OutputState: i.ToPrivateLinkAccessGcpPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAccessGcpOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAccessGcpOutput) ElementType() reflect.Type {
@@ -9842,6 +11439,12 @@ func (o PrivateLinkAccessGcpOutput) ToPrivateLinkAccessGcpPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkAccessGcp) *PrivateLinkAccessGcp {
 		return &v
 	}).(PrivateLinkAccessGcpPtrOutput)
+}
+
+func (o PrivateLinkAccessGcpOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAccessGcp] {
+	return pulumix.Output[PrivateLinkAccessGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
@@ -9867,6 +11470,12 @@ func (o PrivateLinkAccessGcpPtrOutput) ToPrivateLinkAccessGcpPtrOutput() Private
 
 func (o PrivateLinkAccessGcpPtrOutput) ToPrivateLinkAccessGcpPtrOutputWithContext(ctx context.Context) PrivateLinkAccessGcpPtrOutput {
 	return o
+}
+
+func (o PrivateLinkAccessGcpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAccessGcp] {
+	return pulumix.Output[*PrivateLinkAccessGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAccessGcpPtrOutput) Elem() PrivateLinkAccessGcpOutput {
@@ -9928,6 +11537,12 @@ func (i PrivateLinkAccessNetworkArgs) ToPrivateLinkAccessNetworkOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessNetworkOutput)
 }
 
+func (i PrivateLinkAccessNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAccessNetwork] {
+	return pulumix.Output[PrivateLinkAccessNetwork]{
+		OutputState: i.ToPrivateLinkAccessNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PrivateLinkAccessNetworkArgs) ToPrivateLinkAccessNetworkPtrOutput() PrivateLinkAccessNetworkPtrOutput {
 	return i.ToPrivateLinkAccessNetworkPtrOutputWithContext(context.Background())
 }
@@ -9969,6 +11584,12 @@ func (i *privateLinkAccessNetworkPtrType) ToPrivateLinkAccessNetworkPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessNetworkPtrOutput)
 }
 
+func (i *privateLinkAccessNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAccessNetwork] {
+	return pulumix.Output[*PrivateLinkAccessNetwork]{
+		OutputState: i.ToPrivateLinkAccessNetworkPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAccessNetworkOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAccessNetworkOutput) ElementType() reflect.Type {
@@ -9993,6 +11614,12 @@ func (o PrivateLinkAccessNetworkOutput) ToPrivateLinkAccessNetworkPtrOutputWithC
 	}).(PrivateLinkAccessNetworkPtrOutput)
 }
 
+func (o PrivateLinkAccessNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAccessNetwork] {
+	return pulumix.Output[PrivateLinkAccessNetwork]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
 func (o PrivateLinkAccessNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAccessNetwork) string { return v.Id }).(pulumi.StringOutput)
@@ -10010,6 +11637,12 @@ func (o PrivateLinkAccessNetworkPtrOutput) ToPrivateLinkAccessNetworkPtrOutput()
 
 func (o PrivateLinkAccessNetworkPtrOutput) ToPrivateLinkAccessNetworkPtrOutputWithContext(ctx context.Context) PrivateLinkAccessNetworkPtrOutput {
 	return o
+}
+
+func (o PrivateLinkAccessNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAccessNetwork] {
+	return pulumix.Output[*PrivateLinkAccessNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAccessNetworkPtrOutput) Elem() PrivateLinkAccessNetworkOutput {
@@ -10065,6 +11698,12 @@ func (i PrivateLinkAttachmentAwArgs) ToPrivateLinkAttachmentAwOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentAwOutput)
 }
 
+func (i PrivateLinkAttachmentAwArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentAw] {
+	return pulumix.Output[PrivateLinkAttachmentAw]{
+		OutputState: i.ToPrivateLinkAttachmentAwOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PrivateLinkAttachmentAwArrayInput is an input type that accepts PrivateLinkAttachmentAwArray and PrivateLinkAttachmentAwArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkAttachmentAwArrayInput` via:
 //
@@ -10090,6 +11729,12 @@ func (i PrivateLinkAttachmentAwArray) ToPrivateLinkAttachmentAwArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentAwArrayOutput)
 }
 
+func (i PrivateLinkAttachmentAwArray) ToOutput(ctx context.Context) pulumix.Output[[]PrivateLinkAttachmentAw] {
+	return pulumix.Output[[]PrivateLinkAttachmentAw]{
+		OutputState: i.ToPrivateLinkAttachmentAwArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAttachmentAwOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAttachmentAwOutput) ElementType() reflect.Type {
@@ -10102,6 +11747,12 @@ func (o PrivateLinkAttachmentAwOutput) ToPrivateLinkAttachmentAwOutput() Private
 
 func (o PrivateLinkAttachmentAwOutput) ToPrivateLinkAttachmentAwOutputWithContext(ctx context.Context) PrivateLinkAttachmentAwOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentAwOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentAw] {
+	return pulumix.Output[PrivateLinkAttachmentAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
@@ -10121,6 +11772,12 @@ func (o PrivateLinkAttachmentAwArrayOutput) ToPrivateLinkAttachmentAwArrayOutput
 
 func (o PrivateLinkAttachmentAwArrayOutput) ToPrivateLinkAttachmentAwArrayOutputWithContext(ctx context.Context) PrivateLinkAttachmentAwArrayOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentAwArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PrivateLinkAttachmentAw] {
+	return pulumix.Output[[]PrivateLinkAttachmentAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAttachmentAwArrayOutput) Index(i pulumi.IntInput) PrivateLinkAttachmentAwOutput {
@@ -10164,6 +11821,12 @@ func (i PrivateLinkAttachmentAzureArgs) ToPrivateLinkAttachmentAzureOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentAzureOutput)
 }
 
+func (i PrivateLinkAttachmentAzureArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentAzure] {
+	return pulumix.Output[PrivateLinkAttachmentAzure]{
+		OutputState: i.ToPrivateLinkAttachmentAzureOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PrivateLinkAttachmentAzureArrayInput is an input type that accepts PrivateLinkAttachmentAzureArray and PrivateLinkAttachmentAzureArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkAttachmentAzureArrayInput` via:
 //
@@ -10189,6 +11852,12 @@ func (i PrivateLinkAttachmentAzureArray) ToPrivateLinkAttachmentAzureArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentAzureArrayOutput)
 }
 
+func (i PrivateLinkAttachmentAzureArray) ToOutput(ctx context.Context) pulumix.Output[[]PrivateLinkAttachmentAzure] {
+	return pulumix.Output[[]PrivateLinkAttachmentAzure]{
+		OutputState: i.ToPrivateLinkAttachmentAzureArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAttachmentAzureOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAttachmentAzureOutput) ElementType() reflect.Type {
@@ -10201,6 +11870,12 @@ func (o PrivateLinkAttachmentAzureOutput) ToPrivateLinkAttachmentAzureOutput() P
 
 func (o PrivateLinkAttachmentAzureOutput) ToPrivateLinkAttachmentAzureOutputWithContext(ctx context.Context) PrivateLinkAttachmentAzureOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentAzureOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentAzure] {
+	return pulumix.Output[PrivateLinkAttachmentAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAttachmentAzureOutput) PrivateLinkServiceAlias() pulumi.StringPtrOutput {
@@ -10227,6 +11902,12 @@ func (o PrivateLinkAttachmentAzureArrayOutput) ToPrivateLinkAttachmentAzureArray
 
 func (o PrivateLinkAttachmentAzureArrayOutput) ToPrivateLinkAttachmentAzureArrayOutputWithContext(ctx context.Context) PrivateLinkAttachmentAzureArrayOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentAzureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PrivateLinkAttachmentAzure] {
+	return pulumix.Output[[]PrivateLinkAttachmentAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAttachmentAzureArrayOutput) Index(i pulumi.IntInput) PrivateLinkAttachmentAzureOutput {
@@ -10266,6 +11947,12 @@ func (i PrivateLinkAttachmentConnectionAwsArgs) ToPrivateLinkAttachmentConnectio
 
 func (i PrivateLinkAttachmentConnectionAwsArgs) ToPrivateLinkAttachmentConnectionAwsOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAwsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionAwsOutput)
+}
+
+func (i PrivateLinkAttachmentConnectionAwsArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentConnectionAws] {
+	return pulumix.Output[PrivateLinkAttachmentConnectionAws]{
+		OutputState: i.ToPrivateLinkAttachmentConnectionAwsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PrivateLinkAttachmentConnectionAwsArgs) ToPrivateLinkAttachmentConnectionAwsPtrOutput() PrivateLinkAttachmentConnectionAwsPtrOutput {
@@ -10309,6 +11996,12 @@ func (i *privateLinkAttachmentConnectionAwsPtrType) ToPrivateLinkAttachmentConne
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionAwsPtrOutput)
 }
 
+func (i *privateLinkAttachmentConnectionAwsPtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachmentConnectionAws] {
+	return pulumix.Output[*PrivateLinkAttachmentConnectionAws]{
+		OutputState: i.ToPrivateLinkAttachmentConnectionAwsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAttachmentConnectionAwsOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAttachmentConnectionAwsOutput) ElementType() reflect.Type {
@@ -10333,6 +12026,12 @@ func (o PrivateLinkAttachmentConnectionAwsOutput) ToPrivateLinkAttachmentConnect
 	}).(PrivateLinkAttachmentConnectionAwsPtrOutput)
 }
 
+func (o PrivateLinkAttachmentConnectionAwsOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentConnectionAws] {
+	return pulumix.Output[PrivateLinkAttachmentConnectionAws]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Id of a VPC Endpoint that is connected to the VPC Endpoint service.
 func (o PrivateLinkAttachmentConnectionAwsOutput) VpcEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentConnectionAws) string { return v.VpcEndpointId }).(pulumi.StringOutput)
@@ -10350,6 +12049,12 @@ func (o PrivateLinkAttachmentConnectionAwsPtrOutput) ToPrivateLinkAttachmentConn
 
 func (o PrivateLinkAttachmentConnectionAwsPtrOutput) ToPrivateLinkAttachmentConnectionAwsPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAwsPtrOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentConnectionAwsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachmentConnectionAws] {
+	return pulumix.Output[*PrivateLinkAttachmentConnectionAws]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAttachmentConnectionAwsPtrOutput) Elem() PrivateLinkAttachmentConnectionAwsOutput {
@@ -10403,6 +12108,12 @@ func (i PrivateLinkAttachmentConnectionAzureArgs) ToPrivateLinkAttachmentConnect
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionAzureOutput)
 }
 
+func (i PrivateLinkAttachmentConnectionAzureArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentConnectionAzure] {
+	return pulumix.Output[PrivateLinkAttachmentConnectionAzure]{
+		OutputState: i.ToPrivateLinkAttachmentConnectionAzureOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PrivateLinkAttachmentConnectionAzureArgs) ToPrivateLinkAttachmentConnectionAzurePtrOutput() PrivateLinkAttachmentConnectionAzurePtrOutput {
 	return i.ToPrivateLinkAttachmentConnectionAzurePtrOutputWithContext(context.Background())
 }
@@ -10444,6 +12155,12 @@ func (i *privateLinkAttachmentConnectionAzurePtrType) ToPrivateLinkAttachmentCon
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionAzurePtrOutput)
 }
 
+func (i *privateLinkAttachmentConnectionAzurePtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachmentConnectionAzure] {
+	return pulumix.Output[*PrivateLinkAttachmentConnectionAzure]{
+		OutputState: i.ToPrivateLinkAttachmentConnectionAzurePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAttachmentConnectionAzureOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAttachmentConnectionAzureOutput) ElementType() reflect.Type {
@@ -10468,6 +12185,12 @@ func (o PrivateLinkAttachmentConnectionAzureOutput) ToPrivateLinkAttachmentConne
 	}).(PrivateLinkAttachmentConnectionAzurePtrOutput)
 }
 
+func (o PrivateLinkAttachmentConnectionAzureOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentConnectionAzure] {
+	return pulumix.Output[PrivateLinkAttachmentConnectionAzure]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PrivateLinkAttachmentConnectionAzureOutput) PrivateEndpointResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentConnectionAzure) string { return v.PrivateEndpointResourceId }).(pulumi.StringOutput)
 }
@@ -10484,6 +12207,12 @@ func (o PrivateLinkAttachmentConnectionAzurePtrOutput) ToPrivateLinkAttachmentCo
 
 func (o PrivateLinkAttachmentConnectionAzurePtrOutput) ToPrivateLinkAttachmentConnectionAzurePtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionAzurePtrOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentConnectionAzurePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachmentConnectionAzure] {
+	return pulumix.Output[*PrivateLinkAttachmentConnectionAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAttachmentConnectionAzurePtrOutput) Elem() PrivateLinkAttachmentConnectionAzureOutput {
@@ -10538,6 +12267,12 @@ func (i PrivateLinkAttachmentConnectionEnvironmentArgs) ToPrivateLinkAttachmentC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionEnvironmentOutput)
 }
 
+func (i PrivateLinkAttachmentConnectionEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentConnectionEnvironment] {
+	return pulumix.Output[PrivateLinkAttachmentConnectionEnvironment]{
+		OutputState: i.ToPrivateLinkAttachmentConnectionEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PrivateLinkAttachmentConnectionEnvironmentArgs) ToPrivateLinkAttachmentConnectionEnvironmentPtrOutput() PrivateLinkAttachmentConnectionEnvironmentPtrOutput {
 	return i.ToPrivateLinkAttachmentConnectionEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -10579,6 +12314,12 @@ func (i *privateLinkAttachmentConnectionEnvironmentPtrType) ToPrivateLinkAttachm
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionEnvironmentPtrOutput)
 }
 
+func (i *privateLinkAttachmentConnectionEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachmentConnectionEnvironment] {
+	return pulumix.Output[*PrivateLinkAttachmentConnectionEnvironment]{
+		OutputState: i.ToPrivateLinkAttachmentConnectionEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAttachmentConnectionEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAttachmentConnectionEnvironmentOutput) ElementType() reflect.Type {
@@ -10603,6 +12344,12 @@ func (o PrivateLinkAttachmentConnectionEnvironmentOutput) ToPrivateLinkAttachmen
 	}).(PrivateLinkAttachmentConnectionEnvironmentPtrOutput)
 }
 
+func (o PrivateLinkAttachmentConnectionEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentConnectionEnvironment] {
+	return pulumix.Output[PrivateLinkAttachmentConnectionEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The unique identifier for the private link attachment.
 func (o PrivateLinkAttachmentConnectionEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentConnectionEnvironment) string { return v.Id }).(pulumi.StringOutput)
@@ -10620,6 +12367,12 @@ func (o PrivateLinkAttachmentConnectionEnvironmentPtrOutput) ToPrivateLinkAttach
 
 func (o PrivateLinkAttachmentConnectionEnvironmentPtrOutput) ToPrivateLinkAttachmentConnectionEnvironmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionEnvironmentPtrOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentConnectionEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachmentConnectionEnvironment] {
+	return pulumix.Output[*PrivateLinkAttachmentConnectionEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAttachmentConnectionEnvironmentPtrOutput) Elem() PrivateLinkAttachmentConnectionEnvironmentOutput {
@@ -10673,6 +12426,12 @@ func (i PrivateLinkAttachmentConnectionGcpArgs) ToPrivateLinkAttachmentConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionGcpOutput)
 }
 
+func (i PrivateLinkAttachmentConnectionGcpArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentConnectionGcp] {
+	return pulumix.Output[PrivateLinkAttachmentConnectionGcp]{
+		OutputState: i.ToPrivateLinkAttachmentConnectionGcpOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PrivateLinkAttachmentConnectionGcpArgs) ToPrivateLinkAttachmentConnectionGcpPtrOutput() PrivateLinkAttachmentConnectionGcpPtrOutput {
 	return i.ToPrivateLinkAttachmentConnectionGcpPtrOutputWithContext(context.Background())
 }
@@ -10714,6 +12473,12 @@ func (i *privateLinkAttachmentConnectionGcpPtrType) ToPrivateLinkAttachmentConne
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionGcpPtrOutput)
 }
 
+func (i *privateLinkAttachmentConnectionGcpPtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachmentConnectionGcp] {
+	return pulumix.Output[*PrivateLinkAttachmentConnectionGcp]{
+		OutputState: i.ToPrivateLinkAttachmentConnectionGcpPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAttachmentConnectionGcpOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAttachmentConnectionGcpOutput) ElementType() reflect.Type {
@@ -10738,6 +12503,12 @@ func (o PrivateLinkAttachmentConnectionGcpOutput) ToPrivateLinkAttachmentConnect
 	}).(PrivateLinkAttachmentConnectionGcpPtrOutput)
 }
 
+func (o PrivateLinkAttachmentConnectionGcpOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentConnectionGcp] {
+	return pulumix.Output[PrivateLinkAttachmentConnectionGcp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PrivateLinkAttachmentConnectionGcpOutput) PrivateServiceConnectConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentConnectionGcp) string { return v.PrivateServiceConnectConnectionId }).(pulumi.StringOutput)
 }
@@ -10754,6 +12525,12 @@ func (o PrivateLinkAttachmentConnectionGcpPtrOutput) ToPrivateLinkAttachmentConn
 
 func (o PrivateLinkAttachmentConnectionGcpPtrOutput) ToPrivateLinkAttachmentConnectionGcpPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionGcpPtrOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentConnectionGcpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachmentConnectionGcp] {
+	return pulumix.Output[*PrivateLinkAttachmentConnectionGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAttachmentConnectionGcpPtrOutput) Elem() PrivateLinkAttachmentConnectionGcpOutput {
@@ -10808,6 +12585,12 @@ func (i PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs) ToPrivateLinkA
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput)
 }
 
+func (i PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentConnectionPrivateLinkAttachment] {
+	return pulumix.Output[PrivateLinkAttachmentConnectionPrivateLinkAttachment]{
+		OutputState: i.ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs) ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput() PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput {
 	return i.ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutputWithContext(context.Background())
 }
@@ -10849,6 +12632,12 @@ func (i *privateLinkAttachmentConnectionPrivateLinkAttachmentPtrType) ToPrivateL
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput)
 }
 
+func (i *privateLinkAttachmentConnectionPrivateLinkAttachmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachmentConnectionPrivateLinkAttachment] {
+	return pulumix.Output[*PrivateLinkAttachmentConnectionPrivateLinkAttachment]{
+		OutputState: i.ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ElementType() reflect.Type {
@@ -10873,6 +12662,12 @@ func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ToPrivateLin
 	}).(PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput)
 }
 
+func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentConnectionPrivateLinkAttachment] {
+	return pulumix.Output[PrivateLinkAttachmentConnectionPrivateLinkAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The unique identifier for the private link attachment.
 func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentConnectionPrivateLinkAttachment) string { return v.Id }).(pulumi.StringOutput)
@@ -10890,6 +12685,12 @@ func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput) ToPrivate
 
 func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput) ToPrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachmentConnectionPrivateLinkAttachment] {
+	return pulumix.Output[*PrivateLinkAttachmentConnectionPrivateLinkAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrOutput) Elem() PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
@@ -10945,6 +12746,12 @@ func (i PrivateLinkAttachmentEnvironmentArgs) ToPrivateLinkAttachmentEnvironment
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentEnvironmentOutput)
 }
 
+func (i PrivateLinkAttachmentEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentEnvironment] {
+	return pulumix.Output[PrivateLinkAttachmentEnvironment]{
+		OutputState: i.ToPrivateLinkAttachmentEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PrivateLinkAttachmentEnvironmentArgs) ToPrivateLinkAttachmentEnvironmentPtrOutput() PrivateLinkAttachmentEnvironmentPtrOutput {
 	return i.ToPrivateLinkAttachmentEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -10986,6 +12793,12 @@ func (i *privateLinkAttachmentEnvironmentPtrType) ToPrivateLinkAttachmentEnviron
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentEnvironmentPtrOutput)
 }
 
+func (i *privateLinkAttachmentEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachmentEnvironment] {
+	return pulumix.Output[*PrivateLinkAttachmentEnvironment]{
+		OutputState: i.ToPrivateLinkAttachmentEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAttachmentEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAttachmentEnvironmentOutput) ElementType() reflect.Type {
@@ -11010,6 +12823,12 @@ func (o PrivateLinkAttachmentEnvironmentOutput) ToPrivateLinkAttachmentEnvironme
 	}).(PrivateLinkAttachmentEnvironmentPtrOutput)
 }
 
+func (o PrivateLinkAttachmentEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentEnvironment] {
+	return pulumix.Output[PrivateLinkAttachmentEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
 func (o PrivateLinkAttachmentEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentEnvironment) string { return v.Id }).(pulumi.StringOutput)
@@ -11027,6 +12846,12 @@ func (o PrivateLinkAttachmentEnvironmentPtrOutput) ToPrivateLinkAttachmentEnviro
 
 func (o PrivateLinkAttachmentEnvironmentPtrOutput) ToPrivateLinkAttachmentEnvironmentPtrOutputWithContext(ctx context.Context) PrivateLinkAttachmentEnvironmentPtrOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAttachmentEnvironment] {
+	return pulumix.Output[*PrivateLinkAttachmentEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAttachmentEnvironmentPtrOutput) Elem() PrivateLinkAttachmentEnvironmentOutput {
@@ -11082,6 +12907,12 @@ func (i PrivateLinkAttachmentGcpArgs) ToPrivateLinkAttachmentGcpOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentGcpOutput)
 }
 
+func (i PrivateLinkAttachmentGcpArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentGcp] {
+	return pulumix.Output[PrivateLinkAttachmentGcp]{
+		OutputState: i.ToPrivateLinkAttachmentGcpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PrivateLinkAttachmentGcpArrayInput is an input type that accepts PrivateLinkAttachmentGcpArray and PrivateLinkAttachmentGcpArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkAttachmentGcpArrayInput` via:
 //
@@ -11107,6 +12938,12 @@ func (i PrivateLinkAttachmentGcpArray) ToPrivateLinkAttachmentGcpArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAttachmentGcpArrayOutput)
 }
 
+func (i PrivateLinkAttachmentGcpArray) ToOutput(ctx context.Context) pulumix.Output[[]PrivateLinkAttachmentGcp] {
+	return pulumix.Output[[]PrivateLinkAttachmentGcp]{
+		OutputState: i.ToPrivateLinkAttachmentGcpArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAttachmentGcpOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAttachmentGcpOutput) ElementType() reflect.Type {
@@ -11119,6 +12956,12 @@ func (o PrivateLinkAttachmentGcpOutput) ToPrivateLinkAttachmentGcpOutput() Priva
 
 func (o PrivateLinkAttachmentGcpOutput) ToPrivateLinkAttachmentGcpOutputWithContext(ctx context.Context) PrivateLinkAttachmentGcpOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentGcpOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateLinkAttachmentGcp] {
+	return pulumix.Output[PrivateLinkAttachmentGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAttachmentGcpOutput) PrivateServiceConnectServiceAttachment() pulumi.StringPtrOutput {
@@ -11141,6 +12984,12 @@ func (o PrivateLinkAttachmentGcpArrayOutput) ToPrivateLinkAttachmentGcpArrayOutp
 
 func (o PrivateLinkAttachmentGcpArrayOutput) ToPrivateLinkAttachmentGcpArrayOutputWithContext(ctx context.Context) PrivateLinkAttachmentGcpArrayOutput {
 	return o
+}
+
+func (o PrivateLinkAttachmentGcpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PrivateLinkAttachmentGcp] {
+	return pulumix.Output[[]PrivateLinkAttachmentGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAttachmentGcpArrayOutput) Index(i pulumi.IntInput) PrivateLinkAttachmentGcpOutput {
@@ -11184,6 +13033,12 @@ func (i SchemaCredentialsArgs) ToSchemaCredentialsOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaCredentialsOutput)
 }
 
+func (i SchemaCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaCredentials] {
+	return pulumix.Output[SchemaCredentials]{
+		OutputState: i.ToSchemaCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SchemaCredentialsArgs) ToSchemaCredentialsPtrOutput() SchemaCredentialsPtrOutput {
 	return i.ToSchemaCredentialsPtrOutputWithContext(context.Background())
 }
@@ -11225,6 +13080,12 @@ func (i *schemaCredentialsPtrType) ToSchemaCredentialsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaCredentialsPtrOutput)
 }
 
+func (i *schemaCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaCredentials] {
+	return pulumix.Output[*SchemaCredentials]{
+		OutputState: i.ToSchemaCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaCredentialsOutput struct{ *pulumi.OutputState }
 
 func (SchemaCredentialsOutput) ElementType() reflect.Type {
@@ -11249,6 +13110,12 @@ func (o SchemaCredentialsOutput) ToSchemaCredentialsPtrOutputWithContext(ctx con
 	}).(SchemaCredentialsPtrOutput)
 }
 
+func (o SchemaCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaCredentials] {
+	return pulumix.Output[SchemaCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o SchemaCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -11270,6 +13137,12 @@ func (o SchemaCredentialsPtrOutput) ToSchemaCredentialsPtrOutput() SchemaCredent
 
 func (o SchemaCredentialsPtrOutput) ToSchemaCredentialsPtrOutputWithContext(ctx context.Context) SchemaCredentialsPtrOutput {
 	return o
+}
+
+func (o SchemaCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaCredentials] {
+	return pulumix.Output[*SchemaCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaCredentialsPtrOutput) Elem() SchemaCredentialsOutput {
@@ -11336,6 +13209,12 @@ func (i SchemaRegistryClusterConfigCredentialsArgs) ToSchemaRegistryClusterConfi
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterConfigCredentialsOutput)
 }
 
+func (i SchemaRegistryClusterConfigCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaRegistryClusterConfigCredentials] {
+	return pulumix.Output[SchemaRegistryClusterConfigCredentials]{
+		OutputState: i.ToSchemaRegistryClusterConfigCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SchemaRegistryClusterConfigCredentialsArgs) ToSchemaRegistryClusterConfigCredentialsPtrOutput() SchemaRegistryClusterConfigCredentialsPtrOutput {
 	return i.ToSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(context.Background())
 }
@@ -11377,6 +13256,12 @@ func (i *schemaRegistryClusterConfigCredentialsPtrType) ToSchemaRegistryClusterC
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterConfigCredentialsPtrOutput)
 }
 
+func (i *schemaRegistryClusterConfigCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterConfigCredentials] {
+	return pulumix.Output[*SchemaRegistryClusterConfigCredentials]{
+		OutputState: i.ToSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaRegistryClusterConfigCredentialsOutput struct{ *pulumi.OutputState }
 
 func (SchemaRegistryClusterConfigCredentialsOutput) ElementType() reflect.Type {
@@ -11401,6 +13286,12 @@ func (o SchemaRegistryClusterConfigCredentialsOutput) ToSchemaRegistryClusterCon
 	}).(SchemaRegistryClusterConfigCredentialsPtrOutput)
 }
 
+func (o SchemaRegistryClusterConfigCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaRegistryClusterConfigCredentials] {
+	return pulumix.Output[SchemaRegistryClusterConfigCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o SchemaRegistryClusterConfigCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryClusterConfigCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -11422,6 +13313,12 @@ func (o SchemaRegistryClusterConfigCredentialsPtrOutput) ToSchemaRegistryCluster
 
 func (o SchemaRegistryClusterConfigCredentialsPtrOutput) ToSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigCredentialsPtrOutput {
 	return o
+}
+
+func (o SchemaRegistryClusterConfigCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterConfigCredentials] {
+	return pulumix.Output[*SchemaRegistryClusterConfigCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaRegistryClusterConfigCredentialsPtrOutput) Elem() SchemaRegistryClusterConfigCredentialsOutput {
@@ -11486,6 +13383,12 @@ func (i SchemaRegistryClusterConfigSchemaRegistryClusterArgs) ToSchemaRegistryCl
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterConfigSchemaRegistryClusterOutput)
 }
 
+func (i SchemaRegistryClusterConfigSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaRegistryClusterConfigSchemaRegistryCluster] {
+	return pulumix.Output[SchemaRegistryClusterConfigSchemaRegistryCluster]{
+		OutputState: i.ToSchemaRegistryClusterConfigSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SchemaRegistryClusterConfigSchemaRegistryClusterArgs) ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput() SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
 	return i.ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -11527,6 +13430,12 @@ func (i *schemaRegistryClusterConfigSchemaRegistryClusterPtrType) ToSchemaRegist
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput)
 }
 
+func (i *schemaRegistryClusterConfigSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterConfigSchemaRegistryCluster] {
+	return pulumix.Output[*SchemaRegistryClusterConfigSchemaRegistryCluster]{
+		OutputState: i.ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaRegistryClusterConfigSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (SchemaRegistryClusterConfigSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -11551,6 +13460,12 @@ func (o SchemaRegistryClusterConfigSchemaRegistryClusterOutput) ToSchemaRegistry
 	}).(SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput)
 }
 
+func (o SchemaRegistryClusterConfigSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaRegistryClusterConfigSchemaRegistryCluster] {
+	return pulumix.Output[SchemaRegistryClusterConfigSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o SchemaRegistryClusterConfigSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryClusterConfigSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -11568,6 +13483,12 @@ func (o SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) ToSchemaRegis
 
 func (o SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) ToSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterConfigSchemaRegistryCluster] {
+	return pulumix.Output[*SchemaRegistryClusterConfigSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) Elem() SchemaRegistryClusterConfigSchemaRegistryClusterOutput {
@@ -11623,6 +13544,12 @@ func (i SchemaRegistryClusterEnvironmentArgs) ToSchemaRegistryClusterEnvironment
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterEnvironmentOutput)
 }
 
+func (i SchemaRegistryClusterEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaRegistryClusterEnvironment] {
+	return pulumix.Output[SchemaRegistryClusterEnvironment]{
+		OutputState: i.ToSchemaRegistryClusterEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SchemaRegistryClusterEnvironmentArgs) ToSchemaRegistryClusterEnvironmentPtrOutput() SchemaRegistryClusterEnvironmentPtrOutput {
 	return i.ToSchemaRegistryClusterEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -11664,6 +13591,12 @@ func (i *schemaRegistryClusterEnvironmentPtrType) ToSchemaRegistryClusterEnviron
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterEnvironmentPtrOutput)
 }
 
+func (i *schemaRegistryClusterEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterEnvironment] {
+	return pulumix.Output[*SchemaRegistryClusterEnvironment]{
+		OutputState: i.ToSchemaRegistryClusterEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaRegistryClusterEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (SchemaRegistryClusterEnvironmentOutput) ElementType() reflect.Type {
@@ -11688,6 +13621,12 @@ func (o SchemaRegistryClusterEnvironmentOutput) ToSchemaRegistryClusterEnvironme
 	}).(SchemaRegistryClusterEnvironmentPtrOutput)
 }
 
+func (o SchemaRegistryClusterEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaRegistryClusterEnvironment] {
+	return pulumix.Output[SchemaRegistryClusterEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
 func (o SchemaRegistryClusterEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
@@ -11705,6 +13644,12 @@ func (o SchemaRegistryClusterEnvironmentPtrOutput) ToSchemaRegistryClusterEnviro
 
 func (o SchemaRegistryClusterEnvironmentPtrOutput) ToSchemaRegistryClusterEnvironmentPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterEnvironmentPtrOutput {
 	return o
+}
+
+func (o SchemaRegistryClusterEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterEnvironment] {
+	return pulumix.Output[*SchemaRegistryClusterEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaRegistryClusterEnvironmentPtrOutput) Elem() SchemaRegistryClusterEnvironmentOutput {
@@ -11762,6 +13707,12 @@ func (i SchemaRegistryClusterModeCredentialsArgs) ToSchemaRegistryClusterModeCre
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterModeCredentialsOutput)
 }
 
+func (i SchemaRegistryClusterModeCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaRegistryClusterModeCredentials] {
+	return pulumix.Output[SchemaRegistryClusterModeCredentials]{
+		OutputState: i.ToSchemaRegistryClusterModeCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SchemaRegistryClusterModeCredentialsArgs) ToSchemaRegistryClusterModeCredentialsPtrOutput() SchemaRegistryClusterModeCredentialsPtrOutput {
 	return i.ToSchemaRegistryClusterModeCredentialsPtrOutputWithContext(context.Background())
 }
@@ -11803,6 +13754,12 @@ func (i *schemaRegistryClusterModeCredentialsPtrType) ToSchemaRegistryClusterMod
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterModeCredentialsPtrOutput)
 }
 
+func (i *schemaRegistryClusterModeCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterModeCredentials] {
+	return pulumix.Output[*SchemaRegistryClusterModeCredentials]{
+		OutputState: i.ToSchemaRegistryClusterModeCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaRegistryClusterModeCredentialsOutput struct{ *pulumi.OutputState }
 
 func (SchemaRegistryClusterModeCredentialsOutput) ElementType() reflect.Type {
@@ -11827,6 +13784,12 @@ func (o SchemaRegistryClusterModeCredentialsOutput) ToSchemaRegistryClusterModeC
 	}).(SchemaRegistryClusterModeCredentialsPtrOutput)
 }
 
+func (o SchemaRegistryClusterModeCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaRegistryClusterModeCredentials] {
+	return pulumix.Output[SchemaRegistryClusterModeCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o SchemaRegistryClusterModeCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryClusterModeCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -11848,6 +13811,12 @@ func (o SchemaRegistryClusterModeCredentialsPtrOutput) ToSchemaRegistryClusterMo
 
 func (o SchemaRegistryClusterModeCredentialsPtrOutput) ToSchemaRegistryClusterModeCredentialsPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterModeCredentialsPtrOutput {
 	return o
+}
+
+func (o SchemaRegistryClusterModeCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterModeCredentials] {
+	return pulumix.Output[*SchemaRegistryClusterModeCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaRegistryClusterModeCredentialsPtrOutput) Elem() SchemaRegistryClusterModeCredentialsOutput {
@@ -11912,6 +13881,12 @@ func (i SchemaRegistryClusterModeSchemaRegistryClusterArgs) ToSchemaRegistryClus
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterModeSchemaRegistryClusterOutput)
 }
 
+func (i SchemaRegistryClusterModeSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaRegistryClusterModeSchemaRegistryCluster] {
+	return pulumix.Output[SchemaRegistryClusterModeSchemaRegistryCluster]{
+		OutputState: i.ToSchemaRegistryClusterModeSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SchemaRegistryClusterModeSchemaRegistryClusterArgs) ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput() SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
 	return i.ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -11953,6 +13928,12 @@ func (i *schemaRegistryClusterModeSchemaRegistryClusterPtrType) ToSchemaRegistry
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput)
 }
 
+func (i *schemaRegistryClusterModeSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterModeSchemaRegistryCluster] {
+	return pulumix.Output[*SchemaRegistryClusterModeSchemaRegistryCluster]{
+		OutputState: i.ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaRegistryClusterModeSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (SchemaRegistryClusterModeSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -11977,6 +13958,12 @@ func (o SchemaRegistryClusterModeSchemaRegistryClusterOutput) ToSchemaRegistryCl
 	}).(SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput)
 }
 
+func (o SchemaRegistryClusterModeSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaRegistryClusterModeSchemaRegistryCluster] {
+	return pulumix.Output[SchemaRegistryClusterModeSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o SchemaRegistryClusterModeSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryClusterModeSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -11994,6 +13981,12 @@ func (o SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) ToSchemaRegistr
 
 func (o SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) ToSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterModeSchemaRegistryCluster] {
+	return pulumix.Output[*SchemaRegistryClusterModeSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) Elem() SchemaRegistryClusterModeSchemaRegistryClusterOutput {
@@ -12049,6 +14042,12 @@ func (i SchemaRegistryClusterRegionArgs) ToSchemaRegistryClusterRegionOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterRegionOutput)
 }
 
+func (i SchemaRegistryClusterRegionArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaRegistryClusterRegion] {
+	return pulumix.Output[SchemaRegistryClusterRegion]{
+		OutputState: i.ToSchemaRegistryClusterRegionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SchemaRegistryClusterRegionArgs) ToSchemaRegistryClusterRegionPtrOutput() SchemaRegistryClusterRegionPtrOutput {
 	return i.ToSchemaRegistryClusterRegionPtrOutputWithContext(context.Background())
 }
@@ -12090,6 +14089,12 @@ func (i *schemaRegistryClusterRegionPtrType) ToSchemaRegistryClusterRegionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterRegionPtrOutput)
 }
 
+func (i *schemaRegistryClusterRegionPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterRegion] {
+	return pulumix.Output[*SchemaRegistryClusterRegion]{
+		OutputState: i.ToSchemaRegistryClusterRegionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaRegistryClusterRegionOutput struct{ *pulumi.OutputState }
 
 func (SchemaRegistryClusterRegionOutput) ElementType() reflect.Type {
@@ -12114,6 +14119,12 @@ func (o SchemaRegistryClusterRegionOutput) ToSchemaRegistryClusterRegionPtrOutpu
 	}).(SchemaRegistryClusterRegionPtrOutput)
 }
 
+func (o SchemaRegistryClusterRegionOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaRegistryClusterRegion] {
+	return pulumix.Output[SchemaRegistryClusterRegion]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
 func (o SchemaRegistryClusterRegionOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryClusterRegion) string { return v.Id }).(pulumi.StringOutput)
@@ -12131,6 +14142,12 @@ func (o SchemaRegistryClusterRegionPtrOutput) ToSchemaRegistryClusterRegionPtrOu
 
 func (o SchemaRegistryClusterRegionPtrOutput) ToSchemaRegistryClusterRegionPtrOutputWithContext(ctx context.Context) SchemaRegistryClusterRegionPtrOutput {
 	return o
+}
+
+func (o SchemaRegistryClusterRegionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterRegion] {
+	return pulumix.Output[*SchemaRegistryClusterRegion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaRegistryClusterRegionPtrOutput) Elem() SchemaRegistryClusterRegionOutput {
@@ -12194,6 +14211,12 @@ func (i SchemaSchemaReferenceArgs) ToSchemaSchemaReferenceOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaReferenceOutput)
 }
 
+func (i SchemaSchemaReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaSchemaReference] {
+	return pulumix.Output[SchemaSchemaReference]{
+		OutputState: i.ToSchemaSchemaReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SchemaSchemaReferenceArrayInput is an input type that accepts SchemaSchemaReferenceArray and SchemaSchemaReferenceArrayOutput values.
 // You can construct a concrete instance of `SchemaSchemaReferenceArrayInput` via:
 //
@@ -12219,6 +14242,12 @@ func (i SchemaSchemaReferenceArray) ToSchemaSchemaReferenceArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaReferenceArrayOutput)
 }
 
+func (i SchemaSchemaReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]SchemaSchemaReference] {
+	return pulumix.Output[[]SchemaSchemaReference]{
+		OutputState: i.ToSchemaSchemaReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaSchemaReferenceOutput struct{ *pulumi.OutputState }
 
 func (SchemaSchemaReferenceOutput) ElementType() reflect.Type {
@@ -12231,6 +14260,12 @@ func (o SchemaSchemaReferenceOutput) ToSchemaSchemaReferenceOutput() SchemaSchem
 
 func (o SchemaSchemaReferenceOutput) ToSchemaSchemaReferenceOutputWithContext(ctx context.Context) SchemaSchemaReferenceOutput {
 	return o
+}
+
+func (o SchemaSchemaReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaSchemaReference] {
+	return pulumix.Output[SchemaSchemaReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the subject, representing the subject under which the referenced schema is registered.
@@ -12260,6 +14295,12 @@ func (o SchemaSchemaReferenceArrayOutput) ToSchemaSchemaReferenceArrayOutput() S
 
 func (o SchemaSchemaReferenceArrayOutput) ToSchemaSchemaReferenceArrayOutputWithContext(ctx context.Context) SchemaSchemaReferenceArrayOutput {
 	return o
+}
+
+func (o SchemaSchemaReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SchemaSchemaReference] {
+	return pulumix.Output[[]SchemaSchemaReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaSchemaReferenceArrayOutput) Index(i pulumi.IntInput) SchemaSchemaReferenceOutput {
@@ -12299,6 +14340,12 @@ func (i SchemaSchemaRegistryClusterArgs) ToSchemaSchemaRegistryClusterOutput() S
 
 func (i SchemaSchemaRegistryClusterArgs) ToSchemaSchemaRegistryClusterOutputWithContext(ctx context.Context) SchemaSchemaRegistryClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaRegistryClusterOutput)
+}
+
+func (i SchemaSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaSchemaRegistryCluster] {
+	return pulumix.Output[SchemaSchemaRegistryCluster]{
+		OutputState: i.ToSchemaSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i SchemaSchemaRegistryClusterArgs) ToSchemaSchemaRegistryClusterPtrOutput() SchemaSchemaRegistryClusterPtrOutput {
@@ -12342,6 +14389,12 @@ func (i *schemaSchemaRegistryClusterPtrType) ToSchemaSchemaRegistryClusterPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaSchemaRegistryClusterPtrOutput)
 }
 
+func (i *schemaSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaSchemaRegistryCluster] {
+	return pulumix.Output[*SchemaSchemaRegistryCluster]{
+		OutputState: i.ToSchemaSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (SchemaSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -12366,6 +14419,12 @@ func (o SchemaSchemaRegistryClusterOutput) ToSchemaSchemaRegistryClusterPtrOutpu
 	}).(SchemaSchemaRegistryClusterPtrOutput)
 }
 
+func (o SchemaSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaSchemaRegistryCluster] {
+	return pulumix.Output[SchemaSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o SchemaSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -12383,6 +14442,12 @@ func (o SchemaSchemaRegistryClusterPtrOutput) ToSchemaSchemaRegistryClusterPtrOu
 
 func (o SchemaSchemaRegistryClusterPtrOutput) ToSchemaSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o SchemaSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaSchemaRegistryCluster] {
+	return pulumix.Output[*SchemaSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaSchemaRegistryClusterPtrOutput) Elem() SchemaSchemaRegistryClusterOutput {
@@ -12440,6 +14505,12 @@ func (i SubjectConfigCredentialsArgs) ToSubjectConfigCredentialsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SubjectConfigCredentialsOutput)
 }
 
+func (i SubjectConfigCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[SubjectConfigCredentials] {
+	return pulumix.Output[SubjectConfigCredentials]{
+		OutputState: i.ToSubjectConfigCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SubjectConfigCredentialsArgs) ToSubjectConfigCredentialsPtrOutput() SubjectConfigCredentialsPtrOutput {
 	return i.ToSubjectConfigCredentialsPtrOutputWithContext(context.Background())
 }
@@ -12481,6 +14552,12 @@ func (i *subjectConfigCredentialsPtrType) ToSubjectConfigCredentialsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SubjectConfigCredentialsPtrOutput)
 }
 
+func (i *subjectConfigCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SubjectConfigCredentials] {
+	return pulumix.Output[*SubjectConfigCredentials]{
+		OutputState: i.ToSubjectConfigCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubjectConfigCredentialsOutput struct{ *pulumi.OutputState }
 
 func (SubjectConfigCredentialsOutput) ElementType() reflect.Type {
@@ -12505,6 +14582,12 @@ func (o SubjectConfigCredentialsOutput) ToSubjectConfigCredentialsPtrOutputWithC
 	}).(SubjectConfigCredentialsPtrOutput)
 }
 
+func (o SubjectConfigCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[SubjectConfigCredentials] {
+	return pulumix.Output[SubjectConfigCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o SubjectConfigCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SubjectConfigCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -12526,6 +14609,12 @@ func (o SubjectConfigCredentialsPtrOutput) ToSubjectConfigCredentialsPtrOutput()
 
 func (o SubjectConfigCredentialsPtrOutput) ToSubjectConfigCredentialsPtrOutputWithContext(ctx context.Context) SubjectConfigCredentialsPtrOutput {
 	return o
+}
+
+func (o SubjectConfigCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubjectConfigCredentials] {
+	return pulumix.Output[*SubjectConfigCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubjectConfigCredentialsPtrOutput) Elem() SubjectConfigCredentialsOutput {
@@ -12590,6 +14679,12 @@ func (i SubjectConfigSchemaRegistryClusterArgs) ToSubjectConfigSchemaRegistryClu
 	return pulumi.ToOutputWithContext(ctx, i).(SubjectConfigSchemaRegistryClusterOutput)
 }
 
+func (i SubjectConfigSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[SubjectConfigSchemaRegistryCluster] {
+	return pulumix.Output[SubjectConfigSchemaRegistryCluster]{
+		OutputState: i.ToSubjectConfigSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SubjectConfigSchemaRegistryClusterArgs) ToSubjectConfigSchemaRegistryClusterPtrOutput() SubjectConfigSchemaRegistryClusterPtrOutput {
 	return i.ToSubjectConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -12631,6 +14726,12 @@ func (i *subjectConfigSchemaRegistryClusterPtrType) ToSubjectConfigSchemaRegistr
 	return pulumi.ToOutputWithContext(ctx, i).(SubjectConfigSchemaRegistryClusterPtrOutput)
 }
 
+func (i *subjectConfigSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*SubjectConfigSchemaRegistryCluster] {
+	return pulumix.Output[*SubjectConfigSchemaRegistryCluster]{
+		OutputState: i.ToSubjectConfigSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubjectConfigSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (SubjectConfigSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -12655,6 +14756,12 @@ func (o SubjectConfigSchemaRegistryClusterOutput) ToSubjectConfigSchemaRegistryC
 	}).(SubjectConfigSchemaRegistryClusterPtrOutput)
 }
 
+func (o SubjectConfigSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[SubjectConfigSchemaRegistryCluster] {
+	return pulumix.Output[SubjectConfigSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o SubjectConfigSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SubjectConfigSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -12672,6 +14779,12 @@ func (o SubjectConfigSchemaRegistryClusterPtrOutput) ToSubjectConfigSchemaRegist
 
 func (o SubjectConfigSchemaRegistryClusterPtrOutput) ToSubjectConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SubjectConfigSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o SubjectConfigSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubjectConfigSchemaRegistryCluster] {
+	return pulumix.Output[*SubjectConfigSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubjectConfigSchemaRegistryClusterPtrOutput) Elem() SubjectConfigSchemaRegistryClusterOutput {
@@ -12729,6 +14842,12 @@ func (i SubjectModeCredentialsArgs) ToSubjectModeCredentialsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SubjectModeCredentialsOutput)
 }
 
+func (i SubjectModeCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[SubjectModeCredentials] {
+	return pulumix.Output[SubjectModeCredentials]{
+		OutputState: i.ToSubjectModeCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SubjectModeCredentialsArgs) ToSubjectModeCredentialsPtrOutput() SubjectModeCredentialsPtrOutput {
 	return i.ToSubjectModeCredentialsPtrOutputWithContext(context.Background())
 }
@@ -12770,6 +14889,12 @@ func (i *subjectModeCredentialsPtrType) ToSubjectModeCredentialsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SubjectModeCredentialsPtrOutput)
 }
 
+func (i *subjectModeCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SubjectModeCredentials] {
+	return pulumix.Output[*SubjectModeCredentials]{
+		OutputState: i.ToSubjectModeCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubjectModeCredentialsOutput struct{ *pulumi.OutputState }
 
 func (SubjectModeCredentialsOutput) ElementType() reflect.Type {
@@ -12794,6 +14919,12 @@ func (o SubjectModeCredentialsOutput) ToSubjectModeCredentialsPtrOutputWithConte
 	}).(SubjectModeCredentialsPtrOutput)
 }
 
+func (o SubjectModeCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[SubjectModeCredentials] {
+	return pulumix.Output[SubjectModeCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o SubjectModeCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SubjectModeCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -12815,6 +14946,12 @@ func (o SubjectModeCredentialsPtrOutput) ToSubjectModeCredentialsPtrOutput() Sub
 
 func (o SubjectModeCredentialsPtrOutput) ToSubjectModeCredentialsPtrOutputWithContext(ctx context.Context) SubjectModeCredentialsPtrOutput {
 	return o
+}
+
+func (o SubjectModeCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubjectModeCredentials] {
+	return pulumix.Output[*SubjectModeCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubjectModeCredentialsPtrOutput) Elem() SubjectModeCredentialsOutput {
@@ -12879,6 +15016,12 @@ func (i SubjectModeSchemaRegistryClusterArgs) ToSubjectModeSchemaRegistryCluster
 	return pulumi.ToOutputWithContext(ctx, i).(SubjectModeSchemaRegistryClusterOutput)
 }
 
+func (i SubjectModeSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[SubjectModeSchemaRegistryCluster] {
+	return pulumix.Output[SubjectModeSchemaRegistryCluster]{
+		OutputState: i.ToSubjectModeSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SubjectModeSchemaRegistryClusterArgs) ToSubjectModeSchemaRegistryClusterPtrOutput() SubjectModeSchemaRegistryClusterPtrOutput {
 	return i.ToSubjectModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -12920,6 +15063,12 @@ func (i *subjectModeSchemaRegistryClusterPtrType) ToSubjectModeSchemaRegistryClu
 	return pulumi.ToOutputWithContext(ctx, i).(SubjectModeSchemaRegistryClusterPtrOutput)
 }
 
+func (i *subjectModeSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*SubjectModeSchemaRegistryCluster] {
+	return pulumix.Output[*SubjectModeSchemaRegistryCluster]{
+		OutputState: i.ToSubjectModeSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubjectModeSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (SubjectModeSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -12944,6 +15093,12 @@ func (o SubjectModeSchemaRegistryClusterOutput) ToSubjectModeSchemaRegistryClust
 	}).(SubjectModeSchemaRegistryClusterPtrOutput)
 }
 
+func (o SubjectModeSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[SubjectModeSchemaRegistryCluster] {
+	return pulumix.Output[SubjectModeSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o SubjectModeSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SubjectModeSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -12961,6 +15116,12 @@ func (o SubjectModeSchemaRegistryClusterPtrOutput) ToSubjectModeSchemaRegistryCl
 
 func (o SubjectModeSchemaRegistryClusterPtrOutput) ToSubjectModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SubjectModeSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o SubjectModeSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubjectModeSchemaRegistryCluster] {
+	return pulumix.Output[*SubjectModeSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubjectModeSchemaRegistryClusterPtrOutput) Elem() SubjectModeSchemaRegistryClusterOutput {
@@ -13020,6 +15181,12 @@ func (i TagBindingCredentialsArgs) ToTagBindingCredentialsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TagBindingCredentialsOutput)
 }
 
+func (i TagBindingCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[TagBindingCredentials] {
+	return pulumix.Output[TagBindingCredentials]{
+		OutputState: i.ToTagBindingCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TagBindingCredentialsArgs) ToTagBindingCredentialsPtrOutput() TagBindingCredentialsPtrOutput {
 	return i.ToTagBindingCredentialsPtrOutputWithContext(context.Background())
 }
@@ -13061,6 +15228,12 @@ func (i *tagBindingCredentialsPtrType) ToTagBindingCredentialsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TagBindingCredentialsPtrOutput)
 }
 
+func (i *tagBindingCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*TagBindingCredentials] {
+	return pulumix.Output[*TagBindingCredentials]{
+		OutputState: i.ToTagBindingCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TagBindingCredentialsOutput struct{ *pulumi.OutputState }
 
 func (TagBindingCredentialsOutput) ElementType() reflect.Type {
@@ -13085,6 +15258,12 @@ func (o TagBindingCredentialsOutput) ToTagBindingCredentialsPtrOutputWithContext
 	}).(TagBindingCredentialsPtrOutput)
 }
 
+func (o TagBindingCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[TagBindingCredentials] {
+	return pulumix.Output[TagBindingCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o TagBindingCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TagBindingCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -13107,6 +15286,12 @@ func (o TagBindingCredentialsPtrOutput) ToTagBindingCredentialsPtrOutput() TagBi
 
 func (o TagBindingCredentialsPtrOutput) ToTagBindingCredentialsPtrOutputWithContext(ctx context.Context) TagBindingCredentialsPtrOutput {
 	return o
+}
+
+func (o TagBindingCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TagBindingCredentials] {
+	return pulumix.Output[*TagBindingCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TagBindingCredentialsPtrOutput) Elem() TagBindingCredentialsOutput {
@@ -13172,6 +15357,12 @@ func (i TagBindingSchemaRegistryClusterArgs) ToTagBindingSchemaRegistryClusterOu
 	return pulumi.ToOutputWithContext(ctx, i).(TagBindingSchemaRegistryClusterOutput)
 }
 
+func (i TagBindingSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[TagBindingSchemaRegistryCluster] {
+	return pulumix.Output[TagBindingSchemaRegistryCluster]{
+		OutputState: i.ToTagBindingSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TagBindingSchemaRegistryClusterArgs) ToTagBindingSchemaRegistryClusterPtrOutput() TagBindingSchemaRegistryClusterPtrOutput {
 	return i.ToTagBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -13213,6 +15404,12 @@ func (i *tagBindingSchemaRegistryClusterPtrType) ToTagBindingSchemaRegistryClust
 	return pulumi.ToOutputWithContext(ctx, i).(TagBindingSchemaRegistryClusterPtrOutput)
 }
 
+func (i *tagBindingSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*TagBindingSchemaRegistryCluster] {
+	return pulumix.Output[*TagBindingSchemaRegistryCluster]{
+		OutputState: i.ToTagBindingSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TagBindingSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (TagBindingSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -13237,6 +15434,12 @@ func (o TagBindingSchemaRegistryClusterOutput) ToTagBindingSchemaRegistryCluster
 	}).(TagBindingSchemaRegistryClusterPtrOutput)
 }
 
+func (o TagBindingSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[TagBindingSchemaRegistryCluster] {
+	return pulumix.Output[TagBindingSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o TagBindingSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TagBindingSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -13254,6 +15457,12 @@ func (o TagBindingSchemaRegistryClusterPtrOutput) ToTagBindingSchemaRegistryClus
 
 func (o TagBindingSchemaRegistryClusterPtrOutput) ToTagBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) TagBindingSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o TagBindingSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TagBindingSchemaRegistryCluster] {
+	return pulumix.Output[*TagBindingSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TagBindingSchemaRegistryClusterPtrOutput) Elem() TagBindingSchemaRegistryClusterOutput {
@@ -13313,6 +15522,12 @@ func (i TagCredentialsArgs) ToTagCredentialsOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TagCredentialsOutput)
 }
 
+func (i TagCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[TagCredentials] {
+	return pulumix.Output[TagCredentials]{
+		OutputState: i.ToTagCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TagCredentialsArgs) ToTagCredentialsPtrOutput() TagCredentialsPtrOutput {
 	return i.ToTagCredentialsPtrOutputWithContext(context.Background())
 }
@@ -13354,6 +15569,12 @@ func (i *tagCredentialsPtrType) ToTagCredentialsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(TagCredentialsPtrOutput)
 }
 
+func (i *tagCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*TagCredentials] {
+	return pulumix.Output[*TagCredentials]{
+		OutputState: i.ToTagCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TagCredentialsOutput struct{ *pulumi.OutputState }
 
 func (TagCredentialsOutput) ElementType() reflect.Type {
@@ -13378,6 +15599,12 @@ func (o TagCredentialsOutput) ToTagCredentialsPtrOutputWithContext(ctx context.C
 	}).(TagCredentialsPtrOutput)
 }
 
+func (o TagCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[TagCredentials] {
+	return pulumix.Output[TagCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o TagCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TagCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -13400,6 +15627,12 @@ func (o TagCredentialsPtrOutput) ToTagCredentialsPtrOutput() TagCredentialsPtrOu
 
 func (o TagCredentialsPtrOutput) ToTagCredentialsPtrOutputWithContext(ctx context.Context) TagCredentialsPtrOutput {
 	return o
+}
+
+func (o TagCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TagCredentials] {
+	return pulumix.Output[*TagCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TagCredentialsPtrOutput) Elem() TagCredentialsOutput {
@@ -13465,6 +15698,12 @@ func (i TagSchemaRegistryClusterArgs) ToTagSchemaRegistryClusterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TagSchemaRegistryClusterOutput)
 }
 
+func (i TagSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[TagSchemaRegistryCluster] {
+	return pulumix.Output[TagSchemaRegistryCluster]{
+		OutputState: i.ToTagSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TagSchemaRegistryClusterArgs) ToTagSchemaRegistryClusterPtrOutput() TagSchemaRegistryClusterPtrOutput {
 	return i.ToTagSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -13506,6 +15745,12 @@ func (i *tagSchemaRegistryClusterPtrType) ToTagSchemaRegistryClusterPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TagSchemaRegistryClusterPtrOutput)
 }
 
+func (i *tagSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*TagSchemaRegistryCluster] {
+	return pulumix.Output[*TagSchemaRegistryCluster]{
+		OutputState: i.ToTagSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TagSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (TagSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -13530,6 +15775,12 @@ func (o TagSchemaRegistryClusterOutput) ToTagSchemaRegistryClusterPtrOutputWithC
 	}).(TagSchemaRegistryClusterPtrOutput)
 }
 
+func (o TagSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[TagSchemaRegistryCluster] {
+	return pulumix.Output[TagSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o TagSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TagSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -13547,6 +15798,12 @@ func (o TagSchemaRegistryClusterPtrOutput) ToTagSchemaRegistryClusterPtrOutput()
 
 func (o TagSchemaRegistryClusterPtrOutput) ToTagSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) TagSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o TagSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TagSchemaRegistryCluster] {
+	return pulumix.Output[*TagSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TagSchemaRegistryClusterPtrOutput) Elem() TagSchemaRegistryClusterOutput {
@@ -13618,6 +15875,12 @@ func (i TransitGatewayAttachmentAwsArgs) ToTransitGatewayAttachmentAwsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentAwsOutput)
 }
 
+func (i TransitGatewayAttachmentAwsArgs) ToOutput(ctx context.Context) pulumix.Output[TransitGatewayAttachmentAws] {
+	return pulumix.Output[TransitGatewayAttachmentAws]{
+		OutputState: i.ToTransitGatewayAttachmentAwsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TransitGatewayAttachmentAwsArgs) ToTransitGatewayAttachmentAwsPtrOutput() TransitGatewayAttachmentAwsPtrOutput {
 	return i.ToTransitGatewayAttachmentAwsPtrOutputWithContext(context.Background())
 }
@@ -13659,6 +15922,12 @@ func (i *transitGatewayAttachmentAwsPtrType) ToTransitGatewayAttachmentAwsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentAwsPtrOutput)
 }
 
+func (i *transitGatewayAttachmentAwsPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayAttachmentAws] {
+	return pulumix.Output[*TransitGatewayAttachmentAws]{
+		OutputState: i.ToTransitGatewayAttachmentAwsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayAttachmentAwsOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayAttachmentAwsOutput) ElementType() reflect.Type {
@@ -13681,6 +15950,12 @@ func (o TransitGatewayAttachmentAwsOutput) ToTransitGatewayAttachmentAwsPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayAttachmentAws) *TransitGatewayAttachmentAws {
 		return &v
 	}).(TransitGatewayAttachmentAwsPtrOutput)
+}
+
+func (o TransitGatewayAttachmentAwsOutput) ToOutput(ctx context.Context) pulumix.Output[TransitGatewayAttachmentAws] {
+	return pulumix.Output[TransitGatewayAttachmentAws]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
@@ -13717,6 +15992,12 @@ func (o TransitGatewayAttachmentAwsPtrOutput) ToTransitGatewayAttachmentAwsPtrOu
 
 func (o TransitGatewayAttachmentAwsPtrOutput) ToTransitGatewayAttachmentAwsPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentAwsPtrOutput {
 	return o
+}
+
+func (o TransitGatewayAttachmentAwsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayAttachmentAws] {
+	return pulumix.Output[*TransitGatewayAttachmentAws]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitGatewayAttachmentAwsPtrOutput) Elem() TransitGatewayAttachmentAwsOutput {
@@ -13804,6 +16085,12 @@ func (i TransitGatewayAttachmentEnvironmentArgs) ToTransitGatewayAttachmentEnvir
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentEnvironmentOutput)
 }
 
+func (i TransitGatewayAttachmentEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[TransitGatewayAttachmentEnvironment] {
+	return pulumix.Output[TransitGatewayAttachmentEnvironment]{
+		OutputState: i.ToTransitGatewayAttachmentEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TransitGatewayAttachmentEnvironmentArgs) ToTransitGatewayAttachmentEnvironmentPtrOutput() TransitGatewayAttachmentEnvironmentPtrOutput {
 	return i.ToTransitGatewayAttachmentEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -13845,6 +16132,12 @@ func (i *transitGatewayAttachmentEnvironmentPtrType) ToTransitGatewayAttachmentE
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentEnvironmentPtrOutput)
 }
 
+func (i *transitGatewayAttachmentEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayAttachmentEnvironment] {
+	return pulumix.Output[*TransitGatewayAttachmentEnvironment]{
+		OutputState: i.ToTransitGatewayAttachmentEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayAttachmentEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayAttachmentEnvironmentOutput) ElementType() reflect.Type {
@@ -13869,6 +16162,12 @@ func (o TransitGatewayAttachmentEnvironmentOutput) ToTransitGatewayAttachmentEnv
 	}).(TransitGatewayAttachmentEnvironmentPtrOutput)
 }
 
+func (o TransitGatewayAttachmentEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[TransitGatewayAttachmentEnvironment] {
+	return pulumix.Output[TransitGatewayAttachmentEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
 func (o TransitGatewayAttachmentEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TransitGatewayAttachmentEnvironment) string { return v.Id }).(pulumi.StringOutput)
@@ -13886,6 +16185,12 @@ func (o TransitGatewayAttachmentEnvironmentPtrOutput) ToTransitGatewayAttachment
 
 func (o TransitGatewayAttachmentEnvironmentPtrOutput) ToTransitGatewayAttachmentEnvironmentPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentEnvironmentPtrOutput {
 	return o
+}
+
+func (o TransitGatewayAttachmentEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayAttachmentEnvironment] {
+	return pulumix.Output[*TransitGatewayAttachmentEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitGatewayAttachmentEnvironmentPtrOutput) Elem() TransitGatewayAttachmentEnvironmentOutput {
@@ -13941,6 +16246,12 @@ func (i TransitGatewayAttachmentNetworkArgs) ToTransitGatewayAttachmentNetworkOu
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentNetworkOutput)
 }
 
+func (i TransitGatewayAttachmentNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[TransitGatewayAttachmentNetwork] {
+	return pulumix.Output[TransitGatewayAttachmentNetwork]{
+		OutputState: i.ToTransitGatewayAttachmentNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TransitGatewayAttachmentNetworkArgs) ToTransitGatewayAttachmentNetworkPtrOutput() TransitGatewayAttachmentNetworkPtrOutput {
 	return i.ToTransitGatewayAttachmentNetworkPtrOutputWithContext(context.Background())
 }
@@ -13982,6 +16293,12 @@ func (i *transitGatewayAttachmentNetworkPtrType) ToTransitGatewayAttachmentNetwo
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentNetworkPtrOutput)
 }
 
+func (i *transitGatewayAttachmentNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayAttachmentNetwork] {
+	return pulumix.Output[*TransitGatewayAttachmentNetwork]{
+		OutputState: i.ToTransitGatewayAttachmentNetworkPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayAttachmentNetworkOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayAttachmentNetworkOutput) ElementType() reflect.Type {
@@ -14006,6 +16323,12 @@ func (o TransitGatewayAttachmentNetworkOutput) ToTransitGatewayAttachmentNetwork
 	}).(TransitGatewayAttachmentNetworkPtrOutput)
 }
 
+func (o TransitGatewayAttachmentNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[TransitGatewayAttachmentNetwork] {
+	return pulumix.Output[TransitGatewayAttachmentNetwork]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
 func (o TransitGatewayAttachmentNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TransitGatewayAttachmentNetwork) string { return v.Id }).(pulumi.StringOutput)
@@ -14023,6 +16346,12 @@ func (o TransitGatewayAttachmentNetworkPtrOutput) ToTransitGatewayAttachmentNetw
 
 func (o TransitGatewayAttachmentNetworkPtrOutput) ToTransitGatewayAttachmentNetworkPtrOutputWithContext(ctx context.Context) TransitGatewayAttachmentNetworkPtrOutput {
 	return o
+}
+
+func (o TransitGatewayAttachmentNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayAttachmentNetwork] {
+	return pulumix.Output[*TransitGatewayAttachmentNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitGatewayAttachmentNetworkPtrOutput) Elem() TransitGatewayAttachmentNetworkOutput {
@@ -14102,6 +16431,12 @@ func (i GetBusinessMetadataAttributeDefinitionArgs) ToGetBusinessMetadataAttribu
 	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataAttributeDefinitionOutput)
 }
 
+func (i GetBusinessMetadataAttributeDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[GetBusinessMetadataAttributeDefinition] {
+	return pulumix.Output[GetBusinessMetadataAttributeDefinition]{
+		OutputState: i.ToGetBusinessMetadataAttributeDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBusinessMetadataAttributeDefinitionArrayInput is an input type that accepts GetBusinessMetadataAttributeDefinitionArray and GetBusinessMetadataAttributeDefinitionArrayOutput values.
 // You can construct a concrete instance of `GetBusinessMetadataAttributeDefinitionArrayInput` via:
 //
@@ -14127,6 +16462,12 @@ func (i GetBusinessMetadataAttributeDefinitionArray) ToGetBusinessMetadataAttrib
 	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataAttributeDefinitionArrayOutput)
 }
 
+func (i GetBusinessMetadataAttributeDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBusinessMetadataAttributeDefinition] {
+	return pulumix.Output[[]GetBusinessMetadataAttributeDefinition]{
+		OutputState: i.ToGetBusinessMetadataAttributeDefinitionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBusinessMetadataAttributeDefinitionOutput struct{ *pulumi.OutputState }
 
 func (GetBusinessMetadataAttributeDefinitionOutput) ElementType() reflect.Type {
@@ -14139,6 +16480,12 @@ func (o GetBusinessMetadataAttributeDefinitionOutput) ToGetBusinessMetadataAttri
 
 func (o GetBusinessMetadataAttributeDefinitionOutput) ToGetBusinessMetadataAttributeDefinitionOutputWithContext(ctx context.Context) GetBusinessMetadataAttributeDefinitionOutput {
 	return o
+}
+
+func (o GetBusinessMetadataAttributeDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[GetBusinessMetadataAttributeDefinition] {
+	return pulumix.Output[GetBusinessMetadataAttributeDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional String) The default value of this attribute.
@@ -14185,6 +16532,12 @@ func (o GetBusinessMetadataAttributeDefinitionArrayOutput) ToGetBusinessMetadata
 
 func (o GetBusinessMetadataAttributeDefinitionArrayOutput) ToGetBusinessMetadataAttributeDefinitionArrayOutputWithContext(ctx context.Context) GetBusinessMetadataAttributeDefinitionArrayOutput {
 	return o
+}
+
+func (o GetBusinessMetadataAttributeDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBusinessMetadataAttributeDefinition] {
+	return pulumix.Output[[]GetBusinessMetadataAttributeDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBusinessMetadataAttributeDefinitionArrayOutput) Index(i pulumi.IntInput) GetBusinessMetadataAttributeDefinitionOutput {
@@ -14234,6 +16587,12 @@ func (i GetBusinessMetadataBindingCredentialsArgs) ToGetBusinessMetadataBindingC
 	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataBindingCredentialsOutput)
 }
 
+func (i GetBusinessMetadataBindingCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[GetBusinessMetadataBindingCredentials] {
+	return pulumix.Output[GetBusinessMetadataBindingCredentials]{
+		OutputState: i.ToGetBusinessMetadataBindingCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetBusinessMetadataBindingCredentialsArgs) ToGetBusinessMetadataBindingCredentialsPtrOutput() GetBusinessMetadataBindingCredentialsPtrOutput {
 	return i.ToGetBusinessMetadataBindingCredentialsPtrOutputWithContext(context.Background())
 }
@@ -14275,6 +16634,12 @@ func (i *getBusinessMetadataBindingCredentialsPtrType) ToGetBusinessMetadataBind
 	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataBindingCredentialsPtrOutput)
 }
 
+func (i *getBusinessMetadataBindingCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetBusinessMetadataBindingCredentials] {
+	return pulumix.Output[*GetBusinessMetadataBindingCredentials]{
+		OutputState: i.ToGetBusinessMetadataBindingCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBusinessMetadataBindingCredentialsOutput struct{ *pulumi.OutputState }
 
 func (GetBusinessMetadataBindingCredentialsOutput) ElementType() reflect.Type {
@@ -14297,6 +16662,12 @@ func (o GetBusinessMetadataBindingCredentialsOutput) ToGetBusinessMetadataBindin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetBusinessMetadataBindingCredentials) *GetBusinessMetadataBindingCredentials {
 		return &v
 	}).(GetBusinessMetadataBindingCredentialsPtrOutput)
+}
+
+func (o GetBusinessMetadataBindingCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[GetBusinessMetadataBindingCredentials] {
+	return pulumix.Output[GetBusinessMetadataBindingCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Schema Registry API Key.
@@ -14323,6 +16694,12 @@ func (o GetBusinessMetadataBindingCredentialsPtrOutput) ToGetBusinessMetadataBin
 
 func (o GetBusinessMetadataBindingCredentialsPtrOutput) ToGetBusinessMetadataBindingCredentialsPtrOutputWithContext(ctx context.Context) GetBusinessMetadataBindingCredentialsPtrOutput {
 	return o
+}
+
+func (o GetBusinessMetadataBindingCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetBusinessMetadataBindingCredentials] {
+	return pulumix.Output[*GetBusinessMetadataBindingCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBusinessMetadataBindingCredentialsPtrOutput) Elem() GetBusinessMetadataBindingCredentialsOutput {
@@ -14390,6 +16767,12 @@ func (i GetBusinessMetadataBindingSchemaRegistryClusterArgs) ToGetBusinessMetada
 	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataBindingSchemaRegistryClusterOutput)
 }
 
+func (i GetBusinessMetadataBindingSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetBusinessMetadataBindingSchemaRegistryCluster] {
+	return pulumix.Output[GetBusinessMetadataBindingSchemaRegistryCluster]{
+		OutputState: i.ToGetBusinessMetadataBindingSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetBusinessMetadataBindingSchemaRegistryClusterArgs) ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutput() GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput {
 	return i.ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -14431,6 +16814,12 @@ func (i *getBusinessMetadataBindingSchemaRegistryClusterPtrType) ToGetBusinessMe
 	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput)
 }
 
+func (i *getBusinessMetadataBindingSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetBusinessMetadataBindingSchemaRegistryCluster] {
+	return pulumix.Output[*GetBusinessMetadataBindingSchemaRegistryCluster]{
+		OutputState: i.ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBusinessMetadataBindingSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (GetBusinessMetadataBindingSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -14455,6 +16844,12 @@ func (o GetBusinessMetadataBindingSchemaRegistryClusterOutput) ToGetBusinessMeta
 	}).(GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput)
 }
 
+func (o GetBusinessMetadataBindingSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetBusinessMetadataBindingSchemaRegistryCluster] {
+	return pulumix.Output[GetBusinessMetadataBindingSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o GetBusinessMetadataBindingSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBusinessMetadataBindingSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -14472,6 +16867,12 @@ func (o GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput) ToGetBusinessM
 
 func (o GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput) ToGetBusinessMetadataBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetBusinessMetadataBindingSchemaRegistryCluster] {
+	return pulumix.Output[*GetBusinessMetadataBindingSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBusinessMetadataBindingSchemaRegistryClusterPtrOutput) Elem() GetBusinessMetadataBindingSchemaRegistryClusterOutput {
@@ -14531,6 +16932,12 @@ func (i GetBusinessMetadataCredentialsArgs) ToGetBusinessMetadataCredentialsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataCredentialsOutput)
 }
 
+func (i GetBusinessMetadataCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[GetBusinessMetadataCredentials] {
+	return pulumix.Output[GetBusinessMetadataCredentials]{
+		OutputState: i.ToGetBusinessMetadataCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetBusinessMetadataCredentialsArgs) ToGetBusinessMetadataCredentialsPtrOutput() GetBusinessMetadataCredentialsPtrOutput {
 	return i.ToGetBusinessMetadataCredentialsPtrOutputWithContext(context.Background())
 }
@@ -14572,6 +16979,12 @@ func (i *getBusinessMetadataCredentialsPtrType) ToGetBusinessMetadataCredentials
 	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataCredentialsPtrOutput)
 }
 
+func (i *getBusinessMetadataCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetBusinessMetadataCredentials] {
+	return pulumix.Output[*GetBusinessMetadataCredentials]{
+		OutputState: i.ToGetBusinessMetadataCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBusinessMetadataCredentialsOutput struct{ *pulumi.OutputState }
 
 func (GetBusinessMetadataCredentialsOutput) ElementType() reflect.Type {
@@ -14596,6 +17009,12 @@ func (o GetBusinessMetadataCredentialsOutput) ToGetBusinessMetadataCredentialsPt
 	}).(GetBusinessMetadataCredentialsPtrOutput)
 }
 
+func (o GetBusinessMetadataCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[GetBusinessMetadataCredentials] {
+	return pulumix.Output[GetBusinessMetadataCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o GetBusinessMetadataCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBusinessMetadataCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -14618,6 +17037,12 @@ func (o GetBusinessMetadataCredentialsPtrOutput) ToGetBusinessMetadataCredential
 
 func (o GetBusinessMetadataCredentialsPtrOutput) ToGetBusinessMetadataCredentialsPtrOutputWithContext(ctx context.Context) GetBusinessMetadataCredentialsPtrOutput {
 	return o
+}
+
+func (o GetBusinessMetadataCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetBusinessMetadataCredentials] {
+	return pulumix.Output[*GetBusinessMetadataCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBusinessMetadataCredentialsPtrOutput) Elem() GetBusinessMetadataCredentialsOutput {
@@ -14683,6 +17108,12 @@ func (i GetBusinessMetadataSchemaRegistryClusterArgs) ToGetBusinessMetadataSchem
 	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataSchemaRegistryClusterOutput)
 }
 
+func (i GetBusinessMetadataSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetBusinessMetadataSchemaRegistryCluster] {
+	return pulumix.Output[GetBusinessMetadataSchemaRegistryCluster]{
+		OutputState: i.ToGetBusinessMetadataSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetBusinessMetadataSchemaRegistryClusterArgs) ToGetBusinessMetadataSchemaRegistryClusterPtrOutput() GetBusinessMetadataSchemaRegistryClusterPtrOutput {
 	return i.ToGetBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -14724,6 +17155,12 @@ func (i *getBusinessMetadataSchemaRegistryClusterPtrType) ToGetBusinessMetadataS
 	return pulumi.ToOutputWithContext(ctx, i).(GetBusinessMetadataSchemaRegistryClusterPtrOutput)
 }
 
+func (i *getBusinessMetadataSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetBusinessMetadataSchemaRegistryCluster] {
+	return pulumix.Output[*GetBusinessMetadataSchemaRegistryCluster]{
+		OutputState: i.ToGetBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBusinessMetadataSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (GetBusinessMetadataSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -14748,6 +17185,12 @@ func (o GetBusinessMetadataSchemaRegistryClusterOutput) ToGetBusinessMetadataSch
 	}).(GetBusinessMetadataSchemaRegistryClusterPtrOutput)
 }
 
+func (o GetBusinessMetadataSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetBusinessMetadataSchemaRegistryCluster] {
+	return pulumix.Output[GetBusinessMetadataSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o GetBusinessMetadataSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBusinessMetadataSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -14765,6 +17208,12 @@ func (o GetBusinessMetadataSchemaRegistryClusterPtrOutput) ToGetBusinessMetadata
 
 func (o GetBusinessMetadataSchemaRegistryClusterPtrOutput) ToGetBusinessMetadataSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetBusinessMetadataSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o GetBusinessMetadataSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetBusinessMetadataSchemaRegistryCluster] {
+	return pulumix.Output[*GetBusinessMetadataSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBusinessMetadataSchemaRegistryClusterPtrOutput) Elem() GetBusinessMetadataSchemaRegistryClusterOutput {
@@ -14824,6 +17273,12 @@ func (i GetByokKeyAwArgs) ToGetByokKeyAwOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetByokKeyAwOutput)
 }
 
+func (i GetByokKeyAwArgs) ToOutput(ctx context.Context) pulumix.Output[GetByokKeyAw] {
+	return pulumix.Output[GetByokKeyAw]{
+		OutputState: i.ToGetByokKeyAwOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetByokKeyAwArrayInput is an input type that accepts GetByokKeyAwArray and GetByokKeyAwArrayOutput values.
 // You can construct a concrete instance of `GetByokKeyAwArrayInput` via:
 //
@@ -14849,6 +17304,12 @@ func (i GetByokKeyAwArray) ToGetByokKeyAwArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetByokKeyAwArrayOutput)
 }
 
+func (i GetByokKeyAwArray) ToOutput(ctx context.Context) pulumix.Output[[]GetByokKeyAw] {
+	return pulumix.Output[[]GetByokKeyAw]{
+		OutputState: i.ToGetByokKeyAwArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetByokKeyAwOutput struct{ *pulumi.OutputState }
 
 func (GetByokKeyAwOutput) ElementType() reflect.Type {
@@ -14861,6 +17322,12 @@ func (o GetByokKeyAwOutput) ToGetByokKeyAwOutput() GetByokKeyAwOutput {
 
 func (o GetByokKeyAwOutput) ToGetByokKeyAwOutputWithContext(ctx context.Context) GetByokKeyAwOutput {
 	return o
+}
+
+func (o GetByokKeyAwOutput) ToOutput(ctx context.Context) pulumix.Output[GetByokKeyAw] {
+	return pulumix.Output[GetByokKeyAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The Amazon Resource Name (ARN) of an AWS KMS key.
@@ -14885,6 +17352,12 @@ func (o GetByokKeyAwArrayOutput) ToGetByokKeyAwArrayOutput() GetByokKeyAwArrayOu
 
 func (o GetByokKeyAwArrayOutput) ToGetByokKeyAwArrayOutputWithContext(ctx context.Context) GetByokKeyAwArrayOutput {
 	return o
+}
+
+func (o GetByokKeyAwArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetByokKeyAw] {
+	return pulumix.Output[[]GetByokKeyAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetByokKeyAwArrayOutput) Index(i pulumi.IntInput) GetByokKeyAwOutput {
@@ -14938,6 +17411,12 @@ func (i GetByokKeyAzureArgs) ToGetByokKeyAzureOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetByokKeyAzureOutput)
 }
 
+func (i GetByokKeyAzureArgs) ToOutput(ctx context.Context) pulumix.Output[GetByokKeyAzure] {
+	return pulumix.Output[GetByokKeyAzure]{
+		OutputState: i.ToGetByokKeyAzureOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetByokKeyAzureArrayInput is an input type that accepts GetByokKeyAzureArray and GetByokKeyAzureArrayOutput values.
 // You can construct a concrete instance of `GetByokKeyAzureArrayInput` via:
 //
@@ -14963,6 +17442,12 @@ func (i GetByokKeyAzureArray) ToGetByokKeyAzureArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetByokKeyAzureArrayOutput)
 }
 
+func (i GetByokKeyAzureArray) ToOutput(ctx context.Context) pulumix.Output[[]GetByokKeyAzure] {
+	return pulumix.Output[[]GetByokKeyAzure]{
+		OutputState: i.ToGetByokKeyAzureArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetByokKeyAzureOutput struct{ *pulumi.OutputState }
 
 func (GetByokKeyAzureOutput) ElementType() reflect.Type {
@@ -14975,6 +17460,12 @@ func (o GetByokKeyAzureOutput) ToGetByokKeyAzureOutput() GetByokKeyAzureOutput {
 
 func (o GetByokKeyAzureOutput) ToGetByokKeyAzureOutputWithContext(ctx context.Context) GetByokKeyAzureOutput {
 	return o
+}
+
+func (o GetByokKeyAzureOutput) ToOutput(ctx context.Context) pulumix.Output[GetByokKeyAzure] {
+	return pulumix.Output[GetByokKeyAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional String) The Application ID created for this key-environment combination.
@@ -15009,6 +17500,12 @@ func (o GetByokKeyAzureArrayOutput) ToGetByokKeyAzureArrayOutput() GetByokKeyAzu
 
 func (o GetByokKeyAzureArrayOutput) ToGetByokKeyAzureArrayOutputWithContext(ctx context.Context) GetByokKeyAzureArrayOutput {
 	return o
+}
+
+func (o GetByokKeyAzureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetByokKeyAzure] {
+	return pulumix.Output[[]GetByokKeyAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetByokKeyAzureArrayOutput) Index(i pulumi.IntInput) GetByokKeyAzureOutput {
@@ -15054,6 +17551,12 @@ func (i GetIdentityPoolIdentityProviderArgs) ToGetIdentityPoolIdentityProviderOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetIdentityPoolIdentityProviderOutput)
 }
 
+func (i GetIdentityPoolIdentityProviderArgs) ToOutput(ctx context.Context) pulumix.Output[GetIdentityPoolIdentityProvider] {
+	return pulumix.Output[GetIdentityPoolIdentityProvider]{
+		OutputState: i.ToGetIdentityPoolIdentityProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetIdentityPoolIdentityProviderOutput struct{ *pulumi.OutputState }
 
 func (GetIdentityPoolIdentityProviderOutput) ElementType() reflect.Type {
@@ -15066,6 +17569,12 @@ func (o GetIdentityPoolIdentityProviderOutput) ToGetIdentityPoolIdentityProvider
 
 func (o GetIdentityPoolIdentityProviderOutput) ToGetIdentityPoolIdentityProviderOutputWithContext(ctx context.Context) GetIdentityPoolIdentityProviderOutput {
 	return o
+}
+
+func (o GetIdentityPoolIdentityProviderOutput) ToOutput(ctx context.Context) pulumix.Output[GetIdentityPoolIdentityProvider] {
+	return pulumix.Output[GetIdentityPoolIdentityProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
@@ -15108,6 +17617,12 @@ func (i GetInvitationCreatorArgs) ToGetInvitationCreatorOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetInvitationCreatorOutput)
 }
 
+func (i GetInvitationCreatorArgs) ToOutput(ctx context.Context) pulumix.Output[GetInvitationCreator] {
+	return pulumix.Output[GetInvitationCreator]{
+		OutputState: i.ToGetInvitationCreatorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetInvitationCreatorArrayInput is an input type that accepts GetInvitationCreatorArray and GetInvitationCreatorArrayOutput values.
 // You can construct a concrete instance of `GetInvitationCreatorArrayInput` via:
 //
@@ -15133,6 +17648,12 @@ func (i GetInvitationCreatorArray) ToGetInvitationCreatorArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetInvitationCreatorArrayOutput)
 }
 
+func (i GetInvitationCreatorArray) ToOutput(ctx context.Context) pulumix.Output[[]GetInvitationCreator] {
+	return pulumix.Output[[]GetInvitationCreator]{
+		OutputState: i.ToGetInvitationCreatorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetInvitationCreatorOutput struct{ *pulumi.OutputState }
 
 func (GetInvitationCreatorOutput) ElementType() reflect.Type {
@@ -15145,6 +17666,12 @@ func (o GetInvitationCreatorOutput) ToGetInvitationCreatorOutput() GetInvitation
 
 func (o GetInvitationCreatorOutput) ToGetInvitationCreatorOutputWithContext(ctx context.Context) GetInvitationCreatorOutput {
 	return o
+}
+
+func (o GetInvitationCreatorOutput) ToOutput(ctx context.Context) pulumix.Output[GetInvitationCreator] {
+	return pulumix.Output[GetInvitationCreator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Invitation, for example, `i-zyw30`.
@@ -15164,6 +17691,12 @@ func (o GetInvitationCreatorArrayOutput) ToGetInvitationCreatorArrayOutput() Get
 
 func (o GetInvitationCreatorArrayOutput) ToGetInvitationCreatorArrayOutputWithContext(ctx context.Context) GetInvitationCreatorArrayOutput {
 	return o
+}
+
+func (o GetInvitationCreatorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetInvitationCreator] {
+	return pulumix.Output[[]GetInvitationCreator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetInvitationCreatorArrayOutput) Index(i pulumi.IntInput) GetInvitationCreatorOutput {
@@ -15205,6 +17738,12 @@ func (i GetInvitationUserArgs) ToGetInvitationUserOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetInvitationUserOutput)
 }
 
+func (i GetInvitationUserArgs) ToOutput(ctx context.Context) pulumix.Output[GetInvitationUser] {
+	return pulumix.Output[GetInvitationUser]{
+		OutputState: i.ToGetInvitationUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetInvitationUserArrayInput is an input type that accepts GetInvitationUserArray and GetInvitationUserArrayOutput values.
 // You can construct a concrete instance of `GetInvitationUserArrayInput` via:
 //
@@ -15230,6 +17769,12 @@ func (i GetInvitationUserArray) ToGetInvitationUserArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetInvitationUserArrayOutput)
 }
 
+func (i GetInvitationUserArray) ToOutput(ctx context.Context) pulumix.Output[[]GetInvitationUser] {
+	return pulumix.Output[[]GetInvitationUser]{
+		OutputState: i.ToGetInvitationUserArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetInvitationUserOutput struct{ *pulumi.OutputState }
 
 func (GetInvitationUserOutput) ElementType() reflect.Type {
@@ -15242,6 +17787,12 @@ func (o GetInvitationUserOutput) ToGetInvitationUserOutput() GetInvitationUserOu
 
 func (o GetInvitationUserOutput) ToGetInvitationUserOutputWithContext(ctx context.Context) GetInvitationUserOutput {
 	return o
+}
+
+func (o GetInvitationUserOutput) ToOutput(ctx context.Context) pulumix.Output[GetInvitationUser] {
+	return pulumix.Output[GetInvitationUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Invitation, for example, `i-zyw30`.
@@ -15261,6 +17812,12 @@ func (o GetInvitationUserArrayOutput) ToGetInvitationUserArrayOutput() GetInvita
 
 func (o GetInvitationUserArrayOutput) ToGetInvitationUserArrayOutputWithContext(ctx context.Context) GetInvitationUserArrayOutput {
 	return o
+}
+
+func (o GetInvitationUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetInvitationUser] {
+	return pulumix.Output[[]GetInvitationUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetInvitationUserArrayOutput) Index(i pulumi.IntInput) GetInvitationUserOutput {
@@ -15302,6 +17859,12 @@ func (i GetKafkaClientQuotaEnvironmentArgs) ToGetKafkaClientQuotaEnvironmentOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClientQuotaEnvironmentOutput)
 }
 
+func (i GetKafkaClientQuotaEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClientQuotaEnvironment] {
+	return pulumix.Output[GetKafkaClientQuotaEnvironment]{
+		OutputState: i.ToGetKafkaClientQuotaEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKafkaClientQuotaEnvironmentArrayInput is an input type that accepts GetKafkaClientQuotaEnvironmentArray and GetKafkaClientQuotaEnvironmentArrayOutput values.
 // You can construct a concrete instance of `GetKafkaClientQuotaEnvironmentArrayInput` via:
 //
@@ -15327,6 +17890,12 @@ func (i GetKafkaClientQuotaEnvironmentArray) ToGetKafkaClientQuotaEnvironmentArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClientQuotaEnvironmentArrayOutput)
 }
 
+func (i GetKafkaClientQuotaEnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClientQuotaEnvironment] {
+	return pulumix.Output[[]GetKafkaClientQuotaEnvironment]{
+		OutputState: i.ToGetKafkaClientQuotaEnvironmentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKafkaClientQuotaEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaClientQuotaEnvironmentOutput) ElementType() reflect.Type {
@@ -15339,6 +17908,12 @@ func (o GetKafkaClientQuotaEnvironmentOutput) ToGetKafkaClientQuotaEnvironmentOu
 
 func (o GetKafkaClientQuotaEnvironmentOutput) ToGetKafkaClientQuotaEnvironmentOutputWithContext(ctx context.Context) GetKafkaClientQuotaEnvironmentOutput {
 	return o
+}
+
+func (o GetKafkaClientQuotaEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClientQuotaEnvironment] {
+	return pulumix.Output[GetKafkaClientQuotaEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Kafka Client Quota (for example, `cq-abc123`).
@@ -15358,6 +17933,12 @@ func (o GetKafkaClientQuotaEnvironmentArrayOutput) ToGetKafkaClientQuotaEnvironm
 
 func (o GetKafkaClientQuotaEnvironmentArrayOutput) ToGetKafkaClientQuotaEnvironmentArrayOutputWithContext(ctx context.Context) GetKafkaClientQuotaEnvironmentArrayOutput {
 	return o
+}
+
+func (o GetKafkaClientQuotaEnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClientQuotaEnvironment] {
+	return pulumix.Output[[]GetKafkaClientQuotaEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKafkaClientQuotaEnvironmentArrayOutput) Index(i pulumi.IntInput) GetKafkaClientQuotaEnvironmentOutput {
@@ -15399,6 +17980,12 @@ func (i GetKafkaClientQuotaKafkaClusterArgs) ToGetKafkaClientQuotaKafkaClusterOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClientQuotaKafkaClusterOutput)
 }
 
+func (i GetKafkaClientQuotaKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClientQuotaKafkaCluster] {
+	return pulumix.Output[GetKafkaClientQuotaKafkaCluster]{
+		OutputState: i.ToGetKafkaClientQuotaKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKafkaClientQuotaKafkaClusterArrayInput is an input type that accepts GetKafkaClientQuotaKafkaClusterArray and GetKafkaClientQuotaKafkaClusterArrayOutput values.
 // You can construct a concrete instance of `GetKafkaClientQuotaKafkaClusterArrayInput` via:
 //
@@ -15424,6 +18011,12 @@ func (i GetKafkaClientQuotaKafkaClusterArray) ToGetKafkaClientQuotaKafkaClusterA
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClientQuotaKafkaClusterArrayOutput)
 }
 
+func (i GetKafkaClientQuotaKafkaClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClientQuotaKafkaCluster] {
+	return pulumix.Output[[]GetKafkaClientQuotaKafkaCluster]{
+		OutputState: i.ToGetKafkaClientQuotaKafkaClusterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKafkaClientQuotaKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaClientQuotaKafkaClusterOutput) ElementType() reflect.Type {
@@ -15436,6 +18029,12 @@ func (o GetKafkaClientQuotaKafkaClusterOutput) ToGetKafkaClientQuotaKafkaCluster
 
 func (o GetKafkaClientQuotaKafkaClusterOutput) ToGetKafkaClientQuotaKafkaClusterOutputWithContext(ctx context.Context) GetKafkaClientQuotaKafkaClusterOutput {
 	return o
+}
+
+func (o GetKafkaClientQuotaKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClientQuotaKafkaCluster] {
+	return pulumix.Output[GetKafkaClientQuotaKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Kafka Client Quota (for example, `cq-abc123`).
@@ -15455,6 +18054,12 @@ func (o GetKafkaClientQuotaKafkaClusterArrayOutput) ToGetKafkaClientQuotaKafkaCl
 
 func (o GetKafkaClientQuotaKafkaClusterArrayOutput) ToGetKafkaClientQuotaKafkaClusterArrayOutputWithContext(ctx context.Context) GetKafkaClientQuotaKafkaClusterArrayOutput {
 	return o
+}
+
+func (o GetKafkaClientQuotaKafkaClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClientQuotaKafkaCluster] {
+	return pulumix.Output[[]GetKafkaClientQuotaKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKafkaClientQuotaKafkaClusterArrayOutput) Index(i pulumi.IntInput) GetKafkaClientQuotaKafkaClusterOutput {
@@ -15500,6 +18105,12 @@ func (i GetKafkaClientQuotaThroughputArgs) ToGetKafkaClientQuotaThroughputOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClientQuotaThroughputOutput)
 }
 
+func (i GetKafkaClientQuotaThroughputArgs) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClientQuotaThroughput] {
+	return pulumix.Output[GetKafkaClientQuotaThroughput]{
+		OutputState: i.ToGetKafkaClientQuotaThroughputOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKafkaClientQuotaThroughputArrayInput is an input type that accepts GetKafkaClientQuotaThroughputArray and GetKafkaClientQuotaThroughputArrayOutput values.
 // You can construct a concrete instance of `GetKafkaClientQuotaThroughputArrayInput` via:
 //
@@ -15525,6 +18136,12 @@ func (i GetKafkaClientQuotaThroughputArray) ToGetKafkaClientQuotaThroughputArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClientQuotaThroughputArrayOutput)
 }
 
+func (i GetKafkaClientQuotaThroughputArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClientQuotaThroughput] {
+	return pulumix.Output[[]GetKafkaClientQuotaThroughput]{
+		OutputState: i.ToGetKafkaClientQuotaThroughputArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKafkaClientQuotaThroughputOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaClientQuotaThroughputOutput) ElementType() reflect.Type {
@@ -15537,6 +18154,12 @@ func (o GetKafkaClientQuotaThroughputOutput) ToGetKafkaClientQuotaThroughputOutp
 
 func (o GetKafkaClientQuotaThroughputOutput) ToGetKafkaClientQuotaThroughputOutputWithContext(ctx context.Context) GetKafkaClientQuotaThroughputOutput {
 	return o
+}
+
+func (o GetKafkaClientQuotaThroughputOutput) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClientQuotaThroughput] {
+	return pulumix.Output[GetKafkaClientQuotaThroughput]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The egress throughput limit in bytes per second.
@@ -15561,6 +18184,12 @@ func (o GetKafkaClientQuotaThroughputArrayOutput) ToGetKafkaClientQuotaThroughpu
 
 func (o GetKafkaClientQuotaThroughputArrayOutput) ToGetKafkaClientQuotaThroughputArrayOutputWithContext(ctx context.Context) GetKafkaClientQuotaThroughputArrayOutput {
 	return o
+}
+
+func (o GetKafkaClientQuotaThroughputArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClientQuotaThroughput] {
+	return pulumix.Output[[]GetKafkaClientQuotaThroughput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKafkaClientQuotaThroughputArrayOutput) Index(i pulumi.IntInput) GetKafkaClientQuotaThroughputOutput {
@@ -15598,6 +18227,12 @@ func (i GetKafkaClusterBasicArgs) ToGetKafkaClusterBasicOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterBasicOutput)
 }
 
+func (i GetKafkaClusterBasicArgs) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClusterBasic] {
+	return pulumix.Output[GetKafkaClusterBasic]{
+		OutputState: i.ToGetKafkaClusterBasicOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKafkaClusterBasicArrayInput is an input type that accepts GetKafkaClusterBasicArray and GetKafkaClusterBasicArrayOutput values.
 // You can construct a concrete instance of `GetKafkaClusterBasicArrayInput` via:
 //
@@ -15623,6 +18258,12 @@ func (i GetKafkaClusterBasicArray) ToGetKafkaClusterBasicArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterBasicArrayOutput)
 }
 
+func (i GetKafkaClusterBasicArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClusterBasic] {
+	return pulumix.Output[[]GetKafkaClusterBasic]{
+		OutputState: i.ToGetKafkaClusterBasicArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKafkaClusterBasicOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaClusterBasicOutput) ElementType() reflect.Type {
@@ -15637,6 +18278,12 @@ func (o GetKafkaClusterBasicOutput) ToGetKafkaClusterBasicOutputWithContext(ctx 
 	return o
 }
 
+func (o GetKafkaClusterBasicOutput) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClusterBasic] {
+	return pulumix.Output[GetKafkaClusterBasic]{
+		OutputState: o.OutputState,
+	}
+}
+
 type GetKafkaClusterBasicArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaClusterBasicArrayOutput) ElementType() reflect.Type {
@@ -15649,6 +18296,12 @@ func (o GetKafkaClusterBasicArrayOutput) ToGetKafkaClusterBasicArrayOutput() Get
 
 func (o GetKafkaClusterBasicArrayOutput) ToGetKafkaClusterBasicArrayOutputWithContext(ctx context.Context) GetKafkaClusterBasicArrayOutput {
 	return o
+}
+
+func (o GetKafkaClusterBasicArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClusterBasic] {
+	return pulumix.Output[[]GetKafkaClusterBasic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKafkaClusterBasicArrayOutput) Index(i pulumi.IntInput) GetKafkaClusterBasicOutput {
@@ -15694,6 +18347,12 @@ func (i GetKafkaClusterByokKeyArgs) ToGetKafkaClusterByokKeyOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterByokKeyOutput)
 }
 
+func (i GetKafkaClusterByokKeyArgs) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClusterByokKey] {
+	return pulumix.Output[GetKafkaClusterByokKey]{
+		OutputState: i.ToGetKafkaClusterByokKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKafkaClusterByokKeyArrayInput is an input type that accepts GetKafkaClusterByokKeyArray and GetKafkaClusterByokKeyArrayOutput values.
 // You can construct a concrete instance of `GetKafkaClusterByokKeyArrayInput` via:
 //
@@ -15719,6 +18378,12 @@ func (i GetKafkaClusterByokKeyArray) ToGetKafkaClusterByokKeyArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterByokKeyArrayOutput)
 }
 
+func (i GetKafkaClusterByokKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClusterByokKey] {
+	return pulumix.Output[[]GetKafkaClusterByokKey]{
+		OutputState: i.ToGetKafkaClusterByokKeyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKafkaClusterByokKeyOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaClusterByokKeyOutput) ElementType() reflect.Type {
@@ -15731,6 +18396,12 @@ func (o GetKafkaClusterByokKeyOutput) ToGetKafkaClusterByokKeyOutput() GetKafkaC
 
 func (o GetKafkaClusterByokKeyOutput) ToGetKafkaClusterByokKeyOutputWithContext(ctx context.Context) GetKafkaClusterByokKeyOutput {
 	return o
+}
+
+func (o GetKafkaClusterByokKeyOutput) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClusterByokKey] {
+	return pulumix.Output[GetKafkaClusterByokKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
@@ -15752,6 +18423,12 @@ func (o GetKafkaClusterByokKeyArrayOutput) ToGetKafkaClusterByokKeyArrayOutput()
 
 func (o GetKafkaClusterByokKeyArrayOutput) ToGetKafkaClusterByokKeyArrayOutputWithContext(ctx context.Context) GetKafkaClusterByokKeyArrayOutput {
 	return o
+}
+
+func (o GetKafkaClusterByokKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClusterByokKey] {
+	return pulumix.Output[[]GetKafkaClusterByokKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKafkaClusterByokKeyArrayOutput) Index(i pulumi.IntInput) GetKafkaClusterByokKeyOutput {
@@ -15805,6 +18482,12 @@ func (i GetKafkaClusterDedicatedArgs) ToGetKafkaClusterDedicatedOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterDedicatedOutput)
 }
 
+func (i GetKafkaClusterDedicatedArgs) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClusterDedicated] {
+	return pulumix.Output[GetKafkaClusterDedicated]{
+		OutputState: i.ToGetKafkaClusterDedicatedOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetKafkaClusterDedicatedArgs) ToGetKafkaClusterDedicatedPtrOutput() GetKafkaClusterDedicatedPtrOutput {
 	return i.ToGetKafkaClusterDedicatedPtrOutputWithContext(context.Background())
 }
@@ -15846,6 +18529,12 @@ func (i *getKafkaClusterDedicatedPtrType) ToGetKafkaClusterDedicatedPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterDedicatedPtrOutput)
 }
 
+func (i *getKafkaClusterDedicatedPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetKafkaClusterDedicated] {
+	return pulumix.Output[*GetKafkaClusterDedicated]{
+		OutputState: i.ToGetKafkaClusterDedicatedPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKafkaClusterDedicatedOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaClusterDedicatedOutput) ElementType() reflect.Type {
@@ -15868,6 +18557,12 @@ func (o GetKafkaClusterDedicatedOutput) ToGetKafkaClusterDedicatedPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetKafkaClusterDedicated) *GetKafkaClusterDedicated {
 		return &v
 	}).(GetKafkaClusterDedicatedPtrOutput)
+}
+
+func (o GetKafkaClusterDedicatedOutput) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClusterDedicated] {
+	return pulumix.Output[GetKafkaClusterDedicated]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
@@ -15899,6 +18594,12 @@ func (o GetKafkaClusterDedicatedPtrOutput) ToGetKafkaClusterDedicatedPtrOutput()
 
 func (o GetKafkaClusterDedicatedPtrOutput) ToGetKafkaClusterDedicatedPtrOutputWithContext(ctx context.Context) GetKafkaClusterDedicatedPtrOutput {
 	return o
+}
+
+func (o GetKafkaClusterDedicatedPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetKafkaClusterDedicated] {
+	return pulumix.Output[*GetKafkaClusterDedicated]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKafkaClusterDedicatedPtrOutput) Elem() GetKafkaClusterDedicatedOutput {
@@ -15972,6 +18673,12 @@ func (i GetKafkaClusterEnterpriseArgs) ToGetKafkaClusterEnterpriseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterEnterpriseOutput)
 }
 
+func (i GetKafkaClusterEnterpriseArgs) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClusterEnterprise] {
+	return pulumix.Output[GetKafkaClusterEnterprise]{
+		OutputState: i.ToGetKafkaClusterEnterpriseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKafkaClusterEnterpriseArrayInput is an input type that accepts GetKafkaClusterEnterpriseArray and GetKafkaClusterEnterpriseArrayOutput values.
 // You can construct a concrete instance of `GetKafkaClusterEnterpriseArrayInput` via:
 //
@@ -15997,6 +18704,12 @@ func (i GetKafkaClusterEnterpriseArray) ToGetKafkaClusterEnterpriseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterEnterpriseArrayOutput)
 }
 
+func (i GetKafkaClusterEnterpriseArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClusterEnterprise] {
+	return pulumix.Output[[]GetKafkaClusterEnterprise]{
+		OutputState: i.ToGetKafkaClusterEnterpriseArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKafkaClusterEnterpriseOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaClusterEnterpriseOutput) ElementType() reflect.Type {
@@ -16011,6 +18724,12 @@ func (o GetKafkaClusterEnterpriseOutput) ToGetKafkaClusterEnterpriseOutputWithCo
 	return o
 }
 
+func (o GetKafkaClusterEnterpriseOutput) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClusterEnterprise] {
+	return pulumix.Output[GetKafkaClusterEnterprise]{
+		OutputState: o.OutputState,
+	}
+}
+
 type GetKafkaClusterEnterpriseArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaClusterEnterpriseArrayOutput) ElementType() reflect.Type {
@@ -16023,6 +18742,12 @@ func (o GetKafkaClusterEnterpriseArrayOutput) ToGetKafkaClusterEnterpriseArrayOu
 
 func (o GetKafkaClusterEnterpriseArrayOutput) ToGetKafkaClusterEnterpriseArrayOutputWithContext(ctx context.Context) GetKafkaClusterEnterpriseArrayOutput {
 	return o
+}
+
+func (o GetKafkaClusterEnterpriseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClusterEnterprise] {
+	return pulumix.Output[[]GetKafkaClusterEnterprise]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKafkaClusterEnterpriseArrayOutput) Index(i pulumi.IntInput) GetKafkaClusterEnterpriseOutput {
@@ -16068,6 +18793,12 @@ func (i GetKafkaClusterEnvironmentArgs) ToGetKafkaClusterEnvironmentOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterEnvironmentOutput)
 }
 
+func (i GetKafkaClusterEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClusterEnvironment] {
+	return pulumix.Output[GetKafkaClusterEnvironment]{
+		OutputState: i.ToGetKafkaClusterEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKafkaClusterEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaClusterEnvironmentOutput) ElementType() reflect.Type {
@@ -16080,6 +18811,12 @@ func (o GetKafkaClusterEnvironmentOutput) ToGetKafkaClusterEnvironmentOutput() G
 
 func (o GetKafkaClusterEnvironmentOutput) ToGetKafkaClusterEnvironmentOutputWithContext(ctx context.Context) GetKafkaClusterEnvironmentOutput {
 	return o
+}
+
+func (o GetKafkaClusterEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClusterEnvironment] {
+	return pulumix.Output[GetKafkaClusterEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
@@ -16126,6 +18863,12 @@ func (i GetKafkaClusterNetworkArgs) ToGetKafkaClusterNetworkOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterNetworkOutput)
 }
 
+func (i GetKafkaClusterNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClusterNetwork] {
+	return pulumix.Output[GetKafkaClusterNetwork]{
+		OutputState: i.ToGetKafkaClusterNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKafkaClusterNetworkArrayInput is an input type that accepts GetKafkaClusterNetworkArray and GetKafkaClusterNetworkArrayOutput values.
 // You can construct a concrete instance of `GetKafkaClusterNetworkArrayInput` via:
 //
@@ -16151,6 +18894,12 @@ func (i GetKafkaClusterNetworkArray) ToGetKafkaClusterNetworkArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterNetworkArrayOutput)
 }
 
+func (i GetKafkaClusterNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClusterNetwork] {
+	return pulumix.Output[[]GetKafkaClusterNetwork]{
+		OutputState: i.ToGetKafkaClusterNetworkArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKafkaClusterNetworkOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaClusterNetworkOutput) ElementType() reflect.Type {
@@ -16163,6 +18912,12 @@ func (o GetKafkaClusterNetworkOutput) ToGetKafkaClusterNetworkOutput() GetKafkaC
 
 func (o GetKafkaClusterNetworkOutput) ToGetKafkaClusterNetworkOutputWithContext(ctx context.Context) GetKafkaClusterNetworkOutput {
 	return o
+}
+
+func (o GetKafkaClusterNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClusterNetwork] {
+	return pulumix.Output[GetKafkaClusterNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
@@ -16184,6 +18939,12 @@ func (o GetKafkaClusterNetworkArrayOutput) ToGetKafkaClusterNetworkArrayOutput()
 
 func (o GetKafkaClusterNetworkArrayOutput) ToGetKafkaClusterNetworkArrayOutputWithContext(ctx context.Context) GetKafkaClusterNetworkArrayOutput {
 	return o
+}
+
+func (o GetKafkaClusterNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClusterNetwork] {
+	return pulumix.Output[[]GetKafkaClusterNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKafkaClusterNetworkArrayOutput) Index(i pulumi.IntInput) GetKafkaClusterNetworkOutput {
@@ -16221,6 +18982,12 @@ func (i GetKafkaClusterStandardArgs) ToGetKafkaClusterStandardOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterStandardOutput)
 }
 
+func (i GetKafkaClusterStandardArgs) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClusterStandard] {
+	return pulumix.Output[GetKafkaClusterStandard]{
+		OutputState: i.ToGetKafkaClusterStandardOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKafkaClusterStandardArrayInput is an input type that accepts GetKafkaClusterStandardArray and GetKafkaClusterStandardArrayOutput values.
 // You can construct a concrete instance of `GetKafkaClusterStandardArrayInput` via:
 //
@@ -16246,6 +19013,12 @@ func (i GetKafkaClusterStandardArray) ToGetKafkaClusterStandardArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaClusterStandardArrayOutput)
 }
 
+func (i GetKafkaClusterStandardArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClusterStandard] {
+	return pulumix.Output[[]GetKafkaClusterStandard]{
+		OutputState: i.ToGetKafkaClusterStandardArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKafkaClusterStandardOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaClusterStandardOutput) ElementType() reflect.Type {
@@ -16260,6 +19033,12 @@ func (o GetKafkaClusterStandardOutput) ToGetKafkaClusterStandardOutputWithContex
 	return o
 }
 
+func (o GetKafkaClusterStandardOutput) ToOutput(ctx context.Context) pulumix.Output[GetKafkaClusterStandard] {
+	return pulumix.Output[GetKafkaClusterStandard]{
+		OutputState: o.OutputState,
+	}
+}
+
 type GetKafkaClusterStandardArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaClusterStandardArrayOutput) ElementType() reflect.Type {
@@ -16272,6 +19051,12 @@ func (o GetKafkaClusterStandardArrayOutput) ToGetKafkaClusterStandardArrayOutput
 
 func (o GetKafkaClusterStandardArrayOutput) ToGetKafkaClusterStandardArrayOutputWithContext(ctx context.Context) GetKafkaClusterStandardArrayOutput {
 	return o
+}
+
+func (o GetKafkaClusterStandardArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKafkaClusterStandard] {
+	return pulumix.Output[[]GetKafkaClusterStandard]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKafkaClusterStandardArrayOutput) Index(i pulumi.IntInput) GetKafkaClusterStandardOutput {
@@ -16315,6 +19100,12 @@ func (i GetKafkaTopicCredentialsArgs) ToGetKafkaTopicCredentialsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaTopicCredentialsOutput)
 }
 
+func (i GetKafkaTopicCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[GetKafkaTopicCredentials] {
+	return pulumix.Output[GetKafkaTopicCredentials]{
+		OutputState: i.ToGetKafkaTopicCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetKafkaTopicCredentialsArgs) ToGetKafkaTopicCredentialsPtrOutput() GetKafkaTopicCredentialsPtrOutput {
 	return i.ToGetKafkaTopicCredentialsPtrOutputWithContext(context.Background())
 }
@@ -16356,6 +19147,12 @@ func (i *getKafkaTopicCredentialsPtrType) ToGetKafkaTopicCredentialsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaTopicCredentialsPtrOutput)
 }
 
+func (i *getKafkaTopicCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetKafkaTopicCredentials] {
+	return pulumix.Output[*GetKafkaTopicCredentials]{
+		OutputState: i.ToGetKafkaTopicCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKafkaTopicCredentialsOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaTopicCredentialsOutput) ElementType() reflect.Type {
@@ -16380,6 +19177,12 @@ func (o GetKafkaTopicCredentialsOutput) ToGetKafkaTopicCredentialsPtrOutputWithC
 	}).(GetKafkaTopicCredentialsPtrOutput)
 }
 
+func (o GetKafkaTopicCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[GetKafkaTopicCredentials] {
+	return pulumix.Output[GetKafkaTopicCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Kafka API Key.
 func (o GetKafkaTopicCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaTopicCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -16401,6 +19204,12 @@ func (o GetKafkaTopicCredentialsPtrOutput) ToGetKafkaTopicCredentialsPtrOutput()
 
 func (o GetKafkaTopicCredentialsPtrOutput) ToGetKafkaTopicCredentialsPtrOutputWithContext(ctx context.Context) GetKafkaTopicCredentialsPtrOutput {
 	return o
+}
+
+func (o GetKafkaTopicCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetKafkaTopicCredentials] {
+	return pulumix.Output[*GetKafkaTopicCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKafkaTopicCredentialsPtrOutput) Elem() GetKafkaTopicCredentialsOutput {
@@ -16465,6 +19274,12 @@ func (i GetKafkaTopicKafkaClusterArgs) ToGetKafkaTopicKafkaClusterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaTopicKafkaClusterOutput)
 }
 
+func (i GetKafkaTopicKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetKafkaTopicKafkaCluster] {
+	return pulumix.Output[GetKafkaTopicKafkaCluster]{
+		OutputState: i.ToGetKafkaTopicKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetKafkaTopicKafkaClusterArgs) ToGetKafkaTopicKafkaClusterPtrOutput() GetKafkaTopicKafkaClusterPtrOutput {
 	return i.ToGetKafkaTopicKafkaClusterPtrOutputWithContext(context.Background())
 }
@@ -16506,6 +19321,12 @@ func (i *getKafkaTopicKafkaClusterPtrType) ToGetKafkaTopicKafkaClusterPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GetKafkaTopicKafkaClusterPtrOutput)
 }
 
+func (i *getKafkaTopicKafkaClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetKafkaTopicKafkaCluster] {
+	return pulumix.Output[*GetKafkaTopicKafkaCluster]{
+		OutputState: i.ToGetKafkaTopicKafkaClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKafkaTopicKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (GetKafkaTopicKafkaClusterOutput) ElementType() reflect.Type {
@@ -16530,6 +19351,12 @@ func (o GetKafkaTopicKafkaClusterOutput) ToGetKafkaTopicKafkaClusterPtrOutputWit
 	}).(GetKafkaTopicKafkaClusterPtrOutput)
 }
 
+func (o GetKafkaTopicKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetKafkaTopicKafkaCluster] {
+	return pulumix.Output[GetKafkaTopicKafkaCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Kafka cluster, for example, `lkc-abc123`.
 func (o GetKafkaTopicKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaTopicKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -16547,6 +19374,12 @@ func (o GetKafkaTopicKafkaClusterPtrOutput) ToGetKafkaTopicKafkaClusterPtrOutput
 
 func (o GetKafkaTopicKafkaClusterPtrOutput) ToGetKafkaTopicKafkaClusterPtrOutputWithContext(ctx context.Context) GetKafkaTopicKafkaClusterPtrOutput {
 	return o
+}
+
+func (o GetKafkaTopicKafkaClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetKafkaTopicKafkaCluster] {
+	return pulumix.Output[*GetKafkaTopicKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKafkaTopicKafkaClusterPtrOutput) Elem() GetKafkaTopicKafkaClusterOutput {
@@ -16606,6 +19439,12 @@ func (i GetKsqlClusterCredentialIdentityArgs) ToGetKsqlClusterCredentialIdentity
 	return pulumi.ToOutputWithContext(ctx, i).(GetKsqlClusterCredentialIdentityOutput)
 }
 
+func (i GetKsqlClusterCredentialIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetKsqlClusterCredentialIdentity] {
+	return pulumix.Output[GetKsqlClusterCredentialIdentity]{
+		OutputState: i.ToGetKsqlClusterCredentialIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKsqlClusterCredentialIdentityArrayInput is an input type that accepts GetKsqlClusterCredentialIdentityArray and GetKsqlClusterCredentialIdentityArrayOutput values.
 // You can construct a concrete instance of `GetKsqlClusterCredentialIdentityArrayInput` via:
 //
@@ -16631,6 +19470,12 @@ func (i GetKsqlClusterCredentialIdentityArray) ToGetKsqlClusterCredentialIdentit
 	return pulumi.ToOutputWithContext(ctx, i).(GetKsqlClusterCredentialIdentityArrayOutput)
 }
 
+func (i GetKsqlClusterCredentialIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKsqlClusterCredentialIdentity] {
+	return pulumix.Output[[]GetKsqlClusterCredentialIdentity]{
+		OutputState: i.ToGetKsqlClusterCredentialIdentityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKsqlClusterCredentialIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetKsqlClusterCredentialIdentityOutput) ElementType() reflect.Type {
@@ -16643,6 +19488,12 @@ func (o GetKsqlClusterCredentialIdentityOutput) ToGetKsqlClusterCredentialIdenti
 
 func (o GetKsqlClusterCredentialIdentityOutput) ToGetKsqlClusterCredentialIdentityOutputWithContext(ctx context.Context) GetKsqlClusterCredentialIdentityOutput {
 	return o
+}
+
+func (o GetKsqlClusterCredentialIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetKsqlClusterCredentialIdentity] {
+	return pulumix.Output[GetKsqlClusterCredentialIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
@@ -16664,6 +19515,12 @@ func (o GetKsqlClusterCredentialIdentityArrayOutput) ToGetKsqlClusterCredentialI
 
 func (o GetKsqlClusterCredentialIdentityArrayOutput) ToGetKsqlClusterCredentialIdentityArrayOutputWithContext(ctx context.Context) GetKsqlClusterCredentialIdentityArrayOutput {
 	return o
+}
+
+func (o GetKsqlClusterCredentialIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKsqlClusterCredentialIdentity] {
+	return pulumix.Output[[]GetKsqlClusterCredentialIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKsqlClusterCredentialIdentityArrayOutput) Index(i pulumi.IntInput) GetKsqlClusterCredentialIdentityOutput {
@@ -16709,6 +19566,12 @@ func (i GetKsqlClusterEnvironmentArgs) ToGetKsqlClusterEnvironmentOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetKsqlClusterEnvironmentOutput)
 }
 
+func (i GetKsqlClusterEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetKsqlClusterEnvironment] {
+	return pulumix.Output[GetKsqlClusterEnvironment]{
+		OutputState: i.ToGetKsqlClusterEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKsqlClusterEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetKsqlClusterEnvironmentOutput) ElementType() reflect.Type {
@@ -16721,6 +19584,12 @@ func (o GetKsqlClusterEnvironmentOutput) ToGetKsqlClusterEnvironmentOutput() Get
 
 func (o GetKsqlClusterEnvironmentOutput) ToGetKsqlClusterEnvironmentOutputWithContext(ctx context.Context) GetKsqlClusterEnvironmentOutput {
 	return o
+}
+
+func (o GetKsqlClusterEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetKsqlClusterEnvironment] {
+	return pulumix.Output[GetKsqlClusterEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
@@ -16767,6 +19636,12 @@ func (i GetKsqlClusterKafkaClusterArgs) ToGetKsqlClusterKafkaClusterOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetKsqlClusterKafkaClusterOutput)
 }
 
+func (i GetKsqlClusterKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetKsqlClusterKafkaCluster] {
+	return pulumix.Output[GetKsqlClusterKafkaCluster]{
+		OutputState: i.ToGetKsqlClusterKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKsqlClusterKafkaClusterArrayInput is an input type that accepts GetKsqlClusterKafkaClusterArray and GetKsqlClusterKafkaClusterArrayOutput values.
 // You can construct a concrete instance of `GetKsqlClusterKafkaClusterArrayInput` via:
 //
@@ -16792,6 +19667,12 @@ func (i GetKsqlClusterKafkaClusterArray) ToGetKsqlClusterKafkaClusterArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetKsqlClusterKafkaClusterArrayOutput)
 }
 
+func (i GetKsqlClusterKafkaClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKsqlClusterKafkaCluster] {
+	return pulumix.Output[[]GetKsqlClusterKafkaCluster]{
+		OutputState: i.ToGetKsqlClusterKafkaClusterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKsqlClusterKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (GetKsqlClusterKafkaClusterOutput) ElementType() reflect.Type {
@@ -16804,6 +19685,12 @@ func (o GetKsqlClusterKafkaClusterOutput) ToGetKsqlClusterKafkaClusterOutput() G
 
 func (o GetKsqlClusterKafkaClusterOutput) ToGetKsqlClusterKafkaClusterOutputWithContext(ctx context.Context) GetKsqlClusterKafkaClusterOutput {
 	return o
+}
+
+func (o GetKsqlClusterKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetKsqlClusterKafkaCluster] {
+	return pulumix.Output[GetKsqlClusterKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
@@ -16825,6 +19712,12 @@ func (o GetKsqlClusterKafkaClusterArrayOutput) ToGetKsqlClusterKafkaClusterArray
 
 func (o GetKsqlClusterKafkaClusterArrayOutput) ToGetKsqlClusterKafkaClusterArrayOutputWithContext(ctx context.Context) GetKsqlClusterKafkaClusterArrayOutput {
 	return o
+}
+
+func (o GetKsqlClusterKafkaClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKsqlClusterKafkaCluster] {
+	return pulumix.Output[[]GetKsqlClusterKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKsqlClusterKafkaClusterArrayOutput) Index(i pulumi.IntInput) GetKsqlClusterKafkaClusterOutput {
@@ -16874,6 +19767,12 @@ func (i GetNetworkAwArgs) ToGetNetworkAwOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAwOutput)
 }
 
+func (i GetNetworkAwArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkAw] {
+	return pulumix.Output[GetNetworkAw]{
+		OutputState: i.ToGetNetworkAwOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetNetworkAwArrayInput is an input type that accepts GetNetworkAwArray and GetNetworkAwArrayOutput values.
 // You can construct a concrete instance of `GetNetworkAwArrayInput` via:
 //
@@ -16899,6 +19798,12 @@ func (i GetNetworkAwArray) ToGetNetworkAwArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAwArrayOutput)
 }
 
+func (i GetNetworkAwArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkAw] {
+	return pulumix.Output[[]GetNetworkAw]{
+		OutputState: i.ToGetNetworkAwArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetNetworkAwOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkAwOutput) ElementType() reflect.Type {
@@ -16911,6 +19816,12 @@ func (o GetNetworkAwOutput) ToGetNetworkAwOutput() GetNetworkAwOutput {
 
 func (o GetNetworkAwOutput) ToGetNetworkAwOutputWithContext(ctx context.Context) GetNetworkAwOutput {
 	return o
+}
+
+func (o GetNetworkAwOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkAw] {
+	return pulumix.Output[GetNetworkAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The AWS account ID associated with the Confluent Cloud VPC.
@@ -16940,6 +19851,12 @@ func (o GetNetworkAwArrayOutput) ToGetNetworkAwArrayOutput() GetNetworkAwArrayOu
 
 func (o GetNetworkAwArrayOutput) ToGetNetworkAwArrayOutputWithContext(ctx context.Context) GetNetworkAwArrayOutput {
 	return o
+}
+
+func (o GetNetworkAwArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkAw] {
+	return pulumix.Output[[]GetNetworkAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNetworkAwArrayOutput) Index(i pulumi.IntInput) GetNetworkAwOutput {
@@ -16981,6 +19898,12 @@ func (i GetNetworkAzureArgs) ToGetNetworkAzureOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAzureOutput)
 }
 
+func (i GetNetworkAzureArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkAzure] {
+	return pulumix.Output[GetNetworkAzure]{
+		OutputState: i.ToGetNetworkAzureOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetNetworkAzureArrayInput is an input type that accepts GetNetworkAzureArray and GetNetworkAzureArrayOutput values.
 // You can construct a concrete instance of `GetNetworkAzureArrayInput` via:
 //
@@ -17006,6 +19929,12 @@ func (i GetNetworkAzureArray) ToGetNetworkAzureArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAzureArrayOutput)
 }
 
+func (i GetNetworkAzureArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkAzure] {
+	return pulumix.Output[[]GetNetworkAzure]{
+		OutputState: i.ToGetNetworkAzureArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetNetworkAzureOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkAzureOutput) ElementType() reflect.Type {
@@ -17018,6 +19947,12 @@ func (o GetNetworkAzureOutput) ToGetNetworkAzureOutput() GetNetworkAzureOutput {
 
 func (o GetNetworkAzureOutput) ToGetNetworkAzureOutputWithContext(ctx context.Context) GetNetworkAzureOutput {
 	return o
+}
+
+func (o GetNetworkAzureOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkAzure] {
+	return pulumix.Output[GetNetworkAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
@@ -17037,6 +19972,12 @@ func (o GetNetworkAzureArrayOutput) ToGetNetworkAzureArrayOutput() GetNetworkAzu
 
 func (o GetNetworkAzureArrayOutput) ToGetNetworkAzureArrayOutputWithContext(ctx context.Context) GetNetworkAzureArrayOutput {
 	return o
+}
+
+func (o GetNetworkAzureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkAzure] {
+	return pulumix.Output[[]GetNetworkAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNetworkAzureArrayOutput) Index(i pulumi.IntInput) GetNetworkAzureOutput {
@@ -17082,6 +20023,12 @@ func (i GetNetworkDnsConfigArgs) ToGetNetworkDnsConfigOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkDnsConfigOutput)
 }
 
+func (i GetNetworkDnsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkDnsConfig] {
+	return pulumix.Output[GetNetworkDnsConfig]{
+		OutputState: i.ToGetNetworkDnsConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetNetworkDnsConfigArrayInput is an input type that accepts GetNetworkDnsConfigArray and GetNetworkDnsConfigArrayOutput values.
 // You can construct a concrete instance of `GetNetworkDnsConfigArrayInput` via:
 //
@@ -17107,6 +20054,12 @@ func (i GetNetworkDnsConfigArray) ToGetNetworkDnsConfigArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkDnsConfigArrayOutput)
 }
 
+func (i GetNetworkDnsConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkDnsConfig] {
+	return pulumix.Output[[]GetNetworkDnsConfig]{
+		OutputState: i.ToGetNetworkDnsConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetNetworkDnsConfigOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkDnsConfigOutput) ElementType() reflect.Type {
@@ -17119,6 +20072,12 @@ func (o GetNetworkDnsConfigOutput) ToGetNetworkDnsConfigOutput() GetNetworkDnsCo
 
 func (o GetNetworkDnsConfigOutput) ToGetNetworkDnsConfigOutputWithContext(ctx context.Context) GetNetworkDnsConfigOutput {
 	return o
+}
+
+func (o GetNetworkDnsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkDnsConfig] {
+	return pulumix.Output[GetNetworkDnsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) Network DNS resolution.
@@ -17140,6 +20099,12 @@ func (o GetNetworkDnsConfigArrayOutput) ToGetNetworkDnsConfigArrayOutput() GetNe
 
 func (o GetNetworkDnsConfigArrayOutput) ToGetNetworkDnsConfigArrayOutputWithContext(ctx context.Context) GetNetworkDnsConfigArrayOutput {
 	return o
+}
+
+func (o GetNetworkDnsConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkDnsConfig] {
+	return pulumix.Output[[]GetNetworkDnsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNetworkDnsConfigArrayOutput) Index(i pulumi.IntInput) GetNetworkDnsConfigOutput {
@@ -17185,6 +20150,12 @@ func (i GetNetworkEnvironmentArgs) ToGetNetworkEnvironmentOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkEnvironmentOutput)
 }
 
+func (i GetNetworkEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkEnvironment] {
+	return pulumix.Output[GetNetworkEnvironment]{
+		OutputState: i.ToGetNetworkEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetNetworkEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkEnvironmentOutput) ElementType() reflect.Type {
@@ -17197,6 +20168,12 @@ func (o GetNetworkEnvironmentOutput) ToGetNetworkEnvironmentOutput() GetNetworkE
 
 func (o GetNetworkEnvironmentOutput) ToGetNetworkEnvironmentOutputWithContext(ctx context.Context) GetNetworkEnvironmentOutput {
 	return o
+}
+
+func (o GetNetworkEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkEnvironment] {
+	return pulumix.Output[GetNetworkEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
@@ -17247,6 +20224,12 @@ func (i GetNetworkGcpArgs) ToGetNetworkGcpOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkGcpOutput)
 }
 
+func (i GetNetworkGcpArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkGcp] {
+	return pulumix.Output[GetNetworkGcp]{
+		OutputState: i.ToGetNetworkGcpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetNetworkGcpArrayInput is an input type that accepts GetNetworkGcpArray and GetNetworkGcpArrayOutput values.
 // You can construct a concrete instance of `GetNetworkGcpArrayInput` via:
 //
@@ -17272,6 +20255,12 @@ func (i GetNetworkGcpArray) ToGetNetworkGcpArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkGcpArrayOutput)
 }
 
+func (i GetNetworkGcpArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkGcp] {
+	return pulumix.Output[[]GetNetworkGcp]{
+		OutputState: i.ToGetNetworkGcpArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetNetworkGcpOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkGcpOutput) ElementType() reflect.Type {
@@ -17284,6 +20273,12 @@ func (o GetNetworkGcpOutput) ToGetNetworkGcpOutput() GetNetworkGcpOutput {
 
 func (o GetNetworkGcpOutput) ToGetNetworkGcpOutputWithContext(ctx context.Context) GetNetworkGcpOutput {
 	return o
+}
+
+func (o GetNetworkGcpOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkGcp] {
+	return pulumix.Output[GetNetworkGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional Map) The mapping of zones to Private Service Connect Service Attachments if available. Keys are zones and values are [GCP Private Service Connect service attachment](https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#api_7).
@@ -17313,6 +20308,12 @@ func (o GetNetworkGcpArrayOutput) ToGetNetworkGcpArrayOutput() GetNetworkGcpArra
 
 func (o GetNetworkGcpArrayOutput) ToGetNetworkGcpArrayOutputWithContext(ctx context.Context) GetNetworkGcpArrayOutput {
 	return o
+}
+
+func (o GetNetworkGcpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkGcp] {
+	return pulumix.Output[[]GetNetworkGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNetworkGcpArrayOutput) Index(i pulumi.IntInput) GetNetworkGcpOutput {
@@ -17354,6 +20355,12 @@ func (i GetNetworkLinkEndpointEnvironmentArgs) ToGetNetworkLinkEndpointEnvironme
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkEndpointEnvironmentOutput)
 }
 
+func (i GetNetworkLinkEndpointEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkLinkEndpointEnvironment] {
+	return pulumix.Output[GetNetworkLinkEndpointEnvironment]{
+		OutputState: i.ToGetNetworkLinkEndpointEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetNetworkLinkEndpointEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkLinkEndpointEnvironmentOutput) ElementType() reflect.Type {
@@ -17366,6 +20373,12 @@ func (o GetNetworkLinkEndpointEnvironmentOutput) ToGetNetworkLinkEndpointEnviron
 
 func (o GetNetworkLinkEndpointEnvironmentOutput) ToGetNetworkLinkEndpointEnvironmentOutputWithContext(ctx context.Context) GetNetworkLinkEndpointEnvironmentOutput {
 	return o
+}
+
+func (o GetNetworkLinkEndpointEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkLinkEndpointEnvironment] {
+	return pulumix.Output[GetNetworkLinkEndpointEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
@@ -17406,6 +20419,12 @@ func (i GetNetworkLinkEndpointNetworkArgs) ToGetNetworkLinkEndpointNetworkOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkEndpointNetworkOutput)
 }
 
+func (i GetNetworkLinkEndpointNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkLinkEndpointNetwork] {
+	return pulumix.Output[GetNetworkLinkEndpointNetwork]{
+		OutputState: i.ToGetNetworkLinkEndpointNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetNetworkLinkEndpointNetworkArrayInput is an input type that accepts GetNetworkLinkEndpointNetworkArray and GetNetworkLinkEndpointNetworkArrayOutput values.
 // You can construct a concrete instance of `GetNetworkLinkEndpointNetworkArrayInput` via:
 //
@@ -17431,6 +20450,12 @@ func (i GetNetworkLinkEndpointNetworkArray) ToGetNetworkLinkEndpointNetworkArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkEndpointNetworkArrayOutput)
 }
 
+func (i GetNetworkLinkEndpointNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkLinkEndpointNetwork] {
+	return pulumix.Output[[]GetNetworkLinkEndpointNetwork]{
+		OutputState: i.ToGetNetworkLinkEndpointNetworkArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetNetworkLinkEndpointNetworkOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkLinkEndpointNetworkOutput) ElementType() reflect.Type {
@@ -17443,6 +20468,12 @@ func (o GetNetworkLinkEndpointNetworkOutput) ToGetNetworkLinkEndpointNetworkOutp
 
 func (o GetNetworkLinkEndpointNetworkOutput) ToGetNetworkLinkEndpointNetworkOutputWithContext(ctx context.Context) GetNetworkLinkEndpointNetworkOutput {
 	return o
+}
+
+func (o GetNetworkLinkEndpointNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkLinkEndpointNetwork] {
+	return pulumix.Output[GetNetworkLinkEndpointNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
@@ -17462,6 +20493,12 @@ func (o GetNetworkLinkEndpointNetworkArrayOutput) ToGetNetworkLinkEndpointNetwor
 
 func (o GetNetworkLinkEndpointNetworkArrayOutput) ToGetNetworkLinkEndpointNetworkArrayOutputWithContext(ctx context.Context) GetNetworkLinkEndpointNetworkArrayOutput {
 	return o
+}
+
+func (o GetNetworkLinkEndpointNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkLinkEndpointNetwork] {
+	return pulumix.Output[[]GetNetworkLinkEndpointNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNetworkLinkEndpointNetworkArrayOutput) Index(i pulumi.IntInput) GetNetworkLinkEndpointNetworkOutput {
@@ -17503,6 +20540,12 @@ func (i GetNetworkLinkEndpointNetworkLinkServiceArgs) ToGetNetworkLinkEndpointNe
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkEndpointNetworkLinkServiceOutput)
 }
 
+func (i GetNetworkLinkEndpointNetworkLinkServiceArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkLinkEndpointNetworkLinkService] {
+	return pulumix.Output[GetNetworkLinkEndpointNetworkLinkService]{
+		OutputState: i.ToGetNetworkLinkEndpointNetworkLinkServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetNetworkLinkEndpointNetworkLinkServiceArrayInput is an input type that accepts GetNetworkLinkEndpointNetworkLinkServiceArray and GetNetworkLinkEndpointNetworkLinkServiceArrayOutput values.
 // You can construct a concrete instance of `GetNetworkLinkEndpointNetworkLinkServiceArrayInput` via:
 //
@@ -17528,6 +20571,12 @@ func (i GetNetworkLinkEndpointNetworkLinkServiceArray) ToGetNetworkLinkEndpointN
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkEndpointNetworkLinkServiceArrayOutput)
 }
 
+func (i GetNetworkLinkEndpointNetworkLinkServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkLinkEndpointNetworkLinkService] {
+	return pulumix.Output[[]GetNetworkLinkEndpointNetworkLinkService]{
+		OutputState: i.ToGetNetworkLinkEndpointNetworkLinkServiceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetNetworkLinkEndpointNetworkLinkServiceOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkLinkEndpointNetworkLinkServiceOutput) ElementType() reflect.Type {
@@ -17540,6 +20589,12 @@ func (o GetNetworkLinkEndpointNetworkLinkServiceOutput) ToGetNetworkLinkEndpoint
 
 func (o GetNetworkLinkEndpointNetworkLinkServiceOutput) ToGetNetworkLinkEndpointNetworkLinkServiceOutputWithContext(ctx context.Context) GetNetworkLinkEndpointNetworkLinkServiceOutput {
 	return o
+}
+
+func (o GetNetworkLinkEndpointNetworkLinkServiceOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkLinkEndpointNetworkLinkService] {
+	return pulumix.Output[GetNetworkLinkEndpointNetworkLinkService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
@@ -17559,6 +20614,12 @@ func (o GetNetworkLinkEndpointNetworkLinkServiceArrayOutput) ToGetNetworkLinkEnd
 
 func (o GetNetworkLinkEndpointNetworkLinkServiceArrayOutput) ToGetNetworkLinkEndpointNetworkLinkServiceArrayOutputWithContext(ctx context.Context) GetNetworkLinkEndpointNetworkLinkServiceArrayOutput {
 	return o
+}
+
+func (o GetNetworkLinkEndpointNetworkLinkServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkLinkEndpointNetworkLinkService] {
+	return pulumix.Output[[]GetNetworkLinkEndpointNetworkLinkService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNetworkLinkEndpointNetworkLinkServiceArrayOutput) Index(i pulumi.IntInput) GetNetworkLinkEndpointNetworkLinkServiceOutput {
@@ -17604,6 +20665,12 @@ func (i GetNetworkLinkServiceAcceptArgs) ToGetNetworkLinkServiceAcceptOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkServiceAcceptOutput)
 }
 
+func (i GetNetworkLinkServiceAcceptArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkLinkServiceAccept] {
+	return pulumix.Output[GetNetworkLinkServiceAccept]{
+		OutputState: i.ToGetNetworkLinkServiceAcceptOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetNetworkLinkServiceAcceptArgs) ToGetNetworkLinkServiceAcceptPtrOutput() GetNetworkLinkServiceAcceptPtrOutput {
 	return i.ToGetNetworkLinkServiceAcceptPtrOutputWithContext(context.Background())
 }
@@ -17645,6 +20712,12 @@ func (i *getNetworkLinkServiceAcceptPtrType) ToGetNetworkLinkServiceAcceptPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkServiceAcceptPtrOutput)
 }
 
+func (i *getNetworkLinkServiceAcceptPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetNetworkLinkServiceAccept] {
+	return pulumix.Output[*GetNetworkLinkServiceAccept]{
+		OutputState: i.ToGetNetworkLinkServiceAcceptPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetNetworkLinkServiceAcceptOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkLinkServiceAcceptOutput) ElementType() reflect.Type {
@@ -17669,6 +20742,12 @@ func (o GetNetworkLinkServiceAcceptOutput) ToGetNetworkLinkServiceAcceptPtrOutpu
 	}).(GetNetworkLinkServiceAcceptPtrOutput)
 }
 
+func (o GetNetworkLinkServiceAcceptOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkLinkServiceAccept] {
+	return pulumix.Output[GetNetworkLinkServiceAccept]{
+		OutputState: o.OutputState,
+	}
+}
+
 // (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
 func (o GetNetworkLinkServiceAcceptOutput) Environments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkLinkServiceAccept) []string { return v.Environments }).(pulumi.StringArrayOutput)
@@ -17691,6 +20770,12 @@ func (o GetNetworkLinkServiceAcceptPtrOutput) ToGetNetworkLinkServiceAcceptPtrOu
 
 func (o GetNetworkLinkServiceAcceptPtrOutput) ToGetNetworkLinkServiceAcceptPtrOutputWithContext(ctx context.Context) GetNetworkLinkServiceAcceptPtrOutput {
 	return o
+}
+
+func (o GetNetworkLinkServiceAcceptPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetNetworkLinkServiceAccept] {
+	return pulumix.Output[*GetNetworkLinkServiceAccept]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNetworkLinkServiceAcceptPtrOutput) Elem() GetNetworkLinkServiceAcceptOutput {
@@ -17756,6 +20841,12 @@ func (i GetNetworkLinkServiceEnvironmentArgs) ToGetNetworkLinkServiceEnvironment
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkServiceEnvironmentOutput)
 }
 
+func (i GetNetworkLinkServiceEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkLinkServiceEnvironment] {
+	return pulumix.Output[GetNetworkLinkServiceEnvironment]{
+		OutputState: i.ToGetNetworkLinkServiceEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetNetworkLinkServiceEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkLinkServiceEnvironmentOutput) ElementType() reflect.Type {
@@ -17768,6 +20859,12 @@ func (o GetNetworkLinkServiceEnvironmentOutput) ToGetNetworkLinkServiceEnvironme
 
 func (o GetNetworkLinkServiceEnvironmentOutput) ToGetNetworkLinkServiceEnvironmentOutputWithContext(ctx context.Context) GetNetworkLinkServiceEnvironmentOutput {
 	return o
+}
+
+func (o GetNetworkLinkServiceEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkLinkServiceEnvironment] {
+	return pulumix.Output[GetNetworkLinkServiceEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
@@ -17808,6 +20905,12 @@ func (i GetNetworkLinkServiceNetworkArgs) ToGetNetworkLinkServiceNetworkOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkServiceNetworkOutput)
 }
 
+func (i GetNetworkLinkServiceNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkLinkServiceNetwork] {
+	return pulumix.Output[GetNetworkLinkServiceNetwork]{
+		OutputState: i.ToGetNetworkLinkServiceNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetNetworkLinkServiceNetworkArrayInput is an input type that accepts GetNetworkLinkServiceNetworkArray and GetNetworkLinkServiceNetworkArrayOutput values.
 // You can construct a concrete instance of `GetNetworkLinkServiceNetworkArrayInput` via:
 //
@@ -17833,6 +20936,12 @@ func (i GetNetworkLinkServiceNetworkArray) ToGetNetworkLinkServiceNetworkArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkLinkServiceNetworkArrayOutput)
 }
 
+func (i GetNetworkLinkServiceNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkLinkServiceNetwork] {
+	return pulumix.Output[[]GetNetworkLinkServiceNetwork]{
+		OutputState: i.ToGetNetworkLinkServiceNetworkArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetNetworkLinkServiceNetworkOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkLinkServiceNetworkOutput) ElementType() reflect.Type {
@@ -17845,6 +20954,12 @@ func (o GetNetworkLinkServiceNetworkOutput) ToGetNetworkLinkServiceNetworkOutput
 
 func (o GetNetworkLinkServiceNetworkOutput) ToGetNetworkLinkServiceNetworkOutputWithContext(ctx context.Context) GetNetworkLinkServiceNetworkOutput {
 	return o
+}
+
+func (o GetNetworkLinkServiceNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkLinkServiceNetwork] {
+	return pulumix.Output[GetNetworkLinkServiceNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
@@ -17864,6 +20979,12 @@ func (o GetNetworkLinkServiceNetworkArrayOutput) ToGetNetworkLinkServiceNetworkA
 
 func (o GetNetworkLinkServiceNetworkArrayOutput) ToGetNetworkLinkServiceNetworkArrayOutputWithContext(ctx context.Context) GetNetworkLinkServiceNetworkArrayOutput {
 	return o
+}
+
+func (o GetNetworkLinkServiceNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkLinkServiceNetwork] {
+	return pulumix.Output[[]GetNetworkLinkServiceNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNetworkLinkServiceNetworkArrayOutput) Index(i pulumi.IntInput) GetNetworkLinkServiceNetworkOutput {
@@ -17909,6 +21030,12 @@ func (i GetNetworkZoneInfoArgs) ToGetNetworkZoneInfoOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkZoneInfoOutput)
 }
 
+func (i GetNetworkZoneInfoArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkZoneInfo] {
+	return pulumix.Output[GetNetworkZoneInfo]{
+		OutputState: i.ToGetNetworkZoneInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetNetworkZoneInfoArrayInput is an input type that accepts GetNetworkZoneInfoArray and GetNetworkZoneInfoArrayOutput values.
 // You can construct a concrete instance of `GetNetworkZoneInfoArrayInput` via:
 //
@@ -17934,6 +21061,12 @@ func (i GetNetworkZoneInfoArray) ToGetNetworkZoneInfoArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkZoneInfoArrayOutput)
 }
 
+func (i GetNetworkZoneInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkZoneInfo] {
+	return pulumix.Output[[]GetNetworkZoneInfo]{
+		OutputState: i.ToGetNetworkZoneInfoArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetNetworkZoneInfoOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkZoneInfoOutput) ElementType() reflect.Type {
@@ -17946,6 +21079,12 @@ func (o GetNetworkZoneInfoOutput) ToGetNetworkZoneInfoOutput() GetNetworkZoneInf
 
 func (o GetNetworkZoneInfoOutput) ToGetNetworkZoneInfoOutputWithContext(ctx context.Context) GetNetworkZoneInfoOutput {
 	return o
+}
+
+func (o GetNetworkZoneInfoOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkZoneInfo] {
+	return pulumix.Output[GetNetworkZoneInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
@@ -17970,6 +21109,12 @@ func (o GetNetworkZoneInfoArrayOutput) ToGetNetworkZoneInfoArrayOutput() GetNetw
 
 func (o GetNetworkZoneInfoArrayOutput) ToGetNetworkZoneInfoArrayOutputWithContext(ctx context.Context) GetNetworkZoneInfoArrayOutput {
 	return o
+}
+
+func (o GetNetworkZoneInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkZoneInfo] {
+	return pulumix.Output[[]GetNetworkZoneInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNetworkZoneInfoArrayOutput) Index(i pulumi.IntInput) GetNetworkZoneInfoOutput {
@@ -18023,6 +21168,12 @@ func (i GetPeeringAwArgs) ToGetPeeringAwOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringAwOutput)
 }
 
+func (i GetPeeringAwArgs) ToOutput(ctx context.Context) pulumix.Output[GetPeeringAw] {
+	return pulumix.Output[GetPeeringAw]{
+		OutputState: i.ToGetPeeringAwOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPeeringAwArrayInput is an input type that accepts GetPeeringAwArray and GetPeeringAwArrayOutput values.
 // You can construct a concrete instance of `GetPeeringAwArrayInput` via:
 //
@@ -18048,6 +21199,12 @@ func (i GetPeeringAwArray) ToGetPeeringAwArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringAwArrayOutput)
 }
 
+func (i GetPeeringAwArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPeeringAw] {
+	return pulumix.Output[[]GetPeeringAw]{
+		OutputState: i.ToGetPeeringAwArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPeeringAwOutput struct{ *pulumi.OutputState }
 
 func (GetPeeringAwOutput) ElementType() reflect.Type {
@@ -18060,6 +21217,12 @@ func (o GetPeeringAwOutput) ToGetPeeringAwOutput() GetPeeringAwOutput {
 
 func (o GetPeeringAwOutput) ToGetPeeringAwOutputWithContext(ctx context.Context) GetPeeringAwOutput {
 	return o
+}
+
+func (o GetPeeringAwOutput) ToOutput(ctx context.Context) pulumix.Output[GetPeeringAw] {
+	return pulumix.Output[GetPeeringAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
@@ -18094,6 +21257,12 @@ func (o GetPeeringAwArrayOutput) ToGetPeeringAwArrayOutput() GetPeeringAwArrayOu
 
 func (o GetPeeringAwArrayOutput) ToGetPeeringAwArrayOutputWithContext(ctx context.Context) GetPeeringAwArrayOutput {
 	return o
+}
+
+func (o GetPeeringAwArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPeeringAw] {
+	return pulumix.Output[[]GetPeeringAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPeeringAwArrayOutput) Index(i pulumi.IntInput) GetPeeringAwOutput {
@@ -18143,6 +21312,12 @@ func (i GetPeeringAzureArgs) ToGetPeeringAzureOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringAzureOutput)
 }
 
+func (i GetPeeringAzureArgs) ToOutput(ctx context.Context) pulumix.Output[GetPeeringAzure] {
+	return pulumix.Output[GetPeeringAzure]{
+		OutputState: i.ToGetPeeringAzureOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPeeringAzureArrayInput is an input type that accepts GetPeeringAzureArray and GetPeeringAzureArrayOutput values.
 // You can construct a concrete instance of `GetPeeringAzureArrayInput` via:
 //
@@ -18168,6 +21343,12 @@ func (i GetPeeringAzureArray) ToGetPeeringAzureArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringAzureArrayOutput)
 }
 
+func (i GetPeeringAzureArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPeeringAzure] {
+	return pulumix.Output[[]GetPeeringAzure]{
+		OutputState: i.ToGetPeeringAzureArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPeeringAzureOutput struct{ *pulumi.OutputState }
 
 func (GetPeeringAzureOutput) ElementType() reflect.Type {
@@ -18180,6 +21361,12 @@ func (o GetPeeringAzureOutput) ToGetPeeringAzureOutput() GetPeeringAzureOutput {
 
 func (o GetPeeringAzureOutput) ToGetPeeringAzureOutputWithContext(ctx context.Context) GetPeeringAzureOutput {
 	return o
+}
+
+func (o GetPeeringAzureOutput) ToOutput(ctx context.Context) pulumix.Output[GetPeeringAzure] {
+	return pulumix.Output[GetPeeringAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The region of the Azure peer VNet.
@@ -18209,6 +21396,12 @@ func (o GetPeeringAzureArrayOutput) ToGetPeeringAzureArrayOutput() GetPeeringAzu
 
 func (o GetPeeringAzureArrayOutput) ToGetPeeringAzureArrayOutputWithContext(ctx context.Context) GetPeeringAzureArrayOutput {
 	return o
+}
+
+func (o GetPeeringAzureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPeeringAzure] {
+	return pulumix.Output[[]GetPeeringAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPeeringAzureArrayOutput) Index(i pulumi.IntInput) GetPeeringAzureOutput {
@@ -18254,6 +21447,12 @@ func (i GetPeeringEnvironmentArgs) ToGetPeeringEnvironmentOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringEnvironmentOutput)
 }
 
+func (i GetPeeringEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetPeeringEnvironment] {
+	return pulumix.Output[GetPeeringEnvironment]{
+		OutputState: i.ToGetPeeringEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPeeringEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetPeeringEnvironmentOutput) ElementType() reflect.Type {
@@ -18266,6 +21465,12 @@ func (o GetPeeringEnvironmentOutput) ToGetPeeringEnvironmentOutput() GetPeeringE
 
 func (o GetPeeringEnvironmentOutput) ToGetPeeringEnvironmentOutputWithContext(ctx context.Context) GetPeeringEnvironmentOutput {
 	return o
+}
+
+func (o GetPeeringEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetPeeringEnvironment] {
+	return pulumix.Output[GetPeeringEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
@@ -18316,6 +21521,12 @@ func (i GetPeeringGcpArgs) ToGetPeeringGcpOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringGcpOutput)
 }
 
+func (i GetPeeringGcpArgs) ToOutput(ctx context.Context) pulumix.Output[GetPeeringGcp] {
+	return pulumix.Output[GetPeeringGcp]{
+		OutputState: i.ToGetPeeringGcpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPeeringGcpArrayInput is an input type that accepts GetPeeringGcpArray and GetPeeringGcpArrayOutput values.
 // You can construct a concrete instance of `GetPeeringGcpArrayInput` via:
 //
@@ -18341,6 +21552,12 @@ func (i GetPeeringGcpArray) ToGetPeeringGcpArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringGcpArrayOutput)
 }
 
+func (i GetPeeringGcpArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPeeringGcp] {
+	return pulumix.Output[[]GetPeeringGcp]{
+		OutputState: i.ToGetPeeringGcpArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPeeringGcpOutput struct{ *pulumi.OutputState }
 
 func (GetPeeringGcpOutput) ElementType() reflect.Type {
@@ -18353,6 +21570,12 @@ func (o GetPeeringGcpOutput) ToGetPeeringGcpOutput() GetPeeringGcpOutput {
 
 func (o GetPeeringGcpOutput) ToGetPeeringGcpOutputWithContext(ctx context.Context) GetPeeringGcpOutput {
 	return o
+}
+
+func (o GetPeeringGcpOutput) ToOutput(ctx context.Context) pulumix.Output[GetPeeringGcp] {
+	return pulumix.Output[GetPeeringGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional Boolean) The Import Custom Routes option enables connectivity to a Confluent Cloud cluster in Google Cloud from customer premise or other clouds, such as AWS and Azure, through a customer VPC that is peered with Confluent Cloud in the same region. Defaults to `false`. Learn more about considerations / limitations of the Import Custom Routes option [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#import-custom-routes).
@@ -18382,6 +21605,12 @@ func (o GetPeeringGcpArrayOutput) ToGetPeeringGcpArrayOutput() GetPeeringGcpArra
 
 func (o GetPeeringGcpArrayOutput) ToGetPeeringGcpArrayOutputWithContext(ctx context.Context) GetPeeringGcpArrayOutput {
 	return o
+}
+
+func (o GetPeeringGcpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPeeringGcp] {
+	return pulumix.Output[[]GetPeeringGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPeeringGcpArrayOutput) Index(i pulumi.IntInput) GetPeeringGcpOutput {
@@ -18427,6 +21656,12 @@ func (i GetPeeringNetworkArgs) ToGetPeeringNetworkOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringNetworkOutput)
 }
 
+func (i GetPeeringNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[GetPeeringNetwork] {
+	return pulumix.Output[GetPeeringNetwork]{
+		OutputState: i.ToGetPeeringNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPeeringNetworkArrayInput is an input type that accepts GetPeeringNetworkArray and GetPeeringNetworkArrayOutput values.
 // You can construct a concrete instance of `GetPeeringNetworkArrayInput` via:
 //
@@ -18452,6 +21687,12 @@ func (i GetPeeringNetworkArray) ToGetPeeringNetworkArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringNetworkArrayOutput)
 }
 
+func (i GetPeeringNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPeeringNetwork] {
+	return pulumix.Output[[]GetPeeringNetwork]{
+		OutputState: i.ToGetPeeringNetworkArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPeeringNetworkOutput struct{ *pulumi.OutputState }
 
 func (GetPeeringNetworkOutput) ElementType() reflect.Type {
@@ -18464,6 +21705,12 @@ func (o GetPeeringNetworkOutput) ToGetPeeringNetworkOutput() GetPeeringNetworkOu
 
 func (o GetPeeringNetworkOutput) ToGetPeeringNetworkOutputWithContext(ctx context.Context) GetPeeringNetworkOutput {
 	return o
+}
+
+func (o GetPeeringNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[GetPeeringNetwork] {
+	return pulumix.Output[GetPeeringNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
@@ -18485,6 +21732,12 @@ func (o GetPeeringNetworkArrayOutput) ToGetPeeringNetworkArrayOutput() GetPeerin
 
 func (o GetPeeringNetworkArrayOutput) ToGetPeeringNetworkArrayOutputWithContext(ctx context.Context) GetPeeringNetworkArrayOutput {
 	return o
+}
+
+func (o GetPeeringNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPeeringNetwork] {
+	return pulumix.Output[[]GetPeeringNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPeeringNetworkArrayOutput) Index(i pulumi.IntInput) GetPeeringNetworkOutput {
@@ -18526,6 +21779,12 @@ func (i GetPrivateLinkAccessAwArgs) ToGetPrivateLinkAccessAwOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessAwOutput)
 }
 
+func (i GetPrivateLinkAccessAwArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAccessAw] {
+	return pulumix.Output[GetPrivateLinkAccessAw]{
+		OutputState: i.ToGetPrivateLinkAccessAwOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPrivateLinkAccessAwArrayInput is an input type that accepts GetPrivateLinkAccessAwArray and GetPrivateLinkAccessAwArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAccessAwArrayInput` via:
 //
@@ -18551,6 +21810,12 @@ func (i GetPrivateLinkAccessAwArray) ToGetPrivateLinkAccessAwArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessAwArrayOutput)
 }
 
+func (i GetPrivateLinkAccessAwArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAccessAw] {
+	return pulumix.Output[[]GetPrivateLinkAccessAw]{
+		OutputState: i.ToGetPrivateLinkAccessAwArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPrivateLinkAccessAwOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkAccessAwOutput) ElementType() reflect.Type {
@@ -18563,6 +21828,12 @@ func (o GetPrivateLinkAccessAwOutput) ToGetPrivateLinkAccessAwOutput() GetPrivat
 
 func (o GetPrivateLinkAccessAwOutput) ToGetPrivateLinkAccessAwOutputWithContext(ctx context.Context) GetPrivateLinkAccessAwOutput {
 	return o
+}
+
+func (o GetPrivateLinkAccessAwOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAccessAw] {
+	return pulumix.Output[GetPrivateLinkAccessAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
@@ -18582,6 +21853,12 @@ func (o GetPrivateLinkAccessAwArrayOutput) ToGetPrivateLinkAccessAwArrayOutput()
 
 func (o GetPrivateLinkAccessAwArrayOutput) ToGetPrivateLinkAccessAwArrayOutputWithContext(ctx context.Context) GetPrivateLinkAccessAwArrayOutput {
 	return o
+}
+
+func (o GetPrivateLinkAccessAwArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAccessAw] {
+	return pulumix.Output[[]GetPrivateLinkAccessAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAccessAwArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAccessAwOutput {
@@ -18623,6 +21900,12 @@ func (i GetPrivateLinkAccessAzureArgs) ToGetPrivateLinkAccessAzureOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessAzureOutput)
 }
 
+func (i GetPrivateLinkAccessAzureArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAccessAzure] {
+	return pulumix.Output[GetPrivateLinkAccessAzure]{
+		OutputState: i.ToGetPrivateLinkAccessAzureOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPrivateLinkAccessAzureArrayInput is an input type that accepts GetPrivateLinkAccessAzureArray and GetPrivateLinkAccessAzureArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAccessAzureArrayInput` via:
 //
@@ -18648,6 +21931,12 @@ func (i GetPrivateLinkAccessAzureArray) ToGetPrivateLinkAccessAzureArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessAzureArrayOutput)
 }
 
+func (i GetPrivateLinkAccessAzureArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAccessAzure] {
+	return pulumix.Output[[]GetPrivateLinkAccessAzure]{
+		OutputState: i.ToGetPrivateLinkAccessAzureArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPrivateLinkAccessAzureOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkAccessAzureOutput) ElementType() reflect.Type {
@@ -18660,6 +21949,12 @@ func (o GetPrivateLinkAccessAzureOutput) ToGetPrivateLinkAccessAzureOutput() Get
 
 func (o GetPrivateLinkAccessAzureOutput) ToGetPrivateLinkAccessAzureOutputWithContext(ctx context.Context) GetPrivateLinkAccessAzureOutput {
 	return o
+}
+
+func (o GetPrivateLinkAccessAzureOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAccessAzure] {
+	return pulumix.Output[GetPrivateLinkAccessAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
@@ -18679,6 +21974,12 @@ func (o GetPrivateLinkAccessAzureArrayOutput) ToGetPrivateLinkAccessAzureArrayOu
 
 func (o GetPrivateLinkAccessAzureArrayOutput) ToGetPrivateLinkAccessAzureArrayOutputWithContext(ctx context.Context) GetPrivateLinkAccessAzureArrayOutput {
 	return o
+}
+
+func (o GetPrivateLinkAccessAzureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAccessAzure] {
+	return pulumix.Output[[]GetPrivateLinkAccessAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAccessAzureArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAccessAzureOutput {
@@ -18724,6 +22025,12 @@ func (i GetPrivateLinkAccessEnvironmentArgs) ToGetPrivateLinkAccessEnvironmentOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessEnvironmentOutput)
 }
 
+func (i GetPrivateLinkAccessEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAccessEnvironment] {
+	return pulumix.Output[GetPrivateLinkAccessEnvironment]{
+		OutputState: i.ToGetPrivateLinkAccessEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPrivateLinkAccessEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkAccessEnvironmentOutput) ElementType() reflect.Type {
@@ -18736,6 +22043,12 @@ func (o GetPrivateLinkAccessEnvironmentOutput) ToGetPrivateLinkAccessEnvironment
 
 func (o GetPrivateLinkAccessEnvironmentOutput) ToGetPrivateLinkAccessEnvironmentOutputWithContext(ctx context.Context) GetPrivateLinkAccessEnvironmentOutput {
 	return o
+}
+
+func (o GetPrivateLinkAccessEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAccessEnvironment] {
+	return pulumix.Output[GetPrivateLinkAccessEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
@@ -18778,6 +22091,12 @@ func (i GetPrivateLinkAccessGcpArgs) ToGetPrivateLinkAccessGcpOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessGcpOutput)
 }
 
+func (i GetPrivateLinkAccessGcpArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAccessGcp] {
+	return pulumix.Output[GetPrivateLinkAccessGcp]{
+		OutputState: i.ToGetPrivateLinkAccessGcpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPrivateLinkAccessGcpArrayInput is an input type that accepts GetPrivateLinkAccessGcpArray and GetPrivateLinkAccessGcpArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAccessGcpArrayInput` via:
 //
@@ -18803,6 +22122,12 @@ func (i GetPrivateLinkAccessGcpArray) ToGetPrivateLinkAccessGcpArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessGcpArrayOutput)
 }
 
+func (i GetPrivateLinkAccessGcpArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAccessGcp] {
+	return pulumix.Output[[]GetPrivateLinkAccessGcp]{
+		OutputState: i.ToGetPrivateLinkAccessGcpArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPrivateLinkAccessGcpOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkAccessGcpOutput) ElementType() reflect.Type {
@@ -18815,6 +22140,12 @@ func (o GetPrivateLinkAccessGcpOutput) ToGetPrivateLinkAccessGcpOutput() GetPriv
 
 func (o GetPrivateLinkAccessGcpOutput) ToGetPrivateLinkAccessGcpOutputWithContext(ctx context.Context) GetPrivateLinkAccessGcpOutput {
 	return o
+}
+
+func (o GetPrivateLinkAccessGcpOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAccessGcp] {
+	return pulumix.Output[GetPrivateLinkAccessGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The GCP project ID to allow for Private Service Connect access. You can find your Google Cloud Project ID under **Project ID** section of your [Google Cloud Console dashboard](https://console.cloud.google.com/home/dashboard).
@@ -18834,6 +22165,12 @@ func (o GetPrivateLinkAccessGcpArrayOutput) ToGetPrivateLinkAccessGcpArrayOutput
 
 func (o GetPrivateLinkAccessGcpArrayOutput) ToGetPrivateLinkAccessGcpArrayOutputWithContext(ctx context.Context) GetPrivateLinkAccessGcpArrayOutput {
 	return o
+}
+
+func (o GetPrivateLinkAccessGcpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAccessGcp] {
+	return pulumix.Output[[]GetPrivateLinkAccessGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAccessGcpArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAccessGcpOutput {
@@ -18879,6 +22216,12 @@ func (i GetPrivateLinkAccessNetworkArgs) ToGetPrivateLinkAccessNetworkOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessNetworkOutput)
 }
 
+func (i GetPrivateLinkAccessNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAccessNetwork] {
+	return pulumix.Output[GetPrivateLinkAccessNetwork]{
+		OutputState: i.ToGetPrivateLinkAccessNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPrivateLinkAccessNetworkArrayInput is an input type that accepts GetPrivateLinkAccessNetworkArray and GetPrivateLinkAccessNetworkArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAccessNetworkArrayInput` via:
 //
@@ -18904,6 +22247,12 @@ func (i GetPrivateLinkAccessNetworkArray) ToGetPrivateLinkAccessNetworkArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAccessNetworkArrayOutput)
 }
 
+func (i GetPrivateLinkAccessNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAccessNetwork] {
+	return pulumix.Output[[]GetPrivateLinkAccessNetwork]{
+		OutputState: i.ToGetPrivateLinkAccessNetworkArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPrivateLinkAccessNetworkOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkAccessNetworkOutput) ElementType() reflect.Type {
@@ -18916,6 +22265,12 @@ func (o GetPrivateLinkAccessNetworkOutput) ToGetPrivateLinkAccessNetworkOutput()
 
 func (o GetPrivateLinkAccessNetworkOutput) ToGetPrivateLinkAccessNetworkOutputWithContext(ctx context.Context) GetPrivateLinkAccessNetworkOutput {
 	return o
+}
+
+func (o GetPrivateLinkAccessNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAccessNetwork] {
+	return pulumix.Output[GetPrivateLinkAccessNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
@@ -18937,6 +22292,12 @@ func (o GetPrivateLinkAccessNetworkArrayOutput) ToGetPrivateLinkAccessNetworkArr
 
 func (o GetPrivateLinkAccessNetworkArrayOutput) ToGetPrivateLinkAccessNetworkArrayOutputWithContext(ctx context.Context) GetPrivateLinkAccessNetworkArrayOutput {
 	return o
+}
+
+func (o GetPrivateLinkAccessNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAccessNetwork] {
+	return pulumix.Output[[]GetPrivateLinkAccessNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAccessNetworkArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAccessNetworkOutput {
@@ -18978,6 +22339,12 @@ func (i GetPrivateLinkAttachmentAwArgs) ToGetPrivateLinkAttachmentAwOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentAwOutput)
 }
 
+func (i GetPrivateLinkAttachmentAwArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentAw] {
+	return pulumix.Output[GetPrivateLinkAttachmentAw]{
+		OutputState: i.ToGetPrivateLinkAttachmentAwOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPrivateLinkAttachmentAwArrayInput is an input type that accepts GetPrivateLinkAttachmentAwArray and GetPrivateLinkAttachmentAwArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAttachmentAwArrayInput` via:
 //
@@ -19003,6 +22370,12 @@ func (i GetPrivateLinkAttachmentAwArray) ToGetPrivateLinkAttachmentAwArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentAwArrayOutput)
 }
 
+func (i GetPrivateLinkAttachmentAwArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAttachmentAw] {
+	return pulumix.Output[[]GetPrivateLinkAttachmentAw]{
+		OutputState: i.ToGetPrivateLinkAttachmentAwArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPrivateLinkAttachmentAwOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkAttachmentAwOutput) ElementType() reflect.Type {
@@ -19015,6 +22388,12 @@ func (o GetPrivateLinkAttachmentAwOutput) ToGetPrivateLinkAttachmentAwOutput() G
 
 func (o GetPrivateLinkAttachmentAwOutput) ToGetPrivateLinkAttachmentAwOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentAwOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentAwOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentAw] {
+	return pulumix.Output[GetPrivateLinkAttachmentAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
@@ -19034,6 +22413,12 @@ func (o GetPrivateLinkAttachmentAwArrayOutput) ToGetPrivateLinkAttachmentAwArray
 
 func (o GetPrivateLinkAttachmentAwArrayOutput) ToGetPrivateLinkAttachmentAwArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentAwArrayOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentAwArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAttachmentAw] {
+	return pulumix.Output[[]GetPrivateLinkAttachmentAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAttachmentAwArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAttachmentAwOutput {
@@ -19077,6 +22462,12 @@ func (i GetPrivateLinkAttachmentAzureArgs) ToGetPrivateLinkAttachmentAzureOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentAzureOutput)
 }
 
+func (i GetPrivateLinkAttachmentAzureArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentAzure] {
+	return pulumix.Output[GetPrivateLinkAttachmentAzure]{
+		OutputState: i.ToGetPrivateLinkAttachmentAzureOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPrivateLinkAttachmentAzureArrayInput is an input type that accepts GetPrivateLinkAttachmentAzureArray and GetPrivateLinkAttachmentAzureArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAttachmentAzureArrayInput` via:
 //
@@ -19102,6 +22493,12 @@ func (i GetPrivateLinkAttachmentAzureArray) ToGetPrivateLinkAttachmentAzureArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentAzureArrayOutput)
 }
 
+func (i GetPrivateLinkAttachmentAzureArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAttachmentAzure] {
+	return pulumix.Output[[]GetPrivateLinkAttachmentAzure]{
+		OutputState: i.ToGetPrivateLinkAttachmentAzureArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPrivateLinkAttachmentAzureOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkAttachmentAzureOutput) ElementType() reflect.Type {
@@ -19114,6 +22511,12 @@ func (o GetPrivateLinkAttachmentAzureOutput) ToGetPrivateLinkAttachmentAzureOutp
 
 func (o GetPrivateLinkAttachmentAzureOutput) ToGetPrivateLinkAttachmentAzureOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentAzureOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentAzureOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentAzure] {
+	return pulumix.Output[GetPrivateLinkAttachmentAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAttachmentAzureOutput) PrivateLinkServiceAlias() pulumi.StringOutput {
@@ -19140,6 +22543,12 @@ func (o GetPrivateLinkAttachmentAzureArrayOutput) ToGetPrivateLinkAttachmentAzur
 
 func (o GetPrivateLinkAttachmentAzureArrayOutput) ToGetPrivateLinkAttachmentAzureArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentAzureArrayOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentAzureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAttachmentAzure] {
+	return pulumix.Output[[]GetPrivateLinkAttachmentAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAttachmentAzureArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAttachmentAzureOutput {
@@ -19181,6 +22590,12 @@ func (i GetPrivateLinkAttachmentConnectionAwArgs) ToGetPrivateLinkAttachmentConn
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionAwOutput)
 }
 
+func (i GetPrivateLinkAttachmentConnectionAwArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentConnectionAw] {
+	return pulumix.Output[GetPrivateLinkAttachmentConnectionAw]{
+		OutputState: i.ToGetPrivateLinkAttachmentConnectionAwOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPrivateLinkAttachmentConnectionAwArrayInput is an input type that accepts GetPrivateLinkAttachmentConnectionAwArray and GetPrivateLinkAttachmentConnectionAwArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAttachmentConnectionAwArrayInput` via:
 //
@@ -19206,6 +22621,12 @@ func (i GetPrivateLinkAttachmentConnectionAwArray) ToGetPrivateLinkAttachmentCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionAwArrayOutput)
 }
 
+func (i GetPrivateLinkAttachmentConnectionAwArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAttachmentConnectionAw] {
+	return pulumix.Output[[]GetPrivateLinkAttachmentConnectionAw]{
+		OutputState: i.ToGetPrivateLinkAttachmentConnectionAwArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPrivateLinkAttachmentConnectionAwOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkAttachmentConnectionAwOutput) ElementType() reflect.Type {
@@ -19218,6 +22639,12 @@ func (o GetPrivateLinkAttachmentConnectionAwOutput) ToGetPrivateLinkAttachmentCo
 
 func (o GetPrivateLinkAttachmentConnectionAwOutput) ToGetPrivateLinkAttachmentConnectionAwOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionAwOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionAwOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentConnectionAw] {
+	return pulumix.Output[GetPrivateLinkAttachmentConnectionAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) Id of a VPC Endpoint that is connected to the VPC Endpoint service.
@@ -19237,6 +22664,12 @@ func (o GetPrivateLinkAttachmentConnectionAwArrayOutput) ToGetPrivateLinkAttachm
 
 func (o GetPrivateLinkAttachmentConnectionAwArrayOutput) ToGetPrivateLinkAttachmentConnectionAwArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionAwArrayOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionAwArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAttachmentConnectionAw] {
+	return pulumix.Output[[]GetPrivateLinkAttachmentConnectionAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAttachmentConnectionAwArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAttachmentConnectionAwOutput {
@@ -19276,6 +22709,12 @@ func (i GetPrivateLinkAttachmentConnectionAzureArgs) ToGetPrivateLinkAttachmentC
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionAzureOutput)
 }
 
+func (i GetPrivateLinkAttachmentConnectionAzureArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentConnectionAzure] {
+	return pulumix.Output[GetPrivateLinkAttachmentConnectionAzure]{
+		OutputState: i.ToGetPrivateLinkAttachmentConnectionAzureOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPrivateLinkAttachmentConnectionAzureArrayInput is an input type that accepts GetPrivateLinkAttachmentConnectionAzureArray and GetPrivateLinkAttachmentConnectionAzureArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAttachmentConnectionAzureArrayInput` via:
 //
@@ -19301,6 +22740,12 @@ func (i GetPrivateLinkAttachmentConnectionAzureArray) ToGetPrivateLinkAttachment
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionAzureArrayOutput)
 }
 
+func (i GetPrivateLinkAttachmentConnectionAzureArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAttachmentConnectionAzure] {
+	return pulumix.Output[[]GetPrivateLinkAttachmentConnectionAzure]{
+		OutputState: i.ToGetPrivateLinkAttachmentConnectionAzureArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPrivateLinkAttachmentConnectionAzureOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkAttachmentConnectionAzureOutput) ElementType() reflect.Type {
@@ -19313,6 +22758,12 @@ func (o GetPrivateLinkAttachmentConnectionAzureOutput) ToGetPrivateLinkAttachmen
 
 func (o GetPrivateLinkAttachmentConnectionAzureOutput) ToGetPrivateLinkAttachmentConnectionAzureOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionAzureOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionAzureOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentConnectionAzure] {
+	return pulumix.Output[GetPrivateLinkAttachmentConnectionAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAttachmentConnectionAzureOutput) PrivateEndpointResourceId() pulumi.StringOutput {
@@ -19331,6 +22782,12 @@ func (o GetPrivateLinkAttachmentConnectionAzureArrayOutput) ToGetPrivateLinkAtta
 
 func (o GetPrivateLinkAttachmentConnectionAzureArrayOutput) ToGetPrivateLinkAttachmentConnectionAzureArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionAzureArrayOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionAzureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAttachmentConnectionAzure] {
+	return pulumix.Output[[]GetPrivateLinkAttachmentConnectionAzure]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAttachmentConnectionAzureArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAttachmentConnectionAzureOutput {
@@ -19372,6 +22829,12 @@ func (i GetPrivateLinkAttachmentConnectionEnvironmentArgs) ToGetPrivateLinkAttac
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionEnvironmentOutput)
 }
 
+func (i GetPrivateLinkAttachmentConnectionEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentConnectionEnvironment] {
+	return pulumix.Output[GetPrivateLinkAttachmentConnectionEnvironment]{
+		OutputState: i.ToGetPrivateLinkAttachmentConnectionEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPrivateLinkAttachmentConnectionEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkAttachmentConnectionEnvironmentOutput) ElementType() reflect.Type {
@@ -19384,6 +22847,12 @@ func (o GetPrivateLinkAttachmentConnectionEnvironmentOutput) ToGetPrivateLinkAtt
 
 func (o GetPrivateLinkAttachmentConnectionEnvironmentOutput) ToGetPrivateLinkAttachmentConnectionEnvironmentOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionEnvironmentOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentConnectionEnvironment] {
+	return pulumix.Output[GetPrivateLinkAttachmentConnectionEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
@@ -19422,6 +22891,12 @@ func (i GetPrivateLinkAttachmentConnectionGcpArgs) ToGetPrivateLinkAttachmentCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionGcpOutput)
 }
 
+func (i GetPrivateLinkAttachmentConnectionGcpArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentConnectionGcp] {
+	return pulumix.Output[GetPrivateLinkAttachmentConnectionGcp]{
+		OutputState: i.ToGetPrivateLinkAttachmentConnectionGcpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPrivateLinkAttachmentConnectionGcpArrayInput is an input type that accepts GetPrivateLinkAttachmentConnectionGcpArray and GetPrivateLinkAttachmentConnectionGcpArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAttachmentConnectionGcpArrayInput` via:
 //
@@ -19447,6 +22922,12 @@ func (i GetPrivateLinkAttachmentConnectionGcpArray) ToGetPrivateLinkAttachmentCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionGcpArrayOutput)
 }
 
+func (i GetPrivateLinkAttachmentConnectionGcpArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAttachmentConnectionGcp] {
+	return pulumix.Output[[]GetPrivateLinkAttachmentConnectionGcp]{
+		OutputState: i.ToGetPrivateLinkAttachmentConnectionGcpArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPrivateLinkAttachmentConnectionGcpOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkAttachmentConnectionGcpOutput) ElementType() reflect.Type {
@@ -19459,6 +22940,12 @@ func (o GetPrivateLinkAttachmentConnectionGcpOutput) ToGetPrivateLinkAttachmentC
 
 func (o GetPrivateLinkAttachmentConnectionGcpOutput) ToGetPrivateLinkAttachmentConnectionGcpOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionGcpOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionGcpOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentConnectionGcp] {
+	return pulumix.Output[GetPrivateLinkAttachmentConnectionGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAttachmentConnectionGcpOutput) PrivateServiceConnectConnectionId() pulumi.StringOutput {
@@ -19477,6 +22964,12 @@ func (o GetPrivateLinkAttachmentConnectionGcpArrayOutput) ToGetPrivateLinkAttach
 
 func (o GetPrivateLinkAttachmentConnectionGcpArrayOutput) ToGetPrivateLinkAttachmentConnectionGcpArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionGcpArrayOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionGcpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAttachmentConnectionGcp] {
+	return pulumix.Output[[]GetPrivateLinkAttachmentConnectionGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAttachmentConnectionGcpArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAttachmentConnectionGcpOutput {
@@ -19518,6 +23011,12 @@ func (i GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs) ToGetPrivat
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput)
 }
 
+func (i GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentConnectionPrivateLinkAttachment] {
+	return pulumix.Output[GetPrivateLinkAttachmentConnectionPrivateLinkAttachment]{
+		OutputState: i.ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayInput is an input type that accepts GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArray and GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayInput` via:
 //
@@ -19543,6 +23042,12 @@ func (i GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArray) ToGetPriva
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput)
 }
 
+func (i GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAttachmentConnectionPrivateLinkAttachment] {
+	return pulumix.Output[[]GetPrivateLinkAttachmentConnectionPrivateLinkAttachment]{
+		OutputState: i.ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ElementType() reflect.Type {
@@ -19555,6 +23060,12 @@ func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ToGetPriv
 
 func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentConnectionPrivateLinkAttachment] {
+	return pulumix.Output[GetPrivateLinkAttachmentConnectionPrivateLinkAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
@@ -19574,6 +23085,12 @@ func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput) ToGe
 
 func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput) ToGetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAttachmentConnectionPrivateLinkAttachment] {
+	return pulumix.Output[[]GetPrivateLinkAttachmentConnectionPrivateLinkAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
@@ -19615,6 +23132,12 @@ func (i GetPrivateLinkAttachmentEnvironmentArgs) ToGetPrivateLinkAttachmentEnvir
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentEnvironmentOutput)
 }
 
+func (i GetPrivateLinkAttachmentEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentEnvironment] {
+	return pulumix.Output[GetPrivateLinkAttachmentEnvironment]{
+		OutputState: i.ToGetPrivateLinkAttachmentEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPrivateLinkAttachmentEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkAttachmentEnvironmentOutput) ElementType() reflect.Type {
@@ -19627,6 +23150,12 @@ func (o GetPrivateLinkAttachmentEnvironmentOutput) ToGetPrivateLinkAttachmentEnv
 
 func (o GetPrivateLinkAttachmentEnvironmentOutput) ToGetPrivateLinkAttachmentEnvironmentOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentEnvironmentOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentEnvironment] {
+	return pulumix.Output[GetPrivateLinkAttachmentEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
@@ -19667,6 +23196,12 @@ func (i GetPrivateLinkAttachmentGcpArgs) ToGetPrivateLinkAttachmentGcpOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentGcpOutput)
 }
 
+func (i GetPrivateLinkAttachmentGcpArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentGcp] {
+	return pulumix.Output[GetPrivateLinkAttachmentGcp]{
+		OutputState: i.ToGetPrivateLinkAttachmentGcpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPrivateLinkAttachmentGcpArrayInput is an input type that accepts GetPrivateLinkAttachmentGcpArray and GetPrivateLinkAttachmentGcpArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkAttachmentGcpArrayInput` via:
 //
@@ -19692,6 +23227,12 @@ func (i GetPrivateLinkAttachmentGcpArray) ToGetPrivateLinkAttachmentGcpArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkAttachmentGcpArrayOutput)
 }
 
+func (i GetPrivateLinkAttachmentGcpArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAttachmentGcp] {
+	return pulumix.Output[[]GetPrivateLinkAttachmentGcp]{
+		OutputState: i.ToGetPrivateLinkAttachmentGcpArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPrivateLinkAttachmentGcpOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkAttachmentGcpOutput) ElementType() reflect.Type {
@@ -19704,6 +23245,12 @@ func (o GetPrivateLinkAttachmentGcpOutput) ToGetPrivateLinkAttachmentGcpOutput()
 
 func (o GetPrivateLinkAttachmentGcpOutput) ToGetPrivateLinkAttachmentGcpOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentGcpOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentGcpOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkAttachmentGcp] {
+	return pulumix.Output[GetPrivateLinkAttachmentGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAttachmentGcpOutput) PrivateServiceConnectServiceAttachment() pulumi.StringOutput {
@@ -19726,6 +23273,12 @@ func (o GetPrivateLinkAttachmentGcpArrayOutput) ToGetPrivateLinkAttachmentGcpArr
 
 func (o GetPrivateLinkAttachmentGcpArrayOutput) ToGetPrivateLinkAttachmentGcpArrayOutputWithContext(ctx context.Context) GetPrivateLinkAttachmentGcpArrayOutput {
 	return o
+}
+
+func (o GetPrivateLinkAttachmentGcpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkAttachmentGcp] {
+	return pulumix.Output[[]GetPrivateLinkAttachmentGcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPrivateLinkAttachmentGcpArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkAttachmentGcpOutput {
@@ -19771,6 +23324,12 @@ func (i GetSchemaCredentialsArgs) ToGetSchemaCredentialsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaCredentialsOutput)
 }
 
+func (i GetSchemaCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemaCredentials] {
+	return pulumix.Output[GetSchemaCredentials]{
+		OutputState: i.ToGetSchemaCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetSchemaCredentialsArgs) ToGetSchemaCredentialsPtrOutput() GetSchemaCredentialsPtrOutput {
 	return i.ToGetSchemaCredentialsPtrOutputWithContext(context.Background())
 }
@@ -19812,6 +23371,12 @@ func (i *getSchemaCredentialsPtrType) ToGetSchemaCredentialsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaCredentialsPtrOutput)
 }
 
+func (i *getSchemaCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetSchemaCredentials] {
+	return pulumix.Output[*GetSchemaCredentials]{
+		OutputState: i.ToGetSchemaCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemaCredentialsOutput struct{ *pulumi.OutputState }
 
 func (GetSchemaCredentialsOutput) ElementType() reflect.Type {
@@ -19836,6 +23401,12 @@ func (o GetSchemaCredentialsOutput) ToGetSchemaCredentialsPtrOutputWithContext(c
 	}).(GetSchemaCredentialsPtrOutput)
 }
 
+func (o GetSchemaCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemaCredentials] {
+	return pulumix.Output[GetSchemaCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o GetSchemaCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -19858,6 +23429,12 @@ func (o GetSchemaCredentialsPtrOutput) ToGetSchemaCredentialsPtrOutput() GetSche
 
 func (o GetSchemaCredentialsPtrOutput) ToGetSchemaCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaCredentialsPtrOutput {
 	return o
+}
+
+func (o GetSchemaCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetSchemaCredentials] {
+	return pulumix.Output[*GetSchemaCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSchemaCredentialsPtrOutput) Elem() GetSchemaCredentialsOutput {
@@ -19927,6 +23504,12 @@ func (i GetSchemaRegistryClusterConfigCredentialsArgs) ToGetSchemaRegistryCluste
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterConfigCredentialsOutput)
 }
 
+func (i GetSchemaRegistryClusterConfigCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClusterConfigCredentials] {
+	return pulumix.Output[GetSchemaRegistryClusterConfigCredentials]{
+		OutputState: i.ToGetSchemaRegistryClusterConfigCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetSchemaRegistryClusterConfigCredentialsArgs) ToGetSchemaRegistryClusterConfigCredentialsPtrOutput() GetSchemaRegistryClusterConfigCredentialsPtrOutput {
 	return i.ToGetSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(context.Background())
 }
@@ -19968,6 +23551,12 @@ func (i *getSchemaRegistryClusterConfigCredentialsPtrType) ToGetSchemaRegistryCl
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterConfigCredentialsPtrOutput)
 }
 
+func (i *getSchemaRegistryClusterConfigCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetSchemaRegistryClusterConfigCredentials] {
+	return pulumix.Output[*GetSchemaRegistryClusterConfigCredentials]{
+		OutputState: i.ToGetSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemaRegistryClusterConfigCredentialsOutput struct{ *pulumi.OutputState }
 
 func (GetSchemaRegistryClusterConfigCredentialsOutput) ElementType() reflect.Type {
@@ -19992,6 +23581,12 @@ func (o GetSchemaRegistryClusterConfigCredentialsOutput) ToGetSchemaRegistryClus
 	}).(GetSchemaRegistryClusterConfigCredentialsPtrOutput)
 }
 
+func (o GetSchemaRegistryClusterConfigCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClusterConfigCredentials] {
+	return pulumix.Output[GetSchemaRegistryClusterConfigCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o GetSchemaRegistryClusterConfigCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClusterConfigCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -20014,6 +23609,12 @@ func (o GetSchemaRegistryClusterConfigCredentialsPtrOutput) ToGetSchemaRegistryC
 
 func (o GetSchemaRegistryClusterConfigCredentialsPtrOutput) ToGetSchemaRegistryClusterConfigCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterConfigCredentialsPtrOutput {
 	return o
+}
+
+func (o GetSchemaRegistryClusterConfigCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetSchemaRegistryClusterConfigCredentials] {
+	return pulumix.Output[*GetSchemaRegistryClusterConfigCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSchemaRegistryClusterConfigCredentialsPtrOutput) Elem() GetSchemaRegistryClusterConfigCredentialsOutput {
@@ -20079,6 +23680,12 @@ func (i GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs) ToGetSchemaRegi
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput)
 }
 
+func (i GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClusterConfigSchemaRegistryCluster] {
+	return pulumix.Output[GetSchemaRegistryClusterConfigSchemaRegistryCluster]{
+		OutputState: i.ToGetSchemaRegistryClusterConfigSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs) ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput() GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
 	return i.ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -20120,6 +23727,12 @@ func (i *getSchemaRegistryClusterConfigSchemaRegistryClusterPtrType) ToGetSchema
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput)
 }
 
+func (i *getSchemaRegistryClusterConfigSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetSchemaRegistryClusterConfigSchemaRegistryCluster] {
+	return pulumix.Output[*GetSchemaRegistryClusterConfigSchemaRegistryCluster]{
+		OutputState: i.ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -20144,6 +23757,12 @@ func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput) ToGetSchemaRe
 	}).(GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput)
 }
 
+func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClusterConfigSchemaRegistryCluster] {
+	return pulumix.Output[GetSchemaRegistryClusterConfigSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClusterConfigSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -20161,6 +23780,12 @@ func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) ToGetSchem
 
 func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) ToGetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetSchemaRegistryClusterConfigSchemaRegistryCluster] {
+	return pulumix.Output[*GetSchemaRegistryClusterConfigSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) Elem() GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput {
@@ -20220,6 +23845,12 @@ func (i GetSchemaRegistryClusterEnvironmentArgs) ToGetSchemaRegistryClusterEnvir
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterEnvironmentOutput)
 }
 
+func (i GetSchemaRegistryClusterEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClusterEnvironment] {
+	return pulumix.Output[GetSchemaRegistryClusterEnvironment]{
+		OutputState: i.ToGetSchemaRegistryClusterEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemaRegistryClusterEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetSchemaRegistryClusterEnvironmentOutput) ElementType() reflect.Type {
@@ -20232,6 +23863,12 @@ func (o GetSchemaRegistryClusterEnvironmentOutput) ToGetSchemaRegistryClusterEnv
 
 func (o GetSchemaRegistryClusterEnvironmentOutput) ToGetSchemaRegistryClusterEnvironmentOutputWithContext(ctx context.Context) GetSchemaRegistryClusterEnvironmentOutput {
 	return o
+}
+
+func (o GetSchemaRegistryClusterEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClusterEnvironment] {
+	return pulumix.Output[GetSchemaRegistryClusterEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
@@ -20282,6 +23919,12 @@ func (i GetSchemaRegistryClusterModeCredentialsArgs) ToGetSchemaRegistryClusterM
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterModeCredentialsOutput)
 }
 
+func (i GetSchemaRegistryClusterModeCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClusterModeCredentials] {
+	return pulumix.Output[GetSchemaRegistryClusterModeCredentials]{
+		OutputState: i.ToGetSchemaRegistryClusterModeCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetSchemaRegistryClusterModeCredentialsArgs) ToGetSchemaRegistryClusterModeCredentialsPtrOutput() GetSchemaRegistryClusterModeCredentialsPtrOutput {
 	return i.ToGetSchemaRegistryClusterModeCredentialsPtrOutputWithContext(context.Background())
 }
@@ -20323,6 +23966,12 @@ func (i *getSchemaRegistryClusterModeCredentialsPtrType) ToGetSchemaRegistryClus
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterModeCredentialsPtrOutput)
 }
 
+func (i *getSchemaRegistryClusterModeCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetSchemaRegistryClusterModeCredentials] {
+	return pulumix.Output[*GetSchemaRegistryClusterModeCredentials]{
+		OutputState: i.ToGetSchemaRegistryClusterModeCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemaRegistryClusterModeCredentialsOutput struct{ *pulumi.OutputState }
 
 func (GetSchemaRegistryClusterModeCredentialsOutput) ElementType() reflect.Type {
@@ -20345,6 +23994,12 @@ func (o GetSchemaRegistryClusterModeCredentialsOutput) ToGetSchemaRegistryCluste
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSchemaRegistryClusterModeCredentials) *GetSchemaRegistryClusterModeCredentials {
 		return &v
 	}).(GetSchemaRegistryClusterModeCredentialsPtrOutput)
+}
+
+func (o GetSchemaRegistryClusterModeCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClusterModeCredentials] {
+	return pulumix.Output[GetSchemaRegistryClusterModeCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Schema Registry API Key.
@@ -20371,6 +24026,12 @@ func (o GetSchemaRegistryClusterModeCredentialsPtrOutput) ToGetSchemaRegistryClu
 
 func (o GetSchemaRegistryClusterModeCredentialsPtrOutput) ToGetSchemaRegistryClusterModeCredentialsPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterModeCredentialsPtrOutput {
 	return o
+}
+
+func (o GetSchemaRegistryClusterModeCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetSchemaRegistryClusterModeCredentials] {
+	return pulumix.Output[*GetSchemaRegistryClusterModeCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSchemaRegistryClusterModeCredentialsPtrOutput) Elem() GetSchemaRegistryClusterModeCredentialsOutput {
@@ -20438,6 +24099,12 @@ func (i GetSchemaRegistryClusterModeSchemaRegistryClusterArgs) ToGetSchemaRegist
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterModeSchemaRegistryClusterOutput)
 }
 
+func (i GetSchemaRegistryClusterModeSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClusterModeSchemaRegistryCluster] {
+	return pulumix.Output[GetSchemaRegistryClusterModeSchemaRegistryCluster]{
+		OutputState: i.ToGetSchemaRegistryClusterModeSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetSchemaRegistryClusterModeSchemaRegistryClusterArgs) ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput() GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
 	return i.ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -20479,6 +24146,12 @@ func (i *getSchemaRegistryClusterModeSchemaRegistryClusterPtrType) ToGetSchemaRe
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput)
 }
 
+func (i *getSchemaRegistryClusterModeSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetSchemaRegistryClusterModeSchemaRegistryCluster] {
+	return pulumix.Output[*GetSchemaRegistryClusterModeSchemaRegistryCluster]{
+		OutputState: i.ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemaRegistryClusterModeSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (GetSchemaRegistryClusterModeSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -20503,6 +24176,12 @@ func (o GetSchemaRegistryClusterModeSchemaRegistryClusterOutput) ToGetSchemaRegi
 	}).(GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput)
 }
 
+func (o GetSchemaRegistryClusterModeSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClusterModeSchemaRegistryCluster] {
+	return pulumix.Output[GetSchemaRegistryClusterModeSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o GetSchemaRegistryClusterModeSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClusterModeSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -20520,6 +24199,12 @@ func (o GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) ToGetSchemaR
 
 func (o GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) ToGetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetSchemaRegistryClusterModeSchemaRegistryCluster] {
+	return pulumix.Output[*GetSchemaRegistryClusterModeSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) Elem() GetSchemaRegistryClusterModeSchemaRegistryClusterOutput {
@@ -20579,6 +24264,12 @@ func (i GetSchemaRegistryClusterRegionArgs) ToGetSchemaRegistryClusterRegionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterRegionOutput)
 }
 
+func (i GetSchemaRegistryClusterRegionArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClusterRegion] {
+	return pulumix.Output[GetSchemaRegistryClusterRegion]{
+		OutputState: i.ToGetSchemaRegistryClusterRegionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSchemaRegistryClusterRegionArrayInput is an input type that accepts GetSchemaRegistryClusterRegionArray and GetSchemaRegistryClusterRegionArrayOutput values.
 // You can construct a concrete instance of `GetSchemaRegistryClusterRegionArrayInput` via:
 //
@@ -20604,6 +24295,12 @@ func (i GetSchemaRegistryClusterRegionArray) ToGetSchemaRegistryClusterRegionArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClusterRegionArrayOutput)
 }
 
+func (i GetSchemaRegistryClusterRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSchemaRegistryClusterRegion] {
+	return pulumix.Output[[]GetSchemaRegistryClusterRegion]{
+		OutputState: i.ToGetSchemaRegistryClusterRegionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemaRegistryClusterRegionOutput struct{ *pulumi.OutputState }
 
 func (GetSchemaRegistryClusterRegionOutput) ElementType() reflect.Type {
@@ -20616,6 +24313,12 @@ func (o GetSchemaRegistryClusterRegionOutput) ToGetSchemaRegistryClusterRegionOu
 
 func (o GetSchemaRegistryClusterRegionOutput) ToGetSchemaRegistryClusterRegionOutputWithContext(ctx context.Context) GetSchemaRegistryClusterRegionOutput {
 	return o
+}
+
+func (o GetSchemaRegistryClusterRegionOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClusterRegion] {
+	return pulumix.Output[GetSchemaRegistryClusterRegion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
@@ -20637,6 +24340,12 @@ func (o GetSchemaRegistryClusterRegionArrayOutput) ToGetSchemaRegistryClusterReg
 
 func (o GetSchemaRegistryClusterRegionArrayOutput) ToGetSchemaRegistryClusterRegionArrayOutputWithContext(ctx context.Context) GetSchemaRegistryClusterRegionArrayOutput {
 	return o
+}
+
+func (o GetSchemaRegistryClusterRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSchemaRegistryClusterRegion] {
+	return pulumix.Output[[]GetSchemaRegistryClusterRegion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSchemaRegistryClusterRegionArrayOutput) Index(i pulumi.IntInput) GetSchemaRegistryClusterRegionOutput {
@@ -20710,6 +24419,12 @@ func (i GetSchemaRegistryClustersClusterArgs) ToGetSchemaRegistryClustersCluster
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClustersClusterOutput)
 }
 
+func (i GetSchemaRegistryClustersClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClustersCluster] {
+	return pulumix.Output[GetSchemaRegistryClustersCluster]{
+		OutputState: i.ToGetSchemaRegistryClustersClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSchemaRegistryClustersClusterArrayInput is an input type that accepts GetSchemaRegistryClustersClusterArray and GetSchemaRegistryClustersClusterArrayOutput values.
 // You can construct a concrete instance of `GetSchemaRegistryClustersClusterArrayInput` via:
 //
@@ -20735,6 +24450,12 @@ func (i GetSchemaRegistryClustersClusterArray) ToGetSchemaRegistryClustersCluste
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClustersClusterArrayOutput)
 }
 
+func (i GetSchemaRegistryClustersClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSchemaRegistryClustersCluster] {
+	return pulumix.Output[[]GetSchemaRegistryClustersCluster]{
+		OutputState: i.ToGetSchemaRegistryClustersClusterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemaRegistryClustersClusterOutput struct{ *pulumi.OutputState }
 
 func (GetSchemaRegistryClustersClusterOutput) ElementType() reflect.Type {
@@ -20747,6 +24468,12 @@ func (o GetSchemaRegistryClustersClusterOutput) ToGetSchemaRegistryClustersClust
 
 func (o GetSchemaRegistryClustersClusterOutput) ToGetSchemaRegistryClustersClusterOutputWithContext(ctx context.Context) GetSchemaRegistryClustersClusterOutput {
 	return o
+}
+
+func (o GetSchemaRegistryClustersClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClustersCluster] {
+	return pulumix.Output[GetSchemaRegistryClustersCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) An API Version of the schema version of the Schema Registry cluster, for example, `stream-governance/v2`.
@@ -20810,6 +24537,12 @@ func (o GetSchemaRegistryClustersClusterArrayOutput) ToGetSchemaRegistryClusters
 	return o
 }
 
+func (o GetSchemaRegistryClustersClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSchemaRegistryClustersCluster] {
+	return pulumix.Output[[]GetSchemaRegistryClustersCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetSchemaRegistryClustersClusterArrayOutput) Index(i pulumi.IntInput) GetSchemaRegistryClustersClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSchemaRegistryClustersCluster {
 		return vs[0].([]GetSchemaRegistryClustersCluster)[vs[1].(int)]
@@ -20849,6 +24582,12 @@ func (i GetSchemaRegistryClustersClusterEnvironmentArgs) ToGetSchemaRegistryClus
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClustersClusterEnvironmentOutput)
 }
 
+func (i GetSchemaRegistryClustersClusterEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClustersClusterEnvironment] {
+	return pulumix.Output[GetSchemaRegistryClustersClusterEnvironment]{
+		OutputState: i.ToGetSchemaRegistryClustersClusterEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemaRegistryClustersClusterEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetSchemaRegistryClustersClusterEnvironmentOutput) ElementType() reflect.Type {
@@ -20861,6 +24600,12 @@ func (o GetSchemaRegistryClustersClusterEnvironmentOutput) ToGetSchemaRegistryCl
 
 func (o GetSchemaRegistryClustersClusterEnvironmentOutput) ToGetSchemaRegistryClustersClusterEnvironmentOutputWithContext(ctx context.Context) GetSchemaRegistryClustersClusterEnvironmentOutput {
 	return o
+}
+
+func (o GetSchemaRegistryClustersClusterEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClustersClusterEnvironment] {
+	return pulumix.Output[GetSchemaRegistryClustersClusterEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
@@ -20901,6 +24646,12 @@ func (i GetSchemaRegistryClustersClusterRegionArgs) ToGetSchemaRegistryClustersC
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClustersClusterRegionOutput)
 }
 
+func (i GetSchemaRegistryClustersClusterRegionArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClustersClusterRegion] {
+	return pulumix.Output[GetSchemaRegistryClustersClusterRegion]{
+		OutputState: i.ToGetSchemaRegistryClustersClusterRegionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSchemaRegistryClustersClusterRegionArrayInput is an input type that accepts GetSchemaRegistryClustersClusterRegionArray and GetSchemaRegistryClustersClusterRegionArrayOutput values.
 // You can construct a concrete instance of `GetSchemaRegistryClustersClusterRegionArrayInput` via:
 //
@@ -20926,6 +24677,12 @@ func (i GetSchemaRegistryClustersClusterRegionArray) ToGetSchemaRegistryClusters
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRegistryClustersClusterRegionArrayOutput)
 }
 
+func (i GetSchemaRegistryClustersClusterRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSchemaRegistryClustersClusterRegion] {
+	return pulumix.Output[[]GetSchemaRegistryClustersClusterRegion]{
+		OutputState: i.ToGetSchemaRegistryClustersClusterRegionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemaRegistryClustersClusterRegionOutput struct{ *pulumi.OutputState }
 
 func (GetSchemaRegistryClustersClusterRegionOutput) ElementType() reflect.Type {
@@ -20938,6 +24695,12 @@ func (o GetSchemaRegistryClustersClusterRegionOutput) ToGetSchemaRegistryCluster
 
 func (o GetSchemaRegistryClustersClusterRegionOutput) ToGetSchemaRegistryClustersClusterRegionOutputWithContext(ctx context.Context) GetSchemaRegistryClustersClusterRegionOutput {
 	return o
+}
+
+func (o GetSchemaRegistryClustersClusterRegionOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClustersClusterRegion] {
+	return pulumix.Output[GetSchemaRegistryClustersClusterRegion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
@@ -20957,6 +24720,12 @@ func (o GetSchemaRegistryClustersClusterRegionArrayOutput) ToGetSchemaRegistryCl
 
 func (o GetSchemaRegistryClustersClusterRegionArrayOutput) ToGetSchemaRegistryClustersClusterRegionArrayOutputWithContext(ctx context.Context) GetSchemaRegistryClustersClusterRegionArrayOutput {
 	return o
+}
+
+func (o GetSchemaRegistryClustersClusterRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSchemaRegistryClustersClusterRegion] {
+	return pulumix.Output[[]GetSchemaRegistryClustersClusterRegion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSchemaRegistryClustersClusterRegionArrayOutput) Index(i pulumi.IntInput) GetSchemaRegistryClustersClusterRegionOutput {
@@ -21006,6 +24775,12 @@ func (i GetSchemaSchemaReferenceArgs) ToGetSchemaSchemaReferenceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaSchemaReferenceOutput)
 }
 
+func (i GetSchemaSchemaReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemaSchemaReference] {
+	return pulumix.Output[GetSchemaSchemaReference]{
+		OutputState: i.ToGetSchemaSchemaReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSchemaSchemaReferenceArrayInput is an input type that accepts GetSchemaSchemaReferenceArray and GetSchemaSchemaReferenceArrayOutput values.
 // You can construct a concrete instance of `GetSchemaSchemaReferenceArrayInput` via:
 //
@@ -21031,6 +24806,12 @@ func (i GetSchemaSchemaReferenceArray) ToGetSchemaSchemaReferenceArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaSchemaReferenceArrayOutput)
 }
 
+func (i GetSchemaSchemaReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSchemaSchemaReference] {
+	return pulumix.Output[[]GetSchemaSchemaReference]{
+		OutputState: i.ToGetSchemaSchemaReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemaSchemaReferenceOutput struct{ *pulumi.OutputState }
 
 func (GetSchemaSchemaReferenceOutput) ElementType() reflect.Type {
@@ -21043,6 +24824,12 @@ func (o GetSchemaSchemaReferenceOutput) ToGetSchemaSchemaReferenceOutput() GetSc
 
 func (o GetSchemaSchemaReferenceOutput) ToGetSchemaSchemaReferenceOutputWithContext(ctx context.Context) GetSchemaSchemaReferenceOutput {
 	return o
+}
+
+func (o GetSchemaSchemaReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemaSchemaReference] {
+	return pulumix.Output[GetSchemaSchemaReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
@@ -21072,6 +24859,12 @@ func (o GetSchemaSchemaReferenceArrayOutput) ToGetSchemaSchemaReferenceArrayOutp
 
 func (o GetSchemaSchemaReferenceArrayOutput) ToGetSchemaSchemaReferenceArrayOutputWithContext(ctx context.Context) GetSchemaSchemaReferenceArrayOutput {
 	return o
+}
+
+func (o GetSchemaSchemaReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSchemaSchemaReference] {
+	return pulumix.Output[[]GetSchemaSchemaReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSchemaSchemaReferenceArrayOutput) Index(i pulumi.IntInput) GetSchemaSchemaReferenceOutput {
@@ -21111,6 +24904,12 @@ func (i GetSchemaSchemaRegistryClusterArgs) ToGetSchemaSchemaRegistryClusterOutp
 
 func (i GetSchemaSchemaRegistryClusterArgs) ToGetSchemaSchemaRegistryClusterOutputWithContext(ctx context.Context) GetSchemaSchemaRegistryClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaSchemaRegistryClusterOutput)
+}
+
+func (i GetSchemaSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemaSchemaRegistryCluster] {
+	return pulumix.Output[GetSchemaSchemaRegistryCluster]{
+		OutputState: i.ToGetSchemaSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GetSchemaSchemaRegistryClusterArgs) ToGetSchemaSchemaRegistryClusterPtrOutput() GetSchemaSchemaRegistryClusterPtrOutput {
@@ -21154,6 +24953,12 @@ func (i *getSchemaSchemaRegistryClusterPtrType) ToGetSchemaSchemaRegistryCluster
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaSchemaRegistryClusterPtrOutput)
 }
 
+func (i *getSchemaSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetSchemaSchemaRegistryCluster] {
+	return pulumix.Output[*GetSchemaSchemaRegistryCluster]{
+		OutputState: i.ToGetSchemaSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemaSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (GetSchemaSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -21178,6 +24983,12 @@ func (o GetSchemaSchemaRegistryClusterOutput) ToGetSchemaSchemaRegistryClusterPt
 	}).(GetSchemaSchemaRegistryClusterPtrOutput)
 }
 
+func (o GetSchemaSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemaSchemaRegistryCluster] {
+	return pulumix.Output[GetSchemaSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o GetSchemaSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -21195,6 +25006,12 @@ func (o GetSchemaSchemaRegistryClusterPtrOutput) ToGetSchemaSchemaRegistryCluste
 
 func (o GetSchemaSchemaRegistryClusterPtrOutput) ToGetSchemaSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemaSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o GetSchemaSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetSchemaSchemaRegistryCluster] {
+	return pulumix.Output[*GetSchemaSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSchemaSchemaRegistryClusterPtrOutput) Elem() GetSchemaSchemaRegistryClusterOutput {
@@ -21254,6 +25071,12 @@ func (i GetSchemasCredentialsArgs) ToGetSchemasCredentialsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasCredentialsOutput)
 }
 
+func (i GetSchemasCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemasCredentials] {
+	return pulumix.Output[GetSchemasCredentials]{
+		OutputState: i.ToGetSchemasCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetSchemasCredentialsArgs) ToGetSchemasCredentialsPtrOutput() GetSchemasCredentialsPtrOutput {
 	return i.ToGetSchemasCredentialsPtrOutputWithContext(context.Background())
 }
@@ -21295,6 +25118,12 @@ func (i *getSchemasCredentialsPtrType) ToGetSchemasCredentialsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasCredentialsPtrOutput)
 }
 
+func (i *getSchemasCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetSchemasCredentials] {
+	return pulumix.Output[*GetSchemasCredentials]{
+		OutputState: i.ToGetSchemasCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemasCredentialsOutput struct{ *pulumi.OutputState }
 
 func (GetSchemasCredentialsOutput) ElementType() reflect.Type {
@@ -21319,6 +25148,12 @@ func (o GetSchemasCredentialsOutput) ToGetSchemasCredentialsPtrOutputWithContext
 	}).(GetSchemasCredentialsPtrOutput)
 }
 
+func (o GetSchemasCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemasCredentials] {
+	return pulumix.Output[GetSchemasCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o GetSchemasCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemasCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -21341,6 +25176,12 @@ func (o GetSchemasCredentialsPtrOutput) ToGetSchemasCredentialsPtrOutput() GetSc
 
 func (o GetSchemasCredentialsPtrOutput) ToGetSchemasCredentialsPtrOutputWithContext(ctx context.Context) GetSchemasCredentialsPtrOutput {
 	return o
+}
+
+func (o GetSchemasCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetSchemasCredentials] {
+	return pulumix.Output[*GetSchemasCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSchemasCredentialsPtrOutput) Elem() GetSchemasCredentialsOutput {
@@ -21414,6 +25255,12 @@ func (i GetSchemasFilterArgs) ToGetSchemasFilterOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasFilterOutput)
 }
 
+func (i GetSchemasFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemasFilter] {
+	return pulumix.Output[GetSchemasFilter]{
+		OutputState: i.ToGetSchemasFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetSchemasFilterArgs) ToGetSchemasFilterPtrOutput() GetSchemasFilterPtrOutput {
 	return i.ToGetSchemasFilterPtrOutputWithContext(context.Background())
 }
@@ -21455,6 +25302,12 @@ func (i *getSchemasFilterPtrType) ToGetSchemasFilterPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasFilterPtrOutput)
 }
 
+func (i *getSchemasFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetSchemasFilter] {
+	return pulumix.Output[*GetSchemasFilter]{
+		OutputState: i.ToGetSchemasFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemasFilterOutput struct{ *pulumi.OutputState }
 
 func (GetSchemasFilterOutput) ElementType() reflect.Type {
@@ -21477,6 +25330,12 @@ func (o GetSchemasFilterOutput) ToGetSchemasFilterPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSchemasFilter) *GetSchemasFilter {
 		return &v
 	}).(GetSchemasFilterPtrOutput)
+}
+
+func (o GetSchemasFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemasFilter] {
+	return pulumix.Output[GetSchemasFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The boolean flag to control whether to return soft deleted schemas. Defaults to `false`.
@@ -21506,6 +25365,12 @@ func (o GetSchemasFilterPtrOutput) ToGetSchemasFilterPtrOutput() GetSchemasFilte
 
 func (o GetSchemasFilterPtrOutput) ToGetSchemasFilterPtrOutputWithContext(ctx context.Context) GetSchemasFilterPtrOutput {
 	return o
+}
+
+func (o GetSchemasFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetSchemasFilter] {
+	return pulumix.Output[*GetSchemasFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSchemasFilterPtrOutput) Elem() GetSchemasFilterOutput {
@@ -21601,6 +25466,12 @@ func (i GetSchemasSchemaArgs) ToGetSchemasSchemaOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaOutput)
 }
 
+func (i GetSchemasSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemasSchema] {
+	return pulumix.Output[GetSchemasSchema]{
+		OutputState: i.ToGetSchemasSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSchemasSchemaArrayInput is an input type that accepts GetSchemasSchemaArray and GetSchemasSchemaArrayOutput values.
 // You can construct a concrete instance of `GetSchemasSchemaArrayInput` via:
 //
@@ -21626,6 +25497,12 @@ func (i GetSchemasSchemaArray) ToGetSchemasSchemaArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaArrayOutput)
 }
 
+func (i GetSchemasSchemaArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSchemasSchema] {
+	return pulumix.Output[[]GetSchemasSchema]{
+		OutputState: i.ToGetSchemasSchemaArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemasSchemaOutput struct{ *pulumi.OutputState }
 
 func (GetSchemasSchemaOutput) ElementType() reflect.Type {
@@ -21638,6 +25515,12 @@ func (o GetSchemasSchemaOutput) ToGetSchemasSchemaOutput() GetSchemasSchemaOutpu
 
 func (o GetSchemasSchemaOutput) ToGetSchemasSchemaOutputWithContext(ctx context.Context) GetSchemasSchemaOutput {
 	return o
+}
+
+func (o GetSchemasSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemasSchema] {
+	return pulumix.Output[GetSchemasSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
@@ -21684,6 +25567,12 @@ func (o GetSchemasSchemaArrayOutput) ToGetSchemasSchemaArrayOutputWithContext(ct
 	return o
 }
 
+func (o GetSchemasSchemaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSchemasSchema] {
+	return pulumix.Output[[]GetSchemasSchema]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetSchemasSchemaArrayOutput) Index(i pulumi.IntInput) GetSchemasSchemaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSchemasSchema {
 		return vs[0].([]GetSchemasSchema)[vs[1].(int)]
@@ -21721,6 +25610,12 @@ func (i GetSchemasSchemaRegistryClusterArgs) ToGetSchemasSchemaRegistryClusterOu
 
 func (i GetSchemasSchemaRegistryClusterArgs) ToGetSchemasSchemaRegistryClusterOutputWithContext(ctx context.Context) GetSchemasSchemaRegistryClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaRegistryClusterOutput)
+}
+
+func (i GetSchemasSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemasSchemaRegistryCluster] {
+	return pulumix.Output[GetSchemasSchemaRegistryCluster]{
+		OutputState: i.ToGetSchemasSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GetSchemasSchemaRegistryClusterArgs) ToGetSchemasSchemaRegistryClusterPtrOutput() GetSchemasSchemaRegistryClusterPtrOutput {
@@ -21764,6 +25659,12 @@ func (i *getSchemasSchemaRegistryClusterPtrType) ToGetSchemasSchemaRegistryClust
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaRegistryClusterPtrOutput)
 }
 
+func (i *getSchemasSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetSchemasSchemaRegistryCluster] {
+	return pulumix.Output[*GetSchemasSchemaRegistryCluster]{
+		OutputState: i.ToGetSchemasSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemasSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (GetSchemasSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -21788,6 +25689,12 @@ func (o GetSchemasSchemaRegistryClusterOutput) ToGetSchemasSchemaRegistryCluster
 	}).(GetSchemasSchemaRegistryClusterPtrOutput)
 }
 
+func (o GetSchemasSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemasSchemaRegistryCluster] {
+	return pulumix.Output[GetSchemasSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o GetSchemasSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemasSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -21805,6 +25712,12 @@ func (o GetSchemasSchemaRegistryClusterPtrOutput) ToGetSchemasSchemaRegistryClus
 
 func (o GetSchemasSchemaRegistryClusterPtrOutput) ToGetSchemasSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSchemasSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o GetSchemasSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetSchemasSchemaRegistryCluster] {
+	return pulumix.Output[*GetSchemasSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSchemasSchemaRegistryClusterPtrOutput) Elem() GetSchemasSchemaRegistryClusterOutput {
@@ -21868,6 +25781,12 @@ func (i GetSchemasSchemaSchemaReferenceArgs) ToGetSchemasSchemaSchemaReferenceOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaSchemaReferenceOutput)
 }
 
+func (i GetSchemasSchemaSchemaReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchemasSchemaSchemaReference] {
+	return pulumix.Output[GetSchemasSchemaSchemaReference]{
+		OutputState: i.ToGetSchemasSchemaSchemaReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSchemasSchemaSchemaReferenceArrayInput is an input type that accepts GetSchemasSchemaSchemaReferenceArray and GetSchemasSchemaSchemaReferenceArrayOutput values.
 // You can construct a concrete instance of `GetSchemasSchemaSchemaReferenceArrayInput` via:
 //
@@ -21893,6 +25812,12 @@ func (i GetSchemasSchemaSchemaReferenceArray) ToGetSchemasSchemaSchemaReferenceA
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchemasSchemaSchemaReferenceArrayOutput)
 }
 
+func (i GetSchemasSchemaSchemaReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSchemasSchemaSchemaReference] {
+	return pulumix.Output[[]GetSchemasSchemaSchemaReference]{
+		OutputState: i.ToGetSchemasSchemaSchemaReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSchemasSchemaSchemaReferenceOutput struct{ *pulumi.OutputState }
 
 func (GetSchemasSchemaSchemaReferenceOutput) ElementType() reflect.Type {
@@ -21905,6 +25830,12 @@ func (o GetSchemasSchemaSchemaReferenceOutput) ToGetSchemasSchemaSchemaReference
 
 func (o GetSchemasSchemaSchemaReferenceOutput) ToGetSchemasSchemaSchemaReferenceOutputWithContext(ctx context.Context) GetSchemasSchemaSchemaReferenceOutput {
 	return o
+}
+
+func (o GetSchemasSchemaSchemaReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemasSchemaSchemaReference] {
+	return pulumix.Output[GetSchemasSchemaSchemaReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
@@ -21934,6 +25865,12 @@ func (o GetSchemasSchemaSchemaReferenceArrayOutput) ToGetSchemasSchemaSchemaRefe
 
 func (o GetSchemasSchemaSchemaReferenceArrayOutput) ToGetSchemasSchemaSchemaReferenceArrayOutputWithContext(ctx context.Context) GetSchemasSchemaSchemaReferenceArrayOutput {
 	return o
+}
+
+func (o GetSchemasSchemaSchemaReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSchemasSchemaSchemaReference] {
+	return pulumix.Output[[]GetSchemasSchemaSchemaReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSchemasSchemaSchemaReferenceArrayOutput) Index(i pulumi.IntInput) GetSchemasSchemaSchemaReferenceOutput {
@@ -21979,6 +25916,12 @@ func (i GetSubjectConfigCredentialsArgs) ToGetSubjectConfigCredentialsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectConfigCredentialsOutput)
 }
 
+func (i GetSubjectConfigCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[GetSubjectConfigCredentials] {
+	return pulumix.Output[GetSubjectConfigCredentials]{
+		OutputState: i.ToGetSubjectConfigCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetSubjectConfigCredentialsArgs) ToGetSubjectConfigCredentialsPtrOutput() GetSubjectConfigCredentialsPtrOutput {
 	return i.ToGetSubjectConfigCredentialsPtrOutputWithContext(context.Background())
 }
@@ -22020,6 +25963,12 @@ func (i *getSubjectConfigCredentialsPtrType) ToGetSubjectConfigCredentialsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectConfigCredentialsPtrOutput)
 }
 
+func (i *getSubjectConfigCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetSubjectConfigCredentials] {
+	return pulumix.Output[*GetSubjectConfigCredentials]{
+		OutputState: i.ToGetSubjectConfigCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSubjectConfigCredentialsOutput struct{ *pulumi.OutputState }
 
 func (GetSubjectConfigCredentialsOutput) ElementType() reflect.Type {
@@ -22044,6 +25993,12 @@ func (o GetSubjectConfigCredentialsOutput) ToGetSubjectConfigCredentialsPtrOutpu
 	}).(GetSubjectConfigCredentialsPtrOutput)
 }
 
+func (o GetSubjectConfigCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[GetSubjectConfigCredentials] {
+	return pulumix.Output[GetSubjectConfigCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o GetSubjectConfigCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubjectConfigCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -22066,6 +26021,12 @@ func (o GetSubjectConfigCredentialsPtrOutput) ToGetSubjectConfigCredentialsPtrOu
 
 func (o GetSubjectConfigCredentialsPtrOutput) ToGetSubjectConfigCredentialsPtrOutputWithContext(ctx context.Context) GetSubjectConfigCredentialsPtrOutput {
 	return o
+}
+
+func (o GetSubjectConfigCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetSubjectConfigCredentials] {
+	return pulumix.Output[*GetSubjectConfigCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSubjectConfigCredentialsPtrOutput) Elem() GetSubjectConfigCredentialsOutput {
@@ -22131,6 +26092,12 @@ func (i GetSubjectConfigSchemaRegistryClusterArgs) ToGetSubjectConfigSchemaRegis
 	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectConfigSchemaRegistryClusterOutput)
 }
 
+func (i GetSubjectConfigSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetSubjectConfigSchemaRegistryCluster] {
+	return pulumix.Output[GetSubjectConfigSchemaRegistryCluster]{
+		OutputState: i.ToGetSubjectConfigSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetSubjectConfigSchemaRegistryClusterArgs) ToGetSubjectConfigSchemaRegistryClusterPtrOutput() GetSubjectConfigSchemaRegistryClusterPtrOutput {
 	return i.ToGetSubjectConfigSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -22172,6 +26139,12 @@ func (i *getSubjectConfigSchemaRegistryClusterPtrType) ToGetSubjectConfigSchemaR
 	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectConfigSchemaRegistryClusterPtrOutput)
 }
 
+func (i *getSubjectConfigSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetSubjectConfigSchemaRegistryCluster] {
+	return pulumix.Output[*GetSubjectConfigSchemaRegistryCluster]{
+		OutputState: i.ToGetSubjectConfigSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSubjectConfigSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (GetSubjectConfigSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -22196,6 +26169,12 @@ func (o GetSubjectConfigSchemaRegistryClusterOutput) ToGetSubjectConfigSchemaReg
 	}).(GetSubjectConfigSchemaRegistryClusterPtrOutput)
 }
 
+func (o GetSubjectConfigSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetSubjectConfigSchemaRegistryCluster] {
+	return pulumix.Output[GetSubjectConfigSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o GetSubjectConfigSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubjectConfigSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -22213,6 +26192,12 @@ func (o GetSubjectConfigSchemaRegistryClusterPtrOutput) ToGetSubjectConfigSchema
 
 func (o GetSubjectConfigSchemaRegistryClusterPtrOutput) ToGetSubjectConfigSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSubjectConfigSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o GetSubjectConfigSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetSubjectConfigSchemaRegistryCluster] {
+	return pulumix.Output[*GetSubjectConfigSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSubjectConfigSchemaRegistryClusterPtrOutput) Elem() GetSubjectConfigSchemaRegistryClusterOutput {
@@ -22272,6 +26257,12 @@ func (i GetSubjectModeCredentialsArgs) ToGetSubjectModeCredentialsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectModeCredentialsOutput)
 }
 
+func (i GetSubjectModeCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[GetSubjectModeCredentials] {
+	return pulumix.Output[GetSubjectModeCredentials]{
+		OutputState: i.ToGetSubjectModeCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetSubjectModeCredentialsArgs) ToGetSubjectModeCredentialsPtrOutput() GetSubjectModeCredentialsPtrOutput {
 	return i.ToGetSubjectModeCredentialsPtrOutputWithContext(context.Background())
 }
@@ -22313,6 +26304,12 @@ func (i *getSubjectModeCredentialsPtrType) ToGetSubjectModeCredentialsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectModeCredentialsPtrOutput)
 }
 
+func (i *getSubjectModeCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetSubjectModeCredentials] {
+	return pulumix.Output[*GetSubjectModeCredentials]{
+		OutputState: i.ToGetSubjectModeCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSubjectModeCredentialsOutput struct{ *pulumi.OutputState }
 
 func (GetSubjectModeCredentialsOutput) ElementType() reflect.Type {
@@ -22337,6 +26334,12 @@ func (o GetSubjectModeCredentialsOutput) ToGetSubjectModeCredentialsPtrOutputWit
 	}).(GetSubjectModeCredentialsPtrOutput)
 }
 
+func (o GetSubjectModeCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[GetSubjectModeCredentials] {
+	return pulumix.Output[GetSubjectModeCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o GetSubjectModeCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubjectModeCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -22359,6 +26362,12 @@ func (o GetSubjectModeCredentialsPtrOutput) ToGetSubjectModeCredentialsPtrOutput
 
 func (o GetSubjectModeCredentialsPtrOutput) ToGetSubjectModeCredentialsPtrOutputWithContext(ctx context.Context) GetSubjectModeCredentialsPtrOutput {
 	return o
+}
+
+func (o GetSubjectModeCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetSubjectModeCredentials] {
+	return pulumix.Output[*GetSubjectModeCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSubjectModeCredentialsPtrOutput) Elem() GetSubjectModeCredentialsOutput {
@@ -22424,6 +26433,12 @@ func (i GetSubjectModeSchemaRegistryClusterArgs) ToGetSubjectModeSchemaRegistryC
 	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectModeSchemaRegistryClusterOutput)
 }
 
+func (i GetSubjectModeSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetSubjectModeSchemaRegistryCluster] {
+	return pulumix.Output[GetSubjectModeSchemaRegistryCluster]{
+		OutputState: i.ToGetSubjectModeSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetSubjectModeSchemaRegistryClusterArgs) ToGetSubjectModeSchemaRegistryClusterPtrOutput() GetSubjectModeSchemaRegistryClusterPtrOutput {
 	return i.ToGetSubjectModeSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -22465,6 +26480,12 @@ func (i *getSubjectModeSchemaRegistryClusterPtrType) ToGetSubjectModeSchemaRegis
 	return pulumi.ToOutputWithContext(ctx, i).(GetSubjectModeSchemaRegistryClusterPtrOutput)
 }
 
+func (i *getSubjectModeSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetSubjectModeSchemaRegistryCluster] {
+	return pulumix.Output[*GetSubjectModeSchemaRegistryCluster]{
+		OutputState: i.ToGetSubjectModeSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSubjectModeSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (GetSubjectModeSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -22489,6 +26510,12 @@ func (o GetSubjectModeSchemaRegistryClusterOutput) ToGetSubjectModeSchemaRegistr
 	}).(GetSubjectModeSchemaRegistryClusterPtrOutput)
 }
 
+func (o GetSubjectModeSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetSubjectModeSchemaRegistryCluster] {
+	return pulumix.Output[GetSubjectModeSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o GetSubjectModeSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubjectModeSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -22506,6 +26533,12 @@ func (o GetSubjectModeSchemaRegistryClusterPtrOutput) ToGetSubjectModeSchemaRegi
 
 func (o GetSubjectModeSchemaRegistryClusterPtrOutput) ToGetSubjectModeSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetSubjectModeSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o GetSubjectModeSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetSubjectModeSchemaRegistryCluster] {
+	return pulumix.Output[*GetSubjectModeSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSubjectModeSchemaRegistryClusterPtrOutput) Elem() GetSubjectModeSchemaRegistryClusterOutput {
@@ -22565,6 +26598,12 @@ func (i GetTagBindingCredentialsArgs) ToGetTagBindingCredentialsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagBindingCredentialsOutput)
 }
 
+func (i GetTagBindingCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagBindingCredentials] {
+	return pulumix.Output[GetTagBindingCredentials]{
+		OutputState: i.ToGetTagBindingCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetTagBindingCredentialsArgs) ToGetTagBindingCredentialsPtrOutput() GetTagBindingCredentialsPtrOutput {
 	return i.ToGetTagBindingCredentialsPtrOutputWithContext(context.Background())
 }
@@ -22606,6 +26645,12 @@ func (i *getTagBindingCredentialsPtrType) ToGetTagBindingCredentialsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagBindingCredentialsPtrOutput)
 }
 
+func (i *getTagBindingCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagBindingCredentials] {
+	return pulumix.Output[*GetTagBindingCredentials]{
+		OutputState: i.ToGetTagBindingCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTagBindingCredentialsOutput struct{ *pulumi.OutputState }
 
 func (GetTagBindingCredentialsOutput) ElementType() reflect.Type {
@@ -22630,6 +26675,12 @@ func (o GetTagBindingCredentialsOutput) ToGetTagBindingCredentialsPtrOutputWithC
 	}).(GetTagBindingCredentialsPtrOutput)
 }
 
+func (o GetTagBindingCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagBindingCredentials] {
+	return pulumix.Output[GetTagBindingCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o GetTagBindingCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTagBindingCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -22652,6 +26703,12 @@ func (o GetTagBindingCredentialsPtrOutput) ToGetTagBindingCredentialsPtrOutput()
 
 func (o GetTagBindingCredentialsPtrOutput) ToGetTagBindingCredentialsPtrOutputWithContext(ctx context.Context) GetTagBindingCredentialsPtrOutput {
 	return o
+}
+
+func (o GetTagBindingCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagBindingCredentials] {
+	return pulumix.Output[*GetTagBindingCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTagBindingCredentialsPtrOutput) Elem() GetTagBindingCredentialsOutput {
@@ -22717,6 +26774,12 @@ func (i GetTagBindingSchemaRegistryClusterArgs) ToGetTagBindingSchemaRegistryClu
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagBindingSchemaRegistryClusterOutput)
 }
 
+func (i GetTagBindingSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagBindingSchemaRegistryCluster] {
+	return pulumix.Output[GetTagBindingSchemaRegistryCluster]{
+		OutputState: i.ToGetTagBindingSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetTagBindingSchemaRegistryClusterArgs) ToGetTagBindingSchemaRegistryClusterPtrOutput() GetTagBindingSchemaRegistryClusterPtrOutput {
 	return i.ToGetTagBindingSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -22758,6 +26821,12 @@ func (i *getTagBindingSchemaRegistryClusterPtrType) ToGetTagBindingSchemaRegistr
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagBindingSchemaRegistryClusterPtrOutput)
 }
 
+func (i *getTagBindingSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagBindingSchemaRegistryCluster] {
+	return pulumix.Output[*GetTagBindingSchemaRegistryCluster]{
+		OutputState: i.ToGetTagBindingSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTagBindingSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (GetTagBindingSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -22782,6 +26851,12 @@ func (o GetTagBindingSchemaRegistryClusterOutput) ToGetTagBindingSchemaRegistryC
 	}).(GetTagBindingSchemaRegistryClusterPtrOutput)
 }
 
+func (o GetTagBindingSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagBindingSchemaRegistryCluster] {
+	return pulumix.Output[GetTagBindingSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o GetTagBindingSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTagBindingSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -22799,6 +26874,12 @@ func (o GetTagBindingSchemaRegistryClusterPtrOutput) ToGetTagBindingSchemaRegist
 
 func (o GetTagBindingSchemaRegistryClusterPtrOutput) ToGetTagBindingSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetTagBindingSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o GetTagBindingSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagBindingSchemaRegistryCluster] {
+	return pulumix.Output[*GetTagBindingSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTagBindingSchemaRegistryClusterPtrOutput) Elem() GetTagBindingSchemaRegistryClusterOutput {
@@ -22858,6 +26939,12 @@ func (i GetTagCredentialsArgs) ToGetTagCredentialsOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagCredentialsOutput)
 }
 
+func (i GetTagCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagCredentials] {
+	return pulumix.Output[GetTagCredentials]{
+		OutputState: i.ToGetTagCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetTagCredentialsArgs) ToGetTagCredentialsPtrOutput() GetTagCredentialsPtrOutput {
 	return i.ToGetTagCredentialsPtrOutputWithContext(context.Background())
 }
@@ -22899,6 +26986,12 @@ func (i *getTagCredentialsPtrType) ToGetTagCredentialsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagCredentialsPtrOutput)
 }
 
+func (i *getTagCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagCredentials] {
+	return pulumix.Output[*GetTagCredentials]{
+		OutputState: i.ToGetTagCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTagCredentialsOutput struct{ *pulumi.OutputState }
 
 func (GetTagCredentialsOutput) ElementType() reflect.Type {
@@ -22923,6 +27016,12 @@ func (o GetTagCredentialsOutput) ToGetTagCredentialsPtrOutputWithContext(ctx con
 	}).(GetTagCredentialsPtrOutput)
 }
 
+func (o GetTagCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagCredentials] {
+	return pulumix.Output[GetTagCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Schema Registry API Key.
 func (o GetTagCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTagCredentials) string { return v.Key }).(pulumi.StringOutput)
@@ -22945,6 +27044,12 @@ func (o GetTagCredentialsPtrOutput) ToGetTagCredentialsPtrOutput() GetTagCredent
 
 func (o GetTagCredentialsPtrOutput) ToGetTagCredentialsPtrOutputWithContext(ctx context.Context) GetTagCredentialsPtrOutput {
 	return o
+}
+
+func (o GetTagCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagCredentials] {
+	return pulumix.Output[*GetTagCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTagCredentialsPtrOutput) Elem() GetTagCredentialsOutput {
@@ -23010,6 +27115,12 @@ func (i GetTagSchemaRegistryClusterArgs) ToGetTagSchemaRegistryClusterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagSchemaRegistryClusterOutput)
 }
 
+func (i GetTagSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagSchemaRegistryCluster] {
+	return pulumix.Output[GetTagSchemaRegistryCluster]{
+		OutputState: i.ToGetTagSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetTagSchemaRegistryClusterArgs) ToGetTagSchemaRegistryClusterPtrOutput() GetTagSchemaRegistryClusterPtrOutput {
 	return i.ToGetTagSchemaRegistryClusterPtrOutputWithContext(context.Background())
 }
@@ -23051,6 +27162,12 @@ func (i *getTagSchemaRegistryClusterPtrType) ToGetTagSchemaRegistryClusterPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagSchemaRegistryClusterPtrOutput)
 }
 
+func (i *getTagSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagSchemaRegistryCluster] {
+	return pulumix.Output[*GetTagSchemaRegistryCluster]{
+		OutputState: i.ToGetTagSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTagSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
 
 func (GetTagSchemaRegistryClusterOutput) ElementType() reflect.Type {
@@ -23075,6 +27192,12 @@ func (o GetTagSchemaRegistryClusterOutput) ToGetTagSchemaRegistryClusterPtrOutpu
 	}).(GetTagSchemaRegistryClusterPtrOutput)
 }
 
+func (o GetTagSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagSchemaRegistryCluster] {
+	return pulumix.Output[GetTagSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o GetTagSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTagSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
@@ -23092,6 +27215,12 @@ func (o GetTagSchemaRegistryClusterPtrOutput) ToGetTagSchemaRegistryClusterPtrOu
 
 func (o GetTagSchemaRegistryClusterPtrOutput) ToGetTagSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) GetTagSchemaRegistryClusterPtrOutput {
 	return o
+}
+
+func (o GetTagSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagSchemaRegistryCluster] {
+	return pulumix.Output[*GetTagSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTagSchemaRegistryClusterPtrOutput) Elem() GetTagSchemaRegistryClusterOutput {
@@ -23159,6 +27288,12 @@ func (i GetTransitGatewayAttachmentAwArgs) ToGetTransitGatewayAttachmentAwOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayAttachmentAwOutput)
 }
 
+func (i GetTransitGatewayAttachmentAwArgs) ToOutput(ctx context.Context) pulumix.Output[GetTransitGatewayAttachmentAw] {
+	return pulumix.Output[GetTransitGatewayAttachmentAw]{
+		OutputState: i.ToGetTransitGatewayAttachmentAwOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTransitGatewayAttachmentAwArrayInput is an input type that accepts GetTransitGatewayAttachmentAwArray and GetTransitGatewayAttachmentAwArrayOutput values.
 // You can construct a concrete instance of `GetTransitGatewayAttachmentAwArrayInput` via:
 //
@@ -23184,6 +27319,12 @@ func (i GetTransitGatewayAttachmentAwArray) ToGetTransitGatewayAttachmentAwArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayAttachmentAwArrayOutput)
 }
 
+func (i GetTransitGatewayAttachmentAwArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTransitGatewayAttachmentAw] {
+	return pulumix.Output[[]GetTransitGatewayAttachmentAw]{
+		OutputState: i.ToGetTransitGatewayAttachmentAwArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTransitGatewayAttachmentAwOutput struct{ *pulumi.OutputState }
 
 func (GetTransitGatewayAttachmentAwOutput) ElementType() reflect.Type {
@@ -23196,6 +27337,12 @@ func (o GetTransitGatewayAttachmentAwOutput) ToGetTransitGatewayAttachmentAwOutp
 
 func (o GetTransitGatewayAttachmentAwOutput) ToGetTransitGatewayAttachmentAwOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentAwOutput {
 	return o
+}
+
+func (o GetTransitGatewayAttachmentAwOutput) ToOutput(ctx context.Context) pulumix.Output[GetTransitGatewayAttachmentAw] {
+	return pulumix.Output[GetTransitGatewayAttachmentAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The Amazon Resource Name (ARN) of the Resource Access Manager (RAM) Resource Share of the transit gateway your Confluent Cloud network attaches to.
@@ -23230,6 +27377,12 @@ func (o GetTransitGatewayAttachmentAwArrayOutput) ToGetTransitGatewayAttachmentA
 
 func (o GetTransitGatewayAttachmentAwArrayOutput) ToGetTransitGatewayAttachmentAwArrayOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentAwArrayOutput {
 	return o
+}
+
+func (o GetTransitGatewayAttachmentAwArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTransitGatewayAttachmentAw] {
+	return pulumix.Output[[]GetTransitGatewayAttachmentAw]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTransitGatewayAttachmentAwArrayOutput) Index(i pulumi.IntInput) GetTransitGatewayAttachmentAwOutput {
@@ -23275,6 +27428,12 @@ func (i GetTransitGatewayAttachmentEnvironmentArgs) ToGetTransitGatewayAttachmen
 	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayAttachmentEnvironmentOutput)
 }
 
+func (i GetTransitGatewayAttachmentEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetTransitGatewayAttachmentEnvironment] {
+	return pulumix.Output[GetTransitGatewayAttachmentEnvironment]{
+		OutputState: i.ToGetTransitGatewayAttachmentEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTransitGatewayAttachmentEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetTransitGatewayAttachmentEnvironmentOutput) ElementType() reflect.Type {
@@ -23287,6 +27446,12 @@ func (o GetTransitGatewayAttachmentEnvironmentOutput) ToGetTransitGatewayAttachm
 
 func (o GetTransitGatewayAttachmentEnvironmentOutput) ToGetTransitGatewayAttachmentEnvironmentOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentEnvironmentOutput {
 	return o
+}
+
+func (o GetTransitGatewayAttachmentEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetTransitGatewayAttachmentEnvironment] {
+	return pulumix.Output[GetTransitGatewayAttachmentEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
@@ -23333,6 +27498,12 @@ func (i GetTransitGatewayAttachmentNetworkArgs) ToGetTransitGatewayAttachmentNet
 	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayAttachmentNetworkOutput)
 }
 
+func (i GetTransitGatewayAttachmentNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[GetTransitGatewayAttachmentNetwork] {
+	return pulumix.Output[GetTransitGatewayAttachmentNetwork]{
+		OutputState: i.ToGetTransitGatewayAttachmentNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTransitGatewayAttachmentNetworkArrayInput is an input type that accepts GetTransitGatewayAttachmentNetworkArray and GetTransitGatewayAttachmentNetworkArrayOutput values.
 // You can construct a concrete instance of `GetTransitGatewayAttachmentNetworkArrayInput` via:
 //
@@ -23358,6 +27529,12 @@ func (i GetTransitGatewayAttachmentNetworkArray) ToGetTransitGatewayAttachmentNe
 	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayAttachmentNetworkArrayOutput)
 }
 
+func (i GetTransitGatewayAttachmentNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTransitGatewayAttachmentNetwork] {
+	return pulumix.Output[[]GetTransitGatewayAttachmentNetwork]{
+		OutputState: i.ToGetTransitGatewayAttachmentNetworkArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTransitGatewayAttachmentNetworkOutput struct{ *pulumi.OutputState }
 
 func (GetTransitGatewayAttachmentNetworkOutput) ElementType() reflect.Type {
@@ -23370,6 +27547,12 @@ func (o GetTransitGatewayAttachmentNetworkOutput) ToGetTransitGatewayAttachmentN
 
 func (o GetTransitGatewayAttachmentNetworkOutput) ToGetTransitGatewayAttachmentNetworkOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentNetworkOutput {
 	return o
+}
+
+func (o GetTransitGatewayAttachmentNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[GetTransitGatewayAttachmentNetwork] {
+	return pulumix.Output[GetTransitGatewayAttachmentNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
@@ -23391,6 +27574,12 @@ func (o GetTransitGatewayAttachmentNetworkArrayOutput) ToGetTransitGatewayAttach
 
 func (o GetTransitGatewayAttachmentNetworkArrayOutput) ToGetTransitGatewayAttachmentNetworkArrayOutputWithContext(ctx context.Context) GetTransitGatewayAttachmentNetworkArrayOutput {
 	return o
+}
+
+func (o GetTransitGatewayAttachmentNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTransitGatewayAttachmentNetwork] {
+	return pulumix.Output[[]GetTransitGatewayAttachmentNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTransitGatewayAttachmentNetworkArrayOutput) Index(i pulumi.IntInput) GetTransitGatewayAttachmentNetworkOutput {

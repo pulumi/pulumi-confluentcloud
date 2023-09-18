@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -150,6 +151,12 @@ func (i *KafkaClusterConfig) ToKafkaClusterConfigOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterConfigOutput)
 }
 
+func (i *KafkaClusterConfig) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterConfig] {
+	return pulumix.Output[*KafkaClusterConfig]{
+		OutputState: i.ToKafkaClusterConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KafkaClusterConfigArrayInput is an input type that accepts KafkaClusterConfigArray and KafkaClusterConfigArrayOutput values.
 // You can construct a concrete instance of `KafkaClusterConfigArrayInput` via:
 //
@@ -173,6 +180,12 @@ func (i KafkaClusterConfigArray) ToKafkaClusterConfigArrayOutput() KafkaClusterC
 
 func (i KafkaClusterConfigArray) ToKafkaClusterConfigArrayOutputWithContext(ctx context.Context) KafkaClusterConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterConfigArrayOutput)
+}
+
+func (i KafkaClusterConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*KafkaClusterConfig] {
+	return pulumix.Output[[]*KafkaClusterConfig]{
+		OutputState: i.ToKafkaClusterConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // KafkaClusterConfigMapInput is an input type that accepts KafkaClusterConfigMap and KafkaClusterConfigMapOutput values.
@@ -200,6 +213,12 @@ func (i KafkaClusterConfigMap) ToKafkaClusterConfigMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterConfigMapOutput)
 }
 
+func (i KafkaClusterConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KafkaClusterConfig] {
+	return pulumix.Output[map[string]*KafkaClusterConfig]{
+		OutputState: i.ToKafkaClusterConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaClusterConfigOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterConfigOutput) ElementType() reflect.Type {
@@ -212,6 +231,12 @@ func (o KafkaClusterConfigOutput) ToKafkaClusterConfigOutput() KafkaClusterConfi
 
 func (o KafkaClusterConfigOutput) ToKafkaClusterConfigOutputWithContext(ctx context.Context) KafkaClusterConfigOutput {
 	return o
+}
+
+func (o KafkaClusterConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterConfig] {
+	return pulumix.Output[*KafkaClusterConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The custom cluster settings to set:
@@ -247,6 +272,12 @@ func (o KafkaClusterConfigArrayOutput) ToKafkaClusterConfigArrayOutputWithContex
 	return o
 }
 
+func (o KafkaClusterConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KafkaClusterConfig] {
+	return pulumix.Output[[]*KafkaClusterConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KafkaClusterConfigArrayOutput) Index(i pulumi.IntInput) KafkaClusterConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KafkaClusterConfig {
 		return vs[0].([]*KafkaClusterConfig)[vs[1].(int)]
@@ -265,6 +296,12 @@ func (o KafkaClusterConfigMapOutput) ToKafkaClusterConfigMapOutput() KafkaCluste
 
 func (o KafkaClusterConfigMapOutput) ToKafkaClusterConfigMapOutputWithContext(ctx context.Context) KafkaClusterConfigMapOutput {
 	return o
+}
+
+func (o KafkaClusterConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KafkaClusterConfig] {
+	return pulumix.Output[map[string]*KafkaClusterConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaClusterConfigMapOutput) MapIndex(k pulumi.StringInput) KafkaClusterConfigOutput {

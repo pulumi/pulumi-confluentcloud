@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupSubjectMode(ctx *pulumi.Context, args *LookupSubjectModeArgs, opts ...pulumi.InvokeOption) (*LookupSubjectModeResult, error) {
@@ -87,6 +88,12 @@ func (o LookupSubjectModeResultOutput) ToLookupSubjectModeResultOutput() LookupS
 
 func (o LookupSubjectModeResultOutput) ToLookupSubjectModeResultOutputWithContext(ctx context.Context) LookupSubjectModeResultOutput {
 	return o
+}
+
+func (o LookupSubjectModeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubjectModeResult] {
+	return pulumix.Output[LookupSubjectModeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupSubjectModeResultOutput) Credentials() GetSubjectModeCredentialsPtrOutput {

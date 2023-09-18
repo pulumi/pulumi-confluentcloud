@@ -62,7 +62,8 @@ utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => req
 
 export { GetEnvironmentsResult } from "./getEnvironments";
 export const getEnvironments: typeof import("./getEnvironments").getEnvironments = null as any;
-utilities.lazyLoad(exports, ["getEnvironments"], () => require("./getEnvironments"));
+export const getEnvironmentsOutput: typeof import("./getEnvironments").getEnvironmentsOutput = null as any;
+utilities.lazyLoad(exports, ["getEnvironments","getEnvironmentsOutput"], () => require("./getEnvironments"));
 
 export { GetIdentityPoolArgs, GetIdentityPoolResult, GetIdentityPoolOutputArgs } from "./getIdentityPool";
 export const getIdentityPool: typeof import("./getIdentityPool").getIdentityPool = null as any;
@@ -116,7 +117,8 @@ utilities.lazyLoad(exports, ["getNetworkLinkService","getNetworkLinkServiceOutpu
 
 export { GetOrganizationResult } from "./getOrganization";
 export const getOrganization: typeof import("./getOrganization").getOrganization = null as any;
-utilities.lazyLoad(exports, ["getOrganization"], () => require("./getOrganization"));
+export const getOrganizationOutput: typeof import("./getOrganization").getOrganizationOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganization","getOrganizationOutput"], () => require("./getOrganization"));
 
 export { GetPeeringArgs, GetPeeringResult, GetPeeringOutputArgs } from "./getPeering";
 export const getPeering: typeof import("./getPeering").getPeering = null as any;
@@ -165,7 +167,8 @@ utilities.lazyLoad(exports, ["getSchemaRegistryClusterMode","getSchemaRegistryCl
 
 export { GetSchemaRegistryClustersResult } from "./getSchemaRegistryClusters";
 export const getSchemaRegistryClusters: typeof import("./getSchemaRegistryClusters").getSchemaRegistryClusters = null as any;
-utilities.lazyLoad(exports, ["getSchemaRegistryClusters"], () => require("./getSchemaRegistryClusters"));
+export const getSchemaRegistryClustersOutput: typeof import("./getSchemaRegistryClusters").getSchemaRegistryClustersOutput = null as any;
+utilities.lazyLoad(exports, ["getSchemaRegistryClusters","getSchemaRegistryClustersOutput"], () => require("./getSchemaRegistryClusters"));
 
 export { GetSchemaRegistryRegionArgs, GetSchemaRegistryRegionResult, GetSchemaRegistryRegionOutputArgs } from "./getSchemaRegistryRegion";
 export const getSchemaRegistryRegion: typeof import("./getSchemaRegistryRegion").getSchemaRegistryRegion = null as any;
@@ -214,7 +217,8 @@ utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUse
 
 export { GetUsersResult } from "./getUsers";
 export const getUsers: typeof import("./getUsers").getUsers = null as any;
-utilities.lazyLoad(exports, ["getUsers"], () => require("./getUsers"));
+export const getUsersOutput: typeof import("./getUsers").getUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getUsers","getUsersOutput"], () => require("./getUsers"));
 
 export { IdentityPoolArgs, IdentityPoolState } from "./identityPool";
 export type IdentityPool = import("./identityPool").IdentityPool;

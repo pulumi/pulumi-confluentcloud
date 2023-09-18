@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -152,6 +153,12 @@ func (i *SubjectConfig) ToSubjectConfigOutputWithContext(ctx context.Context) Su
 	return pulumi.ToOutputWithContext(ctx, i).(SubjectConfigOutput)
 }
 
+func (i *SubjectConfig) ToOutput(ctx context.Context) pulumix.Output[*SubjectConfig] {
+	return pulumix.Output[*SubjectConfig]{
+		OutputState: i.ToSubjectConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubjectConfigArrayInput is an input type that accepts SubjectConfigArray and SubjectConfigArrayOutput values.
 // You can construct a concrete instance of `SubjectConfigArrayInput` via:
 //
@@ -175,6 +182,12 @@ func (i SubjectConfigArray) ToSubjectConfigArrayOutput() SubjectConfigArrayOutpu
 
 func (i SubjectConfigArray) ToSubjectConfigArrayOutputWithContext(ctx context.Context) SubjectConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubjectConfigArrayOutput)
+}
+
+func (i SubjectConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubjectConfig] {
+	return pulumix.Output[[]*SubjectConfig]{
+		OutputState: i.ToSubjectConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SubjectConfigMapInput is an input type that accepts SubjectConfigMap and SubjectConfigMapOutput values.
@@ -202,6 +215,12 @@ func (i SubjectConfigMap) ToSubjectConfigMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SubjectConfigMapOutput)
 }
 
+func (i SubjectConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubjectConfig] {
+	return pulumix.Output[map[string]*SubjectConfig]{
+		OutputState: i.ToSubjectConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubjectConfigOutput struct{ *pulumi.OutputState }
 
 func (SubjectConfigOutput) ElementType() reflect.Type {
@@ -214,6 +233,12 @@ func (o SubjectConfigOutput) ToSubjectConfigOutput() SubjectConfigOutput {
 
 func (o SubjectConfigOutput) ToSubjectConfigOutputWithContext(ctx context.Context) SubjectConfigOutput {
 	return o
+}
+
+func (o SubjectConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*SubjectConfig] {
+	return pulumix.Output[*SubjectConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
@@ -254,6 +279,12 @@ func (o SubjectConfigArrayOutput) ToSubjectConfigArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o SubjectConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubjectConfig] {
+	return pulumix.Output[[]*SubjectConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SubjectConfigArrayOutput) Index(i pulumi.IntInput) SubjectConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubjectConfig {
 		return vs[0].([]*SubjectConfig)[vs[1].(int)]
@@ -272,6 +303,12 @@ func (o SubjectConfigMapOutput) ToSubjectConfigMapOutput() SubjectConfigMapOutpu
 
 func (o SubjectConfigMapOutput) ToSubjectConfigMapOutputWithContext(ctx context.Context) SubjectConfigMapOutput {
 	return o
+}
+
+func (o SubjectConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubjectConfig] {
+	return pulumix.Output[map[string]*SubjectConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubjectConfigMapOutput) MapIndex(k pulumi.StringInput) SubjectConfigOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -162,6 +163,12 @@ func (i *NetworkLinkEndpoint) ToNetworkLinkEndpointOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointOutput)
 }
 
+func (i *NetworkLinkEndpoint) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkEndpoint] {
+	return pulumix.Output[*NetworkLinkEndpoint]{
+		OutputState: i.ToNetworkLinkEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkLinkEndpointArrayInput is an input type that accepts NetworkLinkEndpointArray and NetworkLinkEndpointArrayOutput values.
 // You can construct a concrete instance of `NetworkLinkEndpointArrayInput` via:
 //
@@ -185,6 +192,12 @@ func (i NetworkLinkEndpointArray) ToNetworkLinkEndpointArrayOutput() NetworkLink
 
 func (i NetworkLinkEndpointArray) ToNetworkLinkEndpointArrayOutputWithContext(ctx context.Context) NetworkLinkEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointArrayOutput)
+}
+
+func (i NetworkLinkEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkLinkEndpoint] {
+	return pulumix.Output[[]*NetworkLinkEndpoint]{
+		OutputState: i.ToNetworkLinkEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkLinkEndpointMapInput is an input type that accepts NetworkLinkEndpointMap and NetworkLinkEndpointMapOutput values.
@@ -212,6 +225,12 @@ func (i NetworkLinkEndpointMap) ToNetworkLinkEndpointMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkLinkEndpointMapOutput)
 }
 
+func (i NetworkLinkEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkLinkEndpoint] {
+	return pulumix.Output[map[string]*NetworkLinkEndpoint]{
+		OutputState: i.ToNetworkLinkEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkLinkEndpointOutput struct{ *pulumi.OutputState }
 
 func (NetworkLinkEndpointOutput) ElementType() reflect.Type {
@@ -224,6 +243,12 @@ func (o NetworkLinkEndpointOutput) ToNetworkLinkEndpointOutput() NetworkLinkEndp
 
 func (o NetworkLinkEndpointOutput) ToNetworkLinkEndpointOutputWithContext(ctx context.Context) NetworkLinkEndpointOutput {
 	return o
+}
+
+func (o NetworkLinkEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkLinkEndpoint] {
+	return pulumix.Output[*NetworkLinkEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the Network Link Endpoint.
@@ -270,6 +295,12 @@ func (o NetworkLinkEndpointArrayOutput) ToNetworkLinkEndpointArrayOutputWithCont
 	return o
 }
 
+func (o NetworkLinkEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkLinkEndpoint] {
+	return pulumix.Output[[]*NetworkLinkEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkLinkEndpointArrayOutput) Index(i pulumi.IntInput) NetworkLinkEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkLinkEndpoint {
 		return vs[0].([]*NetworkLinkEndpoint)[vs[1].(int)]
@@ -288,6 +319,12 @@ func (o NetworkLinkEndpointMapOutput) ToNetworkLinkEndpointMapOutput() NetworkLi
 
 func (o NetworkLinkEndpointMapOutput) ToNetworkLinkEndpointMapOutputWithContext(ctx context.Context) NetworkLinkEndpointMapOutput {
 	return o
+}
+
+func (o NetworkLinkEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkLinkEndpoint] {
+	return pulumix.Output[map[string]*NetworkLinkEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkLinkEndpointMapOutput) MapIndex(k pulumi.StringInput) NetworkLinkEndpointOutput {

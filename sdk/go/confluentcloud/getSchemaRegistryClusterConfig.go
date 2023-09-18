@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupSchemaRegistryClusterConfig(ctx *pulumi.Context, args *LookupSchemaRegistryClusterConfigArgs, opts ...pulumi.InvokeOption) (*LookupSchemaRegistryClusterConfigResult, error) {
@@ -78,6 +79,12 @@ func (o LookupSchemaRegistryClusterConfigResultOutput) ToLookupSchemaRegistryClu
 
 func (o LookupSchemaRegistryClusterConfigResultOutput) ToLookupSchemaRegistryClusterConfigResultOutputWithContext(ctx context.Context) LookupSchemaRegistryClusterConfigResultOutput {
 	return o
+}
+
+func (o LookupSchemaRegistryClusterConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSchemaRegistryClusterConfigResult] {
+	return pulumix.Output[LookupSchemaRegistryClusterConfigResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.

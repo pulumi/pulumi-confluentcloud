@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -132,6 +133,12 @@ func (o LookupTransitGatewayAttachmentResultOutput) ToLookupTransitGatewayAttach
 
 func (o LookupTransitGatewayAttachmentResultOutput) ToLookupTransitGatewayAttachmentResultOutputWithContext(ctx context.Context) LookupTransitGatewayAttachmentResultOutput {
 	return o
+}
+
+func (o LookupTransitGatewayAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTransitGatewayAttachmentResult] {
+	return pulumix.Output[LookupTransitGatewayAttachmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:

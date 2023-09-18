@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -136,6 +137,12 @@ func (i *KafkaMirrorTopic) ToKafkaMirrorTopicOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicOutput)
 }
 
+func (i *KafkaMirrorTopic) ToOutput(ctx context.Context) pulumix.Output[*KafkaMirrorTopic] {
+	return pulumix.Output[*KafkaMirrorTopic]{
+		OutputState: i.ToKafkaMirrorTopicOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KafkaMirrorTopicArrayInput is an input type that accepts KafkaMirrorTopicArray and KafkaMirrorTopicArrayOutput values.
 // You can construct a concrete instance of `KafkaMirrorTopicArrayInput` via:
 //
@@ -159,6 +166,12 @@ func (i KafkaMirrorTopicArray) ToKafkaMirrorTopicArrayOutput() KafkaMirrorTopicA
 
 func (i KafkaMirrorTopicArray) ToKafkaMirrorTopicArrayOutputWithContext(ctx context.Context) KafkaMirrorTopicArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicArrayOutput)
+}
+
+func (i KafkaMirrorTopicArray) ToOutput(ctx context.Context) pulumix.Output[[]*KafkaMirrorTopic] {
+	return pulumix.Output[[]*KafkaMirrorTopic]{
+		OutputState: i.ToKafkaMirrorTopicArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // KafkaMirrorTopicMapInput is an input type that accepts KafkaMirrorTopicMap and KafkaMirrorTopicMapOutput values.
@@ -186,6 +199,12 @@ func (i KafkaMirrorTopicMap) ToKafkaMirrorTopicMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaMirrorTopicMapOutput)
 }
 
+func (i KafkaMirrorTopicMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KafkaMirrorTopic] {
+	return pulumix.Output[map[string]*KafkaMirrorTopic]{
+		OutputState: i.ToKafkaMirrorTopicMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KafkaMirrorTopicOutput struct{ *pulumi.OutputState }
 
 func (KafkaMirrorTopicOutput) ElementType() reflect.Type {
@@ -198,6 +217,12 @@ func (o KafkaMirrorTopicOutput) ToKafkaMirrorTopicOutput() KafkaMirrorTopicOutpu
 
 func (o KafkaMirrorTopicOutput) ToKafkaMirrorTopicOutputWithContext(ctx context.Context) KafkaMirrorTopicOutput {
 	return o
+}
+
+func (o KafkaMirrorTopicOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaMirrorTopic] {
+	return pulumix.Output[*KafkaMirrorTopic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaMirrorTopicOutput) ClusterLink() KafkaMirrorTopicClusterLinkOutput {
@@ -235,6 +260,12 @@ func (o KafkaMirrorTopicArrayOutput) ToKafkaMirrorTopicArrayOutputWithContext(ct
 	return o
 }
 
+func (o KafkaMirrorTopicArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KafkaMirrorTopic] {
+	return pulumix.Output[[]*KafkaMirrorTopic]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KafkaMirrorTopicArrayOutput) Index(i pulumi.IntInput) KafkaMirrorTopicOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KafkaMirrorTopic {
 		return vs[0].([]*KafkaMirrorTopic)[vs[1].(int)]
@@ -253,6 +284,12 @@ func (o KafkaMirrorTopicMapOutput) ToKafkaMirrorTopicMapOutput() KafkaMirrorTopi
 
 func (o KafkaMirrorTopicMapOutput) ToKafkaMirrorTopicMapOutputWithContext(ctx context.Context) KafkaMirrorTopicMapOutput {
 	return o
+}
+
+func (o KafkaMirrorTopicMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KafkaMirrorTopic] {
+	return pulumix.Output[map[string]*KafkaMirrorTopic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KafkaMirrorTopicMapOutput) MapIndex(k pulumi.StringInput) KafkaMirrorTopicOutput {

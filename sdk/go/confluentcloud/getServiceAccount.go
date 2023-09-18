@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -125,6 +126,12 @@ func (o LookupServiceAccountResultOutput) ToLookupServiceAccountResultOutput() L
 
 func (o LookupServiceAccountResultOutput) ToLookupServiceAccountResultOutputWithContext(ctx context.Context) LookupServiceAccountResultOutput {
 	return o
+}
+
+func (o LookupServiceAccountResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceAccountResult] {
+	return pulumix.Output[LookupServiceAccountResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required String) An API Version of the schema version of the Service Account.

@@ -44,6 +44,40 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public static Task<GetEnvironmentsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentsResult>("confluentcloud:index/getEnvironments:getEnvironments", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// 
+        /// &gt; **Note:** `confluentcloud.getEnvironments` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  
+        /// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+        /// 
+        /// `confluentcloud.getEnvironments` describes a data source for Environments.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using ConfluentCloud = Pulumi.ConfluentCloud;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = ConfluentCloud.GetEnvironments.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["environments"] = main.Apply(getEnvironmentsResult =&gt; getEnvironmentsResult.Ids),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetEnvironmentsResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentsResult>("confluentcloud:index/getEnvironments:getEnvironments", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

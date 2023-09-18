@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -153,6 +154,12 @@ func (i *PrivateLinkAccess) ToPrivateLinkAccessOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessOutput)
 }
 
+func (i *PrivateLinkAccess) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAccess] {
+	return pulumix.Output[*PrivateLinkAccess]{
+		OutputState: i.ToPrivateLinkAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PrivateLinkAccessArrayInput is an input type that accepts PrivateLinkAccessArray and PrivateLinkAccessArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkAccessArrayInput` via:
 //
@@ -176,6 +183,12 @@ func (i PrivateLinkAccessArray) ToPrivateLinkAccessArrayOutput() PrivateLinkAcce
 
 func (i PrivateLinkAccessArray) ToPrivateLinkAccessArrayOutputWithContext(ctx context.Context) PrivateLinkAccessArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessArrayOutput)
+}
+
+func (i PrivateLinkAccessArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLinkAccess] {
+	return pulumix.Output[[]*PrivateLinkAccess]{
+		OutputState: i.ToPrivateLinkAccessArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PrivateLinkAccessMapInput is an input type that accepts PrivateLinkAccessMap and PrivateLinkAccessMapOutput values.
@@ -203,6 +216,12 @@ func (i PrivateLinkAccessMap) ToPrivateLinkAccessMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAccessMapOutput)
 }
 
+func (i PrivateLinkAccessMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLinkAccess] {
+	return pulumix.Output[map[string]*PrivateLinkAccess]{
+		OutputState: i.ToPrivateLinkAccessMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateLinkAccessOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAccessOutput) ElementType() reflect.Type {
@@ -215,6 +234,12 @@ func (o PrivateLinkAccessOutput) ToPrivateLinkAccessOutput() PrivateLinkAccessOu
 
 func (o PrivateLinkAccessOutput) ToPrivateLinkAccessOutputWithContext(ctx context.Context) PrivateLinkAccessOutput {
 	return o
+}
+
+func (o PrivateLinkAccessOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAccess] {
+	return pulumix.Output[*PrivateLinkAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAccessOutput) Aws() PrivateLinkAccessAwsPtrOutput {
@@ -259,6 +284,12 @@ func (o PrivateLinkAccessArrayOutput) ToPrivateLinkAccessArrayOutputWithContext(
 	return o
 }
 
+func (o PrivateLinkAccessArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLinkAccess] {
+	return pulumix.Output[[]*PrivateLinkAccess]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PrivateLinkAccessArrayOutput) Index(i pulumi.IntInput) PrivateLinkAccessOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrivateLinkAccess {
 		return vs[0].([]*PrivateLinkAccess)[vs[1].(int)]
@@ -277,6 +308,12 @@ func (o PrivateLinkAccessMapOutput) ToPrivateLinkAccessMapOutput() PrivateLinkAc
 
 func (o PrivateLinkAccessMapOutput) ToPrivateLinkAccessMapOutputWithContext(ctx context.Context) PrivateLinkAccessMapOutput {
 	return o
+}
+
+func (o PrivateLinkAccessMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLinkAccess] {
+	return pulumix.Output[map[string]*PrivateLinkAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateLinkAccessMapOutput) MapIndex(k pulumi.StringInput) PrivateLinkAccessOutput {

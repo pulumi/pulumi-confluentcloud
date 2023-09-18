@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![Limited Availability](https://img.shields.io/badge/Lifecycle%20Stage-Limited%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -122,6 +123,12 @@ func (o LookupPrivateLinkAttachmentResultOutput) ToLookupPrivateLinkAttachmentRe
 
 func (o LookupPrivateLinkAttachmentResultOutput) ToLookupPrivateLinkAttachmentResultOutputWithContext(ctx context.Context) LookupPrivateLinkAttachmentResultOutput {
 	return o
+}
+
+func (o LookupPrivateLinkAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPrivateLinkAttachmentResult] {
+	return pulumix.Output[LookupPrivateLinkAttachmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional Configuration Block) supports the following:

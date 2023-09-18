@@ -39,3 +39,21 @@ export interface GetOrganizationResult {
      */
     readonly resourceName: string;
 }
+/**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * `confluentcloud.getOrganization` describes an Organization data source.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const exampleOrganization = confluentcloud.getOrganization({});
+ * export const example = exampleOrganization;
+ * ```
+ */
+export function getOrganizationOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationResult> {
+    return pulumi.output(getOrganization(opts))
+}

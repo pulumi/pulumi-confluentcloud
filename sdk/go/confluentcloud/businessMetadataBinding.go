@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -178,6 +179,12 @@ func (i *BusinessMetadataBinding) ToBusinessMetadataBindingOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataBindingOutput)
 }
 
+func (i *BusinessMetadataBinding) ToOutput(ctx context.Context) pulumix.Output[*BusinessMetadataBinding] {
+	return pulumix.Output[*BusinessMetadataBinding]{
+		OutputState: i.ToBusinessMetadataBindingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BusinessMetadataBindingArrayInput is an input type that accepts BusinessMetadataBindingArray and BusinessMetadataBindingArrayOutput values.
 // You can construct a concrete instance of `BusinessMetadataBindingArrayInput` via:
 //
@@ -201,6 +208,12 @@ func (i BusinessMetadataBindingArray) ToBusinessMetadataBindingArrayOutput() Bus
 
 func (i BusinessMetadataBindingArray) ToBusinessMetadataBindingArrayOutputWithContext(ctx context.Context) BusinessMetadataBindingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataBindingArrayOutput)
+}
+
+func (i BusinessMetadataBindingArray) ToOutput(ctx context.Context) pulumix.Output[[]*BusinessMetadataBinding] {
+	return pulumix.Output[[]*BusinessMetadataBinding]{
+		OutputState: i.ToBusinessMetadataBindingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BusinessMetadataBindingMapInput is an input type that accepts BusinessMetadataBindingMap and BusinessMetadataBindingMapOutput values.
@@ -228,6 +241,12 @@ func (i BusinessMetadataBindingMap) ToBusinessMetadataBindingMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataBindingMapOutput)
 }
 
+func (i BusinessMetadataBindingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BusinessMetadataBinding] {
+	return pulumix.Output[map[string]*BusinessMetadataBinding]{
+		OutputState: i.ToBusinessMetadataBindingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BusinessMetadataBindingOutput struct{ *pulumi.OutputState }
 
 func (BusinessMetadataBindingOutput) ElementType() reflect.Type {
@@ -240,6 +259,12 @@ func (o BusinessMetadataBindingOutput) ToBusinessMetadataBindingOutput() Busines
 
 func (o BusinessMetadataBindingOutput) ToBusinessMetadataBindingOutputWithContext(ctx context.Context) BusinessMetadataBindingOutput {
 	return o
+}
+
+func (o BusinessMetadataBindingOutput) ToOutput(ctx context.Context) pulumix.Output[*BusinessMetadataBinding] {
+	return pulumix.Output[*BusinessMetadataBinding]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The attributes.
@@ -292,6 +317,12 @@ func (o BusinessMetadataBindingArrayOutput) ToBusinessMetadataBindingArrayOutput
 	return o
 }
 
+func (o BusinessMetadataBindingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BusinessMetadataBinding] {
+	return pulumix.Output[[]*BusinessMetadataBinding]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BusinessMetadataBindingArrayOutput) Index(i pulumi.IntInput) BusinessMetadataBindingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BusinessMetadataBinding {
 		return vs[0].([]*BusinessMetadataBinding)[vs[1].(int)]
@@ -310,6 +341,12 @@ func (o BusinessMetadataBindingMapOutput) ToBusinessMetadataBindingMapOutput() B
 
 func (o BusinessMetadataBindingMapOutput) ToBusinessMetadataBindingMapOutputWithContext(ctx context.Context) BusinessMetadataBindingMapOutput {
 	return o
+}
+
+func (o BusinessMetadataBindingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BusinessMetadataBinding] {
+	return pulumix.Output[map[string]*BusinessMetadataBinding]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BusinessMetadataBindingMapOutput) MapIndex(k pulumi.StringInput) BusinessMetadataBindingOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -138,6 +139,12 @@ func (i *SchemaRegistryClusterConfig) ToSchemaRegistryClusterConfigOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterConfigOutput)
 }
 
+func (i *SchemaRegistryClusterConfig) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterConfig] {
+	return pulumix.Output[*SchemaRegistryClusterConfig]{
+		OutputState: i.ToSchemaRegistryClusterConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SchemaRegistryClusterConfigArrayInput is an input type that accepts SchemaRegistryClusterConfigArray and SchemaRegistryClusterConfigArrayOutput values.
 // You can construct a concrete instance of `SchemaRegistryClusterConfigArrayInput` via:
 //
@@ -161,6 +168,12 @@ func (i SchemaRegistryClusterConfigArray) ToSchemaRegistryClusterConfigArrayOutp
 
 func (i SchemaRegistryClusterConfigArray) ToSchemaRegistryClusterConfigArrayOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterConfigArrayOutput)
+}
+
+func (i SchemaRegistryClusterConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*SchemaRegistryClusterConfig] {
+	return pulumix.Output[[]*SchemaRegistryClusterConfig]{
+		OutputState: i.ToSchemaRegistryClusterConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SchemaRegistryClusterConfigMapInput is an input type that accepts SchemaRegistryClusterConfigMap and SchemaRegistryClusterConfigMapOutput values.
@@ -188,6 +201,12 @@ func (i SchemaRegistryClusterConfigMap) ToSchemaRegistryClusterConfigMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterConfigMapOutput)
 }
 
+func (i SchemaRegistryClusterConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SchemaRegistryClusterConfig] {
+	return pulumix.Output[map[string]*SchemaRegistryClusterConfig]{
+		OutputState: i.ToSchemaRegistryClusterConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaRegistryClusterConfigOutput struct{ *pulumi.OutputState }
 
 func (SchemaRegistryClusterConfigOutput) ElementType() reflect.Type {
@@ -200,6 +219,12 @@ func (o SchemaRegistryClusterConfigOutput) ToSchemaRegistryClusterConfigOutput()
 
 func (o SchemaRegistryClusterConfigOutput) ToSchemaRegistryClusterConfigOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigOutput {
 	return o
+}
+
+func (o SchemaRegistryClusterConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterConfig] {
+	return pulumix.Output[*SchemaRegistryClusterConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The global Schema Registry compatibility level. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.
@@ -239,6 +264,12 @@ func (o SchemaRegistryClusterConfigArrayOutput) ToSchemaRegistryClusterConfigArr
 	return o
 }
 
+func (o SchemaRegistryClusterConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SchemaRegistryClusterConfig] {
+	return pulumix.Output[[]*SchemaRegistryClusterConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SchemaRegistryClusterConfigArrayOutput) Index(i pulumi.IntInput) SchemaRegistryClusterConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SchemaRegistryClusterConfig {
 		return vs[0].([]*SchemaRegistryClusterConfig)[vs[1].(int)]
@@ -257,6 +288,12 @@ func (o SchemaRegistryClusterConfigMapOutput) ToSchemaRegistryClusterConfigMapOu
 
 func (o SchemaRegistryClusterConfigMapOutput) ToSchemaRegistryClusterConfigMapOutputWithContext(ctx context.Context) SchemaRegistryClusterConfigMapOutput {
 	return o
+}
+
+func (o SchemaRegistryClusterConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SchemaRegistryClusterConfig] {
+	return pulumix.Output[map[string]*SchemaRegistryClusterConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaRegistryClusterConfigMapOutput) MapIndex(k pulumi.StringInput) SchemaRegistryClusterConfigOutput {
