@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
  *
  * `confluentcloud.RoleBinding` describes a Role Binding.
  *
+ * > **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -61,6 +63,8 @@ export interface GetRoleBindingResult {
  * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.RoleBinding` describes a Role Binding.
+ *
+ * > **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
  *
  * ## Example Usage
  *

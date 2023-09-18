@@ -156,8 +156,6 @@ export interface ClusterLinkDestinationKafkaClusterCredentials {
     key: pulumi.Input<string>;
     /**
      * The Kafka API Secret.
-     *
-     * > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      */
     secret: pulumi.Input<string>;
 }
@@ -185,8 +183,6 @@ export interface ClusterLinkLocalKafkaClusterCredentials {
     key: pulumi.Input<string>;
     /**
      * The Kafka API Secret.
-     *
-     * > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      */
     secret: pulumi.Input<string>;
 }
@@ -214,8 +210,6 @@ export interface ClusterLinkRemoteKafkaClusterCredentials {
     key: pulumi.Input<string>;
     /**
      * The Kafka API Secret.
-     *
-     * > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      */
     secret: pulumi.Input<string>;
 }
@@ -243,8 +237,6 @@ export interface ClusterLinkSourceKafkaClusterCredentials {
     key: pulumi.Input<string>;
     /**
      * The Kafka API Secret.
-     *
-     * > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      */
     secret: pulumi.Input<string>;
 }
@@ -1553,6 +1545,43 @@ export interface SchemaCredentials {
      */
     key: pulumi.Input<string>;
     secret: pulumi.Input<string>;
+}
+
+export interface SchemaExporterCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface SchemaExporterDestinationSchemaRegistryCluster {
+    credentials: pulumi.Input<inputs.SchemaExporterDestinationSchemaRegistryClusterCredentials>;
+    /**
+     * The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
+    restEndpoint: pulumi.Input<string>;
+}
+
+export interface SchemaExporterDestinationSchemaRegistryClusterCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface SchemaExporterSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: pulumi.Input<string>;
 }
 
 export interface SchemaRegistryClusterConfigCredentials {

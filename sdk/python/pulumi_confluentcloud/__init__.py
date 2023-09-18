@@ -68,6 +68,7 @@ from .private_link_attachment_connection import *
 from .provider import *
 from .role_binding import *
 from .schema import *
+from .schema_exporter import *
 from .schema_registry_cluster import *
 from .schema_registry_cluster_config import *
 from .schema_registry_cluster_mode import *
@@ -297,6 +298,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/schema:Schema": "Schema"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/schemaExporter",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/schemaExporter:SchemaExporter": "SchemaExporter"
   }
  },
  {

@@ -3731,6 +3731,8 @@ public final class ConfluentcloudFunctions {
      * 
      * `confluentcloud.RoleBinding` describes a Role Binding.
      * 
+     * &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -3770,6 +3772,8 @@ public final class ConfluentcloudFunctions {
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.RoleBinding` describes a Role Binding.
+     * 
+     * &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
      * 
      * ## Example Usage
      * ```java
@@ -3811,6 +3815,8 @@ public final class ConfluentcloudFunctions {
      * 
      * `confluentcloud.RoleBinding` describes a Role Binding.
      * 
+     * &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -3850,6 +3856,8 @@ public final class ConfluentcloudFunctions {
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.RoleBinding` describes a Role Binding.
+     * 
+     * &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
      * 
      * ## Example Usage
      * ```java

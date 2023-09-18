@@ -79,6 +79,7 @@
         "provider.ts",
         "roleBinding.ts",
         "schema.ts",
+        "schemaExporter.ts",
         "schemaRegistryCluster.ts",
         "schemaRegistryClusterConfig.ts",
         "schemaRegistryClusterMode.ts",

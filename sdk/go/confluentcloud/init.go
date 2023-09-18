@@ -73,6 +73,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RoleBinding{}
 	case "confluentcloud:index/schema:Schema":
 		r = &Schema{}
+	case "confluentcloud:index/schemaExporter:SchemaExporter":
+		r = &SchemaExporter{}
 	case "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster":
 		r = &SchemaRegistryCluster{}
 	case "confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig":
@@ -252,6 +254,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/schema",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/schemaExporter",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
