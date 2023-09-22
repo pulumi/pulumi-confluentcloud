@@ -12,11 +12,13 @@ from .byok_key import *
 from .cluster_link import *
 from .connector import *
 from .environment import *
+from .flink_compute_pool import *
 from .get_business_metadata import *
 from .get_business_metadata_binding import *
 from .get_byok_key import *
 from .get_environment import *
 from .get_environments import *
+from .get_flink_compute_pool import *
 from .get_identity_pool import *
 from .get_identity_provider import *
 from .get_invitation import *
@@ -68,6 +70,7 @@ from .private_link_attachment_connection import *
 from .provider import *
 from .role_binding import *
 from .schema import *
+from .schema_exporter import *
 from .schema_registry_cluster import *
 from .schema_registry_cluster_config import *
 from .schema_registry_cluster_mode import *
@@ -145,6 +148,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/environment:Environment": "Environment"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/flinkComputePool",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/flinkComputePool:FlinkComputePool": "FlinkComputePool"
   }
  },
  {
@@ -297,6 +308,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/schema:Schema": "Schema"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/schemaExporter",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/schemaExporter:SchemaExporter": "SchemaExporter"
   }
  },
  {

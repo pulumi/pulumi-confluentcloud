@@ -19,8 +19,6 @@ namespace Pulumi.ConfluentCloud.Outputs
         public readonly string Key;
         /// <summary>
         /// The Kafka API Secret.
-        /// 
-        /// &gt; **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         /// </summary>
         public readonly string Secret;
 

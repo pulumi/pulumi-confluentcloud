@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Connector{}
 	case "confluentcloud:index/environment:Environment":
 		r = &Environment{}
+	case "confluentcloud:index/flinkComputePool:FlinkComputePool":
+		r = &FlinkComputePool{}
 	case "confluentcloud:index/identityPool:IdentityPool":
 		r = &IdentityPool{}
 	case "confluentcloud:index/identityProvider:IdentityProvider":
@@ -73,6 +75,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RoleBinding{}
 	case "confluentcloud:index/schema:Schema":
 		r = &Schema{}
+	case "confluentcloud:index/schemaExporter:SchemaExporter":
+		r = &SchemaExporter{}
 	case "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster":
 		r = &SchemaRegistryCluster{}
 	case "confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig":
@@ -157,6 +161,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/environment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/flinkComputePool",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -252,6 +261,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/schema",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/schemaExporter",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

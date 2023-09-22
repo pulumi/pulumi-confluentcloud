@@ -2050,8 +2050,6 @@ type ClusterLinkDestinationKafkaClusterCredentials struct {
 	// The Kafka API Key.
 	Key string `pulumi:"key"`
 	// The Kafka API Secret.
-	//
-	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	Secret string `pulumi:"secret"`
 }
 
@@ -2070,8 +2068,6 @@ type ClusterLinkDestinationKafkaClusterCredentialsArgs struct {
 	// The Kafka API Key.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The Kafka API Secret.
-	//
-	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -2176,8 +2172,6 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) Key() pulumi.String
 }
 
 // The Kafka API Secret.
-//
-// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -2223,8 +2217,6 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Key() pulumi.Str
 }
 
 // The Kafka API Secret.
-//
-// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkDestinationKafkaClusterCredentials) *string {
 		if v == nil {
@@ -2452,8 +2444,6 @@ type ClusterLinkLocalKafkaClusterCredentials struct {
 	// The Kafka API Key.
 	Key string `pulumi:"key"`
 	// The Kafka API Secret.
-	//
-	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	Secret string `pulumi:"secret"`
 }
 
@@ -2472,8 +2462,6 @@ type ClusterLinkLocalKafkaClusterCredentialsArgs struct {
 	// The Kafka API Key.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The Kafka API Secret.
-	//
-	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -2578,8 +2566,6 @@ func (o ClusterLinkLocalKafkaClusterCredentialsOutput) Key() pulumi.StringOutput
 }
 
 // The Kafka API Secret.
-//
-// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o ClusterLinkLocalKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkLocalKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -2625,8 +2611,6 @@ func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtr
 }
 
 // The Kafka API Secret.
-//
-// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkLocalKafkaClusterCredentials) *string {
 		if v == nil {
@@ -2854,8 +2838,6 @@ type ClusterLinkRemoteKafkaClusterCredentials struct {
 	// The Kafka API Key.
 	Key string `pulumi:"key"`
 	// The Kafka API Secret.
-	//
-	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	Secret string `pulumi:"secret"`
 }
 
@@ -2874,8 +2856,6 @@ type ClusterLinkRemoteKafkaClusterCredentialsArgs struct {
 	// The Kafka API Key.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The Kafka API Secret.
-	//
-	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -2980,8 +2960,6 @@ func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) Key() pulumi.StringOutpu
 }
 
 // The Kafka API Secret.
-//
-// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkRemoteKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -3027,8 +3005,6 @@ func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPt
 }
 
 // The Kafka API Secret.
-//
-// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkRemoteKafkaClusterCredentials) *string {
 		if v == nil {
@@ -3256,8 +3232,6 @@ type ClusterLinkSourceKafkaClusterCredentials struct {
 	// The Kafka API Key.
 	Key string `pulumi:"key"`
 	// The Kafka API Secret.
-	//
-	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	Secret string `pulumi:"secret"`
 }
 
@@ -3276,8 +3250,6 @@ type ClusterLinkSourceKafkaClusterCredentialsArgs struct {
 	// The Kafka API Key.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The Kafka API Secret.
-	//
-	// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -3382,8 +3354,6 @@ func (o ClusterLinkSourceKafkaClusterCredentialsOutput) Key() pulumi.StringOutpu
 }
 
 // The Kafka API Secret.
-//
-// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o ClusterLinkSourceKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkSourceKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -3429,8 +3399,6 @@ func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPt
 }
 
 // The Kafka API Secret.
-//
-// > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkSourceKafkaClusterCredentials) *string {
 		if v == nil {
@@ -3755,6 +3723,167 @@ func (o ConnectorKafkaClusterPtrOutput) Elem() ConnectorKafkaClusterOutput {
 // The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
 func (o ConnectorKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkComputePoolEnvironment struct {
+	// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// FlinkComputePoolEnvironmentInput is an input type that accepts FlinkComputePoolEnvironmentArgs and FlinkComputePoolEnvironmentOutput values.
+// You can construct a concrete instance of `FlinkComputePoolEnvironmentInput` via:
+//
+//	FlinkComputePoolEnvironmentArgs{...}
+type FlinkComputePoolEnvironmentInput interface {
+	pulumi.Input
+
+	ToFlinkComputePoolEnvironmentOutput() FlinkComputePoolEnvironmentOutput
+	ToFlinkComputePoolEnvironmentOutputWithContext(context.Context) FlinkComputePoolEnvironmentOutput
+}
+
+type FlinkComputePoolEnvironmentArgs struct {
+	// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FlinkComputePoolEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkComputePoolEnvironment)(nil)).Elem()
+}
+
+func (i FlinkComputePoolEnvironmentArgs) ToFlinkComputePoolEnvironmentOutput() FlinkComputePoolEnvironmentOutput {
+	return i.ToFlinkComputePoolEnvironmentOutputWithContext(context.Background())
+}
+
+func (i FlinkComputePoolEnvironmentArgs) ToFlinkComputePoolEnvironmentOutputWithContext(ctx context.Context) FlinkComputePoolEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkComputePoolEnvironmentOutput)
+}
+
+func (i FlinkComputePoolEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[FlinkComputePoolEnvironment] {
+	return pulumix.Output[FlinkComputePoolEnvironment]{
+		OutputState: i.ToFlinkComputePoolEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FlinkComputePoolEnvironmentArgs) ToFlinkComputePoolEnvironmentPtrOutput() FlinkComputePoolEnvironmentPtrOutput {
+	return i.ToFlinkComputePoolEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkComputePoolEnvironmentArgs) ToFlinkComputePoolEnvironmentPtrOutputWithContext(ctx context.Context) FlinkComputePoolEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkComputePoolEnvironmentOutput).ToFlinkComputePoolEnvironmentPtrOutputWithContext(ctx)
+}
+
+// FlinkComputePoolEnvironmentPtrInput is an input type that accepts FlinkComputePoolEnvironmentArgs, FlinkComputePoolEnvironmentPtr and FlinkComputePoolEnvironmentPtrOutput values.
+// You can construct a concrete instance of `FlinkComputePoolEnvironmentPtrInput` via:
+//
+//	        FlinkComputePoolEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkComputePoolEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToFlinkComputePoolEnvironmentPtrOutput() FlinkComputePoolEnvironmentPtrOutput
+	ToFlinkComputePoolEnvironmentPtrOutputWithContext(context.Context) FlinkComputePoolEnvironmentPtrOutput
+}
+
+type flinkComputePoolEnvironmentPtrType FlinkComputePoolEnvironmentArgs
+
+func FlinkComputePoolEnvironmentPtr(v *FlinkComputePoolEnvironmentArgs) FlinkComputePoolEnvironmentPtrInput {
+	return (*flinkComputePoolEnvironmentPtrType)(v)
+}
+
+func (*flinkComputePoolEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkComputePoolEnvironment)(nil)).Elem()
+}
+
+func (i *flinkComputePoolEnvironmentPtrType) ToFlinkComputePoolEnvironmentPtrOutput() FlinkComputePoolEnvironmentPtrOutput {
+	return i.ToFlinkComputePoolEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkComputePoolEnvironmentPtrType) ToFlinkComputePoolEnvironmentPtrOutputWithContext(ctx context.Context) FlinkComputePoolEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkComputePoolEnvironmentPtrOutput)
+}
+
+func (i *flinkComputePoolEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlinkComputePoolEnvironment] {
+	return pulumix.Output[*FlinkComputePoolEnvironment]{
+		OutputState: i.ToFlinkComputePoolEnvironmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FlinkComputePoolEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (FlinkComputePoolEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkComputePoolEnvironment)(nil)).Elem()
+}
+
+func (o FlinkComputePoolEnvironmentOutput) ToFlinkComputePoolEnvironmentOutput() FlinkComputePoolEnvironmentOutput {
+	return o
+}
+
+func (o FlinkComputePoolEnvironmentOutput) ToFlinkComputePoolEnvironmentOutputWithContext(ctx context.Context) FlinkComputePoolEnvironmentOutput {
+	return o
+}
+
+func (o FlinkComputePoolEnvironmentOutput) ToFlinkComputePoolEnvironmentPtrOutput() FlinkComputePoolEnvironmentPtrOutput {
+	return o.ToFlinkComputePoolEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkComputePoolEnvironmentOutput) ToFlinkComputePoolEnvironmentPtrOutputWithContext(ctx context.Context) FlinkComputePoolEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkComputePoolEnvironment) *FlinkComputePoolEnvironment {
+		return &v
+	}).(FlinkComputePoolEnvironmentPtrOutput)
+}
+
+func (o FlinkComputePoolEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[FlinkComputePoolEnvironment] {
+	return pulumix.Output[FlinkComputePoolEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
+func (o FlinkComputePoolEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkComputePoolEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FlinkComputePoolEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkComputePoolEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkComputePoolEnvironment)(nil)).Elem()
+}
+
+func (o FlinkComputePoolEnvironmentPtrOutput) ToFlinkComputePoolEnvironmentPtrOutput() FlinkComputePoolEnvironmentPtrOutput {
+	return o
+}
+
+func (o FlinkComputePoolEnvironmentPtrOutput) ToFlinkComputePoolEnvironmentPtrOutputWithContext(ctx context.Context) FlinkComputePoolEnvironmentPtrOutput {
+	return o
+}
+
+func (o FlinkComputePoolEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlinkComputePoolEnvironment] {
+	return pulumix.Output[*FlinkComputePoolEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FlinkComputePoolEnvironmentPtrOutput) Elem() FlinkComputePoolEnvironmentOutput {
+	return o.ApplyT(func(v *FlinkComputePoolEnvironment) FlinkComputePoolEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkComputePoolEnvironment
+		return ret
+	}).(FlinkComputePoolEnvironmentOutput)
+}
+
+// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
+func (o FlinkComputePoolEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkComputePoolEnvironment) *string {
 		if v == nil {
 			return nil
 		}
@@ -13174,6 +13303,705 @@ func (o SchemaCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SchemaExporterCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// SchemaExporterCredentialsInput is an input type that accepts SchemaExporterCredentialsArgs and SchemaExporterCredentialsOutput values.
+// You can construct a concrete instance of `SchemaExporterCredentialsInput` via:
+//
+//	SchemaExporterCredentialsArgs{...}
+type SchemaExporterCredentialsInput interface {
+	pulumi.Input
+
+	ToSchemaExporterCredentialsOutput() SchemaExporterCredentialsOutput
+	ToSchemaExporterCredentialsOutputWithContext(context.Context) SchemaExporterCredentialsOutput
+}
+
+type SchemaExporterCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (SchemaExporterCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaExporterCredentials)(nil)).Elem()
+}
+
+func (i SchemaExporterCredentialsArgs) ToSchemaExporterCredentialsOutput() SchemaExporterCredentialsOutput {
+	return i.ToSchemaExporterCredentialsOutputWithContext(context.Background())
+}
+
+func (i SchemaExporterCredentialsArgs) ToSchemaExporterCredentialsOutputWithContext(ctx context.Context) SchemaExporterCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterCredentialsOutput)
+}
+
+func (i SchemaExporterCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaExporterCredentials] {
+	return pulumix.Output[SchemaExporterCredentials]{
+		OutputState: i.ToSchemaExporterCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i SchemaExporterCredentialsArgs) ToSchemaExporterCredentialsPtrOutput() SchemaExporterCredentialsPtrOutput {
+	return i.ToSchemaExporterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaExporterCredentialsArgs) ToSchemaExporterCredentialsPtrOutputWithContext(ctx context.Context) SchemaExporterCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterCredentialsOutput).ToSchemaExporterCredentialsPtrOutputWithContext(ctx)
+}
+
+// SchemaExporterCredentialsPtrInput is an input type that accepts SchemaExporterCredentialsArgs, SchemaExporterCredentialsPtr and SchemaExporterCredentialsPtrOutput values.
+// You can construct a concrete instance of `SchemaExporterCredentialsPtrInput` via:
+//
+//	        SchemaExporterCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchemaExporterCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToSchemaExporterCredentialsPtrOutput() SchemaExporterCredentialsPtrOutput
+	ToSchemaExporterCredentialsPtrOutputWithContext(context.Context) SchemaExporterCredentialsPtrOutput
+}
+
+type schemaExporterCredentialsPtrType SchemaExporterCredentialsArgs
+
+func SchemaExporterCredentialsPtr(v *SchemaExporterCredentialsArgs) SchemaExporterCredentialsPtrInput {
+	return (*schemaExporterCredentialsPtrType)(v)
+}
+
+func (*schemaExporterCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaExporterCredentials)(nil)).Elem()
+}
+
+func (i *schemaExporterCredentialsPtrType) ToSchemaExporterCredentialsPtrOutput() SchemaExporterCredentialsPtrOutput {
+	return i.ToSchemaExporterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaExporterCredentialsPtrType) ToSchemaExporterCredentialsPtrOutputWithContext(ctx context.Context) SchemaExporterCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterCredentialsPtrOutput)
+}
+
+func (i *schemaExporterCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaExporterCredentials] {
+	return pulumix.Output[*SchemaExporterCredentials]{
+		OutputState: i.ToSchemaExporterCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type SchemaExporterCredentialsOutput struct{ *pulumi.OutputState }
+
+func (SchemaExporterCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaExporterCredentials)(nil)).Elem()
+}
+
+func (o SchemaExporterCredentialsOutput) ToSchemaExporterCredentialsOutput() SchemaExporterCredentialsOutput {
+	return o
+}
+
+func (o SchemaExporterCredentialsOutput) ToSchemaExporterCredentialsOutputWithContext(ctx context.Context) SchemaExporterCredentialsOutput {
+	return o
+}
+
+func (o SchemaExporterCredentialsOutput) ToSchemaExporterCredentialsPtrOutput() SchemaExporterCredentialsPtrOutput {
+	return o.ToSchemaExporterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaExporterCredentialsOutput) ToSchemaExporterCredentialsPtrOutputWithContext(ctx context.Context) SchemaExporterCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaExporterCredentials) *SchemaExporterCredentials {
+		return &v
+	}).(SchemaExporterCredentialsPtrOutput)
+}
+
+func (o SchemaExporterCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaExporterCredentials] {
+	return pulumix.Output[SchemaExporterCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The Schema Registry API Key.
+func (o SchemaExporterCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaExporterCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o SchemaExporterCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaExporterCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type SchemaExporterCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaExporterCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaExporterCredentials)(nil)).Elem()
+}
+
+func (o SchemaExporterCredentialsPtrOutput) ToSchemaExporterCredentialsPtrOutput() SchemaExporterCredentialsPtrOutput {
+	return o
+}
+
+func (o SchemaExporterCredentialsPtrOutput) ToSchemaExporterCredentialsPtrOutputWithContext(ctx context.Context) SchemaExporterCredentialsPtrOutput {
+	return o
+}
+
+func (o SchemaExporterCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaExporterCredentials] {
+	return pulumix.Output[*SchemaExporterCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SchemaExporterCredentialsPtrOutput) Elem() SchemaExporterCredentialsOutput {
+	return o.ApplyT(func(v *SchemaExporterCredentials) SchemaExporterCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaExporterCredentials
+		return ret
+	}).(SchemaExporterCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o SchemaExporterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaExporterCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o SchemaExporterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaExporterCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type SchemaExporterDestinationSchemaRegistryCluster struct {
+	Credentials SchemaExporterDestinationSchemaRegistryClusterCredentials `pulumi:"credentials"`
+	// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint string `pulumi:"restEndpoint"`
+}
+
+// SchemaExporterDestinationSchemaRegistryClusterInput is an input type that accepts SchemaExporterDestinationSchemaRegistryClusterArgs and SchemaExporterDestinationSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `SchemaExporterDestinationSchemaRegistryClusterInput` via:
+//
+//	SchemaExporterDestinationSchemaRegistryClusterArgs{...}
+type SchemaExporterDestinationSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToSchemaExporterDestinationSchemaRegistryClusterOutput() SchemaExporterDestinationSchemaRegistryClusterOutput
+	ToSchemaExporterDestinationSchemaRegistryClusterOutputWithContext(context.Context) SchemaExporterDestinationSchemaRegistryClusterOutput
+}
+
+type SchemaExporterDestinationSchemaRegistryClusterArgs struct {
+	Credentials SchemaExporterDestinationSchemaRegistryClusterCredentialsInput `pulumi:"credentials"`
+	// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	RestEndpoint pulumi.StringInput `pulumi:"restEndpoint"`
+}
+
+func (SchemaExporterDestinationSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaExporterDestinationSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i SchemaExporterDestinationSchemaRegistryClusterArgs) ToSchemaExporterDestinationSchemaRegistryClusterOutput() SchemaExporterDestinationSchemaRegistryClusterOutput {
+	return i.ToSchemaExporterDestinationSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i SchemaExporterDestinationSchemaRegistryClusterArgs) ToSchemaExporterDestinationSchemaRegistryClusterOutputWithContext(ctx context.Context) SchemaExporterDestinationSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterDestinationSchemaRegistryClusterOutput)
+}
+
+func (i SchemaExporterDestinationSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaExporterDestinationSchemaRegistryCluster] {
+	return pulumix.Output[SchemaExporterDestinationSchemaRegistryCluster]{
+		OutputState: i.ToSchemaExporterDestinationSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i SchemaExporterDestinationSchemaRegistryClusterArgs) ToSchemaExporterDestinationSchemaRegistryClusterPtrOutput() SchemaExporterDestinationSchemaRegistryClusterPtrOutput {
+	return i.ToSchemaExporterDestinationSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaExporterDestinationSchemaRegistryClusterArgs) ToSchemaExporterDestinationSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaExporterDestinationSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterDestinationSchemaRegistryClusterOutput).ToSchemaExporterDestinationSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// SchemaExporterDestinationSchemaRegistryClusterPtrInput is an input type that accepts SchemaExporterDestinationSchemaRegistryClusterArgs, SchemaExporterDestinationSchemaRegistryClusterPtr and SchemaExporterDestinationSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `SchemaExporterDestinationSchemaRegistryClusterPtrInput` via:
+//
+//	        SchemaExporterDestinationSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchemaExporterDestinationSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToSchemaExporterDestinationSchemaRegistryClusterPtrOutput() SchemaExporterDestinationSchemaRegistryClusterPtrOutput
+	ToSchemaExporterDestinationSchemaRegistryClusterPtrOutputWithContext(context.Context) SchemaExporterDestinationSchemaRegistryClusterPtrOutput
+}
+
+type schemaExporterDestinationSchemaRegistryClusterPtrType SchemaExporterDestinationSchemaRegistryClusterArgs
+
+func SchemaExporterDestinationSchemaRegistryClusterPtr(v *SchemaExporterDestinationSchemaRegistryClusterArgs) SchemaExporterDestinationSchemaRegistryClusterPtrInput {
+	return (*schemaExporterDestinationSchemaRegistryClusterPtrType)(v)
+}
+
+func (*schemaExporterDestinationSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaExporterDestinationSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *schemaExporterDestinationSchemaRegistryClusterPtrType) ToSchemaExporterDestinationSchemaRegistryClusterPtrOutput() SchemaExporterDestinationSchemaRegistryClusterPtrOutput {
+	return i.ToSchemaExporterDestinationSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaExporterDestinationSchemaRegistryClusterPtrType) ToSchemaExporterDestinationSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaExporterDestinationSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterDestinationSchemaRegistryClusterPtrOutput)
+}
+
+func (i *schemaExporterDestinationSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaExporterDestinationSchemaRegistryCluster] {
+	return pulumix.Output[*SchemaExporterDestinationSchemaRegistryCluster]{
+		OutputState: i.ToSchemaExporterDestinationSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type SchemaExporterDestinationSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (SchemaExporterDestinationSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaExporterDestinationSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterOutput) ToSchemaExporterDestinationSchemaRegistryClusterOutput() SchemaExporterDestinationSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterOutput) ToSchemaExporterDestinationSchemaRegistryClusterOutputWithContext(ctx context.Context) SchemaExporterDestinationSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterOutput) ToSchemaExporterDestinationSchemaRegistryClusterPtrOutput() SchemaExporterDestinationSchemaRegistryClusterPtrOutput {
+	return o.ToSchemaExporterDestinationSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterOutput) ToSchemaExporterDestinationSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaExporterDestinationSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaExporterDestinationSchemaRegistryCluster) *SchemaExporterDestinationSchemaRegistryCluster {
+		return &v
+	}).(SchemaExporterDestinationSchemaRegistryClusterPtrOutput)
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaExporterDestinationSchemaRegistryCluster] {
+	return pulumix.Output[SchemaExporterDestinationSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterOutput) Credentials() SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput {
+	return o.ApplyT(func(v SchemaExporterDestinationSchemaRegistryCluster) SchemaExporterDestinationSchemaRegistryClusterCredentials {
+		return v.Credentials
+	}).(SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput)
+}
+
+// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o SchemaExporterDestinationSchemaRegistryClusterOutput) RestEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaExporterDestinationSchemaRegistryCluster) string { return v.RestEndpoint }).(pulumi.StringOutput)
+}
+
+type SchemaExporterDestinationSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaExporterDestinationSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaExporterDestinationSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterPtrOutput) ToSchemaExporterDestinationSchemaRegistryClusterPtrOutput() SchemaExporterDestinationSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterPtrOutput) ToSchemaExporterDestinationSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaExporterDestinationSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaExporterDestinationSchemaRegistryCluster] {
+	return pulumix.Output[*SchemaExporterDestinationSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterPtrOutput) Elem() SchemaExporterDestinationSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *SchemaExporterDestinationSchemaRegistryCluster) SchemaExporterDestinationSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaExporterDestinationSchemaRegistryCluster
+		return ret
+	}).(SchemaExporterDestinationSchemaRegistryClusterOutput)
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterPtrOutput) Credentials() SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput {
+	return o.ApplyT(func(v *SchemaExporterDestinationSchemaRegistryCluster) *SchemaExporterDestinationSchemaRegistryClusterCredentials {
+		if v == nil {
+			return nil
+		}
+		return &v.Credentials
+	}).(SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput)
+}
+
+// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+func (o SchemaExporterDestinationSchemaRegistryClusterPtrOutput) RestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaExporterDestinationSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RestEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type SchemaExporterDestinationSchemaRegistryClusterCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// SchemaExporterDestinationSchemaRegistryClusterCredentialsInput is an input type that accepts SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs and SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput values.
+// You can construct a concrete instance of `SchemaExporterDestinationSchemaRegistryClusterCredentialsInput` via:
+//
+//	SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs{...}
+type SchemaExporterDestinationSchemaRegistryClusterCredentialsInput interface {
+	pulumi.Input
+
+	ToSchemaExporterDestinationSchemaRegistryClusterCredentialsOutput() SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput
+	ToSchemaExporterDestinationSchemaRegistryClusterCredentialsOutputWithContext(context.Context) SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput
+}
+
+type SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaExporterDestinationSchemaRegistryClusterCredentials)(nil)).Elem()
+}
+
+func (i SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs) ToSchemaExporterDestinationSchemaRegistryClusterCredentialsOutput() SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput {
+	return i.ToSchemaExporterDestinationSchemaRegistryClusterCredentialsOutputWithContext(context.Background())
+}
+
+func (i SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs) ToSchemaExporterDestinationSchemaRegistryClusterCredentialsOutputWithContext(ctx context.Context) SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput)
+}
+
+func (i SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaExporterDestinationSchemaRegistryClusterCredentials] {
+	return pulumix.Output[SchemaExporterDestinationSchemaRegistryClusterCredentials]{
+		OutputState: i.ToSchemaExporterDestinationSchemaRegistryClusterCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs) ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput() SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput {
+	return i.ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs) ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutputWithContext(ctx context.Context) SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput).ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutputWithContext(ctx)
+}
+
+// SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrInput is an input type that accepts SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs, SchemaExporterDestinationSchemaRegistryClusterCredentialsPtr and SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput values.
+// You can construct a concrete instance of `SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrInput` via:
+//
+//	        SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput() SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput
+	ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutputWithContext(context.Context) SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput
+}
+
+type schemaExporterDestinationSchemaRegistryClusterCredentialsPtrType SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs
+
+func SchemaExporterDestinationSchemaRegistryClusterCredentialsPtr(v *SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs) SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrInput {
+	return (*schemaExporterDestinationSchemaRegistryClusterCredentialsPtrType)(v)
+}
+
+func (*schemaExporterDestinationSchemaRegistryClusterCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaExporterDestinationSchemaRegistryClusterCredentials)(nil)).Elem()
+}
+
+func (i *schemaExporterDestinationSchemaRegistryClusterCredentialsPtrType) ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput() SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput {
+	return i.ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaExporterDestinationSchemaRegistryClusterCredentialsPtrType) ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutputWithContext(ctx context.Context) SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput)
+}
+
+func (i *schemaExporterDestinationSchemaRegistryClusterCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaExporterDestinationSchemaRegistryClusterCredentials] {
+	return pulumix.Output[*SchemaExporterDestinationSchemaRegistryClusterCredentials]{
+		OutputState: i.ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput struct{ *pulumi.OutputState }
+
+func (SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaExporterDestinationSchemaRegistryClusterCredentials)(nil)).Elem()
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput) ToSchemaExporterDestinationSchemaRegistryClusterCredentialsOutput() SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput {
+	return o
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput) ToSchemaExporterDestinationSchemaRegistryClusterCredentialsOutputWithContext(ctx context.Context) SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput {
+	return o
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput) ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput() SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput {
+	return o.ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput) ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutputWithContext(ctx context.Context) SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaExporterDestinationSchemaRegistryClusterCredentials) *SchemaExporterDestinationSchemaRegistryClusterCredentials {
+		return &v
+	}).(SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput)
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaExporterDestinationSchemaRegistryClusterCredentials] {
+	return pulumix.Output[SchemaExporterDestinationSchemaRegistryClusterCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The Schema Registry API Key.
+func (o SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaExporterDestinationSchemaRegistryClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaExporterDestinationSchemaRegistryClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaExporterDestinationSchemaRegistryClusterCredentials)(nil)).Elem()
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput) ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput() SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput {
+	return o
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput) ToSchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutputWithContext(ctx context.Context) SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput {
+	return o
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaExporterDestinationSchemaRegistryClusterCredentials] {
+	return pulumix.Output[*SchemaExporterDestinationSchemaRegistryClusterCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput) Elem() SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput {
+	return o.ApplyT(func(v *SchemaExporterDestinationSchemaRegistryClusterCredentials) SchemaExporterDestinationSchemaRegistryClusterCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaExporterDestinationSchemaRegistryClusterCredentials
+		return ret
+	}).(SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaExporterDestinationSchemaRegistryClusterCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaExporterDestinationSchemaRegistryClusterCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type SchemaExporterSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// SchemaExporterSchemaRegistryClusterInput is an input type that accepts SchemaExporterSchemaRegistryClusterArgs and SchemaExporterSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `SchemaExporterSchemaRegistryClusterInput` via:
+//
+//	SchemaExporterSchemaRegistryClusterArgs{...}
+type SchemaExporterSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToSchemaExporterSchemaRegistryClusterOutput() SchemaExporterSchemaRegistryClusterOutput
+	ToSchemaExporterSchemaRegistryClusterOutputWithContext(context.Context) SchemaExporterSchemaRegistryClusterOutput
+}
+
+type SchemaExporterSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (SchemaExporterSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaExporterSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i SchemaExporterSchemaRegistryClusterArgs) ToSchemaExporterSchemaRegistryClusterOutput() SchemaExporterSchemaRegistryClusterOutput {
+	return i.ToSchemaExporterSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i SchemaExporterSchemaRegistryClusterArgs) ToSchemaExporterSchemaRegistryClusterOutputWithContext(ctx context.Context) SchemaExporterSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterSchemaRegistryClusterOutput)
+}
+
+func (i SchemaExporterSchemaRegistryClusterArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaExporterSchemaRegistryCluster] {
+	return pulumix.Output[SchemaExporterSchemaRegistryCluster]{
+		OutputState: i.ToSchemaExporterSchemaRegistryClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i SchemaExporterSchemaRegistryClusterArgs) ToSchemaExporterSchemaRegistryClusterPtrOutput() SchemaExporterSchemaRegistryClusterPtrOutput {
+	return i.ToSchemaExporterSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaExporterSchemaRegistryClusterArgs) ToSchemaExporterSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaExporterSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterSchemaRegistryClusterOutput).ToSchemaExporterSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// SchemaExporterSchemaRegistryClusterPtrInput is an input type that accepts SchemaExporterSchemaRegistryClusterArgs, SchemaExporterSchemaRegistryClusterPtr and SchemaExporterSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `SchemaExporterSchemaRegistryClusterPtrInput` via:
+//
+//	        SchemaExporterSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchemaExporterSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToSchemaExporterSchemaRegistryClusterPtrOutput() SchemaExporterSchemaRegistryClusterPtrOutput
+	ToSchemaExporterSchemaRegistryClusterPtrOutputWithContext(context.Context) SchemaExporterSchemaRegistryClusterPtrOutput
+}
+
+type schemaExporterSchemaRegistryClusterPtrType SchemaExporterSchemaRegistryClusterArgs
+
+func SchemaExporterSchemaRegistryClusterPtr(v *SchemaExporterSchemaRegistryClusterArgs) SchemaExporterSchemaRegistryClusterPtrInput {
+	return (*schemaExporterSchemaRegistryClusterPtrType)(v)
+}
+
+func (*schemaExporterSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaExporterSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *schemaExporterSchemaRegistryClusterPtrType) ToSchemaExporterSchemaRegistryClusterPtrOutput() SchemaExporterSchemaRegistryClusterPtrOutput {
+	return i.ToSchemaExporterSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaExporterSchemaRegistryClusterPtrType) ToSchemaExporterSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaExporterSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterSchemaRegistryClusterPtrOutput)
+}
+
+func (i *schemaExporterSchemaRegistryClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaExporterSchemaRegistryCluster] {
+	return pulumix.Output[*SchemaExporterSchemaRegistryCluster]{
+		OutputState: i.ToSchemaExporterSchemaRegistryClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type SchemaExporterSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (SchemaExporterSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaExporterSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o SchemaExporterSchemaRegistryClusterOutput) ToSchemaExporterSchemaRegistryClusterOutput() SchemaExporterSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o SchemaExporterSchemaRegistryClusterOutput) ToSchemaExporterSchemaRegistryClusterOutputWithContext(ctx context.Context) SchemaExporterSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o SchemaExporterSchemaRegistryClusterOutput) ToSchemaExporterSchemaRegistryClusterPtrOutput() SchemaExporterSchemaRegistryClusterPtrOutput {
+	return o.ToSchemaExporterSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaExporterSchemaRegistryClusterOutput) ToSchemaExporterSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaExporterSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaExporterSchemaRegistryCluster) *SchemaExporterSchemaRegistryCluster {
+		return &v
+	}).(SchemaExporterSchemaRegistryClusterPtrOutput)
+}
+
+func (o SchemaExporterSchemaRegistryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaExporterSchemaRegistryCluster] {
+	return pulumix.Output[SchemaExporterSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o SchemaExporterSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SchemaExporterSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type SchemaExporterSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaExporterSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaExporterSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o SchemaExporterSchemaRegistryClusterPtrOutput) ToSchemaExporterSchemaRegistryClusterPtrOutput() SchemaExporterSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o SchemaExporterSchemaRegistryClusterPtrOutput) ToSchemaExporterSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) SchemaExporterSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o SchemaExporterSchemaRegistryClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaExporterSchemaRegistryCluster] {
+	return pulumix.Output[*SchemaExporterSchemaRegistryCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SchemaExporterSchemaRegistryClusterPtrOutput) Elem() SchemaExporterSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *SchemaExporterSchemaRegistryCluster) SchemaExporterSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaExporterSchemaRegistryCluster
+		return ret
+	}).(SchemaExporterSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o SchemaExporterSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaExporterSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type SchemaRegistryClusterConfigCredentials struct {
 	// The Schema Registry API Key.
 	Key    string `pulumi:"key"`
@@ -17512,6 +18340,76 @@ func (o GetByokKeyAzureArrayOutput) Index(i pulumi.IntInput) GetByokKeyAzureOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetByokKeyAzure {
 		return vs[0].([]GetByokKeyAzure)[vs[1].(int)]
 	}).(GetByokKeyAzureOutput)
+}
+
+type GetFlinkComputePoolEnvironment struct {
+	// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	Id string `pulumi:"id"`
+}
+
+// GetFlinkComputePoolEnvironmentInput is an input type that accepts GetFlinkComputePoolEnvironmentArgs and GetFlinkComputePoolEnvironmentOutput values.
+// You can construct a concrete instance of `GetFlinkComputePoolEnvironmentInput` via:
+//
+//	GetFlinkComputePoolEnvironmentArgs{...}
+type GetFlinkComputePoolEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetFlinkComputePoolEnvironmentOutput() GetFlinkComputePoolEnvironmentOutput
+	ToGetFlinkComputePoolEnvironmentOutputWithContext(context.Context) GetFlinkComputePoolEnvironmentOutput
+}
+
+type GetFlinkComputePoolEnvironmentArgs struct {
+	// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
+	//
+	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetFlinkComputePoolEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkComputePoolEnvironment)(nil)).Elem()
+}
+
+func (i GetFlinkComputePoolEnvironmentArgs) ToGetFlinkComputePoolEnvironmentOutput() GetFlinkComputePoolEnvironmentOutput {
+	return i.ToGetFlinkComputePoolEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetFlinkComputePoolEnvironmentArgs) ToGetFlinkComputePoolEnvironmentOutputWithContext(ctx context.Context) GetFlinkComputePoolEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlinkComputePoolEnvironmentOutput)
+}
+
+func (i GetFlinkComputePoolEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetFlinkComputePoolEnvironment] {
+	return pulumix.Output[GetFlinkComputePoolEnvironment]{
+		OutputState: i.ToGetFlinkComputePoolEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetFlinkComputePoolEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetFlinkComputePoolEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlinkComputePoolEnvironment)(nil)).Elem()
+}
+
+func (o GetFlinkComputePoolEnvironmentOutput) ToGetFlinkComputePoolEnvironmentOutput() GetFlinkComputePoolEnvironmentOutput {
+	return o
+}
+
+func (o GetFlinkComputePoolEnvironmentOutput) ToGetFlinkComputePoolEnvironmentOutputWithContext(ctx context.Context) GetFlinkComputePoolEnvironmentOutput {
+	return o
+}
+
+func (o GetFlinkComputePoolEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetFlinkComputePoolEnvironment] {
+	return pulumix.Output[GetFlinkComputePoolEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
+//
+// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+func (o GetFlinkComputePoolEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlinkComputePoolEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
 
 type GetIdentityPoolIdentityProvider struct {
@@ -27629,6 +28527,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorEnvironmentPtrInput)(nil)).Elem(), ConnectorEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterInput)(nil)).Elem(), ConnectorKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterPtrInput)(nil)).Elem(), ConnectorKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkComputePoolEnvironmentInput)(nil)).Elem(), FlinkComputePoolEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkComputePoolEnvironmentPtrInput)(nil)).Elem(), FlinkComputePoolEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolIdentityProviderInput)(nil)).Elem(), IdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolIdentityProviderPtrInput)(nil)).Elem(), IdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InvitationCreatorInput)(nil)).Elem(), InvitationCreatorArgs{})
@@ -27745,6 +28645,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkAttachmentGcpArrayInput)(nil)).Elem(), PrivateLinkAttachmentGcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCredentialsInput)(nil)).Elem(), SchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCredentialsPtrInput)(nil)).Elem(), SchemaCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaExporterCredentialsInput)(nil)).Elem(), SchemaExporterCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaExporterCredentialsPtrInput)(nil)).Elem(), SchemaExporterCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaExporterDestinationSchemaRegistryClusterInput)(nil)).Elem(), SchemaExporterDestinationSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaExporterDestinationSchemaRegistryClusterPtrInput)(nil)).Elem(), SchemaExporterDestinationSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaExporterDestinationSchemaRegistryClusterCredentialsInput)(nil)).Elem(), SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrInput)(nil)).Elem(), SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaExporterSchemaRegistryClusterInput)(nil)).Elem(), SchemaExporterSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaExporterSchemaRegistryClusterPtrInput)(nil)).Elem(), SchemaExporterSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterConfigCredentialsInput)(nil)).Elem(), SchemaRegistryClusterConfigCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterConfigCredentialsPtrInput)(nil)).Elem(), SchemaRegistryClusterConfigCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterConfigSchemaRegistryClusterInput)(nil)).Elem(), SchemaRegistryClusterConfigSchemaRegistryClusterArgs{})
@@ -27797,6 +28705,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAwArrayInput)(nil)).Elem(), GetByokKeyAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAzureInput)(nil)).Elem(), GetByokKeyAzureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAzureArrayInput)(nil)).Elem(), GetByokKeyAzureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkComputePoolEnvironmentInput)(nil)).Elem(), GetFlinkComputePoolEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolIdentityProviderInput)(nil)).Elem(), GetIdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationCreatorInput)(nil)).Elem(), GetInvitationCreatorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationCreatorArrayInput)(nil)).Elem(), GetInvitationCreatorArray{})
@@ -27978,6 +28887,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorKafkaClusterOutput{})
 	pulumi.RegisterOutputType(ConnectorKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(FlinkComputePoolEnvironmentOutput{})
+	pulumi.RegisterOutputType(FlinkComputePoolEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPoolIdentityProviderOutput{})
 	pulumi.RegisterOutputType(IdentityPoolIdentityProviderPtrOutput{})
 	pulumi.RegisterOutputType(InvitationCreatorOutput{})
@@ -28094,6 +29005,14 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkAttachmentGcpArrayOutput{})
 	pulumi.RegisterOutputType(SchemaCredentialsOutput{})
 	pulumi.RegisterOutputType(SchemaCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(SchemaExporterCredentialsOutput{})
+	pulumi.RegisterOutputType(SchemaExporterCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(SchemaExporterDestinationSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(SchemaExporterDestinationSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(SchemaExporterDestinationSchemaRegistryClusterCredentialsOutput{})
+	pulumi.RegisterOutputType(SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(SchemaExporterSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(SchemaExporterSchemaRegistryClusterPtrOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryClusterConfigCredentialsOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryClusterConfigCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryClusterConfigSchemaRegistryClusterOutput{})
@@ -28146,6 +29065,7 @@ func init() {
 	pulumi.RegisterOutputType(GetByokKeyAwArrayOutput{})
 	pulumi.RegisterOutputType(GetByokKeyAzureOutput{})
 	pulumi.RegisterOutputType(GetByokKeyAzureArrayOutput{})
+	pulumi.RegisterOutputType(GetFlinkComputePoolEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetIdentityPoolIdentityProviderOutput{})
 	pulumi.RegisterOutputType(GetInvitationCreatorOutput{})
 	pulumi.RegisterOutputType(GetInvitationCreatorArrayOutput{})

@@ -84,6 +84,8 @@ def get_role_binding(id: Optional[str] = None,
 
     `RoleBinding` describes a Role Binding.
 
+    > **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
+
     ## Example Usage
 
     ```python
@@ -116,6 +118,8 @@ def get_role_binding_output(id: Optional[pulumi.Input[str]] = None,
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `RoleBinding` describes a Role Binding.
+
+    > **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
 
     ## Example Usage
 
