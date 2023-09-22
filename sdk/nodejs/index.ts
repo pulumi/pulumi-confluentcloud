@@ -40,6 +40,11 @@ export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
 utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
 
+export { FlinkComputePoolArgs, FlinkComputePoolState } from "./flinkComputePool";
+export type FlinkComputePool = import("./flinkComputePool").FlinkComputePool;
+export const FlinkComputePool: typeof import("./flinkComputePool").FlinkComputePool = null as any;
+utilities.lazyLoad(exports, ["FlinkComputePool"], () => require("./flinkComputePool"));
+
 export { GetBusinessMetadataArgs, GetBusinessMetadataResult, GetBusinessMetadataOutputArgs } from "./getBusinessMetadata";
 export const getBusinessMetadata: typeof import("./getBusinessMetadata").getBusinessMetadata = null as any;
 export const getBusinessMetadataOutput: typeof import("./getBusinessMetadata").getBusinessMetadataOutput = null as any;
@@ -64,6 +69,11 @@ export { GetEnvironmentsResult } from "./getEnvironments";
 export const getEnvironments: typeof import("./getEnvironments").getEnvironments = null as any;
 export const getEnvironmentsOutput: typeof import("./getEnvironments").getEnvironmentsOutput = null as any;
 utilities.lazyLoad(exports, ["getEnvironments","getEnvironmentsOutput"], () => require("./getEnvironments"));
+
+export { GetFlinkComputePoolArgs, GetFlinkComputePoolResult, GetFlinkComputePoolOutputArgs } from "./getFlinkComputePool";
+export const getFlinkComputePool: typeof import("./getFlinkComputePool").getFlinkComputePool = null as any;
+export const getFlinkComputePoolOutput: typeof import("./getFlinkComputePool").getFlinkComputePoolOutput = null as any;
+utilities.lazyLoad(exports, ["getFlinkComputePool","getFlinkComputePoolOutput"], () => require("./getFlinkComputePool"));
 
 export { GetIdentityPoolArgs, GetIdentityPoolResult, GetIdentityPoolOutputArgs } from "./getIdentityPool";
 export const getIdentityPool: typeof import("./getIdentityPool").getIdentityPool = null as any;
@@ -320,6 +330,11 @@ export type Schema = import("./schema").Schema;
 export const Schema: typeof import("./schema").Schema = null as any;
 utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
 
+export { SchemaExporterArgs, SchemaExporterState } from "./schemaExporter";
+export type SchemaExporter = import("./schemaExporter").SchemaExporter;
+export const SchemaExporter: typeof import("./schemaExporter").SchemaExporter = null as any;
+utilities.lazyLoad(exports, ["SchemaExporter"], () => require("./schemaExporter"));
+
 export { SchemaRegistryClusterArgs, SchemaRegistryClusterState } from "./schemaRegistryCluster";
 export type SchemaRegistryCluster = import("./schemaRegistryCluster").SchemaRegistryCluster;
 export const SchemaRegistryCluster: typeof import("./schemaRegistryCluster").SchemaRegistryCluster = null as any;
@@ -398,6 +413,8 @@ const _module = {
                 return new Connector(name, <any>undefined, { urn })
             case "confluentcloud:index/environment:Environment":
                 return new Environment(name, <any>undefined, { urn })
+            case "confluentcloud:index/flinkComputePool:FlinkComputePool":
+                return new FlinkComputePool(name, <any>undefined, { urn })
             case "confluentcloud:index/identityPool:IdentityPool":
                 return new IdentityPool(name, <any>undefined, { urn })
             case "confluentcloud:index/identityProvider:IdentityProvider":
@@ -436,6 +453,8 @@ const _module = {
                 return new RoleBinding(name, <any>undefined, { urn })
             case "confluentcloud:index/schema:Schema":
                 return new Schema(name, <any>undefined, { urn })
+            case "confluentcloud:index/schemaExporter:SchemaExporter":
+                return new SchemaExporter(name, <any>undefined, { urn })
             case "confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster":
                 return new SchemaRegistryCluster(name, <any>undefined, { urn })
             case "confluentcloud:index/schemaRegistryClusterConfig:SchemaRegistryClusterConfig":
@@ -468,6 +487,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/byokKey", _module
 pulumi.runtime.registerResourceModule("confluentcloud", "index/clusterLink", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/connector", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/environment", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkComputePool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/identityPool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/identityProvider", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/invitation", _module)
@@ -487,6 +507,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAttach
 pulumi.runtime.registerResourceModule("confluentcloud", "index/privateLinkAttachmentConnection", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/roleBinding", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schema", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaExporter", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryCluster", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryClusterConfig", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/schemaRegistryClusterMode", _module)

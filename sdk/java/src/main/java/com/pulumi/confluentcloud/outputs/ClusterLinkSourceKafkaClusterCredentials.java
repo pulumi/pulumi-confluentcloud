@@ -17,8 +17,6 @@ public final class ClusterLinkSourceKafkaClusterCredentials {
     /**
      * @return The Kafka API Secret.
      * 
-     * &gt; **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
-     * 
      */
     private String secret;
 
@@ -32,8 +30,6 @@ public final class ClusterLinkSourceKafkaClusterCredentials {
     }
     /**
      * @return The Kafka API Secret.
-     * 
-     * &gt; **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      * 
      */
     public String secret() {

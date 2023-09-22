@@ -156,8 +156,6 @@ export interface ClusterLinkDestinationKafkaClusterCredentials {
     key: string;
     /**
      * The Kafka API Secret.
-     *
-     * > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      */
     secret: string;
 }
@@ -185,8 +183,6 @@ export interface ClusterLinkLocalKafkaClusterCredentials {
     key: string;
     /**
      * The Kafka API Secret.
-     *
-     * > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      */
     secret: string;
 }
@@ -214,8 +210,6 @@ export interface ClusterLinkRemoteKafkaClusterCredentials {
     key: string;
     /**
      * The Kafka API Secret.
-     *
-     * > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      */
     secret: string;
 }
@@ -243,8 +237,6 @@ export interface ClusterLinkSourceKafkaClusterCredentials {
     key: string;
     /**
      * The Kafka API Secret.
-     *
-     * > **Note:** The `localKafkaCluster`, `remoteKafkaCluster` configuration block and `linkMode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      */
     secret: string;
 }
@@ -259,6 +251,13 @@ export interface ConnectorEnvironment {
 export interface ConnectorKafkaCluster {
     /**
      * The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+     */
+    id: string;
+}
+
+export interface FlinkComputePoolEnvironment {
+    /**
+     * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
      */
     id: string;
 }
@@ -358,6 +357,15 @@ export interface GetByokKeyAzure {
      * (Required String) Tenant ID (uuid) hosting the Key Vault containing the key.
      */
     tenantId: string;
+}
+
+export interface GetFlinkComputePoolEnvironment {
+    /**
+     * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     */
+    id: string;
 }
 
 export interface GetIdentityPoolIdentityProvider {
@@ -1599,6 +1607,43 @@ export interface SchemaCredentials {
      */
     key: string;
     secret: string;
+}
+
+export interface SchemaExporterCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface SchemaExporterDestinationSchemaRegistryCluster {
+    credentials: outputs.SchemaExporterDestinationSchemaRegistryClusterCredentials;
+    /**
+     * The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
+    restEndpoint: string;
+}
+
+export interface SchemaExporterDestinationSchemaRegistryClusterCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface SchemaExporterSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
 }
 
 export interface SchemaRegistryClusterConfigCredentials {

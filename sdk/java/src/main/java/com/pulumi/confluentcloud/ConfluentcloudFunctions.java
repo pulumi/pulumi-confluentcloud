@@ -12,6 +12,8 @@ import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
 import com.pulumi.confluentcloud.inputs.GetByokKeyPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
+import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityPoolPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
@@ -73,6 +75,7 @@ import com.pulumi.confluentcloud.outputs.GetBusinessMetadataResult;
 import com.pulumi.confluentcloud.outputs.GetByokKeyResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentsResult;
+import com.pulumi.confluentcloud.outputs.GetFlinkComputePoolResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityPoolResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityProviderResult;
 import com.pulumi.confluentcloud.outputs.GetInvitationResult;
@@ -877,6 +880,226 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetEnvironmentsResult> getEnvironmentsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getEnvironments:getEnvironments", TypeShape.of(GetEnvironmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.FlinkComputePool` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing early access releases of the Early Access features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.FlinkComputePool` describes a Flink Compute Pool data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *             .id(&#34;lfcp-abc123&#34;)
+     *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         final var exampleUsingNameFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *             .displayName(&#34;my_compute_pool&#34;)
+     *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFlinkComputePoolResult> getFlinkComputePool(GetFlinkComputePoolArgs args) {
+        return getFlinkComputePool(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.FlinkComputePool` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing early access releases of the Early Access features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.FlinkComputePool` describes a Flink Compute Pool data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *             .id(&#34;lfcp-abc123&#34;)
+     *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         final var exampleUsingNameFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *             .displayName(&#34;my_compute_pool&#34;)
+     *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFlinkComputePoolResult> getFlinkComputePoolPlain(GetFlinkComputePoolPlainArgs args) {
+        return getFlinkComputePoolPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.FlinkComputePool` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing early access releases of the Early Access features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.FlinkComputePool` describes a Flink Compute Pool data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *             .id(&#34;lfcp-abc123&#34;)
+     *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         final var exampleUsingNameFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *             .displayName(&#34;my_compute_pool&#34;)
+     *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFlinkComputePoolResult> getFlinkComputePool(GetFlinkComputePoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", TypeShape.of(GetFlinkComputePoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.FlinkComputePool` data source is available in **Early Access** for early adopters. Early Access features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Early Access** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Early Access features. Early Access features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing early access releases of the Early Access features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.FlinkComputePool` describes a Flink Compute Pool data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *             .id(&#34;lfcp-abc123&#34;)
+     *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         final var exampleUsingNameFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *             .displayName(&#34;my_compute_pool&#34;)
+     *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFlinkComputePoolResult> getFlinkComputePoolPlain(GetFlinkComputePoolPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", TypeShape.of(GetFlinkComputePoolResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -3731,6 +3954,8 @@ public final class ConfluentcloudFunctions {
      * 
      * `confluentcloud.RoleBinding` describes a Role Binding.
      * 
+     * &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -3770,6 +3995,8 @@ public final class ConfluentcloudFunctions {
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.RoleBinding` describes a Role Binding.
+     * 
+     * &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
      * 
      * ## Example Usage
      * ```java
@@ -3811,6 +4038,8 @@ public final class ConfluentcloudFunctions {
      * 
      * `confluentcloud.RoleBinding` describes a Role Binding.
      * 
+     * &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -3850,6 +4079,8 @@ public final class ConfluentcloudFunctions {
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.RoleBinding` describes a Role Binding.
+     * 
+     * &gt; **Note:** For more information on the Role Bindings, see [Predefined RBAC roles in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/predefined-rbac-roles.html).
      * 
      * ## Example Usage
      * ```java

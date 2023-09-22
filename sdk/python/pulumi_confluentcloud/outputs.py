@@ -31,6 +31,7 @@ __all__ = [
     'ClusterLinkSourceKafkaClusterCredentials',
     'ConnectorEnvironment',
     'ConnectorKafkaCluster',
+    'FlinkComputePoolEnvironment',
     'IdentityPoolIdentityProvider',
     'InvitationCreator',
     'InvitationUser',
@@ -89,6 +90,10 @@ __all__ = [
     'PrivateLinkAttachmentEnvironment',
     'PrivateLinkAttachmentGcp',
     'SchemaCredentials',
+    'SchemaExporterCredentials',
+    'SchemaExporterDestinationSchemaRegistryCluster',
+    'SchemaExporterDestinationSchemaRegistryClusterCredentials',
+    'SchemaExporterSchemaRegistryCluster',
     'SchemaRegistryClusterConfigCredentials',
     'SchemaRegistryClusterConfigSchemaRegistryCluster',
     'SchemaRegistryClusterEnvironment',
@@ -115,6 +120,7 @@ __all__ = [
     'GetBusinessMetadataSchemaRegistryClusterResult',
     'GetByokKeyAwResult',
     'GetByokKeyAzureResult',
+    'GetFlinkComputePoolEnvironmentResult',
     'GetIdentityPoolIdentityProviderResult',
     'GetInvitationCreatorResult',
     'GetInvitationUserResult',
@@ -719,8 +725,6 @@ class ClusterLinkDestinationKafkaClusterCredentials(dict):
         """
         :param str key: The Kafka API Key.
         :param str secret: The Kafka API Secret.
-               
-               > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -738,8 +742,6 @@ class ClusterLinkDestinationKafkaClusterCredentials(dict):
     def secret(self) -> str:
         """
         The Kafka API Secret.
-
-        > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         return pulumi.get(self, "secret")
 
@@ -821,8 +823,6 @@ class ClusterLinkLocalKafkaClusterCredentials(dict):
         """
         :param str key: The Kafka API Key.
         :param str secret: The Kafka API Secret.
-               
-               > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -840,8 +840,6 @@ class ClusterLinkLocalKafkaClusterCredentials(dict):
     def secret(self) -> str:
         """
         The Kafka API Secret.
-
-        > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         return pulumi.get(self, "secret")
 
@@ -923,8 +921,6 @@ class ClusterLinkRemoteKafkaClusterCredentials(dict):
         """
         :param str key: The Kafka API Key.
         :param str secret: The Kafka API Secret.
-               
-               > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -942,8 +938,6 @@ class ClusterLinkRemoteKafkaClusterCredentials(dict):
     def secret(self) -> str:
         """
         The Kafka API Secret.
-
-        > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         return pulumi.get(self, "secret")
 
@@ -1025,8 +1019,6 @@ class ClusterLinkSourceKafkaClusterCredentials(dict):
         """
         :param str key: The Kafka API Key.
         :param str secret: The Kafka API Secret.
-               
-               > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -1044,8 +1036,6 @@ class ClusterLinkSourceKafkaClusterCredentials(dict):
     def secret(self) -> str:
         """
         The Kafka API Secret.
-
-        > **Note:** The `local_kafka_cluster`, `remote_kafka_cluster` configuration block and `link_mode = BIDIRECTIONAL` are in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         return pulumi.get(self, "secret")
 
@@ -1082,6 +1072,24 @@ class ConnectorKafkaCluster(dict):
     def id(self) -> str:
         """
         The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkComputePoolEnvironment(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -2741,6 +2749,124 @@ class SchemaCredentials(dict):
 
 
 @pulumi.output_type
+class SchemaExporterCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class SchemaExporterDestinationSchemaRegistryCluster(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restEndpoint":
+            suggest = "rest_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchemaExporterDestinationSchemaRegistryCluster. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchemaExporterDestinationSchemaRegistryCluster.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchemaExporterDestinationSchemaRegistryCluster.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 credentials: 'outputs.SchemaExporterDestinationSchemaRegistryClusterCredentials',
+                 rest_endpoint: str):
+        """
+        :param str rest_endpoint: The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        pulumi.set(__self__, "credentials", credentials)
+        pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> 'outputs.SchemaExporterDestinationSchemaRegistryClusterCredentials':
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="restEndpoint")
+    def rest_endpoint(self) -> str:
+        """
+        The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        """
+        return pulumi.get(self, "rest_endpoint")
+
+
+@pulumi.output_type
+class SchemaExporterDestinationSchemaRegistryClusterCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class SchemaExporterSchemaRegistryCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class SchemaRegistryClusterConfigCredentials(dict):
     def __init__(__self__, *,
                  key: str,
@@ -3483,6 +3609,28 @@ class GetByokKeyAzureResult(dict):
         (Required String) Tenant ID (uuid) hosting the Key Vault containing the key.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class GetFlinkComputePoolEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
+               
+               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
