@@ -18,7 +18,7 @@ jobs:
       with:
         cache-dependency-path: |
             sdk/go.sum
-        go-version: 1.20.1
+        go-version: 1.21.x
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -55,7 +55,7 @@ jobs:
       uses: peter-evans/create-pull-request@v3.12.0
       with:
         author: pulumi-bot <bot@pulumi.com>
-        base: master
+        base: main
         body: This pull request was generated automatically by the update-bridge
           workflow in this repository.
         branch: pulumi-bot/bridge-v${{ github.event.inputs.bridge_version }}-${{
