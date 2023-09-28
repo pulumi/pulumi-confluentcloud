@@ -10,7 +10,7 @@ env:
       6.0.x
       3.1.301
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  GOVERSION: 1.20.1
+  GOVERSION: 1.21.x
   JAVAVERSION: "11"
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   NODEVERSION: 16.x
@@ -52,7 +52,7 @@ jobs:
       with:
         cache-dependency-path: |
             sdk/go.sum
-        go-version: 1.20.1
+        go-version: 1.21.x
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -98,7 +98,7 @@ jobs:
       uses: peter-evans/create-pull-request@v3.12.0
       with:
         author: pulumi-bot <bot@pulumi.com>
-        base: master
+        base: main
         body: This pull request was generated automatically by the resync-build workflow
           in this repository.
         branch: pulumi-bot/resync-${{ github.run_id}}
