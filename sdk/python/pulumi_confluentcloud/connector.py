@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,30 @@ class ConnectorArgs:
         :param pulumi.Input['ConnectorEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         """
-        pulumi.set(__self__, "config_nonsensitive", config_nonsensitive)
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+        ConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config_nonsensitive=config_nonsensitive,
+            environment=environment,
+            kafka_cluster=kafka_cluster,
+            config_sensitive=config_sensitive,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config_nonsensitive: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+             environment: pulumi.Input['ConnectorEnvironmentArgs'],
+             kafka_cluster: pulumi.Input['ConnectorKafkaClusterArgs'],
+             config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("config_nonsensitive", config_nonsensitive)
+        _setter("environment", environment)
+        _setter("kafka_cluster", kafka_cluster)
         if config_sensitive is not None:
-            pulumi.set(__self__, "config_sensitive", config_sensitive)
+            _setter("config_sensitive", config_sensitive)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="configNonsensitive")
@@ -104,16 +121,33 @@ class _ConnectorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input['ConnectorEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
+        _ConnectorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config_nonsensitive=config_nonsensitive,
+            config_sensitive=config_sensitive,
+            environment=environment,
+            kafka_cluster=kafka_cluster,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config_nonsensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             config_sensitive: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             environment: Optional[pulumi.Input['ConnectorEnvironmentArgs']] = None,
+             kafka_cluster: Optional[pulumi.Input['ConnectorKafkaClusterArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if config_nonsensitive is not None:
-            pulumi.set(__self__, "config_nonsensitive", config_nonsensitive)
+            _setter("config_nonsensitive", config_nonsensitive)
         if config_sensitive is not None:
-            pulumi.set(__self__, "config_sensitive", config_sensitive)
+            _setter("config_sensitive", config_sensitive)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if kafka_cluster is not None:
-            pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+            _setter("kafka_cluster", kafka_cluster)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="configNonsensitive")
@@ -221,6 +255,10 @@ class Connector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -244,9 +282,19 @@ class Connector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'config_nonsensitive'")
             __props__.__dict__["config_nonsensitive"] = config_nonsensitive
             __props__.__dict__["config_sensitive"] = None if config_sensitive is None else pulumi.Output.secret(config_sensitive)
+            if environment is not None and not isinstance(environment, ConnectorEnvironmentArgs):
+                environment = environment or {}
+                def _setter(key, value):
+                    environment[key] = value
+                ConnectorEnvironmentArgs._configure(_setter, **environment)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            if kafka_cluster is not None and not isinstance(kafka_cluster, ConnectorKafkaClusterArgs):
+                kafka_cluster = kafka_cluster or {}
+                def _setter(key, value):
+                    kafka_cluster[key] = value
+                ConnectorKafkaClusterArgs._configure(_setter, **kafka_cluster)
             if kafka_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_cluster'")
             __props__.__dict__["kafka_cluster"] = kafka_cluster

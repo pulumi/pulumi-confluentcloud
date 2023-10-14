@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -41,30 +41,61 @@ class ProviderArgs:
         :param pulumi.Input[str] schema_registry_id: The Schema Registry Cluster ID.
         :param pulumi.Input[str] schema_registry_rest_endpoint: The Schema Registry Cluster REST Endpoint.
         """
+        ProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_api_key=cloud_api_key,
+            cloud_api_secret=cloud_api_secret,
+            endpoint=endpoint,
+            kafka_api_key=kafka_api_key,
+            kafka_api_secret=kafka_api_secret,
+            kafka_id=kafka_id,
+            kafka_rest_endpoint=kafka_rest_endpoint,
+            max_retries=max_retries,
+            schema_registry_api_key=schema_registry_api_key,
+            schema_registry_api_secret=schema_registry_api_secret,
+            schema_registry_id=schema_registry_id,
+            schema_registry_rest_endpoint=schema_registry_rest_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_api_key: Optional[pulumi.Input[str]] = None,
+             cloud_api_secret: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             kafka_api_key: Optional[pulumi.Input[str]] = None,
+             kafka_api_secret: Optional[pulumi.Input[str]] = None,
+             kafka_id: Optional[pulumi.Input[str]] = None,
+             kafka_rest_endpoint: Optional[pulumi.Input[str]] = None,
+             max_retries: Optional[pulumi.Input[int]] = None,
+             schema_registry_api_key: Optional[pulumi.Input[str]] = None,
+             schema_registry_api_secret: Optional[pulumi.Input[str]] = None,
+             schema_registry_id: Optional[pulumi.Input[str]] = None,
+             schema_registry_rest_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_api_key is not None:
-            pulumi.set(__self__, "cloud_api_key", cloud_api_key)
+            _setter("cloud_api_key", cloud_api_key)
         if cloud_api_secret is not None:
-            pulumi.set(__self__, "cloud_api_secret", cloud_api_secret)
+            _setter("cloud_api_secret", cloud_api_secret)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if kafka_api_key is not None:
-            pulumi.set(__self__, "kafka_api_key", kafka_api_key)
+            _setter("kafka_api_key", kafka_api_key)
         if kafka_api_secret is not None:
-            pulumi.set(__self__, "kafka_api_secret", kafka_api_secret)
+            _setter("kafka_api_secret", kafka_api_secret)
         if kafka_id is not None:
-            pulumi.set(__self__, "kafka_id", kafka_id)
+            _setter("kafka_id", kafka_id)
         if kafka_rest_endpoint is not None:
-            pulumi.set(__self__, "kafka_rest_endpoint", kafka_rest_endpoint)
+            _setter("kafka_rest_endpoint", kafka_rest_endpoint)
         if max_retries is not None:
-            pulumi.set(__self__, "max_retries", max_retries)
+            _setter("max_retries", max_retries)
         if schema_registry_api_key is not None:
-            pulumi.set(__self__, "schema_registry_api_key", schema_registry_api_key)
+            _setter("schema_registry_api_key", schema_registry_api_key)
         if schema_registry_api_secret is not None:
-            pulumi.set(__self__, "schema_registry_api_secret", schema_registry_api_secret)
+            _setter("schema_registry_api_secret", schema_registry_api_secret)
         if schema_registry_id is not None:
-            pulumi.set(__self__, "schema_registry_id", schema_registry_id)
+            _setter("schema_registry_id", schema_registry_id)
         if schema_registry_rest_endpoint is not None:
-            pulumi.set(__self__, "schema_registry_rest_endpoint", schema_registry_rest_endpoint)
+            _setter("schema_registry_rest_endpoint", schema_registry_rest_endpoint)
 
     @property
     @pulumi.getter(name="cloudApiKey")
@@ -272,6 +303,10 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

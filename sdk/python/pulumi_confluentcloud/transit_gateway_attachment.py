@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,12 +28,27 @@ class TransitGatewayAttachmentArgs:
         :param pulumi.Input['TransitGatewayAttachmentAwsArgs'] aws: (Required Configuration Block) The AWS-specific Transit Gateway Attachment details. It supports the following:
         :param pulumi.Input[str] display_name: The name of the Transit Gateway Attachment.
         """
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "network", network)
+        TransitGatewayAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment=environment,
+            network=network,
+            aws=aws,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment: pulumi.Input['TransitGatewayAttachmentEnvironmentArgs'],
+             network: pulumi.Input['TransitGatewayAttachmentNetworkArgs'],
+             aws: Optional[pulumi.Input['TransitGatewayAttachmentAwsArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("environment", environment)
+        _setter("network", network)
         if aws is not None:
-            pulumi.set(__self__, "aws", aws)
+            _setter("aws", aws)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter
@@ -100,14 +115,29 @@ class _TransitGatewayAttachmentState:
         :param pulumi.Input['TransitGatewayAttachmentNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         """
+        _TransitGatewayAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws=aws,
+            display_name=display_name,
+            environment=environment,
+            network=network,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws: Optional[pulumi.Input['TransitGatewayAttachmentAwsArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['TransitGatewayAttachmentEnvironmentArgs']] = None,
+             network: Optional[pulumi.Input['TransitGatewayAttachmentNetworkArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws is not None:
-            pulumi.set(__self__, "aws", aws)
+            _setter("aws", aws)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
 
     @property
     @pulumi.getter
@@ -215,6 +245,10 @@ class TransitGatewayAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TransitGatewayAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -233,11 +267,26 @@ class TransitGatewayAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TransitGatewayAttachmentArgs.__new__(TransitGatewayAttachmentArgs)
 
+            if aws is not None and not isinstance(aws, TransitGatewayAttachmentAwsArgs):
+                aws = aws or {}
+                def _setter(key, value):
+                    aws[key] = value
+                TransitGatewayAttachmentAwsArgs._configure(_setter, **aws)
             __props__.__dict__["aws"] = aws
             __props__.__dict__["display_name"] = display_name
+            if environment is not None and not isinstance(environment, TransitGatewayAttachmentEnvironmentArgs):
+                environment = environment or {}
+                def _setter(key, value):
+                    environment[key] = value
+                TransitGatewayAttachmentEnvironmentArgs._configure(_setter, **environment)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            if network is not None and not isinstance(network, TransitGatewayAttachmentNetworkArgs):
+                network = network or {}
+                def _setter(key, value):
+                    network[key] = value
+                TransitGatewayAttachmentNetworkArgs._configure(_setter, **network)
             if network is None and not opts.urn:
                 raise TypeError("Missing required property 'network'")
             __props__.__dict__["network"] = network

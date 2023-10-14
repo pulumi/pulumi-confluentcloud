@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,16 +29,35 @@ class PrivateLinkAccessArgs:
                accounts.
         :param pulumi.Input[str] display_name: The name of the Private Link Access.
         """
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "network", network)
+        PrivateLinkAccessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment=environment,
+            network=network,
+            aws=aws,
+            azure=azure,
+            display_name=display_name,
+            gcp=gcp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment: pulumi.Input['PrivateLinkAccessEnvironmentArgs'],
+             network: pulumi.Input['PrivateLinkAccessNetworkArgs'],
+             aws: Optional[pulumi.Input['PrivateLinkAccessAwsArgs']] = None,
+             azure: Optional[pulumi.Input['PrivateLinkAccessAzureArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             gcp: Optional[pulumi.Input['PrivateLinkAccessGcpArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("environment", environment)
+        _setter("network", network)
         if aws is not None:
-            pulumi.set(__self__, "aws", aws)
+            _setter("aws", aws)
         if azure is not None:
-            pulumi.set(__self__, "azure", azure)
+            _setter("azure", azure)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if gcp is not None:
-            pulumi.set(__self__, "gcp", gcp)
+            _setter("gcp", gcp)
 
     @property
     @pulumi.getter
@@ -121,18 +140,37 @@ class _PrivateLinkAccessState:
         :param pulumi.Input['PrivateLinkAccessNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         """
+        _PrivateLinkAccessState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws=aws,
+            azure=azure,
+            display_name=display_name,
+            environment=environment,
+            gcp=gcp,
+            network=network,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws: Optional[pulumi.Input['PrivateLinkAccessAwsArgs']] = None,
+             azure: Optional[pulumi.Input['PrivateLinkAccessAzureArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['PrivateLinkAccessEnvironmentArgs']] = None,
+             gcp: Optional[pulumi.Input['PrivateLinkAccessGcpArgs']] = None,
+             network: Optional[pulumi.Input['PrivateLinkAccessNetworkArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws is not None:
-            pulumi.set(__self__, "aws", aws)
+            _setter("aws", aws)
         if azure is not None:
-            pulumi.set(__self__, "azure", azure)
+            _setter("azure", azure)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if gcp is not None:
-            pulumi.set(__self__, "gcp", gcp)
+            _setter("gcp", gcp)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
 
     @property
     @pulumi.getter
@@ -256,6 +294,10 @@ class PrivateLinkAccess(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateLinkAccessArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -276,13 +318,38 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateLinkAccessArgs.__new__(PrivateLinkAccessArgs)
 
+            if aws is not None and not isinstance(aws, PrivateLinkAccessAwsArgs):
+                aws = aws or {}
+                def _setter(key, value):
+                    aws[key] = value
+                PrivateLinkAccessAwsArgs._configure(_setter, **aws)
             __props__.__dict__["aws"] = aws
+            if azure is not None and not isinstance(azure, PrivateLinkAccessAzureArgs):
+                azure = azure or {}
+                def _setter(key, value):
+                    azure[key] = value
+                PrivateLinkAccessAzureArgs._configure(_setter, **azure)
             __props__.__dict__["azure"] = azure
             __props__.__dict__["display_name"] = display_name
+            if environment is not None and not isinstance(environment, PrivateLinkAccessEnvironmentArgs):
+                environment = environment or {}
+                def _setter(key, value):
+                    environment[key] = value
+                PrivateLinkAccessEnvironmentArgs._configure(_setter, **environment)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            if gcp is not None and not isinstance(gcp, PrivateLinkAccessGcpArgs):
+                gcp = gcp or {}
+                def _setter(key, value):
+                    gcp[key] = value
+                PrivateLinkAccessGcpArgs._configure(_setter, **gcp)
             __props__.__dict__["gcp"] = gcp
+            if network is not None and not isinstance(network, PrivateLinkAccessNetworkArgs):
+                network = network or {}
+                def _setter(key, value):
+                    network[key] = value
+                PrivateLinkAccessNetworkArgs._configure(_setter, **network)
             if network is None and not opts.urn:
                 raise TypeError("Missing required property 'network'")
             __props__.__dict__["network"] = network

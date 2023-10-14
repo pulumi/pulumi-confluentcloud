@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,30 @@ class NetworkLinkEndpointArgs:
         :param pulumi.Input[str] description: The description of the Network Link Endpoint.
         :param pulumi.Input[str] display_name: The name of the Network Link Endpoint.
         """
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "network", network)
-        pulumi.set(__self__, "network_link_service", network_link_service)
+        NetworkLinkEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment=environment,
+            network=network,
+            network_link_service=network_link_service,
+            description=description,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment: pulumi.Input['NetworkLinkEndpointEnvironmentArgs'],
+             network: pulumi.Input['NetworkLinkEndpointNetworkArgs'],
+             network_link_service: pulumi.Input['NetworkLinkEndpointNetworkLinkServiceArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("environment", environment)
+        _setter("network", network)
+        _setter("network_link_service", network_link_service)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter
@@ -114,18 +131,37 @@ class _NetworkLinkEndpointState:
                accounts.
         :param pulumi.Input[str] resource_name: (Required String) The Confluent Resource Name of the Network Link Endpoint.
         """
+        _NetworkLinkEndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            environment=environment,
+            network=network,
+            network_link_service=network_link_service,
+            resource_name=resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['NetworkLinkEndpointEnvironmentArgs']] = None,
+             network: Optional[pulumi.Input['NetworkLinkEndpointNetworkArgs']] = None,
+             network_link_service: Optional[pulumi.Input['NetworkLinkEndpointNetworkLinkServiceArgs']] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
         if network_link_service is not None:
-            pulumi.set(__self__, "network_link_service", network_link_service)
+            _setter("network_link_service", network_link_service)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
 
     @property
     @pulumi.getter
@@ -255,6 +291,10 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkLinkEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -276,12 +316,27 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
+            if environment is not None and not isinstance(environment, NetworkLinkEndpointEnvironmentArgs):
+                environment = environment or {}
+                def _setter(key, value):
+                    environment[key] = value
+                NetworkLinkEndpointEnvironmentArgs._configure(_setter, **environment)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            if network is not None and not isinstance(network, NetworkLinkEndpointNetworkArgs):
+                network = network or {}
+                def _setter(key, value):
+                    network[key] = value
+                NetworkLinkEndpointNetworkArgs._configure(_setter, **network)
             if network is None and not opts.urn:
                 raise TypeError("Missing required property 'network'")
             __props__.__dict__["network"] = network
+            if network_link_service is not None and not isinstance(network_link_service, NetworkLinkEndpointNetworkLinkServiceArgs):
+                network_link_service = network_link_service or {}
+                def _setter(key, value):
+                    network_link_service[key] = value
+                NetworkLinkEndpointNetworkLinkServiceArgs._configure(_setter, **network_link_service)
             if network_link_service is None and not opts.urn:
                 raise TypeError("Missing required property 'network_link_service'")
             __props__.__dict__["network_link_service"] = network_link_service

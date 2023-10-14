@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,17 +32,38 @@ class BusinessMetadataBindingArgs:
         :param pulumi.Input['BusinessMetadataBindingCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
-        pulumi.set(__self__, "business_metadata_name", business_metadata_name)
-        pulumi.set(__self__, "entity_name", entity_name)
-        pulumi.set(__self__, "entity_type", entity_type)
+        BusinessMetadataBindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            business_metadata_name=business_metadata_name,
+            entity_name=entity_name,
+            entity_type=entity_type,
+            attributes=attributes,
+            credentials=credentials,
+            rest_endpoint=rest_endpoint,
+            schema_registry_cluster=schema_registry_cluster,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             business_metadata_name: pulumi.Input[str],
+             entity_name: pulumi.Input[str],
+             entity_type: pulumi.Input[str],
+             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             credentials: Optional[pulumi.Input['BusinessMetadataBindingCredentialsArgs']] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             schema_registry_cluster: Optional[pulumi.Input['BusinessMetadataBindingSchemaRegistryClusterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("business_metadata_name", business_metadata_name)
+        _setter("entity_name", entity_name)
+        _setter("entity_type", entity_type)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
-            pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+            _setter("schema_registry_cluster", schema_registry_cluster)
 
     @property
     @pulumi.getter(name="businessMetadataName")
@@ -145,20 +166,41 @@ class _BusinessMetadataBindingState:
         :param pulumi.Input[str] entity_type: The entity type, for example, `sr_schema`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
+        _BusinessMetadataBindingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            business_metadata_name=business_metadata_name,
+            credentials=credentials,
+            entity_name=entity_name,
+            entity_type=entity_type,
+            rest_endpoint=rest_endpoint,
+            schema_registry_cluster=schema_registry_cluster,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             business_metadata_name: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['BusinessMetadataBindingCredentialsArgs']] = None,
+             entity_name: Optional[pulumi.Input[str]] = None,
+             entity_type: Optional[pulumi.Input[str]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             schema_registry_cluster: Optional[pulumi.Input['BusinessMetadataBindingSchemaRegistryClusterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if business_metadata_name is not None:
-            pulumi.set(__self__, "business_metadata_name", business_metadata_name)
+            _setter("business_metadata_name", business_metadata_name)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if entity_name is not None:
-            pulumi.set(__self__, "entity_name", entity_name)
+            _setter("entity_name", entity_name)
         if entity_type is not None:
-            pulumi.set(__self__, "entity_type", entity_type)
+            _setter("entity_type", entity_type)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
-            pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+            _setter("schema_registry_cluster", schema_registry_cluster)
 
     @property
     @pulumi.getter
@@ -302,6 +344,10 @@ class BusinessMetadataBinding(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BusinessMetadataBindingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -327,6 +373,11 @@ class BusinessMetadataBinding(pulumi.CustomResource):
             if business_metadata_name is None and not opts.urn:
                 raise TypeError("Missing required property 'business_metadata_name'")
             __props__.__dict__["business_metadata_name"] = business_metadata_name
+            if credentials is not None and not isinstance(credentials, BusinessMetadataBindingCredentialsArgs):
+                credentials = credentials or {}
+                def _setter(key, value):
+                    credentials[key] = value
+                BusinessMetadataBindingCredentialsArgs._configure(_setter, **credentials)
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             if entity_name is None and not opts.urn:
                 raise TypeError("Missing required property 'entity_name'")
@@ -335,6 +386,11 @@ class BusinessMetadataBinding(pulumi.CustomResource):
                 raise TypeError("Missing required property 'entity_type'")
             __props__.__dict__["entity_type"] = entity_type
             __props__.__dict__["rest_endpoint"] = rest_endpoint
+            if schema_registry_cluster is not None and not isinstance(schema_registry_cluster, BusinessMetadataBindingSchemaRegistryClusterArgs):
+                schema_registry_cluster = schema_registry_cluster or {}
+                def _setter(key, value):
+                    schema_registry_cluster[key] = value
+                BusinessMetadataBindingSchemaRegistryClusterArgs._configure(_setter, **schema_registry_cluster)
             __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)

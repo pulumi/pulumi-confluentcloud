@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,14 +26,29 @@ class SchemaRegistryClusterConfigArgs:
         :param pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
+        SchemaRegistryClusterConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compatibility_level=compatibility_level,
+            credentials=credentials,
+            rest_endpoint=rest_endpoint,
+            schema_registry_cluster=schema_registry_cluster,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compatibility_level: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs']] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             schema_registry_cluster: Optional[pulumi.Input['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compatibility_level is not None:
-            pulumi.set(__self__, "compatibility_level", compatibility_level)
+            _setter("compatibility_level", compatibility_level)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
-            pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+            _setter("schema_registry_cluster", schema_registry_cluster)
 
     @property
     @pulumi.getter(name="compatibilityLevel")
@@ -94,14 +109,29 @@ class _SchemaRegistryClusterConfigState:
         :param pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
+        _SchemaRegistryClusterConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compatibility_level=compatibility_level,
+            credentials=credentials,
+            rest_endpoint=rest_endpoint,
+            schema_registry_cluster=schema_registry_cluster,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compatibility_level: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['SchemaRegistryClusterConfigCredentialsArgs']] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             schema_registry_cluster: Optional[pulumi.Input['SchemaRegistryClusterConfigSchemaRegistryClusterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compatibility_level is not None:
-            pulumi.set(__self__, "compatibility_level", compatibility_level)
+            _setter("compatibility_level", compatibility_level)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
-            pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+            _setter("schema_registry_cluster", schema_registry_cluster)
 
     @property
     @pulumi.getter(name="compatibilityLevel")
@@ -203,6 +233,10 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SchemaRegistryClusterConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -222,8 +256,18 @@ class SchemaRegistryClusterConfig(pulumi.CustomResource):
             __props__ = SchemaRegistryClusterConfigArgs.__new__(SchemaRegistryClusterConfigArgs)
 
             __props__.__dict__["compatibility_level"] = compatibility_level
+            if credentials is not None and not isinstance(credentials, SchemaRegistryClusterConfigCredentialsArgs):
+                credentials = credentials or {}
+                def _setter(key, value):
+                    credentials[key] = value
+                SchemaRegistryClusterConfigCredentialsArgs._configure(_setter, **credentials)
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             __props__.__dict__["rest_endpoint"] = rest_endpoint
+            if schema_registry_cluster is not None and not isinstance(schema_registry_cluster, SchemaRegistryClusterConfigSchemaRegistryClusterArgs):
+                schema_registry_cluster = schema_registry_cluster or {}
+                def _setter(key, value):
+                    schema_registry_cluster[key] = value
+                SchemaRegistryClusterConfigSchemaRegistryClusterArgs._configure(_setter, **schema_registry_cluster)
             __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -38,19 +38,46 @@ class KafkaAclArgs:
         :param pulumi.Input['KafkaAclCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
         """
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "operation", operation)
-        pulumi.set(__self__, "pattern_type", pattern_type)
-        pulumi.set(__self__, "permission", permission)
-        pulumi.set(__self__, "principal", principal)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "resource_type", resource_type)
+        KafkaAclArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host=host,
+            operation=operation,
+            pattern_type=pattern_type,
+            permission=permission,
+            principal=principal,
+            resource_name=resource_name,
+            resource_type=resource_type,
+            credentials=credentials,
+            kafka_cluster=kafka_cluster,
+            rest_endpoint=rest_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host: pulumi.Input[str],
+             operation: pulumi.Input[str],
+             pattern_type: pulumi.Input[str],
+             permission: pulumi.Input[str],
+             principal: pulumi.Input[str],
+             resource_name: pulumi.Input[str],
+             resource_type: pulumi.Input[str],
+             credentials: Optional[pulumi.Input['KafkaAclCredentialsArgs']] = None,
+             kafka_cluster: Optional[pulumi.Input['KafkaAclKafkaClusterArgs']] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host", host)
+        _setter("operation", operation)
+        _setter("pattern_type", pattern_type)
+        _setter("permission", permission)
+        _setter("principal", principal)
+        _setter("resource_name", resource_name)
+        _setter("resource_type", resource_type)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if kafka_cluster is not None:
-            pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+            _setter("kafka_cluster", kafka_cluster)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter
@@ -195,26 +222,53 @@ class _KafkaAclState:
         :param pulumi.Input[str] resource_type: The type of the resource. Accepted values are: `TOPIC`, `GROUP`, `CLUSTER`, `TRANSACTIONAL_ID`, `DELEGATION_TOKEN`. See [Authorization using ACLs](https://docs.confluent.io/platform/current/kafka/authorization.html#operations) to find definitions of resource types and mappings of `(resource_type, operation)` to one or more Kafka APIs or request types.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`.
         """
+        _KafkaAclState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            host=host,
+            kafka_cluster=kafka_cluster,
+            operation=operation,
+            pattern_type=pattern_type,
+            permission=permission,
+            principal=principal,
+            resource_name=resource_name,
+            resource_type=resource_type,
+            rest_endpoint=rest_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: Optional[pulumi.Input['KafkaAclCredentialsArgs']] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             kafka_cluster: Optional[pulumi.Input['KafkaAclKafkaClusterArgs']] = None,
+             operation: Optional[pulumi.Input[str]] = None,
+             pattern_type: Optional[pulumi.Input[str]] = None,
+             permission: Optional[pulumi.Input[str]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if kafka_cluster is not None:
-            pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+            _setter("kafka_cluster", kafka_cluster)
         if operation is not None:
-            pulumi.set(__self__, "operation", operation)
+            _setter("operation", operation)
         if pattern_type is not None:
-            pulumi.set(__self__, "pattern_type", pattern_type)
+            _setter("pattern_type", pattern_type)
         if permission is not None:
-            pulumi.set(__self__, "permission", permission)
+            _setter("permission", permission)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter
@@ -412,6 +466,10 @@ class KafkaAcl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KafkaAclArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -436,10 +494,20 @@ class KafkaAcl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KafkaAclArgs.__new__(KafkaAclArgs)
 
+            if credentials is not None and not isinstance(credentials, KafkaAclCredentialsArgs):
+                credentials = credentials or {}
+                def _setter(key, value):
+                    credentials[key] = value
+                KafkaAclCredentialsArgs._configure(_setter, **credentials)
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             if host is None and not opts.urn:
                 raise TypeError("Missing required property 'host'")
             __props__.__dict__["host"] = host
+            if kafka_cluster is not None and not isinstance(kafka_cluster, KafkaAclKafkaClusterArgs):
+                kafka_cluster = kafka_cluster or {}
+                def _setter(key, value):
+                    kafka_cluster[key] = value
+                KafkaAclKafkaClusterArgs._configure(_setter, **kafka_cluster)
             __props__.__dict__["kafka_cluster"] = kafka_cluster
             if operation is None and not opts.urn:
                 raise TypeError("Missing required property 'operation'")

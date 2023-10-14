@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,13 +25,30 @@ class KafkaMirrorTopicArgs:
         The set of arguments for constructing a KafkaMirrorTopic resource.
         :param pulumi.Input[str] mirror_topic_name: The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
         """
-        pulumi.set(__self__, "cluster_link", cluster_link)
-        pulumi.set(__self__, "kafka_cluster", kafka_cluster)
-        pulumi.set(__self__, "source_kafka_topic", source_kafka_topic)
+        KafkaMirrorTopicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_link=cluster_link,
+            kafka_cluster=kafka_cluster,
+            source_kafka_topic=source_kafka_topic,
+            mirror_topic_name=mirror_topic_name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_link: pulumi.Input['KafkaMirrorTopicClusterLinkArgs'],
+             kafka_cluster: pulumi.Input['KafkaMirrorTopicKafkaClusterArgs'],
+             source_kafka_topic: pulumi.Input['KafkaMirrorTopicSourceKafkaTopicArgs'],
+             mirror_topic_name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_link", cluster_link)
+        _setter("kafka_cluster", kafka_cluster)
+        _setter("source_kafka_topic", source_kafka_topic)
         if mirror_topic_name is not None:
-            pulumi.set(__self__, "mirror_topic_name", mirror_topic_name)
+            _setter("mirror_topic_name", mirror_topic_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="clusterLink")
@@ -94,16 +111,33 @@ class _KafkaMirrorTopicState:
         Input properties used for looking up and filtering KafkaMirrorTopic resources.
         :param pulumi.Input[str] mirror_topic_name: The name of the mirror topic. Only required when there is a prefix configured on the cluster link. For example, when `<prefix>` is configured for the cluster link, the mirror topic name has to be of the format `<prefix><source_topic_name>`.
         """
+        _KafkaMirrorTopicState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_link=cluster_link,
+            kafka_cluster=kafka_cluster,
+            mirror_topic_name=mirror_topic_name,
+            source_kafka_topic=source_kafka_topic,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_link: Optional[pulumi.Input['KafkaMirrorTopicClusterLinkArgs']] = None,
+             kafka_cluster: Optional[pulumi.Input['KafkaMirrorTopicKafkaClusterArgs']] = None,
+             mirror_topic_name: Optional[pulumi.Input[str]] = None,
+             source_kafka_topic: Optional[pulumi.Input['KafkaMirrorTopicSourceKafkaTopicArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster_link is not None:
-            pulumi.set(__self__, "cluster_link", cluster_link)
+            _setter("cluster_link", cluster_link)
         if kafka_cluster is not None:
-            pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+            _setter("kafka_cluster", kafka_cluster)
         if mirror_topic_name is not None:
-            pulumi.set(__self__, "mirror_topic_name", mirror_topic_name)
+            _setter("mirror_topic_name", mirror_topic_name)
         if source_kafka_topic is not None:
-            pulumi.set(__self__, "source_kafka_topic", source_kafka_topic)
+            _setter("source_kafka_topic", source_kafka_topic)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="clusterLink")
@@ -207,6 +241,10 @@ class KafkaMirrorTopic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KafkaMirrorTopicArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -226,13 +264,28 @@ class KafkaMirrorTopic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KafkaMirrorTopicArgs.__new__(KafkaMirrorTopicArgs)
 
+            if cluster_link is not None and not isinstance(cluster_link, KafkaMirrorTopicClusterLinkArgs):
+                cluster_link = cluster_link or {}
+                def _setter(key, value):
+                    cluster_link[key] = value
+                KafkaMirrorTopicClusterLinkArgs._configure(_setter, **cluster_link)
             if cluster_link is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_link'")
             __props__.__dict__["cluster_link"] = cluster_link
+            if kafka_cluster is not None and not isinstance(kafka_cluster, KafkaMirrorTopicKafkaClusterArgs):
+                kafka_cluster = kafka_cluster or {}
+                def _setter(key, value):
+                    kafka_cluster[key] = value
+                KafkaMirrorTopicKafkaClusterArgs._configure(_setter, **kafka_cluster)
             if kafka_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_cluster'")
             __props__.__dict__["kafka_cluster"] = kafka_cluster
             __props__.__dict__["mirror_topic_name"] = mirror_topic_name
+            if source_kafka_topic is not None and not isinstance(source_kafka_topic, KafkaMirrorTopicSourceKafkaTopicArgs):
+                source_kafka_topic = source_kafka_topic or {}
+                def _setter(key, value):
+                    source_kafka_topic[key] = value
+                KafkaMirrorTopicSourceKafkaTopicArgs._configure(_setter, **source_kafka_topic)
             if source_kafka_topic is None and not opts.urn:
                 raise TypeError("Missing required property 'source_kafka_topic'")
             __props__.__dict__["source_kafka_topic"] = source_kafka_topic

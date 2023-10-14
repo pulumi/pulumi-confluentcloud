@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,18 +30,37 @@ class BusinessMetadataArgs:
         :param pulumi.Input[str] name: The name of the attribute.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
+        BusinessMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_definitions=attribute_definitions,
+            credentials=credentials,
+            description=description,
+            name=name,
+            rest_endpoint=rest_endpoint,
+            schema_registry_cluster=schema_registry_cluster,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['BusinessMetadataAttributeDefinitionArgs']]]] = None,
+             credentials: Optional[pulumi.Input['BusinessMetadataCredentialsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             schema_registry_cluster: Optional[pulumi.Input['BusinessMetadataSchemaRegistryClusterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if attribute_definitions is not None:
-            pulumi.set(__self__, "attribute_definitions", attribute_definitions)
+            _setter("attribute_definitions", attribute_definitions)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
-            pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+            _setter("schema_registry_cluster", schema_registry_cluster)
 
     @property
     @pulumi.getter(name="attributeDefinitions")
@@ -132,20 +151,41 @@ class _BusinessMetadataState:
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[int] version: (Required Integer) The version of the Business Metadata, for example, `1`.
         """
+        _BusinessMetadataState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_definitions=attribute_definitions,
+            credentials=credentials,
+            description=description,
+            name=name,
+            rest_endpoint=rest_endpoint,
+            schema_registry_cluster=schema_registry_cluster,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['BusinessMetadataAttributeDefinitionArgs']]]] = None,
+             credentials: Optional[pulumi.Input['BusinessMetadataCredentialsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             schema_registry_cluster: Optional[pulumi.Input['BusinessMetadataSchemaRegistryClusterArgs']] = None,
+             version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if attribute_definitions is not None:
-            pulumi.set(__self__, "attribute_definitions", attribute_definitions)
+            _setter("attribute_definitions", attribute_definitions)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
-            pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+            _setter("schema_registry_cluster", schema_registry_cluster)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="attributeDefinitions")
@@ -287,6 +327,10 @@ class BusinessMetadata(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BusinessMetadataArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -308,10 +352,20 @@ class BusinessMetadata(pulumi.CustomResource):
             __props__ = BusinessMetadataArgs.__new__(BusinessMetadataArgs)
 
             __props__.__dict__["attribute_definitions"] = attribute_definitions
+            if credentials is not None and not isinstance(credentials, BusinessMetadataCredentialsArgs):
+                credentials = credentials or {}
+                def _setter(key, value):
+                    credentials[key] = value
+                BusinessMetadataCredentialsArgs._configure(_setter, **credentials)
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["rest_endpoint"] = rest_endpoint
+            if schema_registry_cluster is not None and not isinstance(schema_registry_cluster, BusinessMetadataSchemaRegistryClusterArgs):
+                schema_registry_cluster = schema_registry_cluster or {}
+                def _setter(key, value):
+                    schema_registry_cluster[key] = value
+                BusinessMetadataSchemaRegistryClusterArgs._configure(_setter, **schema_registry_cluster)
             __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
             __props__.__dict__["version"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])

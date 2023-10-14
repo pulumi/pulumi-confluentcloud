@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,22 +31,45 @@ class ClusterLinkArgs:
         :param pulumi.Input[str] link: The name of the cluster link, for example, `my-cluster-link`.
         :param pulumi.Input[str] link_mode: The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
         """
+        ClusterLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config=config,
+            connection_mode=connection_mode,
+            destination_kafka_cluster=destination_kafka_cluster,
+            link=link,
+            link_mode=link_mode,
+            local_kafka_cluster=local_kafka_cluster,
+            remote_kafka_cluster=remote_kafka_cluster,
+            source_kafka_cluster=source_kafka_cluster,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             connection_mode: Optional[pulumi.Input[str]] = None,
+             destination_kafka_cluster: Optional[pulumi.Input['ClusterLinkDestinationKafkaClusterArgs']] = None,
+             link: Optional[pulumi.Input[str]] = None,
+             link_mode: Optional[pulumi.Input[str]] = None,
+             local_kafka_cluster: Optional[pulumi.Input['ClusterLinkLocalKafkaClusterArgs']] = None,
+             remote_kafka_cluster: Optional[pulumi.Input['ClusterLinkRemoteKafkaClusterArgs']] = None,
+             source_kafka_cluster: Optional[pulumi.Input['ClusterLinkSourceKafkaClusterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if connection_mode is not None:
-            pulumi.set(__self__, "connection_mode", connection_mode)
+            _setter("connection_mode", connection_mode)
         if destination_kafka_cluster is not None:
-            pulumi.set(__self__, "destination_kafka_cluster", destination_kafka_cluster)
+            _setter("destination_kafka_cluster", destination_kafka_cluster)
         if link is not None:
-            pulumi.set(__self__, "link", link)
+            _setter("link", link)
         if link_mode is not None:
-            pulumi.set(__self__, "link_mode", link_mode)
+            _setter("link_mode", link_mode)
         if local_kafka_cluster is not None:
-            pulumi.set(__self__, "local_kafka_cluster", local_kafka_cluster)
+            _setter("local_kafka_cluster", local_kafka_cluster)
         if remote_kafka_cluster is not None:
-            pulumi.set(__self__, "remote_kafka_cluster", remote_kafka_cluster)
+            _setter("remote_kafka_cluster", remote_kafka_cluster)
         if source_kafka_cluster is not None:
-            pulumi.set(__self__, "source_kafka_cluster", source_kafka_cluster)
+            _setter("source_kafka_cluster", source_kafka_cluster)
 
     @property
     @pulumi.getter
@@ -151,22 +174,45 @@ class _ClusterLinkState:
         :param pulumi.Input[str] link: The name of the cluster link, for example, `my-cluster-link`.
         :param pulumi.Input[str] link_mode: The mode of the cluster link. The supported values are `"DESTINATION"`, `"SOURCE"`, and `"BIDIRECTIONAL"`. Defaults to `"DESTINATION"`.
         """
+        _ClusterLinkState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config=config,
+            connection_mode=connection_mode,
+            destination_kafka_cluster=destination_kafka_cluster,
+            link=link,
+            link_mode=link_mode,
+            local_kafka_cluster=local_kafka_cluster,
+            remote_kafka_cluster=remote_kafka_cluster,
+            source_kafka_cluster=source_kafka_cluster,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             connection_mode: Optional[pulumi.Input[str]] = None,
+             destination_kafka_cluster: Optional[pulumi.Input['ClusterLinkDestinationKafkaClusterArgs']] = None,
+             link: Optional[pulumi.Input[str]] = None,
+             link_mode: Optional[pulumi.Input[str]] = None,
+             local_kafka_cluster: Optional[pulumi.Input['ClusterLinkLocalKafkaClusterArgs']] = None,
+             remote_kafka_cluster: Optional[pulumi.Input['ClusterLinkRemoteKafkaClusterArgs']] = None,
+             source_kafka_cluster: Optional[pulumi.Input['ClusterLinkSourceKafkaClusterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if connection_mode is not None:
-            pulumi.set(__self__, "connection_mode", connection_mode)
+            _setter("connection_mode", connection_mode)
         if destination_kafka_cluster is not None:
-            pulumi.set(__self__, "destination_kafka_cluster", destination_kafka_cluster)
+            _setter("destination_kafka_cluster", destination_kafka_cluster)
         if link is not None:
-            pulumi.set(__self__, "link", link)
+            _setter("link", link)
         if link_mode is not None:
-            pulumi.set(__self__, "link_mode", link_mode)
+            _setter("link_mode", link_mode)
         if local_kafka_cluster is not None:
-            pulumi.set(__self__, "local_kafka_cluster", local_kafka_cluster)
+            _setter("local_kafka_cluster", local_kafka_cluster)
         if remote_kafka_cluster is not None:
-            pulumi.set(__self__, "remote_kafka_cluster", remote_kafka_cluster)
+            _setter("remote_kafka_cluster", remote_kafka_cluster)
         if source_kafka_cluster is not None:
-            pulumi.set(__self__, "source_kafka_cluster", source_kafka_cluster)
+            _setter("source_kafka_cluster", source_kafka_cluster)
 
     @property
     @pulumi.getter
@@ -328,6 +374,10 @@ class ClusterLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -352,11 +402,31 @@ class ClusterLink(pulumi.CustomResource):
 
             __props__.__dict__["config"] = config
             __props__.__dict__["connection_mode"] = connection_mode
+            if destination_kafka_cluster is not None and not isinstance(destination_kafka_cluster, ClusterLinkDestinationKafkaClusterArgs):
+                destination_kafka_cluster = destination_kafka_cluster or {}
+                def _setter(key, value):
+                    destination_kafka_cluster[key] = value
+                ClusterLinkDestinationKafkaClusterArgs._configure(_setter, **destination_kafka_cluster)
             __props__.__dict__["destination_kafka_cluster"] = destination_kafka_cluster
             __props__.__dict__["link"] = link
             __props__.__dict__["link_mode"] = link_mode
+            if local_kafka_cluster is not None and not isinstance(local_kafka_cluster, ClusterLinkLocalKafkaClusterArgs):
+                local_kafka_cluster = local_kafka_cluster or {}
+                def _setter(key, value):
+                    local_kafka_cluster[key] = value
+                ClusterLinkLocalKafkaClusterArgs._configure(_setter, **local_kafka_cluster)
             __props__.__dict__["local_kafka_cluster"] = local_kafka_cluster
+            if remote_kafka_cluster is not None and not isinstance(remote_kafka_cluster, ClusterLinkRemoteKafkaClusterArgs):
+                remote_kafka_cluster = remote_kafka_cluster or {}
+                def _setter(key, value):
+                    remote_kafka_cluster[key] = value
+                ClusterLinkRemoteKafkaClusterArgs._configure(_setter, **remote_kafka_cluster)
             __props__.__dict__["remote_kafka_cluster"] = remote_kafka_cluster
+            if source_kafka_cluster is not None and not isinstance(source_kafka_cluster, ClusterLinkSourceKafkaClusterArgs):
+                source_kafka_cluster = source_kafka_cluster or {}
+                def _setter(key, value):
+                    source_kafka_cluster[key] = value
+                ClusterLinkSourceKafkaClusterArgs._configure(_setter, **source_kafka_cluster)
             __props__.__dict__["source_kafka_cluster"] = source_kafka_cluster
         super(ClusterLink, __self__).__init__(
             'confluentcloud:index/clusterLink:ClusterLink',

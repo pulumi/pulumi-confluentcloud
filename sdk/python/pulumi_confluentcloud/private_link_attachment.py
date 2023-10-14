@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,26 @@ class PrivateLinkAttachmentArgs:
         :param pulumi.Input[str] region: The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
         :param pulumi.Input[str] display_name: The name of the Private Link Attachment.
         """
-        pulumi.set(__self__, "cloud", cloud)
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "region", region)
+        PrivateLinkAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud=cloud,
+            environment=environment,
+            region=region,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud: pulumi.Input[str],
+             environment: pulumi.Input['PrivateLinkAttachmentEnvironmentArgs'],
+             region: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cloud", cloud)
+        _setter("environment", environment)
+        _setter("region", region)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter
@@ -104,24 +119,49 @@ class _PrivateLinkAttachmentState:
         :param pulumi.Input[str] region: The cloud service provider region where the resources to be accessed using the Private Link Attachment are located.
         :param pulumi.Input[str] resource_name: (Required String) The Confluent Resource Name of the Private Link Attachment, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0`.
         """
+        _PrivateLinkAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws=aws,
+            azures=azures,
+            cloud=cloud,
+            display_name=display_name,
+            dns_domain=dns_domain,
+            environment=environment,
+            gcps=gcps,
+            region=region,
+            resource_name=resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAwArgs']]]] = None,
+             azures: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAzureArgs']]]] = None,
+             cloud: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             dns_domain: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['PrivateLinkAttachmentEnvironmentArgs']] = None,
+             gcps: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentGcpArgs']]]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws is not None:
-            pulumi.set(__self__, "aws", aws)
+            _setter("aws", aws)
         if azures is not None:
-            pulumi.set(__self__, "azures", azures)
+            _setter("azures", azures)
         if cloud is not None:
-            pulumi.set(__self__, "cloud", cloud)
+            _setter("cloud", cloud)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if dns_domain is not None:
-            pulumi.set(__self__, "dns_domain", dns_domain)
+            _setter("dns_domain", dns_domain)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if gcps is not None:
-            pulumi.set(__self__, "gcps", gcps)
+            _setter("gcps", gcps)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
 
     @property
     @pulumi.getter
@@ -321,6 +361,10 @@ class PrivateLinkAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateLinkAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -343,6 +387,11 @@ class PrivateLinkAttachment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cloud'")
             __props__.__dict__["cloud"] = cloud
             __props__.__dict__["display_name"] = display_name
+            if environment is not None and not isinstance(environment, PrivateLinkAttachmentEnvironmentArgs):
+                environment = environment or {}
+                def _setter(key, value):
+                    environment[key] = value
+                PrivateLinkAttachmentEnvironmentArgs._configure(_setter, **environment)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment

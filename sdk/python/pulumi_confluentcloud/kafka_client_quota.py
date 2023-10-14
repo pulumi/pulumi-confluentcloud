@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,13 +30,32 @@ class KafkaClientQuotaArgs:
         :param pulumi.Input['KafkaClientQuotaThroughputArgs'] throughput: Block for representing a Kafka Quota.
         :param pulumi.Input[str] description: The description of the Kafka Client Quota.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "kafka_cluster", kafka_cluster)
-        pulumi.set(__self__, "principals", principals)
-        pulumi.set(__self__, "throughput", throughput)
+        KafkaClientQuotaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            environment=environment,
+            kafka_cluster=kafka_cluster,
+            principals=principals,
+            throughput=throughput,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             environment: pulumi.Input['KafkaClientQuotaEnvironmentArgs'],
+             kafka_cluster: pulumi.Input['KafkaClientQuotaKafkaClusterArgs'],
+             principals: pulumi.Input[Sequence[pulumi.Input[str]]],
+             throughput: pulumi.Input['KafkaClientQuotaThroughputArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("environment", environment)
+        _setter("kafka_cluster", kafka_cluster)
+        _setter("principals", principals)
+        _setter("throughput", throughput)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="displayName")
@@ -125,18 +144,37 @@ class _KafkaClientQuotaState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: The list of principals (i.e., service accounts or identity pools) to apply the Kafka Client Quota to. Use the special name, "<default>", to represent the default quota for all users and service accounts.
         :param pulumi.Input['KafkaClientQuotaThroughputArgs'] throughput: Block for representing a Kafka Quota.
         """
+        _KafkaClientQuotaState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            environment=environment,
+            kafka_cluster=kafka_cluster,
+            principals=principals,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['KafkaClientQuotaEnvironmentArgs']] = None,
+             kafka_cluster: Optional[pulumi.Input['KafkaClientQuotaKafkaClusterArgs']] = None,
+             principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             throughput: Optional[pulumi.Input['KafkaClientQuotaThroughputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if kafka_cluster is not None:
-            pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+            _setter("kafka_cluster", kafka_cluster)
         if principals is not None:
-            pulumi.set(__self__, "principals", principals)
+            _setter("principals", principals)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter
@@ -316,6 +354,10 @@ class KafkaClientQuota(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KafkaClientQuotaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -340,15 +382,30 @@ class KafkaClientQuota(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            if environment is not None and not isinstance(environment, KafkaClientQuotaEnvironmentArgs):
+                environment = environment or {}
+                def _setter(key, value):
+                    environment[key] = value
+                KafkaClientQuotaEnvironmentArgs._configure(_setter, **environment)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            if kafka_cluster is not None and not isinstance(kafka_cluster, KafkaClientQuotaKafkaClusterArgs):
+                kafka_cluster = kafka_cluster or {}
+                def _setter(key, value):
+                    kafka_cluster[key] = value
+                KafkaClientQuotaKafkaClusterArgs._configure(_setter, **kafka_cluster)
             if kafka_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_cluster'")
             __props__.__dict__["kafka_cluster"] = kafka_cluster
             if principals is None and not opts.urn:
                 raise TypeError("Missing required property 'principals'")
             __props__.__dict__["principals"] = principals
+            if throughput is not None and not isinstance(throughput, KafkaClientQuotaThroughputArgs):
+                throughput = throughput or {}
+                def _setter(key, value):
+                    throughput[key] = value
+                KafkaClientQuotaThroughputArgs._configure(_setter, **throughput)
             if throughput is None and not opts.urn:
                 raise TypeError("Missing required property 'throughput'")
             __props__.__dict__["throughput"] = throughput

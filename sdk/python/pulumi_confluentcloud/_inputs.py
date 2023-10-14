@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -171,10 +171,25 @@ class ApiKeyManagedResourceArgs:
         :param pulumi.Input[str] id: The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
         :param pulumi.Input[str] kind: The kind of the managed resource that the API Key associated with, for example, `Cluster`.
         """
-        pulumi.set(__self__, "api_version", api_version)
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "kind", kind)
+        ApiKeyManagedResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_version=api_version,
+            environment=environment,
+            id=id,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_version: pulumi.Input[str],
+             environment: pulumi.Input['ApiKeyManagedResourceEnvironmentArgs'],
+             id: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_version", api_version)
+        _setter("environment", environment)
+        _setter("id", id)
+        _setter("kind", kind)
 
     @property
     @pulumi.getter(name="apiVersion")
@@ -229,7 +244,16 @@ class ApiKeyManagedResourceEnvironmentArgs:
         """
         :param pulumi.Input[str] id: The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        ApiKeyManagedResourceEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -255,9 +279,22 @@ class ApiKeyOwnerArgs:
         :param pulumi.Input[str] id: The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
         :param pulumi.Input[str] kind: The kind of the managed resource that the API Key associated with, for example, `Cluster`.
         """
-        pulumi.set(__self__, "api_version", api_version)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "kind", kind)
+        ApiKeyOwnerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_version=api_version,
+            id=id,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_version: pulumi.Input[str],
+             id: pulumi.Input[str],
+             kind: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_version", api_version)
+        _setter("id", id)
+        _setter("kind", kind)
 
     @property
     @pulumi.getter(name="apiVersion")
@@ -313,17 +350,36 @@ class BusinessMetadataAttributeDefinitionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: (Optional Map) Block for the attribute options:
         :param pulumi.Input[str] type: (Required String) The type of the attribute, it always returns `string`.
         """
-        pulumi.set(__self__, "name", name)
+        BusinessMetadataAttributeDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            default_value=default_value,
+            description=description,
+            is_optional=is_optional,
+            options=options,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             default_value: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             is_optional: Optional[pulumi.Input[bool]] = None,
+             options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if is_optional is not None:
-            pulumi.set(__self__, "is_optional", is_optional)
+            _setter("is_optional", is_optional)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -407,8 +463,19 @@ class BusinessMetadataBindingCredentialsArgs:
         :param pulumi.Input[str] key: The Schema Registry API Key.
         :param pulumi.Input[str] secret: The Schema Registry API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        BusinessMetadataBindingCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -442,7 +509,16 @@ class BusinessMetadataBindingSchemaRegistryClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        BusinessMetadataBindingSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -465,8 +541,19 @@ class BusinessMetadataCredentialsArgs:
         """
         :param pulumi.Input[str] key: The Schema Registry API Key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        BusinessMetadataCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -497,7 +584,16 @@ class BusinessMetadataSchemaRegistryClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        BusinessMetadataSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -521,9 +617,20 @@ class ByokKeyAwsArgs:
         :param pulumi.Input[str] key_arn: The Amazon Resource Name (ARN) of an AWS KMS key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: (Optional List of Strings) The Amazon Resource Names (ARNs) of IAM Roles created for this key-environment
         """
-        pulumi.set(__self__, "key_arn", key_arn)
+        ByokKeyAwsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_arn=key_arn,
+            roles=roles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_arn: pulumi.Input[str],
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_arn", key_arn)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
 
     @property
     @pulumi.getter(name="keyArn")
@@ -563,11 +670,26 @@ class ByokKeyAzureArgs:
         :param pulumi.Input[str] tenant_id: Tenant ID (uuid) hosting the Key Vault containing the key.
         :param pulumi.Input[str] application_id: (Optional String) The Application ID created for this key-environment combination.
         """
-        pulumi.set(__self__, "key_identifier", key_identifier)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ByokKeyAzureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_identifier=key_identifier,
+            key_vault_id=key_vault_id,
+            tenant_id=tenant_id,
+            application_id=application_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_identifier: pulumi.Input[str],
+             key_vault_id: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             application_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_identifier", key_identifier)
+        _setter("key_vault_id", key_vault_id)
+        _setter("tenant_id", tenant_id)
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
 
     @property
     @pulumi.getter(name="keyIdentifier")
@@ -630,13 +752,28 @@ class ClusterLinkDestinationKafkaClusterArgs:
         :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
-        pulumi.set(__self__, "id", id)
+        ClusterLinkDestinationKafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            bootstrap_endpoint=bootstrap_endpoint,
+            credentials=credentials,
+            rest_endpoint=rest_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             bootstrap_endpoint: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['ClusterLinkDestinationKafkaClusterCredentialsArgs']] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if bootstrap_endpoint is not None:
-            pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+            _setter("bootstrap_endpoint", bootstrap_endpoint)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter
@@ -693,8 +830,19 @@ class ClusterLinkDestinationKafkaClusterCredentialsArgs:
         :param pulumi.Input[str] key: The Kafka API Key.
         :param pulumi.Input[str] secret: The Kafka API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        ClusterLinkDestinationKafkaClusterCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -733,13 +881,28 @@ class ClusterLinkLocalKafkaClusterArgs:
         :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
-        pulumi.set(__self__, "id", id)
+        ClusterLinkLocalKafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            bootstrap_endpoint=bootstrap_endpoint,
+            credentials=credentials,
+            rest_endpoint=rest_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             bootstrap_endpoint: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['ClusterLinkLocalKafkaClusterCredentialsArgs']] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if bootstrap_endpoint is not None:
-            pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+            _setter("bootstrap_endpoint", bootstrap_endpoint)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter
@@ -796,8 +959,19 @@ class ClusterLinkLocalKafkaClusterCredentialsArgs:
         :param pulumi.Input[str] key: The Kafka API Key.
         :param pulumi.Input[str] secret: The Kafka API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        ClusterLinkLocalKafkaClusterCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -836,13 +1010,28 @@ class ClusterLinkRemoteKafkaClusterArgs:
         :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
-        pulumi.set(__self__, "id", id)
+        ClusterLinkRemoteKafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            bootstrap_endpoint=bootstrap_endpoint,
+            credentials=credentials,
+            rest_endpoint=rest_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             bootstrap_endpoint: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['ClusterLinkRemoteKafkaClusterCredentialsArgs']] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if bootstrap_endpoint is not None:
-            pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+            _setter("bootstrap_endpoint", bootstrap_endpoint)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter
@@ -899,8 +1088,19 @@ class ClusterLinkRemoteKafkaClusterCredentialsArgs:
         :param pulumi.Input[str] key: The Kafka API Key.
         :param pulumi.Input[str] secret: The Kafka API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        ClusterLinkRemoteKafkaClusterCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -939,13 +1139,28 @@ class ClusterLinkSourceKafkaClusterArgs:
         :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
-        pulumi.set(__self__, "id", id)
+        ClusterLinkSourceKafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            bootstrap_endpoint=bootstrap_endpoint,
+            credentials=credentials,
+            rest_endpoint=rest_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             bootstrap_endpoint: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['ClusterLinkSourceKafkaClusterCredentialsArgs']] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if bootstrap_endpoint is not None:
-            pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+            _setter("bootstrap_endpoint", bootstrap_endpoint)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter
@@ -1002,8 +1217,19 @@ class ClusterLinkSourceKafkaClusterCredentialsArgs:
         :param pulumi.Input[str] key: The Kafka API Key.
         :param pulumi.Input[str] secret: The Kafka API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        ClusterLinkSourceKafkaClusterCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -1037,7 +1263,16 @@ class ConnectorEnvironmentArgs:
         """
         :param pulumi.Input[str] id: The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        ConnectorEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1059,7 +1294,16 @@ class ConnectorKafkaClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        ConnectorKafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1081,7 +1325,16 @@ class FlinkComputePoolEnvironmentArgs:
         """
         :param pulumi.Input[str] id: The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        FlinkComputePoolEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1103,7 +1356,16 @@ class IdentityPoolIdentityProviderArgs:
         """
         :param pulumi.Input[str] id: The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        IdentityPoolIdentityProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1125,8 +1387,17 @@ class InvitationCreatorArgs:
         """
         :param pulumi.Input[str] id: (Required String) The id of invitation creator.
         """
+        InvitationCreatorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1148,8 +1419,17 @@ class InvitationUserArgs:
         """
         :param pulumi.Input[str] id: (Required String) The id of invitation creator.
         """
+        InvitationUserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1173,8 +1453,19 @@ class KafkaAclCredentialsArgs:
         :param pulumi.Input[str] key: The Kafka API Key.
         :param pulumi.Input[str] secret: The Kafka API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        KafkaAclCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -1208,7 +1499,16 @@ class KafkaAclKafkaClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the Kafka cluster, for example, `lkc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        KafkaAclKafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1234,7 +1534,16 @@ class KafkaClientQuotaEnvironmentArgs:
                
                > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
         """
-        pulumi.set(__self__, "id", id)
+        KafkaClientQuotaEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1264,7 +1573,16 @@ class KafkaClientQuotaKafkaClusterArgs:
                
                > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
         """
-        pulumi.set(__self__, "id", id)
+        KafkaClientQuotaKafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1292,8 +1610,19 @@ class KafkaClientQuotaThroughputArgs:
         :param pulumi.Input[str] egress_byte_rate: The egress throughput limit in bytes per second.
         :param pulumi.Input[str] ingress_byte_rate: The ingress throughput limit in bytes per second.
         """
-        pulumi.set(__self__, "egress_byte_rate", egress_byte_rate)
-        pulumi.set(__self__, "ingress_byte_rate", ingress_byte_rate)
+        KafkaClientQuotaThroughputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            egress_byte_rate=egress_byte_rate,
+            ingress_byte_rate=ingress_byte_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             egress_byte_rate: pulumi.Input[str],
+             ingress_byte_rate: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("egress_byte_rate", egress_byte_rate)
+        _setter("ingress_byte_rate", ingress_byte_rate)
 
     @property
     @pulumi.getter(name="egressByteRate")
@@ -1324,6 +1653,11 @@ class KafkaClientQuotaThroughputArgs:
 class KafkaClusterBasicArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -1333,7 +1667,16 @@ class KafkaClusterByokKeyArgs:
         """
         :param pulumi.Input[str] id: The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
         """
-        pulumi.set(__self__, "id", id)
+        KafkaClusterByokKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1361,8 +1704,19 @@ class KafkaClusterConfigCredentialsArgs:
                
                > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_cluster_config.orders"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_cluster_config.orders" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        KafkaClusterConfigCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -1400,7 +1754,16 @@ class KafkaClusterConfigKafkaClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the Dedicated Kafka cluster, for example, `lkc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        KafkaClusterConfigKafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1427,11 +1790,24 @@ class KafkaClusterDedicatedArgs:
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
                On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
         """
-        pulumi.set(__self__, "cku", cku)
+        KafkaClusterDedicatedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cku=cku,
+            encryption_key=encryption_key,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cku: pulumi.Input[int],
+             encryption_key: Optional[pulumi.Input[str]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cku", cku)
         if encryption_key is not None:
-            pulumi.set(__self__, "encryption_key", encryption_key)
+            _setter("encryption_key", encryption_key)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -1471,6 +1847,11 @@ class KafkaClusterDedicatedArgs:
 class KafkaClusterEnterpriseArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -1480,7 +1861,16 @@ class KafkaClusterEnvironmentArgs:
         """
         :param pulumi.Input[str] id: The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
         """
-        pulumi.set(__self__, "id", id)
+        KafkaClusterEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1502,7 +1892,16 @@ class KafkaClusterNetworkArgs:
         """
         :param pulumi.Input[str] id: The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
         """
-        pulumi.set(__self__, "id", id)
+        KafkaClusterNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1521,6 +1920,11 @@ class KafkaClusterNetworkArgs:
 class KafkaClusterStandardArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -1530,7 +1934,16 @@ class KafkaMirrorTopicClusterLinkArgs:
         """
         :param pulumi.Input[str] link_name: The name of the cluster link to attach to the mirror topic, for example, `my-cluster-link`.
         """
-        pulumi.set(__self__, "link_name", link_name)
+        KafkaMirrorTopicClusterLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            link_name=link_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             link_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("link_name", link_name)
 
     @property
     @pulumi.getter(name="linkName")
@@ -1555,11 +1968,24 @@ class KafkaMirrorTopicKafkaClusterArgs:
         :param pulumi.Input[str] id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
-        pulumi.set(__self__, "id", id)
+        KafkaMirrorTopicKafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            credentials=credentials,
+            rest_endpoint=rest_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             credentials: Optional[pulumi.Input['KafkaMirrorTopicKafkaClusterCredentialsArgs']] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter
@@ -1604,8 +2030,19 @@ class KafkaMirrorTopicKafkaClusterCredentialsArgs:
         :param pulumi.Input[str] key: The Kafka API Key.
         :param pulumi.Input[str] secret: The Kafka API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        KafkaMirrorTopicKafkaClusterCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -1639,7 +2076,16 @@ class KafkaMirrorTopicSourceKafkaTopicArgs:
         """
         :param pulumi.Input[str] topic_name: The name of the topic on the source cluster to be mirrored over the cluster link, for example, `orders`. A topic with the exact same name must exist on the source cluster, and no topic with this name should exist on the destination cluster.
         """
-        pulumi.set(__self__, "topic_name", topic_name)
+        KafkaMirrorTopicSourceKafkaTopicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            topic_name=topic_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             topic_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("topic_name", topic_name)
 
     @property
     @pulumi.getter(name="topicName")
@@ -1667,8 +2113,19 @@ class KafkaTopicCredentialsArgs:
                
                > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Kafka API key, create a new Kafka API key, update the `credentials` block in all configuration files to use the new Kafka API key, run `pulumi up -target="confluent_kafka_topic.orders"`, and remove the old Kafka API key. Alternatively, in case the old Kafka API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_kafka_topic.orders" -out=rotate-kafka-api-key` and `pulumi up rotate-kafka-api-key` instead.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        KafkaTopicCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -1706,7 +2163,16 @@ class KafkaTopicKafkaClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the Kafka cluster, for example, `lkc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        KafkaTopicKafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1728,7 +2194,16 @@ class KsqlClusterCredentialIdentityArgs:
         """
         :param pulumi.Input[str] id: The ID of the associated service or user account, for example, `sa-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        KsqlClusterCredentialIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1750,7 +2225,16 @@ class KsqlClusterEnvironmentArgs:
         """
         :param pulumi.Input[str] id: The ID of the associated service or user account, for example, `sa-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        KsqlClusterEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1772,7 +2256,16 @@ class KsqlClusterKafkaClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the associated service or user account, for example, `sa-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        KsqlClusterKafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1798,12 +2291,25 @@ class NetworkAwArgs:
         :param pulumi.Input[str] private_link_endpoint_service: (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
         :param pulumi.Input[str] vpc: (Required String) The Confluent Cloud VPC ID.
         """
+        NetworkAwArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account=account,
+            private_link_endpoint_service=private_link_endpoint_service,
+            vpc=vpc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account: Optional[pulumi.Input[str]] = None,
+             private_link_endpoint_service: Optional[pulumi.Input[str]] = None,
+             vpc: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account is not None:
-            pulumi.set(__self__, "account", account)
+            _setter("account", account)
         if private_link_endpoint_service is not None:
-            pulumi.set(__self__, "private_link_endpoint_service", private_link_endpoint_service)
+            _setter("private_link_endpoint_service", private_link_endpoint_service)
         if vpc is not None:
-            pulumi.set(__self__, "vpc", vpc)
+            _setter("vpc", vpc)
 
     @property
     @pulumi.getter
@@ -1849,8 +2355,17 @@ class NetworkAzureArgs:
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] private_link_service_aliases: (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zone names, for example, `1` and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service), for example, `s-nk99e-privatelink-1.8c43dcd0-695c-1234-bc35-11fe6abb303a.centralus.azure.privatelinkservice`.
         """
+        NetworkAzureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link_service_aliases=private_link_service_aliases,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link_service_aliases: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_link_service_aliases is not None:
-            pulumi.set(__self__, "private_link_service_aliases", private_link_service_aliases)
+            _setter("private_link_service_aliases", private_link_service_aliases)
 
     @property
     @pulumi.getter(name="privateLinkServiceAliases")
@@ -1874,7 +2389,16 @@ class NetworkDnsConfigArgs:
                When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
                When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
         """
-        pulumi.set(__self__, "resolution", resolution)
+        NetworkDnsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resolution=resolution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resolution: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resolution", resolution)
 
     @property
     @pulumi.getter
@@ -1898,7 +2422,16 @@ class NetworkEnvironmentArgs:
         """
         :param pulumi.Input[str] id: The ID of the Environment that the Network belongs to, for example, `env-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        NetworkEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1924,12 +2457,25 @@ class NetworkGcpArgs:
         :param pulumi.Input[str] project: (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
         :param pulumi.Input[str] vpc_network: (Required String) The network name of the Confluent Cloud VPC.
         """
+        NetworkGcpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_service_connect_service_attachments=private_service_connect_service_attachments,
+            project=project,
+            vpc_network=vpc_network,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_service_connect_service_attachments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             project: Optional[pulumi.Input[str]] = None,
+             vpc_network: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_service_connect_service_attachments is not None:
-            pulumi.set(__self__, "private_service_connect_service_attachments", private_service_connect_service_attachments)
+            _setter("private_service_connect_service_attachments", private_service_connect_service_attachments)
         if project is not None:
-            pulumi.set(__self__, "project", project)
+            _setter("project", project)
         if vpc_network is not None:
-            pulumi.set(__self__, "vpc_network", vpc_network)
+            _setter("vpc_network", vpc_network)
 
     @property
     @pulumi.getter(name="privateServiceConnectServiceAttachments")
@@ -1975,7 +2521,16 @@ class NetworkLinkEndpointEnvironmentArgs:
         """
         :param pulumi.Input[str] id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
         """
-        pulumi.set(__self__, "id", id)
+        NetworkLinkEndpointEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1997,7 +2552,16 @@ class NetworkLinkEndpointNetworkArgs:
         """
         :param pulumi.Input[str] id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
         """
-        pulumi.set(__self__, "id", id)
+        NetworkLinkEndpointNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2019,7 +2583,16 @@ class NetworkLinkEndpointNetworkLinkServiceArgs:
         """
         :param pulumi.Input[str] id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
         """
-        pulumi.set(__self__, "id", id)
+        NetworkLinkEndpointNetworkLinkServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2043,10 +2616,21 @@ class NetworkLinkServiceAcceptArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] environments: List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] networks: List of network ids from which connections can be accepted.
         """
+        NetworkLinkServiceAcceptArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environments=environments,
+            networks=networks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             networks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if environments is not None:
-            pulumi.set(__self__, "environments", environments)
+            _setter("environments", environments)
         if networks is not None:
-            pulumi.set(__self__, "networks", networks)
+            _setter("networks", networks)
 
     @property
     @pulumi.getter
@@ -2080,7 +2664,16 @@ class NetworkLinkServiceEnvironmentArgs:
         """
         :param pulumi.Input[str] id: The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        NetworkLinkServiceEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2102,7 +2695,16 @@ class NetworkLinkServiceNetworkArgs:
         """
         :param pulumi.Input[str] id: The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        NetworkLinkServiceNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2128,10 +2730,21 @@ class NetworkZoneInfoArgs:
                > **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
         :param pulumi.Input[str] zone_id: Cloud provider zone ID.
         """
+        NetworkZoneInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr=cidr,
+            zone_id=zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr: Optional[pulumi.Input[str]] = None,
+             zone_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if zone_id is not None:
-            pulumi.set(__self__, "zone_id", zone_id)
+            _setter("zone_id", zone_id)
 
     @property
     @pulumi.getter
@@ -2173,10 +2786,25 @@ class PeeringAwsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] routes: The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs > Target VPC > Details** section of the AWS Management Console.
         :param pulumi.Input[str] vpc: The AWS VPC ID of the peer VPC that you're peering with Confluent Cloud. You can find your AWS VPC ID [here](https://console.aws.amazon.com/vpc/) under **Your VPCs** section of the AWS Management Console. Must start with `vpc-`.
         """
-        pulumi.set(__self__, "account", account)
-        pulumi.set(__self__, "customer_region", customer_region)
-        pulumi.set(__self__, "routes", routes)
-        pulumi.set(__self__, "vpc", vpc)
+        PeeringAwsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account=account,
+            customer_region=customer_region,
+            routes=routes,
+            vpc=vpc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account: pulumi.Input[str],
+             customer_region: pulumi.Input[str],
+             routes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             vpc: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account", account)
+        _setter("customer_region", customer_region)
+        _setter("routes", routes)
+        _setter("vpc", vpc)
 
     @property
     @pulumi.getter
@@ -2238,9 +2866,22 @@ class PeeringAzureArgs:
         :param pulumi.Input[str] tenant: The Tenant ID that represents an organization in Azure Active Directory. You can find your Azure Tenant ID in the [Azure Portal under Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). Must be a valid **32 character UUID string**.
         :param pulumi.Input[str] vnet: The resource (composite) ID of the peer Virtual Network that you're peering with Confluent Cloud, in the format `/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Network/virtualNetworks/<VNet name>`. You can find Subscription ID, Resource Group Name and your VNet name under **Virtual Networks > Target VNet > Essentials** section of your [Microsoft Azure Portal](https://portal.azure.com/).
         """
-        pulumi.set(__self__, "customer_region", customer_region)
-        pulumi.set(__self__, "tenant", tenant)
-        pulumi.set(__self__, "vnet", vnet)
+        PeeringAzureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_region=customer_region,
+            tenant=tenant,
+            vnet=vnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_region: pulumi.Input[str],
+             tenant: pulumi.Input[str],
+             vnet: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("customer_region", customer_region)
+        _setter("tenant", tenant)
+        _setter("vnet", vnet)
 
     @property
     @pulumi.getter(name="customerRegion")
@@ -2286,7 +2927,16 @@ class PeeringEnvironmentArgs:
         """
         :param pulumi.Input[str] id: The ID of the Network that the Peering belongs to, for example, `n-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        PeeringEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2320,10 +2970,23 @@ class PeeringGcpArgs:
                
                > **Note:** Learn more about VPC Peering requirements on Google Cloud Platform [here](https://docs.confluent.io/cloud/current/networking/peering/gcp-peering.html#vpc-peering-on-gcp).
         """
-        pulumi.set(__self__, "project", project)
-        pulumi.set(__self__, "vpc_network", vpc_network)
+        PeeringGcpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project=project,
+            vpc_network=vpc_network,
+            import_custom_routes=import_custom_routes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project: pulumi.Input[str],
+             vpc_network: pulumi.Input[str],
+             import_custom_routes: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("project", project)
+        _setter("vpc_network", vpc_network)
         if import_custom_routes is not None:
-            pulumi.set(__self__, "import_custom_routes", import_custom_routes)
+            _setter("import_custom_routes", import_custom_routes)
 
     @property
     @pulumi.getter
@@ -2377,7 +3040,16 @@ class PeeringNetworkArgs:
         """
         :param pulumi.Input[str] id: The ID of the Network that the Peering belongs to, for example, `n-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        PeeringNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2399,7 +3071,16 @@ class PrivateLinkAccessAwsArgs:
         """
         :param pulumi.Input[str] account: The AWS account ID to enable for the Private Link Access. You can find your AWS account ID [here] (https://console.aws.amazon.com/billing/home?#/account) under **My Account** in your AWS Management Console. Must be a **12 character string**.
         """
-        pulumi.set(__self__, "account", account)
+        PrivateLinkAccessAwsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account=account,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account", account)
 
     @property
     @pulumi.getter
@@ -2421,7 +3102,16 @@ class PrivateLinkAccessAzureArgs:
         """
         :param pulumi.Input[str] subscription: The Azure subscription ID to enable for the Private Link Access. You can find your Azure subscription ID in the subscription section of your [Microsoft Azure Portal] (https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Must be a valid **32 character UUID string**.
         """
-        pulumi.set(__self__, "subscription", subscription)
+        PrivateLinkAccessAzureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subscription=subscription,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subscription: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subscription", subscription)
 
     @property
     @pulumi.getter
@@ -2443,7 +3133,16 @@ class PrivateLinkAccessEnvironmentArgs:
         """
         :param pulumi.Input[str] id: The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        PrivateLinkAccessEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2471,7 +3170,16 @@ class PrivateLinkAccessGcpArgs:
                
                > **Note:** Learn more about Private Link Access limitations on Azure [here](https://docs.confluent.io/cloud/current/networking/private-links/azure-privatelink.html#limitations).
         """
-        pulumi.set(__self__, "project", project)
+        PrivateLinkAccessGcpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project=project,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("project", project)
 
     @property
     @pulumi.getter
@@ -2499,7 +3207,16 @@ class PrivateLinkAccessNetworkArgs:
         """
         :param pulumi.Input[str] id: The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        PrivateLinkAccessNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2521,8 +3238,17 @@ class PrivateLinkAttachmentAwArgs:
         """
         :param pulumi.Input[str] vpc_endpoint_service_name: (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
         """
+        PrivateLinkAttachmentAwArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_endpoint_service_name=vpc_endpoint_service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_endpoint_service_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if vpc_endpoint_service_name is not None:
-            pulumi.set(__self__, "vpc_endpoint_service_name", vpc_endpoint_service_name)
+            _setter("vpc_endpoint_service_name", vpc_endpoint_service_name)
 
     @property
     @pulumi.getter(name="vpcEndpointServiceName")
@@ -2543,12 +3269,25 @@ class PrivateLinkAttachmentAzureArgs:
                  private_link_service_alias: Optional[pulumi.Input[str]] = None,
                  private_link_service_resource_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
+        PrivateLinkAttachmentAzureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link_service_alias=private_link_service_alias,
+            private_link_service_resource_id=private_link_service_resource_id,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link_service_alias: Optional[pulumi.Input[str]] = None,
+             private_link_service_resource_id: Optional[pulumi.Input[str]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_link_service_alias is not None:
-            pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
+            _setter("private_link_service_alias", private_link_service_alias)
         if private_link_service_resource_id is not None:
-            pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
+            _setter("private_link_service_resource_id", private_link_service_resource_id)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter(name="privateLinkServiceAlias")
@@ -2585,7 +3324,16 @@ class PrivateLinkAttachmentConnectionAwsArgs:
         """
         :param pulumi.Input[str] vpc_endpoint_id: Id of a VPC Endpoint that is connected to the VPC Endpoint service.
         """
-        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+        PrivateLinkAttachmentConnectionAwsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_endpoint_id=vpc_endpoint_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_endpoint_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("vpc_endpoint_id", vpc_endpoint_id)
 
     @property
     @pulumi.getter(name="vpcEndpointId")
@@ -2604,7 +3352,16 @@ class PrivateLinkAttachmentConnectionAwsArgs:
 class PrivateLinkAttachmentConnectionAzureArgs:
     def __init__(__self__, *,
                  private_endpoint_resource_id: pulumi.Input[str]):
-        pulumi.set(__self__, "private_endpoint_resource_id", private_endpoint_resource_id)
+        PrivateLinkAttachmentConnectionAzureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint_resource_id=private_endpoint_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint_resource_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_endpoint_resource_id", private_endpoint_resource_id)
 
     @property
     @pulumi.getter(name="privateEndpointResourceId")
@@ -2623,7 +3380,16 @@ class PrivateLinkAttachmentConnectionEnvironmentArgs:
         """
         :param pulumi.Input[str] id: The unique identifier for the private link attachment.
         """
-        pulumi.set(__self__, "id", id)
+        PrivateLinkAttachmentConnectionEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2642,7 +3408,16 @@ class PrivateLinkAttachmentConnectionEnvironmentArgs:
 class PrivateLinkAttachmentConnectionGcpArgs:
     def __init__(__self__, *,
                  private_service_connect_connection_id: pulumi.Input[str]):
-        pulumi.set(__self__, "private_service_connect_connection_id", private_service_connect_connection_id)
+        PrivateLinkAttachmentConnectionGcpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_service_connect_connection_id=private_service_connect_connection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_service_connect_connection_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_service_connect_connection_id", private_service_connect_connection_id)
 
     @property
     @pulumi.getter(name="privateServiceConnectConnectionId")
@@ -2661,7 +3436,16 @@ class PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs:
         """
         :param pulumi.Input[str] id: The unique identifier for the private link attachment.
         """
-        pulumi.set(__self__, "id", id)
+        PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2683,7 +3467,16 @@ class PrivateLinkAttachmentEnvironmentArgs:
         """
         :param pulumi.Input[str] id: The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
         """
-        pulumi.set(__self__, "id", id)
+        PrivateLinkAttachmentEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2703,10 +3496,21 @@ class PrivateLinkAttachmentGcpArgs:
     def __init__(__self__, *,
                  private_service_connect_service_attachment: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
+        PrivateLinkAttachmentGcpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_service_connect_service_attachment=private_service_connect_service_attachment,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_service_connect_service_attachment: Optional[pulumi.Input[str]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_service_connect_service_attachment is not None:
-            pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
+            _setter("private_service_connect_service_attachment", private_service_connect_service_attachment)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter(name="privateServiceConnectServiceAttachment")
@@ -2735,8 +3539,19 @@ class SchemaCredentialsArgs:
         """
         :param pulumi.Input[str] key: The Schema Registry API Key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        SchemaCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -2769,8 +3584,19 @@ class SchemaExporterCredentialsArgs:
         :param pulumi.Input[str] key: The Schema Registry API Key.
         :param pulumi.Input[str] secret: The Schema Registry API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        SchemaExporterCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -2805,8 +3631,19 @@ class SchemaExporterDestinationSchemaRegistryClusterArgs:
         """
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
-        pulumi.set(__self__, "credentials", credentials)
-        pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+        SchemaExporterDestinationSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            rest_endpoint=rest_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs'],
+             rest_endpoint: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("credentials", credentials)
+        _setter("rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter
@@ -2839,8 +3676,19 @@ class SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs:
         :param pulumi.Input[str] key: The Schema Registry API Key.
         :param pulumi.Input[str] secret: The Schema Registry API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -2874,7 +3722,16 @@ class SchemaExporterSchemaRegistryClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        SchemaExporterSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2897,8 +3754,19 @@ class SchemaRegistryClusterConfigCredentialsArgs:
         """
         :param pulumi.Input[str] key: The Schema Registry API Key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        SchemaRegistryClusterConfigCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -2929,7 +3797,16 @@ class SchemaRegistryClusterConfigSchemaRegistryClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        SchemaRegistryClusterConfigSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2951,7 +3828,16 @@ class SchemaRegistryClusterEnvironmentArgs:
         """
         :param pulumi.Input[str] id: The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
         """
-        pulumi.set(__self__, "id", id)
+        SchemaRegistryClusterEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -2974,8 +3860,19 @@ class SchemaRegistryClusterModeCredentialsArgs:
         """
         :param pulumi.Input[str] key: The Schema Registry API Key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        SchemaRegistryClusterModeCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -3006,7 +3903,16 @@ class SchemaRegistryClusterModeSchemaRegistryClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        SchemaRegistryClusterModeSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3028,7 +3934,16 @@ class SchemaRegistryClusterRegionArgs:
         """
         :param pulumi.Input[str] id: The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
         """
-        pulumi.set(__self__, "id", id)
+        SchemaRegistryClusterRegionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3054,9 +3969,22 @@ class SchemaSchemaReferenceArgs:
         :param pulumi.Input[str] subject_name: The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
         :param pulumi.Input[int] version: The version, representing the exact version of the schema under the registered subject.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "subject_name", subject_name)
-        pulumi.set(__self__, "version", version)
+        SchemaSchemaReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            subject_name=subject_name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             subject_name: pulumi.Input[str],
+             version: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("subject_name", subject_name)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -3102,7 +4030,16 @@ class SchemaSchemaRegistryClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        SchemaSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3125,8 +4062,19 @@ class SubjectConfigCredentialsArgs:
         """
         :param pulumi.Input[str] key: The Schema Registry API Key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        SubjectConfigCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -3157,7 +4105,16 @@ class SubjectConfigSchemaRegistryClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        SubjectConfigSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3180,8 +4137,19 @@ class SubjectModeCredentialsArgs:
         """
         :param pulumi.Input[str] key: The Schema Registry API Key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        SubjectModeCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -3212,7 +4180,16 @@ class SubjectModeSchemaRegistryClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        SubjectModeSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3236,8 +4213,19 @@ class TagBindingCredentialsArgs:
         :param pulumi.Input[str] key: The Schema Registry API Key.
         :param pulumi.Input[str] secret: The Schema Registry API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        TagBindingCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -3271,7 +4259,16 @@ class TagBindingSchemaRegistryClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        TagBindingSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3295,8 +4292,19 @@ class TagCredentialsArgs:
         :param pulumi.Input[str] key: The Schema Registry API Key.
         :param pulumi.Input[str] secret: The Schema Registry API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        TagCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             secret: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -3330,7 +4338,16 @@ class TagSchemaRegistryClusterArgs:
         """
         :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        TagSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3360,11 +4377,26 @@ class TransitGatewayAttachmentAwsArgs:
         :param pulumi.Input[str] transit_gateway_id: The ID of the AWS Transit Gateway that you want Confluent CLoud to be attached to. Must start with `tgw-`.
         :param pulumi.Input[str] transit_gateway_attachment_id: (Required String) The ID of the AWS Transit Gateway VPC Attachment that attaches Confluent VPC to Transit Gateway.
         """
-        pulumi.set(__self__, "ram_resource_share_arn", ram_resource_share_arn)
-        pulumi.set(__self__, "routes", routes)
-        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        TransitGatewayAttachmentAwsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ram_resource_share_arn=ram_resource_share_arn,
+            routes=routes,
+            transit_gateway_id=transit_gateway_id,
+            transit_gateway_attachment_id=transit_gateway_attachment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ram_resource_share_arn: pulumi.Input[str],
+             routes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             transit_gateway_id: pulumi.Input[str],
+             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ram_resource_share_arn", ram_resource_share_arn)
+        _setter("routes", routes)
+        _setter("transit_gateway_id", transit_gateway_id)
         if transit_gateway_attachment_id is not None:
-            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+            _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
 
     @property
     @pulumi.getter(name="ramResourceShareArn")
@@ -3424,7 +4456,16 @@ class TransitGatewayAttachmentEnvironmentArgs:
         """
         :param pulumi.Input[str] id: The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        TransitGatewayAttachmentEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3446,7 +4487,16 @@ class TransitGatewayAttachmentNetworkArgs:
         """
         :param pulumi.Input[str] id: The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        TransitGatewayAttachmentNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3472,8 +4522,19 @@ class GetBusinessMetadataBindingCredentialsArgs:
                
                > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        GetBusinessMetadataBindingCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             secret: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -3509,7 +4570,16 @@ class GetBusinessMetadataBindingSchemaRegistryClusterArgs:
         """
         :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        GetBusinessMetadataBindingSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3533,8 +4603,19 @@ class GetBusinessMetadataCredentialsArgs:
         :param str key: The Schema Registry API Key.
         :param str secret: The Schema Registry API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        GetBusinessMetadataCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             secret: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -3568,7 +4649,16 @@ class GetBusinessMetadataSchemaRegistryClusterArgs:
         """
         :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        GetBusinessMetadataSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3592,7 +4682,16 @@ class GetFlinkComputePoolEnvironmentArgs:
                
                > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
-        pulumi.set(__self__, "id", id)
+        GetFlinkComputePoolEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3618,7 +4717,16 @@ class GetIdentityPoolIdentityProviderArgs:
                
                > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
-        pulumi.set(__self__, "id", id)
+        GetIdentityPoolIdentityProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3639,6 +4747,11 @@ class GetIdentityPoolIdentityProviderArgs:
 class GetKafkaClusterBasicArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -3654,9 +4767,22 @@ class GetKafkaClusterDedicatedArgs:
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
                On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
         """
-        pulumi.set(__self__, "cku", cku)
-        pulumi.set(__self__, "encryption_key", encryption_key)
-        pulumi.set(__self__, "zones", zones)
+        GetKafkaClusterDedicatedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cku=cku,
+            encryption_key=encryption_key,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cku: int,
+             encryption_key: str,
+             zones: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cku", cku)
+        _setter("encryption_key", encryption_key)
+        _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -3699,6 +4825,11 @@ class GetKafkaClusterDedicatedArgs:
 class GetKafkaClusterEnterpriseArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -3710,7 +4841,16 @@ class GetKafkaClusterEnvironmentArgs:
                
                > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
-        pulumi.set(__self__, "id", id)
+        GetKafkaClusterEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3731,6 +4871,11 @@ class GetKafkaClusterEnvironmentArgs:
 class GetKafkaClusterStandardArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.input_type
@@ -3741,8 +4886,19 @@ class GetKafkaTopicCredentialsArgs:
         """
         :param str key: The Kafka API Key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        GetKafkaTopicCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             secret: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -3773,7 +4929,16 @@ class GetKafkaTopicKafkaClusterArgs:
         """
         :param str id: The ID of the Kafka cluster, for example, `lkc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        GetKafkaTopicKafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3797,7 +4962,16 @@ class GetKsqlClusterEnvironmentArgs:
                
                > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
-        pulumi.set(__self__, "id", id)
+        GetKsqlClusterEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3825,9 +4999,22 @@ class GetNetworkAwArgs:
         :param str private_link_endpoint_service: (Optional String) The endpoint service of the Confluent Cloud VPC (used for PrivateLink) if available.
         :param str vpc: (Required String) The Confluent Cloud VPC ID.
         """
-        pulumi.set(__self__, "account", account)
-        pulumi.set(__self__, "private_link_endpoint_service", private_link_endpoint_service)
-        pulumi.set(__self__, "vpc", vpc)
+        GetNetworkAwArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account=account,
+            private_link_endpoint_service=private_link_endpoint_service,
+            vpc=vpc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account: str,
+             private_link_endpoint_service: str,
+             vpc: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account", account)
+        _setter("private_link_endpoint_service", private_link_endpoint_service)
+        _setter("vpc", vpc)
 
     @property
     @pulumi.getter
@@ -3873,7 +5060,16 @@ class GetNetworkAzureArgs:
         """
         :param Mapping[str, str] private_link_service_aliases: (Optional Map) The mapping of zones to Private Link Service Aliases if available. Keys are zones and values are [Azure Private Link Service Aliases](https://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview#share-your-service).
         """
-        pulumi.set(__self__, "private_link_service_aliases", private_link_service_aliases)
+        GetNetworkAzureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link_service_aliases=private_link_service_aliases,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link_service_aliases: Mapping[str, str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_link_service_aliases", private_link_service_aliases)
 
     @property
     @pulumi.getter(name="privateLinkServiceAliases")
@@ -3897,7 +5093,16 @@ class GetNetworkDnsConfigArgs:
                When resolution is `CHASED_PRIVATE`, clusters in this network require both public and private DNS to resolve cluster endpoints.
                When resolution is `PRIVATE`, clusters in this network only require private DNS to resolve cluster endpoints.
         """
-        pulumi.set(__self__, "resolution", resolution)
+        GetNetworkDnsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resolution=resolution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resolution: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resolution", resolution)
 
     @property
     @pulumi.getter
@@ -3923,7 +5128,16 @@ class GetNetworkEnvironmentArgs:
                
                > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
-        pulumi.set(__self__, "id", id)
+        GetNetworkEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3951,9 +5165,22 @@ class GetNetworkGcpArgs:
         :param str project: (Required String) The GCP Project ID associated with the Confluent Cloud VPC.
         :param str vpc_network: (Required String) The network name of the Confluent Cloud VPC.
         """
-        pulumi.set(__self__, "private_service_connect_service_attachments", private_service_connect_service_attachments)
-        pulumi.set(__self__, "project", project)
-        pulumi.set(__self__, "vpc_network", vpc_network)
+        GetNetworkGcpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_service_connect_service_attachments=private_service_connect_service_attachments,
+            project=project,
+            vpc_network=vpc_network,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_service_connect_service_attachments: Mapping[str, str],
+             project: str,
+             vpc_network: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_service_connect_service_attachments", private_service_connect_service_attachments)
+        _setter("project", project)
+        _setter("vpc_network", vpc_network)
 
     @property
     @pulumi.getter(name="privateServiceConnectServiceAttachments")
@@ -3999,7 +5226,16 @@ class GetNetworkLinkEndpointEnvironmentArgs:
         """
         :param str id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
         """
-        pulumi.set(__self__, "id", id)
+        GetNetworkLinkEndpointEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4023,8 +5259,19 @@ class GetNetworkLinkServiceAcceptArgs:
         :param Sequence[str] environments: (Optional List of Strings) List of environments ids from which connections can be accepted. All networks within the list of environment will be allowed.
         :param Sequence[str] networks: (Optional List of Strings) List of network ids from which connections can be accepted.
         """
-        pulumi.set(__self__, "environments", environments)
-        pulumi.set(__self__, "networks", networks)
+        GetNetworkLinkServiceAcceptArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environments=environments,
+            networks=networks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environments: Sequence[str],
+             networks: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("environments", environments)
+        _setter("networks", networks)
 
     @property
     @pulumi.getter
@@ -4058,7 +5305,16 @@ class GetNetworkLinkServiceEnvironmentArgs:
         """
         :param str id: The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
         """
-        pulumi.set(__self__, "id", id)
+        GetNetworkLinkServiceEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4082,7 +5338,16 @@ class GetPeeringEnvironmentArgs:
                
                > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
-        pulumi.set(__self__, "id", id)
+        GetPeeringEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4108,7 +5373,16 @@ class GetPrivateLinkAccessEnvironmentArgs:
                
                > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
-        pulumi.set(__self__, "id", id)
+        GetPrivateLinkAccessEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4132,7 +5406,16 @@ class GetPrivateLinkAttachmentConnectionEnvironmentArgs:
         """
         :param str id: The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
         """
-        pulumi.set(__self__, "id", id)
+        GetPrivateLinkAttachmentConnectionEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4154,7 +5437,16 @@ class GetPrivateLinkAttachmentEnvironmentArgs:
         """
         :param str id: The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
         """
-        pulumi.set(__self__, "id", id)
+        GetPrivateLinkAttachmentEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4178,8 +5470,19 @@ class GetSchemaCredentialsArgs:
         :param str key: The Schema Registry API Key.
         :param str secret: The Schema Registry API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        GetSchemaCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             secret: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -4215,8 +5518,19 @@ class GetSchemaRegistryClusterConfigCredentialsArgs:
         :param str key: The Schema Registry API Key.
         :param str secret: The Schema Registry API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        GetSchemaRegistryClusterConfigCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             secret: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -4250,7 +5564,16 @@ class GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs:
         """
         :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4274,7 +5597,16 @@ class GetSchemaRegistryClusterEnvironmentArgs:
                
                > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
-        pulumi.set(__self__, "id", id)
+        GetSchemaRegistryClusterEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4302,8 +5634,19 @@ class GetSchemaRegistryClusterModeCredentialsArgs:
                
                > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        GetSchemaRegistryClusterModeCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             secret: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -4339,7 +5682,16 @@ class GetSchemaRegistryClusterModeSchemaRegistryClusterArgs:
         """
         :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        GetSchemaRegistryClusterModeSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4361,7 +5713,16 @@ class GetSchemaSchemaRegistryClusterArgs:
         """
         :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        GetSchemaSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4385,8 +5746,19 @@ class GetSchemasCredentialsArgs:
         :param str key: The Schema Registry API Key.
         :param str secret: The Schema Registry API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        GetSchemasCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             secret: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -4424,12 +5796,25 @@ class GetSchemasFilterArgs:
         :param bool latest_only: The boolean flag to control whether to return latest schema versions only for each matching subject. Defaults to `false`.
         :param str subject_prefix: The prefix of the subjects (in other words, the namespaces), representing the subjects under which the schemas are registered.
         """
+        GetSchemasFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deleted=deleted,
+            latest_only=latest_only,
+            subject_prefix=subject_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deleted: Optional[bool] = None,
+             latest_only: Optional[bool] = None,
+             subject_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if deleted is not None:
-            pulumi.set(__self__, "deleted", deleted)
+            _setter("deleted", deleted)
         if latest_only is not None:
-            pulumi.set(__self__, "latest_only", latest_only)
+            _setter("latest_only", latest_only)
         if subject_prefix is not None:
-            pulumi.set(__self__, "subject_prefix", subject_prefix)
+            _setter("subject_prefix", subject_prefix)
 
     @property
     @pulumi.getter
@@ -4475,7 +5860,16 @@ class GetSchemasSchemaRegistryClusterArgs:
         """
         :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        GetSchemasSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4499,8 +5893,19 @@ class GetSubjectConfigCredentialsArgs:
         :param str key: The Schema Registry API Key.
         :param str secret: The Schema Registry API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        GetSubjectConfigCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             secret: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -4534,7 +5939,16 @@ class GetSubjectConfigSchemaRegistryClusterArgs:
         """
         :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        GetSubjectConfigSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4558,8 +5972,19 @@ class GetSubjectModeCredentialsArgs:
         :param str key: The Schema Registry API Key.
         :param str secret: The Schema Registry API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        GetSubjectModeCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             secret: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -4593,7 +6018,16 @@ class GetSubjectModeSchemaRegistryClusterArgs:
         """
         :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        GetSubjectModeSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4617,8 +6051,19 @@ class GetTagBindingCredentialsArgs:
         :param str key: The Schema Registry API Key.
         :param str secret: The Schema Registry API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        GetTagBindingCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             secret: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -4652,7 +6097,16 @@ class GetTagBindingSchemaRegistryClusterArgs:
         """
         :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        GetTagBindingSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4676,8 +6130,19 @@ class GetTagCredentialsArgs:
         :param str key: The Schema Registry API Key.
         :param str secret: The Schema Registry API Secret.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "secret", secret)
+        GetTagCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             secret: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -4711,7 +6176,16 @@ class GetTagSchemaRegistryClusterArgs:
         """
         :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
-        pulumi.set(__self__, "id", id)
+        GetTagSchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4735,7 +6209,16 @@ class GetTransitGatewayAttachmentEnvironmentArgs:
                
                > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
-        pulumi.set(__self__, "id", id)
+        GetTransitGatewayAttachmentEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
 
     @property
     @pulumi.getter

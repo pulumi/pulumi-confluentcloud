@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -52,28 +52,61 @@ class NetworkArgs:
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
                On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
         """
-        pulumi.set(__self__, "cloud", cloud)
-        pulumi.set(__self__, "connection_types", connection_types)
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "region", region)
+        NetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud=cloud,
+            connection_types=connection_types,
+            environment=environment,
+            region=region,
+            aws=aws,
+            azures=azures,
+            cidr=cidr,
+            display_name=display_name,
+            dns_config=dns_config,
+            gcps=gcps,
+            reserved_cidr=reserved_cidr,
+            zone_infos=zone_infos,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud: pulumi.Input[str],
+             connection_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             environment: pulumi.Input['NetworkEnvironmentArgs'],
+             region: pulumi.Input[str],
+             aws: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAwArgs']]]] = None,
+             azures: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAzureArgs']]]] = None,
+             cidr: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             dns_config: Optional[pulumi.Input['NetworkDnsConfigArgs']] = None,
+             gcps: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]]] = None,
+             reserved_cidr: Optional[pulumi.Input[str]] = None,
+             zone_infos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cloud", cloud)
+        _setter("connection_types", connection_types)
+        _setter("environment", environment)
+        _setter("region", region)
         if aws is not None:
-            pulumi.set(__self__, "aws", aws)
+            _setter("aws", aws)
         if azures is not None:
-            pulumi.set(__self__, "azures", azures)
+            _setter("azures", azures)
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if dns_config is not None:
-            pulumi.set(__self__, "dns_config", dns_config)
+            _setter("dns_config", dns_config)
         if gcps is not None:
-            pulumi.set(__self__, "gcps", gcps)
+            _setter("gcps", gcps)
         if reserved_cidr is not None:
-            pulumi.set(__self__, "reserved_cidr", reserved_cidr)
+            _setter("reserved_cidr", reserved_cidr)
         if zone_infos is not None:
-            pulumi.set(__self__, "zone_infos", zone_infos)
+            _setter("zone_infos", zone_infos)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -284,38 +317,77 @@ class _NetworkState:
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
                On Azure, zones are Confluent-chosen names (for example, `1`, `2`, `3`) since Azure does not have universal zone identifiers.
         """
+        _NetworkState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws=aws,
+            azures=azures,
+            cidr=cidr,
+            cloud=cloud,
+            connection_types=connection_types,
+            display_name=display_name,
+            dns_config=dns_config,
+            dns_domain=dns_domain,
+            environment=environment,
+            gcps=gcps,
+            region=region,
+            reserved_cidr=reserved_cidr,
+            resource_name=resource_name,
+            zonal_subdomains=zonal_subdomains,
+            zone_infos=zone_infos,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAwArgs']]]] = None,
+             azures: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAzureArgs']]]] = None,
+             cidr: Optional[pulumi.Input[str]] = None,
+             cloud: Optional[pulumi.Input[str]] = None,
+             connection_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             dns_config: Optional[pulumi.Input['NetworkDnsConfigArgs']] = None,
+             dns_domain: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['NetworkEnvironmentArgs']] = None,
+             gcps: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             reserved_cidr: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             zonal_subdomains: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_infos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkZoneInfoArgs']]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws is not None:
-            pulumi.set(__self__, "aws", aws)
+            _setter("aws", aws)
         if azures is not None:
-            pulumi.set(__self__, "azures", azures)
+            _setter("azures", azures)
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if cloud is not None:
-            pulumi.set(__self__, "cloud", cloud)
+            _setter("cloud", cloud)
         if connection_types is not None:
-            pulumi.set(__self__, "connection_types", connection_types)
+            _setter("connection_types", connection_types)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if dns_config is not None:
-            pulumi.set(__self__, "dns_config", dns_config)
+            _setter("dns_config", dns_config)
         if dns_domain is not None:
-            pulumi.set(__self__, "dns_domain", dns_domain)
+            _setter("dns_domain", dns_domain)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if gcps is not None:
-            pulumi.set(__self__, "gcps", gcps)
+            _setter("gcps", gcps)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if reserved_cidr is not None:
-            pulumi.set(__self__, "reserved_cidr", reserved_cidr)
+            _setter("reserved_cidr", reserved_cidr)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if zonal_subdomains is not None:
-            pulumi.set(__self__, "zonal_subdomains", zonal_subdomains)
+            _setter("zonal_subdomains", zonal_subdomains)
         if zone_infos is not None:
-            pulumi.set(__self__, "zone_infos", zone_infos)
+            _setter("zone_infos", zone_infos)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -597,6 +669,10 @@ class Network(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -634,7 +710,17 @@ class Network(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connection_types'")
             __props__.__dict__["connection_types"] = connection_types
             __props__.__dict__["display_name"] = display_name
+            if dns_config is not None and not isinstance(dns_config, NetworkDnsConfigArgs):
+                dns_config = dns_config or {}
+                def _setter(key, value):
+                    dns_config[key] = value
+                NetworkDnsConfigArgs._configure(_setter, **dns_config)
             __props__.__dict__["dns_config"] = dns_config
+            if environment is not None and not isinstance(environment, NetworkEnvironmentArgs):
+                environment = environment or {}
+                def _setter(key, value):
+                    environment[key] = value
+                NetworkEnvironmentArgs._configure(_setter, **environment)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment

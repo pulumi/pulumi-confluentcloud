@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RoleBindingArgs', 'RoleBinding']
@@ -23,9 +23,22 @@ class RoleBindingArgs:
         :param pulumi.Input[str] principal: A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".
         :param pulumi.Input[str] role_name: A name of the role to bind to the principal. See [Confluent Cloud RBAC Roles](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#ccloud-rbac-roles) for a full list of supported role names.
         """
-        pulumi.set(__self__, "crn_pattern", crn_pattern)
-        pulumi.set(__self__, "principal", principal)
-        pulumi.set(__self__, "role_name", role_name)
+        RoleBindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            crn_pattern=crn_pattern,
+            principal=principal,
+            role_name=role_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             crn_pattern: pulumi.Input[str],
+             principal: pulumi.Input[str],
+             role_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("crn_pattern", crn_pattern)
+        _setter("principal", principal)
+        _setter("role_name", role_name)
 
     @property
     @pulumi.getter(name="crnPattern")
@@ -76,12 +89,25 @@ class _RoleBindingState:
         :param pulumi.Input[str] principal: A principal User to bind the role to, for example, "User:u-111aaa" for binding to a user "u-111aaa", or "User:sa-111aaa" for binding to a service account "sa-111aaa".
         :param pulumi.Input[str] role_name: A name of the role to bind to the principal. See [Confluent Cloud RBAC Roles](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#ccloud-rbac-roles) for a full list of supported role names.
         """
+        _RoleBindingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            crn_pattern=crn_pattern,
+            principal=principal,
+            role_name=role_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             crn_pattern: Optional[pulumi.Input[str]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             role_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if crn_pattern is not None:
-            pulumi.set(__self__, "crn_pattern", crn_pattern)
+            _setter("crn_pattern", crn_pattern)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if role_name is not None:
-            pulumi.set(__self__, "role_name", role_name)
+            _setter("role_name", role_name)
 
     @property
     @pulumi.getter(name="crnPattern")
@@ -173,6 +199,10 @@ class RoleBinding(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleBindingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
