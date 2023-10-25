@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,29 +41,76 @@ class SchemaExporterArgs:
         :param pulumi.Input[str] subject_rename_format: Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subjects: Name of each exporter subject.
         """
-        pulumi.set(__self__, "destination_schema_registry_cluster", destination_schema_registry_cluster)
+        SchemaExporterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_schema_registry_cluster=destination_schema_registry_cluster,
+            config=config,
+            context=context,
+            context_type=context_type,
+            credentials=credentials,
+            name=name,
+            reset_on_update=reset_on_update,
+            rest_endpoint=rest_endpoint,
+            schema_registry_cluster=schema_registry_cluster,
+            status=status,
+            subject_rename_format=subject_rename_format,
+            subjects=subjects,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_schema_registry_cluster: Optional[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterArgs']] = None,
+             config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             context: Optional[pulumi.Input[str]] = None,
+             context_type: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['SchemaExporterCredentialsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             reset_on_update: Optional[pulumi.Input[bool]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             schema_registry_cluster: Optional[pulumi.Input['SchemaExporterSchemaRegistryClusterArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subject_rename_format: Optional[pulumi.Input[str]] = None,
+             subjects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_schema_registry_cluster is None and 'destinationSchemaRegistryCluster' in kwargs:
+            destination_schema_registry_cluster = kwargs['destinationSchemaRegistryCluster']
+        if destination_schema_registry_cluster is None:
+            raise TypeError("Missing 'destination_schema_registry_cluster' argument")
+        if context_type is None and 'contextType' in kwargs:
+            context_type = kwargs['contextType']
+        if reset_on_update is None and 'resetOnUpdate' in kwargs:
+            reset_on_update = kwargs['resetOnUpdate']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+        if schema_registry_cluster is None and 'schemaRegistryCluster' in kwargs:
+            schema_registry_cluster = kwargs['schemaRegistryCluster']
+        if subject_rename_format is None and 'subjectRenameFormat' in kwargs:
+            subject_rename_format = kwargs['subjectRenameFormat']
+
+        _setter("destination_schema_registry_cluster", destination_schema_registry_cluster)
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if context_type is not None:
-            pulumi.set(__self__, "context_type", context_type)
+            _setter("context_type", context_type)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if reset_on_update is not None:
-            pulumi.set(__self__, "reset_on_update", reset_on_update)
+            _setter("reset_on_update", reset_on_update)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
-            pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+            _setter("schema_registry_cluster", schema_registry_cluster)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subject_rename_format is not None:
-            pulumi.set(__self__, "subject_rename_format", subject_rename_format)
+            _setter("subject_rename_format", subject_rename_format)
         if subjects is not None:
-            pulumi.set(__self__, "subjects", subjects)
+            _setter("subjects", subjects)
 
     @property
     @pulumi.getter(name="destinationSchemaRegistryCluster")
@@ -232,30 +279,75 @@ class _SchemaExporterState:
         :param pulumi.Input[str] subject_rename_format: Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subjects: Name of each exporter subject.
         """
+        _SchemaExporterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config=config,
+            context=context,
+            context_type=context_type,
+            credentials=credentials,
+            destination_schema_registry_cluster=destination_schema_registry_cluster,
+            name=name,
+            reset_on_update=reset_on_update,
+            rest_endpoint=rest_endpoint,
+            schema_registry_cluster=schema_registry_cluster,
+            status=status,
+            subject_rename_format=subject_rename_format,
+            subjects=subjects,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             context: Optional[pulumi.Input[str]] = None,
+             context_type: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['SchemaExporterCredentialsArgs']] = None,
+             destination_schema_registry_cluster: Optional[pulumi.Input['SchemaExporterDestinationSchemaRegistryClusterArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             reset_on_update: Optional[pulumi.Input[bool]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             schema_registry_cluster: Optional[pulumi.Input['SchemaExporterSchemaRegistryClusterArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subject_rename_format: Optional[pulumi.Input[str]] = None,
+             subjects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if context_type is None and 'contextType' in kwargs:
+            context_type = kwargs['contextType']
+        if destination_schema_registry_cluster is None and 'destinationSchemaRegistryCluster' in kwargs:
+            destination_schema_registry_cluster = kwargs['destinationSchemaRegistryCluster']
+        if reset_on_update is None and 'resetOnUpdate' in kwargs:
+            reset_on_update = kwargs['resetOnUpdate']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+        if schema_registry_cluster is None and 'schemaRegistryCluster' in kwargs:
+            schema_registry_cluster = kwargs['schemaRegistryCluster']
+        if subject_rename_format is None and 'subjectRenameFormat' in kwargs:
+            subject_rename_format = kwargs['subjectRenameFormat']
+
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if context_type is not None:
-            pulumi.set(__self__, "context_type", context_type)
+            _setter("context_type", context_type)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if destination_schema_registry_cluster is not None:
-            pulumi.set(__self__, "destination_schema_registry_cluster", destination_schema_registry_cluster)
+            _setter("destination_schema_registry_cluster", destination_schema_registry_cluster)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if reset_on_update is not None:
-            pulumi.set(__self__, "reset_on_update", reset_on_update)
+            _setter("reset_on_update", reset_on_update)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
-            pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+            _setter("schema_registry_cluster", schema_registry_cluster)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subject_rename_format is not None:
-            pulumi.set(__self__, "subject_rename_format", subject_rename_format)
+            _setter("subject_rename_format", subject_rename_format)
         if subjects is not None:
-            pulumi.set(__self__, "subjects", subjects)
+            _setter("subjects", subjects)
 
     @property
     @pulumi.getter
@@ -465,6 +557,10 @@ class SchemaExporter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SchemaExporterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -494,13 +590,16 @@ class SchemaExporter(pulumi.CustomResource):
             __props__.__dict__["config"] = config
             __props__.__dict__["context"] = context
             __props__.__dict__["context_type"] = context_type
+            credentials = _utilities.configure(credentials, SchemaExporterCredentialsArgs, True)
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
+            destination_schema_registry_cluster = _utilities.configure(destination_schema_registry_cluster, SchemaExporterDestinationSchemaRegistryClusterArgs, True)
             if destination_schema_registry_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_schema_registry_cluster'")
             __props__.__dict__["destination_schema_registry_cluster"] = destination_schema_registry_cluster
             __props__.__dict__["name"] = name
             __props__.__dict__["reset_on_update"] = reset_on_update
             __props__.__dict__["rest_endpoint"] = rest_endpoint
+            schema_registry_cluster = _utilities.configure(schema_registry_cluster, SchemaExporterSchemaRegistryClusterArgs, True)
             __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
             __props__.__dict__["status"] = status
             __props__.__dict__["subject_rename_format"] = subject_rename_format

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,16 +29,43 @@ class PeeringArgs:
                accounts.
         :param pulumi.Input[str] display_name: The name of the Peering.
         """
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "network", network)
+        PeeringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment=environment,
+            network=network,
+            aws=aws,
+            azure=azure,
+            display_name=display_name,
+            gcp=gcp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment: Optional[pulumi.Input['PeeringEnvironmentArgs']] = None,
+             network: Optional[pulumi.Input['PeeringNetworkArgs']] = None,
+             aws: Optional[pulumi.Input['PeeringAwsArgs']] = None,
+             azure: Optional[pulumi.Input['PeeringAzureArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             gcp: Optional[pulumi.Input['PeeringGcpArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment is None:
+            raise TypeError("Missing 'environment' argument")
+        if network is None:
+            raise TypeError("Missing 'network' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("environment", environment)
+        _setter("network", network)
         if aws is not None:
-            pulumi.set(__self__, "aws", aws)
+            _setter("aws", aws)
         if azure is not None:
-            pulumi.set(__self__, "azure", azure)
+            _setter("azure", azure)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if gcp is not None:
-            pulumi.set(__self__, "gcp", gcp)
+            _setter("gcp", gcp)
 
     @property
     @pulumi.getter
@@ -121,18 +148,41 @@ class _PeeringState:
         :param pulumi.Input['PeeringNetworkArgs'] network: Network represents a network (VPC) in Confluent Cloud. All Networks exist within Confluent-managed cloud provider
                accounts.
         """
+        _PeeringState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws=aws,
+            azure=azure,
+            display_name=display_name,
+            environment=environment,
+            gcp=gcp,
+            network=network,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws: Optional[pulumi.Input['PeeringAwsArgs']] = None,
+             azure: Optional[pulumi.Input['PeeringAzureArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['PeeringEnvironmentArgs']] = None,
+             gcp: Optional[pulumi.Input['PeeringGcpArgs']] = None,
+             network: Optional[pulumi.Input['PeeringNetworkArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         if aws is not None:
-            pulumi.set(__self__, "aws", aws)
+            _setter("aws", aws)
         if azure is not None:
-            pulumi.set(__self__, "azure", azure)
+            _setter("azure", azure)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if gcp is not None:
-            pulumi.set(__self__, "gcp", gcp)
+            _setter("gcp", gcp)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
 
     @property
     @pulumi.getter
@@ -256,6 +306,10 @@ class Peering(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PeeringArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -276,13 +330,18 @@ class Peering(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PeeringArgs.__new__(PeeringArgs)
 
+            aws = _utilities.configure(aws, PeeringAwsArgs, True)
             __props__.__dict__["aws"] = aws
+            azure = _utilities.configure(azure, PeeringAzureArgs, True)
             __props__.__dict__["azure"] = azure
             __props__.__dict__["display_name"] = display_name
+            environment = _utilities.configure(environment, PeeringEnvironmentArgs, True)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            gcp = _utilities.configure(gcp, PeeringGcpArgs, True)
             __props__.__dict__["gcp"] = gcp
+            network = _utilities.configure(network, PeeringNetworkArgs, True)
             if network is None and not opts.urn:
                 raise TypeError("Missing required property 'network'")
             __props__.__dict__["network"] = network

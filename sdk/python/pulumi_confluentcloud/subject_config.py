@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,15 +28,44 @@ class SubjectConfigArgs:
         :param pulumi.Input['SubjectConfigCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
-        pulumi.set(__self__, "subject_name", subject_name)
+        SubjectConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subject_name=subject_name,
+            compatibility_level=compatibility_level,
+            credentials=credentials,
+            rest_endpoint=rest_endpoint,
+            schema_registry_cluster=schema_registry_cluster,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subject_name: Optional[pulumi.Input[str]] = None,
+             compatibility_level: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['SubjectConfigCredentialsArgs']] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             schema_registry_cluster: Optional[pulumi.Input['SubjectConfigSchemaRegistryClusterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subject_name is None and 'subjectName' in kwargs:
+            subject_name = kwargs['subjectName']
+        if subject_name is None:
+            raise TypeError("Missing 'subject_name' argument")
+        if compatibility_level is None and 'compatibilityLevel' in kwargs:
+            compatibility_level = kwargs['compatibilityLevel']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+        if schema_registry_cluster is None and 'schemaRegistryCluster' in kwargs:
+            schema_registry_cluster = kwargs['schemaRegistryCluster']
+
+        _setter("subject_name", subject_name)
         if compatibility_level is not None:
-            pulumi.set(__self__, "compatibility_level", compatibility_level)
+            _setter("compatibility_level", compatibility_level)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
-            pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+            _setter("schema_registry_cluster", schema_registry_cluster)
 
     @property
     @pulumi.getter(name="subjectName")
@@ -111,16 +140,43 @@ class _SubjectConfigState:
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`.
         """
+        _SubjectConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compatibility_level=compatibility_level,
+            credentials=credentials,
+            rest_endpoint=rest_endpoint,
+            schema_registry_cluster=schema_registry_cluster,
+            subject_name=subject_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compatibility_level: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['SubjectConfigCredentialsArgs']] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             schema_registry_cluster: Optional[pulumi.Input['SubjectConfigSchemaRegistryClusterArgs']] = None,
+             subject_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compatibility_level is None and 'compatibilityLevel' in kwargs:
+            compatibility_level = kwargs['compatibilityLevel']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+        if schema_registry_cluster is None and 'schemaRegistryCluster' in kwargs:
+            schema_registry_cluster = kwargs['schemaRegistryCluster']
+        if subject_name is None and 'subjectName' in kwargs:
+            subject_name = kwargs['subjectName']
+
         if compatibility_level is not None:
-            pulumi.set(__self__, "compatibility_level", compatibility_level)
+            _setter("compatibility_level", compatibility_level)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
-            pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+            _setter("schema_registry_cluster", schema_registry_cluster)
         if subject_name is not None:
-            pulumi.set(__self__, "subject_name", subject_name)
+            _setter("subject_name", subject_name)
 
     @property
     @pulumi.getter(name="compatibilityLevel")
@@ -236,6 +292,10 @@ class SubjectConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubjectConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -256,8 +316,10 @@ class SubjectConfig(pulumi.CustomResource):
             __props__ = SubjectConfigArgs.__new__(SubjectConfigArgs)
 
             __props__.__dict__["compatibility_level"] = compatibility_level
+            credentials = _utilities.configure(credentials, SubjectConfigCredentialsArgs, True)
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             __props__.__dict__["rest_endpoint"] = rest_endpoint
+            schema_registry_cluster = _utilities.configure(schema_registry_cluster, SubjectConfigSchemaRegistryClusterArgs, True)
             __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
             if subject_name is None and not opts.urn:
                 raise TypeError("Missing required property 'subject_name'")

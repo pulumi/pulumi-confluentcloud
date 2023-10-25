@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,12 +29,43 @@ class FlinkComputePoolArgs:
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Compute Pool.
         :param pulumi.Input[int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
         """
-        pulumi.set(__self__, "cloud", cloud)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "region", region)
+        FlinkComputePoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud=cloud,
+            display_name=display_name,
+            environment=environment,
+            region=region,
+            max_cfu=max_cfu,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['FlinkComputePoolEnvironmentArgs']] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             max_cfu: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud is None:
+            raise TypeError("Missing 'cloud' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if environment is None:
+            raise TypeError("Missing 'environment' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+        if max_cfu is None and 'maxCfu' in kwargs:
+            max_cfu = kwargs['maxCfu']
+
+        _setter("cloud", cloud)
+        _setter("display_name", display_name)
+        _setter("environment", environment)
+        _setter("region", region)
         if max_cfu is not None:
-            pulumi.set(__self__, "max_cfu", max_cfu)
+            _setter("max_cfu", max_cfu)
 
     @property
     @pulumi.getter
@@ -123,26 +154,67 @@ class _FlinkComputePoolState:
         :param pulumi.Input[str] resource_name: (Required String) The Confluent Resource Name of the Flink Compute Pool.
         :param pulumi.Input[str] rest_endpoint: (Required String) The API endpoint of the Flink Compute Pool.
         """
+        _FlinkComputePoolState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_version=api_version,
+            cloud=cloud,
+            current_cfu=current_cfu,
+            display_name=display_name,
+            environment=environment,
+            kind=kind,
+            max_cfu=max_cfu,
+            region=region,
+            resource_name=resource_name,
+            rest_endpoint=rest_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_version: Optional[pulumi.Input[str]] = None,
+             cloud: Optional[pulumi.Input[str]] = None,
+             current_cfu: Optional[pulumi.Input[int]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['FlinkComputePoolEnvironmentArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             max_cfu: Optional[pulumi.Input[int]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_version is None and 'apiVersion' in kwargs:
+            api_version = kwargs['apiVersion']
+        if current_cfu is None and 'currentCfu' in kwargs:
+            current_cfu = kwargs['currentCfu']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if max_cfu is None and 'maxCfu' in kwargs:
+            max_cfu = kwargs['maxCfu']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+
         if api_version is not None:
-            pulumi.set(__self__, "api_version", api_version)
+            _setter("api_version", api_version)
         if cloud is not None:
-            pulumi.set(__self__, "cloud", cloud)
+            _setter("cloud", cloud)
         if current_cfu is not None:
-            pulumi.set(__self__, "current_cfu", current_cfu)
+            _setter("current_cfu", current_cfu)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if max_cfu is not None:
-            pulumi.set(__self__, "max_cfu", max_cfu)
+            _setter("max_cfu", max_cfu)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter(name="apiVersion")
@@ -356,6 +428,10 @@ class FlinkComputePool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlinkComputePoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -381,6 +457,7 @@ class FlinkComputePool(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            environment = _utilities.configure(environment, FlinkComputePoolEnvironmentArgs, True)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment

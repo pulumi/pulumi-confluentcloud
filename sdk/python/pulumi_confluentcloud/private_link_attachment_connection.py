@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,16 +28,45 @@ class PrivateLinkAttachmentConnectionArgs:
         :param pulumi.Input['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs'] private_link_attachment: The private_link_attachment to which this belongs.
         :param pulumi.Input[str] display_name: The name of the Private Link Attachment Connection.
         """
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "private_link_attachment", private_link_attachment)
+        PrivateLinkAttachmentConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment=environment,
+            private_link_attachment=private_link_attachment,
+            aws=aws,
+            azure=azure,
+            display_name=display_name,
+            gcp=gcp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment: Optional[pulumi.Input['PrivateLinkAttachmentConnectionEnvironmentArgs']] = None,
+             private_link_attachment: Optional[pulumi.Input['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs']] = None,
+             aws: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAwsArgs']] = None,
+             azure: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAzureArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             gcp: Optional[pulumi.Input['PrivateLinkAttachmentConnectionGcpArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment is None:
+            raise TypeError("Missing 'environment' argument")
+        if private_link_attachment is None and 'privateLinkAttachment' in kwargs:
+            private_link_attachment = kwargs['privateLinkAttachment']
+        if private_link_attachment is None:
+            raise TypeError("Missing 'private_link_attachment' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("environment", environment)
+        _setter("private_link_attachment", private_link_attachment)
         if aws is not None:
-            pulumi.set(__self__, "aws", aws)
+            _setter("aws", aws)
         if azure is not None:
-            pulumi.set(__self__, "azure", azure)
+            _setter("azure", azure)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if gcp is not None:
-            pulumi.set(__self__, "gcp", gcp)
+            _setter("gcp", gcp)
 
     @property
     @pulumi.getter
@@ -120,20 +149,49 @@ class _PrivateLinkAttachmentConnectionState:
         :param pulumi.Input['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs'] private_link_attachment: The private_link_attachment to which this belongs.
         :param pulumi.Input[str] resource_name: (Required String) The Confluent Resource Name of the Private Link Attachment Connection, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0/private-link-attachment-connection=plattc-77zq2w`.
         """
+        _PrivateLinkAttachmentConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws=aws,
+            azure=azure,
+            display_name=display_name,
+            environment=environment,
+            gcp=gcp,
+            private_link_attachment=private_link_attachment,
+            resource_name=resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAwsArgs']] = None,
+             azure: Optional[pulumi.Input['PrivateLinkAttachmentConnectionAzureArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['PrivateLinkAttachmentConnectionEnvironmentArgs']] = None,
+             gcp: Optional[pulumi.Input['PrivateLinkAttachmentConnectionGcpArgs']] = None,
+             private_link_attachment: Optional[pulumi.Input['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs']] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if private_link_attachment is None and 'privateLinkAttachment' in kwargs:
+            private_link_attachment = kwargs['privateLinkAttachment']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+
         if aws is not None:
-            pulumi.set(__self__, "aws", aws)
+            _setter("aws", aws)
         if azure is not None:
-            pulumi.set(__self__, "azure", azure)
+            _setter("azure", azure)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if gcp is not None:
-            pulumi.set(__self__, "gcp", gcp)
+            _setter("gcp", gcp)
         if private_link_attachment is not None:
-            pulumi.set(__self__, "private_link_attachment", private_link_attachment)
+            _setter("private_link_attachment", private_link_attachment)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
 
     @property
     @pulumi.getter
@@ -315,6 +373,10 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateLinkAttachmentConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -335,13 +397,18 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateLinkAttachmentConnectionArgs.__new__(PrivateLinkAttachmentConnectionArgs)
 
+            aws = _utilities.configure(aws, PrivateLinkAttachmentConnectionAwsArgs, True)
             __props__.__dict__["aws"] = aws
+            azure = _utilities.configure(azure, PrivateLinkAttachmentConnectionAzureArgs, True)
             __props__.__dict__["azure"] = azure
             __props__.__dict__["display_name"] = display_name
+            environment = _utilities.configure(environment, PrivateLinkAttachmentConnectionEnvironmentArgs, True)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            gcp = _utilities.configure(gcp, PrivateLinkAttachmentConnectionGcpArgs, True)
             __props__.__dict__["gcp"] = gcp
+            private_link_attachment = _utilities.configure(private_link_attachment, PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs, True)
             if private_link_attachment is None and not opts.urn:
                 raise TypeError("Missing required property 'private_link_attachment'")
             __props__.__dict__["private_link_attachment"] = private_link_attachment

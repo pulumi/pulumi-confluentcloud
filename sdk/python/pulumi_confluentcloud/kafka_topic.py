@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,22 +31,57 @@ class KafkaTopicArgs:
         :param pulumi.Input[int] partitions_count: The number of partitions to create in the topic. Defaults to `6`.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
-        pulumi.set(__self__, "topic_name", topic_name)
+        KafkaTopicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            topic_name=topic_name,
+            config=config,
+            credentials=credentials,
+            http_endpoint=http_endpoint,
+            kafka_cluster=kafka_cluster,
+            partitions_count=partitions_count,
+            rest_endpoint=rest_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             topic_name: Optional[pulumi.Input[str]] = None,
+             config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             credentials: Optional[pulumi.Input['KafkaTopicCredentialsArgs']] = None,
+             http_endpoint: Optional[pulumi.Input[str]] = None,
+             kafka_cluster: Optional[pulumi.Input['KafkaTopicKafkaClusterArgs']] = None,
+             partitions_count: Optional[pulumi.Input[int]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if topic_name is None and 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+        if topic_name is None:
+            raise TypeError("Missing 'topic_name' argument")
+        if http_endpoint is None and 'httpEndpoint' in kwargs:
+            http_endpoint = kwargs['httpEndpoint']
+        if kafka_cluster is None and 'kafkaCluster' in kwargs:
+            kafka_cluster = kwargs['kafkaCluster']
+        if partitions_count is None and 'partitionsCount' in kwargs:
+            partitions_count = kwargs['partitionsCount']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+
+        _setter("topic_name", topic_name)
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if http_endpoint is not None:
             warnings.warn("""This property has been deprecated. Please use \"restEndpoint\" instead.""", DeprecationWarning)
             pulumi.log.warn("""http_endpoint is deprecated: This property has been deprecated. Please use \"restEndpoint\" instead.""")
         if http_endpoint is not None:
-            pulumi.set(__self__, "http_endpoint", http_endpoint)
+            _setter("http_endpoint", http_endpoint)
         if kafka_cluster is not None:
-            pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+            _setter("kafka_cluster", kafka_cluster)
         if partitions_count is not None:
-            pulumi.set(__self__, "partitions_count", partitions_count)
+            _setter("partitions_count", partitions_count)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter(name="topicName")
@@ -148,23 +183,56 @@ class _KafkaTopicState:
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] topic_name: The name of the topic, for example, `orders-1`. The topic name can be up to 249 characters in length, and can include the following characters: a-z, A-Z, 0-9, . (dot), _ (underscore), and - (dash). As a best practice, we recommend against using any personally identifiable information (PII) when naming your topic.
         """
+        _KafkaTopicState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config=config,
+            credentials=credentials,
+            http_endpoint=http_endpoint,
+            kafka_cluster=kafka_cluster,
+            partitions_count=partitions_count,
+            rest_endpoint=rest_endpoint,
+            topic_name=topic_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             credentials: Optional[pulumi.Input['KafkaTopicCredentialsArgs']] = None,
+             http_endpoint: Optional[pulumi.Input[str]] = None,
+             kafka_cluster: Optional[pulumi.Input['KafkaTopicKafkaClusterArgs']] = None,
+             partitions_count: Optional[pulumi.Input[int]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             topic_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http_endpoint is None and 'httpEndpoint' in kwargs:
+            http_endpoint = kwargs['httpEndpoint']
+        if kafka_cluster is None and 'kafkaCluster' in kwargs:
+            kafka_cluster = kwargs['kafkaCluster']
+        if partitions_count is None and 'partitionsCount' in kwargs:
+            partitions_count = kwargs['partitionsCount']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+        if topic_name is None and 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if http_endpoint is not None:
             warnings.warn("""This property has been deprecated. Please use \"restEndpoint\" instead.""", DeprecationWarning)
             pulumi.log.warn("""http_endpoint is deprecated: This property has been deprecated. Please use \"restEndpoint\" instead.""")
         if http_endpoint is not None:
-            pulumi.set(__self__, "http_endpoint", http_endpoint)
+            _setter("http_endpoint", http_endpoint)
         if kafka_cluster is not None:
-            pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+            _setter("kafka_cluster", kafka_cluster)
         if partitions_count is not None:
-            pulumi.set(__self__, "partitions_count", partitions_count)
+            _setter("partitions_count", partitions_count)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
+            _setter("topic_name", topic_name)
 
     @property
     @pulumi.getter
@@ -479,6 +547,10 @@ class KafkaTopic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KafkaTopicArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -501,11 +573,10 @@ class KafkaTopic(pulumi.CustomResource):
             __props__ = KafkaTopicArgs.__new__(KafkaTopicArgs)
 
             __props__.__dict__["config"] = config
+            credentials = _utilities.configure(credentials, KafkaTopicCredentialsArgs, True)
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
-            if http_endpoint is not None and not opts.urn:
-                warnings.warn("""This property has been deprecated. Please use \"restEndpoint\" instead.""", DeprecationWarning)
-                pulumi.log.warn("""http_endpoint is deprecated: This property has been deprecated. Please use \"restEndpoint\" instead.""")
             __props__.__dict__["http_endpoint"] = http_endpoint
+            kafka_cluster = _utilities.configure(kafka_cluster, KafkaTopicKafkaClusterArgs, True)
             __props__.__dict__["kafka_cluster"] = kafka_cluster
             __props__.__dict__["partitions_count"] = partitions_count
             __props__.__dict__["rest_endpoint"] = rest_endpoint

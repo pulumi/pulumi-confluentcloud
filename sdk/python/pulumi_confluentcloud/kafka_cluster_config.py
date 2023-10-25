@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,13 +26,36 @@ class KafkaClusterConfigArgs:
         :param pulumi.Input['KafkaClusterConfigCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
-        pulumi.set(__self__, "config", config)
+        KafkaClusterConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config=config,
+            credentials=credentials,
+            kafka_cluster=kafka_cluster,
+            rest_endpoint=rest_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             credentials: Optional[pulumi.Input['KafkaClusterConfigCredentialsArgs']] = None,
+             kafka_cluster: Optional[pulumi.Input['KafkaClusterConfigKafkaClusterArgs']] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if config is None:
+            raise TypeError("Missing 'config' argument")
+        if kafka_cluster is None and 'kafkaCluster' in kwargs:
+            kafka_cluster = kwargs['kafkaCluster']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+
+        _setter("config", config)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if kafka_cluster is not None:
-            pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+            _setter("kafka_cluster", kafka_cluster)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter
@@ -93,14 +116,35 @@ class _KafkaClusterConfigState:
         :param pulumi.Input['KafkaClusterConfigCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Dedicated Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
+        _KafkaClusterConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config=config,
+            credentials=credentials,
+            kafka_cluster=kafka_cluster,
+            rest_endpoint=rest_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             credentials: Optional[pulumi.Input['KafkaClusterConfigCredentialsArgs']] = None,
+             kafka_cluster: Optional[pulumi.Input['KafkaClusterConfigKafkaClusterArgs']] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kafka_cluster is None and 'kafkaCluster' in kwargs:
+            kafka_cluster = kwargs['kafkaCluster']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if kafka_cluster is not None:
-            pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+            _setter("kafka_cluster", kafka_cluster)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter
@@ -214,6 +258,10 @@ class KafkaClusterConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KafkaClusterConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -235,7 +283,9 @@ class KafkaClusterConfig(pulumi.CustomResource):
             if config is None and not opts.urn:
                 raise TypeError("Missing required property 'config'")
             __props__.__dict__["config"] = config
+            credentials = _utilities.configure(credentials, KafkaClusterConfigCredentialsArgs, True)
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
+            kafka_cluster = _utilities.configure(kafka_cluster, KafkaClusterConfigKafkaClusterArgs, True)
             __props__.__dict__["kafka_cluster"] = kafka_cluster
             __props__.__dict__["rest_endpoint"] = rest_endpoint
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])

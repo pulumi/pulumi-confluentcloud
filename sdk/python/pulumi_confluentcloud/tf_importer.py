@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TfImporterArgs', 'TfImporter']
@@ -20,10 +20,25 @@ class TfImporterArgs:
         The set of arguments for constructing a TfImporter resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of resources names to export. Defaults to all exportable resources.
         """
+        TfImporterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            output_path=output_path,
+            resources=resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             output_path: Optional[pulumi.Input[str]] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if output_path is None and 'outputPath' in kwargs:
+            output_path = kwargs['outputPath']
+
         if output_path is not None:
-            pulumi.set(__self__, "output_path", output_path)
+            _setter("output_path", output_path)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
 
     @property
     @pulumi.getter(name="outputPath")
@@ -56,10 +71,25 @@ class _TfImporterState:
         Input properties used for looking up and filtering TfImporter resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of resources names to export. Defaults to all exportable resources.
         """
+        _TfImporterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            output_path=output_path,
+            resources=resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             output_path: Optional[pulumi.Input[str]] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if output_path is None and 'outputPath' in kwargs:
+            output_path = kwargs['outputPath']
+
         if output_path is not None:
-            pulumi.set(__self__, "output_path", output_path)
+            _setter("output_path", output_path)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
 
     @property
     @pulumi.getter(name="outputPath")
@@ -115,6 +145,10 @@ class TfImporter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TfImporterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

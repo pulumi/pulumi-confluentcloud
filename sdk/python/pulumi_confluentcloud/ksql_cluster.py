@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,52 @@ class KsqlClusterArgs:
         :param pulumi.Input['KsqlClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[bool] use_detailed_processing_log: Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.
         """
-        pulumi.set(__self__, "credential_identity", credential_identity)
-        pulumi.set(__self__, "csu", csu)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+        KsqlClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credential_identity=credential_identity,
+            csu=csu,
+            display_name=display_name,
+            environment=environment,
+            kafka_cluster=kafka_cluster,
+            use_detailed_processing_log=use_detailed_processing_log,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credential_identity: Optional[pulumi.Input['KsqlClusterCredentialIdentityArgs']] = None,
+             csu: Optional[pulumi.Input[int]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['KsqlClusterEnvironmentArgs']] = None,
+             kafka_cluster: Optional[pulumi.Input['KsqlClusterKafkaClusterArgs']] = None,
+             use_detailed_processing_log: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if credential_identity is None and 'credentialIdentity' in kwargs:
+            credential_identity = kwargs['credentialIdentity']
+        if credential_identity is None:
+            raise TypeError("Missing 'credential_identity' argument")
+        if csu is None:
+            raise TypeError("Missing 'csu' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if environment is None:
+            raise TypeError("Missing 'environment' argument")
+        if kafka_cluster is None and 'kafkaCluster' in kwargs:
+            kafka_cluster = kwargs['kafkaCluster']
+        if kafka_cluster is None:
+            raise TypeError("Missing 'kafka_cluster' argument")
+        if use_detailed_processing_log is None and 'useDetailedProcessingLog' in kwargs:
+            use_detailed_processing_log = kwargs['useDetailedProcessingLog']
+
+        _setter("credential_identity", credential_identity)
+        _setter("csu", csu)
+        _setter("display_name", display_name)
+        _setter("environment", environment)
+        _setter("kafka_cluster", kafka_cluster)
         if use_detailed_processing_log is not None:
-            pulumi.set(__self__, "use_detailed_processing_log", use_detailed_processing_log)
+            _setter("use_detailed_processing_log", use_detailed_processing_log)
 
     @property
     @pulumi.getter(name="credentialIdentity")
@@ -132,30 +171,79 @@ class _KsqlClusterState:
         :param pulumi.Input[str] topic_prefix: (Required String) Topic name prefix used by this ksqlDB cluster. Used to assign ACLs for this ksqlDB cluster to use, for example, `pksqlc-00000`.
         :param pulumi.Input[bool] use_detailed_processing_log: Controls whether the row data should be included in the processing log topic. Set it to `false` if you don't want to emit sensitive information to the processing log. Defaults to `true`.
         """
+        _KsqlClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_version=api_version,
+            credential_identity=credential_identity,
+            csu=csu,
+            display_name=display_name,
+            environment=environment,
+            kafka_cluster=kafka_cluster,
+            kind=kind,
+            resource_name=resource_name,
+            rest_endpoint=rest_endpoint,
+            storage=storage,
+            topic_prefix=topic_prefix,
+            use_detailed_processing_log=use_detailed_processing_log,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_version: Optional[pulumi.Input[str]] = None,
+             credential_identity: Optional[pulumi.Input['KsqlClusterCredentialIdentityArgs']] = None,
+             csu: Optional[pulumi.Input[int]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['KsqlClusterEnvironmentArgs']] = None,
+             kafka_cluster: Optional[pulumi.Input['KsqlClusterKafkaClusterArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             storage: Optional[pulumi.Input[int]] = None,
+             topic_prefix: Optional[pulumi.Input[str]] = None,
+             use_detailed_processing_log: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_version is None and 'apiVersion' in kwargs:
+            api_version = kwargs['apiVersion']
+        if credential_identity is None and 'credentialIdentity' in kwargs:
+            credential_identity = kwargs['credentialIdentity']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if kafka_cluster is None and 'kafkaCluster' in kwargs:
+            kafka_cluster = kwargs['kafkaCluster']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+        if topic_prefix is None and 'topicPrefix' in kwargs:
+            topic_prefix = kwargs['topicPrefix']
+        if use_detailed_processing_log is None and 'useDetailedProcessingLog' in kwargs:
+            use_detailed_processing_log = kwargs['useDetailedProcessingLog']
+
         if api_version is not None:
-            pulumi.set(__self__, "api_version", api_version)
+            _setter("api_version", api_version)
         if credential_identity is not None:
-            pulumi.set(__self__, "credential_identity", credential_identity)
+            _setter("credential_identity", credential_identity)
         if csu is not None:
-            pulumi.set(__self__, "csu", csu)
+            _setter("csu", csu)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if kafka_cluster is not None:
-            pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+            _setter("kafka_cluster", kafka_cluster)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if storage is not None:
-            pulumi.set(__self__, "storage", storage)
+            _setter("storage", storage)
         if topic_prefix is not None:
-            pulumi.set(__self__, "topic_prefix", topic_prefix)
+            _setter("topic_prefix", topic_prefix)
         if use_detailed_processing_log is not None:
-            pulumi.set(__self__, "use_detailed_processing_log", use_detailed_processing_log)
+            _setter("use_detailed_processing_log", use_detailed_processing_log)
 
     @property
     @pulumi.getter(name="apiVersion")
@@ -357,6 +445,10 @@ class KsqlCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KsqlClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -377,6 +469,7 @@ class KsqlCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KsqlClusterArgs.__new__(KsqlClusterArgs)
 
+            credential_identity = _utilities.configure(credential_identity, KsqlClusterCredentialIdentityArgs, True)
             if credential_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'credential_identity'")
             __props__.__dict__["credential_identity"] = credential_identity
@@ -386,9 +479,11 @@ class KsqlCluster(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            environment = _utilities.configure(environment, KsqlClusterEnvironmentArgs, True)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            kafka_cluster = _utilities.configure(kafka_cluster, KsqlClusterKafkaClusterArgs, True)
             if kafka_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_cluster'")
             __props__.__dict__["kafka_cluster"] = kafka_cluster

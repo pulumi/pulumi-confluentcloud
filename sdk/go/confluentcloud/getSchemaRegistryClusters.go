@@ -4,8 +4,12 @@
 package confluentcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -54,4 +58,50 @@ type GetSchemaRegistryClustersResult struct {
 	Clusters []GetSchemaRegistryClustersCluster `pulumi:"clusters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetSchemaRegistryClustersOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSchemaRegistryClustersResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetSchemaRegistryClustersResult, error) {
+		r, err := GetSchemaRegistryClusters(ctx, opts...)
+		var s GetSchemaRegistryClustersResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetSchemaRegistryClustersResultOutput)
+}
+
+// A collection of values returned by getSchemaRegistryClusters.
+type GetSchemaRegistryClustersResultOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRegistryClustersResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRegistryClustersResult)(nil)).Elem()
+}
+
+func (o GetSchemaRegistryClustersResultOutput) ToGetSchemaRegistryClustersResultOutput() GetSchemaRegistryClustersResultOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClustersResultOutput) ToGetSchemaRegistryClustersResultOutputWithContext(ctx context.Context) GetSchemaRegistryClustersResultOutput {
+	return o
+}
+
+func (o GetSchemaRegistryClustersResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClustersResult] {
+	return pulumix.Output[GetSchemaRegistryClustersResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Required List of Object) List of Schema Registry clusters. Each Schema Registry cluster object exports the following attributes:
+func (o GetSchemaRegistryClustersResultOutput) Clusters() GetSchemaRegistryClustersClusterArrayOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersResult) []GetSchemaRegistryClustersCluster { return v.Clusters }).(GetSchemaRegistryClustersClusterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSchemaRegistryClustersResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRegistryClustersResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSchemaRegistryClustersResultOutput{})
 }
