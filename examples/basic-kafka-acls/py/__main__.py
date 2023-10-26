@@ -92,7 +92,7 @@ def create_acl(name: str,
                               resource_type=resource_type,
                               operation=operation,
                               permission="ALLOW",
-                              resource_name_=resource_name,
+                              resource_name=resource_name,
                               pattern_type=pattern_type,
                               principal=pulumi.Output.concat(
                                   "User:", principal.id),
