@@ -4,8 +4,12 @@
 package confluentcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -55,4 +59,50 @@ type GetEnvironmentsResult struct {
 	Id string `pulumi:"id"`
 	// (Required List of Strings) The list of Environment IDs, for example: `["env-abc123", "env-abc124"]`.
 	Ids []string `pulumi:"ids"`
+}
+
+func GetEnvironmentsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetEnvironmentsResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetEnvironmentsResult, error) {
+		r, err := GetEnvironments(ctx, opts...)
+		var s GetEnvironmentsResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetEnvironmentsResultOutput)
+}
+
+// A collection of values returned by getEnvironments.
+type GetEnvironmentsResultOutput struct{ *pulumi.OutputState }
+
+func (GetEnvironmentsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnvironmentsResult)(nil)).Elem()
+}
+
+func (o GetEnvironmentsResultOutput) ToGetEnvironmentsResultOutput() GetEnvironmentsResultOutput {
+	return o
+}
+
+func (o GetEnvironmentsResultOutput) ToGetEnvironmentsResultOutputWithContext(ctx context.Context) GetEnvironmentsResultOutput {
+	return o
+}
+
+func (o GetEnvironmentsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEnvironmentsResult] {
+	return pulumix.Output[GetEnvironmentsResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetEnvironmentsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Required List of Strings) The list of Environment IDs, for example: `["env-abc123", "env-abc124"]`.
+func (o GetEnvironmentsResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEnvironmentsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetEnvironmentsResultOutput{})
 }

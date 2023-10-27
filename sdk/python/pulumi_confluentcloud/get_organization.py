@@ -13,6 +13,7 @@ __all__ = [
     'GetOrganizationResult',
     'AwaitableGetOrganizationResult',
     'get_organization',
+    'get_organization_output',
 ]
 
 @pulumi.output_type
@@ -78,3 +79,23 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     return AwaitableGetOrganizationResult(
         id=pulumi.get(__ret__, 'id'),
         resource_name=pulumi.get(__ret__, 'resource_name'))
+
+
+@_utilities.lift_output_func(get_organization)
+def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
+    """
+    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+    `get_organization` describes an Organization data source.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_confluentcloud as confluentcloud
+
+    example_organization = confluentcloud.get_organization()
+    pulumi.export("example", example_organization)
+    ```
+    """
+    ...
