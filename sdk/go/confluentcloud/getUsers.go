@@ -4,8 +4,12 @@
 package confluentcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -55,4 +59,50 @@ type GetUsersResult struct {
 	Id string `pulumi:"id"`
 	// (Required List of Strings) The list of User IDs, for example: `["u-abc123", "u-abc124"]`.
 	Ids []string `pulumi:"ids"`
+}
+
+func GetUsersOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetUsersResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetUsersResult, error) {
+		r, err := GetUsers(ctx, opts...)
+		var s GetUsersResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetUsersResultOutput)
+}
+
+// A collection of values returned by getUsers.
+type GetUsersResultOutput struct{ *pulumi.OutputState }
+
+func (GetUsersResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersResult)(nil)).Elem()
+}
+
+func (o GetUsersResultOutput) ToGetUsersResultOutput() GetUsersResultOutput {
+	return o
+}
+
+func (o GetUsersResultOutput) ToGetUsersResultOutputWithContext(ctx context.Context) GetUsersResultOutput {
+	return o
+}
+
+func (o GetUsersResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUsersResult] {
+	return pulumix.Output[GetUsersResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetUsersResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Required List of Strings) The list of User IDs, for example: `["u-abc123", "u-abc124"]`.
+func (o GetUsersResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetUsersResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetUsersResultOutput{})
 }

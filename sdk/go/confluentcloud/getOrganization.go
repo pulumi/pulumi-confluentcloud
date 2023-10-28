@@ -4,8 +4,12 @@
 package confluentcloud
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -52,4 +56,50 @@ type GetOrganizationResult struct {
 	Id string `pulumi:"id"`
 	// (Required String) The Confluent Resource Name of the Organization, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
 	ResourceName string `pulumi:"resourceName"`
+}
+
+func GetOrganizationOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetOrganizationResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetOrganizationResult, error) {
+		r, err := GetOrganization(ctx, opts...)
+		var s GetOrganizationResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetOrganizationResultOutput)
+}
+
+// A collection of values returned by getOrganization.
+type GetOrganizationResultOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationResult)(nil)).Elem()
+}
+
+func (o GetOrganizationResultOutput) ToGetOrganizationResultOutput() GetOrganizationResultOutput {
+	return o
+}
+
+func (o GetOrganizationResultOutput) ToGetOrganizationResultOutputWithContext(ctx context.Context) GetOrganizationResultOutput {
+	return o
+}
+
+func (o GetOrganizationResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationResult] {
+	return pulumix.Output[GetOrganizationResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Required String) The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+func (o GetOrganizationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Required String) The Confluent Resource Name of the Organization, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
+func (o GetOrganizationResultOutput) ResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationResult) string { return v.ResourceName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetOrganizationResultOutput{})
 }

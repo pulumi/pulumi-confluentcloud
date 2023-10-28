@@ -502,9 +502,6 @@ class KafkaTopic(pulumi.CustomResource):
 
             __props__.__dict__["config"] = config
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
-            if http_endpoint is not None and not opts.urn:
-                warnings.warn("""This property has been deprecated. Please use \"restEndpoint\" instead.""", DeprecationWarning)
-                pulumi.log.warn("""http_endpoint is deprecated: This property has been deprecated. Please use \"restEndpoint\" instead.""")
             __props__.__dict__["http_endpoint"] = http_endpoint
             __props__.__dict__["kafka_cluster"] = kafka_cluster
             __props__.__dict__["partitions_count"] = partitions_count
