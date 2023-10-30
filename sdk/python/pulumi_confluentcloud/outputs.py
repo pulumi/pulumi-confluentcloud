@@ -124,6 +124,8 @@ __all__ = [
     'GetIdentityPoolIdentityProviderResult',
     'GetInvitationCreatorResult',
     'GetInvitationUserResult',
+    'GetIpAddressesFilterResult',
+    'GetIpAddressesIpAddressResult',
     'GetKafkaClientQuotaEnvironmentResult',
     'GetKafkaClientQuotaKafkaClusterResult',
     'GetKafkaClientQuotaThroughputResult',
@@ -3689,6 +3691,145 @@ class GetInvitationUserResult(dict):
         The ID of the Invitation, for example, `i-zyw30`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetIpAddressesFilterResult(dict):
+    def __init__(__self__, *,
+                 address_types: Optional[Sequence[str]] = None,
+                 clouds: Optional[Sequence[str]] = None,
+                 regions: Optional[Sequence[str]] = None,
+                 services: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] address_types: A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
+        :param Sequence[str] clouds: A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+        :param Sequence[str] regions: A list of regions to filter by.
+        :param Sequence[str] services: A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+        """
+        if address_types is not None:
+            pulumi.set(__self__, "address_types", address_types)
+        if clouds is not None:
+            pulumi.set(__self__, "clouds", clouds)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+
+    @property
+    @pulumi.getter(name="addressTypes")
+    def address_types(self) -> Optional[Sequence[str]]:
+        """
+        A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
+        """
+        return pulumi.get(self, "address_types")
+
+    @property
+    @pulumi.getter
+    def clouds(self) -> Optional[Sequence[str]]:
+        """
+        A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+        """
+        return pulumi.get(self, "clouds")
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[Sequence[str]]:
+        """
+        A list of regions to filter by.
+        """
+        return pulumi.get(self, "regions")
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[Sequence[str]]:
+        """
+        A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+        """
+        return pulumi.get(self, "services")
+
+
+@pulumi.output_type
+class GetIpAddressesIpAddressResult(dict):
+    def __init__(__self__, *,
+                 address_type: str,
+                 api_version: str,
+                 cloud: str,
+                 ip_prefix: str,
+                 kind: str,
+                 region: str,
+                 services: Sequence[str]):
+        """
+        :param str address_type: (Required Integer) Whether the address is used for egress or ingress.
+        :param str api_version: (Required String) An API Version of the schema version of the IP Address, for example, `networking/v1`.
+        :param str cloud: (Required String) The cloud service provider in which the address exists.
+        :param str ip_prefix: (Required String) The IP Address range.
+        :param str kind: (Required String) A kind of the Kafka cluster, for example, `IpAddress`.
+        :param str region: (Required Integer) The region/location where the IP Address is in use.
+        :param Sequence[str] services: A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+        """
+        pulumi.set(__self__, "address_type", address_type)
+        pulumi.set(__self__, "api_version", api_version)
+        pulumi.set(__self__, "cloud", cloud)
+        pulumi.set(__self__, "ip_prefix", ip_prefix)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "services", services)
+
+    @property
+    @pulumi.getter(name="addressType")
+    def address_type(self) -> str:
+        """
+        (Required Integer) Whether the address is used for egress or ingress.
+        """
+        return pulumi.get(self, "address_type")
+
+    @property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> str:
+        """
+        (Required String) An API Version of the schema version of the IP Address, for example, `networking/v1`.
+        """
+        return pulumi.get(self, "api_version")
+
+    @property
+    @pulumi.getter
+    def cloud(self) -> str:
+        """
+        (Required String) The cloud service provider in which the address exists.
+        """
+        return pulumi.get(self, "cloud")
+
+    @property
+    @pulumi.getter(name="ipPrefix")
+    def ip_prefix(self) -> str:
+        """
+        (Required String) The IP Address range.
+        """
+        return pulumi.get(self, "ip_prefix")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        (Required String) A kind of the Kafka cluster, for example, `IpAddress`.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        (Required Integer) The region/location where the IP Address is in use.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def services(self) -> Sequence[str]:
+        """
+        A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+        """
+        return pulumi.get(self, "services")
 
 
 @pulumi.output_type

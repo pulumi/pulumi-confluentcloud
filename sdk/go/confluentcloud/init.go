@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ClusterLink{}
 	case "confluentcloud:index/connector:Connector":
 		r = &Connector{}
+	case "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin":
+		r = &CustomConnectorPlugin{}
 	case "confluentcloud:index/environment:Environment":
 		r = &Environment{}
 	case "confluentcloud:index/flinkComputePool:FlinkComputePool":
@@ -156,6 +158,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/connector",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/customConnectorPlugin",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

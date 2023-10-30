@@ -35,6 +35,11 @@ export type Connector = import("./connector").Connector;
 export const Connector: typeof import("./connector").Connector = null as any;
 utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
 
+export { CustomConnectorPluginArgs, CustomConnectorPluginState } from "./customConnectorPlugin";
+export type CustomConnectorPlugin = import("./customConnectorPlugin").CustomConnectorPlugin;
+export const CustomConnectorPlugin: typeof import("./customConnectorPlugin").CustomConnectorPlugin = null as any;
+utilities.lazyLoad(exports, ["CustomConnectorPlugin"], () => require("./customConnectorPlugin"));
+
 export { EnvironmentArgs, EnvironmentState } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
@@ -89,6 +94,11 @@ export { GetInvitationArgs, GetInvitationResult, GetInvitationOutputArgs } from 
 export const getInvitation: typeof import("./getInvitation").getInvitation = null as any;
 export const getInvitationOutput: typeof import("./getInvitation").getInvitationOutput = null as any;
 utilities.lazyLoad(exports, ["getInvitation","getInvitationOutput"], () => require("./getInvitation"));
+
+export { GetIpAddressesArgs, GetIpAddressesResult, GetIpAddressesOutputArgs } from "./getIpAddresses";
+export const getIpAddresses: typeof import("./getIpAddresses").getIpAddresses = null as any;
+export const getIpAddressesOutput: typeof import("./getIpAddresses").getIpAddressesOutput = null as any;
+utilities.lazyLoad(exports, ["getIpAddresses","getIpAddressesOutput"], () => require("./getIpAddresses"));
 
 export { GetKafkaClientQuotaArgs, GetKafkaClientQuotaResult, GetKafkaClientQuotaOutputArgs } from "./getKafkaClientQuota";
 export const getKafkaClientQuota: typeof import("./getKafkaClientQuota").getKafkaClientQuota = null as any;
@@ -411,6 +421,8 @@ const _module = {
                 return new ClusterLink(name, <any>undefined, { urn })
             case "confluentcloud:index/connector:Connector":
                 return new Connector(name, <any>undefined, { urn })
+            case "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin":
+                return new CustomConnectorPlugin(name, <any>undefined, { urn })
             case "confluentcloud:index/environment:Environment":
                 return new Environment(name, <any>undefined, { urn })
             case "confluentcloud:index/flinkComputePool:FlinkComputePool":
@@ -486,6 +498,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/businessMetadataB
 pulumi.runtime.registerResourceModule("confluentcloud", "index/byokKey", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/clusterLink", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/connector", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/customConnectorPlugin", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/environment", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkComputePool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/identityPool", _module)

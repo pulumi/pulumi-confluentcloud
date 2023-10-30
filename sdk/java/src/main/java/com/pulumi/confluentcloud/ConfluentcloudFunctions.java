@@ -20,6 +20,8 @@ import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityProviderPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetInvitationArgs;
 import com.pulumi.confluentcloud.inputs.GetInvitationPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
+import com.pulumi.confluentcloud.inputs.GetIpAddressesPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaClientQuotaPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterArgs;
@@ -79,6 +81,7 @@ import com.pulumi.confluentcloud.outputs.GetFlinkComputePoolResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityPoolResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityProviderResult;
 import com.pulumi.confluentcloud.outputs.GetInvitationResult;
+import com.pulumi.confluentcloud.outputs.GetIpAddressesResult;
 import com.pulumi.confluentcloud.outputs.GetKafkaClientQuotaResult;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterResult;
 import com.pulumi.confluentcloud.outputs.GetKafkaTopicResult;
@@ -1738,6 +1741,312 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetInvitationResult> getInvitationPlain(GetInvitationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getInvitation:getInvitation", TypeShape.of(GetInvitationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.getIpAddresses` describes IP Addresses data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
+     * import com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getIpAddresses(GetIpAddressesArgs.builder()
+     *             .filter(GetIpAddressesFilterArgs.builder()
+     *                 .clouds(&#34;AWS&#34;)
+     *                 .regions(                
+     *                     &#34;us-east-1&#34;,
+     *                     &#34;us-east-2&#34;)
+     *                 .services(&#34;KAFKA&#34;)
+     *                 .addressTypes(&#34;EGRESS&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;ipAddresses&#34;, main.applyValue(getIpAddressesResult -&gt; getIpAddressesResult.ipAddresses()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIpAddressesResult> getIpAddresses() {
+        return getIpAddresses(GetIpAddressesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.getIpAddresses` describes IP Addresses data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
+     * import com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getIpAddresses(GetIpAddressesArgs.builder()
+     *             .filter(GetIpAddressesFilterArgs.builder()
+     *                 .clouds(&#34;AWS&#34;)
+     *                 .regions(                
+     *                     &#34;us-east-1&#34;,
+     *                     &#34;us-east-2&#34;)
+     *                 .services(&#34;KAFKA&#34;)
+     *                 .addressTypes(&#34;EGRESS&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;ipAddresses&#34;, main.applyValue(getIpAddressesResult -&gt; getIpAddressesResult.ipAddresses()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIpAddressesResult> getIpAddressesPlain() {
+        return getIpAddressesPlain(GetIpAddressesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.getIpAddresses` describes IP Addresses data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
+     * import com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getIpAddresses(GetIpAddressesArgs.builder()
+     *             .filter(GetIpAddressesFilterArgs.builder()
+     *                 .clouds(&#34;AWS&#34;)
+     *                 .regions(                
+     *                     &#34;us-east-1&#34;,
+     *                     &#34;us-east-2&#34;)
+     *                 .services(&#34;KAFKA&#34;)
+     *                 .addressTypes(&#34;EGRESS&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;ipAddresses&#34;, main.applyValue(getIpAddressesResult -&gt; getIpAddressesResult.ipAddresses()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIpAddressesResult> getIpAddresses(GetIpAddressesArgs args) {
+        return getIpAddresses(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.getIpAddresses` describes IP Addresses data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
+     * import com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getIpAddresses(GetIpAddressesArgs.builder()
+     *             .filter(GetIpAddressesFilterArgs.builder()
+     *                 .clouds(&#34;AWS&#34;)
+     *                 .regions(                
+     *                     &#34;us-east-1&#34;,
+     *                     &#34;us-east-2&#34;)
+     *                 .services(&#34;KAFKA&#34;)
+     *                 .addressTypes(&#34;EGRESS&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;ipAddresses&#34;, main.applyValue(getIpAddressesResult -&gt; getIpAddressesResult.ipAddresses()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIpAddressesResult> getIpAddressesPlain(GetIpAddressesPlainArgs args) {
+        return getIpAddressesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.getIpAddresses` describes IP Addresses data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
+     * import com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getIpAddresses(GetIpAddressesArgs.builder()
+     *             .filter(GetIpAddressesFilterArgs.builder()
+     *                 .clouds(&#34;AWS&#34;)
+     *                 .regions(                
+     *                     &#34;us-east-1&#34;,
+     *                     &#34;us-east-2&#34;)
+     *                 .services(&#34;KAFKA&#34;)
+     *                 .addressTypes(&#34;EGRESS&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;ipAddresses&#34;, main.applyValue(getIpAddressesResult -&gt; getIpAddressesResult.ipAddresses()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIpAddressesResult> getIpAddresses(GetIpAddressesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getIpAddresses:getIpAddresses", TypeShape.of(GetIpAddressesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.getIpAddresses` describes IP Addresses data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;
+     * import com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getIpAddresses(GetIpAddressesArgs.builder()
+     *             .filter(GetIpAddressesFilterArgs.builder()
+     *                 .clouds(&#34;AWS&#34;)
+     *                 .regions(                
+     *                     &#34;us-east-1&#34;,
+     *                     &#34;us-east-2&#34;)
+     *                 .services(&#34;KAFKA&#34;)
+     *                 .addressTypes(&#34;EGRESS&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;ipAddresses&#34;, main.applyValue(getIpAddressesResult -&gt; getIpAddressesResult.ipAddresses()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIpAddressesResult> getIpAddressesPlain(GetIpAddressesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getIpAddresses:getIpAddresses", TypeShape.of(GetIpAddressesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

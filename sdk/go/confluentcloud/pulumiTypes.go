@@ -18724,6 +18724,399 @@ func (o GetInvitationUserArrayOutput) Index(i pulumi.IntInput) GetInvitationUser
 	}).(GetInvitationUserOutput)
 }
 
+type GetIpAddressesFilter struct {
+	// A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
+	AddressTypes []string `pulumi:"addressTypes"`
+	// A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+	Clouds []string `pulumi:"clouds"`
+	// A list of regions to filter by.
+	Regions []string `pulumi:"regions"`
+	// A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+	Services []string `pulumi:"services"`
+}
+
+// GetIpAddressesFilterInput is an input type that accepts GetIpAddressesFilterArgs and GetIpAddressesFilterOutput values.
+// You can construct a concrete instance of `GetIpAddressesFilterInput` via:
+//
+//	GetIpAddressesFilterArgs{...}
+type GetIpAddressesFilterInput interface {
+	pulumi.Input
+
+	ToGetIpAddressesFilterOutput() GetIpAddressesFilterOutput
+	ToGetIpAddressesFilterOutputWithContext(context.Context) GetIpAddressesFilterOutput
+}
+
+type GetIpAddressesFilterArgs struct {
+	// A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
+	AddressTypes pulumi.StringArrayInput `pulumi:"addressTypes"`
+	// A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+	Clouds pulumi.StringArrayInput `pulumi:"clouds"`
+	// A list of regions to filter by.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+	// A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+	Services pulumi.StringArrayInput `pulumi:"services"`
+}
+
+func (GetIpAddressesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIpAddressesFilter)(nil)).Elem()
+}
+
+func (i GetIpAddressesFilterArgs) ToGetIpAddressesFilterOutput() GetIpAddressesFilterOutput {
+	return i.ToGetIpAddressesFilterOutputWithContext(context.Background())
+}
+
+func (i GetIpAddressesFilterArgs) ToGetIpAddressesFilterOutputWithContext(ctx context.Context) GetIpAddressesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIpAddressesFilterOutput)
+}
+
+func (i GetIpAddressesFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetIpAddressesFilter] {
+	return pulumix.Output[GetIpAddressesFilter]{
+		OutputState: i.ToGetIpAddressesFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i GetIpAddressesFilterArgs) ToGetIpAddressesFilterPtrOutput() GetIpAddressesFilterPtrOutput {
+	return i.ToGetIpAddressesFilterPtrOutputWithContext(context.Background())
+}
+
+func (i GetIpAddressesFilterArgs) ToGetIpAddressesFilterPtrOutputWithContext(ctx context.Context) GetIpAddressesFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIpAddressesFilterOutput).ToGetIpAddressesFilterPtrOutputWithContext(ctx)
+}
+
+// GetIpAddressesFilterPtrInput is an input type that accepts GetIpAddressesFilterArgs, GetIpAddressesFilterPtr and GetIpAddressesFilterPtrOutput values.
+// You can construct a concrete instance of `GetIpAddressesFilterPtrInput` via:
+//
+//	        GetIpAddressesFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetIpAddressesFilterPtrInput interface {
+	pulumi.Input
+
+	ToGetIpAddressesFilterPtrOutput() GetIpAddressesFilterPtrOutput
+	ToGetIpAddressesFilterPtrOutputWithContext(context.Context) GetIpAddressesFilterPtrOutput
+}
+
+type getIpAddressesFilterPtrType GetIpAddressesFilterArgs
+
+func GetIpAddressesFilterPtr(v *GetIpAddressesFilterArgs) GetIpAddressesFilterPtrInput {
+	return (*getIpAddressesFilterPtrType)(v)
+}
+
+func (*getIpAddressesFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetIpAddressesFilter)(nil)).Elem()
+}
+
+func (i *getIpAddressesFilterPtrType) ToGetIpAddressesFilterPtrOutput() GetIpAddressesFilterPtrOutput {
+	return i.ToGetIpAddressesFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *getIpAddressesFilterPtrType) ToGetIpAddressesFilterPtrOutputWithContext(ctx context.Context) GetIpAddressesFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIpAddressesFilterPtrOutput)
+}
+
+func (i *getIpAddressesFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetIpAddressesFilter] {
+	return pulumix.Output[*GetIpAddressesFilter]{
+		OutputState: i.ToGetIpAddressesFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetIpAddressesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetIpAddressesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIpAddressesFilter)(nil)).Elem()
+}
+
+func (o GetIpAddressesFilterOutput) ToGetIpAddressesFilterOutput() GetIpAddressesFilterOutput {
+	return o
+}
+
+func (o GetIpAddressesFilterOutput) ToGetIpAddressesFilterOutputWithContext(ctx context.Context) GetIpAddressesFilterOutput {
+	return o
+}
+
+func (o GetIpAddressesFilterOutput) ToGetIpAddressesFilterPtrOutput() GetIpAddressesFilterPtrOutput {
+	return o.ToGetIpAddressesFilterPtrOutputWithContext(context.Background())
+}
+
+func (o GetIpAddressesFilterOutput) ToGetIpAddressesFilterPtrOutputWithContext(ctx context.Context) GetIpAddressesFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetIpAddressesFilter) *GetIpAddressesFilter {
+		return &v
+	}).(GetIpAddressesFilterPtrOutput)
+}
+
+func (o GetIpAddressesFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetIpAddressesFilter] {
+	return pulumix.Output[GetIpAddressesFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
+func (o GetIpAddressesFilterOutput) AddressTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpAddressesFilter) []string { return v.AddressTypes }).(pulumi.StringArrayOutput)
+}
+
+// A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+func (o GetIpAddressesFilterOutput) Clouds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpAddressesFilter) []string { return v.Clouds }).(pulumi.StringArrayOutput)
+}
+
+// A list of regions to filter by.
+func (o GetIpAddressesFilterOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpAddressesFilter) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+// A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+func (o GetIpAddressesFilterOutput) Services() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpAddressesFilter) []string { return v.Services }).(pulumi.StringArrayOutput)
+}
+
+type GetIpAddressesFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetIpAddressesFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetIpAddressesFilter)(nil)).Elem()
+}
+
+func (o GetIpAddressesFilterPtrOutput) ToGetIpAddressesFilterPtrOutput() GetIpAddressesFilterPtrOutput {
+	return o
+}
+
+func (o GetIpAddressesFilterPtrOutput) ToGetIpAddressesFilterPtrOutputWithContext(ctx context.Context) GetIpAddressesFilterPtrOutput {
+	return o
+}
+
+func (o GetIpAddressesFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetIpAddressesFilter] {
+	return pulumix.Output[*GetIpAddressesFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetIpAddressesFilterPtrOutput) Elem() GetIpAddressesFilterOutput {
+	return o.ApplyT(func(v *GetIpAddressesFilter) GetIpAddressesFilter {
+		if v != nil {
+			return *v
+		}
+		var ret GetIpAddressesFilter
+		return ret
+	}).(GetIpAddressesFilterOutput)
+}
+
+// A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
+func (o GetIpAddressesFilterPtrOutput) AddressTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetIpAddressesFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+func (o GetIpAddressesFilterPtrOutput) Clouds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetIpAddressesFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Clouds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of regions to filter by.
+func (o GetIpAddressesFilterPtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetIpAddressesFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+func (o GetIpAddressesFilterPtrOutput) Services() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetIpAddressesFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Services
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetIpAddressesIpAddress struct {
+	// (Required Integer) Whether the address is used for egress or ingress.
+	AddressType string `pulumi:"addressType"`
+	// (Required String) An API Version of the schema version of the IP Address, for example, `networking/v1`.
+	ApiVersion string `pulumi:"apiVersion"`
+	// (Required String) The cloud service provider in which the address exists.
+	Cloud string `pulumi:"cloud"`
+	// (Required String) The IP Address range.
+	IpPrefix string `pulumi:"ipPrefix"`
+	// (Required String) A kind of the Kafka cluster, for example, `IpAddress`.
+	Kind string `pulumi:"kind"`
+	// (Required Integer) The region/location where the IP Address is in use.
+	Region string `pulumi:"region"`
+	// A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+	Services []string `pulumi:"services"`
+}
+
+// GetIpAddressesIpAddressInput is an input type that accepts GetIpAddressesIpAddressArgs and GetIpAddressesIpAddressOutput values.
+// You can construct a concrete instance of `GetIpAddressesIpAddressInput` via:
+//
+//	GetIpAddressesIpAddressArgs{...}
+type GetIpAddressesIpAddressInput interface {
+	pulumi.Input
+
+	ToGetIpAddressesIpAddressOutput() GetIpAddressesIpAddressOutput
+	ToGetIpAddressesIpAddressOutputWithContext(context.Context) GetIpAddressesIpAddressOutput
+}
+
+type GetIpAddressesIpAddressArgs struct {
+	// (Required Integer) Whether the address is used for egress or ingress.
+	AddressType pulumi.StringInput `pulumi:"addressType"`
+	// (Required String) An API Version of the schema version of the IP Address, for example, `networking/v1`.
+	ApiVersion pulumi.StringInput `pulumi:"apiVersion"`
+	// (Required String) The cloud service provider in which the address exists.
+	Cloud pulumi.StringInput `pulumi:"cloud"`
+	// (Required String) The IP Address range.
+	IpPrefix pulumi.StringInput `pulumi:"ipPrefix"`
+	// (Required String) A kind of the Kafka cluster, for example, `IpAddress`.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// (Required Integer) The region/location where the IP Address is in use.
+	Region pulumi.StringInput `pulumi:"region"`
+	// A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+	Services pulumi.StringArrayInput `pulumi:"services"`
+}
+
+func (GetIpAddressesIpAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIpAddressesIpAddress)(nil)).Elem()
+}
+
+func (i GetIpAddressesIpAddressArgs) ToGetIpAddressesIpAddressOutput() GetIpAddressesIpAddressOutput {
+	return i.ToGetIpAddressesIpAddressOutputWithContext(context.Background())
+}
+
+func (i GetIpAddressesIpAddressArgs) ToGetIpAddressesIpAddressOutputWithContext(ctx context.Context) GetIpAddressesIpAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIpAddressesIpAddressOutput)
+}
+
+func (i GetIpAddressesIpAddressArgs) ToOutput(ctx context.Context) pulumix.Output[GetIpAddressesIpAddress] {
+	return pulumix.Output[GetIpAddressesIpAddress]{
+		OutputState: i.ToGetIpAddressesIpAddressOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetIpAddressesIpAddressArrayInput is an input type that accepts GetIpAddressesIpAddressArray and GetIpAddressesIpAddressArrayOutput values.
+// You can construct a concrete instance of `GetIpAddressesIpAddressArrayInput` via:
+//
+//	GetIpAddressesIpAddressArray{ GetIpAddressesIpAddressArgs{...} }
+type GetIpAddressesIpAddressArrayInput interface {
+	pulumi.Input
+
+	ToGetIpAddressesIpAddressArrayOutput() GetIpAddressesIpAddressArrayOutput
+	ToGetIpAddressesIpAddressArrayOutputWithContext(context.Context) GetIpAddressesIpAddressArrayOutput
+}
+
+type GetIpAddressesIpAddressArray []GetIpAddressesIpAddressInput
+
+func (GetIpAddressesIpAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIpAddressesIpAddress)(nil)).Elem()
+}
+
+func (i GetIpAddressesIpAddressArray) ToGetIpAddressesIpAddressArrayOutput() GetIpAddressesIpAddressArrayOutput {
+	return i.ToGetIpAddressesIpAddressArrayOutputWithContext(context.Background())
+}
+
+func (i GetIpAddressesIpAddressArray) ToGetIpAddressesIpAddressArrayOutputWithContext(ctx context.Context) GetIpAddressesIpAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIpAddressesIpAddressArrayOutput)
+}
+
+func (i GetIpAddressesIpAddressArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIpAddressesIpAddress] {
+	return pulumix.Output[[]GetIpAddressesIpAddress]{
+		OutputState: i.ToGetIpAddressesIpAddressArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetIpAddressesIpAddressOutput struct{ *pulumi.OutputState }
+
+func (GetIpAddressesIpAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIpAddressesIpAddress)(nil)).Elem()
+}
+
+func (o GetIpAddressesIpAddressOutput) ToGetIpAddressesIpAddressOutput() GetIpAddressesIpAddressOutput {
+	return o
+}
+
+func (o GetIpAddressesIpAddressOutput) ToGetIpAddressesIpAddressOutputWithContext(ctx context.Context) GetIpAddressesIpAddressOutput {
+	return o
+}
+
+func (o GetIpAddressesIpAddressOutput) ToOutput(ctx context.Context) pulumix.Output[GetIpAddressesIpAddress] {
+	return pulumix.Output[GetIpAddressesIpAddress]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Required Integer) Whether the address is used for egress or ingress.
+func (o GetIpAddressesIpAddressOutput) AddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIpAddressesIpAddress) string { return v.AddressType }).(pulumi.StringOutput)
+}
+
+// (Required String) An API Version of the schema version of the IP Address, for example, `networking/v1`.
+func (o GetIpAddressesIpAddressOutput) ApiVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIpAddressesIpAddress) string { return v.ApiVersion }).(pulumi.StringOutput)
+}
+
+// (Required String) The cloud service provider in which the address exists.
+func (o GetIpAddressesIpAddressOutput) Cloud() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIpAddressesIpAddress) string { return v.Cloud }).(pulumi.StringOutput)
+}
+
+// (Required String) The IP Address range.
+func (o GetIpAddressesIpAddressOutput) IpPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIpAddressesIpAddress) string { return v.IpPrefix }).(pulumi.StringOutput)
+}
+
+// (Required String) A kind of the Kafka cluster, for example, `IpAddress`.
+func (o GetIpAddressesIpAddressOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIpAddressesIpAddress) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// (Required Integer) The region/location where the IP Address is in use.
+func (o GetIpAddressesIpAddressOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIpAddressesIpAddress) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+func (o GetIpAddressesIpAddressOutput) Services() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpAddressesIpAddress) []string { return v.Services }).(pulumi.StringArrayOutput)
+}
+
+type GetIpAddressesIpAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIpAddressesIpAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIpAddressesIpAddress)(nil)).Elem()
+}
+
+func (o GetIpAddressesIpAddressArrayOutput) ToGetIpAddressesIpAddressArrayOutput() GetIpAddressesIpAddressArrayOutput {
+	return o
+}
+
+func (o GetIpAddressesIpAddressArrayOutput) ToGetIpAddressesIpAddressArrayOutputWithContext(ctx context.Context) GetIpAddressesIpAddressArrayOutput {
+	return o
+}
+
+func (o GetIpAddressesIpAddressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIpAddressesIpAddress] {
+	return pulumix.Output[[]GetIpAddressesIpAddress]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetIpAddressesIpAddressArrayOutput) Index(i pulumi.IntInput) GetIpAddressesIpAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIpAddressesIpAddress {
+		return vs[0].([]GetIpAddressesIpAddress)[vs[1].(int)]
+	}).(GetIpAddressesIpAddressOutput)
+}
+
 type GetKafkaClientQuotaEnvironment struct {
 	// The ID of the Kafka Client Quota (for example, `cq-abc123`).
 	Id string `pulumi:"id"`
@@ -28711,6 +29104,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationCreatorArrayInput)(nil)).Elem(), GetInvitationCreatorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationUserInput)(nil)).Elem(), GetInvitationUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationUserArrayInput)(nil)).Elem(), GetInvitationUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIpAddressesFilterInput)(nil)).Elem(), GetIpAddressesFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIpAddressesFilterPtrInput)(nil)).Elem(), GetIpAddressesFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIpAddressesIpAddressInput)(nil)).Elem(), GetIpAddressesIpAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIpAddressesIpAddressArrayInput)(nil)).Elem(), GetIpAddressesIpAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaEnvironmentInput)(nil)).Elem(), GetKafkaClientQuotaEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaEnvironmentArrayInput)(nil)).Elem(), GetKafkaClientQuotaEnvironmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKafkaClientQuotaKafkaClusterInput)(nil)).Elem(), GetKafkaClientQuotaKafkaClusterArgs{})
@@ -29071,6 +29468,10 @@ func init() {
 	pulumi.RegisterOutputType(GetInvitationCreatorArrayOutput{})
 	pulumi.RegisterOutputType(GetInvitationUserOutput{})
 	pulumi.RegisterOutputType(GetInvitationUserArrayOutput{})
+	pulumi.RegisterOutputType(GetIpAddressesFilterOutput{})
+	pulumi.RegisterOutputType(GetIpAddressesFilterPtrOutput{})
+	pulumi.RegisterOutputType(GetIpAddressesIpAddressOutput{})
+	pulumi.RegisterOutputType(GetIpAddressesIpAddressArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClientQuotaEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetKafkaClientQuotaEnvironmentArrayOutput{})
 	pulumi.RegisterOutputType(GetKafkaClientQuotaKafkaClusterOutput{})
