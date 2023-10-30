@@ -79,6 +79,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/byok v0.0.1 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/cmk v0.10.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/connect v0.2.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/connect-custom-plugin v0.0.1 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/data-catalog v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/flink v0.5.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/iam v0.10.0 // indirect
@@ -88,6 +89,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.7.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/networking-ip v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-privatelink v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/org v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/schema-registry v0.3.0 // indirect
@@ -96,6 +98,7 @@ require (
 	github.com/containerd/containerd v1.6.19 // indirect
 	github.com/cpuguy83/dockercfg v0.3.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/dghubble/sling v1.4.1 // indirect
 	github.com/dimchansky/utfbom v1.1.1 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
 	github.com/docker/distribution v2.8.2+incompatible // indirect

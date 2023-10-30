@@ -2094,6 +2094,89 @@
                 }
             }
         },
+        "confluentcloud:index/getIpAddressesFilter:getIpAddressesFilter": {
+            "properties": {
+                "addressTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.\n"
+                },
+                "clouds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.\n"
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of regions to filter by.\n"
+                },
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.\n"
+                }
+            },
+            "type": "object"
+        },
+        "confluentcloud:index/getIpAddressesIpAddress:getIpAddressesIpAddress": {
+            "properties": {
+                "addressType": {
+                    "type": "string",
+                    "description": "(Required Integer) Whether the address is used for egress or ingress.\n"
+                },
+                "apiVersion": {
+                    "type": "string",
+                    "description": "(Required String) An API Version of the schema version of the IP Address, for example, `networking/v1`.\n"
+                },
+                "cloud": {
+                    "type": "string",
+                    "description": "(Required String) The cloud service provider in which the address exists.\n"
+                },
+                "ipPrefix": {
+                    "type": "string",
+                    "description": "(Required String) The IP Address range.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Required String) A kind of the Kafka cluster, for example, `IpAddress`.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "(Required Integer) The region/location where the IP Address is in use.\n"
+                },
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "addressType",
+                "apiVersion",
+                "cloud",
+                "ipPrefix",
+                "kind",
+                "region",
+                "services"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/getKafkaClientQuotaEnvironment:getKafkaClientQuotaEnvironment": {
             "properties": {
                 "id": {
@@ -4155,6 +4238,130 @@
                     },
                     "status": {
                         "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst source = new confluentcloud.CustomConnectorPlugin(\"source\", {\n    connectorClass: \"io.confluent.kafka.connect.datagen.DatagenConnector\",\n    connectorType: \"SOURCE\",\n    displayName: \"Datagen Source Connector Plugin\",\n    documentationLink: \"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\",\n    filename: \"confluentinc-kafka-connect-datagen-0.6.2.zip\",\n    sensitiveConfigProperties: [],\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nsource = confluentcloud.CustomConnectorPlugin(\"source\",\n    connector_class=\"io.confluent.kafka.connect.datagen.DatagenConnector\",\n    connector_type=\"SOURCE\",\n    display_name=\"Datagen Source Connector Plugin\",\n    documentation_link=\"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\",\n    filename=\"confluentinc-kafka-connect-datagen-0.6.2.zip\",\n    sensitive_config_properties=[])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var source = new ConfluentCloud.CustomConnectorPlugin(\"source\", new()\n    {\n        ConnectorClass = \"io.confluent.kafka.connect.datagen.DatagenConnector\",\n        ConnectorType = \"SOURCE\",\n        DisplayName = \"Datagen Source Connector Plugin\",\n        DocumentationLink = \"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\",\n        Filename = \"confluentinc-kafka-connect-datagen-0.6.2.zip\",\n        SensitiveConfigProperties = new[] {},\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewCustomConnectorPlugin(ctx, \"source\", \u0026confluentcloud.CustomConnectorPluginArgs{\n\t\t\tConnectorClass:            pulumi.String(\"io.confluent.kafka.connect.datagen.DatagenConnector\"),\n\t\t\tConnectorType:             pulumi.String(\"SOURCE\"),\n\t\t\tDisplayName:               pulumi.String(\"Datagen Source Connector Plugin\"),\n\t\t\tDocumentationLink:         pulumi.String(\"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\"),\n\t\t\tFilename:                  pulumi.String(\"confluentinc-kafka-connect-datagen-0.6.2.zip\"),\n\t\t\tSensitiveConfigProperties: pulumi.StringArray{},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.CustomConnectorPlugin;\nimport com.pulumi.confluentcloud.CustomConnectorPluginArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var source = new CustomConnectorPlugin(\"source\", CustomConnectorPluginArgs.builder()        \n            .connectorClass(\"io.confluent.kafka.connect.datagen.DatagenConnector\")\n            .connectorType(\"SOURCE\")\n            .displayName(\"Datagen Source Connector Plugin\")\n            .documentationLink(\"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\")\n            .filename(\"confluentinc-kafka-connect-datagen-0.6.2.zip\")\n            .sensitiveConfigProperties()\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  source:\n    type: confluentcloud:CustomConnectorPlugin\n    properties:\n      connectorClass: io.confluent.kafka.connect.datagen.DatagenConnector\n      connectorType: SOURCE\n      # https://docs.confluent.io/cloud/current/connectors/bring-your-connector/custom-connector-qs.html#custom-connector-quick-start\n      displayName: Datagen Source Connector Plugin\n      documentationLink: https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\n      filename: confluentinc-kafka-connect-datagen-0.6.2.zip\n      sensitiveConfigProperties: []\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nYou can import a Custom Connector Plugin by using a Custom Connector Plugin ID, in the format `\u003cCustom Connector Plugin\u003e`. The following example shows how to import a Custom Connector Plugin$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "connectorClass": {
+                    "type": "string",
+                    "description": "The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.\n"
+                },
+                "connectorType": {
+                    "type": "string",
+                    "description": "The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Custom Connector Plugin.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Custom Connector Plugin.\n"
+                },
+                "documentationLink": {
+                    "type": "string",
+                    "description": "The documentation link of the Custom Connector Plugin.\n"
+                },
+                "filename": {
+                    "type": "string",
+                    "description": "The path to the Custom Connector Plugin archive to be uploaded. Accepted archive formats are: `.jar`, `.zip`.\n"
+                },
+                "sensitiveConfigProperties": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.\n"
+                }
+            },
+            "required": [
+                "connectorClass",
+                "connectorType",
+                "displayName",
+                "filename"
+            ],
+            "inputProperties": {
+                "connectorClass": {
+                    "type": "string",
+                    "description": "The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.\n",
+                    "willReplaceOnChanges": true
+                },
+                "connectorType": {
+                    "type": "string",
+                    "description": "The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Custom Connector Plugin.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Custom Connector Plugin.\n"
+                },
+                "documentationLink": {
+                    "type": "string",
+                    "description": "The documentation link of the Custom Connector Plugin.\n"
+                },
+                "filename": {
+                    "type": "string",
+                    "description": "The path to the Custom Connector Plugin archive to be uploaded. Accepted archive formats are: `.jar`, `.zip`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "sensitiveConfigProperties": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.\n"
+                }
+            },
+            "requiredInputs": [
+                "connectorClass",
+                "connectorType",
+                "displayName",
+                "filename"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CustomConnectorPlugin resources.\n",
+                "properties": {
+                    "connectorClass": {
+                        "type": "string",
+                        "description": "The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "connectorType": {
+                        "type": "string",
+                        "description": "The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the Custom Connector Plugin.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the Custom Connector Plugin.\n"
+                    },
+                    "documentationLink": {
+                        "type": "string",
+                        "description": "The documentation link of the Custom Connector Plugin.\n"
+                    },
+                    "filename": {
+                        "type": "string",
+                        "description": "The path to the Custom Connector Plugin archive to be uploaded. Accepted archive formats are: `.jar`, `.zip`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "sensitiveConfigProperties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.\n"
                     }
                 },
                 "type": "object"
@@ -8225,6 +8432,42 @@
                     "id",
                     "status",
                     "users"
+                ]
+            }
+        },
+        "confluentcloud:index/getIpAddresses:getIpAddresses": {
+            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.getIpAddresses` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.getIpAddresses` describes IP Addresses data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getIpAddresses({\n    filter: {\n        clouds: [\"AWS\"],\n        regions: [\n            \"us-east-1\",\n            \"us-east-2\",\n        ],\n        services: [\"KAFKA\"],\n        addressTypes: [\"EGRESS\"],\n    },\n});\nexport const ipAddresses = main.then(main =\u003e main.ipAddresses);\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_ip_addresses(filter=confluentcloud.GetIpAddressesFilterArgs(\n    clouds=[\"AWS\"],\n    regions=[\n        \"us-east-1\",\n        \"us-east-2\",\n    ],\n    services=[\"KAFKA\"],\n    address_types=[\"EGRESS\"],\n))\npulumi.export(\"ipAddresses\", main.ip_addresses)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetIpAddresses.Invoke(new()\n    {\n        Filter = new ConfluentCloud.Inputs.GetIpAddressesFilterInputArgs\n        {\n            Clouds = new[]\n            {\n                \"AWS\",\n            },\n            Regions = new[]\n            {\n                \"us-east-1\",\n                \"us-east-2\",\n            },\n            Services = new[]\n            {\n                \"KAFKA\",\n            },\n            AddressTypes = new[]\n            {\n                \"EGRESS\",\n            },\n        },\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"ipAddresses\"] = main.Apply(getIpAddressesResult =\u003e getIpAddressesResult.IpAddresses),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.GetIpAddresses(ctx, \u0026confluentcloud.GetIpAddressesArgs{\n\t\t\tFilter: confluentcloud.GetIpAddressesFilter{\n\t\t\t\tClouds: []string{\n\t\t\t\t\t\"AWS\",\n\t\t\t\t},\n\t\t\t\tRegions: []string{\n\t\t\t\t\t\"us-east-1\",\n\t\t\t\t\t\"us-east-2\",\n\t\t\t\t},\n\t\t\t\tServices: []string{\n\t\t\t\t\t\"KAFKA\",\n\t\t\t\t},\n\t\t\t\tAddressTypes: []string{\n\t\t\t\t\t\"EGRESS\",\n\t\t\t\t},\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"ipAddresses\", main.IpAddresses)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetIpAddressesArgs;\nimport com.pulumi.confluentcloud.inputs.GetIpAddressesFilterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getIpAddresses(GetIpAddressesArgs.builder()\n            .filter(GetIpAddressesFilterArgs.builder()\n                .clouds(\"AWS\")\n                .regions(                \n                    \"us-east-1\",\n                    \"us-east-2\")\n                .services(\"KAFKA\")\n                .addressTypes(\"EGRESS\")\n                .build())\n            .build());\n\n        ctx.export(\"ipAddresses\", main.applyValue(getIpAddressesResult -\u003e getIpAddressesResult.ipAddresses()));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getIpAddresses\n      Arguments:\n        filter:\n          clouds:\n            - AWS\n          regions:\n            - us-east-1\n            - us-east-2\n          services:\n            - KAFKA\n          addressTypes:\n            - EGRESS\noutputs:\n  ipAddresses: ${main.ipAddresses}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getIpAddresses.\n",
+                "properties": {
+                    "filter": {
+                        "$ref": "#/types/confluentcloud:index/getIpAddressesFilter:getIpAddressesFilter"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getIpAddresses.\n",
+                "properties": {
+                    "filter": {
+                        "$ref": "#/types/confluentcloud:index/getIpAddressesFilter:getIpAddressesFilter"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "ipAddresses": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getIpAddressesIpAddress:getIpAddressesIpAddress"
+                        },
+                        "description": "(List of Object) List of schemas. Each schema object exports the following attributes:\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ipAddresses",
+                    "id"
                 ]
             }
         },
