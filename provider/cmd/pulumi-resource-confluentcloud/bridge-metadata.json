@@ -188,6 +188,14 @@
                     "status": {}
                 }
             },
+            "confluent_custom_connector_plugin": {
+                "current": "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin",
+                "fields": {
+                    "sensitive_config_properties": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "confluent_environment": {
                 "current": "confluentcloud:index/environment:Environment",
                 "fields": {
@@ -1171,6 +1179,40 @@
                     }
                 }
             },
+            "confluent_ip_addresses": {
+                "current": "confluentcloud:index/getIpAddresses:getIpAddresses",
+                "fields": {
+                    "filter": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "address_types": {
+                                    "maxItemsOne": false
+                                },
+                                "clouds": {
+                                    "maxItemsOne": false
+                                },
+                                "regions": {
+                                    "maxItemsOne": false
+                                },
+                                "services": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "ip_addresses": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "services": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "confluent_kafka_client_quota": {
                 "current": "confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota",
                 "fields": {
@@ -1587,6 +1629,7 @@
             "confluentcloud:index/byokKey:ByokKey": "confluent_byok_key",
             "confluentcloud:index/clusterLink:ClusterLink": "confluent_cluster_link",
             "confluentcloud:index/connector:Connector": "confluent_connector",
+            "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin": "confluent_custom_connector_plugin",
             "confluentcloud:index/environment:Environment": "confluent_environment",
             "confluentcloud:index/flinkComputePool:FlinkComputePool": "confluent_flink_compute_pool",
             "confluentcloud:index/identityPool:IdentityPool": "confluent_identity_pool",
@@ -1630,6 +1673,7 @@
             "confluentcloud:index/getIdentityPool:getIdentityPool": "confluent_identity_pool",
             "confluentcloud:index/getIdentityProvider:getIdentityProvider": "confluent_identity_provider",
             "confluentcloud:index/getInvitation:getInvitation": "confluent_invitation",
+            "confluentcloud:index/getIpAddresses:getIpAddresses": "confluent_ip_addresses",
             "confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota": "confluent_kafka_client_quota",
             "confluentcloud:index/getKafkaCluster:getKafkaCluster": "confluent_kafka_cluster",
             "confluentcloud:index/getKafkaTopic:getKafkaTopic": "confluent_kafka_topic",
@@ -1795,6 +1839,13 @@
                 "configSensitive": "config_sensitive",
                 "kafkaCluster": "kafka_cluster"
             },
+            "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin": {
+                "connectorClass": "connector_class",
+                "connectorType": "connector_type",
+                "displayName": "display_name",
+                "documentationLink": "documentation_link",
+                "sensitiveConfigProperties": "sensitive_config_properties"
+            },
             "confluentcloud:index/environment:Environment": {
                 "displayName": "display_name",
                 "resourceName": "resource_name"
@@ -1862,6 +1913,17 @@
                 "creators": "creator",
                 "expiresAt": "expires_at",
                 "users": "user"
+            },
+            "confluentcloud:index/getIpAddresses:getIpAddresses": {
+                "ipAddresses": "ip_addresses"
+            },
+            "confluentcloud:index/getIpAddressesFilter:getIpAddressesFilter": {
+                "addressTypes": "address_types"
+            },
+            "confluentcloud:index/getIpAddressesIpAddress:getIpAddressesIpAddress": {
+                "addressType": "address_type",
+                "apiVersion": "api_version",
+                "ipPrefix": "ip_prefix"
             },
             "confluentcloud:index/getKafkaClientQuota:getKafkaClientQuota": {
                 "displayName": "display_name",

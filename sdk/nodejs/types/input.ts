@@ -374,6 +374,44 @@ export interface GetIdentityPoolIdentityProviderArgs {
     id: pulumi.Input<string>;
 }
 
+export interface GetIpAddressesFilter {
+    /**
+     * A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
+     */
+    addressTypes?: string[];
+    /**
+     * A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+     */
+    clouds?: string[];
+    /**
+     * A list of regions to filter by.
+     */
+    regions?: string[];
+    /**
+     * A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+     */
+    services?: string[];
+}
+
+export interface GetIpAddressesFilterArgs {
+    /**
+     * A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
+     */
+    addressTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+     */
+    clouds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of regions to filter by.
+     */
+    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+     */
+    services?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface GetKafkaClusterBasic {
 }
 

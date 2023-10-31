@@ -11,6 +11,7 @@ from .business_metadata_binding import *
 from .byok_key import *
 from .cluster_link import *
 from .connector import *
+from .custom_connector_plugin import *
 from .environment import *
 from .flink_compute_pool import *
 from .get_business_metadata import *
@@ -22,6 +23,7 @@ from .get_flink_compute_pool import *
 from .get_identity_pool import *
 from .get_identity_provider import *
 from .get_invitation import *
+from .get_ip_addresses import *
 from .get_kafka_client_quota import *
 from .get_kafka_cluster import *
 from .get_kafka_topic import *
@@ -140,6 +142,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/connector:Connector": "Connector"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/customConnectorPlugin",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin": "CustomConnectorPlugin"
   }
  },
  {

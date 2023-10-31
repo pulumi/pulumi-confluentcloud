@@ -391,6 +391,56 @@ export interface GetInvitationUser {
     id: string;
 }
 
+export interface GetIpAddressesFilter {
+    /**
+     * A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
+     */
+    addressTypes?: string[];
+    /**
+     * A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+     */
+    clouds?: string[];
+    /**
+     * A list of regions to filter by.
+     */
+    regions?: string[];
+    /**
+     * A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+     */
+    services?: string[];
+}
+
+export interface GetIpAddressesIpAddress {
+    /**
+     * (Required Integer) Whether the address is used for egress or ingress.
+     */
+    addressType: string;
+    /**
+     * (Required String) An API Version of the schema version of the IP Address, for example, `networking/v1`.
+     */
+    apiVersion: string;
+    /**
+     * (Required String) The cloud service provider in which the address exists.
+     */
+    cloud: string;
+    /**
+     * (Required String) The IP Address range.
+     */
+    ipPrefix: string;
+    /**
+     * (Required String) A kind of the Kafka cluster, for example, `IpAddress`.
+     */
+    kind: string;
+    /**
+     * (Required Integer) The region/location where the IP Address is in use.
+     */
+    region: string;
+    /**
+     * A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+     */
+    services: string[];
+}
+
 export interface GetKafkaClientQuotaEnvironment {
     /**
      * The ID of the Kafka Client Quota (for example, `cq-abc123`).

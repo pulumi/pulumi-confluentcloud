@@ -118,6 +118,7 @@ __all__ = [
     'GetBusinessMetadataSchemaRegistryClusterArgs',
     'GetFlinkComputePoolEnvironmentArgs',
     'GetIdentityPoolIdentityProviderArgs',
+    'GetIpAddressesFilterArgs',
     'GetKafkaClusterBasicArgs',
     'GetKafkaClusterDedicatedArgs',
     'GetKafkaClusterEnterpriseArgs',
@@ -3633,6 +3634,77 @@ class GetIdentityPoolIdentityProviderArgs:
     @id.setter
     def id(self, value: str):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetIpAddressesFilterArgs:
+    def __init__(__self__, *,
+                 address_types: Optional[Sequence[str]] = None,
+                 clouds: Optional[Sequence[str]] = None,
+                 regions: Optional[Sequence[str]] = None,
+                 services: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] address_types: A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
+        :param Sequence[str] clouds: A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+        :param Sequence[str] regions: A list of regions to filter by.
+        :param Sequence[str] services: A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+        """
+        if address_types is not None:
+            pulumi.set(__self__, "address_types", address_types)
+        if clouds is not None:
+            pulumi.set(__self__, "clouds", clouds)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+
+    @property
+    @pulumi.getter(name="addressTypes")
+    def address_types(self) -> Optional[Sequence[str]]:
+        """
+        A list of address types to filter by. Accepted values are: `EGRESS`, `INGRESS`.
+        """
+        return pulumi.get(self, "address_types")
+
+    @address_types.setter
+    def address_types(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "address_types", value)
+
+    @property
+    @pulumi.getter
+    def clouds(self) -> Optional[Sequence[str]]:
+        """
+        A list of clouds to filter by. Accepted values are: `AWS`, `AZURE`, and `GCP`.
+        """
+        return pulumi.get(self, "clouds")
+
+    @clouds.setter
+    def clouds(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "clouds", value)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[Sequence[str]]:
+        """
+        A list of regions to filter by.
+        """
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "regions", value)
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[Sequence[str]]:
+        """
+        A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+        """
+        return pulumi.get(self, "services")
+
+    @services.setter
+    def services(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "services", value)
 
 
 @pulumi.input_type
