@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -211,12 +210,6 @@ func (i *CustomConnectorPlugin) ToCustomConnectorPluginOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CustomConnectorPluginOutput)
 }
 
-func (i *CustomConnectorPlugin) ToOutput(ctx context.Context) pulumix.Output[*CustomConnectorPlugin] {
-	return pulumix.Output[*CustomConnectorPlugin]{
-		OutputState: i.ToCustomConnectorPluginOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CustomConnectorPluginArrayInput is an input type that accepts CustomConnectorPluginArray and CustomConnectorPluginArrayOutput values.
 // You can construct a concrete instance of `CustomConnectorPluginArrayInput` via:
 //
@@ -240,12 +233,6 @@ func (i CustomConnectorPluginArray) ToCustomConnectorPluginArrayOutput() CustomC
 
 func (i CustomConnectorPluginArray) ToCustomConnectorPluginArrayOutputWithContext(ctx context.Context) CustomConnectorPluginArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomConnectorPluginArrayOutput)
-}
-
-func (i CustomConnectorPluginArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomConnectorPlugin] {
-	return pulumix.Output[[]*CustomConnectorPlugin]{
-		OutputState: i.ToCustomConnectorPluginArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CustomConnectorPluginMapInput is an input type that accepts CustomConnectorPluginMap and CustomConnectorPluginMapOutput values.
@@ -273,12 +260,6 @@ func (i CustomConnectorPluginMap) ToCustomConnectorPluginMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CustomConnectorPluginMapOutput)
 }
 
-func (i CustomConnectorPluginMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomConnectorPlugin] {
-	return pulumix.Output[map[string]*CustomConnectorPlugin]{
-		OutputState: i.ToCustomConnectorPluginMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomConnectorPluginOutput struct{ *pulumi.OutputState }
 
 func (CustomConnectorPluginOutput) ElementType() reflect.Type {
@@ -291,12 +272,6 @@ func (o CustomConnectorPluginOutput) ToCustomConnectorPluginOutput() CustomConne
 
 func (o CustomConnectorPluginOutput) ToCustomConnectorPluginOutputWithContext(ctx context.Context) CustomConnectorPluginOutput {
 	return o
-}
-
-func (o CustomConnectorPluginOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomConnectorPlugin] {
-	return pulumix.Output[*CustomConnectorPlugin]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
@@ -348,12 +323,6 @@ func (o CustomConnectorPluginArrayOutput) ToCustomConnectorPluginArrayOutputWith
 	return o
 }
 
-func (o CustomConnectorPluginArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomConnectorPlugin] {
-	return pulumix.Output[[]*CustomConnectorPlugin]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomConnectorPluginArrayOutput) Index(i pulumi.IntInput) CustomConnectorPluginOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomConnectorPlugin {
 		return vs[0].([]*CustomConnectorPlugin)[vs[1].(int)]
@@ -372,12 +341,6 @@ func (o CustomConnectorPluginMapOutput) ToCustomConnectorPluginMapOutput() Custo
 
 func (o CustomConnectorPluginMapOutput) ToCustomConnectorPluginMapOutputWithContext(ctx context.Context) CustomConnectorPluginMapOutput {
 	return o
-}
-
-func (o CustomConnectorPluginMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomConnectorPlugin] {
-	return pulumix.Output[map[string]*CustomConnectorPlugin]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomConnectorPluginMapOutput) MapIndex(k pulumi.StringInput) CustomConnectorPluginOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -209,12 +208,6 @@ func (i *KafkaClientQuota) ToKafkaClientQuotaOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaOutput)
 }
 
-func (i *KafkaClientQuota) ToOutput(ctx context.Context) pulumix.Output[*KafkaClientQuota] {
-	return pulumix.Output[*KafkaClientQuota]{
-		OutputState: i.ToKafkaClientQuotaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KafkaClientQuotaArrayInput is an input type that accepts KafkaClientQuotaArray and KafkaClientQuotaArrayOutput values.
 // You can construct a concrete instance of `KafkaClientQuotaArrayInput` via:
 //
@@ -238,12 +231,6 @@ func (i KafkaClientQuotaArray) ToKafkaClientQuotaArrayOutput() KafkaClientQuotaA
 
 func (i KafkaClientQuotaArray) ToKafkaClientQuotaArrayOutputWithContext(ctx context.Context) KafkaClientQuotaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaArrayOutput)
-}
-
-func (i KafkaClientQuotaArray) ToOutput(ctx context.Context) pulumix.Output[[]*KafkaClientQuota] {
-	return pulumix.Output[[]*KafkaClientQuota]{
-		OutputState: i.ToKafkaClientQuotaArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // KafkaClientQuotaMapInput is an input type that accepts KafkaClientQuotaMap and KafkaClientQuotaMapOutput values.
@@ -271,12 +258,6 @@ func (i KafkaClientQuotaMap) ToKafkaClientQuotaMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClientQuotaMapOutput)
 }
 
-func (i KafkaClientQuotaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KafkaClientQuota] {
-	return pulumix.Output[map[string]*KafkaClientQuota]{
-		OutputState: i.ToKafkaClientQuotaMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClientQuotaOutput struct{ *pulumi.OutputState }
 
 func (KafkaClientQuotaOutput) ElementType() reflect.Type {
@@ -289,12 +270,6 @@ func (o KafkaClientQuotaOutput) ToKafkaClientQuotaOutput() KafkaClientQuotaOutpu
 
 func (o KafkaClientQuotaOutput) ToKafkaClientQuotaOutputWithContext(ctx context.Context) KafkaClientQuotaOutput {
 	return o
-}
-
-func (o KafkaClientQuotaOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClientQuota] {
-	return pulumix.Output[*KafkaClientQuota]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the Kafka Client Quota.
@@ -340,12 +315,6 @@ func (o KafkaClientQuotaArrayOutput) ToKafkaClientQuotaArrayOutputWithContext(ct
 	return o
 }
 
-func (o KafkaClientQuotaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KafkaClientQuota] {
-	return pulumix.Output[[]*KafkaClientQuota]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KafkaClientQuotaArrayOutput) Index(i pulumi.IntInput) KafkaClientQuotaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KafkaClientQuota {
 		return vs[0].([]*KafkaClientQuota)[vs[1].(int)]
@@ -364,12 +333,6 @@ func (o KafkaClientQuotaMapOutput) ToKafkaClientQuotaMapOutput() KafkaClientQuot
 
 func (o KafkaClientQuotaMapOutput) ToKafkaClientQuotaMapOutputWithContext(ctx context.Context) KafkaClientQuotaMapOutput {
 	return o
-}
-
-func (o KafkaClientQuotaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KafkaClientQuota] {
-	return pulumix.Output[map[string]*KafkaClientQuota]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClientQuotaMapOutput) MapIndex(k pulumi.StringInput) KafkaClientQuotaOutput {

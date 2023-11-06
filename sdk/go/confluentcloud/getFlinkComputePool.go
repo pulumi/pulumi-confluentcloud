@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -148,12 +147,6 @@ func (o LookupFlinkComputePoolResultOutput) ToLookupFlinkComputePoolResultOutput
 
 func (o LookupFlinkComputePoolResultOutput) ToLookupFlinkComputePoolResultOutputWithContext(ctx context.Context) LookupFlinkComputePoolResultOutput {
 	return o
-}
-
-func (o LookupFlinkComputePoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFlinkComputePoolResult] {
-	return pulumix.Output[LookupFlinkComputePoolResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Required String) The API Version of the schema version of the Flink Compute Pool, for example, `fcpm/v2`.
