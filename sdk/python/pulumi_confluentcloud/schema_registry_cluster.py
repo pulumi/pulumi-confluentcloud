@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,9 +24,30 @@ class SchemaRegistryClusterArgs:
         :param pulumi.Input['SchemaRegistryClusterEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] package: The type of the billing package. Accepted values are: `ESSENTIALS` and `ADVANCED`.
         """
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "package", package)
-        pulumi.set(__self__, "region", region)
+        SchemaRegistryClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment=environment,
+            package=package,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment: Optional[pulumi.Input['SchemaRegistryClusterEnvironmentArgs']] = None,
+             package: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input['SchemaRegistryClusterRegionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if environment is None:
+            raise TypeError("Missing 'environment' argument")
+        if package is None:
+            raise TypeError("Missing 'package' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+
+        _setter("environment", environment)
+        _setter("package", package)
+        _setter("region", region)
 
     @property
     @pulumi.getter
@@ -83,22 +104,55 @@ class _SchemaRegistryClusterState:
         :param pulumi.Input[str] resource_name: (Required String) The Confluent Resource Name of the Schema Registry cluster, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123/schema-registry=lsrc-abc123`.
         :param pulumi.Input[str] rest_endpoint: (Required String) The HTTP endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-west-2.aws.confluent.cloud`.
         """
+        _SchemaRegistryClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_version=api_version,
+            display_name=display_name,
+            environment=environment,
+            kind=kind,
+            package=package,
+            region=region,
+            resource_name=resource_name,
+            rest_endpoint=rest_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_version: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['SchemaRegistryClusterEnvironmentArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             package: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input['SchemaRegistryClusterRegionArgs']] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_version is None and 'apiVersion' in kwargs:
+            api_version = kwargs['apiVersion']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+
         if api_version is not None:
-            pulumi.set(__self__, "api_version", api_version)
+            _setter("api_version", api_version)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if package is not None:
-            pulumi.set(__self__, "package", package)
+            _setter("package", package)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter(name="apiVersion")
@@ -286,6 +340,10 @@ class SchemaRegistryCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SchemaRegistryClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -303,12 +361,22 @@ class SchemaRegistryCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SchemaRegistryClusterArgs.__new__(SchemaRegistryClusterArgs)
 
+            if environment is not None and not isinstance(environment, SchemaRegistryClusterEnvironmentArgs):
+                environment = environment or {}
+                def _setter(key, value):
+                    environment[key] = value
+                SchemaRegistryClusterEnvironmentArgs._configure(_setter, **environment)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
             if package is None and not opts.urn:
                 raise TypeError("Missing required property 'package'")
             __props__.__dict__["package"] = package
+            if region is not None and not isinstance(region, SchemaRegistryClusterRegionArgs):
+                region = region or {}
+                def _setter(key, value):
+                    region[key] = value
+                SchemaRegistryClusterRegionArgs._configure(_setter, **region)
             if region is None and not opts.urn:
                 raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region

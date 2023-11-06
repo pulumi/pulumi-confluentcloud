@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -36,22 +36,65 @@ class SchemaArgs:
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
         """
-        pulumi.set(__self__, "format", format)
-        pulumi.set(__self__, "subject_name", subject_name)
+        SchemaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            format=format,
+            subject_name=subject_name,
+            credentials=credentials,
+            hard_delete=hard_delete,
+            recreate_on_update=recreate_on_update,
+            rest_endpoint=rest_endpoint,
+            schema=schema,
+            schema_references=schema_references,
+            schema_registry_cluster=schema_registry_cluster,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             format: Optional[pulumi.Input[str]] = None,
+             subject_name: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['SchemaCredentialsArgs']] = None,
+             hard_delete: Optional[pulumi.Input[bool]] = None,
+             recreate_on_update: Optional[pulumi.Input[bool]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             schema_references: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]] = None,
+             schema_registry_cluster: Optional[pulumi.Input['SchemaSchemaRegistryClusterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if format is None:
+            raise TypeError("Missing 'format' argument")
+        if subject_name is None and 'subjectName' in kwargs:
+            subject_name = kwargs['subjectName']
+        if subject_name is None:
+            raise TypeError("Missing 'subject_name' argument")
+        if hard_delete is None and 'hardDelete' in kwargs:
+            hard_delete = kwargs['hardDelete']
+        if recreate_on_update is None and 'recreateOnUpdate' in kwargs:
+            recreate_on_update = kwargs['recreateOnUpdate']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+        if schema_references is None and 'schemaReferences' in kwargs:
+            schema_references = kwargs['schemaReferences']
+        if schema_registry_cluster is None and 'schemaRegistryCluster' in kwargs:
+            schema_registry_cluster = kwargs['schemaRegistryCluster']
+
+        _setter("format", format)
+        _setter("subject_name", subject_name)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if hard_delete is not None:
-            pulumi.set(__self__, "hard_delete", hard_delete)
+            _setter("hard_delete", hard_delete)
         if recreate_on_update is not None:
-            pulumi.set(__self__, "recreate_on_update", recreate_on_update)
+            _setter("recreate_on_update", recreate_on_update)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if schema_references is not None:
-            pulumi.set(__self__, "schema_references", schema_references)
+            _setter("schema_references", schema_references)
         if schema_registry_cluster is not None:
-            pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+            _setter("schema_registry_cluster", schema_registry_cluster)
 
     @property
     @pulumi.getter
@@ -186,28 +229,73 @@ class _SchemaState:
         :param pulumi.Input[str] subject_name: The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
         :param pulumi.Input[int] version: The version, representing the exact version of the schema under the registered subject.
         """
+        _SchemaState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            format=format,
+            hard_delete=hard_delete,
+            recreate_on_update=recreate_on_update,
+            rest_endpoint=rest_endpoint,
+            schema=schema,
+            schema_identifier=schema_identifier,
+            schema_references=schema_references,
+            schema_registry_cluster=schema_registry_cluster,
+            subject_name=subject_name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: Optional[pulumi.Input['SchemaCredentialsArgs']] = None,
+             format: Optional[pulumi.Input[str]] = None,
+             hard_delete: Optional[pulumi.Input[bool]] = None,
+             recreate_on_update: Optional[pulumi.Input[bool]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             schema_identifier: Optional[pulumi.Input[int]] = None,
+             schema_references: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]] = None,
+             schema_registry_cluster: Optional[pulumi.Input['SchemaSchemaRegistryClusterArgs']] = None,
+             subject_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if hard_delete is None and 'hardDelete' in kwargs:
+            hard_delete = kwargs['hardDelete']
+        if recreate_on_update is None and 'recreateOnUpdate' in kwargs:
+            recreate_on_update = kwargs['recreateOnUpdate']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+        if schema_identifier is None and 'schemaIdentifier' in kwargs:
+            schema_identifier = kwargs['schemaIdentifier']
+        if schema_references is None and 'schemaReferences' in kwargs:
+            schema_references = kwargs['schemaReferences']
+        if schema_registry_cluster is None and 'schemaRegistryCluster' in kwargs:
+            schema_registry_cluster = kwargs['schemaRegistryCluster']
+        if subject_name is None and 'subjectName' in kwargs:
+            subject_name = kwargs['subjectName']
+
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if hard_delete is not None:
-            pulumi.set(__self__, "hard_delete", hard_delete)
+            _setter("hard_delete", hard_delete)
         if recreate_on_update is not None:
-            pulumi.set(__self__, "recreate_on_update", recreate_on_update)
+            _setter("recreate_on_update", recreate_on_update)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if schema_identifier is not None:
-            pulumi.set(__self__, "schema_identifier", schema_identifier)
+            _setter("schema_identifier", schema_identifier)
         if schema_references is not None:
-            pulumi.set(__self__, "schema_references", schema_references)
+            _setter("schema_references", schema_references)
         if schema_registry_cluster is not None:
-            pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+            _setter("schema_registry_cluster", schema_registry_cluster)
         if subject_name is not None:
-            pulumi.set(__self__, "subject_name", subject_name)
+            _setter("subject_name", subject_name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -415,6 +503,10 @@ class Schema(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SchemaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -438,6 +530,11 @@ class Schema(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SchemaArgs.__new__(SchemaArgs)
 
+            if credentials is not None and not isinstance(credentials, SchemaCredentialsArgs):
+                credentials = credentials or {}
+                def _setter(key, value):
+                    credentials[key] = value
+                SchemaCredentialsArgs._configure(_setter, **credentials)
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             if format is None and not opts.urn:
                 raise TypeError("Missing required property 'format'")
@@ -447,6 +544,11 @@ class Schema(pulumi.CustomResource):
             __props__.__dict__["rest_endpoint"] = rest_endpoint
             __props__.__dict__["schema"] = schema
             __props__.__dict__["schema_references"] = schema_references
+            if schema_registry_cluster is not None and not isinstance(schema_registry_cluster, SchemaSchemaRegistryClusterArgs):
+                schema_registry_cluster = schema_registry_cluster or {}
+                def _setter(key, value):
+                    schema_registry_cluster[key] = value
+                SchemaSchemaRegistryClusterArgs._configure(_setter, **schema_registry_cluster)
             __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
             if subject_name is None and not opts.urn:
                 raise TypeError("Missing required property 'subject_name'")

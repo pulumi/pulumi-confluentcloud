@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,11 +29,46 @@ class IdentityPoolArgs:
         :param pulumi.Input[str] identity_claim: The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
         :param pulumi.Input['IdentityPoolIdentityProviderArgs'] identity_provider: Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "identity_claim", identity_claim)
-        pulumi.set(__self__, "identity_provider", identity_provider)
+        IdentityPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            filter=filter,
+            identity_claim=identity_claim,
+            identity_provider=identity_provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             filter: Optional[pulumi.Input[str]] = None,
+             identity_claim: Optional[pulumi.Input[str]] = None,
+             identity_provider: Optional[pulumi.Input['IdentityPoolIdentityProviderArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if identity_claim is None and 'identityClaim' in kwargs:
+            identity_claim = kwargs['identityClaim']
+        if identity_claim is None:
+            raise TypeError("Missing 'identity_claim' argument")
+        if identity_provider is None and 'identityProvider' in kwargs:
+            identity_provider = kwargs['identityProvider']
+        if identity_provider is None:
+            raise TypeError("Missing 'identity_provider' argument")
+
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("filter", filter)
+        _setter("identity_claim", identity_claim)
+        _setter("identity_provider", identity_provider)
 
     @property
     @pulumi.getter
@@ -112,16 +147,41 @@ class _IdentityPoolState:
         :param pulumi.Input[str] identity_claim: The JSON Web Token (JWT) claim to extract the authenticating identity to Confluent resources from (see [Registered Claim Names](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1) for more details). This appears in the audit log records, showing, for example, that "identity Z used identity pool X to access topic A".
         :param pulumi.Input['IdentityPoolIdentityProviderArgs'] identity_provider: Identity Provider objects represent external OAuth/OpenID Connect providers within Confluent Cloud.
         """
+        _IdentityPoolState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            filter=filter,
+            identity_claim=identity_claim,
+            identity_provider=identity_provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             filter: Optional[pulumi.Input[str]] = None,
+             identity_claim: Optional[pulumi.Input[str]] = None,
+             identity_provider: Optional[pulumi.Input['IdentityPoolIdentityProviderArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if identity_claim is None and 'identityClaim' in kwargs:
+            identity_claim = kwargs['identityClaim']
+        if identity_provider is None and 'identityProvider' in kwargs:
+            identity_provider = kwargs['identityProvider']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if identity_claim is not None:
-            pulumi.set(__self__, "identity_claim", identity_claim)
+            _setter("identity_claim", identity_claim)
         if identity_provider is not None:
-            pulumi.set(__self__, "identity_provider", identity_provider)
+            _setter("identity_provider", identity_provider)
 
     @property
     @pulumi.getter
@@ -339,6 +399,10 @@ class IdentityPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IdentityPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -370,6 +434,11 @@ class IdentityPool(pulumi.CustomResource):
             if identity_claim is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_claim'")
             __props__.__dict__["identity_claim"] = identity_claim
+            if identity_provider is not None and not isinstance(identity_provider, IdentityPoolIdentityProviderArgs):
+                identity_provider = identity_provider or {}
+                def _setter(key, value):
+                    identity_provider[key] = value
+                IdentityPoolIdentityProviderArgs._configure(_setter, **identity_provider)
             if identity_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_provider'")
             __props__.__dict__["identity_provider"] = identity_provider

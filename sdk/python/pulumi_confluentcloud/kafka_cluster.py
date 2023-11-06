@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,24 +41,67 @@ class KafkaClusterArgs:
                accounts.
         :param pulumi.Input['KafkaClusterStandardArgs'] standard: The configuration of the Standard Kafka cluster.
         """
-        pulumi.set(__self__, "availability", availability)
-        pulumi.set(__self__, "cloud", cloud)
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "region", region)
+        KafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability=availability,
+            cloud=cloud,
+            environment=environment,
+            region=region,
+            basic=basic,
+            byok_key=byok_key,
+            dedicated=dedicated,
+            display_name=display_name,
+            enterprises=enterprises,
+            network=network,
+            standard=standard,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability: Optional[pulumi.Input[str]] = None,
+             cloud: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['KafkaClusterEnvironmentArgs']] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             basic: Optional[pulumi.Input['KafkaClusterBasicArgs']] = None,
+             byok_key: Optional[pulumi.Input['KafkaClusterByokKeyArgs']] = None,
+             dedicated: Optional[pulumi.Input['KafkaClusterDedicatedArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             enterprises: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]]] = None,
+             network: Optional[pulumi.Input['KafkaClusterNetworkArgs']] = None,
+             standard: Optional[pulumi.Input['KafkaClusterStandardArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if availability is None:
+            raise TypeError("Missing 'availability' argument")
+        if cloud is None:
+            raise TypeError("Missing 'cloud' argument")
+        if environment is None:
+            raise TypeError("Missing 'environment' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+        if byok_key is None and 'byokKey' in kwargs:
+            byok_key = kwargs['byokKey']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("availability", availability)
+        _setter("cloud", cloud)
+        _setter("environment", environment)
+        _setter("region", region)
         if basic is not None:
-            pulumi.set(__self__, "basic", basic)
+            _setter("basic", basic)
         if byok_key is not None:
-            pulumi.set(__self__, "byok_key", byok_key)
+            _setter("byok_key", byok_key)
         if dedicated is not None:
-            pulumi.set(__self__, "dedicated", dedicated)
+            _setter("dedicated", dedicated)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if enterprises is not None:
-            pulumi.set(__self__, "enterprises", enterprises)
+            _setter("enterprises", enterprises)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
         if standard is not None:
-            pulumi.set(__self__, "standard", standard)
+            _setter("standard", standard)
 
     @property
     @pulumi.getter
@@ -229,38 +272,91 @@ class _KafkaClusterState:
         :param pulumi.Input[str] rest_endpoint: (Required String) The REST endpoint of the Kafka cluster (e.g., `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input['KafkaClusterStandardArgs'] standard: The configuration of the Standard Kafka cluster.
         """
+        _KafkaClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_version=api_version,
+            availability=availability,
+            basic=basic,
+            bootstrap_endpoint=bootstrap_endpoint,
+            byok_key=byok_key,
+            cloud=cloud,
+            dedicated=dedicated,
+            display_name=display_name,
+            enterprises=enterprises,
+            environment=environment,
+            kind=kind,
+            network=network,
+            rbac_crn=rbac_crn,
+            region=region,
+            rest_endpoint=rest_endpoint,
+            standard=standard,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_version: Optional[pulumi.Input[str]] = None,
+             availability: Optional[pulumi.Input[str]] = None,
+             basic: Optional[pulumi.Input['KafkaClusterBasicArgs']] = None,
+             bootstrap_endpoint: Optional[pulumi.Input[str]] = None,
+             byok_key: Optional[pulumi.Input['KafkaClusterByokKeyArgs']] = None,
+             cloud: Optional[pulumi.Input[str]] = None,
+             dedicated: Optional[pulumi.Input['KafkaClusterDedicatedArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             enterprises: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterEnterpriseArgs']]]] = None,
+             environment: Optional[pulumi.Input['KafkaClusterEnvironmentArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             network: Optional[pulumi.Input['KafkaClusterNetworkArgs']] = None,
+             rbac_crn: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             standard: Optional[pulumi.Input['KafkaClusterStandardArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_version is None and 'apiVersion' in kwargs:
+            api_version = kwargs['apiVersion']
+        if bootstrap_endpoint is None and 'bootstrapEndpoint' in kwargs:
+            bootstrap_endpoint = kwargs['bootstrapEndpoint']
+        if byok_key is None and 'byokKey' in kwargs:
+            byok_key = kwargs['byokKey']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if rbac_crn is None and 'rbacCrn' in kwargs:
+            rbac_crn = kwargs['rbacCrn']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+
         if api_version is not None:
-            pulumi.set(__self__, "api_version", api_version)
+            _setter("api_version", api_version)
         if availability is not None:
-            pulumi.set(__self__, "availability", availability)
+            _setter("availability", availability)
         if basic is not None:
-            pulumi.set(__self__, "basic", basic)
+            _setter("basic", basic)
         if bootstrap_endpoint is not None:
-            pulumi.set(__self__, "bootstrap_endpoint", bootstrap_endpoint)
+            _setter("bootstrap_endpoint", bootstrap_endpoint)
         if byok_key is not None:
-            pulumi.set(__self__, "byok_key", byok_key)
+            _setter("byok_key", byok_key)
         if cloud is not None:
-            pulumi.set(__self__, "cloud", cloud)
+            _setter("cloud", cloud)
         if dedicated is not None:
-            pulumi.set(__self__, "dedicated", dedicated)
+            _setter("dedicated", dedicated)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if enterprises is not None:
-            pulumi.set(__self__, "enterprises", enterprises)
+            _setter("enterprises", enterprises)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
         if rbac_crn is not None:
-            pulumi.set(__self__, "rbac_crn", rbac_crn)
+            _setter("rbac_crn", rbac_crn)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if standard is not None:
-            pulumi.set(__self__, "standard", standard)
+            _setter("standard", standard)
 
     @property
     @pulumi.getter(name="apiVersion")
@@ -522,6 +618,10 @@ class KafkaCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KafkaClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -550,21 +650,51 @@ class KafkaCluster(pulumi.CustomResource):
             if availability is None and not opts.urn:
                 raise TypeError("Missing required property 'availability'")
             __props__.__dict__["availability"] = availability
+            if basic is not None and not isinstance(basic, KafkaClusterBasicArgs):
+                basic = basic or {}
+                def _setter(key, value):
+                    basic[key] = value
+                KafkaClusterBasicArgs._configure(_setter, **basic)
             __props__.__dict__["basic"] = basic
+            if byok_key is not None and not isinstance(byok_key, KafkaClusterByokKeyArgs):
+                byok_key = byok_key or {}
+                def _setter(key, value):
+                    byok_key[key] = value
+                KafkaClusterByokKeyArgs._configure(_setter, **byok_key)
             __props__.__dict__["byok_key"] = byok_key
             if cloud is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud'")
             __props__.__dict__["cloud"] = cloud
+            if dedicated is not None and not isinstance(dedicated, KafkaClusterDedicatedArgs):
+                dedicated = dedicated or {}
+                def _setter(key, value):
+                    dedicated[key] = value
+                KafkaClusterDedicatedArgs._configure(_setter, **dedicated)
             __props__.__dict__["dedicated"] = dedicated
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["enterprises"] = enterprises
+            if environment is not None and not isinstance(environment, KafkaClusterEnvironmentArgs):
+                environment = environment or {}
+                def _setter(key, value):
+                    environment[key] = value
+                KafkaClusterEnvironmentArgs._configure(_setter, **environment)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            if network is not None and not isinstance(network, KafkaClusterNetworkArgs):
+                network = network or {}
+                def _setter(key, value):
+                    network[key] = value
+                KafkaClusterNetworkArgs._configure(_setter, **network)
             __props__.__dict__["network"] = network
             if region is None and not opts.urn:
                 raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region
+            if standard is not None and not isinstance(standard, KafkaClusterStandardArgs):
+                standard = standard or {}
+                def _setter(key, value):
+                    standard[key] = value
+                KafkaClusterStandardArgs._configure(_setter, **standard)
             __props__.__dict__["standard"] = standard
             __props__.__dict__["api_version"] = None
             __props__.__dict__["bootstrap_endpoint"] = None

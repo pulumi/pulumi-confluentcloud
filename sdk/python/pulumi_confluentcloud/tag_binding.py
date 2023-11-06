@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,15 +30,52 @@ class TagBindingArgs:
         :param pulumi.Input['TagBindingCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
-        pulumi.set(__self__, "entity_name", entity_name)
-        pulumi.set(__self__, "entity_type", entity_type)
-        pulumi.set(__self__, "tag_name", tag_name)
+        TagBindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entity_name=entity_name,
+            entity_type=entity_type,
+            tag_name=tag_name,
+            credentials=credentials,
+            rest_endpoint=rest_endpoint,
+            schema_registry_cluster=schema_registry_cluster,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entity_name: Optional[pulumi.Input[str]] = None,
+             entity_type: Optional[pulumi.Input[str]] = None,
+             tag_name: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['TagBindingCredentialsArgs']] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             schema_registry_cluster: Optional[pulumi.Input['TagBindingSchemaRegistryClusterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if entity_name is None and 'entityName' in kwargs:
+            entity_name = kwargs['entityName']
+        if entity_name is None:
+            raise TypeError("Missing 'entity_name' argument")
+        if entity_type is None and 'entityType' in kwargs:
+            entity_type = kwargs['entityType']
+        if entity_type is None:
+            raise TypeError("Missing 'entity_type' argument")
+        if tag_name is None and 'tagName' in kwargs:
+            tag_name = kwargs['tagName']
+        if tag_name is None:
+            raise TypeError("Missing 'tag_name' argument")
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+        if schema_registry_cluster is None and 'schemaRegistryCluster' in kwargs:
+            schema_registry_cluster = kwargs['schemaRegistryCluster']
+
+        _setter("entity_name", entity_name)
+        _setter("entity_type", entity_type)
+        _setter("tag_name", tag_name)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
-            pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+            _setter("schema_registry_cluster", schema_registry_cluster)
 
     @property
     @pulumi.getter(name="entityName")
@@ -127,18 +164,49 @@ class _TagBindingState:
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] tag_name: The name of the tag to be applied, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
+        _TagBindingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            entity_name=entity_name,
+            entity_type=entity_type,
+            rest_endpoint=rest_endpoint,
+            schema_registry_cluster=schema_registry_cluster,
+            tag_name=tag_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: Optional[pulumi.Input['TagBindingCredentialsArgs']] = None,
+             entity_name: Optional[pulumi.Input[str]] = None,
+             entity_type: Optional[pulumi.Input[str]] = None,
+             rest_endpoint: Optional[pulumi.Input[str]] = None,
+             schema_registry_cluster: Optional[pulumi.Input['TagBindingSchemaRegistryClusterArgs']] = None,
+             tag_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if entity_name is None and 'entityName' in kwargs:
+            entity_name = kwargs['entityName']
+        if entity_type is None and 'entityType' in kwargs:
+            entity_type = kwargs['entityType']
+        if rest_endpoint is None and 'restEndpoint' in kwargs:
+            rest_endpoint = kwargs['restEndpoint']
+        if schema_registry_cluster is None and 'schemaRegistryCluster' in kwargs:
+            schema_registry_cluster = kwargs['schemaRegistryCluster']
+        if tag_name is None and 'tagName' in kwargs:
+            tag_name = kwargs['tagName']
+
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if entity_name is not None:
-            pulumi.set(__self__, "entity_name", entity_name)
+            _setter("entity_name", entity_name)
         if entity_type is not None:
-            pulumi.set(__self__, "entity_type", entity_type)
+            _setter("entity_type", entity_type)
         if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+            _setter("rest_endpoint", rest_endpoint)
         if schema_registry_cluster is not None:
-            pulumi.set(__self__, "schema_registry_cluster", schema_registry_cluster)
+            _setter("schema_registry_cluster", schema_registry_cluster)
         if tag_name is not None:
-            pulumi.set(__self__, "tag_name", tag_name)
+            _setter("tag_name", tag_name)
 
     @property
     @pulumi.getter
@@ -268,6 +336,10 @@ class TagBinding(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TagBindingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -288,6 +360,11 @@ class TagBinding(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TagBindingArgs.__new__(TagBindingArgs)
 
+            if credentials is not None and not isinstance(credentials, TagBindingCredentialsArgs):
+                credentials = credentials or {}
+                def _setter(key, value):
+                    credentials[key] = value
+                TagBindingCredentialsArgs._configure(_setter, **credentials)
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
             if entity_name is None and not opts.urn:
                 raise TypeError("Missing required property 'entity_name'")
@@ -296,6 +373,11 @@ class TagBinding(pulumi.CustomResource):
                 raise TypeError("Missing required property 'entity_type'")
             __props__.__dict__["entity_type"] = entity_type
             __props__.__dict__["rest_endpoint"] = rest_endpoint
+            if schema_registry_cluster is not None and not isinstance(schema_registry_cluster, TagBindingSchemaRegistryClusterArgs):
+                schema_registry_cluster = schema_registry_cluster or {}
+                def _setter(key, value):
+                    schema_registry_cluster[key] = value
+                TagBindingSchemaRegistryClusterArgs._configure(_setter, **schema_registry_cluster)
             __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
             if tag_name is None and not opts.urn:
                 raise TypeError("Missing required property 'tag_name'")

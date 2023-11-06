@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,10 +23,23 @@ class ByokKeyArgs:
         :param pulumi.Input['ByokKeyAwsArgs'] aws: (Optional Configuration Block) supports the following:
         :param pulumi.Input['ByokKeyAzureArgs'] azure: (Optional Configuration Block) supports the following:
         """
+        ByokKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws=aws,
+            azure=azure,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws: Optional[pulumi.Input['ByokKeyAwsArgs']] = None,
+             azure: Optional[pulumi.Input['ByokKeyAzureArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if aws is not None:
-            pulumi.set(__self__, "aws", aws)
+            _setter("aws", aws)
         if azure is not None:
-            pulumi.set(__self__, "azure", azure)
+            _setter("azure", azure)
 
     @property
     @pulumi.getter
@@ -63,10 +76,23 @@ class _ByokKeyState:
         :param pulumi.Input['ByokKeyAwsArgs'] aws: (Optional Configuration Block) supports the following:
         :param pulumi.Input['ByokKeyAzureArgs'] azure: (Optional Configuration Block) supports the following:
         """
+        _ByokKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws=aws,
+            azure=azure,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws: Optional[pulumi.Input['ByokKeyAwsArgs']] = None,
+             azure: Optional[pulumi.Input['ByokKeyAzureArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if aws is not None:
-            pulumi.set(__self__, "aws", aws)
+            _setter("aws", aws)
         if azure is not None:
-            pulumi.set(__self__, "azure", azure)
+            _setter("azure", azure)
 
     @property
     @pulumi.getter
@@ -144,6 +170,10 @@ class ByokKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ByokKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -160,7 +190,17 @@ class ByokKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ByokKeyArgs.__new__(ByokKeyArgs)
 
+            if aws is not None and not isinstance(aws, ByokKeyAwsArgs):
+                aws = aws or {}
+                def _setter(key, value):
+                    aws[key] = value
+                ByokKeyAwsArgs._configure(_setter, **aws)
             __props__.__dict__["aws"] = aws
+            if azure is not None and not isinstance(azure, ByokKeyAzureArgs):
+                azure = azure or {}
+                def _setter(key, value):
+                    azure[key] = value
+                ByokKeyAzureArgs._configure(_setter, **azure)
             __props__.__dict__["azure"] = azure
         super(ByokKey, __self__).__init__(
             'confluentcloud:index/byokKey:ByokKey',

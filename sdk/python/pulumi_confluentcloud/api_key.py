@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,15 +29,42 @@ class ApiKeyArgs:
         :param pulumi.Input[str] display_name: A human-readable name for the API Key.
         :param pulumi.Input['ApiKeyManagedResourceArgs'] managed_resource: The resource associated with this object. The only resource that is supported is 'cmk.v2.Cluster', 'srcm.v2.Cluster'.
         """
-        pulumi.set(__self__, "owner", owner)
+        ApiKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            owner=owner,
+            description=description,
+            disable_wait_for_ready=disable_wait_for_ready,
+            display_name=display_name,
+            managed_resource=managed_resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             owner: Optional[pulumi.Input['ApiKeyOwnerArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_wait_for_ready: Optional[pulumi.Input[bool]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             managed_resource: Optional[pulumi.Input['ApiKeyManagedResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if owner is None:
+            raise TypeError("Missing 'owner' argument")
+        if disable_wait_for_ready is None and 'disableWaitForReady' in kwargs:
+            disable_wait_for_ready = kwargs['disableWaitForReady']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if managed_resource is None and 'managedResource' in kwargs:
+            managed_resource = kwargs['managedResource']
+
+        _setter("owner", owner)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_wait_for_ready is not None:
-            pulumi.set(__self__, "disable_wait_for_ready", disable_wait_for_ready)
+            _setter("disable_wait_for_ready", disable_wait_for_ready)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if managed_resource is not None:
-            pulumi.set(__self__, "managed_resource", managed_resource)
+            _setter("managed_resource", managed_resource)
 
     @property
     @pulumi.getter
@@ -118,18 +145,45 @@ class _ApiKeyState:
         :param pulumi.Input['ApiKeyOwnerArgs'] owner: The owner to which the API Key belongs. The owner can be one of 'iam.v2.User', 'iam.v2.ServiceAccount'.
         :param pulumi.Input[str] secret: (Required String, Sensitive) The secret of the API Key.
         """
+        _ApiKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            disable_wait_for_ready=disable_wait_for_ready,
+            display_name=display_name,
+            managed_resource=managed_resource,
+            owner=owner,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             disable_wait_for_ready: Optional[pulumi.Input[bool]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             managed_resource: Optional[pulumi.Input['ApiKeyManagedResourceArgs']] = None,
+             owner: Optional[pulumi.Input['ApiKeyOwnerArgs']] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if disable_wait_for_ready is None and 'disableWaitForReady' in kwargs:
+            disable_wait_for_ready = kwargs['disableWaitForReady']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if managed_resource is None and 'managedResource' in kwargs:
+            managed_resource = kwargs['managedResource']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_wait_for_ready is not None:
-            pulumi.set(__self__, "disable_wait_for_ready", disable_wait_for_ready)
+            _setter("disable_wait_for_ready", disable_wait_for_ready)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if managed_resource is not None:
-            pulumi.set(__self__, "managed_resource", managed_resource)
+            _setter("managed_resource", managed_resource)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter
@@ -273,6 +327,10 @@ class ApiKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -295,7 +353,17 @@ class ApiKey(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_wait_for_ready"] = disable_wait_for_ready
             __props__.__dict__["display_name"] = display_name
+            if managed_resource is not None and not isinstance(managed_resource, ApiKeyManagedResourceArgs):
+                managed_resource = managed_resource or {}
+                def _setter(key, value):
+                    managed_resource[key] = value
+                ApiKeyManagedResourceArgs._configure(_setter, **managed_resource)
             __props__.__dict__["managed_resource"] = managed_resource
+            if owner is not None and not isinstance(owner, ApiKeyOwnerArgs):
+                owner = owner or {}
+                def _setter(key, value):
+                    owner[key] = value
+                ApiKeyOwnerArgs._configure(_setter, **owner)
             if owner is None and not opts.urn:
                 raise TypeError("Missing required property 'owner'")
             __props__.__dict__["owner"] = owner

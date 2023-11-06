@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,39 @@ class NetworkLinkServiceArgs:
         :param pulumi.Input[str] description: The description of the Network Link Service.
         :param pulumi.Input[str] display_name: The name of the Network Link Service.
         """
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "network", network)
+        NetworkLinkServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment=environment,
+            network=network,
+            accept=accept,
+            description=description,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment: Optional[pulumi.Input['NetworkLinkServiceEnvironmentArgs']] = None,
+             network: Optional[pulumi.Input['NetworkLinkServiceNetworkArgs']] = None,
+             accept: Optional[pulumi.Input['NetworkLinkServiceAcceptArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if environment is None:
+            raise TypeError("Missing 'environment' argument")
+        if network is None:
+            raise TypeError("Missing 'network' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("environment", environment)
+        _setter("network", network)
         if accept is not None:
-            pulumi.set(__self__, "accept", accept)
+            _setter("accept", accept)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter
@@ -115,18 +140,43 @@ class _NetworkLinkServiceState:
                accounts.
         :param pulumi.Input[str] resource_name: (Required String) The Confluent Resource Name of the Network Link Service.
         """
+        _NetworkLinkServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accept=accept,
+            description=description,
+            display_name=display_name,
+            environment=environment,
+            network=network,
+            resource_name=resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accept: Optional[pulumi.Input['NetworkLinkServiceAcceptArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['NetworkLinkServiceEnvironmentArgs']] = None,
+             network: Optional[pulumi.Input['NetworkLinkServiceNetworkArgs']] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+
         if accept is not None:
-            pulumi.set(__self__, "accept", accept)
+            _setter("accept", accept)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
 
     @property
     @pulumi.getter
@@ -256,6 +306,10 @@ class NetworkLinkService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkLinkServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -275,12 +329,27 @@ class NetworkLinkService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkLinkServiceArgs.__new__(NetworkLinkServiceArgs)
 
+            if accept is not None and not isinstance(accept, NetworkLinkServiceAcceptArgs):
+                accept = accept or {}
+                def _setter(key, value):
+                    accept[key] = value
+                NetworkLinkServiceAcceptArgs._configure(_setter, **accept)
             __props__.__dict__["accept"] = accept
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
+            if environment is not None and not isinstance(environment, NetworkLinkServiceEnvironmentArgs):
+                environment = environment or {}
+                def _setter(key, value):
+                    environment[key] = value
+                NetworkLinkServiceEnvironmentArgs._configure(_setter, **environment)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            if network is not None and not isinstance(network, NetworkLinkServiceNetworkArgs):
+                network = network or {}
+                def _setter(key, value):
+                    network[key] = value
+                NetworkLinkServiceNetworkArgs._configure(_setter, **network)
             if network is None and not opts.urn:
                 raise TypeError("Missing required property 'network'")
             __props__.__dict__["network"] = network

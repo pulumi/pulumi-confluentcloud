@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['CustomConnectorPluginArgs', 'CustomConnectorPlugin']
@@ -31,16 +31,57 @@ class CustomConnectorPluginArgs:
         :param pulumi.Input[str] documentation_link: The documentation link of the Custom Connector Plugin.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sensitive_config_properties: The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.
         """
-        pulumi.set(__self__, "connector_class", connector_class)
-        pulumi.set(__self__, "connector_type", connector_type)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "filename", filename)
+        CustomConnectorPluginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_class=connector_class,
+            connector_type=connector_type,
+            display_name=display_name,
+            filename=filename,
+            description=description,
+            documentation_link=documentation_link,
+            sensitive_config_properties=sensitive_config_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_class: Optional[pulumi.Input[str]] = None,
+             connector_type: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             documentation_link: Optional[pulumi.Input[str]] = None,
+             sensitive_config_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if connector_class is None and 'connectorClass' in kwargs:
+            connector_class = kwargs['connectorClass']
+        if connector_class is None:
+            raise TypeError("Missing 'connector_class' argument")
+        if connector_type is None and 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if connector_type is None:
+            raise TypeError("Missing 'connector_type' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if filename is None:
+            raise TypeError("Missing 'filename' argument")
+        if documentation_link is None and 'documentationLink' in kwargs:
+            documentation_link = kwargs['documentationLink']
+        if sensitive_config_properties is None and 'sensitiveConfigProperties' in kwargs:
+            sensitive_config_properties = kwargs['sensitiveConfigProperties']
+
+        _setter("connector_class", connector_class)
+        _setter("connector_type", connector_type)
+        _setter("display_name", display_name)
+        _setter("filename", filename)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if documentation_link is not None:
-            pulumi.set(__self__, "documentation_link", documentation_link)
+            _setter("documentation_link", documentation_link)
         if sensitive_config_properties is not None:
-            pulumi.set(__self__, "sensitive_config_properties", sensitive_config_properties)
+            _setter("sensitive_config_properties", sensitive_config_properties)
 
     @property
     @pulumi.getter(name="connectorClass")
@@ -147,20 +188,53 @@ class _CustomConnectorPluginState:
         :param pulumi.Input[str] filename: The path to the Custom Connector Plugin archive to be uploaded. Accepted archive formats are: `.jar`, `.zip`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sensitive_config_properties: The list of sensitive properties. A sensitive property is a connector configuration property that must be hidden after a user enters the property value when setting up the connector, for example, passwords, keys, and tokens. Refer to the developer documentation and add all required and optional sensitive properties that a user could potentially configure for the connector. Marking a property as sensitive ensures that these fields are handled appropriately within the Confluent infrastructure. This includes masking fields, for example in exception logging, and encrypting field values in the underlying data store. You must identify all sensitive properties. Failure to identify sensitive properties can result in the sensitive property value being stored in plain text rather than in encrypted format. Only add connector-specific sensitive properties. Kafka keys, passwords, and service account information should not be entered here.
         """
+        _CustomConnectorPluginState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_class=connector_class,
+            connector_type=connector_type,
+            description=description,
+            display_name=display_name,
+            documentation_link=documentation_link,
+            filename=filename,
+            sensitive_config_properties=sensitive_config_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_class: Optional[pulumi.Input[str]] = None,
+             connector_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             documentation_link: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             sensitive_config_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if connector_class is None and 'connectorClass' in kwargs:
+            connector_class = kwargs['connectorClass']
+        if connector_type is None and 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if documentation_link is None and 'documentationLink' in kwargs:
+            documentation_link = kwargs['documentationLink']
+        if sensitive_config_properties is None and 'sensitiveConfigProperties' in kwargs:
+            sensitive_config_properties = kwargs['sensitiveConfigProperties']
+
         if connector_class is not None:
-            pulumi.set(__self__, "connector_class", connector_class)
+            _setter("connector_class", connector_class)
         if connector_type is not None:
-            pulumi.set(__self__, "connector_type", connector_type)
+            _setter("connector_type", connector_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if documentation_link is not None:
-            pulumi.set(__self__, "documentation_link", documentation_link)
+            _setter("documentation_link", documentation_link)
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
         if sensitive_config_properties is not None:
-            pulumi.set(__self__, "sensitive_config_properties", sensitive_config_properties)
+            _setter("sensitive_config_properties", sensitive_config_properties)
 
     @property
     @pulumi.getter(name="connectorClass")
@@ -338,6 +412,10 @@ class CustomConnectorPlugin(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomConnectorPluginArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

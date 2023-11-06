@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,9 +23,26 @@ class InvitationArgs:
         :param pulumi.Input[str] email: The user/invitee's email address.
         :param pulumi.Input[str] auth_type: Accepted values are: `AUTH_TYPE_LOCAL` and `AUTH_TYPE_SSO`. The user/invitee's authentication type. Note that only the [`OrganizationAdmin role`](https://docs.confluent.io/cloud/current/access-management/access-control/cloud-rbac.html#organizationadmin) can invite `AUTH_TYPE_LOCAL` users to SSO organizations. The user's auth_type is set as `AUTH_TYPE_SSO` by default if the organization has SSO enabled. Otherwise, the user's auth_type is `AUTH_TYPE_LOCAL` by default.
         """
-        pulumi.set(__self__, "email", email)
+        InvitationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            auth_type=auth_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[pulumi.Input[str]] = None,
+             auth_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if auth_type is None and 'authType' in kwargs:
+            auth_type = kwargs['authType']
+
+        _setter("email", email)
         if auth_type is not None:
-            pulumi.set(__self__, "auth_type", auth_type)
+            _setter("auth_type", auth_type)
 
     @property
     @pulumi.getter
@@ -72,20 +89,49 @@ class _InvitationState:
         :param pulumi.Input[str] status: (Optional String) The status of invitations. Accepted values are: `INVITE_STATUS_SENT`,`INVITE_STATUS_STAGED`,`INVITE_STATUS_ACCEPTED`,`INVITE_STATUS_EXPIRED`, and `INVITE_STATUS_DEACTIVATED`.
         :param pulumi.Input[Sequence[pulumi.Input['InvitationUserArgs']]] users: (Required Configuration Block) supports the following:
         """
+        _InvitationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accepted_at=accepted_at,
+            auth_type=auth_type,
+            creators=creators,
+            email=email,
+            expires_at=expires_at,
+            status=status,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accepted_at: Optional[pulumi.Input[str]] = None,
+             auth_type: Optional[pulumi.Input[str]] = None,
+             creators: Optional[pulumi.Input[Sequence[pulumi.Input['InvitationCreatorArgs']]]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             expires_at: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input['InvitationUserArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if accepted_at is None and 'acceptedAt' in kwargs:
+            accepted_at = kwargs['acceptedAt']
+        if auth_type is None and 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if expires_at is None and 'expiresAt' in kwargs:
+            expires_at = kwargs['expiresAt']
+
         if accepted_at is not None:
-            pulumi.set(__self__, "accepted_at", accepted_at)
+            _setter("accepted_at", accepted_at)
         if auth_type is not None:
-            pulumi.set(__self__, "auth_type", auth_type)
+            _setter("auth_type", auth_type)
         if creators is not None:
-            pulumi.set(__self__, "creators", creators)
+            _setter("creators", creators)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if expires_at is not None:
-            pulumi.set(__self__, "expires_at", expires_at)
+            _setter("expires_at", expires_at)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter(name="acceptedAt")
@@ -255,6 +301,10 @@ class Invitation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InvitationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
