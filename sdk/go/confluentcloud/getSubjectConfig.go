@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupSubjectConfig(ctx *pulumi.Context, args *LookupSubjectConfigArgs, opts ...pulumi.InvokeOption) (*LookupSubjectConfigResult, error) {
@@ -84,12 +83,6 @@ func (o LookupSubjectConfigResultOutput) ToLookupSubjectConfigResultOutput() Loo
 
 func (o LookupSubjectConfigResultOutput) ToLookupSubjectConfigResultOutputWithContext(ctx context.Context) LookupSubjectConfigResultOutput {
 	return o
-}
-
-func (o LookupSubjectConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubjectConfigResult] {
-	return pulumix.Output[LookupSubjectConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Required String) The Compatibility Level of the specified subject. Accepted values are: `BACKWARD`, `BACKWARD_TRANSITIVE`, `FORWARD`, `FORWARD_TRANSITIVE`, `FULL`, `FULL_TRANSITIVE`, and `NONE`. See the [Compatibility Types](https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types) for more details.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -201,12 +200,6 @@ func (i *KsqlCluster) ToKsqlClusterOutputWithContext(ctx context.Context) KsqlCl
 	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterOutput)
 }
 
-func (i *KsqlCluster) ToOutput(ctx context.Context) pulumix.Output[*KsqlCluster] {
-	return pulumix.Output[*KsqlCluster]{
-		OutputState: i.ToKsqlClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KsqlClusterArrayInput is an input type that accepts KsqlClusterArray and KsqlClusterArrayOutput values.
 // You can construct a concrete instance of `KsqlClusterArrayInput` via:
 //
@@ -230,12 +223,6 @@ func (i KsqlClusterArray) ToKsqlClusterArrayOutput() KsqlClusterArrayOutput {
 
 func (i KsqlClusterArray) ToKsqlClusterArrayOutputWithContext(ctx context.Context) KsqlClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterArrayOutput)
-}
-
-func (i KsqlClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*KsqlCluster] {
-	return pulumix.Output[[]*KsqlCluster]{
-		OutputState: i.ToKsqlClusterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // KsqlClusterMapInput is an input type that accepts KsqlClusterMap and KsqlClusterMapOutput values.
@@ -263,12 +250,6 @@ func (i KsqlClusterMap) ToKsqlClusterMapOutputWithContext(ctx context.Context) K
 	return pulumi.ToOutputWithContext(ctx, i).(KsqlClusterMapOutput)
 }
 
-func (i KsqlClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KsqlCluster] {
-	return pulumix.Output[map[string]*KsqlCluster]{
-		OutputState: i.ToKsqlClusterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KsqlClusterOutput struct{ *pulumi.OutputState }
 
 func (KsqlClusterOutput) ElementType() reflect.Type {
@@ -281,12 +262,6 @@ func (o KsqlClusterOutput) ToKsqlClusterOutput() KsqlClusterOutput {
 
 func (o KsqlClusterOutput) ToKsqlClusterOutputWithContext(ctx context.Context) KsqlClusterOutput {
 	return o
-}
-
-func (o KsqlClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*KsqlCluster] {
-	return pulumix.Output[*KsqlCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Required String) An API Version of the schema version of the ksqlDB cluster, for example, `ksqldbcm/v2`.
@@ -361,12 +336,6 @@ func (o KsqlClusterArrayOutput) ToKsqlClusterArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o KsqlClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KsqlCluster] {
-	return pulumix.Output[[]*KsqlCluster]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KsqlClusterArrayOutput) Index(i pulumi.IntInput) KsqlClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KsqlCluster {
 		return vs[0].([]*KsqlCluster)[vs[1].(int)]
@@ -385,12 +354,6 @@ func (o KsqlClusterMapOutput) ToKsqlClusterMapOutput() KsqlClusterMapOutput {
 
 func (o KsqlClusterMapOutput) ToKsqlClusterMapOutputWithContext(ctx context.Context) KsqlClusterMapOutput {
 	return o
-}
-
-func (o KsqlClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KsqlCluster] {
-	return pulumix.Output[map[string]*KsqlCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KsqlClusterMapOutput) MapIndex(k pulumi.StringInput) KsqlClusterOutput {

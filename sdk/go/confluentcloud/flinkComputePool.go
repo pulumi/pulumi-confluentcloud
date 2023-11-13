@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -226,12 +225,6 @@ func (i *FlinkComputePool) ToFlinkComputePoolOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(FlinkComputePoolOutput)
 }
 
-func (i *FlinkComputePool) ToOutput(ctx context.Context) pulumix.Output[*FlinkComputePool] {
-	return pulumix.Output[*FlinkComputePool]{
-		OutputState: i.ToFlinkComputePoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FlinkComputePoolArrayInput is an input type that accepts FlinkComputePoolArray and FlinkComputePoolArrayOutput values.
 // You can construct a concrete instance of `FlinkComputePoolArrayInput` via:
 //
@@ -255,12 +248,6 @@ func (i FlinkComputePoolArray) ToFlinkComputePoolArrayOutput() FlinkComputePoolA
 
 func (i FlinkComputePoolArray) ToFlinkComputePoolArrayOutputWithContext(ctx context.Context) FlinkComputePoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlinkComputePoolArrayOutput)
-}
-
-func (i FlinkComputePoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*FlinkComputePool] {
-	return pulumix.Output[[]*FlinkComputePool]{
-		OutputState: i.ToFlinkComputePoolArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FlinkComputePoolMapInput is an input type that accepts FlinkComputePoolMap and FlinkComputePoolMapOutput values.
@@ -288,12 +275,6 @@ func (i FlinkComputePoolMap) ToFlinkComputePoolMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FlinkComputePoolMapOutput)
 }
 
-func (i FlinkComputePoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlinkComputePool] {
-	return pulumix.Output[map[string]*FlinkComputePool]{
-		OutputState: i.ToFlinkComputePoolMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlinkComputePoolOutput struct{ *pulumi.OutputState }
 
 func (FlinkComputePoolOutput) ElementType() reflect.Type {
@@ -306,12 +287,6 @@ func (o FlinkComputePoolOutput) ToFlinkComputePoolOutput() FlinkComputePoolOutpu
 
 func (o FlinkComputePoolOutput) ToFlinkComputePoolOutputWithContext(ctx context.Context) FlinkComputePoolOutput {
 	return o
-}
-
-func (o FlinkComputePoolOutput) ToOutput(ctx context.Context) pulumix.Output[*FlinkComputePool] {
-	return pulumix.Output[*FlinkComputePool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Required String) The API Version of the schema version of the Flink Compute Pool, for example, `fcpm/v2`.
@@ -378,12 +353,6 @@ func (o FlinkComputePoolArrayOutput) ToFlinkComputePoolArrayOutputWithContext(ct
 	return o
 }
 
-func (o FlinkComputePoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FlinkComputePool] {
-	return pulumix.Output[[]*FlinkComputePool]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlinkComputePoolArrayOutput) Index(i pulumi.IntInput) FlinkComputePoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlinkComputePool {
 		return vs[0].([]*FlinkComputePool)[vs[1].(int)]
@@ -402,12 +371,6 @@ func (o FlinkComputePoolMapOutput) ToFlinkComputePoolMapOutput() FlinkComputePoo
 
 func (o FlinkComputePoolMapOutput) ToFlinkComputePoolMapOutputWithContext(ctx context.Context) FlinkComputePoolMapOutput {
 	return o
-}
-
-func (o FlinkComputePoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlinkComputePool] {
-	return pulumix.Output[map[string]*FlinkComputePool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlinkComputePoolMapOutput) MapIndex(k pulumi.StringInput) FlinkComputePoolOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type TfImporter struct {
@@ -101,12 +100,6 @@ func (i *TfImporter) ToTfImporterOutputWithContext(ctx context.Context) TfImport
 	return pulumi.ToOutputWithContext(ctx, i).(TfImporterOutput)
 }
 
-func (i *TfImporter) ToOutput(ctx context.Context) pulumix.Output[*TfImporter] {
-	return pulumix.Output[*TfImporter]{
-		OutputState: i.ToTfImporterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TfImporterArrayInput is an input type that accepts TfImporterArray and TfImporterArrayOutput values.
 // You can construct a concrete instance of `TfImporterArrayInput` via:
 //
@@ -130,12 +123,6 @@ func (i TfImporterArray) ToTfImporterArrayOutput() TfImporterArrayOutput {
 
 func (i TfImporterArray) ToTfImporterArrayOutputWithContext(ctx context.Context) TfImporterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TfImporterArrayOutput)
-}
-
-func (i TfImporterArray) ToOutput(ctx context.Context) pulumix.Output[[]*TfImporter] {
-	return pulumix.Output[[]*TfImporter]{
-		OutputState: i.ToTfImporterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TfImporterMapInput is an input type that accepts TfImporterMap and TfImporterMapOutput values.
@@ -163,12 +150,6 @@ func (i TfImporterMap) ToTfImporterMapOutputWithContext(ctx context.Context) TfI
 	return pulumi.ToOutputWithContext(ctx, i).(TfImporterMapOutput)
 }
 
-func (i TfImporterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TfImporter] {
-	return pulumix.Output[map[string]*TfImporter]{
-		OutputState: i.ToTfImporterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TfImporterOutput struct{ *pulumi.OutputState }
 
 func (TfImporterOutput) ElementType() reflect.Type {
@@ -181,12 +162,6 @@ func (o TfImporterOutput) ToTfImporterOutput() TfImporterOutput {
 
 func (o TfImporterOutput) ToTfImporterOutputWithContext(ctx context.Context) TfImporterOutput {
 	return o
-}
-
-func (o TfImporterOutput) ToOutput(ctx context.Context) pulumix.Output[*TfImporter] {
-	return pulumix.Output[*TfImporter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TfImporterOutput) OutputPath() pulumi.StringPtrOutput {
@@ -212,12 +187,6 @@ func (o TfImporterArrayOutput) ToTfImporterArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o TfImporterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TfImporter] {
-	return pulumix.Output[[]*TfImporter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TfImporterArrayOutput) Index(i pulumi.IntInput) TfImporterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TfImporter {
 		return vs[0].([]*TfImporter)[vs[1].(int)]
@@ -236,12 +205,6 @@ func (o TfImporterMapOutput) ToTfImporterMapOutput() TfImporterMapOutput {
 
 func (o TfImporterMapOutput) ToTfImporterMapOutputWithContext(ctx context.Context) TfImporterMapOutput {
 	return o
-}
-
-func (o TfImporterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TfImporter] {
-	return pulumix.Output[map[string]*TfImporter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TfImporterMapOutput) MapIndex(k pulumi.StringInput) TfImporterOutput {

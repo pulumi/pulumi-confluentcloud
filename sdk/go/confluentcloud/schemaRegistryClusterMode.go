@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -139,12 +138,6 @@ func (i *SchemaRegistryClusterMode) ToSchemaRegistryClusterModeOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterModeOutput)
 }
 
-func (i *SchemaRegistryClusterMode) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterMode] {
-	return pulumix.Output[*SchemaRegistryClusterMode]{
-		OutputState: i.ToSchemaRegistryClusterModeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SchemaRegistryClusterModeArrayInput is an input type that accepts SchemaRegistryClusterModeArray and SchemaRegistryClusterModeArrayOutput values.
 // You can construct a concrete instance of `SchemaRegistryClusterModeArrayInput` via:
 //
@@ -168,12 +161,6 @@ func (i SchemaRegistryClusterModeArray) ToSchemaRegistryClusterModeArrayOutput()
 
 func (i SchemaRegistryClusterModeArray) ToSchemaRegistryClusterModeArrayOutputWithContext(ctx context.Context) SchemaRegistryClusterModeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterModeArrayOutput)
-}
-
-func (i SchemaRegistryClusterModeArray) ToOutput(ctx context.Context) pulumix.Output[[]*SchemaRegistryClusterMode] {
-	return pulumix.Output[[]*SchemaRegistryClusterMode]{
-		OutputState: i.ToSchemaRegistryClusterModeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SchemaRegistryClusterModeMapInput is an input type that accepts SchemaRegistryClusterModeMap and SchemaRegistryClusterModeMapOutput values.
@@ -201,12 +188,6 @@ func (i SchemaRegistryClusterModeMap) ToSchemaRegistryClusterModeMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaRegistryClusterModeMapOutput)
 }
 
-func (i SchemaRegistryClusterModeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SchemaRegistryClusterMode] {
-	return pulumix.Output[map[string]*SchemaRegistryClusterMode]{
-		OutputState: i.ToSchemaRegistryClusterModeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SchemaRegistryClusterModeOutput struct{ *pulumi.OutputState }
 
 func (SchemaRegistryClusterModeOutput) ElementType() reflect.Type {
@@ -219,12 +200,6 @@ func (o SchemaRegistryClusterModeOutput) ToSchemaRegistryClusterModeOutput() Sch
 
 func (o SchemaRegistryClusterModeOutput) ToSchemaRegistryClusterModeOutputWithContext(ctx context.Context) SchemaRegistryClusterModeOutput {
 	return o
-}
-
-func (o SchemaRegistryClusterModeOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaRegistryClusterMode] {
-	return pulumix.Output[*SchemaRegistryClusterMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Cluster API Credentials.
@@ -262,12 +237,6 @@ func (o SchemaRegistryClusterModeArrayOutput) ToSchemaRegistryClusterModeArrayOu
 	return o
 }
 
-func (o SchemaRegistryClusterModeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SchemaRegistryClusterMode] {
-	return pulumix.Output[[]*SchemaRegistryClusterMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchemaRegistryClusterModeArrayOutput) Index(i pulumi.IntInput) SchemaRegistryClusterModeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SchemaRegistryClusterMode {
 		return vs[0].([]*SchemaRegistryClusterMode)[vs[1].(int)]
@@ -286,12 +255,6 @@ func (o SchemaRegistryClusterModeMapOutput) ToSchemaRegistryClusterModeMapOutput
 
 func (o SchemaRegistryClusterModeMapOutput) ToSchemaRegistryClusterModeMapOutputWithContext(ctx context.Context) SchemaRegistryClusterModeMapOutput {
 	return o
-}
-
-func (o SchemaRegistryClusterModeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SchemaRegistryClusterMode] {
-	return pulumix.Output[map[string]*SchemaRegistryClusterMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchemaRegistryClusterModeMapOutput) MapIndex(k pulumi.StringInput) SchemaRegistryClusterModeOutput {

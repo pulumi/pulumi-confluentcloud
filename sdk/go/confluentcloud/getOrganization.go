@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -82,12 +81,6 @@ func (o GetOrganizationResultOutput) ToGetOrganizationResultOutput() GetOrganiza
 
 func (o GetOrganizationResultOutput) ToGetOrganizationResultOutputWithContext(ctx context.Context) GetOrganizationResultOutput {
 	return o
-}
-
-func (o GetOrganizationResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationResult] {
-	return pulumix.Output[GetOrganizationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Required String) The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
