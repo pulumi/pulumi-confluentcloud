@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## # KsqlCluster Data Source
@@ -147,12 +146,6 @@ func (o LookupKsqlClusterResultOutput) ToLookupKsqlClusterResultOutput() LookupK
 
 func (o LookupKsqlClusterResultOutput) ToLookupKsqlClusterResultOutputWithContext(ctx context.Context) LookupKsqlClusterResultOutput {
 	return o
-}
-
-func (o LookupKsqlClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupKsqlClusterResult] {
-	return pulumix.Output[LookupKsqlClusterResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Required String) An API Version of the schema version of the ksqlDB cluster, for example, `ksqldbcm/v2`.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetSchemas(ctx *pulumi.Context, args *GetSchemasArgs, opts ...pulumi.InvokeOption) (*GetSchemasResult, error) {
@@ -82,12 +81,6 @@ func (o GetSchemasResultOutput) ToGetSchemasResultOutput() GetSchemasResultOutpu
 
 func (o GetSchemasResultOutput) ToGetSchemasResultOutputWithContext(ctx context.Context) GetSchemasResultOutput {
 	return o
-}
-
-func (o GetSchemasResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemasResult] {
-	return pulumix.Output[GetSchemasResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSchemasResultOutput) Credentials() GetSchemasCredentialsPtrOutput {

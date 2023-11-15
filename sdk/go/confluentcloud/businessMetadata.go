@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -165,12 +164,6 @@ func (i *BusinessMetadata) ToBusinessMetadataOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataOutput)
 }
 
-func (i *BusinessMetadata) ToOutput(ctx context.Context) pulumix.Output[*BusinessMetadata] {
-	return pulumix.Output[*BusinessMetadata]{
-		OutputState: i.ToBusinessMetadataOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BusinessMetadataArrayInput is an input type that accepts BusinessMetadataArray and BusinessMetadataArrayOutput values.
 // You can construct a concrete instance of `BusinessMetadataArrayInput` via:
 //
@@ -194,12 +187,6 @@ func (i BusinessMetadataArray) ToBusinessMetadataArrayOutput() BusinessMetadataA
 
 func (i BusinessMetadataArray) ToBusinessMetadataArrayOutputWithContext(ctx context.Context) BusinessMetadataArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataArrayOutput)
-}
-
-func (i BusinessMetadataArray) ToOutput(ctx context.Context) pulumix.Output[[]*BusinessMetadata] {
-	return pulumix.Output[[]*BusinessMetadata]{
-		OutputState: i.ToBusinessMetadataArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BusinessMetadataMapInput is an input type that accepts BusinessMetadataMap and BusinessMetadataMapOutput values.
@@ -227,12 +214,6 @@ func (i BusinessMetadataMap) ToBusinessMetadataMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessMetadataMapOutput)
 }
 
-func (i BusinessMetadataMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BusinessMetadata] {
-	return pulumix.Output[map[string]*BusinessMetadata]{
-		OutputState: i.ToBusinessMetadataMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BusinessMetadataOutput struct{ *pulumi.OutputState }
 
 func (BusinessMetadataOutput) ElementType() reflect.Type {
@@ -245,12 +226,6 @@ func (o BusinessMetadataOutput) ToBusinessMetadataOutput() BusinessMetadataOutpu
 
 func (o BusinessMetadataOutput) ToBusinessMetadataOutputWithContext(ctx context.Context) BusinessMetadataOutput {
 	return o
-}
-
-func (o BusinessMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[*BusinessMetadata] {
-	return pulumix.Output[*BusinessMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
@@ -305,12 +280,6 @@ func (o BusinessMetadataArrayOutput) ToBusinessMetadataArrayOutputWithContext(ct
 	return o
 }
 
-func (o BusinessMetadataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BusinessMetadata] {
-	return pulumix.Output[[]*BusinessMetadata]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BusinessMetadataArrayOutput) Index(i pulumi.IntInput) BusinessMetadataOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BusinessMetadata {
 		return vs[0].([]*BusinessMetadata)[vs[1].(int)]
@@ -329,12 +298,6 @@ func (o BusinessMetadataMapOutput) ToBusinessMetadataMapOutput() BusinessMetadat
 
 func (o BusinessMetadataMapOutput) ToBusinessMetadataMapOutputWithContext(ctx context.Context) BusinessMetadataMapOutput {
 	return o
-}
-
-func (o BusinessMetadataMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BusinessMetadata] {
-	return pulumix.Output[map[string]*BusinessMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BusinessMetadataMapOutput) MapIndex(k pulumi.StringInput) BusinessMetadataOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -118,12 +117,6 @@ func (o GetIpAddressesResultOutput) ToGetIpAddressesResultOutput() GetIpAddresse
 
 func (o GetIpAddressesResultOutput) ToGetIpAddressesResultOutputWithContext(ctx context.Context) GetIpAddressesResultOutput {
 	return o
-}
-
-func (o GetIpAddressesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIpAddressesResult] {
-	return pulumix.Output[GetIpAddressesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetIpAddressesResultOutput) Filter() GetIpAddressesFilterPtrOutput {

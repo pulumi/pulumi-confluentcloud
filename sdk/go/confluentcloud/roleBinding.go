@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -137,12 +136,6 @@ func (i *RoleBinding) ToRoleBindingOutputWithContext(ctx context.Context) RoleBi
 	return pulumi.ToOutputWithContext(ctx, i).(RoleBindingOutput)
 }
 
-func (i *RoleBinding) ToOutput(ctx context.Context) pulumix.Output[*RoleBinding] {
-	return pulumix.Output[*RoleBinding]{
-		OutputState: i.ToRoleBindingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RoleBindingArrayInput is an input type that accepts RoleBindingArray and RoleBindingArrayOutput values.
 // You can construct a concrete instance of `RoleBindingArrayInput` via:
 //
@@ -166,12 +159,6 @@ func (i RoleBindingArray) ToRoleBindingArrayOutput() RoleBindingArrayOutput {
 
 func (i RoleBindingArray) ToRoleBindingArrayOutputWithContext(ctx context.Context) RoleBindingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleBindingArrayOutput)
-}
-
-func (i RoleBindingArray) ToOutput(ctx context.Context) pulumix.Output[[]*RoleBinding] {
-	return pulumix.Output[[]*RoleBinding]{
-		OutputState: i.ToRoleBindingArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RoleBindingMapInput is an input type that accepts RoleBindingMap and RoleBindingMapOutput values.
@@ -199,12 +186,6 @@ func (i RoleBindingMap) ToRoleBindingMapOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RoleBindingMapOutput)
 }
 
-func (i RoleBindingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoleBinding] {
-	return pulumix.Output[map[string]*RoleBinding]{
-		OutputState: i.ToRoleBindingMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RoleBindingOutput struct{ *pulumi.OutputState }
 
 func (RoleBindingOutput) ElementType() reflect.Type {
@@ -217,12 +198,6 @@ func (o RoleBindingOutput) ToRoleBindingOutput() RoleBindingOutput {
 
 func (o RoleBindingOutput) ToRoleBindingOutputWithContext(ctx context.Context) RoleBindingOutput {
 	return o
-}
-
-func (o RoleBindingOutput) ToOutput(ctx context.Context) pulumix.Output[*RoleBinding] {
-	return pulumix.Output[*RoleBinding]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A [Confluent Resource Name(CRN)](<https://docs.confluent.io/cloud/current/api.html#section/Identifiers-and-URLs/Confluent-Resource-Names-(CRNs)>) that specifies the scope and resource patterns necessary for the role to bind.
@@ -254,12 +229,6 @@ func (o RoleBindingArrayOutput) ToRoleBindingArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o RoleBindingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RoleBinding] {
-	return pulumix.Output[[]*RoleBinding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoleBindingArrayOutput) Index(i pulumi.IntInput) RoleBindingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RoleBinding {
 		return vs[0].([]*RoleBinding)[vs[1].(int)]
@@ -278,12 +247,6 @@ func (o RoleBindingMapOutput) ToRoleBindingMapOutput() RoleBindingMapOutput {
 
 func (o RoleBindingMapOutput) ToRoleBindingMapOutputWithContext(ctx context.Context) RoleBindingMapOutput {
 	return o
-}
-
-func (o RoleBindingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoleBinding] {
-	return pulumix.Output[map[string]*RoleBinding]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RoleBindingMapOutput) MapIndex(k pulumi.StringInput) RoleBindingOutput {

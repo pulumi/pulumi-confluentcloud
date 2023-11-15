@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupTagBinding(ctx *pulumi.Context, args *LookupTagBindingArgs, opts ...pulumi.InvokeOption) (*LookupTagBindingResult, error) {
@@ -96,12 +95,6 @@ func (o LookupTagBindingResultOutput) ToLookupTagBindingResultOutput() LookupTag
 
 func (o LookupTagBindingResultOutput) ToLookupTagBindingResultOutputWithContext(ctx context.Context) LookupTagBindingResultOutput {
 	return o
-}
-
-func (o LookupTagBindingResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTagBindingResult] {
-	return pulumix.Output[LookupTagBindingResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTagBindingResultOutput) Credentials() GetTagBindingCredentialsPtrOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -218,12 +217,6 @@ func (i *SchemaExporter) ToSchemaExporterOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterOutput)
 }
 
-func (i *SchemaExporter) ToOutput(ctx context.Context) pulumix.Output[*SchemaExporter] {
-	return pulumix.Output[*SchemaExporter]{
-		OutputState: i.ToSchemaExporterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SchemaExporterArrayInput is an input type that accepts SchemaExporterArray and SchemaExporterArrayOutput values.
 // You can construct a concrete instance of `SchemaExporterArrayInput` via:
 //
@@ -247,12 +240,6 @@ func (i SchemaExporterArray) ToSchemaExporterArrayOutput() SchemaExporterArrayOu
 
 func (i SchemaExporterArray) ToSchemaExporterArrayOutputWithContext(ctx context.Context) SchemaExporterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterArrayOutput)
-}
-
-func (i SchemaExporterArray) ToOutput(ctx context.Context) pulumix.Output[[]*SchemaExporter] {
-	return pulumix.Output[[]*SchemaExporter]{
-		OutputState: i.ToSchemaExporterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SchemaExporterMapInput is an input type that accepts SchemaExporterMap and SchemaExporterMapOutput values.
@@ -280,12 +267,6 @@ func (i SchemaExporterMap) ToSchemaExporterMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaExporterMapOutput)
 }
 
-func (i SchemaExporterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SchemaExporter] {
-	return pulumix.Output[map[string]*SchemaExporter]{
-		OutputState: i.ToSchemaExporterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SchemaExporterOutput struct{ *pulumi.OutputState }
 
 func (SchemaExporterOutput) ElementType() reflect.Type {
@@ -298,12 +279,6 @@ func (o SchemaExporterOutput) ToSchemaExporterOutput() SchemaExporterOutput {
 
 func (o SchemaExporterOutput) ToSchemaExporterOutputWithContext(ctx context.Context) SchemaExporterOutput {
 	return o
-}
-
-func (o SchemaExporterOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaExporter] {
-	return pulumix.Output[*SchemaExporter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Block for custom *nonsensitive* configuration properties:
@@ -380,12 +355,6 @@ func (o SchemaExporterArrayOutput) ToSchemaExporterArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o SchemaExporterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SchemaExporter] {
-	return pulumix.Output[[]*SchemaExporter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchemaExporterArrayOutput) Index(i pulumi.IntInput) SchemaExporterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SchemaExporter {
 		return vs[0].([]*SchemaExporter)[vs[1].(int)]
@@ -404,12 +373,6 @@ func (o SchemaExporterMapOutput) ToSchemaExporterMapOutput() SchemaExporterMapOu
 
 func (o SchemaExporterMapOutput) ToSchemaExporterMapOutputWithContext(ctx context.Context) SchemaExporterMapOutput {
 	return o
-}
-
-func (o SchemaExporterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SchemaExporter] {
-	return pulumix.Output[map[string]*SchemaExporter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchemaExporterMapOutput) MapIndex(k pulumi.StringInput) SchemaExporterOutput {

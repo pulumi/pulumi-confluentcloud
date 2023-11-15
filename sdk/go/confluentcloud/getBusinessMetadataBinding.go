@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupBusinessMetadataBinding(ctx *pulumi.Context, args *LookupBusinessMetadataBindingArgs, opts ...pulumi.InvokeOption) (*LookupBusinessMetadataBindingResult, error) {
@@ -94,12 +93,6 @@ func (o LookupBusinessMetadataBindingResultOutput) ToLookupBusinessMetadataBindi
 
 func (o LookupBusinessMetadataBindingResultOutput) ToLookupBusinessMetadataBindingResultOutputWithContext(ctx context.Context) LookupBusinessMetadataBindingResultOutput {
 	return o
-}
-
-func (o LookupBusinessMetadataBindingResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBusinessMetadataBindingResult] {
-	return pulumix.Output[LookupBusinessMetadataBindingResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Optional Map) The block of key-value pair attributes.
