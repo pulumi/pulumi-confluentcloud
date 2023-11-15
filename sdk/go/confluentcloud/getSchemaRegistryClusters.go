@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -84,12 +83,6 @@ func (o GetSchemaRegistryClustersResultOutput) ToGetSchemaRegistryClustersResult
 
 func (o GetSchemaRegistryClustersResultOutput) ToGetSchemaRegistryClustersResultOutputWithContext(ctx context.Context) GetSchemaRegistryClustersResultOutput {
 	return o
-}
-
-func (o GetSchemaRegistryClustersResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchemaRegistryClustersResult] {
-	return pulumix.Output[GetSchemaRegistryClustersResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Required List of Object) List of Schema Registry clusters. Each Schema Registry cluster object exports the following attributes:

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -85,12 +84,6 @@ func (o GetEnvironmentsResultOutput) ToGetEnvironmentsResultOutput() GetEnvironm
 
 func (o GetEnvironmentsResultOutput) ToGetEnvironmentsResultOutputWithContext(ctx context.Context) GetEnvironmentsResultOutput {
 	return o
-}
-
-func (o GetEnvironmentsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEnvironmentsResult] {
-	return pulumix.Output[GetEnvironmentsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

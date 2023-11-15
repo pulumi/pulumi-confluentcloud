@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -135,12 +134,6 @@ func (o LookupIdentityPoolResultOutput) ToLookupIdentityPoolResultOutput() Looku
 
 func (o LookupIdentityPoolResultOutput) ToLookupIdentityPoolResultOutputWithContext(ctx context.Context) LookupIdentityPoolResultOutput {
 	return o
-}
-
-func (o LookupIdentityPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIdentityPoolResult] {
-	return pulumix.Output[LookupIdentityPoolResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Required String) A description for the Identity Pool.
