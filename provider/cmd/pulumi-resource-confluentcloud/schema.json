@@ -126,7 +126,7 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.\n",
+                    "description": "The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.\n",
                     "willReplaceOnChanges": true
                 },
                 "kind": {
@@ -160,17 +160,17 @@
             "properties": {
                 "apiVersion": {
                     "type": "string",
-                    "description": "The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.\n",
+                    "description": "The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.\n",
                     "willReplaceOnChanges": true
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.\n",
+                    "description": "The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.\n",
                     "willReplaceOnChanges": true
                 },
                 "kind": {
                     "type": "string",
-                    "description": "The kind of the managed resource that the API Key associated with, for example, `Cluster`.\n",
+                    "description": "The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -189,7 +189,7 @@
                 },
                 "description": {
                     "type": "string",
-                    "description": "The description of the Business Metadata.\n"
+                    "description": "The description of this attribute.\n"
                 },
                 "isOptional": {
                     "type": "boolean",
@@ -362,7 +362,7 @@
             "properties": {
                 "bootstrapEndpoint": {
                     "type": "string",
-                    "description": "The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
+                    "description": "The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
                     "willReplaceOnChanges": true
                 },
                 "credentials": {
@@ -371,12 +371,12 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of the remote Kafka cluster, for example, `lkc-abc123`.\n",
+                    "description": "The ID of the destination Kafka cluster, for example, `lkc-abc123`.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "description": "The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -408,7 +408,7 @@
             "properties": {
                 "bootstrapEndpoint": {
                     "type": "string",
-                    "description": "The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
+                    "description": "The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
                     "willReplaceOnChanges": true
                 },
                 "credentials": {
@@ -417,12 +417,12 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of the remote Kafka cluster, for example, `lkc-abc123`.\n",
+                    "description": "The ID of the local Kafka cluster, for example, `lkc-abc123`.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "description": "The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -500,7 +500,7 @@
             "properties": {
                 "bootstrapEndpoint": {
                     "type": "string",
-                    "description": "The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
+                    "description": "The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
                     "willReplaceOnChanges": true
                 },
                 "credentials": {
@@ -509,12 +509,12 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of the remote Kafka cluster, for example, `lkc-abc123`.\n",
+                    "description": "The ID of the source Kafka cluster, for example, `lkc-abc123`.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "description": "The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -546,7 +546,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.\n",
+                    "description": "The ID of the Environment that the connector belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -675,7 +675,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.\n\n\u003e **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.\n\n\u003e **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.\n",
+                    "description": "The ID of the Kafka Cluster where the Kafka Client Quota is applied, for example, `lkc-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -785,7 +785,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.\n",
+                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -798,7 +798,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.\n",
+                    "description": "The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -926,7 +926,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the associated service or user account, for example, `sa-abc123`.\n",
+                    "description": "The ID of the associated Environment, for example, `env-xyz456`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -939,7 +939,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the associated service or user account, for example, `sa-abc123`.\n",
+                    "description": "The ID of the associated Kafka cluster, for example, `lkc-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1065,7 +1065,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
+                    "description": "The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1078,7 +1078,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
+                    "description": "The ID of the Network Link Service, for example, `nls-g3e1ox`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1118,7 +1118,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.\n",
+                    "description": "The ID of the Environment that the Network Link Service belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1170,7 +1170,7 @@
                 },
                 "customerRegion": {
                     "type": "string",
-                    "description": "The region of the Azure peer VNet.\n",
+                    "description": "The region of the AWS peer VPC.\n",
                     "willReplaceOnChanges": true
                 },
                 "routes": {
@@ -1224,7 +1224,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Network that the Peering belongs to, for example, `n-abc123`.\n",
+                    "description": "The ID of the Environment that the Peering belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1300,7 +1300,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.\n",
+                    "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1403,7 +1403,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The unique identifier for the private link attachment.\n",
+                    "description": "The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1590,7 +1590,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.\n",
+                    "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1850,7 +1850,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.\n",
+                    "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -2240,7 +2240,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the Kafka cluster, for example, `lkc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -2301,7 +2301,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the Kafka cluster, for example, `lkc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -2351,7 +2351,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -2380,7 +2380,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -2515,7 +2515,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Network Link Endpoint, for example, `nle-zyw30`.\n"
                 }
             },
             "type": "object",
@@ -2532,7 +2532,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Network Link Endpoint, for example, `nle-zyw30`.\n"
                 }
             },
             "type": "object",
@@ -2589,7 +2589,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.\n"
+                    "description": "The ID of the Network Link Service, for example, `nls-zyw30`.\n"
                 }
             },
             "type": "object",
@@ -2729,7 +2729,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the Peering, for example, `peer-abc123`.\n"
                 }
             },
             "type": "object",
@@ -2809,7 +2809,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the Private Link Access, for example, `pla-abc123`.\n"
                 }
             },
             "type": "object",
@@ -2928,7 +2928,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.\n"
+                    "description": "The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.\n"
                 }
             },
             "type": "object",
@@ -3070,7 +3070,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the Schema Registry cluster (for example, `lsrc-abc123`).\n"
                 }
             },
             "type": "object",
@@ -3511,7 +3511,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the Peering, for example, `tgwa-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3759,7 +3759,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the attribute.\n"
+                    "description": "The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n"
                 },
                 "restEndpoint": {
                     "type": "string",
@@ -3797,7 +3797,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the attribute.\n",
+                    "description": "The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
@@ -3831,7 +3831,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the attribute.\n",
+                        "description": "The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n",
                         "willReplaceOnChanges": true
                     },
                     "restEndpoint": {
@@ -5764,7 +5764,7 @@
                 },
                 "cidr": {
                     "type": "string",
-                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n\n\u003e **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.\n"
+                    "description": "The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.\n"
                 },
                 "cloud": {
                     "type": "string",
@@ -5783,7 +5783,7 @@
                 },
                 "dnsConfig": {
                     "$ref": "#/types/confluentcloud:index/NetworkDnsConfig:NetworkDnsConfig",
-                    "description": "Network DNS config. It applies only to the PRIVATELINK network connection type.\n"
+                    "description": "Network DNS config. It applies only to the PRIVATELINK network connection type. When omitted, `resolution` defaults to `CHASED_PRIVATE`. It supports the following:\n"
                 },
                 "dnsDomain": {
                     "type": "string",
@@ -5869,7 +5869,7 @@
                 },
                 "cidr": {
                     "type": "string",
-                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n\n\u003e **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.\n",
+                    "description": "The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.\n",
                     "willReplaceOnChanges": true
                 },
                 "cloud": {
@@ -5891,7 +5891,7 @@
                 },
                 "dnsConfig": {
                     "$ref": "#/types/confluentcloud:index/NetworkDnsConfig:NetworkDnsConfig",
-                    "description": "Network DNS config. It applies only to the PRIVATELINK network connection type.\n"
+                    "description": "Network DNS config. It applies only to the PRIVATELINK network connection type. When omitted, `resolution` defaults to `CHASED_PRIVATE`. It supports the following:\n"
                 },
                 "environment": {
                     "$ref": "#/types/confluentcloud:index/NetworkEnvironment:NetworkEnvironment",
@@ -5957,7 +5957,7 @@
                     },
                     "cidr": {
                         "type": "string",
-                        "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n\n\u003e **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.\n",
+                        "description": "The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.\n",
                         "willReplaceOnChanges": true
                     },
                     "cloud": {
@@ -5979,7 +5979,7 @@
                     },
                     "dnsConfig": {
                         "$ref": "#/types/confluentcloud:index/NetworkDnsConfig:NetworkDnsConfig",
-                        "description": "Network DNS config. It applies only to the PRIVATELINK network connection type.\n"
+                        "description": "Network DNS config. It applies only to the PRIVATELINK network connection type. When omitted, `resolution` defaults to `CHASED_PRIVATE`. It supports the following:\n"
                     },
                     "dnsDomain": {
                         "type": "string",
@@ -6774,7 +6774,7 @@
                 },
                 "subjectName": {
                     "type": "string",
-                    "description": "The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n"
+                    "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.\n"
                 },
                 "version": {
                     "type": "integer",
@@ -6835,7 +6835,7 @@
                 },
                 "subjectName": {
                     "type": "string",
-                    "description": "The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n",
+                    "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -6896,7 +6896,7 @@
                     },
                     "subjectName": {
                         "type": "string",
-                        "description": "The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n",
+                        "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.\n",
                         "willReplaceOnChanges": true
                     },
                     "version": {
@@ -6935,7 +6935,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The configuration setting name.\n"
+                    "description": "Name of the Schema Exporter.\n"
                 },
                 "resetOnUpdate": {
                     "type": "boolean",
@@ -6943,7 +6943,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
                 },
                 "schemaRegistryCluster": {
                     "$ref": "#/types/confluentcloud:index/SchemaExporterSchemaRegistryCluster:SchemaExporterSchemaRegistryCluster"
@@ -7000,7 +7000,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The configuration setting name.\n",
+                    "description": "Name of the Schema Exporter.\n",
                     "willReplaceOnChanges": true
                 },
                 "resetOnUpdate": {
@@ -7009,7 +7009,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                     "willReplaceOnChanges": true
                 },
                 "schemaRegistryCluster": {
@@ -7063,7 +7063,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The configuration setting name.\n",
+                        "description": "Name of the Schema Exporter.\n",
                         "willReplaceOnChanges": true
                     },
                     "resetOnUpdate": {
@@ -7072,7 +7072,7 @@
                     },
                     "restEndpoint": {
                         "type": "string",
-                        "description": "The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                         "willReplaceOnChanges": true
                     },
                     "schemaRegistryCluster": {
@@ -8181,7 +8181,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Flink Compute Pool, for example, `lfcp-abc123`.\n"
                     }
                 },
                 "type": "object",
@@ -8264,7 +8264,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Identity Pool, for example, `pool-xyz456`.\n"
                     },
                     "identityProvider": {
                         "$ref": "#/types/confluentcloud:index/getIdentityPoolIdentityProvider:getIdentityPoolIdentityProvider",
@@ -8574,7 +8574,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Kafka cluster, for example, `lkc-abc123`.\n"
                     },
                     "standards": {
                         "type": "array",
@@ -8775,7 +8775,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.\n"
                     }
                 },
                 "type": "object",
@@ -8903,7 +8903,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Network belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Network, for example, `n-abc123`.\n"
                     }
                 },
                 "type": "object",
@@ -9036,7 +9036,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n"
+                        "description": "The ID of the Network Link Endpoint, for example, `nle-zyw30`.\n"
                     }
                 },
                 "type": "object",
@@ -9108,7 +9108,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.\n"
+                        "description": "The ID of the Network Link Service, for example, `nls-zyw30`.\n"
                     }
                 },
                 "type": "object",
@@ -9199,7 +9199,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Peering, for example, `peer-abc123`.\n"
                     }
                 },
                 "type": "object",
@@ -9278,7 +9278,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Private Link Access, for example, `pla-abc123`.\n"
                     }
                 },
                 "type": "object",
@@ -9352,7 +9352,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.\n"
+                        "description": "The ID of the Private Link Attachment, for example, `platt-61ovvd`.\n"
                     }
                 },
                 "type": "object",
@@ -9435,7 +9435,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.\n"
+                        "description": "The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.\n"
                     }
                 },
                 "type": "object",
@@ -9654,7 +9654,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Schema Registry cluster (for example, `lsrc-abc123`).\n"
                     }
                 },
                 "type": "object",
@@ -10271,7 +10271,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Peering, for example, `tgwa-abc123`.\n"
                     }
                 },
                 "type": "object",
