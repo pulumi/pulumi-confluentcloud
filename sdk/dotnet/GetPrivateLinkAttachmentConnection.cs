@@ -95,7 +95,7 @@ namespace Pulumi.ConfluentCloud
         public Inputs.GetPrivateLinkAttachmentConnectionEnvironmentArgs Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+        /// The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.GetPrivateLinkAttachmentConnectionEnvironmentInputArgs> Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+        /// The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

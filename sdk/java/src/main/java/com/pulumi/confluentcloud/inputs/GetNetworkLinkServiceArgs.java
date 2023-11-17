@@ -40,14 +40,14 @@ public final class GetNetworkLinkServiceArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+     * The ID of the Network Link Service, for example, `nls-zyw30`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+     * @return The ID of the Network Link Service, for example, `nls-zyw30`.
      * 
      */
     public Output<String> id() {
@@ -111,7 +111,7 @@ public final class GetNetworkLinkServiceArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param id The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+         * @param id The ID of the Network Link Service, for example, `nls-zyw30`.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class GetNetworkLinkServiceArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param id The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+         * @param id The ID of the Network Link Service, for example, `nls-zyw30`.
          * 
          * @return builder
          * 

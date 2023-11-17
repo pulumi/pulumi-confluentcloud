@@ -58,7 +58,7 @@ export class BusinessMetadata extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The name of the attribute.
+     * The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -125,7 +125,7 @@ export interface BusinessMetadataState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the attribute.
+     * The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
     name?: pulumi.Input<string>;
     /**
@@ -156,7 +156,7 @@ export interface BusinessMetadataArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the attribute.
+     * The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      */
     name?: pulumi.Input<string>;
     /**

@@ -73,9 +73,7 @@ type LookupFlinkComputePoolArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// (Required Configuration Block) supports the following:
 	Environment GetFlinkComputePoolEnvironment `pulumi:"environment"`
-	// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
 	Id *string `pulumi:"id"`
 }
 
@@ -124,9 +122,7 @@ type LookupFlinkComputePoolOutputArgs struct {
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// (Required Configuration Block) supports the following:
 	Environment GetFlinkComputePoolEnvironmentInput `pulumi:"environment"`
-	// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 

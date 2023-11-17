@@ -35,11 +35,11 @@ type SchemaExporter struct {
 	// The Cluster API Credentials.
 	Credentials                      SchemaExporterCredentialsPtrOutput                   `pulumi:"credentials"`
 	DestinationSchemaRegistryCluster SchemaExporterDestinationSchemaRegistryClusterOutput `pulumi:"destinationSchemaRegistryCluster"`
-	// The configuration setting name.
+	// Name of the Schema Exporter.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 	ResetOnUpdate pulumi.BoolPtrOutput `pulumi:"resetOnUpdate"`
-	// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrOutput                       `pulumi:"restEndpoint"`
 	SchemaRegistryCluster SchemaExporterSchemaRegistryClusterPtrOutput `pulumi:"schemaRegistryCluster"`
 	// The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
@@ -99,11 +99,11 @@ type schemaExporterState struct {
 	// The Cluster API Credentials.
 	Credentials                      *SchemaExporterCredentials                      `pulumi:"credentials"`
 	DestinationSchemaRegistryCluster *SchemaExporterDestinationSchemaRegistryCluster `pulumi:"destinationSchemaRegistryCluster"`
-	// The configuration setting name.
+	// Name of the Schema Exporter.
 	Name *string `pulumi:"name"`
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 	ResetOnUpdate *bool `pulumi:"resetOnUpdate"`
-	// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                              `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *SchemaExporterSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
 	// The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
@@ -124,11 +124,11 @@ type SchemaExporterState struct {
 	// The Cluster API Credentials.
 	Credentials                      SchemaExporterCredentialsPtrInput
 	DestinationSchemaRegistryCluster SchemaExporterDestinationSchemaRegistryClusterPtrInput
-	// The configuration setting name.
+	// Name of the Schema Exporter.
 	Name pulumi.StringPtrInput
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 	ResetOnUpdate pulumi.BoolPtrInput
-	// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
 	SchemaRegistryCluster SchemaExporterSchemaRegistryClusterPtrInput
 	// The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
@@ -153,11 +153,11 @@ type schemaExporterArgs struct {
 	// The Cluster API Credentials.
 	Credentials                      *SchemaExporterCredentials                     `pulumi:"credentials"`
 	DestinationSchemaRegistryCluster SchemaExporterDestinationSchemaRegistryCluster `pulumi:"destinationSchemaRegistryCluster"`
-	// The configuration setting name.
+	// Name of the Schema Exporter.
 	Name *string `pulumi:"name"`
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 	ResetOnUpdate *bool `pulumi:"resetOnUpdate"`
-	// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                              `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *SchemaExporterSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
 	// The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
@@ -179,11 +179,11 @@ type SchemaExporterArgs struct {
 	// The Cluster API Credentials.
 	Credentials                      SchemaExporterCredentialsPtrInput
 	DestinationSchemaRegistryCluster SchemaExporterDestinationSchemaRegistryClusterInput
-	// The configuration setting name.
+	// Name of the Schema Exporter.
 	Name pulumi.StringPtrInput
 	// The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
 	ResetOnUpdate pulumi.BoolPtrInput
-	// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
 	SchemaRegistryCluster SchemaExporterSchemaRegistryClusterPtrInput
 	// The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
@@ -307,7 +307,7 @@ func (o SchemaExporterOutput) DestinationSchemaRegistryCluster() SchemaExporterD
 	}).(SchemaExporterDestinationSchemaRegistryClusterOutput)
 }
 
-// The configuration setting name.
+// Name of the Schema Exporter.
 func (o SchemaExporterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchemaExporter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -317,7 +317,7 @@ func (o SchemaExporterOutput) ResetOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SchemaExporter) pulumi.BoolPtrOutput { return v.ResetOnUpdate }).(pulumi.BoolPtrOutput)
 }
 
-// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 func (o SchemaExporterOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaExporter) pulumi.StringPtrOutput { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }

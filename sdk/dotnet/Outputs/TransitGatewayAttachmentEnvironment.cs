@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class TransitGatewayAttachmentEnvironment
     {
         /// <summary>
-        /// The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+        /// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
         /// </summary>
         public readonly string Id;
 

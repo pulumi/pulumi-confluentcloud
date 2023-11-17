@@ -33,14 +33,14 @@ public final class BusinessMetadataAttributeDefinitionArgs extends com.pulumi.re
     }
 
     /**
-     * The description of the Business Metadata.
+     * The description of this attribute.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the Business Metadata.
+     * @return The description of this attribute.
      * 
      */
     public Optional<Output<String>> description() {
@@ -158,7 +158,7 @@ public final class BusinessMetadataAttributeDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param description The description of the Business Metadata.
+         * @param description The description of this attribute.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class BusinessMetadataAttributeDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param description The description of the Business Metadata.
+         * @param description The description of this attribute.
          * 
          * @return builder
          * 

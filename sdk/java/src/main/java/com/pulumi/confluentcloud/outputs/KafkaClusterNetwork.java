@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class KafkaClusterNetwork {
     /**
-     * @return The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     * @return The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
      * 
      */
     private String id;
 
     private KafkaClusterNetwork() {}
     /**
-     * @return The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     * @return The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
      * 
      */
     public String id() {

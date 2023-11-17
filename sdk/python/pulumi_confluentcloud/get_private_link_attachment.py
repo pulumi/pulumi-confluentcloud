@@ -164,7 +164,7 @@ def get_private_link_attachment(environment: Optional[pulumi.InputType['GetPriva
     ```
 
 
-    :param str id: The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+    :param str id: The ID of the Private Link Attachment, for example, `platt-61ovvd`.
     """
     __args__ = dict()
     __args__['environment'] = environment
@@ -208,6 +208,6 @@ def get_private_link_attachment_output(environment: Optional[pulumi.Input[pulumi
     ```
 
 
-    :param str id: The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+    :param str id: The ID of the Private Link Attachment, for example, `platt-61ovvd`.
     """
     ...

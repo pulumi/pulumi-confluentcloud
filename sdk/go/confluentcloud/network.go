@@ -30,9 +30,7 @@ type Network struct {
 	Aws NetworkAwArrayOutput `pulumi:"aws"`
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures NetworkAzureArrayOutput `pulumi:"azures"`
-	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-	//
-	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+	// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
 	Cidr pulumi.StringOutput `pulumi:"cidr"`
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
@@ -40,7 +38,7 @@ type Network struct {
 	ConnectionTypes pulumi.StringArrayOutput `pulumi:"connectionTypes"`
 	// The name of the Network.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Network DNS config. It applies only to the PRIVATELINK network connection type.
+	// Network DNS config. It applies only to the PRIVATELINK network connection type. When omitted, `resolution` defaults to `CHASED_PRIVATE`. It supports the following:
 	DnsConfig NetworkDnsConfigOutput `pulumi:"dnsConfig"`
 	// (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
 	DnsDomain pulumi.StringOutput `pulumi:"dnsDomain"`
@@ -113,9 +111,7 @@ type networkState struct {
 	Aws []NetworkAw `pulumi:"aws"`
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures []NetworkAzure `pulumi:"azures"`
-	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-	//
-	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+	// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
 	Cidr *string `pulumi:"cidr"`
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud *string `pulumi:"cloud"`
@@ -123,7 +119,7 @@ type networkState struct {
 	ConnectionTypes []string `pulumi:"connectionTypes"`
 	// The name of the Network.
 	DisplayName *string `pulumi:"displayName"`
-	// Network DNS config. It applies only to the PRIVATELINK network connection type.
+	// Network DNS config. It applies only to the PRIVATELINK network connection type. When omitted, `resolution` defaults to `CHASED_PRIVATE`. It supports the following:
 	DnsConfig *NetworkDnsConfig `pulumi:"dnsConfig"`
 	// (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
 	DnsDomain *string `pulumi:"dnsDomain"`
@@ -155,9 +151,7 @@ type NetworkState struct {
 	Aws NetworkAwArrayInput
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures NetworkAzureArrayInput
-	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-	//
-	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+	// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
 	Cidr pulumi.StringPtrInput
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud pulumi.StringPtrInput
@@ -165,7 +159,7 @@ type NetworkState struct {
 	ConnectionTypes pulumi.StringArrayInput
 	// The name of the Network.
 	DisplayName pulumi.StringPtrInput
-	// Network DNS config. It applies only to the PRIVATELINK network connection type.
+	// Network DNS config. It applies only to the PRIVATELINK network connection type. When omitted, `resolution` defaults to `CHASED_PRIVATE`. It supports the following:
 	DnsConfig NetworkDnsConfigPtrInput
 	// (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
 	DnsDomain pulumi.StringPtrInput
@@ -201,9 +195,7 @@ type networkArgs struct {
 	Aws []NetworkAw `pulumi:"aws"`
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures []NetworkAzure `pulumi:"azures"`
-	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-	//
-	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+	// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
 	Cidr *string `pulumi:"cidr"`
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud string `pulumi:"cloud"`
@@ -211,7 +203,7 @@ type networkArgs struct {
 	ConnectionTypes []string `pulumi:"connectionTypes"`
 	// The name of the Network.
 	DisplayName *string `pulumi:"displayName"`
-	// Network DNS config. It applies only to the PRIVATELINK network connection type.
+	// Network DNS config. It applies only to the PRIVATELINK network connection type. When omitted, `resolution` defaults to `CHASED_PRIVATE`. It supports the following:
 	DnsConfig *NetworkDnsConfig `pulumi:"dnsConfig"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkEnvironment `pulumi:"environment"`
@@ -238,9 +230,7 @@ type NetworkArgs struct {
 	Aws NetworkAwArrayInput
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures NetworkAzureArrayInput
-	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-	//
-	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+	// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
 	Cidr pulumi.StringPtrInput
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud pulumi.StringInput
@@ -248,7 +238,7 @@ type NetworkArgs struct {
 	ConnectionTypes pulumi.StringArrayInput
 	// The name of the Network.
 	DisplayName pulumi.StringPtrInput
-	// Network DNS config. It applies only to the PRIVATELINK network connection type.
+	// Network DNS config. It applies only to the PRIVATELINK network connection type. When omitted, `resolution` defaults to `CHASED_PRIVATE`. It supports the following:
 	DnsConfig NetworkDnsConfigPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkEnvironmentInput
@@ -366,9 +356,7 @@ func (o NetworkOutput) Azures() NetworkAzureArrayOutput {
 	return o.ApplyT(func(v *Network) NetworkAzureArrayOutput { return v.Azures }).(NetworkAzureArrayOutput)
 }
 
-// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-//
-// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
 func (o NetworkOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
 }
@@ -388,7 +376,7 @@ func (o NetworkOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Network DNS config. It applies only to the PRIVATELINK network connection type.
+// Network DNS config. It applies only to the PRIVATELINK network connection type. When omitted, `resolution` defaults to `CHASED_PRIVATE`. It supports the following:
 func (o NetworkOutput) DnsConfig() NetworkDnsConfigOutput {
 	return o.ApplyT(func(v *Network) NetworkDnsConfigOutput { return v.DnsConfig }).(NetworkDnsConfigOutput)
 }

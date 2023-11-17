@@ -41,7 +41,7 @@ export function getNetworkLinkEndpoint(args: GetNetworkLinkEndpointArgs, opts?: 
 export interface GetNetworkLinkEndpointArgs {
     environment: inputs.GetNetworkLinkEndpointEnvironment;
     /**
-     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     * The ID of the Network Link Endpoint, for example, `nle-zyw30`.
      */
     id: string;
 }
@@ -106,7 +106,7 @@ export function getNetworkLinkEndpointOutput(args: GetNetworkLinkEndpointOutputA
 export interface GetNetworkLinkEndpointOutputArgs {
     environment: pulumi.Input<inputs.GetNetworkLinkEndpointEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     * The ID of the Network Link Endpoint, for example, `nle-zyw30`.
      */
     id: pulumi.Input<string>;
 }

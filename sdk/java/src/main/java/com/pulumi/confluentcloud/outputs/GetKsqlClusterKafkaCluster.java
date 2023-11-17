@@ -10,18 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class GetKsqlClusterKafkaCluster {
     /**
-     * @return The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * @return The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
      * 
      */
     private String id;
 
     private GetKsqlClusterKafkaCluster() {}
     /**
-     * @return The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * @return The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
      * 
      */
     public String id() {

@@ -159,14 +159,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schemaRegistryCluster);
     }
     /**
-     * The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      * 
      */
     @Export(name="subjectName", refs={String.class}, tree="[0]")
     private Output<String> subjectName;
 
     /**
-     * @return The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * @return The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      * 
      */
     public Output<String> subjectName() {

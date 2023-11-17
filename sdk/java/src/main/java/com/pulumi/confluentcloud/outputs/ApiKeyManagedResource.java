@@ -17,7 +17,7 @@ public final class ApiKeyManagedResource {
     private String apiVersion;
     private ApiKeyManagedResourceEnvironment environment;
     /**
-     * @return The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * @return The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
      * 
      */
     private String id;
@@ -39,7 +39,7 @@ public final class ApiKeyManagedResource {
         return this.environment;
     }
     /**
-     * @return The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * @return The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
      * 
      */
     public String id() {

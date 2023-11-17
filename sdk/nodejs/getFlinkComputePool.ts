@@ -59,9 +59,7 @@ export interface GetFlinkComputePoolArgs {
      */
     environment: inputs.GetFlinkComputePoolEnvironment;
     /**
-     * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
      */
     id?: string;
 }
@@ -162,9 +160,7 @@ export interface GetFlinkComputePoolOutputArgs {
      */
     environment: pulumi.Input<inputs.GetFlinkComputePoolEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
      */
     id?: pulumi.Input<string>;
 }

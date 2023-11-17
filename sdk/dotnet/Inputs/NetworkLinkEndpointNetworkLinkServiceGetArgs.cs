@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class NetworkLinkEndpointNetworkLinkServiceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        /// The ID of the Network Link Service, for example, `nls-g3e1ox`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

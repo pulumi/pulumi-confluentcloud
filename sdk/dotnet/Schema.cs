@@ -81,7 +81,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.SchemaSchemaRegistryCluster?> SchemaRegistryCluster { get; private set; } = null!;
 
         /// <summary>
-        /// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        /// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         /// </summary>
         [Output("subjectName")]
         public Output<string> SubjectName { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.SchemaSchemaRegistryClusterArgs>? SchemaRegistryCluster { get; set; }
 
         /// <summary>
-        /// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        /// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         /// </summary>
         [Input("subjectName", required: true)]
         public Input<string> SubjectName { get; set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.SchemaSchemaRegistryClusterGetArgs>? SchemaRegistryCluster { get; set; }
 
         /// <summary>
-        /// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        /// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         /// </summary>
         [Input("subjectName")]
         public Input<string>? SubjectName { get; set; }

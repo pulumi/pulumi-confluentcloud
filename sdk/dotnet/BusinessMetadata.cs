@@ -42,7 +42,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the attribute.
+        /// The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the attribute.
+        /// The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the attribute.
+        /// The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

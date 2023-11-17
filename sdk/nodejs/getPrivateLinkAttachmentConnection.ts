@@ -41,7 +41,7 @@ export function getPrivateLinkAttachmentConnection(args: GetPrivateLinkAttachmen
 export interface GetPrivateLinkAttachmentConnectionArgs {
     environment: inputs.GetPrivateLinkAttachmentConnectionEnvironment;
     /**
-     * The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     * The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
      */
     id: string;
 }
@@ -104,7 +104,7 @@ export function getPrivateLinkAttachmentConnectionOutput(args: GetPrivateLinkAtt
 export interface GetPrivateLinkAttachmentConnectionOutputArgs {
     environment: pulumi.Input<inputs.GetPrivateLinkAttachmentConnectionEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     * The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
      */
     id: pulumi.Input<string>;
 }

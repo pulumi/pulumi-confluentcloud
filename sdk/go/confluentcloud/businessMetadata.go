@@ -31,7 +31,7 @@ type BusinessMetadata struct {
 	Credentials BusinessMetadataCredentialsPtrOutput `pulumi:"credentials"`
 	// The description of the Business Metadata.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the attribute.
+	// The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrOutput                         `pulumi:"restEndpoint"`
@@ -83,7 +83,7 @@ type businessMetadataState struct {
 	Credentials *BusinessMetadataCredentials `pulumi:"credentials"`
 	// The description of the Business Metadata.
 	Description *string `pulumi:"description"`
-	// The name of the attribute.
+	// The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	Name *string `pulumi:"name"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                                `pulumi:"restEndpoint"`
@@ -99,7 +99,7 @@ type BusinessMetadataState struct {
 	Credentials BusinessMetadataCredentialsPtrInput
 	// The description of the Business Metadata.
 	Description pulumi.StringPtrInput
-	// The name of the attribute.
+	// The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	Name pulumi.StringPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
@@ -119,7 +119,7 @@ type businessMetadataArgs struct {
 	Credentials *BusinessMetadataCredentials `pulumi:"credentials"`
 	// The description of the Business Metadata.
 	Description *string `pulumi:"description"`
-	// The name of the attribute.
+	// The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	Name *string `pulumi:"name"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                                `pulumi:"restEndpoint"`
@@ -134,7 +134,7 @@ type BusinessMetadataArgs struct {
 	Credentials BusinessMetadataCredentialsPtrInput
 	// The description of the Business Metadata.
 	Description pulumi.StringPtrInput
-	// The name of the attribute.
+	// The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 	Name pulumi.StringPtrInput
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
@@ -245,7 +245,7 @@ func (o BusinessMetadataOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BusinessMetadata) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the attribute.
+// The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
 func (o BusinessMetadataOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessMetadata) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

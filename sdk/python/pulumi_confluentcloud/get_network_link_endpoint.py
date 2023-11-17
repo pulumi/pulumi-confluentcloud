@@ -137,7 +137,7 @@ def get_network_link_endpoint(environment: Optional[pulumi.InputType['GetNetwork
     ```
 
 
-    :param str id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+    :param str id: The ID of the Network Link Endpoint, for example, `nle-zyw30`.
     """
     __args__ = dict()
     __args__['environment'] = environment
@@ -178,6 +178,6 @@ def get_network_link_endpoint_output(environment: Optional[pulumi.Input[pulumi.I
     ```
 
 
-    :param str id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+    :param str id: The ID of the Network Link Endpoint, for example, `nle-zyw30`.
     """
     ...

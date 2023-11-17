@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class GetPrivateLinkAttachmentConnectionPrivateLinkAttachment {
     /**
-     * @return The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     * @return The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
      * 
      */
     private String id;
 
     private GetPrivateLinkAttachmentConnectionPrivateLinkAttachment() {}
     /**
-     * @return The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     * @return The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
      * 
      */
     public String id() {

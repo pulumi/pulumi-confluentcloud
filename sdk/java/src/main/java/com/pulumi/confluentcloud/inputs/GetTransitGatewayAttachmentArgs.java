@@ -47,18 +47,14 @@ public final class GetTransitGatewayAttachmentArgs extends com.pulumi.resources.
     }
 
     /**
-     * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * The ID of the Peering, for example, `tgwa-abc123`.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * @return The ID of the Peering, for example, `tgwa-abc123`.
      * 
      */
     public Optional<Output<String>> id() {
@@ -134,9 +130,7 @@ public final class GetTransitGatewayAttachmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param id The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
-         * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * @param id The ID of the Peering, for example, `tgwa-abc123`.
          * 
          * @return builder
          * 
@@ -147,9 +141,7 @@ public final class GetTransitGatewayAttachmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param id The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
-         * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * @param id The ID of the Peering, for example, `tgwa-abc123`.
          * 
          * @return builder
          * 

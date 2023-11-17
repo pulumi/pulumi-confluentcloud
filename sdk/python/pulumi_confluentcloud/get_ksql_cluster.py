@@ -215,9 +215,7 @@ def get_ksql_cluster(display_name: Optional[str] = None,
 
 
     :param str display_name: The name of the ksqlDB cluster.
-    :param str id: The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-           
-           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    :param str id: The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
     """
     __args__ = dict()
     __args__['displayName'] = display_name
@@ -274,8 +272,6 @@ def get_ksql_cluster_output(display_name: Optional[pulumi.Input[Optional[str]]] 
 
 
     :param str display_name: The name of the ksqlDB cluster.
-    :param str id: The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-           
-           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    :param str id: The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
     """
     ...

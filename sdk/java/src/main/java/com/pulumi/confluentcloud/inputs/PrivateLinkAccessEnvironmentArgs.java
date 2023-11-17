@@ -14,14 +14,14 @@ public final class PrivateLinkAccessEnvironmentArgs extends com.pulumi.resources
     public static final PrivateLinkAccessEnvironmentArgs Empty = new PrivateLinkAccessEnvironmentArgs();
 
     /**
-     * The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+     * The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+     * @return The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
      * 
      */
     public Output<String> id() {
@@ -53,7 +53,7 @@ public final class PrivateLinkAccessEnvironmentArgs extends com.pulumi.resources
         }
 
         /**
-         * @param id The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+         * @param id The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class PrivateLinkAccessEnvironmentArgs extends com.pulumi.resources
         }
 
         /**
-         * @param id The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+         * @param id The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 

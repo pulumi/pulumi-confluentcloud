@@ -63,7 +63,7 @@ export class SchemaExporter extends pulumi.CustomResource {
     public readonly credentials!: pulumi.Output<outputs.SchemaExporterCredentials | undefined>;
     public readonly destinationSchemaRegistryCluster!: pulumi.Output<outputs.SchemaExporterDestinationSchemaRegistryCluster>;
     /**
-     * The configuration setting name.
+     * Name of the Schema Exporter.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -71,7 +71,7 @@ export class SchemaExporter extends pulumi.CustomResource {
      */
     public readonly resetOnUpdate!: pulumi.Output<boolean | undefined>;
     /**
-     * The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     public readonly restEndpoint!: pulumi.Output<string | undefined>;
     public readonly schemaRegistryCluster!: pulumi.Output<outputs.SchemaExporterSchemaRegistryCluster | undefined>;
@@ -160,7 +160,7 @@ export interface SchemaExporterState {
     credentials?: pulumi.Input<inputs.SchemaExporterCredentials>;
     destinationSchemaRegistryCluster?: pulumi.Input<inputs.SchemaExporterDestinationSchemaRegistryCluster>;
     /**
-     * The configuration setting name.
+     * Name of the Schema Exporter.
      */
     name?: pulumi.Input<string>;
     /**
@@ -168,7 +168,7 @@ export interface SchemaExporterState {
      */
     resetOnUpdate?: pulumi.Input<boolean>;
     /**
-     * The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
     schemaRegistryCluster?: pulumi.Input<inputs.SchemaExporterSchemaRegistryCluster>;
@@ -208,7 +208,7 @@ export interface SchemaExporterArgs {
     credentials?: pulumi.Input<inputs.SchemaExporterCredentials>;
     destinationSchemaRegistryCluster: pulumi.Input<inputs.SchemaExporterDestinationSchemaRegistryCluster>;
     /**
-     * The configuration setting name.
+     * Name of the Schema Exporter.
      */
     name?: pulumi.Input<string>;
     /**
@@ -216,7 +216,7 @@ export interface SchemaExporterArgs {
      */
     resetOnUpdate?: pulumi.Input<boolean>;
     /**
-     * The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
     schemaRegistryCluster?: pulumi.Input<inputs.SchemaExporterSchemaRegistryCluster>;

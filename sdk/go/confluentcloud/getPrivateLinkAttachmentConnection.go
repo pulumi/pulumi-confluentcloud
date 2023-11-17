@@ -57,7 +57,7 @@ func LookupPrivateLinkAttachmentConnection(ctx *pulumi.Context, args *LookupPriv
 // A collection of arguments for invoking getPrivateLinkAttachmentConnection.
 type LookupPrivateLinkAttachmentConnectionArgs struct {
 	Environment GetPrivateLinkAttachmentConnectionEnvironment `pulumi:"environment"`
-	// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+	// The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
 	Id string `pulumi:"id"`
 }
 
@@ -94,7 +94,7 @@ func LookupPrivateLinkAttachmentConnectionOutput(ctx *pulumi.Context, args Looku
 // A collection of arguments for invoking getPrivateLinkAttachmentConnection.
 type LookupPrivateLinkAttachmentConnectionOutputArgs struct {
 	Environment GetPrivateLinkAttachmentConnectionEnvironmentInput `pulumi:"environment"`
-	// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+	// The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 

@@ -125,9 +125,7 @@ namespace Pulumi.ConfluentCloud
         public Inputs.GetKsqlClusterEnvironmentArgs Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-        /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -150,9 +148,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.GetKsqlClusterEnvironmentInputArgs> Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-        /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

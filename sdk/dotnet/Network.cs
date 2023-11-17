@@ -36,9 +36,7 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableArray<Outputs.NetworkAzure>> Azures { get; private set; } = null!;
 
         /// <summary>
-        /// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-        /// 
-        /// &gt; **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+        /// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
         /// </summary>
         [Output("cidr")]
         public Output<string> Cidr { get; private set; } = null!;
@@ -62,7 +60,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Network DNS config. It applies only to the PRIVATELINK network connection type.
+        /// Network DNS config. It applies only to the PRIVATELINK network connection type. When omitted, `resolution` defaults to `CHASED_PRIVATE`. It supports the following:
         /// </summary>
         [Output("dnsConfig")]
         public Output<Outputs.NetworkDnsConfig> DnsConfig { get; private set; } = null!;
@@ -197,9 +195,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-        /// 
-        /// &gt; **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+        /// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
         /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
@@ -229,7 +225,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Network DNS config. It applies only to the PRIVATELINK network connection type.
+        /// Network DNS config. It applies only to the PRIVATELINK network connection type. When omitted, `resolution` defaults to `CHASED_PRIVATE`. It supports the following:
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.NetworkDnsConfigArgs>? DnsConfig { get; set; }
@@ -326,9 +322,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-        /// 
-        /// &gt; **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+        /// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
         /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
@@ -358,7 +352,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Network DNS config. It applies only to the PRIVATELINK network connection type.
+        /// Network DNS config. It applies only to the PRIVATELINK network connection type. When omitted, `resolution` defaults to `CHASED_PRIVATE`. It supports the following:
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.NetworkDnsConfigGetArgs>? DnsConfig { get; set; }

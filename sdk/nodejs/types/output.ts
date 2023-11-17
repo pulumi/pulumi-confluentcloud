@@ -12,7 +12,7 @@ export interface ApiKeyManagedResource {
     apiVersion: string;
     environment: outputs.ApiKeyManagedResourceEnvironment;
     /**
-     * The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
      */
     id: string;
     /**
@@ -30,15 +30,15 @@ export interface ApiKeyManagedResourceEnvironment {
 
 export interface ApiKeyOwner {
     /**
-     * The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+     * The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
      */
     apiVersion: string;
     /**
-     * The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
      */
     id: string;
     /**
-     * The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+     * The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
      */
     kind: string;
 }
@@ -49,7 +49,7 @@ export interface BusinessMetadataAttributeDefinition {
      */
     defaultValue: string;
     /**
-     * The description of the Business Metadata.
+     * The description of this attribute.
      */
     description: string;
     /**
@@ -135,16 +135,16 @@ export interface ByokKeyAzure {
 
 export interface ClusterLinkDestinationKafkaCluster {
     /**
-     * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: string;
     credentials?: outputs.ClusterLinkDestinationKafkaClusterCredentials;
     /**
-     * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+     * The ID of the destination Kafka cluster, for example, `lkc-abc123`.
      */
     id: string;
     /**
-     * The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: string;
 }
@@ -162,16 +162,16 @@ export interface ClusterLinkDestinationKafkaClusterCredentials {
 
 export interface ClusterLinkLocalKafkaCluster {
     /**
-     * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: string;
     credentials?: outputs.ClusterLinkLocalKafkaClusterCredentials;
     /**
-     * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+     * The ID of the local Kafka cluster, for example, `lkc-abc123`.
      */
     id: string;
     /**
-     * The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: string;
 }
@@ -216,16 +216,16 @@ export interface ClusterLinkRemoteKafkaClusterCredentials {
 
 export interface ClusterLinkSourceKafkaCluster {
     /**
-     * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: string;
     credentials?: outputs.ClusterLinkSourceKafkaClusterCredentials;
     /**
-     * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+     * The ID of the source Kafka cluster, for example, `lkc-abc123`.
      */
     id: string;
     /**
-     * The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: string;
 }
@@ -243,7 +243,7 @@ export interface ClusterLinkSourceKafkaClusterCredentials {
 
 export interface ConnectorEnvironment {
     /**
-     * The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+     * The ID of the Environment that the connector belongs to, for example, `env-abc123`.
      */
     id: string;
 }
@@ -471,9 +471,7 @@ export interface GetKafkaClusterBasic {
 
 export interface GetKafkaClusterByokKey {
     /**
-     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
      */
     id: string;
 }
@@ -507,9 +505,7 @@ export interface GetKafkaClusterEnvironment {
 
 export interface GetKafkaClusterNetwork {
     /**
-     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
      */
     id: string;
 }
@@ -534,9 +530,7 @@ export interface GetKafkaTopicKafkaCluster {
 
 export interface GetKsqlClusterCredentialIdentity {
     /**
-     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
      */
     id: string;
 }
@@ -552,9 +546,7 @@ export interface GetKsqlClusterEnvironment {
 
 export interface GetKsqlClusterKafkaCluster {
     /**
-     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
      */
     id: string;
 }
@@ -623,14 +615,14 @@ export interface GetNetworkLinkEndpointEnvironment {
 
 export interface GetNetworkLinkEndpointNetwork {
     /**
-     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     * The ID of the Network Link Endpoint, for example, `nle-zyw30`.
      */
     id: string;
 }
 
 export interface GetNetworkLinkEndpointNetworkLinkService {
     /**
-     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     * The ID of the Network Link Endpoint, for example, `nle-zyw30`.
      */
     id: string;
 }
@@ -655,7 +647,7 @@ export interface GetNetworkLinkServiceEnvironment {
 
 export interface GetNetworkLinkServiceNetwork {
     /**
-     * The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+     * The ID of the Network Link Service, for example, `nls-zyw30`.
      */
     id: string;
 }
@@ -731,9 +723,7 @@ export interface GetPeeringGcp {
 
 export interface GetPeeringNetwork {
     /**
-     * The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Peering, for example, `peer-abc123`.
      */
     id: string;
 }
@@ -770,9 +760,7 @@ export interface GetPrivateLinkAccessGcp {
 
 export interface GetPrivateLinkAccessNetwork {
     /**
-     * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Private Link Access, for example, `pla-abc123`.
      */
     id: string;
 }
@@ -814,7 +802,7 @@ export interface GetPrivateLinkAttachmentConnectionGcp {
 
 export interface GetPrivateLinkAttachmentConnectionPrivateLinkAttachment {
     /**
-     * The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     * The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
      */
     id: string;
 }
@@ -891,9 +879,7 @@ export interface GetSchemaRegistryClusterModeSchemaRegistryCluster {
 
 export interface GetSchemaRegistryClusterRegion {
     /**
-     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
      */
     id: string;
 }
@@ -1150,9 +1136,7 @@ export interface GetTransitGatewayAttachmentEnvironment {
 
 export interface GetTransitGatewayAttachmentNetwork {
     /**
-     * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Peering, for example, `tgwa-abc123`.
      */
     id: string;
 }
@@ -1209,11 +1193,7 @@ export interface KafkaClientQuotaEnvironment {
 
 export interface KafkaClientQuotaKafkaCluster {
     /**
-     * The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
-     *
-     * > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
-     *
-     * > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
+     * The ID of the Kafka Cluster where the Kafka Client Quota is applied, for example, `lkc-abc123`.
      */
     id: string;
 }
@@ -1278,14 +1258,14 @@ export interface KafkaClusterEnterprise {
 
 export interface KafkaClusterEnvironment {
     /**
-     * The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
      */
     id: string;
 }
 
 export interface KafkaClusterNetwork {
     /**
-     * The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     * The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
      */
     id: string;
 }
@@ -1361,14 +1341,14 @@ export interface KsqlClusterCredentialIdentity {
 
 export interface KsqlClusterEnvironment {
     /**
-     * The ID of the associated service or user account, for example, `sa-abc123`.
+     * The ID of the associated Environment, for example, `env-xyz456`.
      */
     id: string;
 }
 
 export interface KsqlClusterKafkaCluster {
     /**
-     * The ID of the associated service or user account, for example, `sa-abc123`.
+     * The ID of the associated Kafka cluster, for example, `lkc-abc123`.
      */
     id: string;
 }
@@ -1435,14 +1415,14 @@ export interface NetworkLinkEndpointEnvironment {
 
 export interface NetworkLinkEndpointNetwork {
     /**
-     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     * The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
      */
     id: string;
 }
 
 export interface NetworkLinkEndpointNetworkLinkService {
     /**
-     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     * The ID of the Network Link Service, for example, `nls-g3e1ox`.
      */
     id: string;
 }
@@ -1460,7 +1440,7 @@ export interface NetworkLinkServiceAccept {
 
 export interface NetworkLinkServiceEnvironment {
     /**
-     * The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+     * The ID of the Environment that the Network Link Service belongs to, for example, `env-abc123`.
      */
     id: string;
 }
@@ -1491,7 +1471,7 @@ export interface PeeringAws {
      */
     account: string;
     /**
-     * The region of the Azure peer VNet.
+     * The region of the AWS peer VPC.
      */
     customerRegion: string;
     /**
@@ -1521,7 +1501,7 @@ export interface PeeringAzure {
 
 export interface PeeringEnvironment {
     /**
-     * The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+     * The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
      */
     id: string;
 }
@@ -1572,7 +1552,7 @@ export interface PrivateLinkAccessAzure {
 
 export interface PrivateLinkAccessEnvironment {
     /**
-     * The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+     * The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
      */
     id: string;
 }
@@ -1623,7 +1603,7 @@ export interface PrivateLinkAttachmentConnectionAzure {
 
 export interface PrivateLinkAttachmentConnectionEnvironment {
     /**
-     * The unique identifier for the private link attachment.
+     * The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
      */
     id: string;
 }
@@ -1713,7 +1693,7 @@ export interface SchemaRegistryClusterConfigSchemaRegistryCluster {
 
 export interface SchemaRegistryClusterEnvironment {
     /**
-     * The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
      */
     id: string;
 }
@@ -1851,7 +1831,7 @@ export interface TransitGatewayAttachmentAws {
 
 export interface TransitGatewayAttachmentEnvironment {
     /**
-     * The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+     * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
      */
     id: string;
 }

@@ -14,14 +14,14 @@ public final class PeeringEnvironmentArgs extends com.pulumi.resources.ResourceA
     public static final PeeringEnvironmentArgs Empty = new PeeringEnvironmentArgs();
 
     /**
-     * The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+     * The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+     * @return The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
      * 
      */
     public Output<String> id() {
@@ -53,7 +53,7 @@ public final class PeeringEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param id The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+         * @param id The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class PeeringEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param id The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+         * @param id The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 

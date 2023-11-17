@@ -14,9 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetPrivateLinkAccessNetworkResult
     {
         /// <summary>
-        /// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-        /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// The ID of the Private Link Access, for example, `pla-abc123`.
         /// </summary>
         public readonly string Id;
 

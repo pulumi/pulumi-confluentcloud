@@ -14,14 +14,14 @@ public final class NetworkLinkEndpointNetworkArgs extends com.pulumi.resources.R
     public static final NetworkLinkEndpointNetworkArgs Empty = new NetworkLinkEndpointNetworkArgs();
 
     /**
-     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     * The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     * @return The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
      * 
      */
     public Output<String> id() {
@@ -53,7 +53,7 @@ public final class NetworkLinkEndpointNetworkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param id The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+         * @param id The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class NetworkLinkEndpointNetworkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param id The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+         * @param id The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
          * 
          * @return builder
          * 

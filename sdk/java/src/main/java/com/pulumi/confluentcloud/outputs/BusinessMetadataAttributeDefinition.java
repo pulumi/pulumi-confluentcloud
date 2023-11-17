@@ -19,7 +19,7 @@ public final class BusinessMetadataAttributeDefinition {
      */
     private @Nullable String defaultValue;
     /**
-     * @return The description of the Business Metadata.
+     * @return The description of this attribute.
      * 
      */
     private @Nullable String description;
@@ -53,7 +53,7 @@ public final class BusinessMetadataAttributeDefinition {
         return Optional.ofNullable(this.defaultValue);
     }
     /**
-     * @return The description of the Business Metadata.
+     * @return The description of this attribute.
      * 
      */
     public Optional<String> description() {

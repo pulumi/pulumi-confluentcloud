@@ -267,9 +267,7 @@ def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = 
     :param str display_name: A human-readable name for the Network.
     :param Sequence[pulumi.InputType['GetNetworkDnsConfigArgs']] dns_configs: (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
     :param Sequence[pulumi.InputType['GetNetworkGcpArgs']] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
-    :param str id: The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
-           
-           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    :param str id: The ID of the Network, for example, `n-abc123`.
     """
     __args__ = dict()
     __args__['aws'] = aws
@@ -336,8 +334,6 @@ def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[pulumi.Input
     :param str display_name: A human-readable name for the Network.
     :param Sequence[pulumi.InputType['GetNetworkDnsConfigArgs']] dns_configs: (Optional Configuration Block) Network DNS config. It applies only to the PRIVATELINK network connection type. It supports the following:
     :param Sequence[pulumi.InputType['GetNetworkGcpArgs']] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
-    :param str id: The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
-           
-           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    :param str id: The ID of the Network, for example, `n-abc123`.
     """
     ...

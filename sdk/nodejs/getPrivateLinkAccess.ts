@@ -56,9 +56,7 @@ export interface GetPrivateLinkAccessArgs {
      */
     environment: inputs.GetPrivateLinkAccessEnvironment;
     /**
-     * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Private Link Access, for example, `pla-abc123`.
      */
     id?: string;
 }
@@ -140,9 +138,7 @@ export interface GetPrivateLinkAccessOutputArgs {
      */
     environment: pulumi.Input<inputs.GetPrivateLinkAccessEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Private Link Access, for example, `pla-abc123`.
      */
     id?: pulumi.Input<string>;
 }

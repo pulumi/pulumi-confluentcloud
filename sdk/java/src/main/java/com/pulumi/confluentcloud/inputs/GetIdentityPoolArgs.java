@@ -32,18 +32,14 @@ public final class GetIdentityPoolArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * The ID of the Identity Pool, for example, `pool-xyz456`.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * @return The ID of the Identity Pool, for example, `pool-xyz456`.
      * 
      */
     public Optional<Output<String>> id() {
@@ -113,9 +109,7 @@ public final class GetIdentityPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
-         * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * @param id The ID of the Identity Pool, for example, `pool-xyz456`.
          * 
          * @return builder
          * 
@@ -126,9 +120,7 @@ public final class GetIdentityPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
-         * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * @param id The ID of the Identity Pool, for example, `pool-xyz456`.
          * 
          * @return builder
          * 

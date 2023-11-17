@@ -46,7 +46,7 @@ export interface GetNetworkLinkServiceArgs {
     accept?: inputs.GetNetworkLinkServiceAccept;
     environment: inputs.GetNetworkLinkServiceEnvironment;
     /**
-     * The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+     * The ID of the Network Link Service, for example, `nls-zyw30`.
      */
     id: string;
 }
@@ -115,7 +115,7 @@ export interface GetNetworkLinkServiceOutputArgs {
     accept?: pulumi.Input<inputs.GetNetworkLinkServiceAcceptArgs>;
     environment: pulumi.Input<inputs.GetNetworkLinkServiceEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+     * The ID of the Network Link Service, for example, `nls-zyw30`.
      */
     id: pulumi.Input<string>;
 }

@@ -14,9 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetKafkaClusterNetworkResult
     {
         /// <summary>
-        /// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-        /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// The ID of the Kafka cluster, for example, `lkc-abc123`.
         /// </summary>
         public readonly string Id;
 

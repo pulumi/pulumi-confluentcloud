@@ -16,7 +16,7 @@ public final class PeeringAws {
      */
     private String account;
     /**
-     * @return The region of the Azure peer VNet.
+     * @return The region of the AWS peer VPC.
      * 
      */
     private String customerRegion;
@@ -40,7 +40,7 @@ public final class PeeringAws {
         return this.account;
     }
     /**
-     * @return The region of the Azure peer VNet.
+     * @return The region of the AWS peer VPC.
      * 
      */
     public String customerRegion() {

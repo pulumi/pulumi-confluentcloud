@@ -139,7 +139,7 @@ def get_network_link_service(accept: Optional[pulumi.InputType['GetNetworkLinkSe
 
 
     :param pulumi.InputType['GetNetworkLinkServiceAcceptArgs'] accept: (Optional Configuration Block) supports the following:
-    :param str id: The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+    :param str id: The ID of the Network Link Service, for example, `nls-zyw30`.
     """
     __args__ = dict()
     __args__['accept'] = accept
@@ -183,6 +183,6 @@ def get_network_link_service_output(accept: Optional[pulumi.Input[Optional[pulum
 
 
     :param pulumi.InputType['GetNetworkLinkServiceAcceptArgs'] accept: (Optional Configuration Block) supports the following:
-    :param str id: The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+    :param str id: The ID of the Network Link Service, for example, `nls-zyw30`.
     """
     ...

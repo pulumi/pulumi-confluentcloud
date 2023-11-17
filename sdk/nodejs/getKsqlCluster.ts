@@ -55,9 +55,7 @@ export interface GetKsqlClusterArgs {
     displayName?: string;
     environment: inputs.GetKsqlClusterEnvironment;
     /**
-     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
      */
     id?: string;
 }
@@ -156,9 +154,7 @@ export interface GetKsqlClusterOutputArgs {
     displayName?: pulumi.Input<string>;
     environment: pulumi.Input<inputs.GetKsqlClusterEnvironmentArgs>;
     /**
-     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
      */
     id?: pulumi.Input<string>;
 }

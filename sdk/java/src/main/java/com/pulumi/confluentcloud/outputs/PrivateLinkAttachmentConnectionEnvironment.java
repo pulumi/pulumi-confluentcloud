@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class PrivateLinkAttachmentConnectionEnvironment {
     /**
-     * @return The unique identifier for the private link attachment.
+     * @return The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
      * 
      */
     private String id;
 
     private PrivateLinkAttachmentConnectionEnvironment() {}
     /**
-     * @return The unique identifier for the private link attachment.
+     * @return The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
      * 
      */
     public String id() {

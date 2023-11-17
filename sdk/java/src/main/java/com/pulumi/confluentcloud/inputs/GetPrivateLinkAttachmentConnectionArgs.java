@@ -22,14 +22,14 @@ public final class GetPrivateLinkAttachmentConnectionArgs extends com.pulumi.res
     }
 
     /**
-     * The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     * The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     * @return The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
      * 
      */
     public Output<String> id() {
@@ -71,7 +71,7 @@ public final class GetPrivateLinkAttachmentConnectionArgs extends com.pulumi.res
         }
 
         /**
-         * @param id The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+         * @param id The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetPrivateLinkAttachmentConnectionArgs extends com.pulumi.res
         }
 
         /**
-         * @param id The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+         * @param id The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
          * 
          * @return builder
          * 

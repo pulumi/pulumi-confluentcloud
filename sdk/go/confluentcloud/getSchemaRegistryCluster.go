@@ -69,9 +69,7 @@ type LookupSchemaRegistryClusterArgs struct {
 	// The name for the Schema Registry cluster.
 	DisplayName *string                             `pulumi:"displayName"`
 	Environment GetSchemaRegistryClusterEnvironment `pulumi:"environment"`
-	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
 	Id *string `pulumi:"id"`
 }
 
@@ -114,9 +112,7 @@ type LookupSchemaRegistryClusterOutputArgs struct {
 	// The name for the Schema Registry cluster.
 	DisplayName pulumi.StringPtrInput                    `pulumi:"displayName"`
 	Environment GetSchemaRegistryClusterEnvironmentInput `pulumi:"environment"`
-	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 

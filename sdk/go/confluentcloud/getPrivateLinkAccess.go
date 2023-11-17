@@ -70,9 +70,7 @@ type LookupPrivateLinkAccessArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// (Required Configuration Block) supports the following:
 	Environment GetPrivateLinkAccessEnvironment `pulumi:"environment"`
-	// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Private Link Access, for example, `pla-abc123`.
 	Id *string `pulumi:"id"`
 }
 
@@ -113,9 +111,7 @@ type LookupPrivateLinkAccessOutputArgs struct {
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// (Required Configuration Block) supports the following:
 	Environment GetPrivateLinkAccessEnvironmentInput `pulumi:"environment"`
-	// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Private Link Access, for example, `pla-abc123`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 

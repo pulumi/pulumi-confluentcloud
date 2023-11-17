@@ -28,7 +28,7 @@ class SchemaArgs:
         """
         The set of arguments for constructing a Schema resource.
         :param pulumi.Input[str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
-        :param pulumi.Input[str] subject_name: The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        :param pulumi.Input[str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         :param pulumi.Input['SchemaCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
         :param pulumi.Input[bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
@@ -69,7 +69,7 @@ class SchemaArgs:
     @pulumi.getter(name="subjectName")
     def subject_name(self) -> pulumi.Input[str]:
         """
-        The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         """
         return pulumi.get(self, "subject_name")
 
@@ -183,7 +183,7 @@ class _SchemaState:
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[int] schema_identifier: (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
-        :param pulumi.Input[str] subject_name: The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        :param pulumi.Input[str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         :param pulumi.Input[int] version: The version, representing the exact version of the schema under the registered subject.
         """
         if credentials is not None:
@@ -318,7 +318,7 @@ class _SchemaState:
     @pulumi.getter(name="subjectName")
     def subject_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         """
         return pulumi.get(self, "subject_name")
 
@@ -380,7 +380,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
-        :param pulumi.Input[str] subject_name: The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        :param pulumi.Input[str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         """
         ...
     @overload
@@ -491,7 +491,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[int] schema_identifier: (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
-        :param pulumi.Input[str] subject_name: The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        :param pulumi.Input[str] subject_name: The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         :param pulumi.Input[int] version: The version, representing the exact version of the schema under the registered subject.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -584,7 +584,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="subjectName")
     def subject_name(self) -> pulumi.Output[str]:
         """
-        The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+        The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
         """
         return pulumi.get(self, "subject_name")
 

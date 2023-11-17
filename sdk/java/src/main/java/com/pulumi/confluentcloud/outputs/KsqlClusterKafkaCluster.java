@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class KsqlClusterKafkaCluster {
     /**
-     * @return The ID of the associated service or user account, for example, `sa-abc123`.
+     * @return The ID of the associated Kafka cluster, for example, `lkc-abc123`.
      * 
      */
     private String id;
 
     private KsqlClusterKafkaCluster() {}
     /**
-     * @return The ID of the associated service or user account, for example, `sa-abc123`.
+     * @return The ID of the associated Kafka cluster, for example, `lkc-abc123`.
      * 
      */
     public String id() {

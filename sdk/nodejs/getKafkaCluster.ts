@@ -69,9 +69,7 @@ export interface GetKafkaClusterArgs {
     enterprises?: inputs.GetKafkaClusterEnterprise[];
     environment: inputs.GetKafkaClusterEnvironment;
     /**
-     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
      */
     id?: string;
     /**
@@ -203,9 +201,7 @@ export interface GetKafkaClusterOutputArgs {
     enterprises?: pulumi.Input<pulumi.Input<inputs.GetKafkaClusterEnterpriseArgs>[]>;
     environment: pulumi.Input<inputs.GetKafkaClusterEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
      */
     id?: pulumi.Input<string>;
     /**

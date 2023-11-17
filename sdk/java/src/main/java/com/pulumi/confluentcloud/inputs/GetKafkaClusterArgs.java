@@ -89,18 +89,14 @@ public final class GetKafkaClusterArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * The ID of the Kafka cluster, for example, `lkc-abc123`.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * @return The ID of the Kafka cluster, for example, `lkc-abc123`.
      * 
      */
     public Optional<Output<String>> id() {
@@ -266,9 +262,7 @@ public final class GetKafkaClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-         * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * @param id The ID of the Kafka cluster, for example, `lkc-abc123`.
          * 
          * @return builder
          * 
@@ -279,9 +273,7 @@ public final class GetKafkaClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-         * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * @param id The ID of the Kafka cluster, for example, `lkc-abc123`.
          * 
          * @return builder
          * 

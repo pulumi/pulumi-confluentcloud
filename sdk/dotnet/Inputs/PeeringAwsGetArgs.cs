@@ -19,7 +19,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         public Input<string> Account { get; set; } = null!;
 
         /// <summary>
-        /// The region of the Azure peer VNet.
+        /// The region of the AWS peer VPC.
         /// </summary>
         [Input("customerRegion", required: true)]
         public Input<string> CustomerRegion { get; set; } = null!;

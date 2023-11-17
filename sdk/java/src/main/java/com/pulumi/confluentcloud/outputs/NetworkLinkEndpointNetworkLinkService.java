@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class NetworkLinkEndpointNetworkLinkService {
     /**
-     * @return The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     * @return The ID of the Network Link Service, for example, `nls-g3e1ox`.
      * 
      */
     private String id;
 
     private NetworkLinkEndpointNetworkLinkService() {}
     /**
-     * @return The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     * @return The ID of the Network Link Service, for example, `nls-g3e1ox`.
      * 
      */
     public String id() {

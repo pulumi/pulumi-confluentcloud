@@ -82,9 +82,7 @@ type LookupKafkaClusterArgs struct {
 	// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
 	Enterprises []GetKafkaClusterEnterprise `pulumi:"enterprises"`
 	Environment GetKafkaClusterEnvironment  `pulumi:"environment"`
-	// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Kafka cluster, for example, `lkc-abc123`.
 	Id *string `pulumi:"id"`
 	// (Optional Configuration Block) The configuration of the Standard Kafka cluster.
 	Standards []GetKafkaClusterStandard `pulumi:"standards"`
@@ -151,9 +149,7 @@ type LookupKafkaClusterOutputArgs struct {
 	// (Optional Configuration Block) The configuration of the Enterprise Kafka cluster.
 	Enterprises GetKafkaClusterEnterpriseArrayInput `pulumi:"enterprises"`
 	Environment GetKafkaClusterEnvironmentInput     `pulumi:"environment"`
-	// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// (Optional Configuration Block) The configuration of the Standard Kafka cluster.
 	Standards GetKafkaClusterStandardArrayInput `pulumi:"standards"`

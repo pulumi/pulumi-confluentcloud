@@ -199,9 +199,7 @@ def get_flink_compute_pool(display_name: Optional[str] = None,
 
     :param str display_name: A human-readable name for the Flink Compute Pool.
     :param pulumi.InputType['GetFlinkComputePoolEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
-    :param str id: The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
-           
-           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    :param str id: The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
     """
     __args__ = dict()
     __args__['displayName'] = display_name
@@ -258,8 +256,6 @@ def get_flink_compute_pool_output(display_name: Optional[pulumi.Input[Optional[s
 
     :param str display_name: A human-readable name for the Flink Compute Pool.
     :param pulumi.InputType['GetFlinkComputePoolEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
-    :param str id: The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
-           
-           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    :param str id: The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
     """
     ...

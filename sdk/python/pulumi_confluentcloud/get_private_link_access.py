@@ -148,9 +148,7 @@ def get_private_link_access(display_name: Optional[str] = None,
 
     :param str display_name: A human-readable name for the Private Link Access.
     :param pulumi.InputType['GetPrivateLinkAccessEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
-    :param str id: The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-           
-           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    :param str id: The ID of the Private Link Access, for example, `pla-abc123`.
     """
     __args__ = dict()
     __args__['displayName'] = display_name
@@ -200,8 +198,6 @@ def get_private_link_access_output(display_name: Optional[pulumi.Input[Optional[
 
     :param str display_name: A human-readable name for the Private Link Access.
     :param pulumi.InputType['GetPrivateLinkAccessEnvironmentArgs'] environment: (Required Configuration Block) supports the following:
-    :param str id: The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-           
-           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    :param str id: The ID of the Private Link Access, for example, `pla-abc123`.
     """
     ...

@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class KsqlClusterKafkaClusterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the associated service or user account, for example, `sa-abc123`.
+        /// The ID of the associated Kafka cluster, for example, `lkc-abc123`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

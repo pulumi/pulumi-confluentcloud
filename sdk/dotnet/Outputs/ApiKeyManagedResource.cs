@@ -19,7 +19,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         public readonly string ApiVersion;
         public readonly Outputs.ApiKeyManagedResourceEnvironment Environment;
         /// <summary>
-        /// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+        /// The ID of the managed resource that the API Key associated with, for example, `lkc-abc123`.
         /// </summary>
         public readonly string Id;
         /// <summary>

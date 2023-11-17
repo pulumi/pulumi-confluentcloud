@@ -14,14 +14,14 @@ public final class KafkaClusterEnvironmentArgs extends com.pulumi.resources.Reso
     public static final KafkaClusterEnvironmentArgs Empty = new KafkaClusterEnvironmentArgs();
 
     /**
-     * The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     * @return The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
      * 
      */
     public Output<String> id() {
@@ -53,7 +53,7 @@ public final class KafkaClusterEnvironmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param id The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+         * @param id The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class KafkaClusterEnvironmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param id The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+         * @param id The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 

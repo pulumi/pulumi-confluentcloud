@@ -85,7 +85,7 @@ export class Schema extends pulumi.CustomResource {
     public readonly schemaReferences!: pulumi.Output<outputs.SchemaSchemaReference[] | undefined>;
     public readonly schemaRegistryCluster!: pulumi.Output<outputs.SchemaSchemaRegistryCluster | undefined>;
     /**
-     * The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      */
     public readonly subjectName!: pulumi.Output<string>;
     /**
@@ -182,7 +182,7 @@ export interface SchemaState {
     schemaReferences?: pulumi.Input<pulumi.Input<inputs.SchemaSchemaReference>[]>;
     schemaRegistryCluster?: pulumi.Input<inputs.SchemaSchemaRegistryCluster>;
     /**
-     * The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      */
     subjectName?: pulumi.Input<string>;
     /**
@@ -225,7 +225,7 @@ export interface SchemaArgs {
     schemaReferences?: pulumi.Input<pulumi.Input<inputs.SchemaSchemaReference>[]>;
     schemaRegistryCluster?: pulumi.Input<inputs.SchemaSchemaRegistryCluster>;
     /**
-     * The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      */
     subjectName: pulumi.Input<string>;
 }

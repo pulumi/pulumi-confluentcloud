@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class TransitGatewayAttachmentEnvironment {
     /**
-     * @return The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+     * @return The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
      * 
      */
     private String id;
 
     private TransitGatewayAttachmentEnvironment() {}
     /**
-     * @return The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+     * @return The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
      * 
      */
     public String id() {

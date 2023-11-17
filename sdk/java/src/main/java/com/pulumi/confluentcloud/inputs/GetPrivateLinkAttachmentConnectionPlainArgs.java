@@ -21,14 +21,14 @@ public final class GetPrivateLinkAttachmentConnectionPlainArgs extends com.pulum
     }
 
     /**
-     * The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     * The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
      * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
-     * @return The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     * @return The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
      * 
      */
     public String id() {
@@ -66,7 +66,7 @@ public final class GetPrivateLinkAttachmentConnectionPlainArgs extends com.pulum
         }
 
         /**
-         * @param id The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+         * @param id The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
          * 
          * @return builder
          * 

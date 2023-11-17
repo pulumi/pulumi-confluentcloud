@@ -14,14 +14,14 @@ public final class KsqlClusterEnvironmentArgs extends com.pulumi.resources.Resou
     public static final KsqlClusterEnvironmentArgs Empty = new KsqlClusterEnvironmentArgs();
 
     /**
-     * The ID of the associated service or user account, for example, `sa-abc123`.
+     * The ID of the associated Environment, for example, `env-xyz456`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the associated service or user account, for example, `sa-abc123`.
+     * @return The ID of the associated Environment, for example, `env-xyz456`.
      * 
      */
     public Output<String> id() {
@@ -53,7 +53,7 @@ public final class KsqlClusterEnvironmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param id The ID of the associated service or user account, for example, `sa-abc123`.
+         * @param id The ID of the associated Environment, for example, `env-xyz456`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class KsqlClusterEnvironmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param id The ID of the associated service or user account, for example, `sa-abc123`.
+         * @param id The ID of the associated Environment, for example, `env-xyz456`.
          * 
          * @return builder
          * 

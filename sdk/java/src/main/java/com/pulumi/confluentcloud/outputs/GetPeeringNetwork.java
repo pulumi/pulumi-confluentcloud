@@ -10,18 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class GetPeeringNetwork {
     /**
-     * @return The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * @return The ID of the Peering, for example, `peer-abc123`.
      * 
      */
     private String id;
 
     private GetPeeringNetwork() {}
     /**
-     * @return The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * @return The ID of the Peering, for example, `peer-abc123`.
      * 
      */
     public String id() {

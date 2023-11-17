@@ -14,14 +14,14 @@ public final class PrivateLinkAttachmentConnectionEnvironmentArgs extends com.pu
     public static final PrivateLinkAttachmentConnectionEnvironmentArgs Empty = new PrivateLinkAttachmentConnectionEnvironmentArgs();
 
     /**
-     * The unique identifier for the private link attachment.
+     * The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The unique identifier for the private link attachment.
+     * @return The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
      * 
      */
     public Output<String> id() {
@@ -53,7 +53,7 @@ public final class PrivateLinkAttachmentConnectionEnvironmentArgs extends com.pu
         }
 
         /**
-         * @param id The unique identifier for the private link attachment.
+         * @param id The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class PrivateLinkAttachmentConnectionEnvironmentArgs extends com.pu
         }
 
         /**
-         * @param id The unique identifier for the private link attachment.
+         * @param id The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
          * 
          * @return builder
          * 

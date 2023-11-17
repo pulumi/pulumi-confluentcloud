@@ -69,9 +69,7 @@ export interface GetNetworkArgs {
      */
     gcps?: inputs.GetNetworkGcp[];
     /**
-     * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Network, for example, `n-abc123`.
      */
     id?: string;
 }
@@ -198,9 +196,7 @@ export interface GetNetworkOutputArgs {
      */
     gcps?: pulumi.Input<pulumi.Input<inputs.GetNetworkGcpArgs>[]>;
     /**
-     * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Network, for example, `n-abc123`.
      */
     id?: pulumi.Input<string>;
 }
