@@ -384,6 +384,8 @@ on:
   pull_request:
     branches:
     - main
+    - v*
+    - feature*
     paths-ignore:
     - CHANGELOG.md
   repository_dispatch:
