@@ -87,11 +87,11 @@ public final class GetSchemasFilter {
             return this;
         }
         public GetSchemasFilter build() {
-            final var o = new GetSchemasFilter();
-            o.deleted = deleted;
-            o.latestOnly = latestOnly;
-            o.subjectPrefix = subjectPrefix;
-            return o;
+            final var _resultValue = new GetSchemasFilter();
+            _resultValue.deleted = deleted;
+            _resultValue.latestOnly = latestOnly;
+            _resultValue.subjectPrefix = subjectPrefix;
+            return _resultValue;
         }
     }
 }

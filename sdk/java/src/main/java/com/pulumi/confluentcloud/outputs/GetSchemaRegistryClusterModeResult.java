@@ -102,13 +102,13 @@ public final class GetSchemaRegistryClusterModeResult {
             return this;
         }
         public GetSchemaRegistryClusterModeResult build() {
-            final var o = new GetSchemaRegistryClusterModeResult();
-            o.credentials = credentials;
-            o.id = id;
-            o.mode = mode;
-            o.restEndpoint = restEndpoint;
-            o.schemaRegistryCluster = schemaRegistryCluster;
-            return o;
+            final var _resultValue = new GetSchemaRegistryClusterModeResult();
+            _resultValue.credentials = credentials;
+            _resultValue.id = id;
+            _resultValue.mode = mode;
+            _resultValue.restEndpoint = restEndpoint;
+            _resultValue.schemaRegistryCluster = schemaRegistryCluster;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class KafkaMirrorTopicSourceKafkaTopic {
             return this;
         }
         public KafkaMirrorTopicSourceKafkaTopic build() {
-            final var o = new KafkaMirrorTopicSourceKafkaTopic();
-            o.topicName = topicName;
-            return o;
+            final var _resultValue = new KafkaMirrorTopicSourceKafkaTopic();
+            _resultValue.topicName = topicName;
+            return _resultValue;
         }
     }
 }

@@ -50,9 +50,9 @@ public final class GetPrivateLinkAccessEnvironment {
             return this;
         }
         public GetPrivateLinkAccessEnvironment build() {
-            final var o = new GetPrivateLinkAccessEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetPrivateLinkAccessEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

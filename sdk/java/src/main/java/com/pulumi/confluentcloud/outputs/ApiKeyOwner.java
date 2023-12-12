@@ -84,11 +84,11 @@ public final class ApiKeyOwner {
             return this;
         }
         public ApiKeyOwner build() {
-            final var o = new ApiKeyOwner();
-            o.apiVersion = apiVersion;
-            o.id = id;
-            o.kind = kind;
-            return o;
+            final var _resultValue = new ApiKeyOwner();
+            _resultValue.apiVersion = apiVersion;
+            _resultValue.id = id;
+            _resultValue.kind = kind;
+            return _resultValue;
         }
     }
 }

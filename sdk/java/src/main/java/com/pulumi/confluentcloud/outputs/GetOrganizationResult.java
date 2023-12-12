@@ -65,10 +65,10 @@ public final class GetOrganizationResult {
             return this;
         }
         public GetOrganizationResult build() {
-            final var o = new GetOrganizationResult();
-            o.id = id;
-            o.resourceName = resourceName;
-            return o;
+            final var _resultValue = new GetOrganizationResult();
+            _resultValue.id = id;
+            _resultValue.resourceName = resourceName;
+            return _resultValue;
         }
     }
 }

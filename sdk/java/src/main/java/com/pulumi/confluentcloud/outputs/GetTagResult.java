@@ -156,16 +156,16 @@ public final class GetTagResult {
             return this;
         }
         public GetTagResult build() {
-            final var o = new GetTagResult();
-            o.credentials = credentials;
-            o.description = description;
-            o.entityTypes = entityTypes;
-            o.id = id;
-            o.name = name;
-            o.restEndpoint = restEndpoint;
-            o.schemaRegistryCluster = schemaRegistryCluster;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetTagResult();
+            _resultValue.credentials = credentials;
+            _resultValue.description = description;
+            _resultValue.entityTypes = entityTypes;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.restEndpoint = restEndpoint;
+            _resultValue.schemaRegistryCluster = schemaRegistryCluster;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

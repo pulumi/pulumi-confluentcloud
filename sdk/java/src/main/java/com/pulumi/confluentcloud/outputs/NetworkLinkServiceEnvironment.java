@@ -46,9 +46,9 @@ public final class NetworkLinkServiceEnvironment {
             return this;
         }
         public NetworkLinkServiceEnvironment build() {
-            final var o = new NetworkLinkServiceEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new NetworkLinkServiceEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

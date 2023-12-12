@@ -69,10 +69,10 @@ public final class GetByokKeyAw {
             return roles(List.of(roles));
         }
         public GetByokKeyAw build() {
-            final var o = new GetByokKeyAw();
-            o.keyArn = keyArn;
-            o.roles = roles;
-            return o;
+            final var _resultValue = new GetByokKeyAw();
+            _resultValue.keyArn = keyArn;
+            _resultValue.roles = roles;
+            return _resultValue;
         }
     }
 }

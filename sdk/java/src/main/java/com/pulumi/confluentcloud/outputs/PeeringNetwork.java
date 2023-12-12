@@ -46,9 +46,9 @@ public final class PeeringNetwork {
             return this;
         }
         public PeeringNetwork build() {
-            final var o = new PeeringNetwork();
-            o.id = id;
-            return o;
+            final var _resultValue = new PeeringNetwork();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

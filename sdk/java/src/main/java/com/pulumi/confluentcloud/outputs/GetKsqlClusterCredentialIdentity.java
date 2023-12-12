@@ -50,9 +50,9 @@ public final class GetKsqlClusterCredentialIdentity {
             return this;
         }
         public GetKsqlClusterCredentialIdentity build() {
-            final var o = new GetKsqlClusterCredentialIdentity();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetKsqlClusterCredentialIdentity();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

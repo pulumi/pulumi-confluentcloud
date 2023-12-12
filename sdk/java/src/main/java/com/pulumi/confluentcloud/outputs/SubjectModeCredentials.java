@@ -57,10 +57,10 @@ public final class SubjectModeCredentials {
             return this;
         }
         public SubjectModeCredentials build() {
-            final var o = new SubjectModeCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new SubjectModeCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

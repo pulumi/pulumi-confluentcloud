@@ -46,9 +46,9 @@ public final class GetPrivateLinkAttachmentConnectionAw {
             return this;
         }
         public GetPrivateLinkAttachmentConnectionAw build() {
-            final var o = new GetPrivateLinkAttachmentConnectionAw();
-            o.vpcEndpointId = vpcEndpointId;
-            return o;
+            final var _resultValue = new GetPrivateLinkAttachmentConnectionAw();
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            return _resultValue;
         }
     }
 }

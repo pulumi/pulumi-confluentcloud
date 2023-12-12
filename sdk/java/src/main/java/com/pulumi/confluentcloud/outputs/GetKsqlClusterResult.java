@@ -270,21 +270,21 @@ public final class GetKsqlClusterResult {
             return this;
         }
         public GetKsqlClusterResult build() {
-            final var o = new GetKsqlClusterResult();
-            o.apiVersion = apiVersion;
-            o.credentialIdentities = credentialIdentities;
-            o.csu = csu;
-            o.displayName = displayName;
-            o.environment = environment;
-            o.id = id;
-            o.kafkaClusters = kafkaClusters;
-            o.kind = kind;
-            o.resourceName = resourceName;
-            o.restEndpoint = restEndpoint;
-            o.storage = storage;
-            o.topicPrefix = topicPrefix;
-            o.useDetailedProcessingLog = useDetailedProcessingLog;
-            return o;
+            final var _resultValue = new GetKsqlClusterResult();
+            _resultValue.apiVersion = apiVersion;
+            _resultValue.credentialIdentities = credentialIdentities;
+            _resultValue.csu = csu;
+            _resultValue.displayName = displayName;
+            _resultValue.environment = environment;
+            _resultValue.id = id;
+            _resultValue.kafkaClusters = kafkaClusters;
+            _resultValue.kind = kind;
+            _resultValue.resourceName = resourceName;
+            _resultValue.restEndpoint = restEndpoint;
+            _resultValue.storage = storage;
+            _resultValue.topicPrefix = topicPrefix;
+            _resultValue.useDetailedProcessingLog = useDetailedProcessingLog;
+            return _resultValue;
         }
     }
 }

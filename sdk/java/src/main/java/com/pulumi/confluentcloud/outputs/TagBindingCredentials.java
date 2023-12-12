@@ -65,10 +65,10 @@ public final class TagBindingCredentials {
             return this;
         }
         public TagBindingCredentials build() {
-            final var o = new TagBindingCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new TagBindingCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

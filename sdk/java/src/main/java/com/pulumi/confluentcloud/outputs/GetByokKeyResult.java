@@ -93,11 +93,11 @@ public final class GetByokKeyResult {
             return this;
         }
         public GetByokKeyResult build() {
-            final var o = new GetByokKeyResult();
-            o.aws = aws;
-            o.azures = azures;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetByokKeyResult();
+            _resultValue.aws = aws;
+            _resultValue.azures = azures;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

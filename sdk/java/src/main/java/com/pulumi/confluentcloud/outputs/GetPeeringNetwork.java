@@ -50,9 +50,9 @@ public final class GetPeeringNetwork {
             return this;
         }
         public GetPeeringNetwork build() {
-            final var o = new GetPeeringNetwork();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetPeeringNetwork();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

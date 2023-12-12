@@ -46,9 +46,9 @@ public final class FlinkComputePoolEnvironment {
             return this;
         }
         public FlinkComputePoolEnvironment build() {
-            final var o = new FlinkComputePoolEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new FlinkComputePoolEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

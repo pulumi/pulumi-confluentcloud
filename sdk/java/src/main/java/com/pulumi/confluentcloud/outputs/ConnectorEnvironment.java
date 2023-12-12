@@ -46,9 +46,9 @@ public final class ConnectorEnvironment {
             return this;
         }
         public ConnectorEnvironment build() {
-            final var o = new ConnectorEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new ConnectorEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

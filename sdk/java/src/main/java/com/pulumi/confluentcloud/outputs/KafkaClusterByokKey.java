@@ -46,9 +46,9 @@ public final class KafkaClusterByokKey {
             return this;
         }
         public KafkaClusterByokKey build() {
-            final var o = new KafkaClusterByokKey();
-            o.id = id;
-            return o;
+            final var _resultValue = new KafkaClusterByokKey();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

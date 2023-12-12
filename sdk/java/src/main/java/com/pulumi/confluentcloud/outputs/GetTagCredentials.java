@@ -65,10 +65,10 @@ public final class GetTagCredentials {
             return this;
         }
         public GetTagCredentials build() {
-            final var o = new GetTagCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new GetTagCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

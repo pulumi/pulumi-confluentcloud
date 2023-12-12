@@ -122,13 +122,13 @@ public final class GetIdentityProviderResult {
             return this;
         }
         public GetIdentityProviderResult build() {
-            final var o = new GetIdentityProviderResult();
-            o.description = description;
-            o.displayName = displayName;
-            o.id = id;
-            o.issuer = issuer;
-            o.jwksUri = jwksUri;
-            return o;
+            final var _resultValue = new GetIdentityProviderResult();
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.issuer = issuer;
+            _resultValue.jwksUri = jwksUri;
+            return _resultValue;
         }
     }
 }

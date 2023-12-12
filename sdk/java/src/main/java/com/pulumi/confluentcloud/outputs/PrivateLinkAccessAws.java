@@ -46,9 +46,9 @@ public final class PrivateLinkAccessAws {
             return this;
         }
         public PrivateLinkAccessAws build() {
-            final var o = new PrivateLinkAccessAws();
-            o.account = account;
-            return o;
+            final var _resultValue = new PrivateLinkAccessAws();
+            _resultValue.account = account;
+            return _resultValue;
         }
     }
 }

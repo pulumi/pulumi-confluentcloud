@@ -96,12 +96,12 @@ public final class ApiKeyManagedResource {
             return this;
         }
         public ApiKeyManagedResource build() {
-            final var o = new ApiKeyManagedResource();
-            o.apiVersion = apiVersion;
-            o.environment = environment;
-            o.id = id;
-            o.kind = kind;
-            return o;
+            final var _resultValue = new ApiKeyManagedResource();
+            _resultValue.apiVersion = apiVersion;
+            _resultValue.environment = environment;
+            _resultValue.id = id;
+            _resultValue.kind = kind;
+            return _resultValue;
         }
     }
 }

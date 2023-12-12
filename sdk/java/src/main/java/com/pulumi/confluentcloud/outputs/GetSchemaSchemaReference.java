@@ -85,11 +85,11 @@ public final class GetSchemaSchemaReference {
             return this;
         }
         public GetSchemaSchemaReference build() {
-            final var o = new GetSchemaSchemaReference();
-            o.name = name;
-            o.subjectName = subjectName;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetSchemaSchemaReference();
+            _resultValue.name = name;
+            _resultValue.subjectName = subjectName;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

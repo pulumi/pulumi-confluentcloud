@@ -60,11 +60,11 @@ public final class GetPrivateLinkAttachmentAzure {
             return this;
         }
         public GetPrivateLinkAttachmentAzure build() {
-            final var o = new GetPrivateLinkAttachmentAzure();
-            o.privateLinkServiceAlias = privateLinkServiceAlias;
-            o.privateLinkServiceResourceId = privateLinkServiceResourceId;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new GetPrivateLinkAttachmentAzure();
+            _resultValue.privateLinkServiceAlias = privateLinkServiceAlias;
+            _resultValue.privateLinkServiceResourceId = privateLinkServiceResourceId;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

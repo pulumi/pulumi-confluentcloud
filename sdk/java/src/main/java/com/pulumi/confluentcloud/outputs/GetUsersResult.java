@@ -69,10 +69,10 @@ public final class GetUsersResult {
             return ids(List.of(ids));
         }
         public GetUsersResult build() {
-            final var o = new GetUsersResult();
-            o.id = id;
-            o.ids = ids;
-            return o;
+            final var _resultValue = new GetUsersResult();
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            return _resultValue;
         }
     }
 }

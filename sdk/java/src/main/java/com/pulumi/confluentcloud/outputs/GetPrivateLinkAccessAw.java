@@ -46,9 +46,9 @@ public final class GetPrivateLinkAccessAw {
             return this;
         }
         public GetPrivateLinkAccessAw build() {
-            final var o = new GetPrivateLinkAccessAw();
-            o.account = account;
-            return o;
+            final var _resultValue = new GetPrivateLinkAccessAw();
+            _resultValue.account = account;
+            return _resultValue;
         }
     }
 }

@@ -98,12 +98,12 @@ public final class ClusterLinkLocalKafkaCluster {
             return this;
         }
         public ClusterLinkLocalKafkaCluster build() {
-            final var o = new ClusterLinkLocalKafkaCluster();
-            o.bootstrapEndpoint = bootstrapEndpoint;
-            o.credentials = credentials;
-            o.id = id;
-            o.restEndpoint = restEndpoint;
-            return o;
+            final var _resultValue = new ClusterLinkLocalKafkaCluster();
+            _resultValue.bootstrapEndpoint = bootstrapEndpoint;
+            _resultValue.credentials = credentials;
+            _resultValue.id = id;
+            _resultValue.restEndpoint = restEndpoint;
+            return _resultValue;
         }
     }
 }

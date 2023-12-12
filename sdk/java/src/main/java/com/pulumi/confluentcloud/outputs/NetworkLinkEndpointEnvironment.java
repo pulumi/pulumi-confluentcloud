@@ -46,9 +46,9 @@ public final class NetworkLinkEndpointEnvironment {
             return this;
         }
         public NetworkLinkEndpointEnvironment build() {
-            final var o = new NetworkLinkEndpointEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new NetworkLinkEndpointEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

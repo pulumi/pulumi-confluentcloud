@@ -107,12 +107,12 @@ public final class GetTransitGatewayAttachmentAw {
             return this;
         }
         public GetTransitGatewayAttachmentAw build() {
-            final var o = new GetTransitGatewayAttachmentAw();
-            o.ramResourceShareArn = ramResourceShareArn;
-            o.routes = routes;
-            o.transitGatewayAttachmentId = transitGatewayAttachmentId;
-            o.transitGatewayId = transitGatewayId;
-            return o;
+            final var _resultValue = new GetTransitGatewayAttachmentAw();
+            _resultValue.ramResourceShareArn = ramResourceShareArn;
+            _resultValue.routes = routes;
+            _resultValue.transitGatewayAttachmentId = transitGatewayAttachmentId;
+            _resultValue.transitGatewayId = transitGatewayId;
+            return _resultValue;
         }
     }
 }

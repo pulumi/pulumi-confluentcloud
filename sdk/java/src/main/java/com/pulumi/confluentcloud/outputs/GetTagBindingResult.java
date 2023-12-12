@@ -116,15 +116,15 @@ public final class GetTagBindingResult {
             return this;
         }
         public GetTagBindingResult build() {
-            final var o = new GetTagBindingResult();
-            o.credentials = credentials;
-            o.entityName = entityName;
-            o.entityType = entityType;
-            o.id = id;
-            o.restEndpoint = restEndpoint;
-            o.schemaRegistryCluster = schemaRegistryCluster;
-            o.tagName = tagName;
-            return o;
+            final var _resultValue = new GetTagBindingResult();
+            _resultValue.credentials = credentials;
+            _resultValue.entityName = entityName;
+            _resultValue.entityType = entityType;
+            _resultValue.id = id;
+            _resultValue.restEndpoint = restEndpoint;
+            _resultValue.schemaRegistryCluster = schemaRegistryCluster;
+            _resultValue.tagName = tagName;
+            return _resultValue;
         }
     }
 }

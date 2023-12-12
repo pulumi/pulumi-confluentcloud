@@ -69,10 +69,10 @@ public final class GetSchemaRegistryClusterModeCredentials {
             return this;
         }
         public GetSchemaRegistryClusterModeCredentials build() {
-            final var o = new GetSchemaRegistryClusterModeCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new GetSchemaRegistryClusterModeCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

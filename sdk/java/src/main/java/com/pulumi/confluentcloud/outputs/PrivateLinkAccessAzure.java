@@ -46,9 +46,9 @@ public final class PrivateLinkAccessAzure {
             return this;
         }
         public PrivateLinkAccessAzure build() {
-            final var o = new PrivateLinkAccessAzure();
-            o.subscription = subscription;
-            return o;
+            final var _resultValue = new PrivateLinkAccessAzure();
+            _resultValue.subscription = subscription;
+            return _resultValue;
         }
     }
 }

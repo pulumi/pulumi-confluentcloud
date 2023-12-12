@@ -65,10 +65,10 @@ public final class GetNetworkZoneInfo {
             return this;
         }
         public GetNetworkZoneInfo build() {
-            final var o = new GetNetworkZoneInfo();
-            o.cidr = cidr;
-            o.zoneId = zoneId;
-            return o;
+            final var _resultValue = new GetNetworkZoneInfo();
+            _resultValue.cidr = cidr;
+            _resultValue.zoneId = zoneId;
+            return _resultValue;
         }
     }
 }

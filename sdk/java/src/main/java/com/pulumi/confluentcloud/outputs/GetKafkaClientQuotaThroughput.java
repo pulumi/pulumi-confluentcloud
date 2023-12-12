@@ -65,10 +65,10 @@ public final class GetKafkaClientQuotaThroughput {
             return this;
         }
         public GetKafkaClientQuotaThroughput build() {
-            final var o = new GetKafkaClientQuotaThroughput();
-            o.egressByteRate = egressByteRate;
-            o.ingressByteRate = ingressByteRate;
-            return o;
+            final var _resultValue = new GetKafkaClientQuotaThroughput();
+            _resultValue.egressByteRate = egressByteRate;
+            _resultValue.ingressByteRate = ingressByteRate;
+            return _resultValue;
         }
     }
 }

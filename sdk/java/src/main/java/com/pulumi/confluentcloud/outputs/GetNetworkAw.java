@@ -84,11 +84,11 @@ public final class GetNetworkAw {
             return this;
         }
         public GetNetworkAw build() {
-            final var o = new GetNetworkAw();
-            o.account = account;
-            o.privateLinkEndpointService = privateLinkEndpointService;
-            o.vpc = vpc;
-            return o;
+            final var _resultValue = new GetNetworkAw();
+            _resultValue.account = account;
+            _resultValue.privateLinkEndpointService = privateLinkEndpointService;
+            _resultValue.vpc = vpc;
+            return _resultValue;
         }
     }
 }

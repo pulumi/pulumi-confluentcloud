@@ -103,12 +103,12 @@ public final class GetByokKeyAzure {
             return this;
         }
         public GetByokKeyAzure build() {
-            final var o = new GetByokKeyAzure();
-            o.applicationId = applicationId;
-            o.keyIdentifier = keyIdentifier;
-            o.keyVaultId = keyVaultId;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new GetByokKeyAzure();
+            _resultValue.applicationId = applicationId;
+            _resultValue.keyIdentifier = keyIdentifier;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

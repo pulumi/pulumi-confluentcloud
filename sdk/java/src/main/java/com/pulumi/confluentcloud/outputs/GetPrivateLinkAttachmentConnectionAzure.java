@@ -38,9 +38,9 @@ public final class GetPrivateLinkAttachmentConnectionAzure {
             return this;
         }
         public GetPrivateLinkAttachmentConnectionAzure build() {
-            final var o = new GetPrivateLinkAttachmentConnectionAzure();
-            o.privateEndpointResourceId = privateEndpointResourceId;
-            return o;
+            final var _resultValue = new GetPrivateLinkAttachmentConnectionAzure();
+            _resultValue.privateEndpointResourceId = privateEndpointResourceId;
+            return _resultValue;
         }
     }
 }

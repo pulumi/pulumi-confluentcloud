@@ -25,8 +25,8 @@ public final class GetKafkaClusterEnterprise {
         }
 
         public GetKafkaClusterEnterprise build() {
-            final var o = new GetKafkaClusterEnterprise();
-            return o;
+            final var _resultValue = new GetKafkaClusterEnterprise();
+            return _resultValue;
         }
     }
 }

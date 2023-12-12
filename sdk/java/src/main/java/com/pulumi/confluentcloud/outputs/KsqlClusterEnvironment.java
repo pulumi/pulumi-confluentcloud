@@ -46,9 +46,9 @@ public final class KsqlClusterEnvironment {
             return this;
         }
         public KsqlClusterEnvironment build() {
-            final var o = new KsqlClusterEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new KsqlClusterEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

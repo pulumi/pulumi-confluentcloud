@@ -50,9 +50,9 @@ public final class GetKafkaClusterByokKey {
             return this;
         }
         public GetKafkaClusterByokKey build() {
-            final var o = new GetKafkaClusterByokKey();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetKafkaClusterByokKey();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

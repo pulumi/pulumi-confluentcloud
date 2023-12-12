@@ -65,10 +65,10 @@ public final class GetSchemaCredentials {
             return this;
         }
         public GetSchemaCredentials build() {
-            final var o = new GetSchemaCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new GetSchemaCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

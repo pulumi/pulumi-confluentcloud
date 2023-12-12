@@ -46,9 +46,9 @@ public final class PrivateLinkAccessNetwork {
             return this;
         }
         public PrivateLinkAccessNetwork build() {
-            final var o = new PrivateLinkAccessNetwork();
-            o.id = id;
-            return o;
+            final var _resultValue = new PrivateLinkAccessNetwork();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

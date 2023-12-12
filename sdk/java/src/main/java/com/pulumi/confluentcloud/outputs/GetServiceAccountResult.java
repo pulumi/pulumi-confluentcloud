@@ -122,13 +122,13 @@ public final class GetServiceAccountResult {
             return this;
         }
         public GetServiceAccountResult build() {
-            final var o = new GetServiceAccountResult();
-            o.apiVersion = apiVersion;
-            o.description = description;
-            o.displayName = displayName;
-            o.id = id;
-            o.kind = kind;
-            return o;
+            final var _resultValue = new GetServiceAccountResult();
+            _resultValue.apiVersion = apiVersion;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.kind = kind;
+            return _resultValue;
         }
     }
 }

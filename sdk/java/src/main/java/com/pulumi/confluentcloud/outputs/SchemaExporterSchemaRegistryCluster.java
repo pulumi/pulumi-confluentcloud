@@ -46,9 +46,9 @@ public final class SchemaExporterSchemaRegistryCluster {
             return this;
         }
         public SchemaExporterSchemaRegistryCluster build() {
-            final var o = new SchemaExporterSchemaRegistryCluster();
-            o.id = id;
-            return o;
+            final var _resultValue = new SchemaExporterSchemaRegistryCluster();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -50,9 +50,9 @@ public final class GetNetworkDnsConfig {
             return this;
         }
         public GetNetworkDnsConfig build() {
-            final var o = new GetNetworkDnsConfig();
-            o.resolution = resolution;
-            return o;
+            final var _resultValue = new GetNetworkDnsConfig();
+            _resultValue.resolution = resolution;
+            return _resultValue;
         }
     }
 }

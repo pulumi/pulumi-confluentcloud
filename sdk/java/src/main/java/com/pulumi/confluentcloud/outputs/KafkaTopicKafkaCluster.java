@@ -46,9 +46,9 @@ public final class KafkaTopicKafkaCluster {
             return this;
         }
         public KafkaTopicKafkaCluster build() {
-            final var o = new KafkaTopicKafkaCluster();
-            o.id = id;
-            return o;
+            final var _resultValue = new KafkaTopicKafkaCluster();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

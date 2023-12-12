@@ -25,8 +25,8 @@ public final class GetKafkaClusterBasic {
         }
 
         public GetKafkaClusterBasic build() {
-            final var o = new GetKafkaClusterBasic();
-            return o;
+            final var _resultValue = new GetKafkaClusterBasic();
+            return _resultValue;
         }
     }
 }

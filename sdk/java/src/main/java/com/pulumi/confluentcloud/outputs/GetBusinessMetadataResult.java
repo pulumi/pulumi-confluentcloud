@@ -165,16 +165,16 @@ public final class GetBusinessMetadataResult {
             return this;
         }
         public GetBusinessMetadataResult build() {
-            final var o = new GetBusinessMetadataResult();
-            o.attributeDefinitions = attributeDefinitions;
-            o.credentials = credentials;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.restEndpoint = restEndpoint;
-            o.schemaRegistryCluster = schemaRegistryCluster;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetBusinessMetadataResult();
+            _resultValue.attributeDefinitions = attributeDefinitions;
+            _resultValue.credentials = credentials;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.restEndpoint = restEndpoint;
+            _resultValue.schemaRegistryCluster = schemaRegistryCluster;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

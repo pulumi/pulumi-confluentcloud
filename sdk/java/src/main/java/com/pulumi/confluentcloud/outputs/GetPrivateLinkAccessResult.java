@@ -178,15 +178,15 @@ public final class GetPrivateLinkAccessResult {
             return networks(List.of(networks));
         }
         public GetPrivateLinkAccessResult build() {
-            final var o = new GetPrivateLinkAccessResult();
-            o.aws = aws;
-            o.azures = azures;
-            o.displayName = displayName;
-            o.environment = environment;
-            o.gcps = gcps;
-            o.id = id;
-            o.networks = networks;
-            return o;
+            final var _resultValue = new GetPrivateLinkAccessResult();
+            _resultValue.aws = aws;
+            _resultValue.azures = azures;
+            _resultValue.displayName = displayName;
+            _resultValue.environment = environment;
+            _resultValue.gcps = gcps;
+            _resultValue.id = id;
+            _resultValue.networks = networks;
+            return _resultValue;
         }
     }
 }

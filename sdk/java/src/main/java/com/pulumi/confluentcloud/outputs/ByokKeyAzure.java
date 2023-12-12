@@ -105,12 +105,12 @@ public final class ByokKeyAzure {
             return this;
         }
         public ByokKeyAzure build() {
-            final var o = new ByokKeyAzure();
-            o.applicationId = applicationId;
-            o.keyIdentifier = keyIdentifier;
-            o.keyVaultId = keyVaultId;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new ByokKeyAzure();
+            _resultValue.applicationId = applicationId;
+            _resultValue.keyIdentifier = keyIdentifier;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

@@ -73,10 +73,10 @@ public final class KafkaTopicCredentials {
             return this;
         }
         public KafkaTopicCredentials build() {
-            final var o = new KafkaTopicCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new KafkaTopicCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

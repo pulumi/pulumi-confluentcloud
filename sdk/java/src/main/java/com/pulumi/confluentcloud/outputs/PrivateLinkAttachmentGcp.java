@@ -51,10 +51,10 @@ public final class PrivateLinkAttachmentGcp {
             return this;
         }
         public PrivateLinkAttachmentGcp build() {
-            final var o = new PrivateLinkAttachmentGcp();
-            o.privateServiceConnectServiceAttachment = privateServiceConnectServiceAttachment;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new PrivateLinkAttachmentGcp();
+            _resultValue.privateServiceConnectServiceAttachment = privateServiceConnectServiceAttachment;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

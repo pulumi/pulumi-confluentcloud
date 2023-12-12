@@ -54,9 +54,9 @@ public final class KafkaClientQuotaKafkaCluster {
             return this;
         }
         public KafkaClientQuotaKafkaCluster build() {
-            final var o = new KafkaClientQuotaKafkaCluster();
-            o.id = id;
-            return o;
+            final var _resultValue = new KafkaClientQuotaKafkaCluster();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

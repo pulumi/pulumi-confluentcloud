@@ -199,18 +199,18 @@ public final class GetPrivateLinkAttachmentResult {
             return this;
         }
         public GetPrivateLinkAttachmentResult build() {
-            final var o = new GetPrivateLinkAttachmentResult();
-            o.aws = aws;
-            o.azures = azures;
-            o.cloud = cloud;
-            o.displayName = displayName;
-            o.dnsDomain = dnsDomain;
-            o.environment = environment;
-            o.gcps = gcps;
-            o.id = id;
-            o.region = region;
-            o.resourceName = resourceName;
-            return o;
+            final var _resultValue = new GetPrivateLinkAttachmentResult();
+            _resultValue.aws = aws;
+            _resultValue.azures = azures;
+            _resultValue.cloud = cloud;
+            _resultValue.displayName = displayName;
+            _resultValue.dnsDomain = dnsDomain;
+            _resultValue.environment = environment;
+            _resultValue.gcps = gcps;
+            _resultValue.id = id;
+            _resultValue.region = region;
+            _resultValue.resourceName = resourceName;
+            return _resultValue;
         }
     }
 }

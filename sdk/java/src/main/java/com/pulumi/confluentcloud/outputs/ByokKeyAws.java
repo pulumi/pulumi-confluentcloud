@@ -70,10 +70,10 @@ public final class ByokKeyAws {
             return roles(List.of(roles));
         }
         public ByokKeyAws build() {
-            final var o = new ByokKeyAws();
-            o.keyArn = keyArn;
-            o.roles = roles;
-            return o;
+            final var _resultValue = new ByokKeyAws();
+            _resultValue.keyArn = keyArn;
+            _resultValue.roles = roles;
+            return _resultValue;
         }
     }
 }

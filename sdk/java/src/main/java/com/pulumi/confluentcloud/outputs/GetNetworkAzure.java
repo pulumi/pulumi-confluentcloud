@@ -47,9 +47,9 @@ public final class GetNetworkAzure {
             return this;
         }
         public GetNetworkAzure build() {
-            final var o = new GetNetworkAzure();
-            o.privateLinkServiceAliases = privateLinkServiceAliases;
-            return o;
+            final var _resultValue = new GetNetworkAzure();
+            _resultValue.privateLinkServiceAliases = privateLinkServiceAliases;
+            return _resultValue;
         }
     }
 }

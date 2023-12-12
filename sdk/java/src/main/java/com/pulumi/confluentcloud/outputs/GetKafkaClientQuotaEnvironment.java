@@ -46,9 +46,9 @@ public final class GetKafkaClientQuotaEnvironment {
             return this;
         }
         public GetKafkaClientQuotaEnvironment build() {
-            final var o = new GetKafkaClientQuotaEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetKafkaClientQuotaEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

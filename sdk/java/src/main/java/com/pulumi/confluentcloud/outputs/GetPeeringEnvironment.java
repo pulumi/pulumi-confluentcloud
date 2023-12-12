@@ -50,9 +50,9 @@ public final class GetPeeringEnvironment {
             return this;
         }
         public GetPeeringEnvironment build() {
-            final var o = new GetPeeringEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetPeeringEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class SchemaRegistryClusterEnvironment {
             return this;
         }
         public SchemaRegistryClusterEnvironment build() {
-            final var o = new SchemaRegistryClusterEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new SchemaRegistryClusterEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

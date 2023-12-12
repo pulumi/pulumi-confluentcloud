@@ -159,15 +159,15 @@ public final class GetNetworkLinkServiceResult {
             return this;
         }
         public GetNetworkLinkServiceResult build() {
-            final var o = new GetNetworkLinkServiceResult();
-            o.accept = accept;
-            o.description = description;
-            o.displayName = displayName;
-            o.environment = environment;
-            o.id = id;
-            o.networks = networks;
-            o.resourceName = resourceName;
-            return o;
+            final var _resultValue = new GetNetworkLinkServiceResult();
+            _resultValue.accept = accept;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.environment = environment;
+            _resultValue.id = id;
+            _resultValue.networks = networks;
+            _resultValue.resourceName = resourceName;
+            return _resultValue;
         }
     }
 }

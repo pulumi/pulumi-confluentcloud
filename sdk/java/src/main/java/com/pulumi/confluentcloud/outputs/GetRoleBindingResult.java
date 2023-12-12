@@ -95,12 +95,12 @@ public final class GetRoleBindingResult {
             return this;
         }
         public GetRoleBindingResult build() {
-            final var o = new GetRoleBindingResult();
-            o.crnPattern = crnPattern;
-            o.id = id;
-            o.principal = principal;
-            o.roleName = roleName;
-            return o;
+            final var _resultValue = new GetRoleBindingResult();
+            _resultValue.crnPattern = crnPattern;
+            _resultValue.id = id;
+            _resultValue.principal = principal;
+            _resultValue.roleName = roleName;
+            return _resultValue;
         }
     }
 }

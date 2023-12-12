@@ -164,15 +164,15 @@ public final class GetIpAddressesIpAddress {
             return services(List.of(services));
         }
         public GetIpAddressesIpAddress build() {
-            final var o = new GetIpAddressesIpAddress();
-            o.addressType = addressType;
-            o.apiVersion = apiVersion;
-            o.cloud = cloud;
-            o.ipPrefix = ipPrefix;
-            o.kind = kind;
-            o.region = region;
-            o.services = services;
-            return o;
+            final var _resultValue = new GetIpAddressesIpAddress();
+            _resultValue.addressType = addressType;
+            _resultValue.apiVersion = apiVersion;
+            _resultValue.cloud = cloud;
+            _resultValue.ipPrefix = ipPrefix;
+            _resultValue.kind = kind;
+            _resultValue.region = region;
+            _resultValue.services = services;
+            return _resultValue;
         }
     }
 }

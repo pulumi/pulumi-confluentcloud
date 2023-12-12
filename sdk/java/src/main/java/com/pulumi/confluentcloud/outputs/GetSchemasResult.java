@@ -119,14 +119,14 @@ public final class GetSchemasResult {
             return schemas(List.of(schemas));
         }
         public GetSchemasResult build() {
-            final var o = new GetSchemasResult();
-            o.credentials = credentials;
-            o.filter = filter;
-            o.id = id;
-            o.restEndpoint = restEndpoint;
-            o.schemaRegistryCluster = schemaRegistryCluster;
-            o.schemas = schemas;
-            return o;
+            final var _resultValue = new GetSchemasResult();
+            _resultValue.credentials = credentials;
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.restEndpoint = restEndpoint;
+            _resultValue.schemaRegistryCluster = schemaRegistryCluster;
+            _resultValue.schemas = schemas;
+            return _resultValue;
         }
     }
 }

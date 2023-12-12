@@ -84,11 +84,11 @@ public final class GetIpAddressesResult {
             return ipAddresses(List.of(ipAddresses));
         }
         public GetIpAddressesResult build() {
-            final var o = new GetIpAddressesResult();
-            o.filter = filter;
-            o.id = id;
-            o.ipAddresses = ipAddresses;
-            return o;
+            final var _resultValue = new GetIpAddressesResult();
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.ipAddresses = ipAddresses;
+            return _resultValue;
         }
     }
 }

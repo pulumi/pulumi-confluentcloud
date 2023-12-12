@@ -50,9 +50,9 @@ public final class GetKsqlClusterEnvironment {
             return this;
         }
         public GetKsqlClusterEnvironment build() {
-            final var o = new GetKsqlClusterEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetKsqlClusterEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

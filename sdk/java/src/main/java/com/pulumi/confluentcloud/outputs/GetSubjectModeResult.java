@@ -113,14 +113,14 @@ public final class GetSubjectModeResult {
             return this;
         }
         public GetSubjectModeResult build() {
-            final var o = new GetSubjectModeResult();
-            o.credentials = credentials;
-            o.id = id;
-            o.mode = mode;
-            o.restEndpoint = restEndpoint;
-            o.schemaRegistryCluster = schemaRegistryCluster;
-            o.subjectName = subjectName;
-            return o;
+            final var _resultValue = new GetSubjectModeResult();
+            _resultValue.credentials = credentials;
+            _resultValue.id = id;
+            _resultValue.mode = mode;
+            _resultValue.restEndpoint = restEndpoint;
+            _resultValue.schemaRegistryCluster = schemaRegistryCluster;
+            _resultValue.subjectName = subjectName;
+            return _resultValue;
         }
     }
 }

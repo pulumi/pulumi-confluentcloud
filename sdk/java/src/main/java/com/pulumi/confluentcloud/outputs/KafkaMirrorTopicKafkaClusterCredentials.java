@@ -65,10 +65,10 @@ public final class KafkaMirrorTopicKafkaClusterCredentials {
             return this;
         }
         public KafkaMirrorTopicKafkaClusterCredentials build() {
-            final var o = new KafkaMirrorTopicKafkaClusterCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new KafkaMirrorTopicKafkaClusterCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

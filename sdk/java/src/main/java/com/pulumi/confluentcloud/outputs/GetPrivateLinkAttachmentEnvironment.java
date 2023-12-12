@@ -46,9 +46,9 @@ public final class GetPrivateLinkAttachmentEnvironment {
             return this;
         }
         public GetPrivateLinkAttachmentEnvironment build() {
-            final var o = new GetPrivateLinkAttachmentEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetPrivateLinkAttachmentEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

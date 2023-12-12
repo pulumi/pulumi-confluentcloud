@@ -122,13 +122,13 @@ public final class GetUserResult {
             return this;
         }
         public GetUserResult build() {
-            final var o = new GetUserResult();
-            o.apiVersion = apiVersion;
-            o.email = email;
-            o.fullName = fullName;
-            o.id = id;
-            o.kind = kind;
-            return o;
+            final var _resultValue = new GetUserResult();
+            _resultValue.apiVersion = apiVersion;
+            _resultValue.email = email;
+            _resultValue.fullName = fullName;
+            _resultValue.id = id;
+            _resultValue.kind = kind;
+            return _resultValue;
         }
     }
 }

@@ -50,9 +50,9 @@ public final class GetKafkaClusterEnvironment {
             return this;
         }
         public GetKafkaClusterEnvironment build() {
-            final var o = new GetKafkaClusterEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetKafkaClusterEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

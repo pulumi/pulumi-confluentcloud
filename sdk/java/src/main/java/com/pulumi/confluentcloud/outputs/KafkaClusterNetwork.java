@@ -46,9 +46,9 @@ public final class KafkaClusterNetwork {
             return this;
         }
         public KafkaClusterNetwork build() {
-            final var o = new KafkaClusterNetwork();
-            o.id = id;
-            return o;
+            final var _resultValue = new KafkaClusterNetwork();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

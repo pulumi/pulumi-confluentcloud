@@ -46,9 +46,9 @@ public final class GetNetworkLinkEndpointNetworkLinkService {
             return this;
         }
         public GetNetworkLinkEndpointNetworkLinkService build() {
-            final var o = new GetNetworkLinkEndpointNetworkLinkService();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetNetworkLinkEndpointNetworkLinkService();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

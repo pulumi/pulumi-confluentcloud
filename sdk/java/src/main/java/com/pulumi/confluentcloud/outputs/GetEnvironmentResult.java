@@ -84,11 +84,11 @@ public final class GetEnvironmentResult {
             return this;
         }
         public GetEnvironmentResult build() {
-            final var o = new GetEnvironmentResult();
-            o.displayName = displayName;
-            o.id = id;
-            o.resourceName = resourceName;
-            return o;
+            final var _resultValue = new GetEnvironmentResult();
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.resourceName = resourceName;
+            return _resultValue;
         }
     }
 }

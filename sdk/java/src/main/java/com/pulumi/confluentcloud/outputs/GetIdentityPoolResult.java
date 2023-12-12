@@ -142,14 +142,14 @@ public final class GetIdentityPoolResult {
             return this;
         }
         public GetIdentityPoolResult build() {
-            final var o = new GetIdentityPoolResult();
-            o.description = description;
-            o.displayName = displayName;
-            o.filter = filter;
-            o.id = id;
-            o.identityClaim = identityClaim;
-            o.identityProvider = identityProvider;
-            return o;
+            final var _resultValue = new GetIdentityPoolResult();
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.identityClaim = identityClaim;
+            _resultValue.identityProvider = identityProvider;
+            return _resultValue;
         }
     }
 }
