@@ -87,11 +87,11 @@ public final class GetKafkaClusterDedicated {
             return zones(List.of(zones));
         }
         public GetKafkaClusterDedicated build() {
-            final var o = new GetKafkaClusterDedicated();
-            o.cku = cku;
-            o.encryptionKey = encryptionKey;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new GetKafkaClusterDedicated();
+            _resultValue.cku = cku;
+            _resultValue.encryptionKey = encryptionKey;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

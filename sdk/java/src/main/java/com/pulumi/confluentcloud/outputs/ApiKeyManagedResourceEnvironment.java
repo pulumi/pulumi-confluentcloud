@@ -46,9 +46,9 @@ public final class ApiKeyManagedResourceEnvironment {
             return this;
         }
         public ApiKeyManagedResourceEnvironment build() {
-            final var o = new ApiKeyManagedResourceEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new ApiKeyManagedResourceEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

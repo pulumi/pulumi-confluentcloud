@@ -86,11 +86,11 @@ public final class NetworkAw {
             return this;
         }
         public NetworkAw build() {
-            final var o = new NetworkAw();
-            o.account = account;
-            o.privateLinkEndpointService = privateLinkEndpointService;
-            o.vpc = vpc;
-            return o;
+            final var _resultValue = new NetworkAw();
+            _resultValue.account = account;
+            _resultValue.privateLinkEndpointService = privateLinkEndpointService;
+            _resultValue.vpc = vpc;
+            return _resultValue;
         }
     }
 }

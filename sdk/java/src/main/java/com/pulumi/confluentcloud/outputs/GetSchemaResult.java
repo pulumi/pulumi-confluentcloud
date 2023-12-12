@@ -218,20 +218,20 @@ public final class GetSchemaResult {
             return this;
         }
         public GetSchemaResult build() {
-            final var o = new GetSchemaResult();
-            o.credentials = credentials;
-            o.format = format;
-            o.hardDelete = hardDelete;
-            o.id = id;
-            o.recreateOnUpdate = recreateOnUpdate;
-            o.restEndpoint = restEndpoint;
-            o.schema = schema;
-            o.schemaIdentifier = schemaIdentifier;
-            o.schemaReferences = schemaReferences;
-            o.schemaRegistryCluster = schemaRegistryCluster;
-            o.subjectName = subjectName;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetSchemaResult();
+            _resultValue.credentials = credentials;
+            _resultValue.format = format;
+            _resultValue.hardDelete = hardDelete;
+            _resultValue.id = id;
+            _resultValue.recreateOnUpdate = recreateOnUpdate;
+            _resultValue.restEndpoint = restEndpoint;
+            _resultValue.schema = schema;
+            _resultValue.schemaIdentifier = schemaIdentifier;
+            _resultValue.schemaReferences = schemaReferences;
+            _resultValue.schemaRegistryCluster = schemaRegistryCluster;
+            _resultValue.subjectName = subjectName;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

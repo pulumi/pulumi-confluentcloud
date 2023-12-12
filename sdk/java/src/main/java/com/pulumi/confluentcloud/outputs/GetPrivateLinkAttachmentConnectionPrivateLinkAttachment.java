@@ -46,9 +46,9 @@ public final class GetPrivateLinkAttachmentConnectionPrivateLinkAttachment {
             return this;
         }
         public GetPrivateLinkAttachmentConnectionPrivateLinkAttachment build() {
-            final var o = new GetPrivateLinkAttachmentConnectionPrivateLinkAttachment();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetPrivateLinkAttachmentConnectionPrivateLinkAttachment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

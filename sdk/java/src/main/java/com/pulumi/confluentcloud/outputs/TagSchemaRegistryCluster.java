@@ -46,9 +46,9 @@ public final class TagSchemaRegistryCluster {
             return this;
         }
         public TagSchemaRegistryCluster build() {
-            final var o = new TagSchemaRegistryCluster();
-            o.id = id;
-            return o;
+            final var _resultValue = new TagSchemaRegistryCluster();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

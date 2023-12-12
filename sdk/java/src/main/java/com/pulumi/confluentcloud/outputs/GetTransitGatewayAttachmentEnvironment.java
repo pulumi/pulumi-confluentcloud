@@ -50,9 +50,9 @@ public final class GetTransitGatewayAttachmentEnvironment {
             return this;
         }
         public GetTransitGatewayAttachmentEnvironment build() {
-            final var o = new GetTransitGatewayAttachmentEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetTransitGatewayAttachmentEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

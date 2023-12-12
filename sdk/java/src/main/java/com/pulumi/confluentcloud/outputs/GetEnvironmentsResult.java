@@ -69,10 +69,10 @@ public final class GetEnvironmentsResult {
             return ids(List.of(ids));
         }
         public GetEnvironmentsResult build() {
-            final var o = new GetEnvironmentsResult();
-            o.id = id;
-            o.ids = ids;
-            return o;
+            final var _resultValue = new GetEnvironmentsResult();
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            return _resultValue;
         }
     }
 }

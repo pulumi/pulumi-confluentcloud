@@ -84,11 +84,11 @@ public final class GetPeeringAzure {
             return this;
         }
         public GetPeeringAzure build() {
-            final var o = new GetPeeringAzure();
-            o.customerRegion = customerRegion;
-            o.tenant = tenant;
-            o.vnet = vnet;
-            return o;
+            final var _resultValue = new GetPeeringAzure();
+            _resultValue.customerRegion = customerRegion;
+            _resultValue.tenant = tenant;
+            _resultValue.vnet = vnet;
+            return _resultValue;
         }
     }
 }

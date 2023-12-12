@@ -46,9 +46,9 @@ public final class NetworkEnvironment {
             return this;
         }
         public NetworkEnvironment build() {
-            final var o = new NetworkEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new NetworkEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

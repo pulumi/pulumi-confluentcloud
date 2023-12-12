@@ -134,15 +134,15 @@ public final class GetKafkaTopicResult {
             return this;
         }
         public GetKafkaTopicResult build() {
-            final var o = new GetKafkaTopicResult();
-            o.config = config;
-            o.credentials = credentials;
-            o.id = id;
-            o.kafkaCluster = kafkaCluster;
-            o.partitionsCount = partitionsCount;
-            o.restEndpoint = restEndpoint;
-            o.topicName = topicName;
-            return o;
+            final var _resultValue = new GetKafkaTopicResult();
+            _resultValue.config = config;
+            _resultValue.credentials = credentials;
+            _resultValue.id = id;
+            _resultValue.kafkaCluster = kafkaCluster;
+            _resultValue.partitionsCount = partitionsCount;
+            _resultValue.restEndpoint = restEndpoint;
+            _resultValue.topicName = topicName;
+            return _resultValue;
         }
     }
 }

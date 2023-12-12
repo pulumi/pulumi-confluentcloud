@@ -107,12 +107,12 @@ public final class GetPeeringAw {
             return this;
         }
         public GetPeeringAw build() {
-            final var o = new GetPeeringAw();
-            o.account = account;
-            o.customerRegion = customerRegion;
-            o.routes = routes;
-            o.vpc = vpc;
-            return o;
+            final var _resultValue = new GetPeeringAw();
+            _resultValue.account = account;
+            _resultValue.customerRegion = customerRegion;
+            _resultValue.routes = routes;
+            _resultValue.vpc = vpc;
+            return _resultValue;
         }
     }
 }

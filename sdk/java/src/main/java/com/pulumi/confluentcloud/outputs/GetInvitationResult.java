@@ -188,16 +188,16 @@ public final class GetInvitationResult {
             return users(List.of(users));
         }
         public GetInvitationResult build() {
-            final var o = new GetInvitationResult();
-            o.acceptedAt = acceptedAt;
-            o.authType = authType;
-            o.creators = creators;
-            o.email = email;
-            o.expiresAt = expiresAt;
-            o.id = id;
-            o.status = status;
-            o.users = users;
-            return o;
+            final var _resultValue = new GetInvitationResult();
+            _resultValue.acceptedAt = acceptedAt;
+            _resultValue.authType = authType;
+            _resultValue.creators = creators;
+            _resultValue.email = email;
+            _resultValue.expiresAt = expiresAt;
+            _resultValue.id = id;
+            _resultValue.status = status;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

@@ -54,9 +54,9 @@ public final class KafkaClientQuotaEnvironment {
             return this;
         }
         public KafkaClientQuotaEnvironment build() {
-            final var o = new KafkaClientQuotaEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new KafkaClientQuotaEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

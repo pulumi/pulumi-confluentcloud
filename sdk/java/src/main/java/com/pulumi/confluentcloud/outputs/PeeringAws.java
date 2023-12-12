@@ -107,12 +107,12 @@ public final class PeeringAws {
             return this;
         }
         public PeeringAws build() {
-            final var o = new PeeringAws();
-            o.account = account;
-            o.customerRegion = customerRegion;
-            o.routes = routes;
-            o.vpc = vpc;
-            return o;
+            final var _resultValue = new PeeringAws();
+            _resultValue.account = account;
+            _resultValue.customerRegion = customerRegion;
+            _resultValue.routes = routes;
+            _resultValue.vpc = vpc;
+            return _resultValue;
         }
     }
 }

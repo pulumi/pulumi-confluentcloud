@@ -46,9 +46,9 @@ public final class GetKafkaClientQuotaKafkaCluster {
             return this;
         }
         public GetKafkaClientQuotaKafkaCluster build() {
-            final var o = new GetKafkaClientQuotaKafkaCluster();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetKafkaClientQuotaKafkaCluster();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

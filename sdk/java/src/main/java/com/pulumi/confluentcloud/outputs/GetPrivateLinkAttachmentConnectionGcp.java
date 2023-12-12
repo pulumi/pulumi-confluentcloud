@@ -38,9 +38,9 @@ public final class GetPrivateLinkAttachmentConnectionGcp {
             return this;
         }
         public GetPrivateLinkAttachmentConnectionGcp build() {
-            final var o = new GetPrivateLinkAttachmentConnectionGcp();
-            o.privateServiceConnectConnectionId = privateServiceConnectConnectionId;
-            return o;
+            final var _resultValue = new GetPrivateLinkAttachmentConnectionGcp();
+            _resultValue.privateServiceConnectConnectionId = privateServiceConnectConnectionId;
+            return _resultValue;
         }
     }
 }

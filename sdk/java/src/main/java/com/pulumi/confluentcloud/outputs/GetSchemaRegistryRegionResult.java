@@ -79,12 +79,12 @@ public final class GetSchemaRegistryRegionResult {
             return this;
         }
         public GetSchemaRegistryRegionResult build() {
-            final var o = new GetSchemaRegistryRegionResult();
-            o.cloud = cloud;
-            o.id = id;
-            o.package_ = package_;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetSchemaRegistryRegionResult();
+            _resultValue.cloud = cloud;
+            _resultValue.id = id;
+            _resultValue.package_ = package_;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

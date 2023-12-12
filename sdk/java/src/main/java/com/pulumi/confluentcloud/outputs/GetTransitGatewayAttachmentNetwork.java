@@ -50,9 +50,9 @@ public final class GetTransitGatewayAttachmentNetwork {
             return this;
         }
         public GetTransitGatewayAttachmentNetwork build() {
-            final var o = new GetTransitGatewayAttachmentNetwork();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetTransitGatewayAttachmentNetwork();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

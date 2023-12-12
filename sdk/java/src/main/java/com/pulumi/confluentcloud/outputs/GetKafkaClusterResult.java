@@ -367,25 +367,25 @@ public final class GetKafkaClusterResult {
             return standards(List.of(standards));
         }
         public GetKafkaClusterResult build() {
-            final var o = new GetKafkaClusterResult();
-            o.apiVersion = apiVersion;
-            o.availability = availability;
-            o.basics = basics;
-            o.bootstrapEndpoint = bootstrapEndpoint;
-            o.byokKeys = byokKeys;
-            o.cloud = cloud;
-            o.dedicated = dedicated;
-            o.displayName = displayName;
-            o.enterprises = enterprises;
-            o.environment = environment;
-            o.id = id;
-            o.kind = kind;
-            o.networks = networks;
-            o.rbacCrn = rbacCrn;
-            o.region = region;
-            o.restEndpoint = restEndpoint;
-            o.standards = standards;
-            return o;
+            final var _resultValue = new GetKafkaClusterResult();
+            _resultValue.apiVersion = apiVersion;
+            _resultValue.availability = availability;
+            _resultValue.basics = basics;
+            _resultValue.bootstrapEndpoint = bootstrapEndpoint;
+            _resultValue.byokKeys = byokKeys;
+            _resultValue.cloud = cloud;
+            _resultValue.dedicated = dedicated;
+            _resultValue.displayName = displayName;
+            _resultValue.enterprises = enterprises;
+            _resultValue.environment = environment;
+            _resultValue.id = id;
+            _resultValue.kind = kind;
+            _resultValue.networks = networks;
+            _resultValue.rbacCrn = rbacCrn;
+            _resultValue.region = region;
+            _resultValue.restEndpoint = restEndpoint;
+            _resultValue.standards = standards;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class GetSubjectConfigSchemaRegistryCluster {
             return this;
         }
         public GetSubjectConfigSchemaRegistryCluster build() {
-            final var o = new GetSubjectConfigSchemaRegistryCluster();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetSubjectConfigSchemaRegistryCluster();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

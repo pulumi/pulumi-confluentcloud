@@ -46,9 +46,9 @@ public final class GetPrivateLinkAttachmentAw {
             return this;
         }
         public GetPrivateLinkAttachmentAw build() {
-            final var o = new GetPrivateLinkAttachmentAw();
-            o.vpcEndpointServiceName = vpcEndpointServiceName;
-            return o;
+            final var _resultValue = new GetPrivateLinkAttachmentAw();
+            _resultValue.vpcEndpointServiceName = vpcEndpointServiceName;
+            return _resultValue;
         }
     }
 }

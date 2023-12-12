@@ -46,9 +46,9 @@ public final class KsqlClusterCredentialIdentity {
             return this;
         }
         public KsqlClusterCredentialIdentity build() {
-            final var o = new KsqlClusterCredentialIdentity();
-            o.id = id;
-            return o;
+            final var _resultValue = new KsqlClusterCredentialIdentity();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

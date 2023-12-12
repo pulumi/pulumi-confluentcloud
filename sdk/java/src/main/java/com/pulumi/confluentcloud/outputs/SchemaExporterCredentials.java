@@ -65,10 +65,10 @@ public final class SchemaExporterCredentials {
             return this;
         }
         public SchemaExporterCredentials build() {
-            final var o = new SchemaExporterCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new SchemaExporterCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

@@ -25,8 +25,8 @@ public final class KafkaClusterStandard {
         }
 
         public KafkaClusterStandard build() {
-            final var o = new KafkaClusterStandard();
-            return o;
+            final var _resultValue = new KafkaClusterStandard();
+            return _resultValue;
         }
     }
 }

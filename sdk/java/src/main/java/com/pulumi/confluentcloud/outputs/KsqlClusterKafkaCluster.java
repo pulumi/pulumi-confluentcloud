@@ -46,9 +46,9 @@ public final class KsqlClusterKafkaCluster {
             return this;
         }
         public KsqlClusterKafkaCluster build() {
-            final var o = new KsqlClusterKafkaCluster();
-            o.id = id;
-            return o;
+            final var _resultValue = new KsqlClusterKafkaCluster();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

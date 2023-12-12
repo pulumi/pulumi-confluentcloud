@@ -46,9 +46,9 @@ public final class GetTagSchemaRegistryCluster {
             return this;
         }
         public GetTagSchemaRegistryCluster build() {
-            final var o = new GetTagSchemaRegistryCluster();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetTagSchemaRegistryCluster();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

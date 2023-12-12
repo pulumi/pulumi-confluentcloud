@@ -65,10 +65,10 @@ public final class GetBusinessMetadataCredentials {
             return this;
         }
         public GetBusinessMetadataCredentials build() {
-            final var o = new GetBusinessMetadataCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new GetBusinessMetadataCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

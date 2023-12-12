@@ -50,9 +50,9 @@ public final class GetNetworkEnvironment {
             return this;
         }
         public GetNetworkEnvironment build() {
-            final var o = new GetNetworkEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetNetworkEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -50,9 +50,9 @@ public final class GetIdentityPoolIdentityProvider {
             return this;
         }
         public GetIdentityPoolIdentityProvider build() {
-            final var o = new GetIdentityPoolIdentityProvider();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetIdentityPoolIdentityProvider();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

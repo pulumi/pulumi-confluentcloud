@@ -173,16 +173,16 @@ public final class GetPrivateLinkAttachmentConnectionResult {
             return this;
         }
         public GetPrivateLinkAttachmentConnectionResult build() {
-            final var o = new GetPrivateLinkAttachmentConnectionResult();
-            o.aws = aws;
-            o.azures = azures;
-            o.displayName = displayName;
-            o.environment = environment;
-            o.gcps = gcps;
-            o.id = id;
-            o.privateLinkAttachments = privateLinkAttachments;
-            o.resourceName = resourceName;
-            return o;
+            final var _resultValue = new GetPrivateLinkAttachmentConnectionResult();
+            _resultValue.aws = aws;
+            _resultValue.azures = azures;
+            _resultValue.displayName = displayName;
+            _resultValue.environment = environment;
+            _resultValue.gcps = gcps;
+            _resultValue.id = id;
+            _resultValue.privateLinkAttachments = privateLinkAttachments;
+            _resultValue.resourceName = resourceName;
+            return _resultValue;
         }
     }
 }

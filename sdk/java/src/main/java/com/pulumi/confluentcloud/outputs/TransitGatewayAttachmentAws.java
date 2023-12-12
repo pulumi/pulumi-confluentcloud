@@ -113,12 +113,12 @@ public final class TransitGatewayAttachmentAws {
             return this;
         }
         public TransitGatewayAttachmentAws build() {
-            final var o = new TransitGatewayAttachmentAws();
-            o.ramResourceShareArn = ramResourceShareArn;
-            o.routes = routes;
-            o.transitGatewayAttachmentId = transitGatewayAttachmentId;
-            o.transitGatewayId = transitGatewayId;
-            return o;
+            final var _resultValue = new TransitGatewayAttachmentAws();
+            _resultValue.ramResourceShareArn = ramResourceShareArn;
+            _resultValue.routes = routes;
+            _resultValue.transitGatewayAttachmentId = transitGatewayAttachmentId;
+            _resultValue.transitGatewayId = transitGatewayId;
+            return _resultValue;
         }
     }
 }

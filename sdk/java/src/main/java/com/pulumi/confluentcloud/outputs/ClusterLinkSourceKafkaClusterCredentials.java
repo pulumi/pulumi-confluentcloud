@@ -65,10 +65,10 @@ public final class ClusterLinkSourceKafkaClusterCredentials {
             return this;
         }
         public ClusterLinkSourceKafkaClusterCredentials build() {
-            final var o = new ClusterLinkSourceKafkaClusterCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new ClusterLinkSourceKafkaClusterCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class PrivateLinkAttachmentConnectionAws {
             return this;
         }
         public PrivateLinkAttachmentConnectionAws build() {
-            final var o = new PrivateLinkAttachmentConnectionAws();
-            o.vpcEndpointId = vpcEndpointId;
-            return o;
+            final var _resultValue = new PrivateLinkAttachmentConnectionAws();
+            _resultValue.vpcEndpointId = vpcEndpointId;
+            return _resultValue;
         }
     }
 }

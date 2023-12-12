@@ -178,15 +178,15 @@ public final class GetPeeringResult {
             return networks(List.of(networks));
         }
         public GetPeeringResult build() {
-            final var o = new GetPeeringResult();
-            o.aws = aws;
-            o.azures = azures;
-            o.displayName = displayName;
-            o.environment = environment;
-            o.gcps = gcps;
-            o.id = id;
-            o.networks = networks;
-            return o;
+            final var _resultValue = new GetPeeringResult();
+            _resultValue.aws = aws;
+            _resultValue.azures = azures;
+            _resultValue.displayName = displayName;
+            _resultValue.environment = environment;
+            _resultValue.gcps = gcps;
+            _resultValue.id = id;
+            _resultValue.networks = networks;
+            return _resultValue;
         }
     }
 }

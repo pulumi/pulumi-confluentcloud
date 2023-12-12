@@ -147,14 +147,14 @@ public final class GetSchemasSchema {
             return this;
         }
         public GetSchemasSchema build() {
-            final var o = new GetSchemasSchema();
-            o.format = format;
-            o.schema = schema;
-            o.schemaIdentifier = schemaIdentifier;
-            o.schemaReferences = schemaReferences;
-            o.subjectName = subjectName;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetSchemasSchema();
+            _resultValue.format = format;
+            _resultValue.schema = schema;
+            _resultValue.schemaIdentifier = schemaIdentifier;
+            _resultValue.schemaReferences = schemaReferences;
+            _resultValue.subjectName = subjectName;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class TagBindingSchemaRegistryCluster {
             return this;
         }
         public TagBindingSchemaRegistryCluster build() {
-            final var o = new TagBindingSchemaRegistryCluster();
-            o.id = id;
-            return o;
+            final var _resultValue = new TagBindingSchemaRegistryCluster();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

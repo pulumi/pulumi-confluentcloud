@@ -46,9 +46,9 @@ public final class PeeringEnvironment {
             return this;
         }
         public PeeringEnvironment build() {
-            final var o = new PeeringEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new PeeringEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

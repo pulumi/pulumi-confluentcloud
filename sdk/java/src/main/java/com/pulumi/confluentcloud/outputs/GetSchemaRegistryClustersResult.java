@@ -70,10 +70,10 @@ public final class GetSchemaRegistryClustersResult {
             return this;
         }
         public GetSchemaRegistryClustersResult build() {
-            final var o = new GetSchemaRegistryClustersResult();
-            o.clusters = clusters;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetSchemaRegistryClustersResult();
+            _resultValue.clusters = clusters;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

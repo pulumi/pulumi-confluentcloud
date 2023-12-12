@@ -73,10 +73,10 @@ public final class KafkaClusterConfigCredentials {
             return this;
         }
         public KafkaClusterConfigCredentials build() {
-            final var o = new KafkaClusterConfigCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new KafkaClusterConfigCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

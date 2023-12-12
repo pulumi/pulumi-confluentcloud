@@ -132,13 +132,13 @@ public final class GetTransitGatewayAttachmentResult {
             return networks(List.of(networks));
         }
         public GetTransitGatewayAttachmentResult build() {
-            final var o = new GetTransitGatewayAttachmentResult();
-            o.aws = aws;
-            o.displayName = displayName;
-            o.environment = environment;
-            o.id = id;
-            o.networks = networks;
-            return o;
+            final var _resultValue = new GetTransitGatewayAttachmentResult();
+            _resultValue.aws = aws;
+            _resultValue.displayName = displayName;
+            _resultValue.environment = environment;
+            _resultValue.id = id;
+            _resultValue.networks = networks;
+            return _resultValue;
         }
     }
 }

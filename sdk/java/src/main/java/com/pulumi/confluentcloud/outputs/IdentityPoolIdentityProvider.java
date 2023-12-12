@@ -46,9 +46,9 @@ public final class IdentityPoolIdentityProvider {
             return this;
         }
         public IdentityPoolIdentityProvider build() {
-            final var o = new IdentityPoolIdentityProvider();
-            o.id = id;
-            return o;
+            final var _resultValue = new IdentityPoolIdentityProvider();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

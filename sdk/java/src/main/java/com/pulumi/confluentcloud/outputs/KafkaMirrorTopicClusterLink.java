@@ -46,9 +46,9 @@ public final class KafkaMirrorTopicClusterLink {
             return this;
         }
         public KafkaMirrorTopicClusterLink build() {
-            final var o = new KafkaMirrorTopicClusterLink();
-            o.linkName = linkName;
-            return o;
+            final var _resultValue = new KafkaMirrorTopicClusterLink();
+            _resultValue.linkName = linkName;
+            return _resultValue;
         }
     }
 }

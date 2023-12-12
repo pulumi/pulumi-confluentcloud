@@ -57,10 +57,10 @@ public final class SchemaCredentials {
             return this;
         }
         public SchemaCredentials build() {
-            final var o = new SchemaCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new SchemaCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

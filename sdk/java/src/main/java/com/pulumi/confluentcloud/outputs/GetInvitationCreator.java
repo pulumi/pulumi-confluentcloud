@@ -46,9 +46,9 @@ public final class GetInvitationCreator {
             return this;
         }
         public GetInvitationCreator build() {
-            final var o = new GetInvitationCreator();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetInvitationCreator();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

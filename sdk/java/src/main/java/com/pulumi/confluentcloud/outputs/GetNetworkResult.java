@@ -365,25 +365,25 @@ public final class GetNetworkResult {
             return zones(List.of(zones));
         }
         public GetNetworkResult build() {
-            final var o = new GetNetworkResult();
-            o.aws = aws;
-            o.azures = azures;
-            o.cidr = cidr;
-            o.cloud = cloud;
-            o.connectionTypes = connectionTypes;
-            o.displayName = displayName;
-            o.dnsConfigs = dnsConfigs;
-            o.dnsDomain = dnsDomain;
-            o.environment = environment;
-            o.gcps = gcps;
-            o.id = id;
-            o.region = region;
-            o.reservedCidr = reservedCidr;
-            o.resourceName = resourceName;
-            o.zonalSubdomains = zonalSubdomains;
-            o.zoneInfos = zoneInfos;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new GetNetworkResult();
+            _resultValue.aws = aws;
+            _resultValue.azures = azures;
+            _resultValue.cidr = cidr;
+            _resultValue.cloud = cloud;
+            _resultValue.connectionTypes = connectionTypes;
+            _resultValue.displayName = displayName;
+            _resultValue.dnsConfigs = dnsConfigs;
+            _resultValue.dnsDomain = dnsDomain;
+            _resultValue.environment = environment;
+            _resultValue.gcps = gcps;
+            _resultValue.id = id;
+            _resultValue.region = region;
+            _resultValue.reservedCidr = reservedCidr;
+            _resultValue.resourceName = resourceName;
+            _resultValue.zonalSubdomains = zonalSubdomains;
+            _resultValue.zoneInfos = zoneInfos;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

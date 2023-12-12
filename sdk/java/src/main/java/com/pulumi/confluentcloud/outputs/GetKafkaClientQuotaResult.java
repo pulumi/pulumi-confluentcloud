@@ -176,15 +176,15 @@ public final class GetKafkaClientQuotaResult {
             return throughputs(List.of(throughputs));
         }
         public GetKafkaClientQuotaResult build() {
-            final var o = new GetKafkaClientQuotaResult();
-            o.description = description;
-            o.displayName = displayName;
-            o.environments = environments;
-            o.id = id;
-            o.kafkaClusters = kafkaClusters;
-            o.principals = principals;
-            o.throughputs = throughputs;
-            return o;
+            final var _resultValue = new GetKafkaClientQuotaResult();
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.environments = environments;
+            _resultValue.id = id;
+            _resultValue.kafkaClusters = kafkaClusters;
+            _resultValue.principals = principals;
+            _resultValue.throughputs = throughputs;
+            return _resultValue;
         }
     }
 }

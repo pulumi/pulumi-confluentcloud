@@ -238,19 +238,19 @@ public final class GetFlinkComputePoolResult {
             return this;
         }
         public GetFlinkComputePoolResult build() {
-            final var o = new GetFlinkComputePoolResult();
-            o.apiVersion = apiVersion;
-            o.cloud = cloud;
-            o.currentCfu = currentCfu;
-            o.displayName = displayName;
-            o.environment = environment;
-            o.id = id;
-            o.kind = kind;
-            o.maxCfu = maxCfu;
-            o.region = region;
-            o.resourceName = resourceName;
-            o.restEndpoint = restEndpoint;
-            return o;
+            final var _resultValue = new GetFlinkComputePoolResult();
+            _resultValue.apiVersion = apiVersion;
+            _resultValue.cloud = cloud;
+            _resultValue.currentCfu = currentCfu;
+            _resultValue.displayName = displayName;
+            _resultValue.environment = environment;
+            _resultValue.id = id;
+            _resultValue.kind = kind;
+            _resultValue.maxCfu = maxCfu;
+            _resultValue.region = region;
+            _resultValue.resourceName = resourceName;
+            _resultValue.restEndpoint = restEndpoint;
+            return _resultValue;
         }
     }
 }

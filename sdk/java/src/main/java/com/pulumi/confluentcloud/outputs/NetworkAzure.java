@@ -48,9 +48,9 @@ public final class NetworkAzure {
             return this;
         }
         public NetworkAzure build() {
-            final var o = new NetworkAzure();
-            o.privateLinkServiceAliases = privateLinkServiceAliases;
-            return o;
+            final var _resultValue = new NetworkAzure();
+            _resultValue.privateLinkServiceAliases = privateLinkServiceAliases;
+            return _resultValue;
         }
     }
 }

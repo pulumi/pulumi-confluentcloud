@@ -65,10 +65,10 @@ public final class KafkaAclCredentials {
             return this;
         }
         public KafkaAclCredentials build() {
-            final var o = new KafkaAclCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new KafkaAclCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

@@ -162,15 +162,15 @@ public final class GetNetworkLinkEndpointResult {
             return this;
         }
         public GetNetworkLinkEndpointResult build() {
-            final var o = new GetNetworkLinkEndpointResult();
-            o.description = description;
-            o.displayName = displayName;
-            o.environment = environment;
-            o.id = id;
-            o.networkLinkServices = networkLinkServices;
-            o.networks = networks;
-            o.resourceName = resourceName;
-            return o;
+            final var _resultValue = new GetNetworkLinkEndpointResult();
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.environment = environment;
+            _resultValue.id = id;
+            _resultValue.networkLinkServices = networkLinkServices;
+            _resultValue.networks = networks;
+            _resultValue.resourceName = resourceName;
+            return _resultValue;
         }
     }
 }

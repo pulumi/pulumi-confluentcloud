@@ -58,10 +58,10 @@ public final class SchemaExporterDestinationSchemaRegistryCluster {
             return this;
         }
         public SchemaExporterDestinationSchemaRegistryCluster build() {
-            final var o = new SchemaExporterDestinationSchemaRegistryCluster();
-            o.credentials = credentials;
-            o.restEndpoint = restEndpoint;
-            return o;
+            final var _resultValue = new SchemaExporterDestinationSchemaRegistryCluster();
+            _resultValue.credentials = credentials;
+            _resultValue.restEndpoint = restEndpoint;
+            return _resultValue;
         }
     }
 }

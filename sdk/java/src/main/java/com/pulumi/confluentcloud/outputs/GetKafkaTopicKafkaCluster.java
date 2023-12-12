@@ -46,9 +46,9 @@ public final class GetKafkaTopicKafkaCluster {
             return this;
         }
         public GetKafkaTopicKafkaCluster build() {
-            final var o = new GetKafkaTopicKafkaCluster();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetKafkaTopicKafkaCluster();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

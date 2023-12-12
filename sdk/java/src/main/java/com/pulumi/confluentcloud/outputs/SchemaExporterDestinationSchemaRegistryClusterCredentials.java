@@ -65,10 +65,10 @@ public final class SchemaExporterDestinationSchemaRegistryClusterCredentials {
             return this;
         }
         public SchemaExporterDestinationSchemaRegistryClusterCredentials build() {
-            final var o = new SchemaExporterDestinationSchemaRegistryClusterCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new SchemaExporterDestinationSchemaRegistryClusterCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

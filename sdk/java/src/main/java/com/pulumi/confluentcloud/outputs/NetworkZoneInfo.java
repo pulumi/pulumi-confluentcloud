@@ -71,10 +71,10 @@ public final class NetworkZoneInfo {
             return this;
         }
         public NetworkZoneInfo build() {
-            final var o = new NetworkZoneInfo();
-            o.cidr = cidr;
-            o.zoneId = zoneId;
-            return o;
+            final var _resultValue = new NetworkZoneInfo();
+            _resultValue.cidr = cidr;
+            _resultValue.zoneId = zoneId;
+            return _resultValue;
         }
     }
 }

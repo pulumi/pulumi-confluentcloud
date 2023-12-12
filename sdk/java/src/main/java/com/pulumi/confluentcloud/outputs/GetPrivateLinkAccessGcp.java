@@ -46,9 +46,9 @@ public final class GetPrivateLinkAccessGcp {
             return this;
         }
         public GetPrivateLinkAccessGcp build() {
-            final var o = new GetPrivateLinkAccessGcp();
-            o.project = project;
-            return o;
+            final var _resultValue = new GetPrivateLinkAccessGcp();
+            _resultValue.project = project;
+            return _resultValue;
         }
     }
 }

@@ -50,9 +50,9 @@ public final class GetPrivateLinkAccessNetwork {
             return this;
         }
         public GetPrivateLinkAccessNetwork build() {
-            final var o = new GetPrivateLinkAccessNetwork();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetPrivateLinkAccessNetwork();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

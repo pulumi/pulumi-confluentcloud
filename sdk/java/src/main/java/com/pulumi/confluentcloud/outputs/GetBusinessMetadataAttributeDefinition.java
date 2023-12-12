@@ -147,14 +147,14 @@ public final class GetBusinessMetadataAttributeDefinition {
             return this;
         }
         public GetBusinessMetadataAttributeDefinition build() {
-            final var o = new GetBusinessMetadataAttributeDefinition();
-            o.defaultValue = defaultValue;
-            o.description = description;
-            o.isOptional = isOptional;
-            o.name = name;
-            o.options = options;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetBusinessMetadataAttributeDefinition();
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.description = description;
+            _resultValue.isOptional = isOptional;
+            _resultValue.name = name;
+            _resultValue.options = options;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

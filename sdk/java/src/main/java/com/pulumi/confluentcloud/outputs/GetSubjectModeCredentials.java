@@ -65,10 +65,10 @@ public final class GetSubjectModeCredentials {
             return this;
         }
         public GetSubjectModeCredentials build() {
-            final var o = new GetSubjectModeCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new GetSubjectModeCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

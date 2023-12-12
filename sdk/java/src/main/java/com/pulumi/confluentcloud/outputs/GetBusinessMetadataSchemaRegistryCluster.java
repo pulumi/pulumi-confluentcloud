@@ -46,9 +46,9 @@ public final class GetBusinessMetadataSchemaRegistryCluster {
             return this;
         }
         public GetBusinessMetadataSchemaRegistryCluster build() {
-            final var o = new GetBusinessMetadataSchemaRegistryCluster();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetBusinessMetadataSchemaRegistryCluster();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

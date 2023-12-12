@@ -48,9 +48,9 @@ public final class InvitationUser {
             return this;
         }
         public InvitationUser build() {
-            final var o = new InvitationUser();
-            o.id = id;
-            return o;
+            final var _resultValue = new InvitationUser();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

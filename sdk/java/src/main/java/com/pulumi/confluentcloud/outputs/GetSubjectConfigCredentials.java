@@ -65,10 +65,10 @@ public final class GetSubjectConfigCredentials {
             return this;
         }
         public GetSubjectConfigCredentials build() {
-            final var o = new GetSubjectConfigCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new GetSubjectConfigCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

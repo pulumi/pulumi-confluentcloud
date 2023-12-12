@@ -117,12 +117,12 @@ public final class GetIpAddressesFilter {
             return services(List.of(services));
         }
         public GetIpAddressesFilter build() {
-            final var o = new GetIpAddressesFilter();
-            o.addressTypes = addressTypes;
-            o.clouds = clouds;
-            o.regions = regions;
-            o.services = services;
-            return o;
+            final var _resultValue = new GetIpAddressesFilter();
+            _resultValue.addressTypes = addressTypes;
+            _resultValue.clouds = clouds;
+            _resultValue.regions = regions;
+            _resultValue.services = services;
+            return _resultValue;
         }
     }
 }

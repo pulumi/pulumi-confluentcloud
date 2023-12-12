@@ -204,17 +204,17 @@ public final class GetSchemaRegistryClustersCluster {
             return this;
         }
         public GetSchemaRegistryClustersCluster build() {
-            final var o = new GetSchemaRegistryClustersCluster();
-            o.apiVersion = apiVersion;
-            o.displayName = displayName;
-            o.environment = environment;
-            o.id = id;
-            o.kind = kind;
-            o.package_ = package_;
-            o.regions = regions;
-            o.resourceName = resourceName;
-            o.restEndpoint = restEndpoint;
-            return o;
+            final var _resultValue = new GetSchemaRegistryClustersCluster();
+            _resultValue.apiVersion = apiVersion;
+            _resultValue.displayName = displayName;
+            _resultValue.environment = environment;
+            _resultValue.id = id;
+            _resultValue.kind = kind;
+            _resultValue.package_ = package_;
+            _resultValue.regions = regions;
+            _resultValue.resourceName = resourceName;
+            _resultValue.restEndpoint = restEndpoint;
+            return _resultValue;
         }
     }
 }

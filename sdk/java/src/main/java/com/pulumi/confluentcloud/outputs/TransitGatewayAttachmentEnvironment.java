@@ -46,9 +46,9 @@ public final class TransitGatewayAttachmentEnvironment {
             return this;
         }
         public TransitGatewayAttachmentEnvironment build() {
-            final var o = new TransitGatewayAttachmentEnvironment();
-            o.id = id;
-            return o;
+            final var _resultValue = new TransitGatewayAttachmentEnvironment();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

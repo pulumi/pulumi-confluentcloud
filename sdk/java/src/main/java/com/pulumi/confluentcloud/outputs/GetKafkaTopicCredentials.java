@@ -57,10 +57,10 @@ public final class GetKafkaTopicCredentials {
             return this;
         }
         public GetKafkaTopicCredentials build() {
-            final var o = new GetKafkaTopicCredentials();
-            o.key = key;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new GetKafkaTopicCredentials();
+            _resultValue.key = key;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

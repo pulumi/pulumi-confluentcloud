@@ -113,14 +113,14 @@ public final class GetSubjectConfigResult {
             return this;
         }
         public GetSubjectConfigResult build() {
-            final var o = new GetSubjectConfigResult();
-            o.compatibilityLevel = compatibilityLevel;
-            o.credentials = credentials;
-            o.id = id;
-            o.restEndpoint = restEndpoint;
-            o.schemaRegistryCluster = schemaRegistryCluster;
-            o.subjectName = subjectName;
-            return o;
+            final var _resultValue = new GetSubjectConfigResult();
+            _resultValue.compatibilityLevel = compatibilityLevel;
+            _resultValue.credentials = credentials;
+            _resultValue.id = id;
+            _resultValue.restEndpoint = restEndpoint;
+            _resultValue.schemaRegistryCluster = schemaRegistryCluster;
+            _resultValue.subjectName = subjectName;
+            return _resultValue;
         }
     }
 }

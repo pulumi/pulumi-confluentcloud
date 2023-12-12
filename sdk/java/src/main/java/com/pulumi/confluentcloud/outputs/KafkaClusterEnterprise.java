@@ -25,8 +25,8 @@ public final class KafkaClusterEnterprise {
         }
 
         public KafkaClusterEnterprise build() {
-            final var o = new KafkaClusterEnterprise();
-            return o;
+            final var _resultValue = new KafkaClusterEnterprise();
+            return _resultValue;
         }
     }
 }

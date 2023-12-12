@@ -46,9 +46,9 @@ public final class ConnectorKafkaCluster {
             return this;
         }
         public ConnectorKafkaCluster build() {
-            final var o = new ConnectorKafkaCluster();
-            o.id = id;
-            return o;
+            final var _resultValue = new ConnectorKafkaCluster();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -102,13 +102,13 @@ public final class GetSchemaRegistryClusterConfigResult {
             return this;
         }
         public GetSchemaRegistryClusterConfigResult build() {
-            final var o = new GetSchemaRegistryClusterConfigResult();
-            o.compatibilityLevel = compatibilityLevel;
-            o.credentials = credentials;
-            o.id = id;
-            o.restEndpoint = restEndpoint;
-            o.schemaRegistryCluster = schemaRegistryCluster;
-            return o;
+            final var _resultValue = new GetSchemaRegistryClusterConfigResult();
+            _resultValue.compatibilityLevel = compatibilityLevel;
+            _resultValue.credentials = credentials;
+            _resultValue.id = id;
+            _resultValue.restEndpoint = restEndpoint;
+            _resultValue.schemaRegistryCluster = schemaRegistryCluster;
+            return _resultValue;
         }
     }
 }

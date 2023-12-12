@@ -81,11 +81,11 @@ public final class KafkaClusterDedicated {
             return zones(List.of(zones));
         }
         public KafkaClusterDedicated build() {
-            final var o = new KafkaClusterDedicated();
-            o.cku = cku;
-            o.encryptionKey = encryptionKey;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new KafkaClusterDedicated();
+            _resultValue.cku = cku;
+            _resultValue.encryptionKey = encryptionKey;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

@@ -73,10 +73,10 @@ public final class NetworkLinkServiceAccept {
             return networks(List.of(networks));
         }
         public NetworkLinkServiceAccept build() {
-            final var o = new NetworkLinkServiceAccept();
-            o.environments = environments;
-            o.networks = networks;
-            return o;
+            final var _resultValue = new NetworkLinkServiceAccept();
+            _resultValue.environments = environments;
+            _resultValue.networks = networks;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class KafkaClientQuotaThroughput {
             return this;
         }
         public KafkaClientQuotaThroughput build() {
-            final var o = new KafkaClientQuotaThroughput();
-            o.egressByteRate = egressByteRate;
-            o.ingressByteRate = ingressByteRate;
-            return o;
+            final var _resultValue = new KafkaClientQuotaThroughput();
+            _resultValue.egressByteRate = egressByteRate;
+            _resultValue.ingressByteRate = ingressByteRate;
+            return _resultValue;
         }
     }
 }

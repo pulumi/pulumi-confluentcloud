@@ -46,9 +46,9 @@ public final class SubjectModeSchemaRegistryCluster {
             return this;
         }
         public SubjectModeSchemaRegistryCluster build() {
-            final var o = new SubjectModeSchemaRegistryCluster();
-            o.id = id;
-            return o;
+            final var _resultValue = new SubjectModeSchemaRegistryCluster();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

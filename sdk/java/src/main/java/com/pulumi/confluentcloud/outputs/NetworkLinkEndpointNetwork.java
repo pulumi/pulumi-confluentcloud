@@ -46,9 +46,9 @@ public final class NetworkLinkEndpointNetwork {
             return this;
         }
         public NetworkLinkEndpointNetwork build() {
-            final var o = new NetworkLinkEndpointNetwork();
-            o.id = id;
-            return o;
+            final var _resultValue = new NetworkLinkEndpointNetwork();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

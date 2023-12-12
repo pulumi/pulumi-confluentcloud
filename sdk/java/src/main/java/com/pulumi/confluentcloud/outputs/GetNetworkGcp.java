@@ -85,11 +85,11 @@ public final class GetNetworkGcp {
             return this;
         }
         public GetNetworkGcp build() {
-            final var o = new GetNetworkGcp();
-            o.privateServiceConnectServiceAttachments = privateServiceConnectServiceAttachments;
-            o.project = project;
-            o.vpcNetwork = vpcNetwork;
-            return o;
+            final var _resultValue = new GetNetworkGcp();
+            _resultValue.privateServiceConnectServiceAttachments = privateServiceConnectServiceAttachments;
+            _resultValue.project = project;
+            _resultValue.vpcNetwork = vpcNetwork;
+            return _resultValue;
         }
     }
 }

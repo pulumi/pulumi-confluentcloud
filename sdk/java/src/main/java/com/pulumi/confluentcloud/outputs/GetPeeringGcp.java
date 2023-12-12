@@ -85,11 +85,11 @@ public final class GetPeeringGcp {
             return this;
         }
         public GetPeeringGcp build() {
-            final var o = new GetPeeringGcp();
-            o.importCustomRoutes = importCustomRoutes;
-            o.project = project;
-            o.vpcNetwork = vpcNetwork;
-            return o;
+            final var _resultValue = new GetPeeringGcp();
+            _resultValue.importCustomRoutes = importCustomRoutes;
+            _resultValue.project = project;
+            _resultValue.vpcNetwork = vpcNetwork;
+            return _resultValue;
         }
     }
 }

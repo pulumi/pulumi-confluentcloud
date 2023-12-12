@@ -46,9 +46,9 @@ public final class GetSchemaRegistryClusterModeSchemaRegistryCluster {
             return this;
         }
         public GetSchemaRegistryClusterModeSchemaRegistryCluster build() {
-            final var o = new GetSchemaRegistryClusterModeSchemaRegistryCluster();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetSchemaRegistryClusterModeSchemaRegistryCluster();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

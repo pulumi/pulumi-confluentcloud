@@ -136,16 +136,16 @@ public final class GetBusinessMetadataBindingResult {
             return this;
         }
         public GetBusinessMetadataBindingResult build() {
-            final var o = new GetBusinessMetadataBindingResult();
-            o.attributes = attributes;
-            o.businessMetadataName = businessMetadataName;
-            o.credentials = credentials;
-            o.entityName = entityName;
-            o.entityType = entityType;
-            o.id = id;
-            o.restEndpoint = restEndpoint;
-            o.schemaRegistryCluster = schemaRegistryCluster;
-            return o;
+            final var _resultValue = new GetBusinessMetadataBindingResult();
+            _resultValue.attributes = attributes;
+            _resultValue.businessMetadataName = businessMetadataName;
+            _resultValue.credentials = credentials;
+            _resultValue.entityName = entityName;
+            _resultValue.entityType = entityType;
+            _resultValue.id = id;
+            _resultValue.restEndpoint = restEndpoint;
+            _resultValue.schemaRegistryCluster = schemaRegistryCluster;
+            return _resultValue;
         }
     }
 }
