@@ -62,6 +62,56 @@ namespace Pulumi.ConfluentCloud
             set => _endpoint.Set(value);
         }
 
+        private static readonly __Value<string?> _flinkApiKey = new __Value<string?>(() => __config.Get("flinkApiKey"));
+        /// <summary>
+        /// The Flink API Key.
+        /// </summary>
+        public static string? FlinkApiKey
+        {
+            get => _flinkApiKey.Get();
+            set => _flinkApiKey.Set(value);
+        }
+
+        private static readonly __Value<string?> _flinkApiSecret = new __Value<string?>(() => __config.Get("flinkApiSecret"));
+        /// <summary>
+        /// The Flink API Secret.
+        /// </summary>
+        public static string? FlinkApiSecret
+        {
+            get => _flinkApiSecret.Get();
+            set => _flinkApiSecret.Set(value);
+        }
+
+        private static readonly __Value<string?> _flinkComputePoolId = new __Value<string?>(() => __config.Get("flinkComputePoolId"));
+        /// <summary>
+        /// The Flink Compute Pool ID.
+        /// </summary>
+        public static string? FlinkComputePoolId
+        {
+            get => _flinkComputePoolId.Get();
+            set => _flinkComputePoolId.Set(value);
+        }
+
+        private static readonly __Value<string?> _flinkPrincipalId = new __Value<string?>(() => __config.Get("flinkPrincipalId"));
+        /// <summary>
+        /// The Flink Principal ID.
+        /// </summary>
+        public static string? FlinkPrincipalId
+        {
+            get => _flinkPrincipalId.Get();
+            set => _flinkPrincipalId.Set(value);
+        }
+
+        private static readonly __Value<string?> _flinkRestEndpoint = new __Value<string?>(() => __config.Get("flinkRestEndpoint"));
+        /// <summary>
+        /// The Flink REST Endpoint.
+        /// </summary>
+        public static string? FlinkRestEndpoint
+        {
+            get => _flinkRestEndpoint.Get();
+            set => _flinkRestEndpoint.Set(value);
+        }
+
         private static readonly __Value<string?> _kafkaApiKey = new __Value<string?>(() => __config.Get("kafkaApiKey"));
         /// <summary>
         /// The Kafka Cluster API Key.

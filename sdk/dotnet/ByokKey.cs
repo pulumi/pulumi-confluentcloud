@@ -35,6 +35,12 @@ namespace Pulumi.ConfluentCloud
         [Output("azure")]
         public Output<Outputs.ByokKeyAzure> Azure { get; private set; } = null!;
 
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Output("gcp")]
+        public Output<Outputs.ByokKeyGcp> Gcp { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ByokKey resource with the given unique name, arguments, and options.
@@ -93,6 +99,12 @@ namespace Pulumi.ConfluentCloud
         [Input("azure")]
         public Input<Inputs.ByokKeyAzureArgs>? Azure { get; set; }
 
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("gcp")]
+        public Input<Inputs.ByokKeyGcpArgs>? Gcp { get; set; }
+
         public ByokKeyArgs()
         {
         }
@@ -112,6 +124,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("azure")]
         public Input<Inputs.ByokKeyAzureGetArgs>? Azure { get; set; }
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("gcp")]
+        public Input<Inputs.ByokKeyGcpGetArgs>? Gcp { get; set; }
 
         public ByokKeyState()
         {

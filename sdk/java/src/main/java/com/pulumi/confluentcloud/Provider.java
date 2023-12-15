@@ -66,6 +66,76 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.endpoint);
     }
     /**
+     * The Flink API Key.
+     * 
+     */
+    @Export(name="flinkApiKey", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> flinkApiKey;
+
+    /**
+     * @return The Flink API Key.
+     * 
+     */
+    public Output<Optional<String>> flinkApiKey() {
+        return Codegen.optional(this.flinkApiKey);
+    }
+    /**
+     * The Flink API Secret.
+     * 
+     */
+    @Export(name="flinkApiSecret", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> flinkApiSecret;
+
+    /**
+     * @return The Flink API Secret.
+     * 
+     */
+    public Output<Optional<String>> flinkApiSecret() {
+        return Codegen.optional(this.flinkApiSecret);
+    }
+    /**
+     * The Flink Compute Pool ID.
+     * 
+     */
+    @Export(name="flinkComputePoolId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> flinkComputePoolId;
+
+    /**
+     * @return The Flink Compute Pool ID.
+     * 
+     */
+    public Output<Optional<String>> flinkComputePoolId() {
+        return Codegen.optional(this.flinkComputePoolId);
+    }
+    /**
+     * The Flink Principal ID.
+     * 
+     */
+    @Export(name="flinkPrincipalId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> flinkPrincipalId;
+
+    /**
+     * @return The Flink Principal ID.
+     * 
+     */
+    public Output<Optional<String>> flinkPrincipalId() {
+        return Codegen.optional(this.flinkPrincipalId);
+    }
+    /**
+     * The Flink REST Endpoint.
+     * 
+     */
+    @Export(name="flinkRestEndpoint", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> flinkRestEndpoint;
+
+    /**
+     * @return The Flink REST Endpoint.
+     * 
+     */
+    public Output<Optional<String>> flinkRestEndpoint() {
+        return Codegen.optional(this.flinkRestEndpoint);
+    }
+    /**
      * The Kafka Cluster API Key.
      * 
      */
@@ -209,6 +279,8 @@ public class Provider extends com.pulumi.resources.ProviderResource {
             .additionalSecretOutputs(List.of(
                 "cloudApiKey",
                 "cloudApiSecret",
+                "flinkApiKey",
+                "flinkApiSecret",
                 "kafkaApiKey",
                 "kafkaApiSecret",
                 "schemaRegistryApiKey",

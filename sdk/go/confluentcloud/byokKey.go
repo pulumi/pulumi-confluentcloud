@@ -29,6 +29,8 @@ type ByokKey struct {
 	Aws ByokKeyAwsOutput `pulumi:"aws"`
 	// (Optional Configuration Block) supports the following:
 	Azure ByokKeyAzureOutput `pulumi:"azure"`
+	// (Optional Configuration Block) supports the following:
+	Gcp ByokKeyGcpOutput `pulumi:"gcp"`
 }
 
 // NewByokKey registers a new resource with the given unique name, arguments, and options.
@@ -65,6 +67,8 @@ type byokKeyState struct {
 	Aws *ByokKeyAws `pulumi:"aws"`
 	// (Optional Configuration Block) supports the following:
 	Azure *ByokKeyAzure `pulumi:"azure"`
+	// (Optional Configuration Block) supports the following:
+	Gcp *ByokKeyGcp `pulumi:"gcp"`
 }
 
 type ByokKeyState struct {
@@ -72,6 +76,8 @@ type ByokKeyState struct {
 	Aws ByokKeyAwsPtrInput
 	// (Optional Configuration Block) supports the following:
 	Azure ByokKeyAzurePtrInput
+	// (Optional Configuration Block) supports the following:
+	Gcp ByokKeyGcpPtrInput
 }
 
 func (ByokKeyState) ElementType() reflect.Type {
@@ -83,6 +89,8 @@ type byokKeyArgs struct {
 	Aws *ByokKeyAws `pulumi:"aws"`
 	// (Optional Configuration Block) supports the following:
 	Azure *ByokKeyAzure `pulumi:"azure"`
+	// (Optional Configuration Block) supports the following:
+	Gcp *ByokKeyGcp `pulumi:"gcp"`
 }
 
 // The set of arguments for constructing a ByokKey resource.
@@ -91,6 +99,8 @@ type ByokKeyArgs struct {
 	Aws ByokKeyAwsPtrInput
 	// (Optional Configuration Block) supports the following:
 	Azure ByokKeyAzurePtrInput
+	// (Optional Configuration Block) supports the following:
+	Gcp ByokKeyGcpPtrInput
 }
 
 func (ByokKeyArgs) ElementType() reflect.Type {
@@ -188,6 +198,11 @@ func (o ByokKeyOutput) Aws() ByokKeyAwsOutput {
 // (Optional Configuration Block) supports the following:
 func (o ByokKeyOutput) Azure() ByokKeyAzureOutput {
 	return o.ApplyT(func(v *ByokKey) ByokKeyAzureOutput { return v.Azure }).(ByokKeyAzureOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o ByokKeyOutput) Gcp() ByokKeyGcpOutput {
+	return o.ApplyT(func(v *ByokKey) ByokKeyGcpOutput { return v.Gcp }).(ByokKeyGcpOutput)
 }
 
 type ByokKeyArrayOutput struct{ *pulumi.OutputState }

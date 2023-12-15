@@ -14,12 +14,15 @@ from .connector import *
 from .custom_connector_plugin import *
 from .environment import *
 from .flink_compute_pool import *
+from .flink_statement import *
 from .get_business_metadata import *
 from .get_business_metadata_binding import *
 from .get_byok_key import *
 from .get_environment import *
 from .get_environments import *
 from .get_flink_compute_pool import *
+from .get_flink_region import *
+from .get_group_mapping import *
 from .get_identity_pool import *
 from .get_identity_provider import *
 from .get_invitation import *
@@ -52,6 +55,7 @@ from .get_tag_binding import *
 from .get_transit_gateway_attachment import *
 from .get_user import *
 from .get_users import *
+from .group_mapping import *
 from .identity_pool import *
 from .identity_provider import *
 from .invitation import *
@@ -166,6 +170,22 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/flinkComputePool:FlinkComputePool": "FlinkComputePool"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/flinkStatement",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/flinkStatement:FlinkStatement": "FlinkStatement"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/groupMapping",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/groupMapping:GroupMapping": "GroupMapping"
   }
  },
  {

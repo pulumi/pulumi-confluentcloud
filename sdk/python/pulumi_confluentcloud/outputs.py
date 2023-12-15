@@ -21,6 +21,7 @@ __all__ = [
     'BusinessMetadataSchemaRegistryCluster',
     'ByokKeyAws',
     'ByokKeyAzure',
+    'ByokKeyGcp',
     'ClusterLinkDestinationKafkaCluster',
     'ClusterLinkDestinationKafkaClusterCredentials',
     'ClusterLinkLocalKafkaCluster',
@@ -32,6 +33,9 @@ __all__ = [
     'ConnectorEnvironment',
     'ConnectorKafkaCluster',
     'FlinkComputePoolEnvironment',
+    'FlinkStatementComputePool',
+    'FlinkStatementCredentials',
+    'FlinkStatementPrincipal',
     'IdentityPoolIdentityProvider',
     'InvitationCreator',
     'InvitationUser',
@@ -120,6 +124,7 @@ __all__ = [
     'GetBusinessMetadataSchemaRegistryClusterResult',
     'GetByokKeyAwResult',
     'GetByokKeyAzureResult',
+    'GetByokKeyGcpResult',
     'GetFlinkComputePoolEnvironmentResult',
     'GetIdentityPoolIdentityProviderResult',
     'GetInvitationCreatorResult',
@@ -651,6 +656,55 @@ class ByokKeyAzure(dict):
 
 
 @pulumi.output_type
+class ByokKeyGcp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyId":
+            suggest = "key_id"
+        elif key == "securityGroup":
+            suggest = "security_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ByokKeyGcp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ByokKeyGcp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ByokKeyGcp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_id: str,
+                 security_group: Optional[str] = None):
+        """
+        :param str key_id: The Google Cloud Platform key ID.
+        :param str security_group: (Optional String) The Google security group created for this key.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+        if security_group is not None:
+            pulumi.set(__self__, "security_group", security_group)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        The Google Cloud Platform key ID.
+        """
+        return pulumi.get(self, "key_id")
+
+    @property
+    @pulumi.getter(name="securityGroup")
+    def security_group(self) -> Optional[str]:
+        """
+        (Optional String) The Google security group created for this key.
+        """
+        return pulumi.get(self, "security_group")
+
+
+@pulumi.output_type
 class ClusterLinkDestinationKafkaCluster(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1092,6 +1146,79 @@ class FlinkComputePoolEnvironment(dict):
     def id(self) -> str:
         """
         The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkStatementComputePool(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkStatementCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        """
+        :param str key: The Flink API Key.
+        :param str secret: The Flink API Secret.
+               
+               > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Statements in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_statement.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_statement.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Flink API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The Flink API Secret.
+
+        > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Statements in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_statement.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_statement.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class FlinkStatementPrincipal(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -3611,6 +3738,35 @@ class GetByokKeyAzureResult(dict):
         (Required String) Tenant ID (uuid) hosting the Key Vault containing the key.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class GetByokKeyGcpResult(dict):
+    def __init__(__self__, *,
+                 key_id: str,
+                 security_group: str):
+        """
+        :param str key_id: (Required String) The Google Cloud Platform key ID.
+        :param str security_group: (Optional String) The Google security group created for this key.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "security_group", security_group)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        (Required String) The Google Cloud Platform key ID.
+        """
+        return pulumi.get(self, "key_id")
+
+    @property
+    @pulumi.getter(name="securityGroup")
+    def security_group(self) -> str:
+        """
+        (Optional String) The Google security group created for this key.
+        """
+        return pulumi.get(self, "security_group")
 
 
 @pulumi.output_type

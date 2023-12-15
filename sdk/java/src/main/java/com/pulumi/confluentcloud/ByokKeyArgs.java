@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud;
 
 import com.pulumi.confluentcloud.inputs.ByokKeyAwsArgs;
 import com.pulumi.confluentcloud.inputs.ByokKeyAzureArgs;
+import com.pulumi.confluentcloud.inputs.ByokKeyGcpArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -46,11 +47,27 @@ public final class ByokKeyArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.azure);
     }
 
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Import(name="gcp")
+    private @Nullable Output<ByokKeyGcpArgs> gcp;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Optional<Output<ByokKeyGcpArgs>> gcp() {
+        return Optional.ofNullable(this.gcp);
+    }
+
     private ByokKeyArgs() {}
 
     private ByokKeyArgs(ByokKeyArgs $) {
         this.aws = $.aws;
         this.azure = $.azure;
+        this.gcp = $.gcp;
     }
 
     public static Builder builder() {
@@ -111,6 +128,27 @@ public final class ByokKeyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder azure(ByokKeyAzureArgs azure) {
             return azure(Output.of(azure));
+        }
+
+        /**
+         * @param gcp (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gcp(@Nullable Output<ByokKeyGcpArgs> gcp) {
+            $.gcp = gcp;
+            return this;
+        }
+
+        /**
+         * @param gcp (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gcp(ByokKeyGcpArgs gcp) {
+            return gcp(Output.of(gcp));
         }
 
         public ByokKeyArgs build() {

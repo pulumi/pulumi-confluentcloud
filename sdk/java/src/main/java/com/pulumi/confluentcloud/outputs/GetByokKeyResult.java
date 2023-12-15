@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetByokKeyAw;
 import com.pulumi.confluentcloud.outputs.GetByokKeyAzure;
+import com.pulumi.confluentcloud.outputs.GetByokKeyGcp;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -22,6 +23,11 @@ public final class GetByokKeyResult {
      * 
      */
     private List<GetByokKeyAzure> azures;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetByokKeyGcp> gcps;
     /**
      * @return (Required String) The ID of the BYOK key, for example, `cck-abcde`.
      * 
@@ -44,6 +50,13 @@ public final class GetByokKeyResult {
         return this.azures;
     }
     /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetByokKeyGcp> gcps() {
+        return this.gcps;
+    }
+    /**
      * @return (Required String) The ID of the BYOK key, for example, `cck-abcde`.
      * 
      */
@@ -62,12 +75,14 @@ public final class GetByokKeyResult {
     public static final class Builder {
         private List<GetByokKeyAw> aws;
         private List<GetByokKeyAzure> azures;
+        private List<GetByokKeyGcp> gcps;
         private String id;
         public Builder() {}
         public Builder(GetByokKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aws = defaults.aws;
     	      this.azures = defaults.azures;
+    	      this.gcps = defaults.gcps;
     	      this.id = defaults.id;
         }
 
@@ -88,6 +103,14 @@ public final class GetByokKeyResult {
             return azures(List.of(azures));
         }
         @CustomType.Setter
+        public Builder gcps(List<GetByokKeyGcp> gcps) {
+            this.gcps = Objects.requireNonNull(gcps);
+            return this;
+        }
+        public Builder gcps(GetByokKeyGcp... gcps) {
+            return gcps(List.of(gcps));
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
@@ -96,6 +119,7 @@ public final class GetByokKeyResult {
             final var _resultValue = new GetByokKeyResult();
             _resultValue.aws = aws;
             _resultValue.azures = azures;
+            _resultValue.gcps = gcps;
             _resultValue.id = id;
             return _resultValue;
         }

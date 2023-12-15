@@ -1589,6 +1589,162 @@ func (o ByokKeyAzurePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ByokKeyGcp struct {
+	// The Google Cloud Platform key ID.
+	KeyId string `pulumi:"keyId"`
+	// (Optional String) The Google security group created for this key.
+	SecurityGroup *string `pulumi:"securityGroup"`
+}
+
+// ByokKeyGcpInput is an input type that accepts ByokKeyGcpArgs and ByokKeyGcpOutput values.
+// You can construct a concrete instance of `ByokKeyGcpInput` via:
+//
+//	ByokKeyGcpArgs{...}
+type ByokKeyGcpInput interface {
+	pulumi.Input
+
+	ToByokKeyGcpOutput() ByokKeyGcpOutput
+	ToByokKeyGcpOutputWithContext(context.Context) ByokKeyGcpOutput
+}
+
+type ByokKeyGcpArgs struct {
+	// The Google Cloud Platform key ID.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// (Optional String) The Google security group created for this key.
+	SecurityGroup pulumi.StringPtrInput `pulumi:"securityGroup"`
+}
+
+func (ByokKeyGcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ByokKeyGcp)(nil)).Elem()
+}
+
+func (i ByokKeyGcpArgs) ToByokKeyGcpOutput() ByokKeyGcpOutput {
+	return i.ToByokKeyGcpOutputWithContext(context.Background())
+}
+
+func (i ByokKeyGcpArgs) ToByokKeyGcpOutputWithContext(ctx context.Context) ByokKeyGcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyGcpOutput)
+}
+
+func (i ByokKeyGcpArgs) ToByokKeyGcpPtrOutput() ByokKeyGcpPtrOutput {
+	return i.ToByokKeyGcpPtrOutputWithContext(context.Background())
+}
+
+func (i ByokKeyGcpArgs) ToByokKeyGcpPtrOutputWithContext(ctx context.Context) ByokKeyGcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyGcpOutput).ToByokKeyGcpPtrOutputWithContext(ctx)
+}
+
+// ByokKeyGcpPtrInput is an input type that accepts ByokKeyGcpArgs, ByokKeyGcpPtr and ByokKeyGcpPtrOutput values.
+// You can construct a concrete instance of `ByokKeyGcpPtrInput` via:
+//
+//	        ByokKeyGcpArgs{...}
+//
+//	or:
+//
+//	        nil
+type ByokKeyGcpPtrInput interface {
+	pulumi.Input
+
+	ToByokKeyGcpPtrOutput() ByokKeyGcpPtrOutput
+	ToByokKeyGcpPtrOutputWithContext(context.Context) ByokKeyGcpPtrOutput
+}
+
+type byokKeyGcpPtrType ByokKeyGcpArgs
+
+func ByokKeyGcpPtr(v *ByokKeyGcpArgs) ByokKeyGcpPtrInput {
+	return (*byokKeyGcpPtrType)(v)
+}
+
+func (*byokKeyGcpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ByokKeyGcp)(nil)).Elem()
+}
+
+func (i *byokKeyGcpPtrType) ToByokKeyGcpPtrOutput() ByokKeyGcpPtrOutput {
+	return i.ToByokKeyGcpPtrOutputWithContext(context.Background())
+}
+
+func (i *byokKeyGcpPtrType) ToByokKeyGcpPtrOutputWithContext(ctx context.Context) ByokKeyGcpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ByokKeyGcpPtrOutput)
+}
+
+type ByokKeyGcpOutput struct{ *pulumi.OutputState }
+
+func (ByokKeyGcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ByokKeyGcp)(nil)).Elem()
+}
+
+func (o ByokKeyGcpOutput) ToByokKeyGcpOutput() ByokKeyGcpOutput {
+	return o
+}
+
+func (o ByokKeyGcpOutput) ToByokKeyGcpOutputWithContext(ctx context.Context) ByokKeyGcpOutput {
+	return o
+}
+
+func (o ByokKeyGcpOutput) ToByokKeyGcpPtrOutput() ByokKeyGcpPtrOutput {
+	return o.ToByokKeyGcpPtrOutputWithContext(context.Background())
+}
+
+func (o ByokKeyGcpOutput) ToByokKeyGcpPtrOutputWithContext(ctx context.Context) ByokKeyGcpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ByokKeyGcp) *ByokKeyGcp {
+		return &v
+	}).(ByokKeyGcpPtrOutput)
+}
+
+// The Google Cloud Platform key ID.
+func (o ByokKeyGcpOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v ByokKeyGcp) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+// (Optional String) The Google security group created for this key.
+func (o ByokKeyGcpOutput) SecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ByokKeyGcp) *string { return v.SecurityGroup }).(pulumi.StringPtrOutput)
+}
+
+type ByokKeyGcpPtrOutput struct{ *pulumi.OutputState }
+
+func (ByokKeyGcpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ByokKeyGcp)(nil)).Elem()
+}
+
+func (o ByokKeyGcpPtrOutput) ToByokKeyGcpPtrOutput() ByokKeyGcpPtrOutput {
+	return o
+}
+
+func (o ByokKeyGcpPtrOutput) ToByokKeyGcpPtrOutputWithContext(ctx context.Context) ByokKeyGcpPtrOutput {
+	return o
+}
+
+func (o ByokKeyGcpPtrOutput) Elem() ByokKeyGcpOutput {
+	return o.ApplyT(func(v *ByokKeyGcp) ByokKeyGcp {
+		if v != nil {
+			return *v
+		}
+		var ret ByokKeyGcp
+		return ret
+	}).(ByokKeyGcpOutput)
+}
+
+// The Google Cloud Platform key ID.
+func (o ByokKeyGcpPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ByokKeyGcp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional String) The Google security group created for this key.
+func (o ByokKeyGcpPtrOutput) SecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ByokKeyGcp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroup
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterLinkDestinationKafkaCluster struct {
 	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint *string                                        `pulumi:"bootstrapEndpoint"`
@@ -3379,6 +3535,452 @@ func (o FlinkComputePoolEnvironmentPtrOutput) Elem() FlinkComputePoolEnvironment
 // The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
 func (o FlinkComputePoolEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlinkComputePoolEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkStatementComputePool struct {
+	// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// FlinkStatementComputePoolInput is an input type that accepts FlinkStatementComputePoolArgs and FlinkStatementComputePoolOutput values.
+// You can construct a concrete instance of `FlinkStatementComputePoolInput` via:
+//
+//	FlinkStatementComputePoolArgs{...}
+type FlinkStatementComputePoolInput interface {
+	pulumi.Input
+
+	ToFlinkStatementComputePoolOutput() FlinkStatementComputePoolOutput
+	ToFlinkStatementComputePoolOutputWithContext(context.Context) FlinkStatementComputePoolOutput
+}
+
+type FlinkStatementComputePoolArgs struct {
+	// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FlinkStatementComputePoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkStatementComputePool)(nil)).Elem()
+}
+
+func (i FlinkStatementComputePoolArgs) ToFlinkStatementComputePoolOutput() FlinkStatementComputePoolOutput {
+	return i.ToFlinkStatementComputePoolOutputWithContext(context.Background())
+}
+
+func (i FlinkStatementComputePoolArgs) ToFlinkStatementComputePoolOutputWithContext(ctx context.Context) FlinkStatementComputePoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkStatementComputePoolOutput)
+}
+
+func (i FlinkStatementComputePoolArgs) ToFlinkStatementComputePoolPtrOutput() FlinkStatementComputePoolPtrOutput {
+	return i.ToFlinkStatementComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkStatementComputePoolArgs) ToFlinkStatementComputePoolPtrOutputWithContext(ctx context.Context) FlinkStatementComputePoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkStatementComputePoolOutput).ToFlinkStatementComputePoolPtrOutputWithContext(ctx)
+}
+
+// FlinkStatementComputePoolPtrInput is an input type that accepts FlinkStatementComputePoolArgs, FlinkStatementComputePoolPtr and FlinkStatementComputePoolPtrOutput values.
+// You can construct a concrete instance of `FlinkStatementComputePoolPtrInput` via:
+//
+//	        FlinkStatementComputePoolArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkStatementComputePoolPtrInput interface {
+	pulumi.Input
+
+	ToFlinkStatementComputePoolPtrOutput() FlinkStatementComputePoolPtrOutput
+	ToFlinkStatementComputePoolPtrOutputWithContext(context.Context) FlinkStatementComputePoolPtrOutput
+}
+
+type flinkStatementComputePoolPtrType FlinkStatementComputePoolArgs
+
+func FlinkStatementComputePoolPtr(v *FlinkStatementComputePoolArgs) FlinkStatementComputePoolPtrInput {
+	return (*flinkStatementComputePoolPtrType)(v)
+}
+
+func (*flinkStatementComputePoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkStatementComputePool)(nil)).Elem()
+}
+
+func (i *flinkStatementComputePoolPtrType) ToFlinkStatementComputePoolPtrOutput() FlinkStatementComputePoolPtrOutput {
+	return i.ToFlinkStatementComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkStatementComputePoolPtrType) ToFlinkStatementComputePoolPtrOutputWithContext(ctx context.Context) FlinkStatementComputePoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkStatementComputePoolPtrOutput)
+}
+
+type FlinkStatementComputePoolOutput struct{ *pulumi.OutputState }
+
+func (FlinkStatementComputePoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkStatementComputePool)(nil)).Elem()
+}
+
+func (o FlinkStatementComputePoolOutput) ToFlinkStatementComputePoolOutput() FlinkStatementComputePoolOutput {
+	return o
+}
+
+func (o FlinkStatementComputePoolOutput) ToFlinkStatementComputePoolOutputWithContext(ctx context.Context) FlinkStatementComputePoolOutput {
+	return o
+}
+
+func (o FlinkStatementComputePoolOutput) ToFlinkStatementComputePoolPtrOutput() FlinkStatementComputePoolPtrOutput {
+	return o.ToFlinkStatementComputePoolPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkStatementComputePoolOutput) ToFlinkStatementComputePoolPtrOutputWithContext(ctx context.Context) FlinkStatementComputePoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkStatementComputePool) *FlinkStatementComputePool {
+		return &v
+	}).(FlinkStatementComputePoolPtrOutput)
+}
+
+// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+func (o FlinkStatementComputePoolOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkStatementComputePool) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FlinkStatementComputePoolPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkStatementComputePoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkStatementComputePool)(nil)).Elem()
+}
+
+func (o FlinkStatementComputePoolPtrOutput) ToFlinkStatementComputePoolPtrOutput() FlinkStatementComputePoolPtrOutput {
+	return o
+}
+
+func (o FlinkStatementComputePoolPtrOutput) ToFlinkStatementComputePoolPtrOutputWithContext(ctx context.Context) FlinkStatementComputePoolPtrOutput {
+	return o
+}
+
+func (o FlinkStatementComputePoolPtrOutput) Elem() FlinkStatementComputePoolOutput {
+	return o.ApplyT(func(v *FlinkStatementComputePool) FlinkStatementComputePool {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkStatementComputePool
+		return ret
+	}).(FlinkStatementComputePoolOutput)
+}
+
+// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+func (o FlinkStatementComputePoolPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkStatementComputePool) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkStatementCredentials struct {
+	// The Flink API Key.
+	Key string `pulumi:"key"`
+	// The Flink API Secret.
+	//
+	// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Statements in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+	//
+	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_statement.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_statement.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+	Secret string `pulumi:"secret"`
+}
+
+// FlinkStatementCredentialsInput is an input type that accepts FlinkStatementCredentialsArgs and FlinkStatementCredentialsOutput values.
+// You can construct a concrete instance of `FlinkStatementCredentialsInput` via:
+//
+//	FlinkStatementCredentialsArgs{...}
+type FlinkStatementCredentialsInput interface {
+	pulumi.Input
+
+	ToFlinkStatementCredentialsOutput() FlinkStatementCredentialsOutput
+	ToFlinkStatementCredentialsOutputWithContext(context.Context) FlinkStatementCredentialsOutput
+}
+
+type FlinkStatementCredentialsArgs struct {
+	// The Flink API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Flink API Secret.
+	//
+	// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Statements in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+	//
+	// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_statement.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_statement.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (FlinkStatementCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkStatementCredentials)(nil)).Elem()
+}
+
+func (i FlinkStatementCredentialsArgs) ToFlinkStatementCredentialsOutput() FlinkStatementCredentialsOutput {
+	return i.ToFlinkStatementCredentialsOutputWithContext(context.Background())
+}
+
+func (i FlinkStatementCredentialsArgs) ToFlinkStatementCredentialsOutputWithContext(ctx context.Context) FlinkStatementCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkStatementCredentialsOutput)
+}
+
+func (i FlinkStatementCredentialsArgs) ToFlinkStatementCredentialsPtrOutput() FlinkStatementCredentialsPtrOutput {
+	return i.ToFlinkStatementCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkStatementCredentialsArgs) ToFlinkStatementCredentialsPtrOutputWithContext(ctx context.Context) FlinkStatementCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkStatementCredentialsOutput).ToFlinkStatementCredentialsPtrOutputWithContext(ctx)
+}
+
+// FlinkStatementCredentialsPtrInput is an input type that accepts FlinkStatementCredentialsArgs, FlinkStatementCredentialsPtr and FlinkStatementCredentialsPtrOutput values.
+// You can construct a concrete instance of `FlinkStatementCredentialsPtrInput` via:
+//
+//	        FlinkStatementCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkStatementCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToFlinkStatementCredentialsPtrOutput() FlinkStatementCredentialsPtrOutput
+	ToFlinkStatementCredentialsPtrOutputWithContext(context.Context) FlinkStatementCredentialsPtrOutput
+}
+
+type flinkStatementCredentialsPtrType FlinkStatementCredentialsArgs
+
+func FlinkStatementCredentialsPtr(v *FlinkStatementCredentialsArgs) FlinkStatementCredentialsPtrInput {
+	return (*flinkStatementCredentialsPtrType)(v)
+}
+
+func (*flinkStatementCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkStatementCredentials)(nil)).Elem()
+}
+
+func (i *flinkStatementCredentialsPtrType) ToFlinkStatementCredentialsPtrOutput() FlinkStatementCredentialsPtrOutput {
+	return i.ToFlinkStatementCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkStatementCredentialsPtrType) ToFlinkStatementCredentialsPtrOutputWithContext(ctx context.Context) FlinkStatementCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkStatementCredentialsPtrOutput)
+}
+
+type FlinkStatementCredentialsOutput struct{ *pulumi.OutputState }
+
+func (FlinkStatementCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkStatementCredentials)(nil)).Elem()
+}
+
+func (o FlinkStatementCredentialsOutput) ToFlinkStatementCredentialsOutput() FlinkStatementCredentialsOutput {
+	return o
+}
+
+func (o FlinkStatementCredentialsOutput) ToFlinkStatementCredentialsOutputWithContext(ctx context.Context) FlinkStatementCredentialsOutput {
+	return o
+}
+
+func (o FlinkStatementCredentialsOutput) ToFlinkStatementCredentialsPtrOutput() FlinkStatementCredentialsPtrOutput {
+	return o.ToFlinkStatementCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkStatementCredentialsOutput) ToFlinkStatementCredentialsPtrOutputWithContext(ctx context.Context) FlinkStatementCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkStatementCredentials) *FlinkStatementCredentials {
+		return &v
+	}).(FlinkStatementCredentialsPtrOutput)
+}
+
+// The Flink API Key.
+func (o FlinkStatementCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkStatementCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Flink API Secret.
+//
+// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Statements in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+//
+// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_statement.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_statement.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+func (o FlinkStatementCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkStatementCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type FlinkStatementCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkStatementCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkStatementCredentials)(nil)).Elem()
+}
+
+func (o FlinkStatementCredentialsPtrOutput) ToFlinkStatementCredentialsPtrOutput() FlinkStatementCredentialsPtrOutput {
+	return o
+}
+
+func (o FlinkStatementCredentialsPtrOutput) ToFlinkStatementCredentialsPtrOutputWithContext(ctx context.Context) FlinkStatementCredentialsPtrOutput {
+	return o
+}
+
+func (o FlinkStatementCredentialsPtrOutput) Elem() FlinkStatementCredentialsOutput {
+	return o.ApplyT(func(v *FlinkStatementCredentials) FlinkStatementCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkStatementCredentials
+		return ret
+	}).(FlinkStatementCredentialsOutput)
+}
+
+// The Flink API Key.
+func (o FlinkStatementCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkStatementCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Flink API Secret.
+//
+// > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Statements in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+//
+// > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_statement.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_statement.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+func (o FlinkStatementCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkStatementCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlinkStatementPrincipal struct {
+	// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// FlinkStatementPrincipalInput is an input type that accepts FlinkStatementPrincipalArgs and FlinkStatementPrincipalOutput values.
+// You can construct a concrete instance of `FlinkStatementPrincipalInput` via:
+//
+//	FlinkStatementPrincipalArgs{...}
+type FlinkStatementPrincipalInput interface {
+	pulumi.Input
+
+	ToFlinkStatementPrincipalOutput() FlinkStatementPrincipalOutput
+	ToFlinkStatementPrincipalOutputWithContext(context.Context) FlinkStatementPrincipalOutput
+}
+
+type FlinkStatementPrincipalArgs struct {
+	// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FlinkStatementPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkStatementPrincipal)(nil)).Elem()
+}
+
+func (i FlinkStatementPrincipalArgs) ToFlinkStatementPrincipalOutput() FlinkStatementPrincipalOutput {
+	return i.ToFlinkStatementPrincipalOutputWithContext(context.Background())
+}
+
+func (i FlinkStatementPrincipalArgs) ToFlinkStatementPrincipalOutputWithContext(ctx context.Context) FlinkStatementPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkStatementPrincipalOutput)
+}
+
+func (i FlinkStatementPrincipalArgs) ToFlinkStatementPrincipalPtrOutput() FlinkStatementPrincipalPtrOutput {
+	return i.ToFlinkStatementPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i FlinkStatementPrincipalArgs) ToFlinkStatementPrincipalPtrOutputWithContext(ctx context.Context) FlinkStatementPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkStatementPrincipalOutput).ToFlinkStatementPrincipalPtrOutputWithContext(ctx)
+}
+
+// FlinkStatementPrincipalPtrInput is an input type that accepts FlinkStatementPrincipalArgs, FlinkStatementPrincipalPtr and FlinkStatementPrincipalPtrOutput values.
+// You can construct a concrete instance of `FlinkStatementPrincipalPtrInput` via:
+//
+//	        FlinkStatementPrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlinkStatementPrincipalPtrInput interface {
+	pulumi.Input
+
+	ToFlinkStatementPrincipalPtrOutput() FlinkStatementPrincipalPtrOutput
+	ToFlinkStatementPrincipalPtrOutputWithContext(context.Context) FlinkStatementPrincipalPtrOutput
+}
+
+type flinkStatementPrincipalPtrType FlinkStatementPrincipalArgs
+
+func FlinkStatementPrincipalPtr(v *FlinkStatementPrincipalArgs) FlinkStatementPrincipalPtrInput {
+	return (*flinkStatementPrincipalPtrType)(v)
+}
+
+func (*flinkStatementPrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkStatementPrincipal)(nil)).Elem()
+}
+
+func (i *flinkStatementPrincipalPtrType) ToFlinkStatementPrincipalPtrOutput() FlinkStatementPrincipalPtrOutput {
+	return i.ToFlinkStatementPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *flinkStatementPrincipalPtrType) ToFlinkStatementPrincipalPtrOutputWithContext(ctx context.Context) FlinkStatementPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlinkStatementPrincipalPtrOutput)
+}
+
+type FlinkStatementPrincipalOutput struct{ *pulumi.OutputState }
+
+func (FlinkStatementPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlinkStatementPrincipal)(nil)).Elem()
+}
+
+func (o FlinkStatementPrincipalOutput) ToFlinkStatementPrincipalOutput() FlinkStatementPrincipalOutput {
+	return o
+}
+
+func (o FlinkStatementPrincipalOutput) ToFlinkStatementPrincipalOutputWithContext(ctx context.Context) FlinkStatementPrincipalOutput {
+	return o
+}
+
+func (o FlinkStatementPrincipalOutput) ToFlinkStatementPrincipalPtrOutput() FlinkStatementPrincipalPtrOutput {
+	return o.ToFlinkStatementPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o FlinkStatementPrincipalOutput) ToFlinkStatementPrincipalPtrOutputWithContext(ctx context.Context) FlinkStatementPrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlinkStatementPrincipal) *FlinkStatementPrincipal {
+		return &v
+	}).(FlinkStatementPrincipalPtrOutput)
+}
+
+// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+func (o FlinkStatementPrincipalOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FlinkStatementPrincipal) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FlinkStatementPrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (FlinkStatementPrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlinkStatementPrincipal)(nil)).Elem()
+}
+
+func (o FlinkStatementPrincipalPtrOutput) ToFlinkStatementPrincipalPtrOutput() FlinkStatementPrincipalPtrOutput {
+	return o
+}
+
+func (o FlinkStatementPrincipalPtrOutput) ToFlinkStatementPrincipalPtrOutputWithContext(ctx context.Context) FlinkStatementPrincipalPtrOutput {
+	return o
+}
+
+func (o FlinkStatementPrincipalPtrOutput) Elem() FlinkStatementPrincipalOutput {
+	return o.ApplyT(func(v *FlinkStatementPrincipal) FlinkStatementPrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret FlinkStatementPrincipal
+		return ret
+	}).(FlinkStatementPrincipalOutput)
+}
+
+// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+func (o FlinkStatementPrincipalPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlinkStatementPrincipal) *string {
 		if v == nil {
 			return nil
 		}
@@ -15725,6 +16327,112 @@ func (o GetByokKeyAzureArrayOutput) Index(i pulumi.IntInput) GetByokKeyAzureOutp
 	}).(GetByokKeyAzureOutput)
 }
 
+type GetByokKeyGcp struct {
+	// (Required String) The Google Cloud Platform key ID.
+	KeyId string `pulumi:"keyId"`
+	// (Optional String) The Google security group created for this key.
+	SecurityGroup string `pulumi:"securityGroup"`
+}
+
+// GetByokKeyGcpInput is an input type that accepts GetByokKeyGcpArgs and GetByokKeyGcpOutput values.
+// You can construct a concrete instance of `GetByokKeyGcpInput` via:
+//
+//	GetByokKeyGcpArgs{...}
+type GetByokKeyGcpInput interface {
+	pulumi.Input
+
+	ToGetByokKeyGcpOutput() GetByokKeyGcpOutput
+	ToGetByokKeyGcpOutputWithContext(context.Context) GetByokKeyGcpOutput
+}
+
+type GetByokKeyGcpArgs struct {
+	// (Required String) The Google Cloud Platform key ID.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// (Optional String) The Google security group created for this key.
+	SecurityGroup pulumi.StringInput `pulumi:"securityGroup"`
+}
+
+func (GetByokKeyGcpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetByokKeyGcp)(nil)).Elem()
+}
+
+func (i GetByokKeyGcpArgs) ToGetByokKeyGcpOutput() GetByokKeyGcpOutput {
+	return i.ToGetByokKeyGcpOutputWithContext(context.Background())
+}
+
+func (i GetByokKeyGcpArgs) ToGetByokKeyGcpOutputWithContext(ctx context.Context) GetByokKeyGcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetByokKeyGcpOutput)
+}
+
+// GetByokKeyGcpArrayInput is an input type that accepts GetByokKeyGcpArray and GetByokKeyGcpArrayOutput values.
+// You can construct a concrete instance of `GetByokKeyGcpArrayInput` via:
+//
+//	GetByokKeyGcpArray{ GetByokKeyGcpArgs{...} }
+type GetByokKeyGcpArrayInput interface {
+	pulumi.Input
+
+	ToGetByokKeyGcpArrayOutput() GetByokKeyGcpArrayOutput
+	ToGetByokKeyGcpArrayOutputWithContext(context.Context) GetByokKeyGcpArrayOutput
+}
+
+type GetByokKeyGcpArray []GetByokKeyGcpInput
+
+func (GetByokKeyGcpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetByokKeyGcp)(nil)).Elem()
+}
+
+func (i GetByokKeyGcpArray) ToGetByokKeyGcpArrayOutput() GetByokKeyGcpArrayOutput {
+	return i.ToGetByokKeyGcpArrayOutputWithContext(context.Background())
+}
+
+func (i GetByokKeyGcpArray) ToGetByokKeyGcpArrayOutputWithContext(ctx context.Context) GetByokKeyGcpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetByokKeyGcpArrayOutput)
+}
+
+type GetByokKeyGcpOutput struct{ *pulumi.OutputState }
+
+func (GetByokKeyGcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetByokKeyGcp)(nil)).Elem()
+}
+
+func (o GetByokKeyGcpOutput) ToGetByokKeyGcpOutput() GetByokKeyGcpOutput {
+	return o
+}
+
+func (o GetByokKeyGcpOutput) ToGetByokKeyGcpOutputWithContext(ctx context.Context) GetByokKeyGcpOutput {
+	return o
+}
+
+// (Required String) The Google Cloud Platform key ID.
+func (o GetByokKeyGcpOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetByokKeyGcp) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+// (Optional String) The Google security group created for this key.
+func (o GetByokKeyGcpOutput) SecurityGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetByokKeyGcp) string { return v.SecurityGroup }).(pulumi.StringOutput)
+}
+
+type GetByokKeyGcpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetByokKeyGcpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetByokKeyGcp)(nil)).Elem()
+}
+
+func (o GetByokKeyGcpArrayOutput) ToGetByokKeyGcpArrayOutput() GetByokKeyGcpArrayOutput {
+	return o
+}
+
+func (o GetByokKeyGcpArrayOutput) ToGetByokKeyGcpArrayOutputWithContext(ctx context.Context) GetByokKeyGcpArrayOutput {
+	return o
+}
+
+func (o GetByokKeyGcpArrayOutput) Index(i pulumi.IntInput) GetByokKeyGcpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetByokKeyGcp {
+		return vs[0].([]GetByokKeyGcp)[vs[1].(int)]
+	}).(GetByokKeyGcpOutput)
+}
+
 type GetFlinkComputePoolEnvironment struct {
 	// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
 	//
@@ -24531,6 +25239,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyAwsPtrInput)(nil)).Elem(), ByokKeyAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyAzureInput)(nil)).Elem(), ByokKeyAzureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyAzurePtrInput)(nil)).Elem(), ByokKeyAzureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyGcpInput)(nil)).Elem(), ByokKeyGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyGcpPtrInput)(nil)).Elem(), ByokKeyGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterPtrInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterCredentialsInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterCredentialsArgs{})
@@ -24553,6 +25263,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterPtrInput)(nil)).Elem(), ConnectorKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkComputePoolEnvironmentInput)(nil)).Elem(), FlinkComputePoolEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkComputePoolEnvironmentPtrInput)(nil)).Elem(), FlinkComputePoolEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementComputePoolInput)(nil)).Elem(), FlinkStatementComputePoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementComputePoolPtrInput)(nil)).Elem(), FlinkStatementComputePoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementCredentialsInput)(nil)).Elem(), FlinkStatementCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementCredentialsPtrInput)(nil)).Elem(), FlinkStatementCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementPrincipalInput)(nil)).Elem(), FlinkStatementPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementPrincipalPtrInput)(nil)).Elem(), FlinkStatementPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolIdentityProviderInput)(nil)).Elem(), IdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolIdentityProviderPtrInput)(nil)).Elem(), IdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InvitationCreatorInput)(nil)).Elem(), InvitationCreatorArgs{})
@@ -24729,6 +25445,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAwArrayInput)(nil)).Elem(), GetByokKeyAwArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAzureInput)(nil)).Elem(), GetByokKeyAzureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAzureArrayInput)(nil)).Elem(), GetByokKeyAzureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyGcpInput)(nil)).Elem(), GetByokKeyGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyGcpArrayInput)(nil)).Elem(), GetByokKeyGcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkComputePoolEnvironmentInput)(nil)).Elem(), GetFlinkComputePoolEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolIdentityProviderInput)(nil)).Elem(), GetIdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationCreatorInput)(nil)).Elem(), GetInvitationCreatorArgs{})
@@ -24895,6 +25613,8 @@ func init() {
 	pulumi.RegisterOutputType(ByokKeyAwsPtrOutput{})
 	pulumi.RegisterOutputType(ByokKeyAzureOutput{})
 	pulumi.RegisterOutputType(ByokKeyAzurePtrOutput{})
+	pulumi.RegisterOutputType(ByokKeyGcpOutput{})
+	pulumi.RegisterOutputType(ByokKeyGcpPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterCredentialsOutput{})
@@ -24917,6 +25637,12 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(FlinkComputePoolEnvironmentOutput{})
 	pulumi.RegisterOutputType(FlinkComputePoolEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(FlinkStatementComputePoolOutput{})
+	pulumi.RegisterOutputType(FlinkStatementComputePoolPtrOutput{})
+	pulumi.RegisterOutputType(FlinkStatementCredentialsOutput{})
+	pulumi.RegisterOutputType(FlinkStatementCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(FlinkStatementPrincipalOutput{})
+	pulumi.RegisterOutputType(FlinkStatementPrincipalPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPoolIdentityProviderOutput{})
 	pulumi.RegisterOutputType(IdentityPoolIdentityProviderPtrOutput{})
 	pulumi.RegisterOutputType(InvitationCreatorOutput{})
@@ -25093,6 +25819,8 @@ func init() {
 	pulumi.RegisterOutputType(GetByokKeyAwArrayOutput{})
 	pulumi.RegisterOutputType(GetByokKeyAzureOutput{})
 	pulumi.RegisterOutputType(GetByokKeyAzureArrayOutput{})
+	pulumi.RegisterOutputType(GetByokKeyGcpOutput{})
+	pulumi.RegisterOutputType(GetByokKeyGcpArrayOutput{})
 	pulumi.RegisterOutputType(GetFlinkComputePoolEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetIdentityPoolIdentityProviderOutput{})
 	pulumi.RegisterOutputType(GetInvitationCreatorOutput{})

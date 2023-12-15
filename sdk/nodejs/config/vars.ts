@@ -41,6 +41,61 @@ Object.defineProperty(exports, "endpoint", {
 });
 
 /**
+ * The Flink API Key.
+ */
+export declare const flinkApiKey: string | undefined;
+Object.defineProperty(exports, "flinkApiKey", {
+    get() {
+        return __config.get("flinkApiKey");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Flink API Secret.
+ */
+export declare const flinkApiSecret: string | undefined;
+Object.defineProperty(exports, "flinkApiSecret", {
+    get() {
+        return __config.get("flinkApiSecret");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Flink Compute Pool ID.
+ */
+export declare const flinkComputePoolId: string | undefined;
+Object.defineProperty(exports, "flinkComputePoolId", {
+    get() {
+        return __config.get("flinkComputePoolId");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Flink Principal ID.
+ */
+export declare const flinkPrincipalId: string | undefined;
+Object.defineProperty(exports, "flinkPrincipalId", {
+    get() {
+        return __config.get("flinkPrincipalId");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Flink REST Endpoint.
+ */
+export declare const flinkRestEndpoint: string | undefined;
+Object.defineProperty(exports, "flinkRestEndpoint", {
+    get() {
+        return __config.get("flinkRestEndpoint");
+    },
+    enumerable: true,
+});
+
+/**
  * The Kafka Cluster API Key.
  */
 export declare const kafkaApiKey: string | undefined;

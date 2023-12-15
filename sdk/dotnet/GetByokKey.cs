@@ -122,6 +122,10 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly ImmutableArray<Outputs.GetByokKeyAzureResult> Azures;
         /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetByokKeyGcpResult> Gcps;
+        /// <summary>
         /// (Required String) The ID of the BYOK key, for example, `cck-abcde`.
         /// </summary>
         public readonly string Id;
@@ -132,10 +136,13 @@ namespace Pulumi.ConfluentCloud
 
             ImmutableArray<Outputs.GetByokKeyAzureResult> azures,
 
+            ImmutableArray<Outputs.GetByokKeyGcpResult> gcps,
+
             string id)
         {
             Aws = aws;
             Azures = azures;
+            Gcps = gcps;
             Id = id;
         }
     }

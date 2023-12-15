@@ -20,6 +20,7 @@ __all__ = [
     'BusinessMetadataSchemaRegistryClusterArgs',
     'ByokKeyAwsArgs',
     'ByokKeyAzureArgs',
+    'ByokKeyGcpArgs',
     'ClusterLinkDestinationKafkaClusterArgs',
     'ClusterLinkDestinationKafkaClusterCredentialsArgs',
     'ClusterLinkLocalKafkaClusterArgs',
@@ -31,6 +32,9 @@ __all__ = [
     'ConnectorEnvironmentArgs',
     'ConnectorKafkaClusterArgs',
     'FlinkComputePoolEnvironmentArgs',
+    'FlinkStatementComputePoolArgs',
+    'FlinkStatementCredentialsArgs',
+    'FlinkStatementPrincipalArgs',
     'IdentityPoolIdentityProviderArgs',
     'InvitationCreatorArgs',
     'InvitationUserArgs',
@@ -620,6 +624,44 @@ class ByokKeyAzureArgs:
 
 
 @pulumi.input_type
+class ByokKeyGcpArgs:
+    def __init__(__self__, *,
+                 key_id: pulumi.Input[str],
+                 security_group: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key_id: The Google Cloud Platform key ID.
+        :param pulumi.Input[str] security_group: (Optional String) The Google security group created for this key.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+        if security_group is not None:
+            pulumi.set(__self__, "security_group", security_group)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> pulumi.Input[str]:
+        """
+        The Google Cloud Platform key ID.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_id", value)
+
+    @property
+    @pulumi.getter(name="securityGroup")
+    def security_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional String) The Google security group created for this key.
+        """
+        return pulumi.get(self, "security_group")
+
+    @security_group.setter
+    def security_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group", value)
+
+
+@pulumi.input_type
 class ClusterLinkDestinationKafkaClusterArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
@@ -1089,6 +1131,95 @@ class FlinkComputePoolEnvironmentArgs:
     def id(self) -> pulumi.Input[str]:
         """
         The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class FlinkStatementComputePoolArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class FlinkStatementCredentialsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Flink API Key.
+        :param pulumi.Input[str] secret: The Flink API Secret.
+               
+               > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Statements in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+               
+               > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_statement.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_statement.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Flink API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[str]:
+        """
+        The Flink API Secret.
+
+        > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Statements in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+
+        > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_statement.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_statement.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class FlinkStatementPrincipalArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
         """
         return pulumi.get(self, "id")
 

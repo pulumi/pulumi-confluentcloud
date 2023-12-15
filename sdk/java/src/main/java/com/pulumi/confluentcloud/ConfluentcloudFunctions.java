@@ -14,6 +14,10 @@ import com.pulumi.confluentcloud.inputs.GetEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
+import com.pulumi.confluentcloud.inputs.GetFlinkRegionPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
+import com.pulumi.confluentcloud.inputs.GetGroupMappingPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityPoolPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityProviderArgs;
@@ -78,6 +82,8 @@ import com.pulumi.confluentcloud.outputs.GetByokKeyResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentsResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkComputePoolResult;
+import com.pulumi.confluentcloud.outputs.GetFlinkRegionResult;
+import com.pulumi.confluentcloud.outputs.GetGroupMappingResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityPoolResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityProviderResult;
 import com.pulumi.confluentcloud.outputs.GetInvitationResult;
@@ -1103,6 +1109,458 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetFlinkComputePoolResult> getFlinkComputePoolPlain(GetFlinkComputePoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", TypeShape.of(GetFlinkComputePoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.getFlinkRegion` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.getFlinkRegion` describes a Flink cluster data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleFlinkRegion = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
+     *             .cloud(&#34;AWS&#34;)
+     *             .region(&#34;us-east-1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;example&#34;, exampleFlinkRegion.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFlinkRegionResult> getFlinkRegion(GetFlinkRegionArgs args) {
+        return getFlinkRegion(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.getFlinkRegion` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.getFlinkRegion` describes a Flink cluster data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleFlinkRegion = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
+     *             .cloud(&#34;AWS&#34;)
+     *             .region(&#34;us-east-1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;example&#34;, exampleFlinkRegion.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFlinkRegionResult> getFlinkRegionPlain(GetFlinkRegionPlainArgs args) {
+        return getFlinkRegionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.getFlinkRegion` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.getFlinkRegion` describes a Flink cluster data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleFlinkRegion = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
+     *             .cloud(&#34;AWS&#34;)
+     *             .region(&#34;us-east-1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;example&#34;, exampleFlinkRegion.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFlinkRegionResult> getFlinkRegion(GetFlinkRegionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getFlinkRegion:getFlinkRegion", TypeShape.of(GetFlinkRegionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * &gt; **Note:** `confluentcloud.getFlinkRegion` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * 
+     * `confluentcloud.getFlinkRegion` describes a Flink cluster data source.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleFlinkRegion = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
+     *             .cloud(&#34;AWS&#34;)
+     *             .region(&#34;us-east-1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;example&#34;, exampleFlinkRegion.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFlinkRegionResult> getFlinkRegionPlain(GetFlinkRegionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getFlinkRegion:getFlinkRegion", TypeShape.of(GetFlinkRegionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.GroupMapping` describes a Group Mapping data source.
+     * 
+     * &gt; **Note:** See [Group Mapping in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html) for more details.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdGroupMapping = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *             .id(&#34;group-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdGroupMapping.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *             .displayName(&#34;Default&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetGroupMappingResult> getGroupMapping() {
+        return getGroupMapping(GetGroupMappingArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.GroupMapping` describes a Group Mapping data source.
+     * 
+     * &gt; **Note:** See [Group Mapping in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html) for more details.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdGroupMapping = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *             .id(&#34;group-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdGroupMapping.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *             .displayName(&#34;Default&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetGroupMappingResult> getGroupMappingPlain() {
+        return getGroupMappingPlain(GetGroupMappingPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.GroupMapping` describes a Group Mapping data source.
+     * 
+     * &gt; **Note:** See [Group Mapping in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html) for more details.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdGroupMapping = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *             .id(&#34;group-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdGroupMapping.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *             .displayName(&#34;Default&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetGroupMappingResult> getGroupMapping(GetGroupMappingArgs args) {
+        return getGroupMapping(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.GroupMapping` describes a Group Mapping data source.
+     * 
+     * &gt; **Note:** See [Group Mapping in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html) for more details.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdGroupMapping = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *             .id(&#34;group-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdGroupMapping.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *             .displayName(&#34;Default&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetGroupMappingResult> getGroupMappingPlain(GetGroupMappingPlainArgs args) {
+        return getGroupMappingPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.GroupMapping` describes a Group Mapping data source.
+     * 
+     * &gt; **Note:** See [Group Mapping in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html) for more details.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdGroupMapping = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *             .id(&#34;group-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdGroupMapping.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *             .displayName(&#34;Default&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetGroupMappingResult> getGroupMapping(GetGroupMappingArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getGroupMapping:getGroupMapping", TypeShape.of(GetGroupMappingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.GroupMapping` describes a Group Mapping data source.
+     * 
+     * &gt; **Note:** See [Group Mapping in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html) for more details.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleUsingIdGroupMapping = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *             .id(&#34;group-abc123&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdGroupMapping.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *             .displayName(&#34;Default&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetGroupMappingResult> getGroupMappingPlain(GetGroupMappingPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getGroupMapping:getGroupMapping", TypeShape.of(GetGroupMappingResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

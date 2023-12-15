@@ -22,13 +22,16 @@ class GetByokKeyResult:
     """
     A collection of values returned by getByokKey.
     """
-    def __init__(__self__, aws=None, azures=None, id=None):
+    def __init__(__self__, aws=None, azures=None, gcps=None, id=None):
         if aws and not isinstance(aws, list):
             raise TypeError("Expected argument 'aws' to be a list")
         pulumi.set(__self__, "aws", aws)
         if azures and not isinstance(azures, list):
             raise TypeError("Expected argument 'azures' to be a list")
         pulumi.set(__self__, "azures", azures)
+        if gcps and not isinstance(gcps, list):
+            raise TypeError("Expected argument 'gcps' to be a list")
+        pulumi.set(__self__, "gcps", gcps)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -51,6 +54,14 @@ class GetByokKeyResult:
 
     @property
     @pulumi.getter
+    def gcps(self) -> Sequence['outputs.GetByokKeyGcpResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "gcps")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
         (Required String) The ID of the BYOK key, for example, `cck-abcde`.
@@ -66,6 +77,7 @@ class AwaitableGetByokKeyResult(GetByokKeyResult):
         return GetByokKeyResult(
             aws=self.aws,
             azures=self.azures,
+            gcps=self.gcps,
             id=self.id)
 
 
@@ -97,6 +109,7 @@ def get_byok_key(id: Optional[str] = None,
     return AwaitableGetByokKeyResult(
         aws=pulumi.get(__ret__, 'aws'),
         azures=pulumi.get(__ret__, 'azures'),
+        gcps=pulumi.get(__ret__, 'gcps'),
         id=pulumi.get(__ret__, 'id'))
 
 

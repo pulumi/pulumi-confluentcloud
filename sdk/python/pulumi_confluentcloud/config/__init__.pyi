@@ -24,6 +24,31 @@ endpoint: Optional[str]
 The base endpoint of Confluent Cloud API.
 """
 
+flinkApiKey: Optional[str]
+"""
+The Flink API Key.
+"""
+
+flinkApiSecret: Optional[str]
+"""
+The Flink API Secret.
+"""
+
+flinkComputePoolId: Optional[str]
+"""
+The Flink Compute Pool ID.
+"""
+
+flinkPrincipalId: Optional[str]
+"""
+The Flink Principal ID.
+"""
+
+flinkRestEndpoint: Optional[str]
+"""
+The Flink REST Endpoint.
+"""
+
 kafkaApiKey: Optional[str]
 """
 The Kafka Cluster API Key.

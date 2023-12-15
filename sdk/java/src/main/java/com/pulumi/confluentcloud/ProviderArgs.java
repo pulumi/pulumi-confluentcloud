@@ -62,6 +62,81 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Flink API Key.
+     * 
+     */
+    @Import(name="flinkApiKey")
+    private @Nullable Output<String> flinkApiKey;
+
+    /**
+     * @return The Flink API Key.
+     * 
+     */
+    public Optional<Output<String>> flinkApiKey() {
+        return Optional.ofNullable(this.flinkApiKey);
+    }
+
+    /**
+     * The Flink API Secret.
+     * 
+     */
+    @Import(name="flinkApiSecret")
+    private @Nullable Output<String> flinkApiSecret;
+
+    /**
+     * @return The Flink API Secret.
+     * 
+     */
+    public Optional<Output<String>> flinkApiSecret() {
+        return Optional.ofNullable(this.flinkApiSecret);
+    }
+
+    /**
+     * The Flink Compute Pool ID.
+     * 
+     */
+    @Import(name="flinkComputePoolId")
+    private @Nullable Output<String> flinkComputePoolId;
+
+    /**
+     * @return The Flink Compute Pool ID.
+     * 
+     */
+    public Optional<Output<String>> flinkComputePoolId() {
+        return Optional.ofNullable(this.flinkComputePoolId);
+    }
+
+    /**
+     * The Flink Principal ID.
+     * 
+     */
+    @Import(name="flinkPrincipalId")
+    private @Nullable Output<String> flinkPrincipalId;
+
+    /**
+     * @return The Flink Principal ID.
+     * 
+     */
+    public Optional<Output<String>> flinkPrincipalId() {
+        return Optional.ofNullable(this.flinkPrincipalId);
+    }
+
+    /**
+     * The Flink REST Endpoint.
+     * 
+     */
+    @Import(name="flinkRestEndpoint")
+    private @Nullable Output<String> flinkRestEndpoint;
+
+    /**
+     * @return The Flink REST Endpoint.
+     * 
+     */
+    public Optional<Output<String>> flinkRestEndpoint() {
+        return Optional.ofNullable(this.flinkRestEndpoint);
+    }
+
+    /**
      * The Kafka Cluster API Key.
      * 
      */
@@ -202,6 +277,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.cloudApiKey = $.cloudApiKey;
         this.cloudApiSecret = $.cloudApiSecret;
         this.endpoint = $.endpoint;
+        this.flinkApiKey = $.flinkApiKey;
+        this.flinkApiSecret = $.flinkApiSecret;
+        this.flinkComputePoolId = $.flinkComputePoolId;
+        this.flinkPrincipalId = $.flinkPrincipalId;
+        this.flinkRestEndpoint = $.flinkRestEndpoint;
         this.kafkaApiKey = $.kafkaApiKey;
         this.kafkaApiSecret = $.kafkaApiSecret;
         this.kafkaId = $.kafkaId;
@@ -292,6 +372,111 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
+        }
+
+        /**
+         * @param flinkApiKey The Flink API Key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flinkApiKey(@Nullable Output<String> flinkApiKey) {
+            $.flinkApiKey = flinkApiKey;
+            return this;
+        }
+
+        /**
+         * @param flinkApiKey The Flink API Key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flinkApiKey(String flinkApiKey) {
+            return flinkApiKey(Output.of(flinkApiKey));
+        }
+
+        /**
+         * @param flinkApiSecret The Flink API Secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flinkApiSecret(@Nullable Output<String> flinkApiSecret) {
+            $.flinkApiSecret = flinkApiSecret;
+            return this;
+        }
+
+        /**
+         * @param flinkApiSecret The Flink API Secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flinkApiSecret(String flinkApiSecret) {
+            return flinkApiSecret(Output.of(flinkApiSecret));
+        }
+
+        /**
+         * @param flinkComputePoolId The Flink Compute Pool ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flinkComputePoolId(@Nullable Output<String> flinkComputePoolId) {
+            $.flinkComputePoolId = flinkComputePoolId;
+            return this;
+        }
+
+        /**
+         * @param flinkComputePoolId The Flink Compute Pool ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flinkComputePoolId(String flinkComputePoolId) {
+            return flinkComputePoolId(Output.of(flinkComputePoolId));
+        }
+
+        /**
+         * @param flinkPrincipalId The Flink Principal ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flinkPrincipalId(@Nullable Output<String> flinkPrincipalId) {
+            $.flinkPrincipalId = flinkPrincipalId;
+            return this;
+        }
+
+        /**
+         * @param flinkPrincipalId The Flink Principal ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flinkPrincipalId(String flinkPrincipalId) {
+            return flinkPrincipalId(Output.of(flinkPrincipalId));
+        }
+
+        /**
+         * @param flinkRestEndpoint The Flink REST Endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flinkRestEndpoint(@Nullable Output<String> flinkRestEndpoint) {
+            $.flinkRestEndpoint = flinkRestEndpoint;
+            return this;
+        }
+
+        /**
+         * @param flinkRestEndpoint The Flink REST Endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flinkRestEndpoint(String flinkRestEndpoint) {
+            return flinkRestEndpoint(Output.of(flinkRestEndpoint));
         }
 
         /**

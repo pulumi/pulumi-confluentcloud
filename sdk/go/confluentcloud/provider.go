@@ -24,6 +24,16 @@ type Provider struct {
 	CloudApiSecret pulumi.StringPtrOutput `pulumi:"cloudApiSecret"`
 	// The base endpoint of Confluent Cloud API.
 	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
+	// The Flink API Key.
+	FlinkApiKey pulumi.StringPtrOutput `pulumi:"flinkApiKey"`
+	// The Flink API Secret.
+	FlinkApiSecret pulumi.StringPtrOutput `pulumi:"flinkApiSecret"`
+	// The Flink Compute Pool ID.
+	FlinkComputePoolId pulumi.StringPtrOutput `pulumi:"flinkComputePoolId"`
+	// The Flink Principal ID.
+	FlinkPrincipalId pulumi.StringPtrOutput `pulumi:"flinkPrincipalId"`
+	// The Flink REST Endpoint.
+	FlinkRestEndpoint pulumi.StringPtrOutput `pulumi:"flinkRestEndpoint"`
 	// The Kafka Cluster API Key.
 	KafkaApiKey pulumi.StringPtrOutput `pulumi:"kafkaApiKey"`
 	// The Kafka Cluster API Secret.
@@ -55,6 +65,12 @@ func NewProvider(ctx *pulumi.Context,
 	if args.CloudApiSecret != nil {
 		args.CloudApiSecret = pulumi.ToSecret(args.CloudApiSecret).(pulumi.StringPtrInput)
 	}
+	if args.FlinkApiKey != nil {
+		args.FlinkApiKey = pulumi.ToSecret(args.FlinkApiKey).(pulumi.StringPtrInput)
+	}
+	if args.FlinkApiSecret != nil {
+		args.FlinkApiSecret = pulumi.ToSecret(args.FlinkApiSecret).(pulumi.StringPtrInput)
+	}
 	if args.KafkaApiKey != nil {
 		args.KafkaApiKey = pulumi.ToSecret(args.KafkaApiKey).(pulumi.StringPtrInput)
 	}
@@ -70,6 +86,8 @@ func NewProvider(ctx *pulumi.Context,
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"cloudApiKey",
 		"cloudApiSecret",
+		"flinkApiKey",
+		"flinkApiSecret",
 		"kafkaApiKey",
 		"kafkaApiSecret",
 		"schemaRegistryApiKey",
@@ -92,6 +110,16 @@ type providerArgs struct {
 	CloudApiSecret *string `pulumi:"cloudApiSecret"`
 	// The base endpoint of Confluent Cloud API.
 	Endpoint *string `pulumi:"endpoint"`
+	// The Flink API Key.
+	FlinkApiKey *string `pulumi:"flinkApiKey"`
+	// The Flink API Secret.
+	FlinkApiSecret *string `pulumi:"flinkApiSecret"`
+	// The Flink Compute Pool ID.
+	FlinkComputePoolId *string `pulumi:"flinkComputePoolId"`
+	// The Flink Principal ID.
+	FlinkPrincipalId *string `pulumi:"flinkPrincipalId"`
+	// The Flink REST Endpoint.
+	FlinkRestEndpoint *string `pulumi:"flinkRestEndpoint"`
 	// The Kafka Cluster API Key.
 	KafkaApiKey *string `pulumi:"kafkaApiKey"`
 	// The Kafka Cluster API Secret.
@@ -120,6 +148,16 @@ type ProviderArgs struct {
 	CloudApiSecret pulumi.StringPtrInput
 	// The base endpoint of Confluent Cloud API.
 	Endpoint pulumi.StringPtrInput
+	// The Flink API Key.
+	FlinkApiKey pulumi.StringPtrInput
+	// The Flink API Secret.
+	FlinkApiSecret pulumi.StringPtrInput
+	// The Flink Compute Pool ID.
+	FlinkComputePoolId pulumi.StringPtrInput
+	// The Flink Principal ID.
+	FlinkPrincipalId pulumi.StringPtrInput
+	// The Flink REST Endpoint.
+	FlinkRestEndpoint pulumi.StringPtrInput
 	// The Kafka Cluster API Key.
 	KafkaApiKey pulumi.StringPtrInput
 	// The Kafka Cluster API Secret.
@@ -190,6 +228,31 @@ func (o ProviderOutput) CloudApiSecret() pulumi.StringPtrOutput {
 // The base endpoint of Confluent Cloud API.
 func (o ProviderOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// The Flink API Key.
+func (o ProviderOutput) FlinkApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.FlinkApiKey }).(pulumi.StringPtrOutput)
+}
+
+// The Flink API Secret.
+func (o ProviderOutput) FlinkApiSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.FlinkApiSecret }).(pulumi.StringPtrOutput)
+}
+
+// The Flink Compute Pool ID.
+func (o ProviderOutput) FlinkComputePoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.FlinkComputePoolId }).(pulumi.StringPtrOutput)
+}
+
+// The Flink Principal ID.
+func (o ProviderOutput) FlinkPrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.FlinkPrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Flink REST Endpoint.
+func (o ProviderOutput) FlinkRestEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.FlinkRestEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // The Kafka Cluster API Key.

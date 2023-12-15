@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.ByokKeyState;
 import com.pulumi.confluentcloud.outputs.ByokKeyAws;
 import com.pulumi.confluentcloud.outputs.ByokKeyAzure;
+import com.pulumi.confluentcloud.outputs.ByokKeyGcp;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -55,6 +56,20 @@ public class ByokKey extends com.pulumi.resources.CustomResource {
      */
     public Output<ByokKeyAzure> azure() {
         return this.azure;
+    }
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Export(name="gcp", refs={ByokKeyGcp.class}, tree="[0]")
+    private Output<ByokKeyGcp> gcp;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Output<ByokKeyGcp> gcp() {
+        return this.gcp;
     }
 
     /**

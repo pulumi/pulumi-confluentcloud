@@ -53,6 +53,10 @@ export class ByokKey extends pulumi.CustomResource {
      * (Optional Configuration Block) supports the following:
      */
     public readonly azure!: pulumi.Output<outputs.ByokKeyAzure>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    public readonly gcp!: pulumi.Output<outputs.ByokKeyGcp>;
 
     /**
      * Create a ByokKey resource with the given unique name, arguments, and options.
@@ -69,10 +73,12 @@ export class ByokKey extends pulumi.CustomResource {
             const state = argsOrState as ByokKeyState | undefined;
             resourceInputs["aws"] = state ? state.aws : undefined;
             resourceInputs["azure"] = state ? state.azure : undefined;
+            resourceInputs["gcp"] = state ? state.gcp : undefined;
         } else {
             const args = argsOrState as ByokKeyArgs | undefined;
             resourceInputs["aws"] = args ? args.aws : undefined;
             resourceInputs["azure"] = args ? args.azure : undefined;
+            resourceInputs["gcp"] = args ? args.gcp : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ByokKey.__pulumiType, name, resourceInputs, opts);
@@ -91,6 +97,10 @@ export interface ByokKeyState {
      * (Optional Configuration Block) supports the following:
      */
     azure?: pulumi.Input<inputs.ByokKeyAzure>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    gcp?: pulumi.Input<inputs.ByokKeyGcp>;
 }
 
 /**
@@ -105,4 +115,8 @@ export interface ByokKeyArgs {
      * (Optional Configuration Block) supports the following:
      */
     azure?: pulumi.Input<inputs.ByokKeyAzure>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    gcp?: pulumi.Input<inputs.ByokKeyGcp>;
 }
