@@ -26,6 +26,31 @@ func GetEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "confluentcloud:endpoint")
 }
 
+// The Flink API Key.
+func GetFlinkApiKey(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:flinkApiKey")
+}
+
+// The Flink API Secret.
+func GetFlinkApiSecret(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:flinkApiSecret")
+}
+
+// The Flink Compute Pool ID.
+func GetFlinkComputePoolId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:flinkComputePoolId")
+}
+
+// The Flink Principal ID.
+func GetFlinkPrincipalId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:flinkPrincipalId")
+}
+
+// The Flink REST Endpoint.
+func GetFlinkRestEndpoint(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:flinkRestEndpoint")
+}
+
 // The Kafka Cluster API Key.
 func GetKafkaApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "confluentcloud:kafkaApiKey")

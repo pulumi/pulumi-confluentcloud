@@ -17,16 +17,20 @@ __all__ = ['ByokKeyArgs', 'ByokKey']
 class ByokKeyArgs:
     def __init__(__self__, *,
                  aws: Optional[pulumi.Input['ByokKeyAwsArgs']] = None,
-                 azure: Optional[pulumi.Input['ByokKeyAzureArgs']] = None):
+                 azure: Optional[pulumi.Input['ByokKeyAzureArgs']] = None,
+                 gcp: Optional[pulumi.Input['ByokKeyGcpArgs']] = None):
         """
         The set of arguments for constructing a ByokKey resource.
         :param pulumi.Input['ByokKeyAwsArgs'] aws: (Optional Configuration Block) supports the following:
         :param pulumi.Input['ByokKeyAzureArgs'] azure: (Optional Configuration Block) supports the following:
+        :param pulumi.Input['ByokKeyGcpArgs'] gcp: (Optional Configuration Block) supports the following:
         """
         if aws is not None:
             pulumi.set(__self__, "aws", aws)
         if azure is not None:
             pulumi.set(__self__, "azure", azure)
+        if gcp is not None:
+            pulumi.set(__self__, "gcp", gcp)
 
     @property
     @pulumi.getter
@@ -51,22 +55,38 @@ class ByokKeyArgs:
     @azure.setter
     def azure(self, value: Optional[pulumi.Input['ByokKeyAzureArgs']]):
         pulumi.set(self, "azure", value)
+
+    @property
+    @pulumi.getter
+    def gcp(self) -> Optional[pulumi.Input['ByokKeyGcpArgs']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "gcp")
+
+    @gcp.setter
+    def gcp(self, value: Optional[pulumi.Input['ByokKeyGcpArgs']]):
+        pulumi.set(self, "gcp", value)
 
 
 @pulumi.input_type
 class _ByokKeyState:
     def __init__(__self__, *,
                  aws: Optional[pulumi.Input['ByokKeyAwsArgs']] = None,
-                 azure: Optional[pulumi.Input['ByokKeyAzureArgs']] = None):
+                 azure: Optional[pulumi.Input['ByokKeyAzureArgs']] = None,
+                 gcp: Optional[pulumi.Input['ByokKeyGcpArgs']] = None):
         """
         Input properties used for looking up and filtering ByokKey resources.
         :param pulumi.Input['ByokKeyAwsArgs'] aws: (Optional Configuration Block) supports the following:
         :param pulumi.Input['ByokKeyAzureArgs'] azure: (Optional Configuration Block) supports the following:
+        :param pulumi.Input['ByokKeyGcpArgs'] gcp: (Optional Configuration Block) supports the following:
         """
         if aws is not None:
             pulumi.set(__self__, "aws", aws)
         if azure is not None:
             pulumi.set(__self__, "azure", azure)
+        if gcp is not None:
+            pulumi.set(__self__, "gcp", gcp)
 
     @property
     @pulumi.getter
@@ -91,6 +111,18 @@ class _ByokKeyState:
     @azure.setter
     def azure(self, value: Optional[pulumi.Input['ByokKeyAzureArgs']]):
         pulumi.set(self, "azure", value)
+
+    @property
+    @pulumi.getter
+    def gcp(self) -> Optional[pulumi.Input['ByokKeyGcpArgs']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "gcp")
+
+    @gcp.setter
+    def gcp(self, value: Optional[pulumi.Input['ByokKeyGcpArgs']]):
+        pulumi.set(self, "gcp", value)
 
 
 class ByokKey(pulumi.CustomResource):
@@ -100,6 +132,7 @@ class ByokKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws: Optional[pulumi.Input[pulumi.InputType['ByokKeyAwsArgs']]] = None,
                  azure: Optional[pulumi.Input[pulumi.InputType['ByokKeyAzureArgs']]] = None,
+                 gcp: Optional[pulumi.Input[pulumi.InputType['ByokKeyGcpArgs']]] = None,
                  __props__=None):
         """
         ## Import
@@ -116,6 +149,7 @@ class ByokKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ByokKeyAwsArgs']] aws: (Optional Configuration Block) supports the following:
         :param pulumi.Input[pulumi.InputType['ByokKeyAzureArgs']] azure: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[pulumi.InputType['ByokKeyGcpArgs']] gcp: (Optional Configuration Block) supports the following:
         """
         ...
     @overload
@@ -151,6 +185,7 @@ class ByokKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws: Optional[pulumi.Input[pulumi.InputType['ByokKeyAwsArgs']]] = None,
                  azure: Optional[pulumi.Input[pulumi.InputType['ByokKeyAzureArgs']]] = None,
+                 gcp: Optional[pulumi.Input[pulumi.InputType['ByokKeyGcpArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -162,6 +197,7 @@ class ByokKey(pulumi.CustomResource):
 
             __props__.__dict__["aws"] = aws
             __props__.__dict__["azure"] = azure
+            __props__.__dict__["gcp"] = gcp
         super(ByokKey, __self__).__init__(
             'confluentcloud:index/byokKey:ByokKey',
             resource_name,
@@ -173,7 +209,8 @@ class ByokKey(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             aws: Optional[pulumi.Input[pulumi.InputType['ByokKeyAwsArgs']]] = None,
-            azure: Optional[pulumi.Input[pulumi.InputType['ByokKeyAzureArgs']]] = None) -> 'ByokKey':
+            azure: Optional[pulumi.Input[pulumi.InputType['ByokKeyAzureArgs']]] = None,
+            gcp: Optional[pulumi.Input[pulumi.InputType['ByokKeyGcpArgs']]] = None) -> 'ByokKey':
         """
         Get an existing ByokKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -183,6 +220,7 @@ class ByokKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ByokKeyAwsArgs']] aws: (Optional Configuration Block) supports the following:
         :param pulumi.Input[pulumi.InputType['ByokKeyAzureArgs']] azure: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[pulumi.InputType['ByokKeyGcpArgs']] gcp: (Optional Configuration Block) supports the following:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -190,6 +228,7 @@ class ByokKey(pulumi.CustomResource):
 
         __props__.__dict__["aws"] = aws
         __props__.__dict__["azure"] = azure
+        __props__.__dict__["gcp"] = gcp
         return ByokKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -207,4 +246,12 @@ class ByokKey(pulumi.CustomResource):
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "azure")
+
+    @property
+    @pulumi.getter
+    def gcp(self) -> pulumi.Output['outputs.ByokKeyGcp']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "gcp")
 

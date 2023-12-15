@@ -133,6 +133,17 @@ export interface ByokKeyAzure {
     tenantId: pulumi.Input<string>;
 }
 
+export interface ByokKeyGcp {
+    /**
+     * The Google Cloud Platform key ID.
+     */
+    keyId: pulumi.Input<string>;
+    /**
+     * (Optional String) The Google security group created for this key.
+     */
+    securityGroup?: pulumi.Input<string>;
+}
+
 export interface ClusterLinkDestinationKafkaCluster {
     /**
      * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -258,6 +269,35 @@ export interface ConnectorKafkaCluster {
 export interface FlinkComputePoolEnvironment {
     /**
      * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface FlinkStatementComputePool {
+    /**
+     * The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface FlinkStatementCredentials {
+    /**
+     * The Flink API Key.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The Flink API Secret.
+     *
+     * > **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Statements in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.
+     *
+     * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_statement.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_statement.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
+     */
+    secret: pulumi.Input<string>;
+}
+
+export interface FlinkStatementPrincipal {
+    /**
+     * The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
      */
     id: pulumi.Input<string>;
 }

@@ -37,6 +37,36 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// The Flink API Key.
+        /// </summary>
+        [Output("flinkApiKey")]
+        public Output<string?> FlinkApiKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The Flink API Secret.
+        /// </summary>
+        [Output("flinkApiSecret")]
+        public Output<string?> FlinkApiSecret { get; private set; } = null!;
+
+        /// <summary>
+        /// The Flink Compute Pool ID.
+        /// </summary>
+        [Output("flinkComputePoolId")]
+        public Output<string?> FlinkComputePoolId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Flink Principal ID.
+        /// </summary>
+        [Output("flinkPrincipalId")]
+        public Output<string?> FlinkPrincipalId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Flink REST Endpoint.
+        /// </summary>
+        [Output("flinkRestEndpoint")]
+        public Output<string?> FlinkRestEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The Kafka Cluster API Key.
         /// </summary>
         [Output("kafkaApiKey")]
@@ -106,6 +136,8 @@ namespace Pulumi.ConfluentCloud
                 {
                     "cloudApiKey",
                     "cloudApiSecret",
+                    "flinkApiKey",
+                    "flinkApiSecret",
                     "kafkaApiKey",
                     "kafkaApiSecret",
                     "schemaRegistryApiKey",
@@ -158,6 +190,56 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        [Input("flinkApiKey")]
+        private Input<string>? _flinkApiKey;
+
+        /// <summary>
+        /// The Flink API Key.
+        /// </summary>
+        public Input<string>? FlinkApiKey
+        {
+            get => _flinkApiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _flinkApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("flinkApiSecret")]
+        private Input<string>? _flinkApiSecret;
+
+        /// <summary>
+        /// The Flink API Secret.
+        /// </summary>
+        public Input<string>? FlinkApiSecret
+        {
+            get => _flinkApiSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _flinkApiSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// The Flink Compute Pool ID.
+        /// </summary>
+        [Input("flinkComputePoolId")]
+        public Input<string>? FlinkComputePoolId { get; set; }
+
+        /// <summary>
+        /// The Flink Principal ID.
+        /// </summary>
+        [Input("flinkPrincipalId")]
+        public Input<string>? FlinkPrincipalId { get; set; }
+
+        /// <summary>
+        /// The Flink REST Endpoint.
+        /// </summary>
+        [Input("flinkRestEndpoint")]
+        public Input<string>? FlinkRestEndpoint { get; set; }
 
         [Input("kafkaApiKey")]
         private Input<string>? _kafkaApiKey;

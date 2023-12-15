@@ -63,6 +63,8 @@ type LookupByokKeyResult struct {
 	Aws []GetByokKeyAw `pulumi:"aws"`
 	// (Optional Configuration Block) supports the following:
 	Azures []GetByokKeyAzure `pulumi:"azures"`
+	// (Optional Configuration Block) supports the following:
+	Gcps []GetByokKeyGcp `pulumi:"gcps"`
 	// (Required String) The ID of the BYOK key, for example, `cck-abcde`.
 	Id string `pulumi:"id"`
 }
@@ -113,6 +115,11 @@ func (o LookupByokKeyResultOutput) Aws() GetByokKeyAwArrayOutput {
 // (Optional Configuration Block) supports the following:
 func (o LookupByokKeyResultOutput) Azures() GetByokKeyAzureArrayOutput {
 	return o.ApplyT(func(v LookupByokKeyResult) []GetByokKeyAzure { return v.Azures }).(GetByokKeyAzureArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o LookupByokKeyResultOutput) Gcps() GetByokKeyGcpArrayOutput {
+	return o.ApplyT(func(v LookupByokKeyResult) []GetByokKeyGcp { return v.Gcps }).(GetByokKeyGcpArrayOutput)
 }
 
 // (Required String) The ID of the BYOK key, for example, `cck-abcde`.

@@ -37,6 +37,41 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('endpoint')
 
     @property
+    def flink_api_key(self) -> Optional[str]:
+        """
+        The Flink API Key.
+        """
+        return __config__.get('flinkApiKey')
+
+    @property
+    def flink_api_secret(self) -> Optional[str]:
+        """
+        The Flink API Secret.
+        """
+        return __config__.get('flinkApiSecret')
+
+    @property
+    def flink_compute_pool_id(self) -> Optional[str]:
+        """
+        The Flink Compute Pool ID.
+        """
+        return __config__.get('flinkComputePoolId')
+
+    @property
+    def flink_principal_id(self) -> Optional[str]:
+        """
+        The Flink Principal ID.
+        """
+        return __config__.get('flinkPrincipalId')
+
+    @property
+    def flink_rest_endpoint(self) -> Optional[str]:
+        """
+        The Flink REST Endpoint.
+        """
+        return __config__.get('flinkRestEndpoint')
+
+    @property
     def kafka_api_key(self) -> Optional[str]:
         """
         The Kafka Cluster API Key.

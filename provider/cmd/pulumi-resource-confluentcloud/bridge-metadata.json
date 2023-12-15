@@ -88,6 +88,9 @@
                                 "tenant_id": {}
                             }
                         }
+                    },
+                    "gcp": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -210,6 +213,23 @@
                         "maxItemsOne": true
                     }
                 }
+            },
+            "confluent_flink_statement": {
+                "current": "confluentcloud:index/flinkStatement:FlinkStatement",
+                "fields": {
+                    "compute_pool": {
+                        "maxItemsOne": true
+                    },
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "principal": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "confluent_group_mapping": {
+                "current": "confluentcloud:index/groupMapping:GroupMapping"
             },
             "confluent_identity_pool": {
                 "current": "confluentcloud:index/identityPool:IdentityPool",
@@ -1135,6 +1155,9 @@
                     },
                     "azure": {
                         "maxItemsOne": false
+                    },
+                    "gcp": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -1156,6 +1179,12 @@
                         "maxItemsOne": true
                     }
                 }
+            },
+            "confluent_flink_region": {
+                "current": "confluentcloud:index/getFlinkRegion:getFlinkRegion"
+            },
+            "confluent_group_mapping": {
+                "current": "confluentcloud:index/getGroupMapping:getGroupMapping"
             },
             "confluent_identity_pool": {
                 "current": "confluentcloud:index/getIdentityPool:getIdentityPool",
@@ -1632,6 +1661,8 @@
             "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin": "confluent_custom_connector_plugin",
             "confluentcloud:index/environment:Environment": "confluent_environment",
             "confluentcloud:index/flinkComputePool:FlinkComputePool": "confluent_flink_compute_pool",
+            "confluentcloud:index/flinkStatement:FlinkStatement": "confluent_flink_statement",
+            "confluentcloud:index/groupMapping:GroupMapping": "confluent_group_mapping",
             "confluentcloud:index/identityPool:IdentityPool": "confluent_identity_pool",
             "confluentcloud:index/identityProvider:IdentityProvider": "confluent_identity_provider",
             "confluentcloud:index/invitation:Invitation": "confluent_invitation",
@@ -1670,6 +1701,8 @@
             "confluentcloud:index/getEnvironment:getEnvironment": "confluent_environment",
             "confluentcloud:index/getEnvironments:getEnvironments": "confluent_environments",
             "confluentcloud:index/getFlinkComputePool:getFlinkComputePool": "confluent_flink_compute_pool",
+            "confluentcloud:index/getFlinkRegion:getFlinkRegion": "confluent_flink_region",
+            "confluentcloud:index/getGroupMapping:getGroupMapping": "confluent_group_mapping",
             "confluentcloud:index/getIdentityPool:getIdentityPool": "confluent_identity_pool",
             "confluentcloud:index/getIdentityProvider:getIdentityProvider": "confluent_identity_provider",
             "confluentcloud:index/getInvitation:getInvitation": "confluent_invitation",
@@ -1722,6 +1755,10 @@
                 "keyIdentifier": "key_identifier",
                 "keyVaultId": "key_vault_id",
                 "tenantId": "tenant_id"
+            },
+            "confluentcloud:index/ByokKeyGcp:ByokKeyGcp": {
+                "keyId": "key_id",
+                "securityGroup": "security_group"
             },
             "confluentcloud:index/ClusterLinkDestinationKafkaCluster:ClusterLinkDestinationKafkaCluster": {
                 "bootstrapEndpoint": "bootstrap_endpoint",
@@ -1858,6 +1895,12 @@
                 "resourceName": "resource_name",
                 "restEndpoint": "rest_endpoint"
             },
+            "confluentcloud:index/flinkStatement:FlinkStatement": {
+                "computePool": "compute_pool",
+                "resourceVersion": "resource_version",
+                "restEndpoint": "rest_endpoint",
+                "statementName": "statement_name"
+            },
             "confluentcloud:index/getBusinessMetadata:getBusinessMetadata": {
                 "attributeDefinitions": "attribute_definition",
                 "restEndpoint": "rest_endpoint",
@@ -1875,7 +1918,8 @@
                 "schemaRegistryCluster": "schema_registry_cluster"
             },
             "confluentcloud:index/getByokKey:getByokKey": {
-                "azures": "azure"
+                "azures": "azure",
+                "gcps": "gcp"
             },
             "confluentcloud:index/getByokKeyAw:getByokKeyAw": {
                 "keyArn": "key_arn"
@@ -1885,6 +1929,10 @@
                 "keyIdentifier": "key_identifier",
                 "keyVaultId": "key_vault_id",
                 "tenantId": "tenant_id"
+            },
+            "confluentcloud:index/getByokKeyGcp:getByokKeyGcp": {
+                "keyId": "key_id",
+                "securityGroup": "security_group"
             },
             "confluentcloud:index/getEnvironment:getEnvironment": {
                 "displayName": "display_name",
@@ -1897,6 +1945,13 @@
                 "maxCfu": "max_cfu",
                 "resourceName": "resource_name",
                 "restEndpoint": "rest_endpoint"
+            },
+            "confluentcloud:index/getFlinkRegion:getFlinkRegion": {
+                "apiVersion": "api_version",
+                "restEndpoint": "rest_endpoint"
+            },
+            "confluentcloud:index/getGroupMapping:getGroupMapping": {
+                "displayName": "display_name"
             },
             "confluentcloud:index/getIdentityPool:getIdentityPool": {
                 "displayName": "display_name",
@@ -2155,6 +2210,9 @@
                 "apiVersion": "api_version",
                 "fullName": "full_name"
             },
+            "confluentcloud:index/groupMapping:GroupMapping": {
+                "displayName": "display_name"
+            },
             "confluentcloud:index/identityPool:IdentityPool": {
                 "displayName": "display_name",
                 "identityClaim": "identity_claim",
@@ -2329,6 +2387,11 @@
             "confluentcloud:index:Provider": {
                 "cloudApiKey": "cloud_api_key",
                 "cloudApiSecret": "cloud_api_secret",
+                "flinkApiKey": "flink_api_key",
+                "flinkApiSecret": "flink_api_secret",
+                "flinkComputePoolId": "flink_compute_pool_id",
+                "flinkPrincipalId": "flink_principal_id",
+                "flinkRestEndpoint": "flink_rest_endpoint",
                 "kafkaApiKey": "kafka_api_key",
                 "kafkaApiSecret": "kafka_api_secret",
                 "kafkaId": "kafka_id",
@@ -2343,6 +2406,11 @@
         "renamedConfigProperties": {
             "cloudApiKey": "cloud_api_key",
             "cloudApiSecret": "cloud_api_secret",
+            "flinkApiKey": "flink_api_key",
+            "flinkApiSecret": "flink_api_secret",
+            "flinkComputePoolId": "flink_compute_pool_id",
+            "flinkPrincipalId": "flink_principal_id",
+            "flinkRestEndpoint": "flink_rest_endpoint",
             "kafkaApiKey": "kafka_api_key",
             "kafkaApiSecret": "kafka_api_secret",
             "kafkaId": "kafka_id",

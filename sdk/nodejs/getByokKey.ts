@@ -54,6 +54,10 @@ export interface GetByokKeyResult {
      */
     readonly azures: outputs.GetByokKeyAzure[];
     /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly gcps: outputs.GetByokKeyGcp[];
+    /**
      * (Required String) The ID of the BYOK key, for example, `cck-abcde`.
      */
     readonly id: string;

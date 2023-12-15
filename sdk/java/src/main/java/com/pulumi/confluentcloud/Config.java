@@ -33,6 +33,41 @@ public final class Config {
         return Codegen.stringProp("endpoint").config(config).get();
     }
 /**
+ * The Flink API Key.
+ * 
+ */
+    public Optional<String> flinkApiKey() {
+        return Codegen.stringProp("flinkApiKey").config(config).get();
+    }
+/**
+ * The Flink API Secret.
+ * 
+ */
+    public Optional<String> flinkApiSecret() {
+        return Codegen.stringProp("flinkApiSecret").config(config).get();
+    }
+/**
+ * The Flink Compute Pool ID.
+ * 
+ */
+    public Optional<String> flinkComputePoolId() {
+        return Codegen.stringProp("flinkComputePoolId").config(config).get();
+    }
+/**
+ * The Flink Principal ID.
+ * 
+ */
+    public Optional<String> flinkPrincipalId() {
+        return Codegen.stringProp("flinkPrincipalId").config(config).get();
+    }
+/**
+ * The Flink REST Endpoint.
+ * 
+ */
+    public Optional<String> flinkRestEndpoint() {
+        return Codegen.stringProp("flinkRestEndpoint").config(config).get();
+    }
+/**
  * The Kafka Cluster API Key.
  * 
  */

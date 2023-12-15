@@ -38,6 +38,26 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly endpoint!: pulumi.Output<string | undefined>;
     /**
+     * The Flink API Key.
+     */
+    public readonly flinkApiKey!: pulumi.Output<string | undefined>;
+    /**
+     * The Flink API Secret.
+     */
+    public readonly flinkApiSecret!: pulumi.Output<string | undefined>;
+    /**
+     * The Flink Compute Pool ID.
+     */
+    public readonly flinkComputePoolId!: pulumi.Output<string | undefined>;
+    /**
+     * The Flink Principal ID.
+     */
+    public readonly flinkPrincipalId!: pulumi.Output<string | undefined>;
+    /**
+     * The Flink REST Endpoint.
+     */
+    public readonly flinkRestEndpoint!: pulumi.Output<string | undefined>;
+    /**
      * The Kafka Cluster API Key.
      */
     public readonly kafkaApiKey!: pulumi.Output<string | undefined>;
@@ -84,6 +104,11 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["cloudApiKey"] = args?.cloudApiKey ? pulumi.secret(args.cloudApiKey) : undefined;
             resourceInputs["cloudApiSecret"] = args?.cloudApiSecret ? pulumi.secret(args.cloudApiSecret) : undefined;
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
+            resourceInputs["flinkApiKey"] = args?.flinkApiKey ? pulumi.secret(args.flinkApiKey) : undefined;
+            resourceInputs["flinkApiSecret"] = args?.flinkApiSecret ? pulumi.secret(args.flinkApiSecret) : undefined;
+            resourceInputs["flinkComputePoolId"] = args ? args.flinkComputePoolId : undefined;
+            resourceInputs["flinkPrincipalId"] = args ? args.flinkPrincipalId : undefined;
+            resourceInputs["flinkRestEndpoint"] = args ? args.flinkRestEndpoint : undefined;
             resourceInputs["kafkaApiKey"] = args?.kafkaApiKey ? pulumi.secret(args.kafkaApiKey) : undefined;
             resourceInputs["kafkaApiSecret"] = args?.kafkaApiSecret ? pulumi.secret(args.kafkaApiSecret) : undefined;
             resourceInputs["kafkaId"] = args ? args.kafkaId : undefined;
@@ -95,7 +120,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["schemaRegistryRestEndpoint"] = args ? args.schemaRegistryRestEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["cloudApiKey", "cloudApiSecret", "kafkaApiKey", "kafkaApiSecret", "schemaRegistryApiKey", "schemaRegistryApiSecret"] };
+        const secretOpts = { additionalSecretOutputs: ["cloudApiKey", "cloudApiSecret", "flinkApiKey", "flinkApiSecret", "kafkaApiKey", "kafkaApiSecret", "schemaRegistryApiKey", "schemaRegistryApiSecret"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
@@ -117,6 +142,26 @@ export interface ProviderArgs {
      * The base endpoint of Confluent Cloud API.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * The Flink API Key.
+     */
+    flinkApiKey?: pulumi.Input<string>;
+    /**
+     * The Flink API Secret.
+     */
+    flinkApiSecret?: pulumi.Input<string>;
+    /**
+     * The Flink Compute Pool ID.
+     */
+    flinkComputePoolId?: pulumi.Input<string>;
+    /**
+     * The Flink Principal ID.
+     */
+    flinkPrincipalId?: pulumi.Input<string>;
+    /**
+     * The Flink REST Endpoint.
+     */
+    flinkRestEndpoint?: pulumi.Input<string>;
     /**
      * The Kafka Cluster API Key.
      */

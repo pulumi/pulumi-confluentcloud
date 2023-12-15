@@ -70,6 +70,28 @@
                 "type": "string",
                 "description": "The base endpoint of Confluent Cloud API.\n"
             },
+            "flinkApiKey": {
+                "type": "string",
+                "description": "The Flink API Key.\n",
+                "secret": true
+            },
+            "flinkApiSecret": {
+                "type": "string",
+                "description": "The Flink API Secret.\n",
+                "secret": true
+            },
+            "flinkComputePoolId": {
+                "type": "string",
+                "description": "The Flink Compute Pool ID.\n"
+            },
+            "flinkPrincipalId": {
+                "type": "string",
+                "description": "The Flink Principal ID.\n"
+            },
+            "flinkRestEndpoint": {
+                "type": "string",
+                "description": "The Flink REST Endpoint.\n"
+            },
             "kafkaApiKey": {
                 "type": "string",
                 "description": "The Kafka Cluster API Key.\n",
@@ -358,6 +380,31 @@
                 }
             }
         },
+        "confluentcloud:index/ByokKeyGcp:ByokKeyGcp": {
+            "properties": {
+                "keyId": {
+                    "type": "string",
+                    "description": "The Google Cloud Platform key ID.\n",
+                    "willReplaceOnChanges": true
+                },
+                "securityGroup": {
+                    "type": "string",
+                    "description": "(Optional String) The Google security group created for this key.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "keyId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "keyId",
+                        "securityGroup"
+                    ]
+                }
+            }
+        },
         "confluentcloud:index/ClusterLinkDestinationKafkaCluster:ClusterLinkDestinationKafkaCluster": {
             "properties": {
                 "bootstrapEndpoint": {
@@ -573,6 +620,51 @@
                 "id": {
                     "type": "string",
                     "description": "The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/FlinkStatementComputePool:FlinkStatementComputePool": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/FlinkStatementCredentials:FlinkStatementCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Flink API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Flink API Secret.\n\n\u003e **Note:** A Flink API key consists of a key and a secret. Flink API keys are required to interact with Flink Statements in Confluent Cloud. Each Flink API key is valid for one specific Flink Region.\n\n\u003e **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target=\"confluent_flink_statement.example\"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target=\"confluent_flink_statement.example\" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/FlinkStatementPrincipal:FlinkStatementPrincipal": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -2029,6 +2121,28 @@
                 "keyIdentifier",
                 "keyVaultId",
                 "tenantId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getByokKeyGcp:getByokKeyGcp": {
+            "properties": {
+                "keyId": {
+                    "type": "string",
+                    "description": "(Required String) The Google Cloud Platform key ID.\n"
+                },
+                "securityGroup": {
+                    "type": "string",
+                    "description": "(Optional String) The Google security group created for this key.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "keyId",
+                "securityGroup"
             ],
             "language": {
                 "nodejs": {
@@ -3542,6 +3656,28 @@
                 "type": "string",
                 "description": "The base endpoint of Confluent Cloud API.\n"
             },
+            "flinkApiKey": {
+                "type": "string",
+                "description": "The Flink API Key.\n",
+                "secret": true
+            },
+            "flinkApiSecret": {
+                "type": "string",
+                "description": "The Flink API Secret.\n",
+                "secret": true
+            },
+            "flinkComputePoolId": {
+                "type": "string",
+                "description": "The Flink Compute Pool ID.\n"
+            },
+            "flinkPrincipalId": {
+                "type": "string",
+                "description": "The Flink Principal ID.\n"
+            },
+            "flinkRestEndpoint": {
+                "type": "string",
+                "description": "The Flink REST Endpoint.\n"
+            },
             "kafkaApiKey": {
                 "type": "string",
                 "description": "The Kafka Cluster API Key.\n",
@@ -3597,6 +3733,28 @@
             "endpoint": {
                 "type": "string",
                 "description": "The base endpoint of Confluent Cloud API.\n"
+            },
+            "flinkApiKey": {
+                "type": "string",
+                "description": "The Flink API Key.\n",
+                "secret": true
+            },
+            "flinkApiSecret": {
+                "type": "string",
+                "description": "The Flink API Secret.\n",
+                "secret": true
+            },
+            "flinkComputePoolId": {
+                "type": "string",
+                "description": "The Flink Compute Pool ID.\n"
+            },
+            "flinkPrincipalId": {
+                "type": "string",
+                "description": "The Flink Principal ID.\n"
+            },
+            "flinkRestEndpoint": {
+                "type": "string",
+                "description": "The Flink REST Endpoint.\n"
             },
             "kafkaApiKey": {
                 "type": "string",
@@ -3988,11 +4146,16 @@
                 "azure": {
                     "$ref": "#/types/confluentcloud:index/ByokKeyAzure:ByokKeyAzure",
                     "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "gcp": {
+                    "$ref": "#/types/confluentcloud:index/ByokKeyGcp:ByokKeyGcp",
+                    "description": "(Optional Configuration Block) supports the following:\n"
                 }
             },
             "required": [
                 "aws",
-                "azure"
+                "azure",
+                "gcp"
             ],
             "inputProperties": {
                 "aws": {
@@ -4002,6 +4165,11 @@
                 },
                 "azure": {
                     "$ref": "#/types/confluentcloud:index/ByokKeyAzure:ByokKeyAzure",
+                    "description": "(Optional Configuration Block) supports the following:\n",
+                    "willReplaceOnChanges": true
+                },
+                "gcp": {
+                    "$ref": "#/types/confluentcloud:index/ByokKeyGcp:ByokKeyGcp",
                     "description": "(Optional Configuration Block) supports the following:\n",
                     "willReplaceOnChanges": true
                 }
@@ -4016,6 +4184,11 @@
                     },
                     "azure": {
                         "$ref": "#/types/confluentcloud:index/ByokKeyAzure:ByokKeyAzure",
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "gcp": {
+                        "$ref": "#/types/confluentcloud:index/ByokKeyGcp:ByokKeyGcp",
                         "description": "(Optional Configuration Block) supports the following:\n",
                         "willReplaceOnChanges": true
                     }
@@ -4536,6 +4709,203 @@
                     "restEndpoint": {
                         "type": "string",
                         "description": "(Required String) The API endpoint of the Flink Compute Pool.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/flinkStatement:FlinkStatement": {
+            "description": "\n\n\n## Import\n\nYou can import a Flink topic by using the Flink Statement name, for exampleOption #1Manage multiple Flink Compute Pools in the same Terraform workspace $ export IMPORT_FLINK_COMPUTE_POOL_ID=\"\u003cflink_compute_pool_id\u003e\" $ export IMPORT_FLINK_API_KEY=\"\u003cflink_api_key\u003e\" $ export IMPORT_FLINK_API_SECRET=\"\u003cflink_api_secret\u003e\" $ export IMPORT_FLINK_REST_ENDPOINT=\"\u003cflink_rest_endpoint\u003e\" $ export IMPORT_FLINK_PRINCIPAL_ID=\"\u003cflink_rest_endpoint\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67\n```\n\n Option #2Manage a single Flink Compute Pool in the same Terraform workspace\n\n```sh\n $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "computePool": {
+                    "$ref": "#/types/confluentcloud:index/FlinkStatementComputePool:FlinkStatementComputePool"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/FlinkStatementCredentials:FlinkStatementCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "principal": {
+                    "$ref": "#/types/confluentcloud:index/FlinkStatementPrincipal:FlinkStatementPrincipal"
+                },
+                "properties": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The custom topic settings to set:\n"
+                },
+                "resourceVersion": {
+                    "type": "string",
+                    "description": "(Required String) The ID of the Flink statement's version, for example, `2`.\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).\n"
+                },
+                "statement": {
+                    "type": "string",
+                    "description": "The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.\n"
+                },
+                "statementName": {
+                    "type": "string",
+                    "description": "The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.\n"
+                },
+                "stopped": {
+                    "type": "boolean",
+                    "description": "Indicates whether the statement should be stopped.\n"
+                }
+            },
+            "required": [
+                "computePool",
+                "principal",
+                "properties",
+                "resourceVersion",
+                "statement",
+                "statementName"
+            ],
+            "inputProperties": {
+                "computePool": {
+                    "$ref": "#/types/confluentcloud:index/FlinkStatementComputePool:FlinkStatementComputePool"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/FlinkStatementCredentials:FlinkStatementCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "principal": {
+                    "$ref": "#/types/confluentcloud:index/FlinkStatementPrincipal:FlinkStatementPrincipal"
+                },
+                "properties": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The custom topic settings to set:\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).\n",
+                    "willReplaceOnChanges": true
+                },
+                "statement": {
+                    "type": "string",
+                    "description": "The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "statementName": {
+                    "type": "string",
+                    "description": "The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.\n"
+                },
+                "stopped": {
+                    "type": "boolean",
+                    "description": "Indicates whether the statement should be stopped.\n"
+                }
+            },
+            "requiredInputs": [
+                "statement"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FlinkStatement resources.\n",
+                "properties": {
+                    "computePool": {
+                        "$ref": "#/types/confluentcloud:index/FlinkStatementComputePool:FlinkStatementComputePool"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/FlinkStatementCredentials:FlinkStatementCredentials",
+                        "description": "The Cluster API Credentials.\n",
+                        "secret": true
+                    },
+                    "principal": {
+                        "$ref": "#/types/confluentcloud:index/FlinkStatementPrincipal:FlinkStatementPrincipal"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "The custom topic settings to set:\n"
+                    },
+                    "resourceVersion": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the Flink statement's version, for example, `2`.\n"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "statement": {
+                        "type": "string",
+                        "description": "The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "statementName": {
+                        "type": "string",
+                        "description": "The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.\n"
+                    },
+                    "stopped": {
+                        "type": "boolean",
+                        "description": "Indicates whether the statement should be stopped.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/groupMapping:GroupMapping": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.GroupMapping` provides a Group Mapping resource that enables creating, editing, and deleting group mappings on Confluent Cloud.\n\n\u003e **Note:** See [Group Mapping in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html) for more details.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst application_developers = new confluentcloud.GroupMapping(\"application-developers\", {\n    displayName: \"Application Developers\",\n    description: \"Admin access to production environment for Engineering\",\n    filter: \"\\\"engineering\\\" in groups\",\n});\nconst envadmin = new confluentcloud.RoleBinding(\"envadmin\", {\n    principal: pulumi.interpolate`User:${application_developers.id}`,\n    roleName: \"EnvironmentAdmin\",\n    crnPattern: data.confluent_environment.prod.resource_name,\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\napplication_developers = confluentcloud.GroupMapping(\"application-developers\",\n    display_name=\"Application Developers\",\n    description=\"Admin access to production environment for Engineering\",\n    filter=\"\\\"engineering\\\" in groups\")\nenvadmin = confluentcloud.RoleBinding(\"envadmin\",\n    principal=application_developers.id.apply(lambda id: f\"User:{id}\"),\n    role_name=\"EnvironmentAdmin\",\n    crn_pattern=data[\"confluent_environment\"][\"prod\"][\"resource_name\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var application_developers = new ConfluentCloud.GroupMapping(\"application-developers\", new()\n    {\n        DisplayName = \"Application Developers\",\n        Description = \"Admin access to production environment for Engineering\",\n        Filter = \"\\\"engineering\\\" in groups\",\n    });\n\n    var envadmin = new ConfluentCloud.RoleBinding(\"envadmin\", new()\n    {\n        Principal = application_developers.Id.Apply(id =\u003e $\"User:{id}\"),\n        RoleName = \"EnvironmentAdmin\",\n        CrnPattern = data.Confluent_environment.Prod.Resource_name,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewGroupMapping(ctx, \"application-developers\", \u0026confluentcloud.GroupMappingArgs{\n\t\t\tDisplayName: pulumi.String(\"Application Developers\"),\n\t\t\tDescription: pulumi.String(\"Admin access to production environment for Engineering\"),\n\t\t\tFilter:      pulumi.String(\"\\\"engineering\\\" in groups\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewRoleBinding(ctx, \"envadmin\", \u0026confluentcloud.RoleBindingArgs{\n\t\t\tPrincipal: application_developers.ID().ApplyT(func(id string) (string, error) {\n\t\t\t\treturn fmt.Sprintf(\"User:%v\", id), nil\n\t\t\t}).(pulumi.StringOutput),\n\t\t\tRoleName:   pulumi.String(\"EnvironmentAdmin\"),\n\t\t\tCrnPattern: pulumi.Any(data.Confluent_environment.Prod.Resource_name),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.GroupMapping;\nimport com.pulumi.confluentcloud.GroupMappingArgs;\nimport com.pulumi.confluentcloud.RoleBinding;\nimport com.pulumi.confluentcloud.RoleBindingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var application_developers = new GroupMapping(\"application-developers\", GroupMappingArgs.builder()        \n            .displayName(\"Application Developers\")\n            .description(\"Admin access to production environment for Engineering\")\n            .filter(\"\\\"engineering\\\" in groups\")\n            .build());\n\n        var envadmin = new RoleBinding(\"envadmin\", RoleBindingArgs.builder()        \n            .principal(application_developers.id().applyValue(id -\u003e String.format(\"User:%s\", id)))\n            .roleName(\"EnvironmentAdmin\")\n            .crnPattern(data.confluent_environment().prod().resource_name())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  application-developers:\n    type: confluentcloud:GroupMapping\n    properties:\n      displayName: Application Developers\n      description: Admin access to production environment for Engineering\n      filter: '\"engineering\" in groups'\n  envadmin:\n    type: confluentcloud:RoleBinding\n    properties:\n      principal: User:${[\"application-developers\"].id}\n      roleName: EnvironmentAdmin\n      crnPattern: ${data.confluent_environment.prod.resource_name}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nYou can import a Group Mapping by using Group Mapping ID, for example$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/groupMapping:GroupMapping application-developers group-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description explaining the purpose and use of the group mapping.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Group Mapping.\n"
+                },
+                "filter": {
+                    "type": "string",
+                    "description": "A single group identifier or a condition based on [supported CEL operators](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html#supported-cel-operators-for-group-mapping) that defines which groups are included.\n"
+                }
+            },
+            "required": [
+                "displayName",
+                "filter"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A description explaining the purpose and use of the group mapping.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the Group Mapping.\n"
+                },
+                "filter": {
+                    "type": "string",
+                    "description": "A single group identifier or a condition based on [supported CEL operators](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html#supported-cel-operators-for-group-mapping) that defines which groups are included.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "displayName",
+                "filter"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GroupMapping resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "A description explaining the purpose and use of the group mapping.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the Group Mapping.\n"
+                    },
+                    "filter": {
+                        "type": "string",
+                        "description": "A single group identifier or a condition based on [supported CEL operators](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html#supported-cel-operators-for-group-mapping) that defines which groups are included.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -8089,6 +8459,13 @@
                         },
                         "description": "(Optional Configuration Block) supports the following:\n"
                     },
+                    "gcps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getByokKeyGcp:getByokKeyGcp"
+                        },
+                        "description": "(Optional Configuration Block) supports the following:\n"
+                    },
                     "id": {
                         "type": "string",
                         "description": "(Required String) The ID of the BYOK key, for example, `cck-abcde`.\n"
@@ -8098,6 +8475,7 @@
                 "required": [
                     "aws",
                     "azures",
+                    "gcps",
                     "id"
                 ]
             }
@@ -8250,6 +8628,108 @@
                     "region",
                     "resourceName",
                     "restEndpoint"
+                ]
+            }
+        },
+        "confluentcloud:index/getFlinkRegion:getFlinkRegion": {
+            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.getFlinkRegion` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.getFlinkRegion` describes a Flink cluster data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleFlinkRegion = confluentcloud.getFlinkRegion({\n    cloud: \"AWS\",\n    region: \"us-east-1\",\n});\nexport const example = exampleFlinkRegion;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_flink_region = confluentcloud.get_flink_region(cloud=\"AWS\",\n    region=\"us-east-1\")\npulumi.export(\"example\", example_flink_region)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleFlinkRegion = ConfluentCloud.GetFlinkRegion.Invoke(new()\n    {\n        Cloud = \"AWS\",\n        Region = \"us-east-1\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = exampleFlinkRegion,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleFlinkRegion, err := confluentcloud.GetFlinkRegion(ctx, \u0026confluentcloud.GetFlinkRegionArgs{\n\t\t\tCloud:  \"AWS\",\n\t\t\tRegion: \"us-east-1\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", exampleFlinkRegion)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleFlinkRegion = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()\n            .cloud(\"AWS\")\n            .region(\"us-east-1\")\n            .build());\n\n        ctx.export(\"example\", exampleFlinkRegion.applyValue(getFlinkRegionResult -\u003e getFlinkRegionResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleFlinkRegion:\n    fn::invoke:\n      Function: confluentcloud:getFlinkRegion\n      Arguments:\n        cloud: AWS\n        region: us-east-1\noutputs:\n  example: ${exampleFlinkRegion}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getFlinkRegion.\n",
+                "properties": {
+                    "cloud": {
+                        "type": "string",
+                        "description": "The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.\n"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "The cloud service provider region, for example, `us-east-1`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "cloud",
+                    "region"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getFlinkRegion.\n",
+                "properties": {
+                    "apiVersion": {
+                        "type": "string",
+                        "description": "(Required String) An API Version of the Flink region, for example, `fcpm/v2`.\n"
+                    },
+                    "cloud": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the Flink region, for example, `aws.us-east-1`.\n"
+                    },
+                    "kind": {
+                        "type": "string",
+                        "description": "(Required String) A kind of the Flink region, for example, `Region`.\n"
+                    },
+                    "region": {
+                        "type": "string"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "(Required String) The HTTP endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "apiVersion",
+                    "cloud",
+                    "id",
+                    "kind",
+                    "region",
+                    "restEndpoint"
+                ]
+            }
+        },
+        "confluentcloud:index/getGroupMapping:getGroupMapping": {
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.GroupMapping` describes a Group Mapping data source.\n\n\u003e **Note:** See [Group Mapping in Confluent Cloud](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html) for more details.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleUsingIdGroupMapping = confluentcloud.getGroupMapping({\n    id: \"group-abc123\",\n});\nexport const exampleUsingId = exampleUsingIdGroupMapping;\nconst exampleUsingName = confluentcloud.getGroupMapping({\n    displayName: \"Default\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_using_id_group_mapping = confluentcloud.get_group_mapping(id=\"group-abc123\")\npulumi.export(\"exampleUsingId\", example_using_id_group_mapping)\nexample_using_name = confluentcloud.get_group_mapping(display_name=\"Default\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleUsingIdGroupMapping = ConfluentCloud.GetGroupMapping.Invoke(new()\n    {\n        Id = \"group-abc123\",\n    });\n\n    var exampleUsingName = ConfluentCloud.GetGroupMapping.Invoke(new()\n    {\n        DisplayName = \"Default\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"exampleUsingId\"] = exampleUsingIdGroupMapping,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleUsingIdGroupMapping, err := confluentcloud.LookupGroupMapping(ctx, \u0026confluentcloud.LookupGroupMappingArgs{\n\t\t\tId: pulumi.StringRef(\"group-abc123\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"exampleUsingId\", exampleUsingIdGroupMapping)\n\t\t_, err = confluentcloud.LookupGroupMapping(ctx, \u0026confluentcloud.LookupGroupMappingArgs{\n\t\t\tDisplayName: pulumi.StringRef(\"Default\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleUsingIdGroupMapping = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()\n            .id(\"group-abc123\")\n            .build());\n\n        ctx.export(\"exampleUsingId\", exampleUsingIdGroupMapping.applyValue(getGroupMappingResult -\u003e getGroupMappingResult));\n        final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()\n            .displayName(\"Default\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  exampleUsingIdGroupMapping:\n    fn::invoke:\n      Function: confluentcloud:getGroupMapping\n      Arguments:\n        id: group-abc123\n  exampleUsingName:\n    fn::invoke:\n      Function: confluentcloud:getGroupMapping\n      Arguments:\n        displayName: Default\noutputs:\n  exampleUsingId: ${exampleUsingIdGroupMapping}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getGroupMapping.\n",
+                "properties": {
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the Group Mapping.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the Group Mapping.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getGroupMapping.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "(Required String) A description explaining the purpose and use of the group mapping.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "(Required String) The name of the Group Mapping.\n"
+                    },
+                    "filter": {
+                        "type": "string",
+                        "description": "(Required String) A single group identifier or a condition based on [supported CEL operators](https://docs.confluent.io/cloud/current/access-management/authenticate/sso/group-mapping/overview.html#supported-cel-operators-for-group-mapping) that defines which groups are included.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "(Required String) The ID of the Group Mapping (for example, `group-abc123`).\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "displayName",
+                    "filter",
+                    "id"
                 ]
             }
         },

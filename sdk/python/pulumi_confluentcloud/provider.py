@@ -17,6 +17,11 @@ class ProviderArgs:
                  cloud_api_key: Optional[pulumi.Input[str]] = None,
                  cloud_api_secret: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 flink_api_key: Optional[pulumi.Input[str]] = None,
+                 flink_api_secret: Optional[pulumi.Input[str]] = None,
+                 flink_compute_pool_id: Optional[pulumi.Input[str]] = None,
+                 flink_principal_id: Optional[pulumi.Input[str]] = None,
+                 flink_rest_endpoint: Optional[pulumi.Input[str]] = None,
                  kafka_api_key: Optional[pulumi.Input[str]] = None,
                  kafka_api_secret: Optional[pulumi.Input[str]] = None,
                  kafka_id: Optional[pulumi.Input[str]] = None,
@@ -31,6 +36,11 @@ class ProviderArgs:
         :param pulumi.Input[str] cloud_api_key: The Confluent Cloud API Key.
         :param pulumi.Input[str] cloud_api_secret: The Confluent Cloud API Secret.
         :param pulumi.Input[str] endpoint: The base endpoint of Confluent Cloud API.
+        :param pulumi.Input[str] flink_api_key: The Flink API Key.
+        :param pulumi.Input[str] flink_api_secret: The Flink API Secret.
+        :param pulumi.Input[str] flink_compute_pool_id: The Flink Compute Pool ID.
+        :param pulumi.Input[str] flink_principal_id: The Flink Principal ID.
+        :param pulumi.Input[str] flink_rest_endpoint: The Flink REST Endpoint.
         :param pulumi.Input[str] kafka_api_key: The Kafka Cluster API Key.
         :param pulumi.Input[str] kafka_api_secret: The Kafka Cluster API Secret.
         :param pulumi.Input[str] kafka_id: The Kafka Cluster ID.
@@ -47,6 +57,16 @@ class ProviderArgs:
             pulumi.set(__self__, "cloud_api_secret", cloud_api_secret)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if flink_api_key is not None:
+            pulumi.set(__self__, "flink_api_key", flink_api_key)
+        if flink_api_secret is not None:
+            pulumi.set(__self__, "flink_api_secret", flink_api_secret)
+        if flink_compute_pool_id is not None:
+            pulumi.set(__self__, "flink_compute_pool_id", flink_compute_pool_id)
+        if flink_principal_id is not None:
+            pulumi.set(__self__, "flink_principal_id", flink_principal_id)
+        if flink_rest_endpoint is not None:
+            pulumi.set(__self__, "flink_rest_endpoint", flink_rest_endpoint)
         if kafka_api_key is not None:
             pulumi.set(__self__, "kafka_api_key", kafka_api_key)
         if kafka_api_secret is not None:
@@ -101,6 +121,66 @@ class ProviderArgs:
     @endpoint.setter
     def endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="flinkApiKey")
+    def flink_api_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Flink API Key.
+        """
+        return pulumi.get(self, "flink_api_key")
+
+    @flink_api_key.setter
+    def flink_api_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "flink_api_key", value)
+
+    @property
+    @pulumi.getter(name="flinkApiSecret")
+    def flink_api_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Flink API Secret.
+        """
+        return pulumi.get(self, "flink_api_secret")
+
+    @flink_api_secret.setter
+    def flink_api_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "flink_api_secret", value)
+
+    @property
+    @pulumi.getter(name="flinkComputePoolId")
+    def flink_compute_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Flink Compute Pool ID.
+        """
+        return pulumi.get(self, "flink_compute_pool_id")
+
+    @flink_compute_pool_id.setter
+    def flink_compute_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "flink_compute_pool_id", value)
+
+    @property
+    @pulumi.getter(name="flinkPrincipalId")
+    def flink_principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Flink Principal ID.
+        """
+        return pulumi.get(self, "flink_principal_id")
+
+    @flink_principal_id.setter
+    def flink_principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "flink_principal_id", value)
+
+    @property
+    @pulumi.getter(name="flinkRestEndpoint")
+    def flink_rest_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Flink REST Endpoint.
+        """
+        return pulumi.get(self, "flink_rest_endpoint")
+
+    @flink_rest_endpoint.setter
+    def flink_rest_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "flink_rest_endpoint", value)
 
     @property
     @pulumi.getter(name="kafkaApiKey")
@@ -219,6 +299,11 @@ class Provider(pulumi.ProviderResource):
                  cloud_api_key: Optional[pulumi.Input[str]] = None,
                  cloud_api_secret: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 flink_api_key: Optional[pulumi.Input[str]] = None,
+                 flink_api_secret: Optional[pulumi.Input[str]] = None,
+                 flink_compute_pool_id: Optional[pulumi.Input[str]] = None,
+                 flink_principal_id: Optional[pulumi.Input[str]] = None,
+                 flink_rest_endpoint: Optional[pulumi.Input[str]] = None,
                  kafka_api_key: Optional[pulumi.Input[str]] = None,
                  kafka_api_secret: Optional[pulumi.Input[str]] = None,
                  kafka_id: Optional[pulumi.Input[str]] = None,
@@ -240,6 +325,11 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] cloud_api_key: The Confluent Cloud API Key.
         :param pulumi.Input[str] cloud_api_secret: The Confluent Cloud API Secret.
         :param pulumi.Input[str] endpoint: The base endpoint of Confluent Cloud API.
+        :param pulumi.Input[str] flink_api_key: The Flink API Key.
+        :param pulumi.Input[str] flink_api_secret: The Flink API Secret.
+        :param pulumi.Input[str] flink_compute_pool_id: The Flink Compute Pool ID.
+        :param pulumi.Input[str] flink_principal_id: The Flink Principal ID.
+        :param pulumi.Input[str] flink_rest_endpoint: The Flink REST Endpoint.
         :param pulumi.Input[str] kafka_api_key: The Kafka Cluster API Key.
         :param pulumi.Input[str] kafka_api_secret: The Kafka Cluster API Secret.
         :param pulumi.Input[str] kafka_id: The Kafka Cluster ID.
@@ -280,6 +370,11 @@ class Provider(pulumi.ProviderResource):
                  cloud_api_key: Optional[pulumi.Input[str]] = None,
                  cloud_api_secret: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 flink_api_key: Optional[pulumi.Input[str]] = None,
+                 flink_api_secret: Optional[pulumi.Input[str]] = None,
+                 flink_compute_pool_id: Optional[pulumi.Input[str]] = None,
+                 flink_principal_id: Optional[pulumi.Input[str]] = None,
+                 flink_rest_endpoint: Optional[pulumi.Input[str]] = None,
                  kafka_api_key: Optional[pulumi.Input[str]] = None,
                  kafka_api_secret: Optional[pulumi.Input[str]] = None,
                  kafka_id: Optional[pulumi.Input[str]] = None,
@@ -301,6 +396,11 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["cloud_api_key"] = None if cloud_api_key is None else pulumi.Output.secret(cloud_api_key)
             __props__.__dict__["cloud_api_secret"] = None if cloud_api_secret is None else pulumi.Output.secret(cloud_api_secret)
             __props__.__dict__["endpoint"] = endpoint
+            __props__.__dict__["flink_api_key"] = None if flink_api_key is None else pulumi.Output.secret(flink_api_key)
+            __props__.__dict__["flink_api_secret"] = None if flink_api_secret is None else pulumi.Output.secret(flink_api_secret)
+            __props__.__dict__["flink_compute_pool_id"] = flink_compute_pool_id
+            __props__.__dict__["flink_principal_id"] = flink_principal_id
+            __props__.__dict__["flink_rest_endpoint"] = flink_rest_endpoint
             __props__.__dict__["kafka_api_key"] = None if kafka_api_key is None else pulumi.Output.secret(kafka_api_key)
             __props__.__dict__["kafka_api_secret"] = None if kafka_api_secret is None else pulumi.Output.secret(kafka_api_secret)
             __props__.__dict__["kafka_id"] = kafka_id
@@ -310,7 +410,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["schema_registry_api_secret"] = None if schema_registry_api_secret is None else pulumi.Output.secret(schema_registry_api_secret)
             __props__.__dict__["schema_registry_id"] = schema_registry_id
             __props__.__dict__["schema_registry_rest_endpoint"] = schema_registry_rest_endpoint
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["cloudApiKey", "cloudApiSecret", "kafkaApiKey", "kafkaApiSecret", "schemaRegistryApiKey", "schemaRegistryApiSecret"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["cloudApiKey", "cloudApiSecret", "flinkApiKey", "flinkApiSecret", "kafkaApiKey", "kafkaApiSecret", "schemaRegistryApiKey", "schemaRegistryApiSecret"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'confluentcloud',
@@ -341,6 +441,46 @@ class Provider(pulumi.ProviderResource):
         The base endpoint of Confluent Cloud API.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="flinkApiKey")
+    def flink_api_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Flink API Key.
+        """
+        return pulumi.get(self, "flink_api_key")
+
+    @property
+    @pulumi.getter(name="flinkApiSecret")
+    def flink_api_secret(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Flink API Secret.
+        """
+        return pulumi.get(self, "flink_api_secret")
+
+    @property
+    @pulumi.getter(name="flinkComputePoolId")
+    def flink_compute_pool_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Flink Compute Pool ID.
+        """
+        return pulumi.get(self, "flink_compute_pool_id")
+
+    @property
+    @pulumi.getter(name="flinkPrincipalId")
+    def flink_principal_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Flink Principal ID.
+        """
+        return pulumi.get(self, "flink_principal_id")
+
+    @property
+    @pulumi.getter(name="flinkRestEndpoint")
+    def flink_rest_endpoint(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Flink REST Endpoint.
+        """
+        return pulumi.get(self, "flink_rest_endpoint")
 
     @property
     @pulumi.getter(name="kafkaApiKey")

@@ -50,6 +50,11 @@ export type FlinkComputePool = import("./flinkComputePool").FlinkComputePool;
 export const FlinkComputePool: typeof import("./flinkComputePool").FlinkComputePool = null as any;
 utilities.lazyLoad(exports, ["FlinkComputePool"], () => require("./flinkComputePool"));
 
+export { FlinkStatementArgs, FlinkStatementState } from "./flinkStatement";
+export type FlinkStatement = import("./flinkStatement").FlinkStatement;
+export const FlinkStatement: typeof import("./flinkStatement").FlinkStatement = null as any;
+utilities.lazyLoad(exports, ["FlinkStatement"], () => require("./flinkStatement"));
+
 export { GetBusinessMetadataArgs, GetBusinessMetadataResult, GetBusinessMetadataOutputArgs } from "./getBusinessMetadata";
 export const getBusinessMetadata: typeof import("./getBusinessMetadata").getBusinessMetadata = null as any;
 export const getBusinessMetadataOutput: typeof import("./getBusinessMetadata").getBusinessMetadataOutput = null as any;
@@ -79,6 +84,16 @@ export { GetFlinkComputePoolArgs, GetFlinkComputePoolResult, GetFlinkComputePool
 export const getFlinkComputePool: typeof import("./getFlinkComputePool").getFlinkComputePool = null as any;
 export const getFlinkComputePoolOutput: typeof import("./getFlinkComputePool").getFlinkComputePoolOutput = null as any;
 utilities.lazyLoad(exports, ["getFlinkComputePool","getFlinkComputePoolOutput"], () => require("./getFlinkComputePool"));
+
+export { GetFlinkRegionArgs, GetFlinkRegionResult, GetFlinkRegionOutputArgs } from "./getFlinkRegion";
+export const getFlinkRegion: typeof import("./getFlinkRegion").getFlinkRegion = null as any;
+export const getFlinkRegionOutput: typeof import("./getFlinkRegion").getFlinkRegionOutput = null as any;
+utilities.lazyLoad(exports, ["getFlinkRegion","getFlinkRegionOutput"], () => require("./getFlinkRegion"));
+
+export { GetGroupMappingArgs, GetGroupMappingResult, GetGroupMappingOutputArgs } from "./getGroupMapping";
+export const getGroupMapping: typeof import("./getGroupMapping").getGroupMapping = null as any;
+export const getGroupMappingOutput: typeof import("./getGroupMapping").getGroupMappingOutput = null as any;
+utilities.lazyLoad(exports, ["getGroupMapping","getGroupMappingOutput"], () => require("./getGroupMapping"));
 
 export { GetIdentityPoolArgs, GetIdentityPoolResult, GetIdentityPoolOutputArgs } from "./getIdentityPool";
 export const getIdentityPool: typeof import("./getIdentityPool").getIdentityPool = null as any;
@@ -239,6 +254,11 @@ export { GetUsersResult } from "./getUsers";
 export const getUsers: typeof import("./getUsers").getUsers = null as any;
 export const getUsersOutput: typeof import("./getUsers").getUsersOutput = null as any;
 utilities.lazyLoad(exports, ["getUsers","getUsersOutput"], () => require("./getUsers"));
+
+export { GroupMappingArgs, GroupMappingState } from "./groupMapping";
+export type GroupMapping = import("./groupMapping").GroupMapping;
+export const GroupMapping: typeof import("./groupMapping").GroupMapping = null as any;
+utilities.lazyLoad(exports, ["GroupMapping"], () => require("./groupMapping"));
 
 export { IdentityPoolArgs, IdentityPoolState } from "./identityPool";
 export type IdentityPool = import("./identityPool").IdentityPool;
@@ -427,6 +447,10 @@ const _module = {
                 return new Environment(name, <any>undefined, { urn })
             case "confluentcloud:index/flinkComputePool:FlinkComputePool":
                 return new FlinkComputePool(name, <any>undefined, { urn })
+            case "confluentcloud:index/flinkStatement:FlinkStatement":
+                return new FlinkStatement(name, <any>undefined, { urn })
+            case "confluentcloud:index/groupMapping:GroupMapping":
+                return new GroupMapping(name, <any>undefined, { urn })
             case "confluentcloud:index/identityPool:IdentityPool":
                 return new IdentityPool(name, <any>undefined, { urn })
             case "confluentcloud:index/identityProvider:IdentityProvider":
@@ -501,6 +525,8 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/connector", _modu
 pulumi.runtime.registerResourceModule("confluentcloud", "index/customConnectorPlugin", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/environment", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkComputePool", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkStatement", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/groupMapping", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/identityPool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/identityProvider", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/invitation", _module)
