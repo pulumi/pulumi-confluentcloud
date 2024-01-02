@@ -10,8 +10,8 @@ replace (
 require (
 	github.com/confluentinc/terraform-provider-confluent v1.32.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.29.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.69.0
-	github.com/pulumi/pulumi/sdk/v3 v3.98.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.69.1-0.20231228171213-2bb619413b2c
+	github.com/pulumi/pulumi/sdk/v3 v3.99.0
 )
 
 require (
@@ -223,11 +223,11 @@ require (
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/power-devops/perfstat v0.0.0-20210106213030-5aafc221ea8c // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.6.1 // indirect
+	github.com/pulumi/esc v0.6.2 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.9.8 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 // indirect
-	github.com/pulumi/pulumi-yaml v1.4.3 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.98.0 // indirect
+	github.com/pulumi/pulumi-yaml v1.4.4 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.99.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
