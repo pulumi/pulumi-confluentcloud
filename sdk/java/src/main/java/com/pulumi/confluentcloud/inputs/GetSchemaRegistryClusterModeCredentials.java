@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -96,8 +97,12 @@ public final class GetSchemaRegistryClusterModeCredentials extends com.pulumi.re
         }
 
         public GetSchemaRegistryClusterModeCredentials build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.secret = Objects.requireNonNull($.secret, "expected parameter 'secret' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetSchemaRegistryClusterModeCredentials", "key");
+            }
+            if ($.secret == null) {
+                throw new MissingRequiredPropertyException("GetSchemaRegistryClusterModeCredentials", "secret");
+            }
             return $;
         }
     }

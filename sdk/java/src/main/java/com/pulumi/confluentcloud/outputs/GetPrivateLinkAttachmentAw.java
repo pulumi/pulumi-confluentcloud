@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetPrivateLinkAttachmentAw {
 
         @CustomType.Setter
         public Builder vpcEndpointServiceName(String vpcEndpointServiceName) {
-            this.vpcEndpointServiceName = Objects.requireNonNull(vpcEndpointServiceName);
+            if (vpcEndpointServiceName == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentAw", "vpcEndpointServiceName");
+            }
+            this.vpcEndpointServiceName = vpcEndpointServiceName;
             return this;
         }
         public GetPrivateLinkAttachmentAw build() {

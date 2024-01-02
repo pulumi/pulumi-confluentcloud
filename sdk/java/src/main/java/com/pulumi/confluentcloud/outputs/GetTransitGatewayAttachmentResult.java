@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.outputs.GetTransitGatewayAttachmentAw;
 import com.pulumi.confluentcloud.outputs.GetTransitGatewayAttachmentEnvironment;
 import com.pulumi.confluentcloud.outputs.GetTransitGatewayAttachmentNetwork;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -102,7 +103,10 @@ public final class GetTransitGatewayAttachmentResult {
 
         @CustomType.Setter
         public Builder aws(List<GetTransitGatewayAttachmentAw> aws) {
-            this.aws = Objects.requireNonNull(aws);
+            if (aws == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayAttachmentResult", "aws");
+            }
+            this.aws = aws;
             return this;
         }
         public Builder aws(GetTransitGatewayAttachmentAw... aws) {
@@ -110,22 +114,34 @@ public final class GetTransitGatewayAttachmentResult {
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayAttachmentResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder environment(GetTransitGatewayAttachmentEnvironment environment) {
-            this.environment = Objects.requireNonNull(environment);
+            if (environment == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayAttachmentResult", "environment");
+            }
+            this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayAttachmentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder networks(List<GetTransitGatewayAttachmentNetwork> networks) {
-            this.networks = Objects.requireNonNull(networks);
+            if (networks == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayAttachmentResult", "networks");
+            }
+            this.networks = networks;
             return this;
         }
         public Builder networks(GetTransitGatewayAttachmentNetwork... networks) {

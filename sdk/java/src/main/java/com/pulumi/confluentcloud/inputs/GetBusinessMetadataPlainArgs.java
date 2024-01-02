@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.confluentcloud.inputs.GetBusinessMetadataCredentials;
 import com.pulumi.confluentcloud.inputs.GetBusinessMetadataSchemaRegistryCluster;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -126,7 +127,9 @@ public final class GetBusinessMetadataPlainArgs extends com.pulumi.resources.Inv
         }
 
         public GetBusinessMetadataPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetBusinessMetadataPlainArgs", "name");
+            }
             return $;
         }
     }

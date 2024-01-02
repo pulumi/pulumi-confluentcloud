@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.confluentcloud.outputs.GetKafkaTopicCredentials;
 import com.pulumi.confluentcloud.outputs.GetKafkaTopicKafkaCluster;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -100,37 +101,54 @@ public final class GetKafkaTopicResult {
 
         @CustomType.Setter
         public Builder config(Map<String,String> config) {
-            this.config = Objects.requireNonNull(config);
+            if (config == null) {
+              throw new MissingRequiredPropertyException("GetKafkaTopicResult", "config");
+            }
+            this.config = config;
             return this;
         }
         @CustomType.Setter
         public Builder credentials(@Nullable GetKafkaTopicCredentials credentials) {
+
             this.credentials = credentials;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetKafkaTopicResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kafkaCluster(@Nullable GetKafkaTopicKafkaCluster kafkaCluster) {
+
             this.kafkaCluster = kafkaCluster;
             return this;
         }
         @CustomType.Setter
         public Builder partitionsCount(Integer partitionsCount) {
-            this.partitionsCount = Objects.requireNonNull(partitionsCount);
+            if (partitionsCount == null) {
+              throw new MissingRequiredPropertyException("GetKafkaTopicResult", "partitionsCount");
+            }
+            this.partitionsCount = partitionsCount;
             return this;
         }
         @CustomType.Setter
         public Builder restEndpoint(String restEndpoint) {
-            this.restEndpoint = Objects.requireNonNull(restEndpoint);
+            if (restEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetKafkaTopicResult", "restEndpoint");
+            }
+            this.restEndpoint = restEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder topicName(String topicName) {
-            this.topicName = Objects.requireNonNull(topicName);
+            if (topicName == null) {
+              throw new MissingRequiredPropertyException("GetKafkaTopicResult", "topicName");
+            }
+            this.topicName = topicName;
             return this;
         }
         public GetKafkaTopicResult build() {

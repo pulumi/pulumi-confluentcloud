@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -60,22 +61,34 @@ public final class GetSchemaRegistryRegionResult {
 
         @CustomType.Setter
         public Builder cloud(String cloud) {
-            this.cloud = Objects.requireNonNull(cloud);
+            if (cloud == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryRegionResult", "cloud");
+            }
+            this.cloud = cloud;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryRegionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter("package")
         public Builder package_(String package_) {
-            this.package_ = Objects.requireNonNull(package_);
+            if (package_ == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryRegionResult", "package_");
+            }
+            this.package_ = package_;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryRegionResult", "region");
+            }
+            this.region = region;
             return this;
         }
         public GetSchemaRegistryRegionResult build() {

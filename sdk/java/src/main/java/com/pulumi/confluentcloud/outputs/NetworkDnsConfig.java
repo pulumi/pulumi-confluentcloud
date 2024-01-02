@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,7 +47,10 @@ public final class NetworkDnsConfig {
 
         @CustomType.Setter
         public Builder resolution(String resolution) {
-            this.resolution = Objects.requireNonNull(resolution);
+            if (resolution == null) {
+              throw new MissingRequiredPropertyException("NetworkDnsConfig", "resolution");
+            }
+            this.resolution = resolution;
             return this;
         }
         public NetworkDnsConfig build() {

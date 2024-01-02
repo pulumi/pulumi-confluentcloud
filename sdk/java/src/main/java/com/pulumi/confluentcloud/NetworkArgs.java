@@ -11,6 +11,7 @@ import com.pulumi.confluentcloud.inputs.NetworkGcpArgs;
 import com.pulumi.confluentcloud.inputs.NetworkZoneInfoArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -620,10 +621,18 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NetworkArgs build() {
-            $.cloud = Objects.requireNonNull($.cloud, "expected parameter 'cloud' to be non-null");
-            $.connectionTypes = Objects.requireNonNull($.connectionTypes, "expected parameter 'connectionTypes' to be non-null");
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
+            if ($.cloud == null) {
+                throw new MissingRequiredPropertyException("NetworkArgs", "cloud");
+            }
+            if ($.connectionTypes == null) {
+                throw new MissingRequiredPropertyException("NetworkArgs", "connectionTypes");
+            }
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("NetworkArgs", "environment");
+            }
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("NetworkArgs", "region");
+            }
             return $;
         }
     }

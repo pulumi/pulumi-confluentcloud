@@ -10,6 +10,7 @@ import com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentConnectionGcpArgs;
 import com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -206,8 +207,12 @@ public final class PrivateLinkAttachmentConnectionArgs extends com.pulumi.resour
         }
 
         public PrivateLinkAttachmentConnectionArgs build() {
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.privateLinkAttachment = Objects.requireNonNull($.privateLinkAttachment, "expected parameter 'privateLinkAttachment' to be non-null");
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkAttachmentConnectionArgs", "environment");
+            }
+            if ($.privateLinkAttachment == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkAttachmentConnectionArgs", "privateLinkAttachment");
+            }
             return $;
         }
     }

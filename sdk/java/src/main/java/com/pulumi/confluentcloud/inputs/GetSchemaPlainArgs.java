@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.confluentcloud.inputs.GetSchemaCredentials;
 import com.pulumi.confluentcloud.inputs.GetSchemaSchemaRegistryCluster;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -154,8 +155,12 @@ public final class GetSchemaPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetSchemaPlainArgs build() {
-            $.schemaIdentifier = Objects.requireNonNull($.schemaIdentifier, "expected parameter 'schemaIdentifier' to be non-null");
-            $.subjectName = Objects.requireNonNull($.subjectName, "expected parameter 'subjectName' to be non-null");
+            if ($.schemaIdentifier == null) {
+                throw new MissingRequiredPropertyException("GetSchemaPlainArgs", "schemaIdentifier");
+            }
+            if ($.subjectName == null) {
+                throw new MissingRequiredPropertyException("GetSchemaPlainArgs", "subjectName");
+            }
             return $;
         }
     }

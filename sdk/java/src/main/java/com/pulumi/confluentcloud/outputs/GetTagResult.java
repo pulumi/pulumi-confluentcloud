@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.confluentcloud.outputs.GetTagCredentials;
 import com.pulumi.confluentcloud.outputs.GetTagSchemaRegistryCluster;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -114,17 +115,24 @@ public final class GetTagResult {
 
         @CustomType.Setter
         public Builder credentials(@Nullable GetTagCredentials credentials) {
+
             this.credentials = credentials;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetTagResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder entityTypes(List<String> entityTypes) {
-            this.entityTypes = Objects.requireNonNull(entityTypes);
+            if (entityTypes == null) {
+              throw new MissingRequiredPropertyException("GetTagResult", "entityTypes");
+            }
+            this.entityTypes = entityTypes;
             return this;
         }
         public Builder entityTypes(String... entityTypes) {
@@ -132,27 +140,38 @@ public final class GetTagResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTagResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTagResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder restEndpoint(@Nullable String restEndpoint) {
+
             this.restEndpoint = restEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder schemaRegistryCluster(@Nullable GetTagSchemaRegistryCluster schemaRegistryCluster) {
+
             this.schemaRegistryCluster = schemaRegistryCluster;
             return this;
         }
         @CustomType.Setter
         public Builder version(Integer version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetTagResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetTagResult build() {

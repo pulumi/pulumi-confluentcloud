@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class RoleBindingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RoleBindingArgs build() {
-            $.crnPattern = Objects.requireNonNull($.crnPattern, "expected parameter 'crnPattern' to be non-null");
-            $.principal = Objects.requireNonNull($.principal, "expected parameter 'principal' to be non-null");
-            $.roleName = Objects.requireNonNull($.roleName, "expected parameter 'roleName' to be non-null");
+            if ($.crnPattern == null) {
+                throw new MissingRequiredPropertyException("RoleBindingArgs", "crnPattern");
+            }
+            if ($.principal == null) {
+                throw new MissingRequiredPropertyException("RoleBindingArgs", "principal");
+            }
+            if ($.roleName == null) {
+                throw new MissingRequiredPropertyException("RoleBindingArgs", "roleName");
+            }
             return $;
         }
     }

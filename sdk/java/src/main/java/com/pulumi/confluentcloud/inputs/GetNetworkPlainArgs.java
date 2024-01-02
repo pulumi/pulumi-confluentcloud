@@ -9,6 +9,7 @@ import com.pulumi.confluentcloud.inputs.GetNetworkDnsConfig;
 import com.pulumi.confluentcloud.inputs.GetNetworkEnvironment;
 import com.pulumi.confluentcloud.inputs.GetNetworkGcp;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -265,7 +266,9 @@ public final class GetNetworkPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetNetworkPlainArgs build() {
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("GetNetworkPlainArgs", "environment");
+            }
             return $;
         }
     }

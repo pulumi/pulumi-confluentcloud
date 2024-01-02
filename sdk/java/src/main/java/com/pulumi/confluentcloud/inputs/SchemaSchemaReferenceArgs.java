@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class SchemaSchemaReferenceArgs extends com.pulumi.resources.Resour
         }
 
         public SchemaSchemaReferenceArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.subjectName = Objects.requireNonNull($.subjectName, "expected parameter 'subjectName' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SchemaSchemaReferenceArgs", "name");
+            }
+            if ($.subjectName == null) {
+                throw new MissingRequiredPropertyException("SchemaSchemaReferenceArgs", "subjectName");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("SchemaSchemaReferenceArgs", "version");
+            }
             return $;
         }
     }

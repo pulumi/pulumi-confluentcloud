@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -155,9 +156,15 @@ public final class GetKafkaClusterDedicatedArgs extends com.pulumi.resources.Res
         }
 
         public GetKafkaClusterDedicatedArgs build() {
-            $.cku = Objects.requireNonNull($.cku, "expected parameter 'cku' to be non-null");
-            $.encryptionKey = Objects.requireNonNull($.encryptionKey, "expected parameter 'encryptionKey' to be non-null");
-            $.zones = Objects.requireNonNull($.zones, "expected parameter 'zones' to be non-null");
+            if ($.cku == null) {
+                throw new MissingRequiredPropertyException("GetKafkaClusterDedicatedArgs", "cku");
+            }
+            if ($.encryptionKey == null) {
+                throw new MissingRequiredPropertyException("GetKafkaClusterDedicatedArgs", "encryptionKey");
+            }
+            if ($.zones == null) {
+                throw new MissingRequiredPropertyException("GetKafkaClusterDedicatedArgs", "zones");
+            }
             return $;
         }
     }

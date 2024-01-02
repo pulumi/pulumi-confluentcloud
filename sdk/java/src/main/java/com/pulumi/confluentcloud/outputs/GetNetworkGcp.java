@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetNetworkGcp {
 
         @CustomType.Setter
         public Builder privateServiceConnectServiceAttachments(Map<String,String> privateServiceConnectServiceAttachments) {
-            this.privateServiceConnectServiceAttachments = Objects.requireNonNull(privateServiceConnectServiceAttachments);
+            if (privateServiceConnectServiceAttachments == null) {
+              throw new MissingRequiredPropertyException("GetNetworkGcp", "privateServiceConnectServiceAttachments");
+            }
+            this.privateServiceConnectServiceAttachments = privateServiceConnectServiceAttachments;
             return this;
         }
         @CustomType.Setter
         public Builder project(String project) {
-            this.project = Objects.requireNonNull(project);
+            if (project == null) {
+              throw new MissingRequiredPropertyException("GetNetworkGcp", "project");
+            }
+            this.project = project;
             return this;
         }
         @CustomType.Setter
         public Builder vpcNetwork(String vpcNetwork) {
-            this.vpcNetwork = Objects.requireNonNull(vpcNetwork);
+            if (vpcNetwork == null) {
+              throw new MissingRequiredPropertyException("GetNetworkGcp", "vpcNetwork");
+            }
+            this.vpcNetwork = vpcNetwork;
             return this;
         }
         public GetNetworkGcp build() {

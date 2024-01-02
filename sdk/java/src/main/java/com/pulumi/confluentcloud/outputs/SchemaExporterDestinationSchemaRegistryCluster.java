@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.SchemaExporterDestinationSchemaRegistryClusterCredentials;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -49,12 +50,18 @@ public final class SchemaExporterDestinationSchemaRegistryCluster {
 
         @CustomType.Setter
         public Builder credentials(SchemaExporterDestinationSchemaRegistryClusterCredentials credentials) {
-            this.credentials = Objects.requireNonNull(credentials);
+            if (credentials == null) {
+              throw new MissingRequiredPropertyException("SchemaExporterDestinationSchemaRegistryCluster", "credentials");
+            }
+            this.credentials = credentials;
             return this;
         }
         @CustomType.Setter
         public Builder restEndpoint(String restEndpoint) {
-            this.restEndpoint = Objects.requireNonNull(restEndpoint);
+            if (restEndpoint == null) {
+              throw new MissingRequiredPropertyException("SchemaExporterDestinationSchemaRegistryCluster", "restEndpoint");
+            }
+            this.restEndpoint = restEndpoint;
             return this;
         }
         public SchemaExporterDestinationSchemaRegistryCluster build() {

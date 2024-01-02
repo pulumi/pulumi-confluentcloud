@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -309,10 +310,18 @@ public final class CustomConnectorPluginArgs extends com.pulumi.resources.Resour
         }
 
         public CustomConnectorPluginArgs build() {
-            $.connectorClass = Objects.requireNonNull($.connectorClass, "expected parameter 'connectorClass' to be non-null");
-            $.connectorType = Objects.requireNonNull($.connectorType, "expected parameter 'connectorType' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.filename = Objects.requireNonNull($.filename, "expected parameter 'filename' to be non-null");
+            if ($.connectorClass == null) {
+                throw new MissingRequiredPropertyException("CustomConnectorPluginArgs", "connectorClass");
+            }
+            if ($.connectorType == null) {
+                throw new MissingRequiredPropertyException("CustomConnectorPluginArgs", "connectorType");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("CustomConnectorPluginArgs", "displayName");
+            }
+            if ($.filename == null) {
+                throw new MissingRequiredPropertyException("CustomConnectorPluginArgs", "filename");
+            }
             return $;
         }
     }

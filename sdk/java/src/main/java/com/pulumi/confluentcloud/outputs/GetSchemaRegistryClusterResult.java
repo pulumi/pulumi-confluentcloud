@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterEnvironment;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterRegion;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -149,37 +150,58 @@ public final class GetSchemaRegistryClusterResult {
 
         @CustomType.Setter
         public Builder apiVersion(String apiVersion) {
-            this.apiVersion = Objects.requireNonNull(apiVersion);
+            if (apiVersion == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClusterResult", "apiVersion");
+            }
+            this.apiVersion = apiVersion;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClusterResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder environment(GetSchemaRegistryClusterEnvironment environment) {
-            this.environment = Objects.requireNonNull(environment);
+            if (environment == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClusterResult", "environment");
+            }
+            this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClusterResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClusterResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter("package")
         public Builder package_(String package_) {
-            this.package_ = Objects.requireNonNull(package_);
+            if (package_ == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClusterResult", "package_");
+            }
+            this.package_ = package_;
             return this;
         }
         @CustomType.Setter
         public Builder regions(List<GetSchemaRegistryClusterRegion> regions) {
-            this.regions = Objects.requireNonNull(regions);
+            if (regions == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClusterResult", "regions");
+            }
+            this.regions = regions;
             return this;
         }
         public Builder regions(GetSchemaRegistryClusterRegion... regions) {
@@ -187,12 +209,18 @@ public final class GetSchemaRegistryClusterResult {
         }
         @CustomType.Setter
         public Builder resourceName(String resourceName) {
-            this.resourceName = Objects.requireNonNull(resourceName);
+            if (resourceName == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClusterResult", "resourceName");
+            }
+            this.resourceName = resourceName;
             return this;
         }
         @CustomType.Setter
         public Builder restEndpoint(String restEndpoint) {
-            this.restEndpoint = Objects.requireNonNull(restEndpoint);
+            if (restEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClusterResult", "restEndpoint");
+            }
+            this.restEndpoint = restEndpoint;
             return this;
         }
         public GetSchemaRegistryClusterResult build() {

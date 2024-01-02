@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.outputs.GetBusinessMetadataAttributeDefinition;
 import com.pulumi.confluentcloud.outputs.GetBusinessMetadataCredentials;
 import com.pulumi.confluentcloud.outputs.GetBusinessMetadataSchemaRegistryCluster;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -123,7 +124,10 @@ public final class GetBusinessMetadataResult {
 
         @CustomType.Setter
         public Builder attributeDefinitions(List<GetBusinessMetadataAttributeDefinition> attributeDefinitions) {
-            this.attributeDefinitions = Objects.requireNonNull(attributeDefinitions);
+            if (attributeDefinitions == null) {
+              throw new MissingRequiredPropertyException("GetBusinessMetadataResult", "attributeDefinitions");
+            }
+            this.attributeDefinitions = attributeDefinitions;
             return this;
         }
         public Builder attributeDefinitions(GetBusinessMetadataAttributeDefinition... attributeDefinitions) {
@@ -131,37 +135,52 @@ public final class GetBusinessMetadataResult {
         }
         @CustomType.Setter
         public Builder credentials(@Nullable GetBusinessMetadataCredentials credentials) {
+
             this.credentials = credentials;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetBusinessMetadataResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBusinessMetadataResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetBusinessMetadataResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder restEndpoint(@Nullable String restEndpoint) {
+
             this.restEndpoint = restEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder schemaRegistryCluster(@Nullable GetBusinessMetadataSchemaRegistryCluster schemaRegistryCluster) {
+
             this.schemaRegistryCluster = schemaRegistryCluster;
             return this;
         }
         @CustomType.Setter
         public Builder version(Integer version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetBusinessMetadataResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetBusinessMetadataResult build() {

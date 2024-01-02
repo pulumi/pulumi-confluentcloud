@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.outputs.GetKafkaClientQuotaEnvironment;
 import com.pulumi.confluentcloud.outputs.GetKafkaClientQuotaKafkaCluster;
 import com.pulumi.confluentcloud.outputs.GetKafkaClientQuotaThroughput;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -130,17 +131,26 @@ public final class GetKafkaClientQuotaResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClientQuotaResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClientQuotaResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder environments(List<GetKafkaClientQuotaEnvironment> environments) {
-            this.environments = Objects.requireNonNull(environments);
+            if (environments == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClientQuotaResult", "environments");
+            }
+            this.environments = environments;
             return this;
         }
         public Builder environments(GetKafkaClientQuotaEnvironment... environments) {
@@ -148,12 +158,18 @@ public final class GetKafkaClientQuotaResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClientQuotaResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kafkaClusters(List<GetKafkaClientQuotaKafkaCluster> kafkaClusters) {
-            this.kafkaClusters = Objects.requireNonNull(kafkaClusters);
+            if (kafkaClusters == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClientQuotaResult", "kafkaClusters");
+            }
+            this.kafkaClusters = kafkaClusters;
             return this;
         }
         public Builder kafkaClusters(GetKafkaClientQuotaKafkaCluster... kafkaClusters) {
@@ -161,7 +177,10 @@ public final class GetKafkaClientQuotaResult {
         }
         @CustomType.Setter
         public Builder principals(List<String> principals) {
-            this.principals = Objects.requireNonNull(principals);
+            if (principals == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClientQuotaResult", "principals");
+            }
+            this.principals = principals;
             return this;
         }
         public Builder principals(String... principals) {
@@ -169,7 +188,10 @@ public final class GetKafkaClientQuotaResult {
         }
         @CustomType.Setter
         public Builder throughputs(List<GetKafkaClientQuotaThroughput> throughputs) {
-            this.throughputs = Objects.requireNonNull(throughputs);
+            if (throughputs == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClientQuotaResult", "throughputs");
+            }
+            this.throughputs = throughputs;
             return this;
         }
         public Builder throughputs(GetKafkaClientQuotaThroughput... throughputs) {

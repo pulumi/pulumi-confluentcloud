@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.confluentcloud.outputs.GetIpAddressesFilter;
 import com.pulumi.confluentcloud.outputs.GetIpAddressesIpAddress;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -67,17 +68,24 @@ public final class GetIpAddressesResult {
 
         @CustomType.Setter
         public Builder filter(@Nullable GetIpAddressesFilter filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetIpAddressesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddresses(List<GetIpAddressesIpAddress> ipAddresses) {
-            this.ipAddresses = Objects.requireNonNull(ipAddresses);
+            if (ipAddresses == null) {
+              throw new MissingRequiredPropertyException("GetIpAddressesResult", "ipAddresses");
+            }
+            this.ipAddresses = ipAddresses;
             return this;
         }
         public Builder ipAddresses(GetIpAddressesIpAddress... ipAddresses) {

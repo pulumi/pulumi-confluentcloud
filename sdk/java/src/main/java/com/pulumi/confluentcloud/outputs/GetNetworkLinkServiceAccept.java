@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class GetNetworkLinkServiceAccept {
 
         @CustomType.Setter
         public Builder environments(List<String> environments) {
-            this.environments = Objects.requireNonNull(environments);
+            if (environments == null) {
+              throw new MissingRequiredPropertyException("GetNetworkLinkServiceAccept", "environments");
+            }
+            this.environments = environments;
             return this;
         }
         public Builder environments(String... environments) {
@@ -65,7 +69,10 @@ public final class GetNetworkLinkServiceAccept {
         }
         @CustomType.Setter
         public Builder networks(List<String> networks) {
-            this.networks = Objects.requireNonNull(networks);
+            if (networks == null) {
+              throw new MissingRequiredPropertyException("GetNetworkLinkServiceAccept", "networks");
+            }
+            this.networks = networks;
             return this;
         }
         public Builder networks(String... networks) {

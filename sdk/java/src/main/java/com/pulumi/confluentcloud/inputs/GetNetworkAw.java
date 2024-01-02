@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -117,9 +118,15 @@ public final class GetNetworkAw extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetNetworkAw build() {
-            $.account = Objects.requireNonNull($.account, "expected parameter 'account' to be non-null");
-            $.privateLinkEndpointService = Objects.requireNonNull($.privateLinkEndpointService, "expected parameter 'privateLinkEndpointService' to be non-null");
-            $.vpc = Objects.requireNonNull($.vpc, "expected parameter 'vpc' to be non-null");
+            if ($.account == null) {
+                throw new MissingRequiredPropertyException("GetNetworkAw", "account");
+            }
+            if ($.privateLinkEndpointService == null) {
+                throw new MissingRequiredPropertyException("GetNetworkAw", "privateLinkEndpointService");
+            }
+            if ($.vpc == null) {
+                throw new MissingRequiredPropertyException("GetNetworkAw", "vpc");
+            }
             return $;
         }
     }

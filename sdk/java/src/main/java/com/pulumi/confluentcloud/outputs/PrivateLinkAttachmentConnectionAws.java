@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class PrivateLinkAttachmentConnectionAws {
 
         @CustomType.Setter
         public Builder vpcEndpointId(String vpcEndpointId) {
-            this.vpcEndpointId = Objects.requireNonNull(vpcEndpointId);
+            if (vpcEndpointId == null) {
+              throw new MissingRequiredPropertyException("PrivateLinkAttachmentConnectionAws", "vpcEndpointId");
+            }
+            this.vpcEndpointId = vpcEndpointId;
             return this;
         }
         public PrivateLinkAttachmentConnectionAws build() {

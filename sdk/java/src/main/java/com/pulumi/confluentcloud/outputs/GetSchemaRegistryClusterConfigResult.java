@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterConfigCredentials;
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClusterConfigSchemaRegistryCluster;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -78,26 +79,35 @@ public final class GetSchemaRegistryClusterConfigResult {
 
         @CustomType.Setter
         public Builder compatibilityLevel(String compatibilityLevel) {
-            this.compatibilityLevel = Objects.requireNonNull(compatibilityLevel);
+            if (compatibilityLevel == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClusterConfigResult", "compatibilityLevel");
+            }
+            this.compatibilityLevel = compatibilityLevel;
             return this;
         }
         @CustomType.Setter
         public Builder credentials(@Nullable GetSchemaRegistryClusterConfigCredentials credentials) {
+
             this.credentials = credentials;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClusterConfigResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder restEndpoint(@Nullable String restEndpoint) {
+
             this.restEndpoint = restEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder schemaRegistryCluster(@Nullable GetSchemaRegistryClusterConfigSchemaRegistryCluster schemaRegistryCluster) {
+
             this.schemaRegistryCluster = schemaRegistryCluster;
             return this;
         }

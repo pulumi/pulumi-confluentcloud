@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -208,9 +209,15 @@ public final class TransitGatewayAttachmentAwsArgs extends com.pulumi.resources.
         }
 
         public TransitGatewayAttachmentAwsArgs build() {
-            $.ramResourceShareArn = Objects.requireNonNull($.ramResourceShareArn, "expected parameter 'ramResourceShareArn' to be non-null");
-            $.routes = Objects.requireNonNull($.routes, "expected parameter 'routes' to be non-null");
-            $.transitGatewayId = Objects.requireNonNull($.transitGatewayId, "expected parameter 'transitGatewayId' to be non-null");
+            if ($.ramResourceShareArn == null) {
+                throw new MissingRequiredPropertyException("TransitGatewayAttachmentAwsArgs", "ramResourceShareArn");
+            }
+            if ($.routes == null) {
+                throw new MissingRequiredPropertyException("TransitGatewayAttachmentAwsArgs", "routes");
+            }
+            if ($.transitGatewayId == null) {
+                throw new MissingRequiredPropertyException("TransitGatewayAttachmentAwsArgs", "transitGatewayId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,27 +99,42 @@ public final class GetUserResult {
 
         @CustomType.Setter
         public Builder apiVersion(String apiVersion) {
-            this.apiVersion = Objects.requireNonNull(apiVersion);
+            if (apiVersion == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "apiVersion");
+            }
+            this.apiVersion = apiVersion;
             return this;
         }
         @CustomType.Setter
         public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+            if (email == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "email");
+            }
+            this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder fullName(String fullName) {
-            this.fullName = Objects.requireNonNull(fullName);
+            if (fullName == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "fullName");
+            }
+            this.fullName = fullName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         public GetUserResult build() {

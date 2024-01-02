@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.KafkaAclCredentialsArgs;
 import com.pulumi.confluentcloud.inputs.KafkaAclKafkaClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -391,13 +392,27 @@ public final class KafkaAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KafkaAclArgs build() {
-            $.host = Objects.requireNonNull($.host, "expected parameter 'host' to be non-null");
-            $.operation = Objects.requireNonNull($.operation, "expected parameter 'operation' to be non-null");
-            $.patternType = Objects.requireNonNull($.patternType, "expected parameter 'patternType' to be non-null");
-            $.permission = Objects.requireNonNull($.permission, "expected parameter 'permission' to be non-null");
-            $.principal = Objects.requireNonNull($.principal, "expected parameter 'principal' to be non-null");
-            $.resourceName = Objects.requireNonNull($.resourceName, "expected parameter 'resourceName' to be non-null");
-            $.resourceType = Objects.requireNonNull($.resourceType, "expected parameter 'resourceType' to be non-null");
+            if ($.host == null) {
+                throw new MissingRequiredPropertyException("KafkaAclArgs", "host");
+            }
+            if ($.operation == null) {
+                throw new MissingRequiredPropertyException("KafkaAclArgs", "operation");
+            }
+            if ($.patternType == null) {
+                throw new MissingRequiredPropertyException("KafkaAclArgs", "patternType");
+            }
+            if ($.permission == null) {
+                throw new MissingRequiredPropertyException("KafkaAclArgs", "permission");
+            }
+            if ($.principal == null) {
+                throw new MissingRequiredPropertyException("KafkaAclArgs", "principal");
+            }
+            if ($.resourceName == null) {
+                throw new MissingRequiredPropertyException("KafkaAclArgs", "resourceName");
+            }
+            if ($.resourceType == null) {
+                throw new MissingRequiredPropertyException("KafkaAclArgs", "resourceType");
+            }
             return $;
         }
     }

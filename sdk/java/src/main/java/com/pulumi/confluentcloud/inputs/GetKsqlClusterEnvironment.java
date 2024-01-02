@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -69,7 +70,9 @@ public final class GetKsqlClusterEnvironment extends com.pulumi.resources.Invoke
         }
 
         public GetKsqlClusterEnvironment build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("GetKsqlClusterEnvironment", "id");
+            }
             return $;
         }
     }

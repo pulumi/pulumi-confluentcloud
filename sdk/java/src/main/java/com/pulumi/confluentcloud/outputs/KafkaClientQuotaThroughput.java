@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class KafkaClientQuotaThroughput {
 
         @CustomType.Setter
         public Builder egressByteRate(String egressByteRate) {
-            this.egressByteRate = Objects.requireNonNull(egressByteRate);
+            if (egressByteRate == null) {
+              throw new MissingRequiredPropertyException("KafkaClientQuotaThroughput", "egressByteRate");
+            }
+            this.egressByteRate = egressByteRate;
             return this;
         }
         @CustomType.Setter
         public Builder ingressByteRate(String ingressByteRate) {
-            this.ingressByteRate = Objects.requireNonNull(ingressByteRate);
+            if (ingressByteRate == null) {
+              throw new MissingRequiredPropertyException("KafkaClientQuotaThroughput", "ingressByteRate");
+            }
+            this.ingressByteRate = ingressByteRate;
             return this;
         }
         public KafkaClientQuotaThroughput build() {

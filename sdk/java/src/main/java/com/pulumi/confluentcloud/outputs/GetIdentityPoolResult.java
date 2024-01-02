@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetIdentityPoolIdentityProvider;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -113,32 +114,50 @@ public final class GetIdentityPoolResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder filter(String filter) {
-            this.filter = Objects.requireNonNull(filter);
+            if (filter == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "filter");
+            }
+            this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identityClaim(String identityClaim) {
-            this.identityClaim = Objects.requireNonNull(identityClaim);
+            if (identityClaim == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "identityClaim");
+            }
+            this.identityClaim = identityClaim;
             return this;
         }
         @CustomType.Setter
         public Builder identityProvider(GetIdentityPoolIdentityProvider identityProvider) {
-            this.identityProvider = Objects.requireNonNull(identityProvider);
+            if (identityProvider == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "identityProvider");
+            }
+            this.identityProvider = identityProvider;
             return this;
         }
         public GetIdentityPoolResult build() {

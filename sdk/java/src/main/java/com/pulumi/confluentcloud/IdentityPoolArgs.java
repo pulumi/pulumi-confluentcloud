@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud;
 import com.pulumi.confluentcloud.inputs.IdentityPoolIdentityProviderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -223,11 +224,21 @@ public final class IdentityPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IdentityPoolArgs build() {
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.filter = Objects.requireNonNull($.filter, "expected parameter 'filter' to be non-null");
-            $.identityClaim = Objects.requireNonNull($.identityClaim, "expected parameter 'identityClaim' to be non-null");
-            $.identityProvider = Objects.requireNonNull($.identityProvider, "expected parameter 'identityProvider' to be non-null");
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("IdentityPoolArgs", "description");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("IdentityPoolArgs", "displayName");
+            }
+            if ($.filter == null) {
+                throw new MissingRequiredPropertyException("IdentityPoolArgs", "filter");
+            }
+            if ($.identityClaim == null) {
+                throw new MissingRequiredPropertyException("IdentityPoolArgs", "identityClaim");
+            }
+            if ($.identityProvider == null) {
+                throw new MissingRequiredPropertyException("IdentityPoolArgs", "identityProvider");
+            }
             return $;
         }
     }

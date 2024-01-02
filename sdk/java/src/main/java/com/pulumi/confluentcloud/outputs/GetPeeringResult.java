@@ -9,6 +9,7 @@ import com.pulumi.confluentcloud.outputs.GetPeeringEnvironment;
 import com.pulumi.confluentcloud.outputs.GetPeeringGcp;
 import com.pulumi.confluentcloud.outputs.GetPeeringNetwork;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,7 +133,10 @@ public final class GetPeeringResult {
 
         @CustomType.Setter
         public Builder aws(List<GetPeeringAw> aws) {
-            this.aws = Objects.requireNonNull(aws);
+            if (aws == null) {
+              throw new MissingRequiredPropertyException("GetPeeringResult", "aws");
+            }
+            this.aws = aws;
             return this;
         }
         public Builder aws(GetPeeringAw... aws) {
@@ -140,7 +144,10 @@ public final class GetPeeringResult {
         }
         @CustomType.Setter
         public Builder azures(List<GetPeeringAzure> azures) {
-            this.azures = Objects.requireNonNull(azures);
+            if (azures == null) {
+              throw new MissingRequiredPropertyException("GetPeeringResult", "azures");
+            }
+            this.azures = azures;
             return this;
         }
         public Builder azures(GetPeeringAzure... azures) {
@@ -148,17 +155,26 @@ public final class GetPeeringResult {
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetPeeringResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder environment(GetPeeringEnvironment environment) {
-            this.environment = Objects.requireNonNull(environment);
+            if (environment == null) {
+              throw new MissingRequiredPropertyException("GetPeeringResult", "environment");
+            }
+            this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder gcps(List<GetPeeringGcp> gcps) {
-            this.gcps = Objects.requireNonNull(gcps);
+            if (gcps == null) {
+              throw new MissingRequiredPropertyException("GetPeeringResult", "gcps");
+            }
+            this.gcps = gcps;
             return this;
         }
         public Builder gcps(GetPeeringGcp... gcps) {
@@ -166,12 +182,18 @@ public final class GetPeeringResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPeeringResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder networks(List<GetPeeringNetwork> networks) {
-            this.networks = Objects.requireNonNull(networks);
+            if (networks == null) {
+              throw new MissingRequiredPropertyException("GetPeeringResult", "networks");
+            }
+            this.networks = networks;
             return this;
         }
         public Builder networks(GetPeeringNetwork... networks) {

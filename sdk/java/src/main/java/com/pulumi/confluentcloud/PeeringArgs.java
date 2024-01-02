@@ -10,6 +10,7 @@ import com.pulumi.confluentcloud.inputs.PeeringGcpArgs;
 import com.pulumi.confluentcloud.inputs.PeeringNetworkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -210,8 +211,12 @@ public final class PeeringArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PeeringArgs build() {
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.network = Objects.requireNonNull($.network, "expected parameter 'network' to be non-null");
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("PeeringArgs", "environment");
+            }
+            if ($.network == null) {
+                throw new MissingRequiredPropertyException("PeeringArgs", "network");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -76,22 +77,34 @@ public final class GetRoleBindingResult {
 
         @CustomType.Setter
         public Builder crnPattern(String crnPattern) {
-            this.crnPattern = Objects.requireNonNull(crnPattern);
+            if (crnPattern == null) {
+              throw new MissingRequiredPropertyException("GetRoleBindingResult", "crnPattern");
+            }
+            this.crnPattern = crnPattern;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRoleBindingResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder principal(String principal) {
-            this.principal = Objects.requireNonNull(principal);
+            if (principal == null) {
+              throw new MissingRequiredPropertyException("GetRoleBindingResult", "principal");
+            }
+            this.principal = principal;
             return this;
         }
         @CustomType.Setter
         public Builder roleName(String roleName) {
-            this.roleName = Objects.requireNonNull(roleName);
+            if (roleName == null) {
+              throw new MissingRequiredPropertyException("GetRoleBindingResult", "roleName");
+            }
+            this.roleName = roleName;
             return this;
         }
         public GetRoleBindingResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class PrivateLinkAccessAzureArgs extends com.pulumi.resources.Resou
         }
 
         public PrivateLinkAccessAzureArgs build() {
-            $.subscription = Objects.requireNonNull($.subscription, "expected parameter 'subscription' to be non-null");
+            if ($.subscription == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkAccessAzureArgs", "subscription");
+            }
             return $;
         }
     }

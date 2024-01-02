@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -64,16 +65,21 @@ public final class KafkaClusterDedicated {
 
         @CustomType.Setter
         public Builder cku(Integer cku) {
-            this.cku = Objects.requireNonNull(cku);
+            if (cku == null) {
+              throw new MissingRequiredPropertyException("KafkaClusterDedicated", "cku");
+            }
+            this.cku = cku;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionKey(@Nullable String encryptionKey) {
+
             this.encryptionKey = encryptionKey;
             return this;
         }
         @CustomType.Setter
         public Builder zones(@Nullable List<String> zones) {
+
             this.zones = zones;
             return this;
         }

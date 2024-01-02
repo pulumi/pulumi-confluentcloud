@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetPeeringGcp {
 
         @CustomType.Setter
         public Builder importCustomRoutes(Boolean importCustomRoutes) {
-            this.importCustomRoutes = Objects.requireNonNull(importCustomRoutes);
+            if (importCustomRoutes == null) {
+              throw new MissingRequiredPropertyException("GetPeeringGcp", "importCustomRoutes");
+            }
+            this.importCustomRoutes = importCustomRoutes;
             return this;
         }
         @CustomType.Setter
         public Builder project(String project) {
-            this.project = Objects.requireNonNull(project);
+            if (project == null) {
+              throw new MissingRequiredPropertyException("GetPeeringGcp", "project");
+            }
+            this.project = project;
             return this;
         }
         @CustomType.Setter
         public Builder vpcNetwork(String vpcNetwork) {
-            this.vpcNetwork = Objects.requireNonNull(vpcNetwork);
+            if (vpcNetwork == null) {
+              throw new MissingRequiredPropertyException("GetPeeringGcp", "vpcNetwork");
+            }
+            this.vpcNetwork = vpcNetwork;
             return this;
         }
         public GetPeeringGcp build() {

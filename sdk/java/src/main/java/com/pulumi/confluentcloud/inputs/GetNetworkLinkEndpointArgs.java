@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.confluentcloud.inputs.GetNetworkLinkEndpointEnvironmentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -92,8 +93,12 @@ public final class GetNetworkLinkEndpointArgs extends com.pulumi.resources.Invok
         }
 
         public GetNetworkLinkEndpointArgs build() {
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("GetNetworkLinkEndpointArgs", "environment");
+            }
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("GetNetworkLinkEndpointArgs", "id");
+            }
             return $;
         }
     }

@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.inputs.KafkaClientQuotaKafkaClusterArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClientQuotaThroughputArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -255,11 +256,21 @@ public final class KafkaClientQuotaArgs extends com.pulumi.resources.ResourceArg
         }
 
         public KafkaClientQuotaArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.kafkaCluster = Objects.requireNonNull($.kafkaCluster, "expected parameter 'kafkaCluster' to be non-null");
-            $.principals = Objects.requireNonNull($.principals, "expected parameter 'principals' to be non-null");
-            $.throughput = Objects.requireNonNull($.throughput, "expected parameter 'throughput' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("KafkaClientQuotaArgs", "displayName");
+            }
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("KafkaClientQuotaArgs", "environment");
+            }
+            if ($.kafkaCluster == null) {
+                throw new MissingRequiredPropertyException("KafkaClientQuotaArgs", "kafkaCluster");
+            }
+            if ($.principals == null) {
+                throw new MissingRequiredPropertyException("KafkaClientQuotaArgs", "principals");
+            }
+            if ($.throughput == null) {
+                throw new MissingRequiredPropertyException("KafkaClientQuotaArgs", "throughput");
+            }
             return $;
         }
     }
