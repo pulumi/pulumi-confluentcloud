@@ -73,16 +73,19 @@ public final class GetSchemasFilter {
 
         @CustomType.Setter
         public Builder deleted(@Nullable Boolean deleted) {
+
             this.deleted = deleted;
             return this;
         }
         @CustomType.Setter
         public Builder latestOnly(@Nullable Boolean latestOnly) {
+
             this.latestOnly = latestOnly;
             return this;
         }
         @CustomType.Setter
         public Builder subjectPrefix(@Nullable String subjectPrefix) {
+
             this.subjectPrefix = subjectPrefix;
             return this;
         }

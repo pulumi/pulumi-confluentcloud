@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.confluentcloud.outputs.GetSubjectModeCredentials;
 import com.pulumi.confluentcloud.outputs.GetSubjectModeSchemaRegistryCluster;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -84,32 +85,44 @@ public final class GetSubjectModeResult {
 
         @CustomType.Setter
         public Builder credentials(@Nullable GetSubjectModeCredentials credentials) {
+
             this.credentials = credentials;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSubjectModeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("GetSubjectModeResult", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder restEndpoint(@Nullable String restEndpoint) {
+
             this.restEndpoint = restEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder schemaRegistryCluster(@Nullable GetSubjectModeSchemaRegistryCluster schemaRegistryCluster) {
+
             this.schemaRegistryCluster = schemaRegistryCluster;
             return this;
         }
         @CustomType.Setter
         public Builder subjectName(String subjectName) {
-            this.subjectName = Objects.requireNonNull(subjectName);
+            if (subjectName == null) {
+              throw new MissingRequiredPropertyException("GetSubjectModeResult", "subjectName");
+            }
+            this.subjectName = subjectName;
             return this;
         }
         public GetSubjectModeResult build() {

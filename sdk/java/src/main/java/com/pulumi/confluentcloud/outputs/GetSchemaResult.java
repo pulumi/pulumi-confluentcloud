@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.outputs.GetSchemaCredentials;
 import com.pulumi.confluentcloud.outputs.GetSchemaSchemaReference;
 import com.pulumi.confluentcloud.outputs.GetSchemaSchemaRegistryCluster;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -156,47 +157,70 @@ public final class GetSchemaResult {
 
         @CustomType.Setter
         public Builder credentials(@Nullable GetSchemaCredentials credentials) {
+
             this.credentials = credentials;
             return this;
         }
         @CustomType.Setter
         public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+            if (format == null) {
+              throw new MissingRequiredPropertyException("GetSchemaResult", "format");
+            }
+            this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder hardDelete(Boolean hardDelete) {
-            this.hardDelete = Objects.requireNonNull(hardDelete);
+            if (hardDelete == null) {
+              throw new MissingRequiredPropertyException("GetSchemaResult", "hardDelete");
+            }
+            this.hardDelete = hardDelete;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSchemaResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder recreateOnUpdate(Boolean recreateOnUpdate) {
-            this.recreateOnUpdate = Objects.requireNonNull(recreateOnUpdate);
+            if (recreateOnUpdate == null) {
+              throw new MissingRequiredPropertyException("GetSchemaResult", "recreateOnUpdate");
+            }
+            this.recreateOnUpdate = recreateOnUpdate;
             return this;
         }
         @CustomType.Setter
         public Builder restEndpoint(@Nullable String restEndpoint) {
+
             this.restEndpoint = restEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder schema(String schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("GetSchemaResult", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         @CustomType.Setter
         public Builder schemaIdentifier(Integer schemaIdentifier) {
-            this.schemaIdentifier = Objects.requireNonNull(schemaIdentifier);
+            if (schemaIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetSchemaResult", "schemaIdentifier");
+            }
+            this.schemaIdentifier = schemaIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder schemaReferences(List<GetSchemaSchemaReference> schemaReferences) {
-            this.schemaReferences = Objects.requireNonNull(schemaReferences);
+            if (schemaReferences == null) {
+              throw new MissingRequiredPropertyException("GetSchemaResult", "schemaReferences");
+            }
+            this.schemaReferences = schemaReferences;
             return this;
         }
         public Builder schemaReferences(GetSchemaSchemaReference... schemaReferences) {
@@ -204,17 +228,24 @@ public final class GetSchemaResult {
         }
         @CustomType.Setter
         public Builder schemaRegistryCluster(@Nullable GetSchemaSchemaRegistryCluster schemaRegistryCluster) {
+
             this.schemaRegistryCluster = schemaRegistryCluster;
             return this;
         }
         @CustomType.Setter
         public Builder subjectName(String subjectName) {
-            this.subjectName = Objects.requireNonNull(subjectName);
+            if (subjectName == null) {
+              throw new MissingRequiredPropertyException("GetSchemaResult", "subjectName");
+            }
+            this.subjectName = subjectName;
             return this;
         }
         @CustomType.Setter
         public Builder version(Integer version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetSchemaResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetSchemaResult build() {

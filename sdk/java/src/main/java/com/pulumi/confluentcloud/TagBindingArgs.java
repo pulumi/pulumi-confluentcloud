@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.TagBindingCredentialsArgs;
 import com.pulumi.confluentcloud.inputs.TagBindingSchemaRegistryClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -243,9 +244,15 @@ public final class TagBindingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TagBindingArgs build() {
-            $.entityName = Objects.requireNonNull($.entityName, "expected parameter 'entityName' to be non-null");
-            $.entityType = Objects.requireNonNull($.entityType, "expected parameter 'entityType' to be non-null");
-            $.tagName = Objects.requireNonNull($.tagName, "expected parameter 'tagName' to be non-null");
+            if ($.entityName == null) {
+                throw new MissingRequiredPropertyException("TagBindingArgs", "entityName");
+            }
+            if ($.entityType == null) {
+                throw new MissingRequiredPropertyException("TagBindingArgs", "entityType");
+            }
+            if ($.tagName == null) {
+                throw new MissingRequiredPropertyException("TagBindingArgs", "tagName");
+            }
             return $;
         }
     }

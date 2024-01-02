@@ -44,6 +44,7 @@ public final class NetworkAzure {
 
         @CustomType.Setter
         public Builder privateLinkServiceAliases(@Nullable Map<String,String> privateLinkServiceAliases) {
+
             this.privateLinkServiceAliases = privateLinkServiceAliases;
             return this;
         }

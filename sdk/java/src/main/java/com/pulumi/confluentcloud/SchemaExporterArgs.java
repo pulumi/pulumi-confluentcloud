@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.inputs.SchemaExporterDestinationSchemaRegistryC
 import com.pulumi.confluentcloud.inputs.SchemaExporterSchemaRegistryClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -459,7 +460,9 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public SchemaExporterArgs build() {
-            $.destinationSchemaRegistryCluster = Objects.requireNonNull($.destinationSchemaRegistryCluster, "expected parameter 'destinationSchemaRegistryCluster' to be non-null");
+            if ($.destinationSchemaRegistryCluster == null) {
+                throw new MissingRequiredPropertyException("SchemaExporterArgs", "destinationSchemaRegistryCluster");
+            }
             return $;
         }
     }

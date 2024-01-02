@@ -10,6 +10,7 @@ import com.pulumi.confluentcloud.inputs.PrivateLinkAccessGcpArgs;
 import com.pulumi.confluentcloud.inputs.PrivateLinkAccessNetworkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -210,8 +211,12 @@ public final class PrivateLinkAccessArgs extends com.pulumi.resources.ResourceAr
         }
 
         public PrivateLinkAccessArgs build() {
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.network = Objects.requireNonNull($.network, "expected parameter 'network' to be non-null");
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkAccessArgs", "environment");
+            }
+            if ($.network == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkAccessArgs", "network");
+            }
             return $;
         }
     }

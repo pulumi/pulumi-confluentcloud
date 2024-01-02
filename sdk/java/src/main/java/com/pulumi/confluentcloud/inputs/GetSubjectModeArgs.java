@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.GetSubjectModeCredentialsArgs;
 import com.pulumi.confluentcloud.inputs.GetSubjectModeSchemaRegistryClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -157,7 +158,9 @@ public final class GetSubjectModeArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetSubjectModeArgs build() {
-            $.subjectName = Objects.requireNonNull($.subjectName, "expected parameter 'subjectName' to be non-null");
+            if ($.subjectName == null) {
+                throw new MissingRequiredPropertyException("GetSubjectModeArgs", "subjectName");
+            }
             return $;
         }
     }

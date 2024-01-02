@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.KafkaTopicCredentialsArgs;
 import com.pulumi.confluentcloud.inputs.KafkaTopicKafkaClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -290,7 +291,9 @@ public final class KafkaTopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KafkaTopicArgs build() {
-            $.topicName = Objects.requireNonNull($.topicName, "expected parameter 'topicName' to be non-null");
+            if ($.topicName == null) {
+                throw new MissingRequiredPropertyException("KafkaTopicArgs", "topicName");
+            }
             return $;
         }
     }

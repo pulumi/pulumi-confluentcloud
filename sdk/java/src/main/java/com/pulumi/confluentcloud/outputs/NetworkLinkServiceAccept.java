@@ -58,6 +58,7 @@ public final class NetworkLinkServiceAccept {
 
         @CustomType.Setter
         public Builder environments(@Nullable List<String> environments) {
+
             this.environments = environments;
             return this;
         }
@@ -66,6 +67,7 @@ public final class NetworkLinkServiceAccept {
         }
         @CustomType.Setter
         public Builder networks(@Nullable List<String> networks) {
+
             this.networks = networks;
             return this;
         }

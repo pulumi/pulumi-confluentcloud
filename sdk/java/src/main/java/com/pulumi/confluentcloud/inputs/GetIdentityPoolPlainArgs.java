@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.confluentcloud.inputs.GetIdentityPoolIdentityProvider;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -126,7 +127,9 @@ public final class GetIdentityPoolPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         public GetIdentityPoolPlainArgs build() {
-            $.identityProvider = Objects.requireNonNull($.identityProvider, "expected parameter 'identityProvider' to be non-null");
+            if ($.identityProvider == null) {
+                throw new MissingRequiredPropertyException("GetIdentityPoolPlainArgs", "identityProvider");
+            }
             return $;
         }
     }

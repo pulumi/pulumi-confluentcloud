@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class PeeringAzureArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PeeringAzureArgs build() {
-            $.customerRegion = Objects.requireNonNull($.customerRegion, "expected parameter 'customerRegion' to be non-null");
-            $.tenant = Objects.requireNonNull($.tenant, "expected parameter 'tenant' to be non-null");
-            $.vnet = Objects.requireNonNull($.vnet, "expected parameter 'vnet' to be non-null");
+            if ($.customerRegion == null) {
+                throw new MissingRequiredPropertyException("PeeringAzureArgs", "customerRegion");
+            }
+            if ($.tenant == null) {
+                throw new MissingRequiredPropertyException("PeeringAzureArgs", "tenant");
+            }
+            if ($.vnet == null) {
+                throw new MissingRequiredPropertyException("PeeringAzureArgs", "vnet");
+            }
             return $;
         }
     }

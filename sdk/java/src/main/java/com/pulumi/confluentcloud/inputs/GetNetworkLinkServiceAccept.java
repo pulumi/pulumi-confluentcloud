@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -111,8 +112,12 @@ public final class GetNetworkLinkServiceAccept extends com.pulumi.resources.Invo
         }
 
         public GetNetworkLinkServiceAccept build() {
-            $.environments = Objects.requireNonNull($.environments, "expected parameter 'environments' to be non-null");
-            $.networks = Objects.requireNonNull($.networks, "expected parameter 'networks' to be non-null");
+            if ($.environments == null) {
+                throw new MissingRequiredPropertyException("GetNetworkLinkServiceAccept", "environments");
+            }
+            if ($.networks == null) {
+                throw new MissingRequiredPropertyException("GetNetworkLinkServiceAccept", "networks");
+            }
             return $;
         }
     }

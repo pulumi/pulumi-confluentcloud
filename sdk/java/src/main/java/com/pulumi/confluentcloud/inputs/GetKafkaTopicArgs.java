@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.GetKafkaTopicCredentialsArgs;
 import com.pulumi.confluentcloud.inputs.GetKafkaTopicKafkaClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -149,8 +150,12 @@ public final class GetKafkaTopicArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetKafkaTopicArgs build() {
-            $.restEndpoint = Objects.requireNonNull($.restEndpoint, "expected parameter 'restEndpoint' to be non-null");
-            $.topicName = Objects.requireNonNull($.topicName, "expected parameter 'topicName' to be non-null");
+            if ($.restEndpoint == null) {
+                throw new MissingRequiredPropertyException("GetKafkaTopicArgs", "restEndpoint");
+            }
+            if ($.topicName == null) {
+                throw new MissingRequiredPropertyException("GetKafkaTopicArgs", "topicName");
+            }
             return $;
         }
     }

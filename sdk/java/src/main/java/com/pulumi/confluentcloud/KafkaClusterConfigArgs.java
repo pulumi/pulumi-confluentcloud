@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.KafkaClusterConfigCredentialsArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterConfigKafkaClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -170,7 +171,9 @@ public final class KafkaClusterConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         public KafkaClusterConfigArgs build() {
-            $.config = Objects.requireNonNull($.config, "expected parameter 'config' to be non-null");
+            if ($.config == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterConfigArgs", "config");
+            }
             return $;
         }
     }

@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.inputs.FlinkStatementCredentialsArgs;
 import com.pulumi.confluentcloud.inputs.FlinkStatementPrincipalArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -300,7 +301,9 @@ public final class FlinkStatementArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public FlinkStatementArgs build() {
-            $.statement = Objects.requireNonNull($.statement, "expected parameter 'statement' to be non-null");
+            if ($.statement == null) {
+                throw new MissingRequiredPropertyException("FlinkStatementArgs", "statement");
+            }
             return $;
         }
     }

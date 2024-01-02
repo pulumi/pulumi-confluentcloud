@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.outputs.GetByokKeyAw;
 import com.pulumi.confluentcloud.outputs.GetByokKeyAzure;
 import com.pulumi.confluentcloud.outputs.GetByokKeyGcp;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -88,7 +89,10 @@ public final class GetByokKeyResult {
 
         @CustomType.Setter
         public Builder aws(List<GetByokKeyAw> aws) {
-            this.aws = Objects.requireNonNull(aws);
+            if (aws == null) {
+              throw new MissingRequiredPropertyException("GetByokKeyResult", "aws");
+            }
+            this.aws = aws;
             return this;
         }
         public Builder aws(GetByokKeyAw... aws) {
@@ -96,7 +100,10 @@ public final class GetByokKeyResult {
         }
         @CustomType.Setter
         public Builder azures(List<GetByokKeyAzure> azures) {
-            this.azures = Objects.requireNonNull(azures);
+            if (azures == null) {
+              throw new MissingRequiredPropertyException("GetByokKeyResult", "azures");
+            }
+            this.azures = azures;
             return this;
         }
         public Builder azures(GetByokKeyAzure... azures) {
@@ -104,7 +111,10 @@ public final class GetByokKeyResult {
         }
         @CustomType.Setter
         public Builder gcps(List<GetByokKeyGcp> gcps) {
-            this.gcps = Objects.requireNonNull(gcps);
+            if (gcps == null) {
+              throw new MissingRequiredPropertyException("GetByokKeyResult", "gcps");
+            }
+            this.gcps = gcps;
             return this;
         }
         public Builder gcps(GetByokKeyGcp... gcps) {
@@ -112,7 +122,10 @@ public final class GetByokKeyResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetByokKeyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetByokKeyResult build() {

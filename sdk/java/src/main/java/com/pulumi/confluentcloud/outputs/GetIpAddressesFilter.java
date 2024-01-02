@@ -86,6 +86,7 @@ public final class GetIpAddressesFilter {
 
         @CustomType.Setter
         public Builder addressTypes(@Nullable List<String> addressTypes) {
+
             this.addressTypes = addressTypes;
             return this;
         }
@@ -94,6 +95,7 @@ public final class GetIpAddressesFilter {
         }
         @CustomType.Setter
         public Builder clouds(@Nullable List<String> clouds) {
+
             this.clouds = clouds;
             return this;
         }
@@ -102,6 +104,7 @@ public final class GetIpAddressesFilter {
         }
         @CustomType.Setter
         public Builder regions(@Nullable List<String> regions) {
+
             this.regions = regions;
             return this;
         }
@@ -110,6 +113,7 @@ public final class GetIpAddressesFilter {
         }
         @CustomType.Setter
         public Builder services(@Nullable List<String> services) {
+
             this.services = services;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.confluentcloud.inputs.SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -92,8 +93,12 @@ public final class SchemaExporterDestinationSchemaRegistryClusterArgs extends co
         }
 
         public SchemaExporterDestinationSchemaRegistryClusterArgs build() {
-            $.credentials = Objects.requireNonNull($.credentials, "expected parameter 'credentials' to be non-null");
-            $.restEndpoint = Objects.requireNonNull($.restEndpoint, "expected parameter 'restEndpoint' to be non-null");
+            if ($.credentials == null) {
+                throw new MissingRequiredPropertyException("SchemaExporterDestinationSchemaRegistryClusterArgs", "credentials");
+            }
+            if ($.restEndpoint == null) {
+                throw new MissingRequiredPropertyException("SchemaExporterDestinationSchemaRegistryClusterArgs", "restEndpoint");
+            }
             return $;
         }
     }

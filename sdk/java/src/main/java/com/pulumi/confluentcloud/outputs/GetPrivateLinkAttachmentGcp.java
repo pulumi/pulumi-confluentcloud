@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetPrivateLinkAttachmentGcp {
 
         @CustomType.Setter
         public Builder privateServiceConnectServiceAttachment(String privateServiceConnectServiceAttachment) {
-            this.privateServiceConnectServiceAttachment = Objects.requireNonNull(privateServiceConnectServiceAttachment);
+            if (privateServiceConnectServiceAttachment == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentGcp", "privateServiceConnectServiceAttachment");
+            }
+            this.privateServiceConnectServiceAttachment = privateServiceConnectServiceAttachment;
             return this;
         }
         @CustomType.Setter
         public Builder zone(String zone) {
-            this.zone = Objects.requireNonNull(zone);
+            if (zone == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentGcp", "zone");
+            }
+            this.zone = zone;
             return this;
         }
         public GetPrivateLinkAttachmentGcp build() {

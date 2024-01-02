@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.confluentcloud.inputs.GetPeeringEnvironmentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -159,7 +160,9 @@ public final class GetPeeringArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetPeeringArgs build() {
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("GetPeeringArgs", "environment");
+            }
             return $;
         }
     }

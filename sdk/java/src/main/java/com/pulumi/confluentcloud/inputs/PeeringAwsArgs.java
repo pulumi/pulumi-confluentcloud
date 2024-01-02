@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -196,10 +197,18 @@ public final class PeeringAwsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PeeringAwsArgs build() {
-            $.account = Objects.requireNonNull($.account, "expected parameter 'account' to be non-null");
-            $.customerRegion = Objects.requireNonNull($.customerRegion, "expected parameter 'customerRegion' to be non-null");
-            $.routes = Objects.requireNonNull($.routes, "expected parameter 'routes' to be non-null");
-            $.vpc = Objects.requireNonNull($.vpc, "expected parameter 'vpc' to be non-null");
+            if ($.account == null) {
+                throw new MissingRequiredPropertyException("PeeringAwsArgs", "account");
+            }
+            if ($.customerRegion == null) {
+                throw new MissingRequiredPropertyException("PeeringAwsArgs", "customerRegion");
+            }
+            if ($.routes == null) {
+                throw new MissingRequiredPropertyException("PeeringAwsArgs", "routes");
+            }
+            if ($.vpc == null) {
+                throw new MissingRequiredPropertyException("PeeringAwsArgs", "vpc");
+            }
             return $;
         }
     }

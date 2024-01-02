@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class GetNetworkAzure {
 
         @CustomType.Setter
         public Builder privateLinkServiceAliases(Map<String,String> privateLinkServiceAliases) {
-            this.privateLinkServiceAliases = Objects.requireNonNull(privateLinkServiceAliases);
+            if (privateLinkServiceAliases == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAzure", "privateLinkServiceAliases");
+            }
+            this.privateLinkServiceAliases = privateLinkServiceAliases;
             return this;
         }
         public GetNetworkAzure build() {

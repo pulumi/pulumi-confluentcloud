@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -193,10 +194,18 @@ public final class IdentityProviderArgs extends com.pulumi.resources.ResourceArg
         }
 
         public IdentityProviderArgs build() {
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.issuer = Objects.requireNonNull($.issuer, "expected parameter 'issuer' to be non-null");
-            $.jwksUri = Objects.requireNonNull($.jwksUri, "expected parameter 'jwksUri' to be non-null");
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderArgs", "description");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderArgs", "displayName");
+            }
+            if ($.issuer == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderArgs", "issuer");
+            }
+            if ($.jwksUri == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderArgs", "jwksUri");
+            }
             return $;
         }
     }

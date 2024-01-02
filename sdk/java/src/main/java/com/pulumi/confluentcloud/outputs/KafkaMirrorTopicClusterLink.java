@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class KafkaMirrorTopicClusterLink {
 
         @CustomType.Setter
         public Builder linkName(String linkName) {
-            this.linkName = Objects.requireNonNull(linkName);
+            if (linkName == null) {
+              throw new MissingRequiredPropertyException("KafkaMirrorTopicClusterLink", "linkName");
+            }
+            this.linkName = linkName;
             return this;
         }
         public KafkaMirrorTopicClusterLink build() {

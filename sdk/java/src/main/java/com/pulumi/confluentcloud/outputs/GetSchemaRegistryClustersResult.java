@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetSchemaRegistryClustersCluster;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetSchemaRegistryClustersResult {
 
         @CustomType.Setter
         public Builder clusters(List<GetSchemaRegistryClustersCluster> clusters) {
-            this.clusters = Objects.requireNonNull(clusters);
+            if (clusters == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClustersResult", "clusters");
+            }
+            this.clusters = clusters;
             return this;
         }
         public Builder clusters(GetSchemaRegistryClustersCluster... clusters) {
@@ -66,7 +70,10 @@ public final class GetSchemaRegistryClustersResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSchemaRegistryClustersResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetSchemaRegistryClustersResult build() {

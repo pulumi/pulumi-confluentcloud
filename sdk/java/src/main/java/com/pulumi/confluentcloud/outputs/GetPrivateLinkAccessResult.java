@@ -9,6 +9,7 @@ import com.pulumi.confluentcloud.outputs.GetPrivateLinkAccessEnvironment;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAccessGcp;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAccessNetwork;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,7 +133,10 @@ public final class GetPrivateLinkAccessResult {
 
         @CustomType.Setter
         public Builder aws(List<GetPrivateLinkAccessAw> aws) {
-            this.aws = Objects.requireNonNull(aws);
+            if (aws == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAccessResult", "aws");
+            }
+            this.aws = aws;
             return this;
         }
         public Builder aws(GetPrivateLinkAccessAw... aws) {
@@ -140,7 +144,10 @@ public final class GetPrivateLinkAccessResult {
         }
         @CustomType.Setter
         public Builder azures(List<GetPrivateLinkAccessAzure> azures) {
-            this.azures = Objects.requireNonNull(azures);
+            if (azures == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAccessResult", "azures");
+            }
+            this.azures = azures;
             return this;
         }
         public Builder azures(GetPrivateLinkAccessAzure... azures) {
@@ -148,17 +155,26 @@ public final class GetPrivateLinkAccessResult {
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAccessResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder environment(GetPrivateLinkAccessEnvironment environment) {
-            this.environment = Objects.requireNonNull(environment);
+            if (environment == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAccessResult", "environment");
+            }
+            this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder gcps(List<GetPrivateLinkAccessGcp> gcps) {
-            this.gcps = Objects.requireNonNull(gcps);
+            if (gcps == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAccessResult", "gcps");
+            }
+            this.gcps = gcps;
             return this;
         }
         public Builder gcps(GetPrivateLinkAccessGcp... gcps) {
@@ -166,12 +182,18 @@ public final class GetPrivateLinkAccessResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAccessResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder networks(List<GetPrivateLinkAccessNetwork> networks) {
-            this.networks = Objects.requireNonNull(networks);
+            if (networks == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAccessResult", "networks");
+            }
+            this.networks = networks;
             return this;
         }
         public Builder networks(GetPrivateLinkAccessNetwork... networks) {

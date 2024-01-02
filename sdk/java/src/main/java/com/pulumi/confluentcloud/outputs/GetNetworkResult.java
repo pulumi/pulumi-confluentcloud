@@ -10,6 +10,7 @@ import com.pulumi.confluentcloud.outputs.GetNetworkEnvironment;
 import com.pulumi.confluentcloud.outputs.GetNetworkGcp;
 import com.pulumi.confluentcloud.outputs.GetNetworkZoneInfo;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -260,7 +261,10 @@ public final class GetNetworkResult {
 
         @CustomType.Setter
         public Builder aws(List<GetNetworkAw> aws) {
-            this.aws = Objects.requireNonNull(aws);
+            if (aws == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "aws");
+            }
+            this.aws = aws;
             return this;
         }
         public Builder aws(GetNetworkAw... aws) {
@@ -268,7 +272,10 @@ public final class GetNetworkResult {
         }
         @CustomType.Setter
         public Builder azures(List<GetNetworkAzure> azures) {
-            this.azures = Objects.requireNonNull(azures);
+            if (azures == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "azures");
+            }
+            this.azures = azures;
             return this;
         }
         public Builder azures(GetNetworkAzure... azures) {
@@ -276,17 +283,26 @@ public final class GetNetworkResult {
         }
         @CustomType.Setter
         public Builder cidr(String cidr) {
-            this.cidr = Objects.requireNonNull(cidr);
+            if (cidr == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "cidr");
+            }
+            this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
         public Builder cloud(String cloud) {
-            this.cloud = Objects.requireNonNull(cloud);
+            if (cloud == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "cloud");
+            }
+            this.cloud = cloud;
             return this;
         }
         @CustomType.Setter
         public Builder connectionTypes(List<String> connectionTypes) {
-            this.connectionTypes = Objects.requireNonNull(connectionTypes);
+            if (connectionTypes == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "connectionTypes");
+            }
+            this.connectionTypes = connectionTypes;
             return this;
         }
         public Builder connectionTypes(String... connectionTypes) {
@@ -294,12 +310,18 @@ public final class GetNetworkResult {
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder dnsConfigs(List<GetNetworkDnsConfig> dnsConfigs) {
-            this.dnsConfigs = Objects.requireNonNull(dnsConfigs);
+            if (dnsConfigs == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "dnsConfigs");
+            }
+            this.dnsConfigs = dnsConfigs;
             return this;
         }
         public Builder dnsConfigs(GetNetworkDnsConfig... dnsConfigs) {
@@ -307,17 +329,26 @@ public final class GetNetworkResult {
         }
         @CustomType.Setter
         public Builder dnsDomain(String dnsDomain) {
-            this.dnsDomain = Objects.requireNonNull(dnsDomain);
+            if (dnsDomain == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "dnsDomain");
+            }
+            this.dnsDomain = dnsDomain;
             return this;
         }
         @CustomType.Setter
         public Builder environment(GetNetworkEnvironment environment) {
-            this.environment = Objects.requireNonNull(environment);
+            if (environment == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "environment");
+            }
+            this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder gcps(List<GetNetworkGcp> gcps) {
-            this.gcps = Objects.requireNonNull(gcps);
+            if (gcps == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "gcps");
+            }
+            this.gcps = gcps;
             return this;
         }
         public Builder gcps(GetNetworkGcp... gcps) {
@@ -325,32 +356,50 @@ public final class GetNetworkResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder reservedCidr(String reservedCidr) {
-            this.reservedCidr = Objects.requireNonNull(reservedCidr);
+            if (reservedCidr == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "reservedCidr");
+            }
+            this.reservedCidr = reservedCidr;
             return this;
         }
         @CustomType.Setter
         public Builder resourceName(String resourceName) {
-            this.resourceName = Objects.requireNonNull(resourceName);
+            if (resourceName == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "resourceName");
+            }
+            this.resourceName = resourceName;
             return this;
         }
         @CustomType.Setter
         public Builder zonalSubdomains(Map<String,String> zonalSubdomains) {
-            this.zonalSubdomains = Objects.requireNonNull(zonalSubdomains);
+            if (zonalSubdomains == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "zonalSubdomains");
+            }
+            this.zonalSubdomains = zonalSubdomains;
             return this;
         }
         @CustomType.Setter
         public Builder zoneInfos(List<GetNetworkZoneInfo> zoneInfos) {
-            this.zoneInfos = Objects.requireNonNull(zoneInfos);
+            if (zoneInfos == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "zoneInfos");
+            }
+            this.zoneInfos = zoneInfos;
             return this;
         }
         public Builder zoneInfos(GetNetworkZoneInfo... zoneInfos) {
@@ -358,7 +407,10 @@ public final class GetNetworkResult {
         }
         @CustomType.Setter
         public Builder zones(List<String> zones) {
-            this.zones = Objects.requireNonNull(zones);
+            if (zones == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "zones");
+            }
+            this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {

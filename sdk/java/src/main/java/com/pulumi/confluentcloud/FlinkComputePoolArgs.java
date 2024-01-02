@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud;
 import com.pulumi.confluentcloud.inputs.FlinkComputePoolEnvironmentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -226,10 +227,18 @@ public final class FlinkComputePoolArgs extends com.pulumi.resources.ResourceArg
         }
 
         public FlinkComputePoolArgs build() {
-            $.cloud = Objects.requireNonNull($.cloud, "expected parameter 'cloud' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
+            if ($.cloud == null) {
+                throw new MissingRequiredPropertyException("FlinkComputePoolArgs", "cloud");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("FlinkComputePoolArgs", "displayName");
+            }
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("FlinkComputePoolArgs", "environment");
+            }
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("FlinkComputePoolArgs", "region");
+            }
             return $;
         }
     }

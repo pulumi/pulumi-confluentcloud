@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.inputs.KsqlClusterEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.KsqlClusterKafkaClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -226,11 +227,21 @@ public final class KsqlClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KsqlClusterArgs build() {
-            $.credentialIdentity = Objects.requireNonNull($.credentialIdentity, "expected parameter 'credentialIdentity' to be non-null");
-            $.csu = Objects.requireNonNull($.csu, "expected parameter 'csu' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.kafkaCluster = Objects.requireNonNull($.kafkaCluster, "expected parameter 'kafkaCluster' to be non-null");
+            if ($.credentialIdentity == null) {
+                throw new MissingRequiredPropertyException("KsqlClusterArgs", "credentialIdentity");
+            }
+            if ($.csu == null) {
+                throw new MissingRequiredPropertyException("KsqlClusterArgs", "csu");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("KsqlClusterArgs", "displayName");
+            }
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("KsqlClusterArgs", "environment");
+            }
+            if ($.kafkaCluster == null) {
+                throw new MissingRequiredPropertyException("KsqlClusterArgs", "kafkaCluster");
+            }
             return $;
         }
     }

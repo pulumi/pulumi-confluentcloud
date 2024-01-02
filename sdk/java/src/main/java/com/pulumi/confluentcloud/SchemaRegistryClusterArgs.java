@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.SchemaRegistryClusterEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.SchemaRegistryClusterRegionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -130,9 +131,15 @@ public final class SchemaRegistryClusterArgs extends com.pulumi.resources.Resour
         }
 
         public SchemaRegistryClusterArgs build() {
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.package_ = Objects.requireNonNull($.package_, "expected parameter 'package' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("SchemaRegistryClusterArgs", "environment");
+            }
+            if ($.package_ == null) {
+                throw new MissingRequiredPropertyException("SchemaRegistryClusterArgs", "package_");
+            }
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("SchemaRegistryClusterArgs", "region");
+            }
             return $;
         }
     }

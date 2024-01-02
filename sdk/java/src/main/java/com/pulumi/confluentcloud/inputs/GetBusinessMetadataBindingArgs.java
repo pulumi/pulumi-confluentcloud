@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingCredentialsArg
 import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingSchemaRegistryClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -223,9 +224,15 @@ public final class GetBusinessMetadataBindingArgs extends com.pulumi.resources.I
         }
 
         public GetBusinessMetadataBindingArgs build() {
-            $.businessMetadataName = Objects.requireNonNull($.businessMetadataName, "expected parameter 'businessMetadataName' to be non-null");
-            $.entityName = Objects.requireNonNull($.entityName, "expected parameter 'entityName' to be non-null");
-            $.entityType = Objects.requireNonNull($.entityType, "expected parameter 'entityType' to be non-null");
+            if ($.businessMetadataName == null) {
+                throw new MissingRequiredPropertyException("GetBusinessMetadataBindingArgs", "businessMetadataName");
+            }
+            if ($.entityName == null) {
+                throw new MissingRequiredPropertyException("GetBusinessMetadataBindingArgs", "entityName");
+            }
+            if ($.entityType == null) {
+                throw new MissingRequiredPropertyException("GetBusinessMetadataBindingArgs", "entityType");
+            }
             return $;
         }
     }

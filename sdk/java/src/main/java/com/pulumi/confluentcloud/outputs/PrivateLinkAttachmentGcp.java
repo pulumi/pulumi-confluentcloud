@@ -42,11 +42,13 @@ public final class PrivateLinkAttachmentGcp {
 
         @CustomType.Setter
         public Builder privateServiceConnectServiceAttachment(@Nullable String privateServiceConnectServiceAttachment) {
+
             this.privateServiceConnectServiceAttachment = privateServiceConnectServiceAttachment;
             return this;
         }
         @CustomType.Setter
         public Builder zone(@Nullable String zone) {
+
             this.zone = zone;
             return this;
         }

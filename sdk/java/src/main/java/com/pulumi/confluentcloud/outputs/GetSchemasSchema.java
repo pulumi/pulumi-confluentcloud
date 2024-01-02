@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetSchemasSchemaSchemaReference;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -115,22 +116,34 @@ public final class GetSchemasSchema {
 
         @CustomType.Setter
         public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+            if (format == null) {
+              throw new MissingRequiredPropertyException("GetSchemasSchema", "format");
+            }
+            this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder schema(String schema) {
-            this.schema = Objects.requireNonNull(schema);
+            if (schema == null) {
+              throw new MissingRequiredPropertyException("GetSchemasSchema", "schema");
+            }
+            this.schema = schema;
             return this;
         }
         @CustomType.Setter
         public Builder schemaIdentifier(Integer schemaIdentifier) {
-            this.schemaIdentifier = Objects.requireNonNull(schemaIdentifier);
+            if (schemaIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetSchemasSchema", "schemaIdentifier");
+            }
+            this.schemaIdentifier = schemaIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder schemaReferences(List<GetSchemasSchemaSchemaReference> schemaReferences) {
-            this.schemaReferences = Objects.requireNonNull(schemaReferences);
+            if (schemaReferences == null) {
+              throw new MissingRequiredPropertyException("GetSchemasSchema", "schemaReferences");
+            }
+            this.schemaReferences = schemaReferences;
             return this;
         }
         public Builder schemaReferences(GetSchemasSchemaSchemaReference... schemaReferences) {
@@ -138,12 +151,18 @@ public final class GetSchemasSchema {
         }
         @CustomType.Setter
         public Builder subjectName(String subjectName) {
-            this.subjectName = Objects.requireNonNull(subjectName);
+            if (subjectName == null) {
+              throw new MissingRequiredPropertyException("GetSchemasSchema", "subjectName");
+            }
+            this.subjectName = subjectName;
             return this;
         }
         @CustomType.Setter
         public Builder version(Integer version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetSchemasSchema", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetSchemasSchema build() {

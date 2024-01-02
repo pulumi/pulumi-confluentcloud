@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.GetTagCredentialsArgs;
 import com.pulumi.confluentcloud.inputs.GetTagSchemaRegistryClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -157,7 +158,9 @@ public final class GetTagArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetTagArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetTagArgs", "name");
+            }
             return $;
         }
     }

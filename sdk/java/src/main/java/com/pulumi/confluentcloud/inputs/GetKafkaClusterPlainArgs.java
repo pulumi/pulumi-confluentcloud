@@ -9,6 +9,7 @@ import com.pulumi.confluentcloud.inputs.GetKafkaClusterEnterprise;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterEnvironment;
 import com.pulumi.confluentcloud.inputs.GetKafkaClusterStandard;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -255,7 +256,9 @@ public final class GetKafkaClusterPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         public GetKafkaClusterPlainArgs build() {
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("GetKafkaClusterPlainArgs", "environment");
+            }
             return $;
         }
     }

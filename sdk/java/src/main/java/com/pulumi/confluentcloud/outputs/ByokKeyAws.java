@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,11 +59,15 @@ public final class ByokKeyAws {
 
         @CustomType.Setter
         public Builder keyArn(String keyArn) {
-            this.keyArn = Objects.requireNonNull(keyArn);
+            if (keyArn == null) {
+              throw new MissingRequiredPropertyException("ByokKeyAws", "keyArn");
+            }
+            this.keyArn = keyArn;
             return this;
         }
         @CustomType.Setter
         public Builder roles(@Nullable List<String> roles) {
+
             this.roles = roles;
             return this;
         }

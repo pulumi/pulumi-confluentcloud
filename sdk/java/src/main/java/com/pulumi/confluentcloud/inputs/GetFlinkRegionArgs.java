@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetFlinkRegionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetFlinkRegionArgs build() {
-            $.cloud = Objects.requireNonNull($.cloud, "expected parameter 'cloud' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
+            if ($.cloud == null) {
+                throw new MissingRequiredPropertyException("GetFlinkRegionArgs", "cloud");
+            }
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("GetFlinkRegionArgs", "region");
+            }
             return $;
         }
     }

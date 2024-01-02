@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
 import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -227,7 +228,9 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApiKeyArgs build() {
-            $.owner = Objects.requireNonNull($.owner, "expected parameter 'owner' to be non-null");
+            if ($.owner == null) {
+                throw new MissingRequiredPropertyException("ApiKeyArgs", "owner");
+            }
             return $;
         }
     }

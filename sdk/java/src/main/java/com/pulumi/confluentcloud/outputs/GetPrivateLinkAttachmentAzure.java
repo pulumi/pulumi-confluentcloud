@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,17 +47,26 @@ public final class GetPrivateLinkAttachmentAzure {
 
         @CustomType.Setter
         public Builder privateLinkServiceAlias(String privateLinkServiceAlias) {
-            this.privateLinkServiceAlias = Objects.requireNonNull(privateLinkServiceAlias);
+            if (privateLinkServiceAlias == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentAzure", "privateLinkServiceAlias");
+            }
+            this.privateLinkServiceAlias = privateLinkServiceAlias;
             return this;
         }
         @CustomType.Setter
         public Builder privateLinkServiceResourceId(String privateLinkServiceResourceId) {
-            this.privateLinkServiceResourceId = Objects.requireNonNull(privateLinkServiceResourceId);
+            if (privateLinkServiceResourceId == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentAzure", "privateLinkServiceResourceId");
+            }
+            this.privateLinkServiceResourceId = privateLinkServiceResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder zone(String zone) {
-            this.zone = Objects.requireNonNull(zone);
+            if (zone == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentAzure", "zone");
+            }
+            this.zone = zone;
             return this;
         }
         public GetPrivateLinkAttachmentAzure build() {
