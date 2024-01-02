@@ -12,6 +12,7 @@ import com.pulumi.confluentcloud.inputs.KafkaClusterNetworkArgs;
 import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -448,10 +449,18 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KafkaClusterArgs build() {
-            $.availability = Objects.requireNonNull($.availability, "expected parameter 'availability' to be non-null");
-            $.cloud = Objects.requireNonNull($.cloud, "expected parameter 'cloud' to be non-null");
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
+            if ($.availability == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterArgs", "availability");
+            }
+            if ($.cloud == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterArgs", "cloud");
+            }
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterArgs", "environment");
+            }
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterArgs", "region");
+            }
             return $;
         }
     }

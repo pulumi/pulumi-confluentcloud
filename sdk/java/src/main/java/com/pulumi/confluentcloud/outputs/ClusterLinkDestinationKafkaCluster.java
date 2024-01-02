@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.ClusterLinkDestinationKafkaClusterCredentials;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -79,21 +80,27 @@ public final class ClusterLinkDestinationKafkaCluster {
 
         @CustomType.Setter
         public Builder bootstrapEndpoint(@Nullable String bootstrapEndpoint) {
+
             this.bootstrapEndpoint = bootstrapEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder credentials(@Nullable ClusterLinkDestinationKafkaClusterCredentials credentials) {
+
             this.credentials = credentials;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("ClusterLinkDestinationKafkaCluster", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder restEndpoint(@Nullable String restEndpoint) {
+
             this.restEndpoint = restEndpoint;
             return this;
         }

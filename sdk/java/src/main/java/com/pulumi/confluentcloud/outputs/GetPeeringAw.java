@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,17 +86,26 @@ public final class GetPeeringAw {
 
         @CustomType.Setter
         public Builder account(String account) {
-            this.account = Objects.requireNonNull(account);
+            if (account == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAw", "account");
+            }
+            this.account = account;
             return this;
         }
         @CustomType.Setter
         public Builder customerRegion(String customerRegion) {
-            this.customerRegion = Objects.requireNonNull(customerRegion);
+            if (customerRegion == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAw", "customerRegion");
+            }
+            this.customerRegion = customerRegion;
             return this;
         }
         @CustomType.Setter
         public Builder routes(List<String> routes) {
-            this.routes = Objects.requireNonNull(routes);
+            if (routes == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAw", "routes");
+            }
+            this.routes = routes;
             return this;
         }
         public Builder routes(String... routes) {
@@ -103,7 +113,10 @@ public final class GetPeeringAw {
         }
         @CustomType.Setter
         public Builder vpc(String vpc) {
-            this.vpc = Objects.requireNonNull(vpc);
+            if (vpc == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAw", "vpc");
+            }
+            this.vpc = vpc;
             return this;
         }
         public GetPeeringAw build() {

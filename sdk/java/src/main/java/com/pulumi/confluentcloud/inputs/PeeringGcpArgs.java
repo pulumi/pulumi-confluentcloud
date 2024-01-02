@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -183,8 +184,12 @@ public final class PeeringGcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PeeringGcpArgs build() {
-            $.project = Objects.requireNonNull($.project, "expected parameter 'project' to be non-null");
-            $.vpcNetwork = Objects.requireNonNull($.vpcNetwork, "expected parameter 'vpcNetwork' to be non-null");
+            if ($.project == null) {
+                throw new MissingRequiredPropertyException("PeeringGcpArgs", "project");
+            }
+            if ($.vpcNetwork == null) {
+                throw new MissingRequiredPropertyException("PeeringGcpArgs", "vpcNetwork");
+            }
             return $;
         }
     }

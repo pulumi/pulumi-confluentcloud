@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetByokKeyGcp {
 
         @CustomType.Setter
         public Builder keyId(String keyId) {
-            this.keyId = Objects.requireNonNull(keyId);
+            if (keyId == null) {
+              throw new MissingRequiredPropertyException("GetByokKeyGcp", "keyId");
+            }
+            this.keyId = keyId;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroup(String securityGroup) {
-            this.securityGroup = Objects.requireNonNull(securityGroup);
+            if (securityGroup == null) {
+              throw new MissingRequiredPropertyException("GetByokKeyGcp", "securityGroup");
+            }
+            this.securityGroup = securityGroup;
             return this;
         }
         public GetByokKeyGcp build() {

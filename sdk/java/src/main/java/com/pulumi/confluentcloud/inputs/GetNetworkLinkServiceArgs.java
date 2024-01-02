@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceAcceptArgs;
 import com.pulumi.confluentcloud.inputs.GetNetworkLinkServiceEnvironmentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -132,8 +133,12 @@ public final class GetNetworkLinkServiceArgs extends com.pulumi.resources.Invoke
         }
 
         public GetNetworkLinkServiceArgs build() {
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("GetNetworkLinkServiceArgs", "environment");
+            }
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("GetNetworkLinkServiceArgs", "id");
+            }
             return $;
         }
     }

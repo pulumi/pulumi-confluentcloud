@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -91,8 +92,12 @@ public final class SchemaCredentialsArgs extends com.pulumi.resources.ResourceAr
         }
 
         public SchemaCredentialsArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.secret = Objects.requireNonNull($.secret, "expected parameter 'secret' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("SchemaCredentialsArgs", "key");
+            }
+            if ($.secret == null) {
+                throw new MissingRequiredPropertyException("SchemaCredentialsArgs", "secret");
+            }
             return $;
         }
     }

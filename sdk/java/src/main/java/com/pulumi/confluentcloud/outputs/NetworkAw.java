@@ -72,16 +72,19 @@ public final class NetworkAw {
 
         @CustomType.Setter
         public Builder account(@Nullable String account) {
+
             this.account = account;
             return this;
         }
         @CustomType.Setter
         public Builder privateLinkEndpointService(@Nullable String privateLinkEndpointService) {
+
             this.privateLinkEndpointService = privateLinkEndpointService;
             return this;
         }
         @CustomType.Setter
         public Builder vpc(@Nullable String vpc) {
+
             this.vpc = vpc;
             return this;
         }

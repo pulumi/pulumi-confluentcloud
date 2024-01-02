@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.confluentcloud.inputs.GetSubjectModeCredentials;
 import com.pulumi.confluentcloud.inputs.GetSubjectModeSchemaRegistryCluster;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -126,7 +127,9 @@ public final class GetSubjectModePlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         public GetSubjectModePlainArgs build() {
-            $.subjectName = Objects.requireNonNull($.subjectName, "expected parameter 'subjectName' to be non-null");
+            if ($.subjectName == null) {
+                throw new MissingRequiredPropertyException("GetSubjectModePlainArgs", "subjectName");
+            }
             return $;
         }
     }

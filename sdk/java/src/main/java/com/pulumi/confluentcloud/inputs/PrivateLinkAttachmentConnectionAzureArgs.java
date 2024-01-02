@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -54,7 +55,9 @@ public final class PrivateLinkAttachmentConnectionAzureArgs extends com.pulumi.r
         }
 
         public PrivateLinkAttachmentConnectionAzureArgs build() {
-            $.privateEndpointResourceId = Objects.requireNonNull($.privateEndpointResourceId, "expected parameter 'privateEndpointResourceId' to be non-null");
+            if ($.privateEndpointResourceId == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkAttachmentConnectionAzureArgs", "privateEndpointResourceId");
+            }
             return $;
         }
     }

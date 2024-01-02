@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.inputs.KafkaMirrorTopicKafkaClusterArgs;
 import com.pulumi.confluentcloud.inputs.KafkaMirrorTopicSourceKafkaTopicArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -147,9 +148,15 @@ public final class KafkaMirrorTopicArgs extends com.pulumi.resources.ResourceArg
         }
 
         public KafkaMirrorTopicArgs build() {
-            $.clusterLink = Objects.requireNonNull($.clusterLink, "expected parameter 'clusterLink' to be non-null");
-            $.kafkaCluster = Objects.requireNonNull($.kafkaCluster, "expected parameter 'kafkaCluster' to be non-null");
-            $.sourceKafkaTopic = Objects.requireNonNull($.sourceKafkaTopic, "expected parameter 'sourceKafkaTopic' to be non-null");
+            if ($.clusterLink == null) {
+                throw new MissingRequiredPropertyException("KafkaMirrorTopicArgs", "clusterLink");
+            }
+            if ($.kafkaCluster == null) {
+                throw new MissingRequiredPropertyException("KafkaMirrorTopicArgs", "kafkaCluster");
+            }
+            if ($.sourceKafkaTopic == null) {
+                throw new MissingRequiredPropertyException("KafkaMirrorTopicArgs", "sourceKafkaTopic");
+            }
             return $;
         }
     }

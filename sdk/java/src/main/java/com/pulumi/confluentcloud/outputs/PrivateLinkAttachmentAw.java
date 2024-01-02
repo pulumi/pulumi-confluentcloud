@@ -44,6 +44,7 @@ public final class PrivateLinkAttachmentAw {
 
         @CustomType.Setter
         public Builder vpcEndpointServiceName(@Nullable String vpcEndpointServiceName) {
+
             this.vpcEndpointServiceName = vpcEndpointServiceName;
             return this;
         }

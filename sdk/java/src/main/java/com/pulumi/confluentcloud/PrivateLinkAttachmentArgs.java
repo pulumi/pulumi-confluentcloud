@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud;
 import com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentEnvironmentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,9 +189,15 @@ public final class PrivateLinkAttachmentArgs extends com.pulumi.resources.Resour
         }
 
         public PrivateLinkAttachmentArgs build() {
-            $.cloud = Objects.requireNonNull($.cloud, "expected parameter 'cloud' to be non-null");
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
+            if ($.cloud == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkAttachmentArgs", "cloud");
+            }
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkAttachmentArgs", "environment");
+            }
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkAttachmentArgs", "region");
+            }
             return $;
         }
     }

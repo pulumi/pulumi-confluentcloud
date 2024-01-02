@@ -11,6 +11,7 @@ import com.pulumi.confluentcloud.outputs.GetKafkaClusterEnvironment;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterNetwork;
 import com.pulumi.confluentcloud.outputs.GetKafkaClusterStandard;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -268,16 +269,23 @@ public final class GetKafkaClusterResult {
 
         @CustomType.Setter
         public Builder apiVersion(String apiVersion) {
-            this.apiVersion = Objects.requireNonNull(apiVersion);
+            if (apiVersion == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "apiVersion");
+            }
+            this.apiVersion = apiVersion;
             return this;
         }
         @CustomType.Setter
         public Builder availability(String availability) {
-            this.availability = Objects.requireNonNull(availability);
+            if (availability == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "availability");
+            }
+            this.availability = availability;
             return this;
         }
         @CustomType.Setter
         public Builder basics(@Nullable List<GetKafkaClusterBasic> basics) {
+
             this.basics = basics;
             return this;
         }
@@ -286,12 +294,18 @@ public final class GetKafkaClusterResult {
         }
         @CustomType.Setter
         public Builder bootstrapEndpoint(String bootstrapEndpoint) {
-            this.bootstrapEndpoint = Objects.requireNonNull(bootstrapEndpoint);
+            if (bootstrapEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "bootstrapEndpoint");
+            }
+            this.bootstrapEndpoint = bootstrapEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder byokKeys(List<GetKafkaClusterByokKey> byokKeys) {
-            this.byokKeys = Objects.requireNonNull(byokKeys);
+            if (byokKeys == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "byokKeys");
+            }
+            this.byokKeys = byokKeys;
             return this;
         }
         public Builder byokKeys(GetKafkaClusterByokKey... byokKeys) {
@@ -299,21 +313,29 @@ public final class GetKafkaClusterResult {
         }
         @CustomType.Setter
         public Builder cloud(String cloud) {
-            this.cloud = Objects.requireNonNull(cloud);
+            if (cloud == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "cloud");
+            }
+            this.cloud = cloud;
             return this;
         }
         @CustomType.Setter
         public Builder dedicated(@Nullable GetKafkaClusterDedicated dedicated) {
+
             this.dedicated = dedicated;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder enterprises(@Nullable List<GetKafkaClusterEnterprise> enterprises) {
+
             this.enterprises = enterprises;
             return this;
         }
@@ -322,22 +344,34 @@ public final class GetKafkaClusterResult {
         }
         @CustomType.Setter
         public Builder environment(GetKafkaClusterEnvironment environment) {
-            this.environment = Objects.requireNonNull(environment);
+            if (environment == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "environment");
+            }
+            this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder networks(List<GetKafkaClusterNetwork> networks) {
-            this.networks = Objects.requireNonNull(networks);
+            if (networks == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "networks");
+            }
+            this.networks = networks;
             return this;
         }
         public Builder networks(GetKafkaClusterNetwork... networks) {
@@ -345,21 +379,31 @@ public final class GetKafkaClusterResult {
         }
         @CustomType.Setter
         public Builder rbacCrn(String rbacCrn) {
-            this.rbacCrn = Objects.requireNonNull(rbacCrn);
+            if (rbacCrn == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "rbacCrn");
+            }
+            this.rbacCrn = rbacCrn;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder restEndpoint(String restEndpoint) {
-            this.restEndpoint = Objects.requireNonNull(restEndpoint);
+            if (restEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetKafkaClusterResult", "restEndpoint");
+            }
+            this.restEndpoint = restEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder standards(@Nullable List<GetKafkaClusterStandard> standards) {
+
             this.standards = standards;
             return this;
         }

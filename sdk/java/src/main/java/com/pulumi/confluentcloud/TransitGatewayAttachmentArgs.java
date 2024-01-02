@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.inputs.TransitGatewayAttachmentEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.TransitGatewayAttachmentNetworkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -194,8 +195,12 @@ public final class TransitGatewayAttachmentArgs extends com.pulumi.resources.Res
         }
 
         public TransitGatewayAttachmentArgs build() {
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.network = Objects.requireNonNull($.network, "expected parameter 'network' to be non-null");
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("TransitGatewayAttachmentArgs", "environment");
+            }
+            if ($.network == null) {
+                throw new MissingRequiredPropertyException("TransitGatewayAttachmentArgs", "network");
+            }
             return $;
         }
     }

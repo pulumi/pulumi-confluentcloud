@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.confluentcloud.outputs.GetBusinessMetadataBindingCredentials;
 import com.pulumi.confluentcloud.outputs.GetBusinessMetadataBindingSchemaRegistryCluster;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -97,41 +98,59 @@ public final class GetBusinessMetadataBindingResult {
 
         @CustomType.Setter
         public Builder attributes(Map<String,String> attributes) {
-            this.attributes = Objects.requireNonNull(attributes);
+            if (attributes == null) {
+              throw new MissingRequiredPropertyException("GetBusinessMetadataBindingResult", "attributes");
+            }
+            this.attributes = attributes;
             return this;
         }
         @CustomType.Setter
         public Builder businessMetadataName(String businessMetadataName) {
-            this.businessMetadataName = Objects.requireNonNull(businessMetadataName);
+            if (businessMetadataName == null) {
+              throw new MissingRequiredPropertyException("GetBusinessMetadataBindingResult", "businessMetadataName");
+            }
+            this.businessMetadataName = businessMetadataName;
             return this;
         }
         @CustomType.Setter
         public Builder credentials(@Nullable GetBusinessMetadataBindingCredentials credentials) {
+
             this.credentials = credentials;
             return this;
         }
         @CustomType.Setter
         public Builder entityName(String entityName) {
-            this.entityName = Objects.requireNonNull(entityName);
+            if (entityName == null) {
+              throw new MissingRequiredPropertyException("GetBusinessMetadataBindingResult", "entityName");
+            }
+            this.entityName = entityName;
             return this;
         }
         @CustomType.Setter
         public Builder entityType(String entityType) {
-            this.entityType = Objects.requireNonNull(entityType);
+            if (entityType == null) {
+              throw new MissingRequiredPropertyException("GetBusinessMetadataBindingResult", "entityType");
+            }
+            this.entityType = entityType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBusinessMetadataBindingResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder restEndpoint(@Nullable String restEndpoint) {
+
             this.restEndpoint = restEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder schemaRegistryCluster(@Nullable GetBusinessMetadataBindingSchemaRegistryCluster schemaRegistryCluster) {
+
             this.schemaRegistryCluster = schemaRegistryCluster;
             return this;
         }

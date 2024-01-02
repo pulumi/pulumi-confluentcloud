@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.confluentcloud.inputs.GetKsqlClusterEnvironmentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -139,7 +140,9 @@ public final class GetKsqlClusterArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetKsqlClusterArgs build() {
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("GetKsqlClusterArgs", "environment");
+            }
             return $;
         }
     }

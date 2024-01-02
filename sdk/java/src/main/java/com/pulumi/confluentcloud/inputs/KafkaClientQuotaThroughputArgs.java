@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class KafkaClientQuotaThroughputArgs extends com.pulumi.resources.R
         }
 
         public KafkaClientQuotaThroughputArgs build() {
-            $.egressByteRate = Objects.requireNonNull($.egressByteRate, "expected parameter 'egressByteRate' to be non-null");
-            $.ingressByteRate = Objects.requireNonNull($.ingressByteRate, "expected parameter 'ingressByteRate' to be non-null");
+            if ($.egressByteRate == null) {
+                throw new MissingRequiredPropertyException("KafkaClientQuotaThroughputArgs", "egressByteRate");
+            }
+            if ($.ingressByteRate == null) {
+                throw new MissingRequiredPropertyException("KafkaClientQuotaThroughputArgs", "ingressByteRate");
+            }
             return $;
         }
     }

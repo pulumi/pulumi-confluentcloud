@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.outputs.GetNetworkLinkEndpointEnvironment;
 import com.pulumi.confluentcloud.outputs.GetNetworkLinkEndpointNetwork;
 import com.pulumi.confluentcloud.outputs.GetNetworkLinkEndpointNetworkLinkService;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,27 +123,42 @@ public final class GetNetworkLinkEndpointResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetNetworkLinkEndpointResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetNetworkLinkEndpointResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder environment(GetNetworkLinkEndpointEnvironment environment) {
-            this.environment = Objects.requireNonNull(environment);
+            if (environment == null) {
+              throw new MissingRequiredPropertyException("GetNetworkLinkEndpointResult", "environment");
+            }
+            this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkLinkEndpointResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder networkLinkServices(List<GetNetworkLinkEndpointNetworkLinkService> networkLinkServices) {
-            this.networkLinkServices = Objects.requireNonNull(networkLinkServices);
+            if (networkLinkServices == null) {
+              throw new MissingRequiredPropertyException("GetNetworkLinkEndpointResult", "networkLinkServices");
+            }
+            this.networkLinkServices = networkLinkServices;
             return this;
         }
         public Builder networkLinkServices(GetNetworkLinkEndpointNetworkLinkService... networkLinkServices) {
@@ -150,7 +166,10 @@ public final class GetNetworkLinkEndpointResult {
         }
         @CustomType.Setter
         public Builder networks(List<GetNetworkLinkEndpointNetwork> networks) {
-            this.networks = Objects.requireNonNull(networks);
+            if (networks == null) {
+              throw new MissingRequiredPropertyException("GetNetworkLinkEndpointResult", "networks");
+            }
+            this.networks = networks;
             return this;
         }
         public Builder networks(GetNetworkLinkEndpointNetwork... networks) {
@@ -158,7 +177,10 @@ public final class GetNetworkLinkEndpointResult {
         }
         @CustomType.Setter
         public Builder resourceName(String resourceName) {
-            this.resourceName = Objects.requireNonNull(resourceName);
+            if (resourceName == null) {
+              throw new MissingRequiredPropertyException("GetNetworkLinkEndpointResult", "resourceName");
+            }
+            this.resourceName = resourceName;
             return this;
         }
         public GetNetworkLinkEndpointResult build() {

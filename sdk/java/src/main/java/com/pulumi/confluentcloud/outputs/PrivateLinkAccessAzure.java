@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class PrivateLinkAccessAzure {
 
         @CustomType.Setter
         public Builder subscription(String subscription) {
-            this.subscription = Objects.requireNonNull(subscription);
+            if (subscription == null) {
+              throw new MissingRequiredPropertyException("PrivateLinkAccessAzure", "subscription");
+            }
+            this.subscription = subscription;
             return this;
         }
         public PrivateLinkAccessAzure build() {

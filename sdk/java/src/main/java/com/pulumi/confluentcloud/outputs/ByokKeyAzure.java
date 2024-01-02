@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,22 +87,32 @@ public final class ByokKeyAzure {
 
         @CustomType.Setter
         public Builder applicationId(@Nullable String applicationId) {
+
             this.applicationId = applicationId;
             return this;
         }
         @CustomType.Setter
         public Builder keyIdentifier(String keyIdentifier) {
-            this.keyIdentifier = Objects.requireNonNull(keyIdentifier);
+            if (keyIdentifier == null) {
+              throw new MissingRequiredPropertyException("ByokKeyAzure", "keyIdentifier");
+            }
+            this.keyIdentifier = keyIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
-            this.keyVaultId = Objects.requireNonNull(keyVaultId);
+            if (keyVaultId == null) {
+              throw new MissingRequiredPropertyException("ByokKeyAzure", "keyVaultId");
+            }
+            this.keyVaultId = keyVaultId;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("ByokKeyAzure", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         public ByokKeyAzure build() {

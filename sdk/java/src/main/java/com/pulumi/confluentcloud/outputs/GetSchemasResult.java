@@ -8,6 +8,7 @@ import com.pulumi.confluentcloud.outputs.GetSchemasFilter;
 import com.pulumi.confluentcloud.outputs.GetSchemasSchema;
 import com.pulumi.confluentcloud.outputs.GetSchemasSchemaRegistryCluster;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -87,32 +88,42 @@ public final class GetSchemasResult {
 
         @CustomType.Setter
         public Builder credentials(@Nullable GetSchemasCredentials credentials) {
+
             this.credentials = credentials;
             return this;
         }
         @CustomType.Setter
         public Builder filter(@Nullable GetSchemasFilter filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSchemasResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder restEndpoint(@Nullable String restEndpoint) {
+
             this.restEndpoint = restEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder schemaRegistryCluster(@Nullable GetSchemasSchemaRegistryCluster schemaRegistryCluster) {
+
             this.schemaRegistryCluster = schemaRegistryCluster;
             return this;
         }
         @CustomType.Setter
         public Builder schemas(List<GetSchemasSchema> schemas) {
-            this.schemas = Objects.requireNonNull(schemas);
+            if (schemas == null) {
+              throw new MissingRequiredPropertyException("GetSchemasResult", "schemas");
+            }
+            this.schemas = schemas;
             return this;
         }
         public Builder schemas(GetSchemasSchema... schemas) {

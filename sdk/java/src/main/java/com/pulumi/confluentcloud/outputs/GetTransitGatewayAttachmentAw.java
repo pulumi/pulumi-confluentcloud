@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,12 +86,18 @@ public final class GetTransitGatewayAttachmentAw {
 
         @CustomType.Setter
         public Builder ramResourceShareArn(String ramResourceShareArn) {
-            this.ramResourceShareArn = Objects.requireNonNull(ramResourceShareArn);
+            if (ramResourceShareArn == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayAttachmentAw", "ramResourceShareArn");
+            }
+            this.ramResourceShareArn = ramResourceShareArn;
             return this;
         }
         @CustomType.Setter
         public Builder routes(List<String> routes) {
-            this.routes = Objects.requireNonNull(routes);
+            if (routes == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayAttachmentAw", "routes");
+            }
+            this.routes = routes;
             return this;
         }
         public Builder routes(String... routes) {
@@ -98,12 +105,18 @@ public final class GetTransitGatewayAttachmentAw {
         }
         @CustomType.Setter
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
-            this.transitGatewayAttachmentId = Objects.requireNonNull(transitGatewayAttachmentId);
+            if (transitGatewayAttachmentId == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayAttachmentAw", "transitGatewayAttachmentId");
+            }
+            this.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+            if (transitGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayAttachmentAw", "transitGatewayId");
+            }
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         public GetTransitGatewayAttachmentAw build() {

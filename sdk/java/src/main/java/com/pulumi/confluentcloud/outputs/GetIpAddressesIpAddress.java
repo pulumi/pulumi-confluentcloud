@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -127,37 +128,58 @@ public final class GetIpAddressesIpAddress {
 
         @CustomType.Setter
         public Builder addressType(String addressType) {
-            this.addressType = Objects.requireNonNull(addressType);
+            if (addressType == null) {
+              throw new MissingRequiredPropertyException("GetIpAddressesIpAddress", "addressType");
+            }
+            this.addressType = addressType;
             return this;
         }
         @CustomType.Setter
         public Builder apiVersion(String apiVersion) {
-            this.apiVersion = Objects.requireNonNull(apiVersion);
+            if (apiVersion == null) {
+              throw new MissingRequiredPropertyException("GetIpAddressesIpAddress", "apiVersion");
+            }
+            this.apiVersion = apiVersion;
             return this;
         }
         @CustomType.Setter
         public Builder cloud(String cloud) {
-            this.cloud = Objects.requireNonNull(cloud);
+            if (cloud == null) {
+              throw new MissingRequiredPropertyException("GetIpAddressesIpAddress", "cloud");
+            }
+            this.cloud = cloud;
             return this;
         }
         @CustomType.Setter
         public Builder ipPrefix(String ipPrefix) {
-            this.ipPrefix = Objects.requireNonNull(ipPrefix);
+            if (ipPrefix == null) {
+              throw new MissingRequiredPropertyException("GetIpAddressesIpAddress", "ipPrefix");
+            }
+            this.ipPrefix = ipPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetIpAddressesIpAddress", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetIpAddressesIpAddress", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder services(List<String> services) {
-            this.services = Objects.requireNonNull(services);
+            if (services == null) {
+              throw new MissingRequiredPropertyException("GetIpAddressesIpAddress", "services");
+            }
+            this.services = services;
             return this;
         }
         public Builder services(String... services) {

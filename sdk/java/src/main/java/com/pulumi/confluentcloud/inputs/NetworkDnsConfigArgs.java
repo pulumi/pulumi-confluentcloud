@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -82,7 +83,9 @@ public final class NetworkDnsConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         public NetworkDnsConfigArgs build() {
-            $.resolution = Objects.requireNonNull($.resolution, "expected parameter 'resolution' to be non-null");
+            if ($.resolution == null) {
+                throw new MissingRequiredPropertyException("NetworkDnsConfigArgs", "resolution");
+            }
             return $;
         }
     }

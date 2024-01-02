@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class KafkaMirrorTopicSourceKafkaTopic {
 
         @CustomType.Setter
         public Builder topicName(String topicName) {
-            this.topicName = Objects.requireNonNull(topicName);
+            if (topicName == null) {
+              throw new MissingRequiredPropertyException("KafkaMirrorTopicSourceKafkaTopic", "topicName");
+            }
+            this.topicName = topicName;
             return this;
         }
         public KafkaMirrorTopicSourceKafkaTopic build() {

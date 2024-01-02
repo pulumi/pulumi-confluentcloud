@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.outputs;
 import com.pulumi.confluentcloud.outputs.GetInvitationCreator;
 import com.pulumi.confluentcloud.outputs.GetInvitationUser;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -143,17 +144,26 @@ public final class GetInvitationResult {
 
         @CustomType.Setter
         public Builder acceptedAt(String acceptedAt) {
-            this.acceptedAt = Objects.requireNonNull(acceptedAt);
+            if (acceptedAt == null) {
+              throw new MissingRequiredPropertyException("GetInvitationResult", "acceptedAt");
+            }
+            this.acceptedAt = acceptedAt;
             return this;
         }
         @CustomType.Setter
         public Builder authType(String authType) {
-            this.authType = Objects.requireNonNull(authType);
+            if (authType == null) {
+              throw new MissingRequiredPropertyException("GetInvitationResult", "authType");
+            }
+            this.authType = authType;
             return this;
         }
         @CustomType.Setter
         public Builder creators(List<GetInvitationCreator> creators) {
-            this.creators = Objects.requireNonNull(creators);
+            if (creators == null) {
+              throw new MissingRequiredPropertyException("GetInvitationResult", "creators");
+            }
+            this.creators = creators;
             return this;
         }
         public Builder creators(GetInvitationCreator... creators) {
@@ -161,27 +171,42 @@ public final class GetInvitationResult {
         }
         @CustomType.Setter
         public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+            if (email == null) {
+              throw new MissingRequiredPropertyException("GetInvitationResult", "email");
+            }
+            this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder expiresAt(String expiresAt) {
-            this.expiresAt = Objects.requireNonNull(expiresAt);
+            if (expiresAt == null) {
+              throw new MissingRequiredPropertyException("GetInvitationResult", "expiresAt");
+            }
+            this.expiresAt = expiresAt;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInvitationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetInvitationResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder users(List<GetInvitationUser> users) {
-            this.users = Objects.requireNonNull(users);
+            if (users == null) {
+              throw new MissingRequiredPropertyException("GetInvitationResult", "users");
+            }
+            this.users = users;
             return this;
         }
         public Builder users(GetInvitationUser... users) {

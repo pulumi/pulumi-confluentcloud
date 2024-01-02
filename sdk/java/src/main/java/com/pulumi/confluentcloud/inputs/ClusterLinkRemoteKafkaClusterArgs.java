@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.confluentcloud.inputs.ClusterLinkRemoteKafkaClusterCredentialsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -168,7 +169,9 @@ public final class ClusterLinkRemoteKafkaClusterArgs extends com.pulumi.resource
         }
 
         public ClusterLinkRemoteKafkaClusterArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("ClusterLinkRemoteKafkaClusterArgs", "id");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class GetNetworkGcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GetNetworkGcpArgs build() {
-            $.privateServiceConnectServiceAttachments = Objects.requireNonNull($.privateServiceConnectServiceAttachments, "expected parameter 'privateServiceConnectServiceAttachments' to be non-null");
-            $.project = Objects.requireNonNull($.project, "expected parameter 'project' to be non-null");
-            $.vpcNetwork = Objects.requireNonNull($.vpcNetwork, "expected parameter 'vpcNetwork' to be non-null");
+            if ($.privateServiceConnectServiceAttachments == null) {
+                throw new MissingRequiredPropertyException("GetNetworkGcpArgs", "privateServiceConnectServiceAttachments");
+            }
+            if ($.project == null) {
+                throw new MissingRequiredPropertyException("GetNetworkGcpArgs", "project");
+            }
+            if ($.vpcNetwork == null) {
+                throw new MissingRequiredPropertyException("GetNetworkGcpArgs", "vpcNetwork");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class ByokKeyAwsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ByokKeyAwsArgs build() {
-            $.keyArn = Objects.requireNonNull($.keyArn, "expected parameter 'keyArn' to be non-null");
+            if ($.keyArn == null) {
+                throw new MissingRequiredPropertyException("ByokKeyAwsArgs", "keyArn");
+            }
             return $;
         }
     }

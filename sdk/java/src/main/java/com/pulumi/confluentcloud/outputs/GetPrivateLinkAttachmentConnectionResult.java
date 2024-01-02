@@ -9,6 +9,7 @@ import com.pulumi.confluentcloud.outputs.GetPrivateLinkAttachmentConnectionEnvir
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAttachmentConnectionGcp;
 import com.pulumi.confluentcloud.outputs.GetPrivateLinkAttachmentConnectionPrivateLinkAttachment;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,7 +123,10 @@ public final class GetPrivateLinkAttachmentConnectionResult {
 
         @CustomType.Setter
         public Builder aws(List<GetPrivateLinkAttachmentConnectionAw> aws) {
-            this.aws = Objects.requireNonNull(aws);
+            if (aws == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentConnectionResult", "aws");
+            }
+            this.aws = aws;
             return this;
         }
         public Builder aws(GetPrivateLinkAttachmentConnectionAw... aws) {
@@ -130,7 +134,10 @@ public final class GetPrivateLinkAttachmentConnectionResult {
         }
         @CustomType.Setter
         public Builder azures(List<GetPrivateLinkAttachmentConnectionAzure> azures) {
-            this.azures = Objects.requireNonNull(azures);
+            if (azures == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentConnectionResult", "azures");
+            }
+            this.azures = azures;
             return this;
         }
         public Builder azures(GetPrivateLinkAttachmentConnectionAzure... azures) {
@@ -138,17 +145,26 @@ public final class GetPrivateLinkAttachmentConnectionResult {
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentConnectionResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder environment(GetPrivateLinkAttachmentConnectionEnvironment environment) {
-            this.environment = Objects.requireNonNull(environment);
+            if (environment == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentConnectionResult", "environment");
+            }
+            this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder gcps(List<GetPrivateLinkAttachmentConnectionGcp> gcps) {
-            this.gcps = Objects.requireNonNull(gcps);
+            if (gcps == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentConnectionResult", "gcps");
+            }
+            this.gcps = gcps;
             return this;
         }
         public Builder gcps(GetPrivateLinkAttachmentConnectionGcp... gcps) {
@@ -156,12 +172,18 @@ public final class GetPrivateLinkAttachmentConnectionResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentConnectionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder privateLinkAttachments(List<GetPrivateLinkAttachmentConnectionPrivateLinkAttachment> privateLinkAttachments) {
-            this.privateLinkAttachments = Objects.requireNonNull(privateLinkAttachments);
+            if (privateLinkAttachments == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentConnectionResult", "privateLinkAttachments");
+            }
+            this.privateLinkAttachments = privateLinkAttachments;
             return this;
         }
         public Builder privateLinkAttachments(GetPrivateLinkAttachmentConnectionPrivateLinkAttachment... privateLinkAttachments) {
@@ -169,7 +191,10 @@ public final class GetPrivateLinkAttachmentConnectionResult {
         }
         @CustomType.Setter
         public Builder resourceName(String resourceName) {
-            this.resourceName = Objects.requireNonNull(resourceName);
+            if (resourceName == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentConnectionResult", "resourceName");
+            }
+            this.resourceName = resourceName;
             return this;
         }
         public GetPrivateLinkAttachmentConnectionResult build() {

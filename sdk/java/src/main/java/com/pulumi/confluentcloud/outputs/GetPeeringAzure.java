@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetPeeringAzure {
 
         @CustomType.Setter
         public Builder customerRegion(String customerRegion) {
-            this.customerRegion = Objects.requireNonNull(customerRegion);
+            if (customerRegion == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAzure", "customerRegion");
+            }
+            this.customerRegion = customerRegion;
             return this;
         }
         @CustomType.Setter
         public Builder tenant(String tenant) {
-            this.tenant = Objects.requireNonNull(tenant);
+            if (tenant == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAzure", "tenant");
+            }
+            this.tenant = tenant;
             return this;
         }
         @CustomType.Setter
         public Builder vnet(String vnet) {
-            this.vnet = Objects.requireNonNull(vnet);
+            if (vnet == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAzure", "vnet");
+            }
+            this.vnet = vnet;
             return this;
         }
         public GetPeeringAzure build() {

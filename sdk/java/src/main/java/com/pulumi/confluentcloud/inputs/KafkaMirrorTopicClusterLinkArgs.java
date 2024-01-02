@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class KafkaMirrorTopicClusterLinkArgs extends com.pulumi.resources.
         }
 
         public KafkaMirrorTopicClusterLinkArgs build() {
-            $.linkName = Objects.requireNonNull($.linkName, "expected parameter 'linkName' to be non-null");
+            if ($.linkName == null) {
+                throw new MissingRequiredPropertyException("KafkaMirrorTopicClusterLinkArgs", "linkName");
+            }
             return $;
         }
     }

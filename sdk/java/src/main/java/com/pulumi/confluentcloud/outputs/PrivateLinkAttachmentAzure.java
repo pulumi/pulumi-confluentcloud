@@ -48,16 +48,19 @@ public final class PrivateLinkAttachmentAzure {
 
         @CustomType.Setter
         public Builder privateLinkServiceAlias(@Nullable String privateLinkServiceAlias) {
+
             this.privateLinkServiceAlias = privateLinkServiceAlias;
             return this;
         }
         @CustomType.Setter
         public Builder privateLinkServiceResourceId(@Nullable String privateLinkServiceResourceId) {
+
             this.privateLinkServiceResourceId = privateLinkServiceResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder zone(@Nullable String zone) {
+
             this.zone = zone;
             return this;
         }

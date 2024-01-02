@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud.inputs;
 import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceEnvironmentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -166,10 +167,18 @@ public final class ApiKeyManagedResourceArgs extends com.pulumi.resources.Resour
         }
 
         public ApiKeyManagedResourceArgs build() {
-            $.apiVersion = Objects.requireNonNull($.apiVersion, "expected parameter 'apiVersion' to be non-null");
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.kind = Objects.requireNonNull($.kind, "expected parameter 'kind' to be non-null");
+            if ($.apiVersion == null) {
+                throw new MissingRequiredPropertyException("ApiKeyManagedResourceArgs", "apiVersion");
+            }
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("ApiKeyManagedResourceArgs", "environment");
+            }
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("ApiKeyManagedResourceArgs", "id");
+            }
+            if ($.kind == null) {
+                throw new MissingRequiredPropertyException("ApiKeyManagedResourceArgs", "kind");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.outputs.GetKsqlClusterCredentialIdentity;
 import com.pulumi.confluentcloud.outputs.GetKsqlClusterEnvironment;
 import com.pulumi.confluentcloud.outputs.GetKsqlClusterKafkaCluster;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -200,12 +201,18 @@ public final class GetKsqlClusterResult {
 
         @CustomType.Setter
         public Builder apiVersion(String apiVersion) {
-            this.apiVersion = Objects.requireNonNull(apiVersion);
+            if (apiVersion == null) {
+              throw new MissingRequiredPropertyException("GetKsqlClusterResult", "apiVersion");
+            }
+            this.apiVersion = apiVersion;
             return this;
         }
         @CustomType.Setter
         public Builder credentialIdentities(List<GetKsqlClusterCredentialIdentity> credentialIdentities) {
-            this.credentialIdentities = Objects.requireNonNull(credentialIdentities);
+            if (credentialIdentities == null) {
+              throw new MissingRequiredPropertyException("GetKsqlClusterResult", "credentialIdentities");
+            }
+            this.credentialIdentities = credentialIdentities;
             return this;
         }
         public Builder credentialIdentities(GetKsqlClusterCredentialIdentity... credentialIdentities) {
@@ -213,27 +220,42 @@ public final class GetKsqlClusterResult {
         }
         @CustomType.Setter
         public Builder csu(Integer csu) {
-            this.csu = Objects.requireNonNull(csu);
+            if (csu == null) {
+              throw new MissingRequiredPropertyException("GetKsqlClusterResult", "csu");
+            }
+            this.csu = csu;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetKsqlClusterResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder environment(GetKsqlClusterEnvironment environment) {
-            this.environment = Objects.requireNonNull(environment);
+            if (environment == null) {
+              throw new MissingRequiredPropertyException("GetKsqlClusterResult", "environment");
+            }
+            this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetKsqlClusterResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kafkaClusters(List<GetKsqlClusterKafkaCluster> kafkaClusters) {
-            this.kafkaClusters = Objects.requireNonNull(kafkaClusters);
+            if (kafkaClusters == null) {
+              throw new MissingRequiredPropertyException("GetKsqlClusterResult", "kafkaClusters");
+            }
+            this.kafkaClusters = kafkaClusters;
             return this;
         }
         public Builder kafkaClusters(GetKsqlClusterKafkaCluster... kafkaClusters) {
@@ -241,32 +263,50 @@ public final class GetKsqlClusterResult {
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetKsqlClusterResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder resourceName(String resourceName) {
-            this.resourceName = Objects.requireNonNull(resourceName);
+            if (resourceName == null) {
+              throw new MissingRequiredPropertyException("GetKsqlClusterResult", "resourceName");
+            }
+            this.resourceName = resourceName;
             return this;
         }
         @CustomType.Setter
         public Builder restEndpoint(String restEndpoint) {
-            this.restEndpoint = Objects.requireNonNull(restEndpoint);
+            if (restEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetKsqlClusterResult", "restEndpoint");
+            }
+            this.restEndpoint = restEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder storage(Integer storage) {
-            this.storage = Objects.requireNonNull(storage);
+            if (storage == null) {
+              throw new MissingRequiredPropertyException("GetKsqlClusterResult", "storage");
+            }
+            this.storage = storage;
             return this;
         }
         @CustomType.Setter
         public Builder topicPrefix(String topicPrefix) {
-            this.topicPrefix = Objects.requireNonNull(topicPrefix);
+            if (topicPrefix == null) {
+              throw new MissingRequiredPropertyException("GetKsqlClusterResult", "topicPrefix");
+            }
+            this.topicPrefix = topicPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder useDetailedProcessingLog(Boolean useDetailedProcessingLog) {
-            this.useDetailedProcessingLog = Objects.requireNonNull(useDetailedProcessingLog);
+            if (useDetailedProcessingLog == null) {
+              throw new MissingRequiredPropertyException("GetKsqlClusterResult", "useDetailedProcessingLog");
+            }
+            this.useDetailedProcessingLog = useDetailedProcessingLog;
             return this;
         }
         public GetKsqlClusterResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class InvitationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public InvitationArgs build() {
-            $.email = Objects.requireNonNull($.email, "expected parameter 'email' to be non-null");
+            if ($.email == null) {
+                throw new MissingRequiredPropertyException("InvitationArgs", "email");
+            }
             return $;
         }
     }

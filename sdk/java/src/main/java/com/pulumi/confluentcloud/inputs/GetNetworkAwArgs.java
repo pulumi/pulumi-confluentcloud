@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class GetNetworkAwArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GetNetworkAwArgs build() {
-            $.account = Objects.requireNonNull($.account, "expected parameter 'account' to be non-null");
-            $.privateLinkEndpointService = Objects.requireNonNull($.privateLinkEndpointService, "expected parameter 'privateLinkEndpointService' to be non-null");
-            $.vpc = Objects.requireNonNull($.vpc, "expected parameter 'vpc' to be non-null");
+            if ($.account == null) {
+                throw new MissingRequiredPropertyException("GetNetworkAwArgs", "account");
+            }
+            if ($.privateLinkEndpointService == null) {
+                throw new MissingRequiredPropertyException("GetNetworkAwArgs", "privateLinkEndpointService");
+            }
+            if ($.vpc == null) {
+                throw new MissingRequiredPropertyException("GetNetworkAwArgs", "vpc");
+            }
             return $;
         }
     }

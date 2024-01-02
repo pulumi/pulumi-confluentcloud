@@ -5,6 +5,7 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -75,7 +76,9 @@ public final class GetNetworkAzureArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public GetNetworkAzureArgs build() {
-            $.privateLinkServiceAliases = Objects.requireNonNull($.privateLinkServiceAliases, "expected parameter 'privateLinkServiceAliases' to be non-null");
+            if ($.privateLinkServiceAliases == null) {
+                throw new MissingRequiredPropertyException("GetNetworkAzureArgs", "privateLinkServiceAliases");
+            }
             return $;
         }
     }

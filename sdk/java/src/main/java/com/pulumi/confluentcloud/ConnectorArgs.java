@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -187,9 +188,15 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConnectorArgs build() {
-            $.configNonsensitive = Objects.requireNonNull($.configNonsensitive, "expected parameter 'configNonsensitive' to be non-null");
-            $.environment = Objects.requireNonNull($.environment, "expected parameter 'environment' to be non-null");
-            $.kafkaCluster = Objects.requireNonNull($.kafkaCluster, "expected parameter 'kafkaCluster' to be non-null");
+            if ($.configNonsensitive == null) {
+                throw new MissingRequiredPropertyException("ConnectorArgs", "configNonsensitive");
+            }
+            if ($.environment == null) {
+                throw new MissingRequiredPropertyException("ConnectorArgs", "environment");
+            }
+            if ($.kafkaCluster == null) {
+                throw new MissingRequiredPropertyException("ConnectorArgs", "kafkaCluster");
+            }
             return $;
         }
     }

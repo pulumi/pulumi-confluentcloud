@@ -73,16 +73,19 @@ public final class NetworkGcp {
 
         @CustomType.Setter
         public Builder privateServiceConnectServiceAttachments(@Nullable Map<String,String> privateServiceConnectServiceAttachments) {
+
             this.privateServiceConnectServiceAttachments = privateServiceConnectServiceAttachments;
             return this;
         }
         @CustomType.Setter
         public Builder project(@Nullable String project) {
+
             this.project = project;
             return this;
         }
         @CustomType.Setter
         public Builder vpcNetwork(@Nullable String vpcNetwork) {
+
             this.vpcNetwork = vpcNetwork;
             return this;
         }
