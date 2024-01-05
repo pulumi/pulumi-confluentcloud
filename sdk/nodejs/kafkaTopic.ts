@@ -41,7 +41,7 @@ import * as utilities from "./utilities";
  *
  * = confluent_kafka_cluster.basic-cluster.rest_endpoint
  *
- * # https://docs.confluent.io/cloud/current/clusters/broker-config.html#custom-topic-settings-for-all-cluster-types-supported-by-kafka-rest-api-and-terraform-provider
+ * # https://docs.confluent.io/cloud/current/client-apps/topics/manage.html#ak-topic-configurations-for-all-ccloud-cluster-types
  *
  *  config = {
  *
