@@ -42,7 +42,7 @@ require (
 	github.com/Masterminds/semver/v3 v3.1.1 // indirect
 	github.com/Masterminds/sprig/v3 v3.2.2 // indirect
 	github.com/Microsoft/go-winio v0.6.1 // indirect
-	github.com/Microsoft/hcsshim v0.11.1 // indirect
+	github.com/Microsoft/hcsshim v0.11.4 // indirect
 	github.com/ProtonMail/go-crypto v0.0.0-20230828082145-3c4c8a2d2371 // indirect
 	github.com/acomagu/bufpipe v1.0.4 // indirect
 	github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da // indirect
@@ -98,7 +98,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/srcm v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/sso v0.0.1 // indirect
 	github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81 // indirect
-	github.com/containerd/containerd v1.7.7 // indirect
+	github.com/containerd/containerd v1.7.11 // indirect
 	github.com/containerd/log v0.1.0 // indirect
 	github.com/cpuguy83/dockercfg v0.3.1 // indirect
 	github.com/cyphar/filepath-securejoin v0.2.4 // indirect
@@ -108,7 +108,7 @@ require (
 	github.com/dimchansky/utfbom v1.1.1 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
 	github.com/docker/distribution v2.8.2+incompatible // indirect
-	github.com/docker/docker v24.0.6+incompatible // indirect
+	github.com/docker/docker v24.0.7+incompatible // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.5.0 // indirect
 	github.com/edsrzf/mmap-go v1.1.0 // indirect
