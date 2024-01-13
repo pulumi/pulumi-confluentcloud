@@ -87,7 +87,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+        /// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         /// </summary>
         [Output("maxCfu")]
         public Output<int> MaxCfu { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.FlinkComputePoolEnvironmentArgs> Environment { get; set; } = null!;
 
         /// <summary>
-        /// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+        /// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         /// </summary>
         [Input("maxCfu")]
         public Input<int>? MaxCfu { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+        /// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         /// </summary>
         [Input("maxCfu")]
         public Input<int>? MaxCfu { get; set; }

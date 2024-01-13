@@ -108,14 +108,14 @@ public final class FlinkComputePoolState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+     * Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
      * 
      */
     @Import(name="maxCfu")
     private @Nullable Output<Integer> maxCfu;
 
     /**
-     * @return Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+     * @return Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
      * 
      */
     public Optional<Output<Integer>> maxCfu() {
@@ -327,7 +327,7 @@ public final class FlinkComputePoolState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maxCfu Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+         * @param maxCfu Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class FlinkComputePoolState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maxCfu Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+         * @param maxCfu Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
          * 
          * @return builder
          * 

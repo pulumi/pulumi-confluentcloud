@@ -4606,7 +4606,7 @@
                 },
                 "maxCfu": {
                     "type": "integer",
-                    "description": "Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.\n"
+                    "description": "Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.\n"
                 },
                 "region": {
                     "type": "string",
@@ -4650,7 +4650,7 @@
                 },
                 "maxCfu": {
                     "type": "integer",
-                    "description": "Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.\n"
+                    "description": "Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.\n"
                 },
                 "region": {
                     "type": "string",
@@ -4695,7 +4695,7 @@
                     },
                     "maxCfu": {
                         "type": "integer",
-                        "description": "Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.\n"
+                        "description": "Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.\n"
                     },
                     "region": {
                         "type": "string",

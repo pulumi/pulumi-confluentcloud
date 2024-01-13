@@ -88,7 +88,7 @@ export class FlinkComputePool extends pulumi.CustomResource {
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
-     * Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+     * Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
      */
     public readonly maxCfu!: pulumi.Output<number>;
     /**
@@ -186,7 +186,7 @@ export interface FlinkComputePoolState {
      */
     kind?: pulumi.Input<string>;
     /**
-     * Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+     * Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
      */
     maxCfu?: pulumi.Input<number>;
     /**
@@ -220,7 +220,7 @@ export interface FlinkComputePoolArgs {
      */
     environment: pulumi.Input<inputs.FlinkComputePoolEnvironment>;
     /**
-     * Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+     * Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
      */
     maxCfu?: pulumi.Input<number>;
     /**

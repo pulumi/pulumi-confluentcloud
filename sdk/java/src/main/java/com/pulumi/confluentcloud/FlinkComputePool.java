@@ -154,14 +154,14 @@ public class FlinkComputePool extends com.pulumi.resources.CustomResource {
         return this.kind;
     }
     /**
-     * Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+     * Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
      * 
      */
     @Export(name="maxCfu", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxCfu;
 
     /**
-     * @return Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+     * @return Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
      * 
      */
     public Output<Integer> maxCfu() {
