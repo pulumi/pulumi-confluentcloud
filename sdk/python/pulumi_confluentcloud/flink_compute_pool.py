@@ -27,7 +27,7 @@ class FlinkComputePoolArgs:
         :param pulumi.Input[str] display_name: The name of the Flink Compute Pool.
         :param pulumi.Input['FlinkComputePoolEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Compute Pool.
-        :param pulumi.Input[int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+        :param pulumi.Input[int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         """
         pulumi.set(__self__, "cloud", cloud)
         pulumi.set(__self__, "display_name", display_name)
@@ -88,7 +88,7 @@ class FlinkComputePoolArgs:
     @pulumi.getter(name="maxCfu")
     def max_cfu(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+        Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         """
         return pulumi.get(self, "max_cfu")
 
@@ -118,7 +118,7 @@ class _FlinkComputePoolState:
         :param pulumi.Input[str] display_name: The name of the Flink Compute Pool.
         :param pulumi.Input['FlinkComputePoolEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] kind: (Required String) The kind of the Flink Compute Pool, for example, `ComputePool`.
-        :param pulumi.Input[int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+        :param pulumi.Input[int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Compute Pool.
         :param pulumi.Input[str] resource_name: (Required String) The Confluent Resource Name of the Flink Compute Pool.
         :param pulumi.Input[str] rest_endpoint: (Required String) The API endpoint of the Flink Compute Pool.
@@ -220,7 +220,7 @@ class _FlinkComputePoolState:
     @pulumi.getter(name="maxCfu")
     def max_cfu(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+        Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         """
         return pulumi.get(self, "max_cfu")
 
@@ -309,7 +309,7 @@ class FlinkComputePool(pulumi.CustomResource):
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Flink Compute Pool.
         :param pulumi.Input[str] display_name: The name of the Flink Compute Pool.
         :param pulumi.Input[pulumi.InputType['FlinkComputePoolEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-        :param pulumi.Input[int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+        :param pulumi.Input[int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Compute Pool.
         """
         ...
@@ -426,7 +426,7 @@ class FlinkComputePool(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The name of the Flink Compute Pool.
         :param pulumi.Input[pulumi.InputType['FlinkComputePoolEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] kind: (Required String) The kind of the Flink Compute Pool, for example, `ComputePool`.
-        :param pulumi.Input[int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+        :param pulumi.Input[int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Compute Pool.
         :param pulumi.Input[str] resource_name_: (Required String) The Confluent Resource Name of the Flink Compute Pool.
         :param pulumi.Input[str] rest_endpoint: (Required String) The API endpoint of the Flink Compute Pool.
@@ -499,7 +499,7 @@ class FlinkComputePool(pulumi.CustomResource):
     @pulumi.getter(name="maxCfu")
     def max_cfu(self) -> pulumi.Output[int]:
         """
-        Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+        Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         """
         return pulumi.get(self, "max_cfu")
 

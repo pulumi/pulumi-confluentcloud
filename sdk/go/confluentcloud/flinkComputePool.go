@@ -74,7 +74,7 @@ type FlinkComputePool struct {
 	Environment FlinkComputePoolEnvironmentOutput `pulumi:"environment"`
 	// (Required String) The kind of the Flink Compute Pool, for example, `ComputePool`.
 	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+	// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
 	MaxCfu pulumi.IntOutput `pulumi:"maxCfu"`
 	// The cloud service provider region that hosts the Flink Compute Pool.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -138,7 +138,7 @@ type flinkComputePoolState struct {
 	Environment *FlinkComputePoolEnvironment `pulumi:"environment"`
 	// (Required String) The kind of the Flink Compute Pool, for example, `ComputePool`.
 	Kind *string `pulumi:"kind"`
-	// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+	// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
 	MaxCfu *int `pulumi:"maxCfu"`
 	// The cloud service provider region that hosts the Flink Compute Pool.
 	Region *string `pulumi:"region"`
@@ -161,7 +161,7 @@ type FlinkComputePoolState struct {
 	Environment FlinkComputePoolEnvironmentPtrInput
 	// (Required String) The kind of the Flink Compute Pool, for example, `ComputePool`.
 	Kind pulumi.StringPtrInput
-	// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+	// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
 	MaxCfu pulumi.IntPtrInput
 	// The cloud service provider region that hosts the Flink Compute Pool.
 	Region pulumi.StringPtrInput
@@ -182,7 +182,7 @@ type flinkComputePoolArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment FlinkComputePoolEnvironment `pulumi:"environment"`
-	// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+	// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
 	MaxCfu *int `pulumi:"maxCfu"`
 	// The cloud service provider region that hosts the Flink Compute Pool.
 	Region string `pulumi:"region"`
@@ -196,7 +196,7 @@ type FlinkComputePoolArgs struct {
 	DisplayName pulumi.StringInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment FlinkComputePoolEnvironmentInput
-	// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+	// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
 	MaxCfu pulumi.IntPtrInput
 	// The cloud service provider region that hosts the Flink Compute Pool.
 	Region pulumi.StringInput
@@ -319,7 +319,7 @@ func (o FlinkComputePoolOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlinkComputePool) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5` and `10`.
+// Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
 func (o FlinkComputePoolOutput) MaxCfu() pulumi.IntOutput {
 	return o.ApplyT(func(v *FlinkComputePool) pulumi.IntOutput { return v.MaxCfu }).(pulumi.IntOutput)
 }
