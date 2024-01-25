@@ -11,9 +11,54 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewTfImporter(ctx, "example", &confluentcloud.TfImporterArgs{
+//				Resources: pulumi.StringArray{
+//					pulumi.String("confluent_service_account"),
+//					pulumi.String("confluent_environment"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with the `TfImporter` resource:
+//   - `cloud-importer`: Export _Cloud_ resources (for example, Service Accounts, Environments)
+//   - `kafka-importer`: Export _Kafka_ resources (for example, ACLs, Topics)
 type TfImporter struct {
 	pulumi.CustomResourceState
 
+	// An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+	//
+	// These are the exportable resources:
+	// * Service Accounts
+	// * Environments
+	// * Connectors
+	// * Kafka Clusters
+	// * Access Control Lists (ACLs)
+	// * Topics
+	// * Schemas
+	//
+	// > **Note:** File an issue to request a support for other resources.
 	OutputPath pulumi.StringPtrOutput `pulumi:"outputPath"`
 	// A list of resources names to export. Defaults to all exportable resources.
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
@@ -49,12 +94,36 @@ func GetTfImporter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TfImporter resources.
 type tfImporterState struct {
+	// An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+	//
+	// These are the exportable resources:
+	// * Service Accounts
+	// * Environments
+	// * Connectors
+	// * Kafka Clusters
+	// * Access Control Lists (ACLs)
+	// * Topics
+	// * Schemas
+	//
+	// > **Note:** File an issue to request a support for other resources.
 	OutputPath *string `pulumi:"outputPath"`
 	// A list of resources names to export. Defaults to all exportable resources.
 	Resources []string `pulumi:"resources"`
 }
 
 type TfImporterState struct {
+	// An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+	//
+	// These are the exportable resources:
+	// * Service Accounts
+	// * Environments
+	// * Connectors
+	// * Kafka Clusters
+	// * Access Control Lists (ACLs)
+	// * Topics
+	// * Schemas
+	//
+	// > **Note:** File an issue to request a support for other resources.
 	OutputPath pulumi.StringPtrInput
 	// A list of resources names to export. Defaults to all exportable resources.
 	Resources pulumi.StringArrayInput
@@ -65,6 +134,18 @@ func (TfImporterState) ElementType() reflect.Type {
 }
 
 type tfImporterArgs struct {
+	// An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+	//
+	// These are the exportable resources:
+	// * Service Accounts
+	// * Environments
+	// * Connectors
+	// * Kafka Clusters
+	// * Access Control Lists (ACLs)
+	// * Topics
+	// * Schemas
+	//
+	// > **Note:** File an issue to request a support for other resources.
 	OutputPath *string `pulumi:"outputPath"`
 	// A list of resources names to export. Defaults to all exportable resources.
 	Resources []string `pulumi:"resources"`
@@ -72,6 +153,18 @@ type tfImporterArgs struct {
 
 // The set of arguments for constructing a TfImporter resource.
 type TfImporterArgs struct {
+	// An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+	//
+	// These are the exportable resources:
+	// * Service Accounts
+	// * Environments
+	// * Connectors
+	// * Kafka Clusters
+	// * Access Control Lists (ACLs)
+	// * Topics
+	// * Schemas
+	//
+	// > **Note:** File an issue to request a support for other resources.
 	OutputPath pulumi.StringPtrInput
 	// A list of resources names to export. Defaults to all exportable resources.
 	Resources pulumi.StringArrayInput
@@ -164,6 +257,18 @@ func (o TfImporterOutput) ToTfImporterOutputWithContext(ctx context.Context) TfI
 	return o
 }
 
+// An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+//
+// These are the exportable resources:
+// * Service Accounts
+// * Environments
+// * Connectors
+// * Kafka Clusters
+// * Access Control Lists (ACLs)
+// * Topics
+// * Schemas
+//
+// > **Note:** File an issue to request a support for other resources.
 func (o TfImporterOutput) OutputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TfImporter) pulumi.StringPtrOutput { return v.OutputPath }).(pulumi.StringPtrOutput)
 }

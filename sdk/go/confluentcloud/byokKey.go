@@ -11,6 +11,75 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+//
+// `ByokKey` provides a BYOK Key resource that enables creating, editing, and deleting BYOK Key on Confluent Cloud.
+//
+// ## Example Usage
+// ### Example BYOK Key on Azure
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewByokKey(ctx, "azureKey", &confluentcloud.ByokKeyArgs{
+//				Azure: &confluentcloud.ByokKeyAzureArgs{
+//					KeyIdentifier: pulumi.String("https://test-vault.vault.azure.net/keys/test-key"),
+//					KeyVaultId:    pulumi.String("/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault"),
+//					TenantId:      pulumi.String("11111111-1111-1111-1111-111111111111"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example BYOK Key on GCP
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewByokKey(ctx, "gcpKey", &confluentcloud.ByokKeyArgs{
+//				Gcp: &confluentcloud.ByokKeyGcpArgs{
+//					KeyId: pulumi.String("projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `ByokKey` resource:
+//   - dedicated-public-aws-byok-kafka-acls: An example of Encrypting Confluent Cloud Dedicated Kafka Clusters using Self-Managed Keys on AWS.
+//   - dedicated-public-azure-byok-kafka-acls: An example of Encrypting Confluent Cloud Dedicated Kafka Clusters using Self-Managed Keys on Azure.
+//
+// See [Confluent Cloud Bring Your Own Key (BYOK) Management API](https://docs.confluent.io/cloud/current/clusters/byok/index.html) to learn more about Encrypting Confluent Cloud Kafka Clusters using Self-Managed Keys.
+//
 // ## Import
 //
 // You can import a BYOK Key by using BYOK Key ID. The following example shows how to import a BYOK Key$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

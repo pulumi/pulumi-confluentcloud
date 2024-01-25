@@ -7,6 +7,51 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ * ### Example Network Link Service on AWS
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const development = new confluentcloud.Environment("development", {});
+ * const aws_private_link = new confluentcloud.Network("aws-private-link", {
+ *     displayName: "AWS Private Link Network",
+ *     cloud: "AWS",
+ *     region: "us-east-1",
+ *     connectionTypes: ["PRIVATELINK"],
+ *     zones: [
+ *         "use1-az1",
+ *         "use1-az2",
+ *         "use1-az6",
+ *     ],
+ *     environment: {
+ *         id: development.id,
+ *     },
+ * });
+ * const awsNls = new confluentcloud.NetworkLinkService("awsNls", {
+ *     displayName: "AWS Private Link network link service",
+ *     environment: {
+ *         id: development.id,
+ *     },
+ *     network: {
+ *         id: aws_private_link.id,
+ *     },
+ *     description: "Test NL service",
+ *     accept: {
+ *         environments: [
+ *             "env-5678",
+ *             "env-0923",
+ *         ],
+ *         networks: ["n-1234"],
+ *     },
+ * });
+ * ```
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.NetworkLinkService` resource:
+ * * `cluster-link-over-aws-private-link-networks`: Cluster link over two dedicated clusters in separate AWS PrivateLink networks
+ *
  * ## Import
  *
  * You can import a Network Link Service by using Environment ID and Network Link Service ID, in the format `<Environment ID>/<Network Link Service ID>`. The following example shows how to import a Network Link Service$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

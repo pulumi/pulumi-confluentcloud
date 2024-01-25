@@ -20,6 +20,85 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ClusterLink;
+ * import com.pulumi.confluentcloud.ClusterLinkArgs;
+ * import com.pulumi.confluentcloud.inputs.ClusterLinkLocalKafkaClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.ClusterLinkLocalKafkaClusterCredentialsArgs;
+ * import com.pulumi.confluentcloud.inputs.ClusterLinkRemoteKafkaClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.ClusterLinkRemoteKafkaClusterCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var east_to_west = new ClusterLink(&#34;east-to-west&#34;, ClusterLinkArgs.builder()        
+ *             .linkMode(&#34;BIDIRECTIONAL&#34;)
+ *             .localKafkaCluster(ClusterLinkLocalKafkaClusterArgs.builder()
+ *                 .id(data.confluent_kafka_cluster().east().id())
+ *                 .restEndpoint(data.confluent_kafka_cluster().east().rest_endpoint())
+ *                 .credentials(ClusterLinkLocalKafkaClusterCredentialsArgs.builder()
+ *                     .key(confluent_api_key.app-manager-east-cluster-api-key().id())
+ *                     .secret(confluent_api_key.app-manager-east-cluster-api-key().secret())
+ *                     .build())
+ *                 .build())
+ *             .remoteKafkaCluster(ClusterLinkRemoteKafkaClusterArgs.builder()
+ *                 .id(data.confluent_kafka_cluster().west().id())
+ *                 .bootstrapEndpoint(data.confluent_kafka_cluster().west().bootstrap_endpoint())
+ *                 .credentials(ClusterLinkRemoteKafkaClusterCredentialsArgs.builder()
+ *                     .key(confluent_api_key.app-manager-west-cluster-api-key().id())
+ *                     .secret(confluent_api_key.app-manager-west-cluster-api-key().secret())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var west_to_east = new ClusterLink(&#34;west-to-east&#34;, ClusterLinkArgs.builder()        
+ *             .linkMode(&#34;BIDIRECTIONAL&#34;)
+ *             .localKafkaCluster(ClusterLinkLocalKafkaClusterArgs.builder()
+ *                 .id(data.confluent_kafka_cluster().west().id())
+ *                 .restEndpoint(data.confluent_kafka_cluster().west().rest_endpoint())
+ *                 .credentials(ClusterLinkLocalKafkaClusterCredentialsArgs.builder()
+ *                     .key(confluent_api_key.app-manager-west-cluster-api-key().id())
+ *                     .secret(confluent_api_key.app-manager-west-cluster-api-key().secret())
+ *                     .build())
+ *                 .build())
+ *             .remoteKafkaCluster(ClusterLinkRemoteKafkaClusterArgs.builder()
+ *                 .id(data.confluent_kafka_cluster().east().id())
+ *                 .bootstrapEndpoint(data.confluent_kafka_cluster().east().bootstrap_endpoint())
+ *                 .credentials(ClusterLinkRemoteKafkaClusterCredentialsArgs.builder()
+ *                     .key(confluent_api_key.app-manager-east-cluster-api-key().id())
+ *                     .secret(confluent_api_key.app-manager-east-cluster-api-key().secret())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.ClusterLink` resource:
+ *   * `destination-initiated-cluster-link-rbac`: An example of setting up a _destination_ initiated cluster link with a mirror topic
+ *   * `source-initiated-cluster-link-rbac`: An example of setting up a _source_ initiated cluster link with a mirror topic
+ *   * `regular-bidirectional-cluster-link-rbac`: An example of setting up a bidirectional cluster link with 2 mirror topics
+ *   * `advanced-bidirectional-cluster-link-rbac`: An example of setting up a bidirectional cluster link with 2 mirror topics ([advanced option](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode))
+ * 
+ * See [Cluster Linking on Confluent Cloud](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/index.html) to learn more about Cluster Linking on Confluent Cloud.
+ * 
  * ## Import
  * 
  * You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode, source (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote

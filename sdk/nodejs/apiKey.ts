@@ -7,6 +7,134 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ * ### Example Kafka API Key
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const app_manager_kafka_api_key = new confluentcloud.ApiKey("app-manager-kafka-api-key", {
+ *     description: "Kafka API Key that is owned by 'app-manager' service account",
+ *     owner: {
+ *         id: confluent_service_account["app-manager"].id,
+ *         apiVersion: confluent_service_account["app-manager"].api_version,
+ *         kind: confluent_service_account["app-manager"].kind,
+ *     },
+ *     managedResource: {
+ *         id: confluent_kafka_cluster.basic.id,
+ *         apiVersion: confluent_kafka_cluster.basic.api_version,
+ *         kind: confluent_kafka_cluster.basic.kind,
+ *         environment: {
+ *             id: confluent_environment.staging.id,
+ *         },
+ *     },
+ * });
+ * ```
+ * ### Example ksqlDB API Key
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const ksqldb_api_key = new confluentcloud.ApiKey("ksqldb-api-key", {
+ *     description: "KsqlDB API Key that is owned by 'app-manager' service account",
+ *     owner: {
+ *         id: confluent_service_account["app-manager"].id,
+ *         apiVersion: confluent_service_account["app-manager"].api_version,
+ *         kind: confluent_service_account["app-manager"].kind,
+ *     },
+ *     managedResource: {
+ *         id: confluent_ksql_cluster.main.id,
+ *         apiVersion: confluent_ksql_cluster.main.api_version,
+ *         kind: confluent_ksql_cluster.main.kind,
+ *         environment: {
+ *             id: confluent_environment.staging.id,
+ *         },
+ *     },
+ * });
+ * ```
+ * ### Example Schema Registry API Key
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const env_manager_schema_registry_api_key = new confluentcloud.ApiKey("env-manager-schema-registry-api-key", {
+ *     description: "Schema Registry API Key that is owned by 'env-manager' service account",
+ *     owner: {
+ *         id: confluent_service_account["env-manager"].id,
+ *         apiVersion: confluent_service_account["env-manager"].api_version,
+ *         kind: confluent_service_account["env-manager"].kind,
+ *     },
+ *     managedResource: {
+ *         id: confluent_schema_registry_cluster.essentials.id,
+ *         apiVersion: confluent_schema_registry_cluster.essentials.api_version,
+ *         kind: confluent_schema_registry_cluster.essentials.kind,
+ *         environment: {
+ *             id: confluent_environment.staging.id,
+ *         },
+ *     },
+ * });
+ * ```
+ * ### Example Flink API Key
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const env_manager_flink_api_key = new confluentcloud.ApiKey("env-manager-flink-api-key", {
+ *     description: "Flink API Key that is owned by 'env-manager' service account",
+ *     owner: {
+ *         id: confluent_service_account["env-manager"].id,
+ *         apiVersion: confluent_service_account["env-manager"].api_version,
+ *         kind: confluent_service_account["env-manager"].kind,
+ *     },
+ *     managedResource: {
+ *         id: data.confluent_flink_region.example.id,
+ *         apiVersion: data.confluent_flink_region.example.api_version,
+ *         kind: data.confluent_flink_region.example.kind,
+ *         environment: {
+ *             id: confluent_environment.staging.id,
+ *         },
+ *     },
+ * });
+ * ```
+ * ### Example Cloud API Key
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const env_manager_cloud_api_key = new confluentcloud.ApiKey("env-manager-cloud-api-key", {
+ *     description: "Cloud API Key that is owned by 'env-manager' service account",
+ *     owner: {
+ *         id: confluent_service_account["env-manager"].id,
+ *         apiVersion: confluent_service_account["env-manager"].api_version,
+ *         kind: confluent_service_account["env-manager"].kind,
+ *     },
+ * });
+ * ```
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.ApiKey` resource:
+ *   * `basic-kafka-acls`: _Basic_ Kafka cluster with authorization using ACLs
+ *   * `basic-kafka-acls-with-alias`: _Basic_ Kafka cluster with authorization using ACLs
+ *   * `standard-kafka-acls`: _Standard_ Kafka cluster with authorization using ACLs
+ *   * `standard-kafka-rbac`: _Standard_ Kafka cluster with authorization using RBAC
+ *   * `dedicated-public-kafka-acls`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using ACLs
+ *   * `dedicated-public-kafka-rbac`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC
+ *   * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ *   * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+ *   * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+ *   * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+ *   * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+ *   * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+ *   * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+ *   * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+ *   * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+ *   * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+ *   * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+ *   * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ *
  * ## Import
  *
  * You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `<Environment ID>/<Cluster API Key ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export API_KEY_SECRET="<api_key_secret>" Option #1Cluster API Key

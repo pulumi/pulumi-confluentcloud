@@ -9,9 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.ConfluentCloud
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new ConfluentCloud.TfImporter("example", new()
+    ///     {
+    ///         Resources = new[]
+    ///         {
+    ///             "confluent_service_account",
+    ///             "confluent_environment",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with the `confluentcloud.TfImporter` resource:
+    ///   * `cloud-importer`: Export _Cloud_ resources (for example, Service Accounts, Environments)
+    ///   * `kafka-importer`: Export _Kafka_ resources (for example, ACLs, Topics)
+    /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/tfImporter:TfImporter")]
     public partial class TfImporter : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+        /// 
+        /// These are the exportable resources:
+        /// * Service Accounts
+        /// * Environments
+        /// * Connectors
+        /// * Kafka Clusters
+        /// * Access Control Lists (ACLs)
+        /// * Topics
+        /// * Schemas
+        /// 
+        /// &gt; **Note:** File an issue to request a support for other resources.
+        /// </summary>
         [Output("outputPath")]
         public Output<string?> OutputPath { get; private set; } = null!;
 
@@ -67,6 +109,20 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class TfImporterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+        /// 
+        /// These are the exportable resources:
+        /// * Service Accounts
+        /// * Environments
+        /// * Connectors
+        /// * Kafka Clusters
+        /// * Access Control Lists (ACLs)
+        /// * Topics
+        /// * Schemas
+        /// 
+        /// &gt; **Note:** File an issue to request a support for other resources.
+        /// </summary>
         [Input("outputPath")]
         public Input<string>? OutputPath { get; set; }
 
@@ -90,6 +146,20 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class TfImporterState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+        /// 
+        /// These are the exportable resources:
+        /// * Service Accounts
+        /// * Environments
+        /// * Connectors
+        /// * Kafka Clusters
+        /// * Access Control Lists (ACLs)
+        /// * Topics
+        /// * Schemas
+        /// 
+        /// &gt; **Note:** File an issue to request a support for other resources.
+        /// </summary>
         [Input("outputPath")]
         public Input<string>? OutputPath { get; set; }
 

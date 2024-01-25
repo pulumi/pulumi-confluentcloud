@@ -18,6 +18,77 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ### Example Transit Gateway Attachment on AWS
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.Network;
+ * import com.pulumi.confluentcloud.NetworkArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
+ * import com.pulumi.confluentcloud.TransitGatewayAttachment;
+ * import com.pulumi.confluentcloud.TransitGatewayAttachmentArgs;
+ * import com.pulumi.confluentcloud.inputs.TransitGatewayAttachmentAwsArgs;
+ * import com.pulumi.confluentcloud.inputs.TransitGatewayAttachmentEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.TransitGatewayAttachmentNetworkArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var development = new Environment(&#34;development&#34;);
+ * 
+ *         var aws_transit_gateway_attachment = new Network(&#34;aws-transit-gateway-attachment&#34;, NetworkArgs.builder()        
+ *             .displayName(&#34;AWS Transit Gateway Attachment Network&#34;)
+ *             .cloud(&#34;AWS&#34;)
+ *             .region(&#34;us-east-2&#34;)
+ *             .cidr(&#34;10.10.0.0/16&#34;)
+ *             .connectionTypes(&#34;TRANSITGATEWAY&#34;)
+ *             .environment(NetworkEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var aws = new TransitGatewayAttachment(&#34;aws&#34;, TransitGatewayAttachmentArgs.builder()        
+ *             .displayName(&#34;AWS Transit Gateway Attachment&#34;)
+ *             .aws(TransitGatewayAttachmentAwsArgs.builder()
+ *                 .ramResourceShareArn(&#34;arn:aws:ram:us-east-2:000000000000:resource-share/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx&#34;)
+ *                 .transitGatewayId(&#34;tgw-xxxxxxxxxxxxxxxxx&#34;)
+ *                 .routes(                
+ *                     &#34;192.168.0.0/16&#34;,
+ *                     &#34;172.16.0.0/12&#34;,
+ *                     &#34;100.64.0.0/10&#34;,
+ *                     &#34;10.0.0.0/8&#34;)
+ *                 .build())
+ *             .environment(TransitGatewayAttachmentEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .network(TransitGatewayAttachmentNetworkArgs.builder()
+ *                 .id(aws_transit_gateway_attachment.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.TransitGatewayAttachment` resource:
+ *   * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+ *   * enterprise-privatelinkattachment-aws-kafka-acls
+ * 
  * ## Import
  * 
  * You can import a Transit Gateway Attachment by using Environment ID and Transit Gateway Attachment ID, in the format `&lt;Environment ID&gt;/&lt;Transit Gateway Attachment ID&gt;`. The following example shows how to import a Transit Gateway Attachment$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;

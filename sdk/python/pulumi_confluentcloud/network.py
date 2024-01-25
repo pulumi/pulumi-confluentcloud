@@ -537,6 +537,101 @@ class Network(pulumi.CustomResource):
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+        ### Example Network that supports Private Link Connections
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        aws_private_link = confluentcloud.Network("aws-private-link",
+            display_name="AWS Private Link Network",
+            cloud="AWS",
+            region="us-east-1",
+            connection_types=["PRIVATELINK"],
+            zones=[
+                "use1-az1",
+                "use1-az2",
+                "use1-az6",
+            ],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        ```
+        ### Example Network that supports Peering Connections
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        azure_peering = confluentcloud.Network("azure-peering",
+            display_name="Azure Peering Network",
+            cloud="AZURE",
+            region="eastus2",
+            cidr="10.10.0.0/16",
+            connection_types=["PEERING"],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        ```
+        ### Example Network that supports Private Service Connect Connections
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        gcp_private_service_connect = confluentcloud.Network("gcp-private-service-connect",
+            display_name="GCP Private Service Connect Network",
+            cloud="GCP",
+            region="us-central1",
+            connection_types=["PRIVATELINK"],
+            zones=[
+                "us-central1-a",
+                "us-central1-b",
+                "us-central1-c",
+            ],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ),
+            dns_config=confluentcloud.NetworkDnsConfigArgs(
+                resolution="PRIVATE",
+            ))
+        ```
+        ### Example Network that supports Transit Gateway Endpoints
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        aws_transit_gateway_attachment = confluentcloud.Network("aws-transit-gateway-attachment",
+            display_name="AWS Transit Gateway Attachment Network",
+            cloud="AWS",
+            region="us-east-1",
+            cidr="10.10.0.0/16",
+            connection_types=["TRANSITGATEWAY"],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `Network` resource:
+          * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+          * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+          * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+          * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+          * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+          * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+          * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+          * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+          * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+
         ## Import
 
         You can import a Network by using Environment ID and Network ID, in the format `<Environment ID>/<Network ID>`. The following example shows how to import a Network$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
@@ -577,6 +672,101 @@ class Network(pulumi.CustomResource):
                  args: NetworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+        ### Example Network that supports Private Link Connections
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        aws_private_link = confluentcloud.Network("aws-private-link",
+            display_name="AWS Private Link Network",
+            cloud="AWS",
+            region="us-east-1",
+            connection_types=["PRIVATELINK"],
+            zones=[
+                "use1-az1",
+                "use1-az2",
+                "use1-az6",
+            ],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        ```
+        ### Example Network that supports Peering Connections
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        azure_peering = confluentcloud.Network("azure-peering",
+            display_name="Azure Peering Network",
+            cloud="AZURE",
+            region="eastus2",
+            cidr="10.10.0.0/16",
+            connection_types=["PEERING"],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        ```
+        ### Example Network that supports Private Service Connect Connections
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        gcp_private_service_connect = confluentcloud.Network("gcp-private-service-connect",
+            display_name="GCP Private Service Connect Network",
+            cloud="GCP",
+            region="us-central1",
+            connection_types=["PRIVATELINK"],
+            zones=[
+                "us-central1-a",
+                "us-central1-b",
+                "us-central1-c",
+            ],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ),
+            dns_config=confluentcloud.NetworkDnsConfigArgs(
+                resolution="PRIVATE",
+            ))
+        ```
+        ### Example Network that supports Transit Gateway Endpoints
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        aws_transit_gateway_attachment = confluentcloud.Network("aws-transit-gateway-attachment",
+            display_name="AWS Transit Gateway Attachment Network",
+            cloud="AWS",
+            region="us-east-1",
+            cidr="10.10.0.0/16",
+            connection_types=["TRANSITGATEWAY"],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `Network` resource:
+          * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+          * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+          * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+          * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+          * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+          * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+          * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+          * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+          * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+
         ## Import
 
         You can import a Network by using Environment ID and Network ID, in the format `<Environment ID>/<Network ID>`. The following example shows how to import a Network$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

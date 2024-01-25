@@ -12,6 +12,47 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			nle, err := confluentcloud.NewNetworkLinkEndpoint(ctx, "nle", &confluentcloud.NetworkLinkEndpointArgs{
+//				DisplayName: pulumi.String("nle1"),
+//				Description: pulumi.String("TEST-NLE1"),
+//				Environment: &confluentcloud.NetworkLinkEndpointEnvironmentArgs{
+//					Id: pulumi.String("env-xyz456"),
+//				},
+//				Network: &confluentcloud.NetworkLinkEndpointNetworkArgs{
+//					Id: pulumi.String("n-abc123"),
+//				},
+//				NetworkLinkService: &confluentcloud.NetworkLinkEndpointNetworkLinkServiceArgs{
+//					Id: pulumi.String("nls-g3e1ox"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("networkLinkEndpoint", nle)
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `NetworkLinkEndpoint` resource:
+// * `cluster-link-over-aws-private-link-networks`: Cluster link over two dedicated clusters in separate AWS PrivateLink networks
+//
 // ## Import
 //
 // You can import a Network Link Endpoint by using Environment ID and Network Link Endpoint ID, in the format `<Environment ID>/<Network Link Endpoint ID>`. The following example shows how to import a Network Link Endpoint$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

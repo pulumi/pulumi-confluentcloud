@@ -268,6 +268,60 @@ class ClusterLink(pulumi.CustomResource):
                  source_kafka_cluster: Optional[pulumi.Input[pulumi.InputType['ClusterLinkSourceKafkaClusterArgs']]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        # https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode
+        east_to_west = confluentcloud.ClusterLink("east-to-west",
+            link_mode="BIDIRECTIONAL",
+            local_kafka_cluster=confluentcloud.ClusterLinkLocalKafkaClusterArgs(
+                id=data["confluent_kafka_cluster"]["east"]["id"],
+                rest_endpoint=data["confluent_kafka_cluster"]["east"]["rest_endpoint"],
+                credentials=confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs(
+                    key=confluent_api_key["app-manager-east-cluster-api-key"]["id"],
+                    secret=confluent_api_key["app-manager-east-cluster-api-key"]["secret"],
+                ),
+            ),
+            remote_kafka_cluster=confluentcloud.ClusterLinkRemoteKafkaClusterArgs(
+                id=data["confluent_kafka_cluster"]["west"]["id"],
+                bootstrap_endpoint=data["confluent_kafka_cluster"]["west"]["bootstrap_endpoint"],
+                credentials=confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs(
+                    key=confluent_api_key["app-manager-west-cluster-api-key"]["id"],
+                    secret=confluent_api_key["app-manager-west-cluster-api-key"]["secret"],
+                ),
+            ))
+        west_to_east = confluentcloud.ClusterLink("west-to-east",
+            link_mode="BIDIRECTIONAL",
+            local_kafka_cluster=confluentcloud.ClusterLinkLocalKafkaClusterArgs(
+                id=data["confluent_kafka_cluster"]["west"]["id"],
+                rest_endpoint=data["confluent_kafka_cluster"]["west"]["rest_endpoint"],
+                credentials=confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs(
+                    key=confluent_api_key["app-manager-west-cluster-api-key"]["id"],
+                    secret=confluent_api_key["app-manager-west-cluster-api-key"]["secret"],
+                ),
+            ),
+            remote_kafka_cluster=confluentcloud.ClusterLinkRemoteKafkaClusterArgs(
+                id=data["confluent_kafka_cluster"]["east"]["id"],
+                bootstrap_endpoint=data["confluent_kafka_cluster"]["east"]["bootstrap_endpoint"],
+                credentials=confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs(
+                    key=confluent_api_key["app-manager-east-cluster-api-key"]["id"],
+                    secret=confluent_api_key["app-manager-east-cluster-api-key"]["secret"],
+                ),
+            ))
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `ClusterLink` resource:
+          * `destination-initiated-cluster-link-rbac`: An example of setting up a _destination_ initiated cluster link with a mirror topic
+          * `source-initiated-cluster-link-rbac`: An example of setting up a _source_ initiated cluster link with a mirror topic
+          * `regular-bidirectional-cluster-link-rbac`: An example of setting up a bidirectional cluster link with 2 mirror topics
+          * `advanced-bidirectional-cluster-link-rbac`: An example of setting up a bidirectional cluster link with 2 mirror topics ([advanced option](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode))
+
+        See [Cluster Linking on Confluent Cloud](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/index.html) to learn more about Cluster Linking on Confluent Cloud.
+
         ## Import
 
         You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode, source (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote
@@ -300,6 +354,60 @@ class ClusterLink(pulumi.CustomResource):
                  args: Optional[ClusterLinkArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        # https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode
+        east_to_west = confluentcloud.ClusterLink("east-to-west",
+            link_mode="BIDIRECTIONAL",
+            local_kafka_cluster=confluentcloud.ClusterLinkLocalKafkaClusterArgs(
+                id=data["confluent_kafka_cluster"]["east"]["id"],
+                rest_endpoint=data["confluent_kafka_cluster"]["east"]["rest_endpoint"],
+                credentials=confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs(
+                    key=confluent_api_key["app-manager-east-cluster-api-key"]["id"],
+                    secret=confluent_api_key["app-manager-east-cluster-api-key"]["secret"],
+                ),
+            ),
+            remote_kafka_cluster=confluentcloud.ClusterLinkRemoteKafkaClusterArgs(
+                id=data["confluent_kafka_cluster"]["west"]["id"],
+                bootstrap_endpoint=data["confluent_kafka_cluster"]["west"]["bootstrap_endpoint"],
+                credentials=confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs(
+                    key=confluent_api_key["app-manager-west-cluster-api-key"]["id"],
+                    secret=confluent_api_key["app-manager-west-cluster-api-key"]["secret"],
+                ),
+            ))
+        west_to_east = confluentcloud.ClusterLink("west-to-east",
+            link_mode="BIDIRECTIONAL",
+            local_kafka_cluster=confluentcloud.ClusterLinkLocalKafkaClusterArgs(
+                id=data["confluent_kafka_cluster"]["west"]["id"],
+                rest_endpoint=data["confluent_kafka_cluster"]["west"]["rest_endpoint"],
+                credentials=confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs(
+                    key=confluent_api_key["app-manager-west-cluster-api-key"]["id"],
+                    secret=confluent_api_key["app-manager-west-cluster-api-key"]["secret"],
+                ),
+            ),
+            remote_kafka_cluster=confluentcloud.ClusterLinkRemoteKafkaClusterArgs(
+                id=data["confluent_kafka_cluster"]["east"]["id"],
+                bootstrap_endpoint=data["confluent_kafka_cluster"]["east"]["bootstrap_endpoint"],
+                credentials=confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs(
+                    key=confluent_api_key["app-manager-east-cluster-api-key"]["id"],
+                    secret=confluent_api_key["app-manager-east-cluster-api-key"]["secret"],
+                ),
+            ))
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `ClusterLink` resource:
+          * `destination-initiated-cluster-link-rbac`: An example of setting up a _destination_ initiated cluster link with a mirror topic
+          * `source-initiated-cluster-link-rbac`: An example of setting up a _source_ initiated cluster link with a mirror topic
+          * `regular-bidirectional-cluster-link-rbac`: An example of setting up a bidirectional cluster link with 2 mirror topics
+          * `advanced-bidirectional-cluster-link-rbac`: An example of setting up a bidirectional cluster link with 2 mirror topics ([advanced option](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode))
+
+        See [Cluster Linking on Confluent Cloud](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/index.html) to learn more about Cluster Linking on Confluent Cloud.
+
         ## Import
 
         You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode, source (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote

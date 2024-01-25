@@ -12,6 +12,209 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+// ### Example Kafka API Key
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewApiKey(ctx, "app-manager-kafka-api-key", &confluentcloud.ApiKeyArgs{
+//				Description: pulumi.String("Kafka API Key that is owned by 'app-manager' service account"),
+//				Owner: &confluentcloud.ApiKeyOwnerArgs{
+//					Id:         pulumi.Any(confluent_service_account.AppManager.Id),
+//					ApiVersion: pulumi.Any(confluent_service_account.AppManager.Api_version),
+//					Kind:       pulumi.Any(confluent_service_account.AppManager.Kind),
+//				},
+//				ManagedResource: &confluentcloud.ApiKeyManagedResourceArgs{
+//					Id:         pulumi.Any(confluent_kafka_cluster.Basic.Id),
+//					ApiVersion: pulumi.Any(confluent_kafka_cluster.Basic.Api_version),
+//					Kind:       pulumi.Any(confluent_kafka_cluster.Basic.Kind),
+//					Environment: &confluentcloud.ApiKeyManagedResourceEnvironmentArgs{
+//						Id: pulumi.Any(confluent_environment.Staging.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example ksqlDB API Key
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewApiKey(ctx, "ksqldb-api-key", &confluentcloud.ApiKeyArgs{
+//				Description: pulumi.String("KsqlDB API Key that is owned by 'app-manager' service account"),
+//				Owner: &confluentcloud.ApiKeyOwnerArgs{
+//					Id:         pulumi.Any(confluent_service_account.AppManager.Id),
+//					ApiVersion: pulumi.Any(confluent_service_account.AppManager.Api_version),
+//					Kind:       pulumi.Any(confluent_service_account.AppManager.Kind),
+//				},
+//				ManagedResource: &confluentcloud.ApiKeyManagedResourceArgs{
+//					Id:         pulumi.Any(confluent_ksql_cluster.Main.Id),
+//					ApiVersion: pulumi.Any(confluent_ksql_cluster.Main.Api_version),
+//					Kind:       pulumi.Any(confluent_ksql_cluster.Main.Kind),
+//					Environment: &confluentcloud.ApiKeyManagedResourceEnvironmentArgs{
+//						Id: pulumi.Any(confluent_environment.Staging.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example Schema Registry API Key
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewApiKey(ctx, "env-manager-schema-registry-api-key", &confluentcloud.ApiKeyArgs{
+//				Description: pulumi.String("Schema Registry API Key that is owned by 'env-manager' service account"),
+//				Owner: &confluentcloud.ApiKeyOwnerArgs{
+//					Id:         pulumi.Any(confluent_service_account.EnvManager.Id),
+//					ApiVersion: pulumi.Any(confluent_service_account.EnvManager.Api_version),
+//					Kind:       pulumi.Any(confluent_service_account.EnvManager.Kind),
+//				},
+//				ManagedResource: &confluentcloud.ApiKeyManagedResourceArgs{
+//					Id:         pulumi.Any(confluent_schema_registry_cluster.Essentials.Id),
+//					ApiVersion: pulumi.Any(confluent_schema_registry_cluster.Essentials.Api_version),
+//					Kind:       pulumi.Any(confluent_schema_registry_cluster.Essentials.Kind),
+//					Environment: &confluentcloud.ApiKeyManagedResourceEnvironmentArgs{
+//						Id: pulumi.Any(confluent_environment.Staging.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example Flink API Key
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewApiKey(ctx, "env-manager-flink-api-key", &confluentcloud.ApiKeyArgs{
+//				Description: pulumi.String("Flink API Key that is owned by 'env-manager' service account"),
+//				Owner: &confluentcloud.ApiKeyOwnerArgs{
+//					Id:         pulumi.Any(confluent_service_account.EnvManager.Id),
+//					ApiVersion: pulumi.Any(confluent_service_account.EnvManager.Api_version),
+//					Kind:       pulumi.Any(confluent_service_account.EnvManager.Kind),
+//				},
+//				ManagedResource: &confluentcloud.ApiKeyManagedResourceArgs{
+//					Id:         pulumi.Any(data.Confluent_flink_region.Example.Id),
+//					ApiVersion: pulumi.Any(data.Confluent_flink_region.Example.Api_version),
+//					Kind:       pulumi.Any(data.Confluent_flink_region.Example.Kind),
+//					Environment: &confluentcloud.ApiKeyManagedResourceEnvironmentArgs{
+//						Id: pulumi.Any(confluent_environment.Staging.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example Cloud API Key
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewApiKey(ctx, "env-manager-cloud-api-key", &confluentcloud.ApiKeyArgs{
+//				Description: pulumi.String("Cloud API Key that is owned by 'env-manager' service account"),
+//				Owner: &confluentcloud.ApiKeyOwnerArgs{
+//					Id:         pulumi.Any(confluent_service_account.EnvManager.Id),
+//					ApiVersion: pulumi.Any(confluent_service_account.EnvManager.Api_version),
+//					Kind:       pulumi.Any(confluent_service_account.EnvManager.Kind),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `ApiKey` resource:
+//   - `basic-kafka-acls`: _Basic_ Kafka cluster with authorization using ACLs
+//   - `basic-kafka-acls-with-alias`: _Basic_ Kafka cluster with authorization using ACLs
+//   - `standard-kafka-acls`: _Standard_ Kafka cluster with authorization using ACLs
+//   - `standard-kafka-rbac`: _Standard_ Kafka cluster with authorization using RBAC
+//   - `dedicated-public-kafka-acls`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using ACLs
+//   - `dedicated-public-kafka-rbac`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC
+//   - `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+//   - `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+//   - `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+//   - `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+//   - `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+//   - `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+//   - `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+//   - `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+//   - `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+//
 // ## Import
 //
 // You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `<Environment ID>/<Cluster API Key ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>" $ export API_KEY_SECRET="<api_key_secret>" Option #1Cluster API Key

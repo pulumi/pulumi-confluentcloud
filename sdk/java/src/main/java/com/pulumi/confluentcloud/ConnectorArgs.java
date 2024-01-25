@@ -71,9 +71,25 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         return this.kafkaCluster;
     }
 
+    /**
+     * The status of the connector (one of `&#34;NONE&#34;`, `&#34;PROVISIONING&#34;`, `&#34;RUNNING&#34;`, `&#34;DEGRADED&#34;`, `&#34;FAILED&#34;`, `&#34;PAUSED&#34;`, `&#34;DELETED&#34;`). Pausing (`&#34;RUNNING&#34; &gt; &#34;PAUSED&#34;`) and resuming (`&#34;PAUSED&#34; &gt; &#34;RUNNING&#34;`) a connector is supported via an update operation.
+     * 
+     * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+     * 
+     * &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id=&#34;foo&#34;`).
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return The status of the connector (one of `&#34;NONE&#34;`, `&#34;PROVISIONING&#34;`, `&#34;RUNNING&#34;`, `&#34;DEGRADED&#34;`, `&#34;FAILED&#34;`, `&#34;PAUSED&#34;`, `&#34;DELETED&#34;`). Pausing (`&#34;RUNNING&#34; &gt; &#34;PAUSED&#34;`) and resuming (`&#34;PAUSED&#34; &gt; &#34;RUNNING&#34;`) a connector is supported via an update operation.
+     * 
+     * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+     * 
+     * &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id=&#34;foo&#34;`).
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -178,11 +194,31 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
             return kafkaCluster(Output.of(kafkaCluster));
         }
 
+        /**
+         * @param status The status of the connector (one of `&#34;NONE&#34;`, `&#34;PROVISIONING&#34;`, `&#34;RUNNING&#34;`, `&#34;DEGRADED&#34;`, `&#34;FAILED&#34;`, `&#34;PAUSED&#34;`, `&#34;DELETED&#34;`). Pausing (`&#34;RUNNING&#34; &gt; &#34;PAUSED&#34;`) and resuming (`&#34;PAUSED&#34; &gt; &#34;RUNNING&#34;`) a connector is supported via an update operation.
+         * 
+         * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+         * 
+         * &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id=&#34;foo&#34;`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The status of the connector (one of `&#34;NONE&#34;`, `&#34;PROVISIONING&#34;`, `&#34;RUNNING&#34;`, `&#34;DEGRADED&#34;`, `&#34;FAILED&#34;`, `&#34;PAUSED&#34;`, `&#34;DELETED&#34;`). Pausing (`&#34;RUNNING&#34; &gt; &#34;PAUSED&#34;`) and resuming (`&#34;PAUSED&#34; &gt; &#34;RUNNING&#34;`) a connector is supported via an update operation.
+         * 
+         * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+         * 
+         * &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id=&#34;foo&#34;`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

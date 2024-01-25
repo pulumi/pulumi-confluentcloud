@@ -309,6 +309,20 @@ class KsqlCluster(pulumi.CustomResource):
                  use_detailed_processing_log: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        ## # KsqlCluster Resource
+
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        !> **Warning:**  It is strongly recommended that you provision a `SchemaRegistryCluster` resource before you provision a `KsqlCluster` resource in a given environment. If you're provisioning the `SchemaRegistryCluster` and the `KsqlCluster` resource in the same pulumi up command, reference the `SchemaRegistryCluster` from the `depends_on` argument inside the `KsqlCluster` resource. This ensures that the `SchemaRegistryCluster` resource is created before the `KsqlCluster` resource. If you provision a `KsqlCluster` resource without a `SchemaRegistryCluster` resource, and later, you want to add a `SchemaRegistryCluster` resource, you must destroy and re-create your `KsqlCluster` resource after provisioning a `SchemaRegistryCluster` resource.
+
+        `KsqlCluster` provides a ksqlDB cluster resource that enables creating, editing, and deleting ksqlDB clusters on Confluent Cloud.
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `KsqlCluster` resource:
+        * `ksql-acls`
+        * `ksql-rbac`
+
         ## Import
 
         You can import a ksqlDB cluster by using Environment ID and ksqlDB cluster ID, in the format `<Environment ID>/<ksqlDB cluster ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
@@ -335,6 +349,20 @@ class KsqlCluster(pulumi.CustomResource):
                  args: KsqlClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## # KsqlCluster Resource
+
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+
+        !> **Warning:**  It is strongly recommended that you provision a `SchemaRegistryCluster` resource before you provision a `KsqlCluster` resource in a given environment. If you're provisioning the `SchemaRegistryCluster` and the `KsqlCluster` resource in the same pulumi up command, reference the `SchemaRegistryCluster` from the `depends_on` argument inside the `KsqlCluster` resource. This ensures that the `SchemaRegistryCluster` resource is created before the `KsqlCluster` resource. If you provision a `KsqlCluster` resource without a `SchemaRegistryCluster` resource, and later, you want to add a `SchemaRegistryCluster` resource, you must destroy and re-create your `KsqlCluster` resource after provisioning a `SchemaRegistryCluster` resource.
+
+        `KsqlCluster` provides a ksqlDB cluster resource that enables creating, editing, and deleting ksqlDB clusters on Confluent Cloud.
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `KsqlCluster` resource:
+        * `ksql-acls`
+        * `ksql-rbac`
+
         ## Import
 
         You can import a ksqlDB cluster by using Environment ID and ksqlDB cluster ID, in the format `<Environment ID>/<ksqlDB cluster ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

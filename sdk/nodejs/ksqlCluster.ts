@@ -7,6 +7,20 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * ## # confluentcloud.KsqlCluster Resource
+ *
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ *
+ * !> **Warning:**  It is strongly recommended that you provision a `confluentcloud.SchemaRegistryCluster` resource before you provision a `confluentcloud.KsqlCluster` resource in a given environment. If you're provisioning the `confluentcloud.SchemaRegistryCluster` and the `confluentcloud.KsqlCluster` resource in the same pulumi up command, reference the `confluentcloud.SchemaRegistryCluster` from the `dependsOn` argument inside the `confluentcloud.KsqlCluster` resource. This ensures that the `confluentcloud.SchemaRegistryCluster` resource is created before the `confluentcloud.KsqlCluster` resource. If you provision a `confluentcloud.KsqlCluster` resource without a `confluentcloud.SchemaRegistryCluster` resource, and later, you want to add a `confluentcloud.SchemaRegistryCluster` resource, you must destroy and re-create your `confluentcloud.KsqlCluster` resource after provisioning a `confluentcloud.SchemaRegistryCluster` resource.
+ *
+ * `confluentcloud.KsqlCluster` provides a ksqlDB cluster resource that enables creating, editing, and deleting ksqlDB clusters on Confluent Cloud.
+ *
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.KsqlCluster` resource:
+ * * `ksql-acls`
+ * * `ksql-rbac`
+ *
  * ## Import
  *
  * You can import a ksqlDB cluster by using Environment ID and ksqlDB cluster ID, in the format `<Environment ID>/<ksqlDB cluster ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

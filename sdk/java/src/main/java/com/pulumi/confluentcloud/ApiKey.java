@@ -19,6 +19,247 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ### Example Kafka API Key
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ApiKey;
+ * import com.pulumi.confluentcloud.ApiKeyArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceEnvironmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var app_manager_kafka_api_key = new ApiKey(&#34;app-manager-kafka-api-key&#34;, ApiKeyArgs.builder()        
+ *             .description(&#34;Kafka API Key that is owned by &#39;app-manager&#39; service account&#34;)
+ *             .owner(ApiKeyOwnerArgs.builder()
+ *                 .id(confluent_service_account.app-manager().id())
+ *                 .apiVersion(confluent_service_account.app-manager().api_version())
+ *                 .kind(confluent_service_account.app-manager().kind())
+ *                 .build())
+ *             .managedResource(ApiKeyManagedResourceArgs.builder()
+ *                 .id(confluent_kafka_cluster.basic().id())
+ *                 .apiVersion(confluent_kafka_cluster.basic().api_version())
+ *                 .kind(confluent_kafka_cluster.basic().kind())
+ *                 .environment(ApiKeyManagedResourceEnvironmentArgs.builder()
+ *                     .id(confluent_environment.staging().id())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example ksqlDB API Key
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ApiKey;
+ * import com.pulumi.confluentcloud.ApiKeyArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceEnvironmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var ksqldb_api_key = new ApiKey(&#34;ksqldb-api-key&#34;, ApiKeyArgs.builder()        
+ *             .description(&#34;KsqlDB API Key that is owned by &#39;app-manager&#39; service account&#34;)
+ *             .owner(ApiKeyOwnerArgs.builder()
+ *                 .id(confluent_service_account.app-manager().id())
+ *                 .apiVersion(confluent_service_account.app-manager().api_version())
+ *                 .kind(confluent_service_account.app-manager().kind())
+ *                 .build())
+ *             .managedResource(ApiKeyManagedResourceArgs.builder()
+ *                 .id(confluent_ksql_cluster.main().id())
+ *                 .apiVersion(confluent_ksql_cluster.main().api_version())
+ *                 .kind(confluent_ksql_cluster.main().kind())
+ *                 .environment(ApiKeyManagedResourceEnvironmentArgs.builder()
+ *                     .id(confluent_environment.staging().id())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example Schema Registry API Key
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ApiKey;
+ * import com.pulumi.confluentcloud.ApiKeyArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceEnvironmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var env_manager_schema_registry_api_key = new ApiKey(&#34;env-manager-schema-registry-api-key&#34;, ApiKeyArgs.builder()        
+ *             .description(&#34;Schema Registry API Key that is owned by &#39;env-manager&#39; service account&#34;)
+ *             .owner(ApiKeyOwnerArgs.builder()
+ *                 .id(confluent_service_account.env-manager().id())
+ *                 .apiVersion(confluent_service_account.env-manager().api_version())
+ *                 .kind(confluent_service_account.env-manager().kind())
+ *                 .build())
+ *             .managedResource(ApiKeyManagedResourceArgs.builder()
+ *                 .id(confluent_schema_registry_cluster.essentials().id())
+ *                 .apiVersion(confluent_schema_registry_cluster.essentials().api_version())
+ *                 .kind(confluent_schema_registry_cluster.essentials().kind())
+ *                 .environment(ApiKeyManagedResourceEnvironmentArgs.builder()
+ *                     .id(confluent_environment.staging().id())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example Flink API Key
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ApiKey;
+ * import com.pulumi.confluentcloud.ApiKeyArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyManagedResourceEnvironmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var env_manager_flink_api_key = new ApiKey(&#34;env-manager-flink-api-key&#34;, ApiKeyArgs.builder()        
+ *             .description(&#34;Flink API Key that is owned by &#39;env-manager&#39; service account&#34;)
+ *             .owner(ApiKeyOwnerArgs.builder()
+ *                 .id(confluent_service_account.env-manager().id())
+ *                 .apiVersion(confluent_service_account.env-manager().api_version())
+ *                 .kind(confluent_service_account.env-manager().kind())
+ *                 .build())
+ *             .managedResource(ApiKeyManagedResourceArgs.builder()
+ *                 .id(data.confluent_flink_region().example().id())
+ *                 .apiVersion(data.confluent_flink_region().example().api_version())
+ *                 .kind(data.confluent_flink_region().example().kind())
+ *                 .environment(ApiKeyManagedResourceEnvironmentArgs.builder()
+ *                     .id(confluent_environment.staging().id())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example Cloud API Key
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ApiKey;
+ * import com.pulumi.confluentcloud.ApiKeyArgs;
+ * import com.pulumi.confluentcloud.inputs.ApiKeyOwnerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var env_manager_cloud_api_key = new ApiKey(&#34;env-manager-cloud-api-key&#34;, ApiKeyArgs.builder()        
+ *             .description(&#34;Cloud API Key that is owned by &#39;env-manager&#39; service account&#34;)
+ *             .owner(ApiKeyOwnerArgs.builder()
+ *                 .id(confluent_service_account.env-manager().id())
+ *                 .apiVersion(confluent_service_account.env-manager().api_version())
+ *                 .kind(confluent_service_account.env-manager().kind())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.ApiKey` resource:
+ *   * `basic-kafka-acls`: _Basic_ Kafka cluster with authorization using ACLs
+ *   * `basic-kafka-acls-with-alias`: _Basic_ Kafka cluster with authorization using ACLs
+ *   * `standard-kafka-acls`: _Standard_ Kafka cluster with authorization using ACLs
+ *   * `standard-kafka-rbac`: _Standard_ Kafka cluster with authorization using RBAC
+ *   * `dedicated-public-kafka-acls`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using ACLs
+ *   * `dedicated-public-kafka-rbac`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC
+ *   * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ *   * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+ *   * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+ *   * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+ *   * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+ *   * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+ *   * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+ *   * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+ *   * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+ *   * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+ *   * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+ *   * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ * 
  * ## Import
  * 
  * You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `&lt;Environment ID&gt;/&lt;Cluster API Key ID&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34; $ export API_KEY_SECRET=&#34;&lt;api_key_secret&gt;&#34; Option #1Cluster API Key

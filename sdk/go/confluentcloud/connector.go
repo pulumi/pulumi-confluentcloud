@@ -12,6 +12,230 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+// ### Example Managed [Datagen Source Connector](https://docs.confluent.io/cloud/current/connectors/cc-datagen-source.html) that uses a service account to communicate with your Kafka cluster
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewConnector(ctx, "source", &confluentcloud.ConnectorArgs{
+//				Environment: &confluentcloud.ConnectorEnvironmentArgs{
+//					Id: pulumi.Any(confluent_environment.Staging.Id),
+//				},
+//				KafkaCluster: &confluentcloud.ConnectorKafkaClusterArgs{
+//					Id: pulumi.Any(confluent_kafka_cluster.Basic.Id),
+//				},
+//				ConfigSensitive: nil,
+//				ConfigNonsensitive: pulumi.StringMap{
+//					"connector.class":          pulumi.String("DatagenSource"),
+//					"name":                     pulumi.String("DatagenSourceConnector_0"),
+//					"kafka.auth.mode":          pulumi.String("SERVICE_ACCOUNT"),
+//					"kafka.service.account.id": pulumi.Any(confluent_service_account.AppConnector.Id),
+//					"kafka.topic":              pulumi.Any(confluent_kafka_topic.Orders.Topic_name),
+//					"output.data.format":       pulumi.String("JSON"),
+//					"quickstart":               pulumi.String("ORDERS"),
+//					"tasks.max":                pulumi.String("1"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				confluent_kafka_acl.AppConnectorDescribeOnCluster,
+//				confluent_kafka_acl.AppConnectorWriteOnTargetTopic,
+//				confluent_kafka_acl.AppConnectorCreateOnDataPreviewTopics,
+//				confluent_kafka_acl.AppConnectorWriteOnDataPreviewTopics,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example Managed [Amazon S3 Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-s3-sink.html) that uses a service account to communicate with your Kafka cluster
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewConnector(ctx, "sink", &confluentcloud.ConnectorArgs{
+//				Environment: &confluentcloud.ConnectorEnvironmentArgs{
+//					Id: pulumi.Any(confluent_environment.Staging.Id),
+//				},
+//				KafkaCluster: &confluentcloud.ConnectorKafkaClusterArgs{
+//					Id: pulumi.Any(confluent_kafka_cluster.Basic.Id),
+//				},
+//				ConfigSensitive: pulumi.StringMap{
+//					"aws.access.key.id":     pulumi.String("***REDACTED***"),
+//					"aws.secret.access.key": pulumi.String("***REDACTED***"),
+//				},
+//				ConfigNonsensitive: pulumi.StringMap{
+//					"topics":                   pulumi.Any(confluent_kafka_topic.Orders.Topic_name),
+//					"input.data.format":        pulumi.String("JSON"),
+//					"connector.class":          pulumi.String("S3_SINK"),
+//					"name":                     pulumi.String("S3_SINKConnector_0"),
+//					"kafka.auth.mode":          pulumi.String("SERVICE_ACCOUNT"),
+//					"kafka.service.account.id": pulumi.Any(confluent_service_account.AppConnector.Id),
+//					"s3.bucket.name":           pulumi.String("<s3-bucket-name>"),
+//					"output.data.format":       pulumi.String("JSON"),
+//					"time.interval":            pulumi.String("DAILY"),
+//					"flush.size":               pulumi.String("1000"),
+//					"tasks.max":                pulumi.String("1"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				confluent_kafka_acl.AppConnectorDescribeOnCluster,
+//				confluent_kafka_acl.AppConnectorReadOnTargetTopic,
+//				confluent_kafka_acl.AppConnectorCreateOnDlqLccTopics,
+//				confluent_kafka_acl.AppConnectorWriteOnDlqLccTopics,
+//				confluent_kafka_acl.AppConnectorCreateOnSuccessLccTopics,
+//				confluent_kafka_acl.AppConnectorWriteOnSuccessLccTopics,
+//				confluent_kafka_acl.AppConnectorCreateOnErrorLccTopics,
+//				confluent_kafka_acl.AppConnectorWriteOnErrorLccTopics,
+//				confluent_kafka_acl.AppConnectorReadOnConnectLccGroup,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example Managed [Amazon DynamoDB Connector](https://docs.confluent.io/cloud/current/connectors/cc-amazon-dynamo-db-sink.html) that uses a service account to communicate with your Kafka cluster
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewConnector(ctx, "sink", &confluentcloud.ConnectorArgs{
+//				Environment: &confluentcloud.ConnectorEnvironmentArgs{
+//					Id: pulumi.Any(confluent_environment.Staging.Id),
+//				},
+//				KafkaCluster: &confluentcloud.ConnectorKafkaClusterArgs{
+//					Id: pulumi.Any(confluent_kafka_cluster.Basic.Id),
+//				},
+//				ConfigSensitive: pulumi.StringMap{
+//					"aws.access.key.id":     pulumi.String("***REDACTED***"),
+//					"aws.secret.access.key": pulumi.String("***REDACTED***"),
+//				},
+//				ConfigNonsensitive: pulumi.StringMap{
+//					"topics":                   pulumi.Any(confluent_kafka_topic.Orders.Topic_name),
+//					"input.data.format":        pulumi.String("JSON"),
+//					"connector.class":          pulumi.String("DynamoDbSink"),
+//					"name":                     pulumi.String("DynamoDbSinkConnector_0"),
+//					"kafka.auth.mode":          pulumi.String("SERVICE_ACCOUNT"),
+//					"kafka.service.account.id": pulumi.Any(confluent_service_account.AppConnector.Id),
+//					"aws.dynamodb.pk.hash":     pulumi.String("value.userid"),
+//					"aws.dynamodb.pk.sort":     pulumi.String("value.pageid"),
+//					"tasks.max":                pulumi.String("1"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				confluent_kafka_acl.AppConnectorDescribeOnCluster,
+//				confluent_kafka_acl.AppConnectorReadOnTargetTopic,
+//				confluent_kafka_acl.AppConnectorCreateOnDlqLccTopics,
+//				confluent_kafka_acl.AppConnectorWriteOnDlqLccTopics,
+//				confluent_kafka_acl.AppConnectorCreateOnSuccessLccTopics,
+//				confluent_kafka_acl.AppConnectorWriteOnSuccessLccTopics,
+//				confluent_kafka_acl.AppConnectorCreateOnErrorLccTopics,
+//				confluent_kafka_acl.AppConnectorWriteOnErrorLccTopics,
+//				confluent_kafka_acl.AppConnectorReadOnConnectLccGroup,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example Custom [Datagen Source Connector](https://www.confluent.io/hub/confluentinc/kafka-connect-datagen) that uses a Kafka API Key to communicate with your Kafka cluster
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewConnector(ctx, "source", &confluentcloud.ConnectorArgs{
+//				Environment: &confluentcloud.ConnectorEnvironmentArgs{
+//					Id: pulumi.Any(confluent_environment.Staging.Id),
+//				},
+//				KafkaCluster: &confluentcloud.ConnectorKafkaClusterArgs{
+//					Id: pulumi.Any(confluent_kafka_cluster.Basic.Id),
+//				},
+//				ConfigSensitive: pulumi.StringMap{
+//					"kafka.api.key":    pulumi.String("***REDACTED***"),
+//					"kafka.api.secret": pulumi.String("***REDACTED***"),
+//				},
+//				ConfigNonsensitive: pulumi.StringMap{
+//					"confluent.connector.type":   pulumi.String("CUSTOM"),
+//					"connector.class":            pulumi.Any(confluent_custom_connector_plugin.Source.Connector_class),
+//					"name":                       pulumi.String("DatagenConnectorExampleName"),
+//					"kafka.auth.mode":            pulumi.String("KAFKA_API_KEY"),
+//					"kafka.topic":                pulumi.Any(confluent_kafka_topic.Orders.Topic_name),
+//					"output.data.format":         pulumi.String("JSON"),
+//					"quickstart":                 pulumi.String("ORDERS"),
+//					"confluent.custom.plugin.id": pulumi.Any(confluent_custom_connector_plugin.Source.Id),
+//					"min.interval":               pulumi.String("1000"),
+//					"max.interval":               pulumi.String("2000"),
+//					"tasks.max":                  pulumi.String("1"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				confluent_role_binding.AppManagerKafkaClusterAdmin,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `Connector` resource:
+// * `s3-sink-connector`
+// * `snowflake-sink-connector`
+// * `managed-datagen-source-connector`
+// * `elasticsearch-sink-connector`
+// * `dynamo-db-sink-connector`
+// * `mongo-db-source-connector`
+// * `mongo-db-sink-connector`
+// * `sql-server-cdc-debezium-source-connector`
+// * `postgre-sql-cdc-debezium-source-connector`
+// * `custom-datagen-source-connector`
+//
+// > **Note:** Certain connectors require additional ACL entries. See [Additional ACL entries](https://docs.confluent.io/cloud/current/connectors/service-account.html#additional-acl-entries) for more details.
+//
 // ## Import
 //
 // You can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `<Environment ID>/<Kafka cluster ID>/<Connector name>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
@@ -31,7 +255,12 @@ type Connector struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironmentOutput  `pulumi:"environment"`
 	KafkaCluster ConnectorKafkaClusterOutput `pulumi:"kafkaCluster"`
-	Status       pulumi.StringOutput         `pulumi:"status"`
+	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+	//
+	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+	//
+	// > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewConnector registers a new resource with the given unique name, arguments, and options.
@@ -87,7 +316,12 @@ type connectorState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  *ConnectorEnvironment  `pulumi:"environment"`
 	KafkaCluster *ConnectorKafkaCluster `pulumi:"kafkaCluster"`
-	Status       *string                `pulumi:"status"`
+	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+	//
+	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+	//
+	// > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
+	Status *string `pulumi:"status"`
 }
 
 type ConnectorState struct {
@@ -98,7 +332,12 @@ type ConnectorState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironmentPtrInput
 	KafkaCluster ConnectorKafkaClusterPtrInput
-	Status       pulumi.StringPtrInput
+	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+	//
+	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+	//
+	// > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
+	Status pulumi.StringPtrInput
 }
 
 func (ConnectorState) ElementType() reflect.Type {
@@ -113,7 +352,12 @@ type connectorArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironment  `pulumi:"environment"`
 	KafkaCluster ConnectorKafkaCluster `pulumi:"kafkaCluster"`
-	Status       *string               `pulumi:"status"`
+	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+	//
+	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+	//
+	// > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
+	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Connector resource.
@@ -125,7 +369,12 @@ type ConnectorArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment  ConnectorEnvironmentInput
 	KafkaCluster ConnectorKafkaClusterInput
-	Status       pulumi.StringPtrInput
+	// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+	//
+	// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+	//
+	// > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
+	Status pulumi.StringPtrInput
 }
 
 func (ConnectorArgs) ElementType() reflect.Type {
@@ -234,6 +483,11 @@ func (o ConnectorOutput) KafkaCluster() ConnectorKafkaClusterOutput {
 	return o.ApplyT(func(v *Connector) ConnectorKafkaClusterOutput { return v.KafkaCluster }).(ConnectorKafkaClusterOutput)
 }
 
+// The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+//
+// > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+//
+// > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
 func (o ConnectorOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

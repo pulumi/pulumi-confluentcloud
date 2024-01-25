@@ -18,6 +18,18 @@ class TfImporterArgs:
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a TfImporter resource.
+        :param pulumi.Input[str] output_path: An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+               
+               These are the exportable resources:
+               * Service Accounts
+               * Environments
+               * Connectors
+               * Kafka Clusters
+               * Access Control Lists (ACLs)
+               * Topics
+               * Schemas
+               
+               > **Note:** File an issue to request a support for other resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of resources names to export. Defaults to all exportable resources.
         """
         if output_path is not None:
@@ -28,6 +40,20 @@ class TfImporterArgs:
     @property
     @pulumi.getter(name="outputPath")
     def output_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+
+        These are the exportable resources:
+        * Service Accounts
+        * Environments
+        * Connectors
+        * Kafka Clusters
+        * Access Control Lists (ACLs)
+        * Topics
+        * Schemas
+
+        > **Note:** File an issue to request a support for other resources.
+        """
         return pulumi.get(self, "output_path")
 
     @output_path.setter
@@ -54,6 +80,18 @@ class _TfImporterState:
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering TfImporter resources.
+        :param pulumi.Input[str] output_path: An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+               
+               These are the exportable resources:
+               * Service Accounts
+               * Environments
+               * Connectors
+               * Kafka Clusters
+               * Access Control Lists (ACLs)
+               * Topics
+               * Schemas
+               
+               > **Note:** File an issue to request a support for other resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of resources names to export. Defaults to all exportable resources.
         """
         if output_path is not None:
@@ -64,6 +102,20 @@ class _TfImporterState:
     @property
     @pulumi.getter(name="outputPath")
     def output_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+
+        These are the exportable resources:
+        * Service Accounts
+        * Environments
+        * Connectors
+        * Kafka Clusters
+        * Access Control Lists (ACLs)
+        * Topics
+        * Schemas
+
+        > **Note:** File an issue to request a support for other resources.
+        """
         return pulumi.get(self, "output_path")
 
     @output_path.setter
@@ -92,9 +144,37 @@ class TfImporter(pulumi.CustomResource):
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a TfImporter resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        example = confluentcloud.TfImporter("example", resources=[
+            "confluent_service_account",
+            "confluent_environment",
+        ])
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with the `TfImporter` resource:
+          * `cloud-importer`: Export _Cloud_ resources (for example, Service Accounts, Environments)
+          * `kafka-importer`: Export _Kafka_ resources (for example, ACLs, Topics)
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] output_path: An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+               
+               These are the exportable resources:
+               * Service Accounts
+               * Environments
+               * Connectors
+               * Kafka Clusters
+               * Access Control Lists (ACLs)
+               * Topics
+               * Schemas
+               
+               > **Note:** File an issue to request a support for other resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of resources names to export. Defaults to all exportable resources.
         """
         ...
@@ -104,7 +184,23 @@ class TfImporter(pulumi.CustomResource):
                  args: Optional[TfImporterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a TfImporter resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        example = confluentcloud.TfImporter("example", resources=[
+            "confluent_service_account",
+            "confluent_environment",
+        ])
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with the `TfImporter` resource:
+          * `cloud-importer`: Export _Cloud_ resources (for example, Service Accounts, Environments)
+          * `kafka-importer`: Export _Kafka_ resources (for example, ACLs, Topics)
+
         :param str resource_name: The name of the resource.
         :param TfImporterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,6 +248,18 @@ class TfImporter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] output_path: An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+               
+               These are the exportable resources:
+               * Service Accounts
+               * Environments
+               * Connectors
+               * Kafka Clusters
+               * Access Control Lists (ACLs)
+               * Topics
+               * Schemas
+               
+               > **Note:** File an issue to request a support for other resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: A list of resources names to export. Defaults to all exportable resources.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -165,6 +273,20 @@ class TfImporter(pulumi.CustomResource):
     @property
     @pulumi.getter(name="outputPath")
     def output_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+
+        These are the exportable resources:
+        * Service Accounts
+        * Environments
+        * Connectors
+        * Kafka Clusters
+        * Access Control Lists (ACLs)
+        * Topics
+        * Schemas
+
+        > **Note:** File an issue to request a support for other resources.
+        """
         return pulumi.get(self, "output_path")
 
     @property
