@@ -16,9 +16,39 @@ public final class TfImporterArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TfImporterArgs Empty = new TfImporterArgs();
 
+    /**
+     * An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn&#39;t exist. Defaults to `./imported_confluent_infrastructure`.
+     * 
+     * These are the exportable resources:
+     * * Service Accounts
+     * * Environments
+     * * Connectors
+     * * Kafka Clusters
+     * * Access Control Lists (ACLs)
+     * * Topics
+     * * Schemas
+     * 
+     * &gt; **Note:** File an issue to request a support for other resources.
+     * 
+     */
     @Import(name="outputPath")
     private @Nullable Output<String> outputPath;
 
+    /**
+     * @return An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn&#39;t exist. Defaults to `./imported_confluent_infrastructure`.
+     * 
+     * These are the exportable resources:
+     * * Service Accounts
+     * * Environments
+     * * Connectors
+     * * Kafka Clusters
+     * * Access Control Lists (ACLs)
+     * * Topics
+     * * Schemas
+     * 
+     * &gt; **Note:** File an issue to request a support for other resources.
+     * 
+     */
     public Optional<Output<String>> outputPath() {
         return Optional.ofNullable(this.outputPath);
     }
@@ -63,11 +93,45 @@ public final class TfImporterArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TfImporterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param outputPath An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn&#39;t exist. Defaults to `./imported_confluent_infrastructure`.
+         * 
+         * These are the exportable resources:
+         * * Service Accounts
+         * * Environments
+         * * Connectors
+         * * Kafka Clusters
+         * * Access Control Lists (ACLs)
+         * * Topics
+         * * Schemas
+         * 
+         * &gt; **Note:** File an issue to request a support for other resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputPath(@Nullable Output<String> outputPath) {
             $.outputPath = outputPath;
             return this;
         }
 
+        /**
+         * @param outputPath An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn&#39;t exist. Defaults to `./imported_confluent_infrastructure`.
+         * 
+         * These are the exportable resources:
+         * * Service Accounts
+         * * Environments
+         * * Connectors
+         * * Kafka Clusters
+         * * Access Control Lists (ACLs)
+         * * Topics
+         * * Schemas
+         * 
+         * &gt; **Note:** File an issue to request a support for other resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputPath(String outputPath) {
             return outputPath(Output.of(outputPath));
         }

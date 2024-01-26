@@ -14,6 +14,16 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KafkaClusterDedicated {
+    /**
+     * @return The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+     * 
+     * &gt; **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
+     * 
+     * !&gt; **Warning:** You can only upgrade clusters from `basic` to `standard`.
+     * 
+     * &gt; **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can&#39;t wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
+     * 
+     */
     private Integer cku;
     private @Nullable String encryptionKey;
     /**
@@ -26,6 +36,16 @@ public final class KafkaClusterDedicated {
     private @Nullable List<String> zones;
 
     private KafkaClusterDedicated() {}
+    /**
+     * @return The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+     * 
+     * &gt; **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
+     * 
+     * !&gt; **Warning:** You can only upgrade clusters from `basic` to `standard`.
+     * 
+     * &gt; **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can&#39;t wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
+     * 
+     */
     public Integer cku() {
         return this.cku;
     }

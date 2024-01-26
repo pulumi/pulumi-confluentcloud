@@ -7,6 +7,32 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const nle = new confluentcloud.NetworkLinkEndpoint("nle", {
+ *     displayName: "nle1",
+ *     description: "TEST-NLE1",
+ *     environment: {
+ *         id: "env-xyz456",
+ *     },
+ *     network: {
+ *         id: "n-abc123",
+ *     },
+ *     networkLinkService: {
+ *         id: "nls-g3e1ox",
+ *     },
+ * });
+ * export const networkLinkEndpoint = nle;
+ * ```
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.NetworkLinkEndpoint` resource:
+ * * `cluster-link-over-aws-private-link-networks`: Cluster link over two dedicated clusters in separate AWS PrivateLink networks
+ *
  * ## Import
  *
  * You can import a Network Link Endpoint by using Environment ID and Network Link Endpoint ID, in the format `<Environment ID>/<Network Link Endpoint ID>`. The following example shows how to import a Network Link Endpoint$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

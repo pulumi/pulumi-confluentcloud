@@ -20,6 +20,202 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ### Example Peering on AWS
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.Network;
+ * import com.pulumi.confluentcloud.NetworkArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
+ * import com.pulumi.confluentcloud.Peering;
+ * import com.pulumi.confluentcloud.PeeringArgs;
+ * import com.pulumi.confluentcloud.inputs.PeeringAwsArgs;
+ * import com.pulumi.confluentcloud.inputs.PeeringEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.PeeringNetworkArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var development = new Environment(&#34;development&#34;);
+ * 
+ *         var aws_peering = new Network(&#34;aws-peering&#34;, NetworkArgs.builder()        
+ *             .displayName(&#34;AWS Peering Network&#34;)
+ *             .cloud(&#34;AWS&#34;)
+ *             .region(&#34;us-east-2&#34;)
+ *             .cidr(&#34;10.10.0.0/16&#34;)
+ *             .connectionTypes(&#34;PEERING&#34;)
+ *             .environment(NetworkEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var aws = new Peering(&#34;aws&#34;, PeeringArgs.builder()        
+ *             .displayName(&#34;AWS Peering&#34;)
+ *             .aws(PeeringAwsArgs.builder()
+ *                 .account(&#34;012345678901&#34;)
+ *                 .vpc(&#34;vpc-abcdef0123456789a&#34;)
+ *                 .routes(&#34;172.31.0.0/16&#34;)
+ *                 .customerRegion(&#34;us-east-2&#34;)
+ *                 .build())
+ *             .environment(PeeringEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .network(PeeringNetworkArgs.builder()
+ *                 .id(aws_peering.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example Peering on Azure
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.Network;
+ * import com.pulumi.confluentcloud.NetworkArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
+ * import com.pulumi.confluentcloud.Peering;
+ * import com.pulumi.confluentcloud.PeeringArgs;
+ * import com.pulumi.confluentcloud.inputs.PeeringAzureArgs;
+ * import com.pulumi.confluentcloud.inputs.PeeringEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.PeeringNetworkArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var development = new Environment(&#34;development&#34;);
+ * 
+ *         var azure_peering = new Network(&#34;azure-peering&#34;, NetworkArgs.builder()        
+ *             .displayName(&#34;Azure Peering Network&#34;)
+ *             .cloud(&#34;AZURE&#34;)
+ *             .region(&#34;centralus&#34;)
+ *             .cidr(&#34;10.10.0.0/16&#34;)
+ *             .connectionTypes(&#34;PEERING&#34;)
+ *             .environment(NetworkEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var azure = new Peering(&#34;azure&#34;, PeeringArgs.builder()        
+ *             .displayName(&#34;Azure Peering&#34;)
+ *             .azure(PeeringAzureArgs.builder()
+ *                 .tenant(&#34;1111tttt-1111-1111-1111-111111tttttt&#34;)
+ *                 .vnet(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet&#34;)
+ *                 .customerRegion(&#34;centralus&#34;)
+ *                 .build())
+ *             .environment(PeeringEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .network(PeeringNetworkArgs.builder()
+ *                 .id(azure_peering.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example Peering on GCP
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.Network;
+ * import com.pulumi.confluentcloud.NetworkArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
+ * import com.pulumi.confluentcloud.Peering;
+ * import com.pulumi.confluentcloud.PeeringArgs;
+ * import com.pulumi.confluentcloud.inputs.PeeringGcpArgs;
+ * import com.pulumi.confluentcloud.inputs.PeeringEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.PeeringNetworkArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var development = new Environment(&#34;development&#34;);
+ * 
+ *         var gcp_peering = new Network(&#34;gcp-peering&#34;, NetworkArgs.builder()        
+ *             .displayName(&#34;GCP Peering Network&#34;)
+ *             .cloud(&#34;GCP&#34;)
+ *             .region(&#34;us-west4&#34;)
+ *             .cidr(&#34;10.10.0.0/16&#34;)
+ *             .connectionTypes(&#34;PEERING&#34;)
+ *             .environment(NetworkEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var gcp = new Peering(&#34;gcp&#34;, PeeringArgs.builder()        
+ *             .displayName(&#34;GCP Peering&#34;)
+ *             .gcp(PeeringGcpArgs.builder()
+ *                 .project(&#34;temp-gear-123456&#34;)
+ *                 .vpcNetwork(&#34;customer-test-vpc-network&#34;)
+ *                 .customerRegion(&#34;us-west4&#34;)
+ *                 .build())
+ *             .environment(PeeringEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .network(PeeringNetworkArgs.builder()
+ *                 .id(gcp_peering.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.Peering` resource:
+ *   * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+ *   * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+ *   * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+ *   * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+ *   * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+ *   * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ * 
  * ## Import
  * 
  * You can import a Peering by using Environment ID and Peering ID, in the format `&lt;Environment ID&gt;/&lt;Peering ID&gt;`. The following example shows how to import a Peering$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;

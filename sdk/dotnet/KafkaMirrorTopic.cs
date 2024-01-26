@@ -10,6 +10,48 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new ConfluentCloud.KafkaMirrorTopic("example", new()
+    ///     {
+    ///         SourceKafkaTopic = new ConfluentCloud.Inputs.KafkaMirrorTopicSourceKafkaTopicArgs
+    ///         {
+    ///             TopicName = "orders",
+    ///         },
+    ///         ClusterLink = new ConfluentCloud.Inputs.KafkaMirrorTopicClusterLinkArgs
+    ///         {
+    ///             LinkName = confluent_cluster_link.Source_outbound.Link_name,
+    ///         },
+    ///         KafkaCluster = new ConfluentCloud.Inputs.KafkaMirrorTopicKafkaClusterArgs
+    ///         {
+    ///             Id = data.Confluent_kafka_cluster.Destination.Id,
+    ///             RestEndpoint = data.Confluent_kafka_cluster.Destination.Rest_endpoint,
+    ///             Credentials = new ConfluentCloud.Inputs.KafkaMirrorTopicKafkaClusterCredentialsArgs
+    ///             {
+    ///                 Key = confluent_api_key.App_manager_destination_cluster_api_key.Id,
+    ///                 Secret = confluent_api_key.App_manager_destination_cluster_api_key.Secret,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with `confluentcloud.KafkaMirrorTopic` resource:
+    ///   * `destination-initiated-cluster-link-rbac`: An example of setting up a _destination_ initiated cluster link with a mirror topic
+    ///   * `source-initiated-cluster-link-rbac`: An example of setting up a _source_ initiated cluster link with a mirror topic
+    /// 
+    /// See [Mirror Topics on Confluent Cloud](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/mirror-topics-cc.html) to learn more about Mirror Topics on Confluent Cloud.
+    /// 
     /// ## Import
     /// 
     /// You can import a Kafka mirror topic by using the Kafka cluster ID, cluster link name, and Kafka topic name in the format `&lt;Kafka cluster ID&gt;/&lt;Cluster link name&gt;/&lt;Kafka topic name&gt;`, for example$ export IMPORT_KAFKA_API_KEY="&lt;kafka_api_key&gt;" $ export IMPORT_KAFKA_API_SECRET="&lt;kafka_api_secret&gt;" $ export IMPORT_KAFKA_REST_ENDPOINT="&lt;kafka_rest_endpoint&gt;"

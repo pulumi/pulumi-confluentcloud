@@ -15,11 +15,80 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.TfImporter;
+ * import com.pulumi.confluentcloud.TfImporterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TfImporter(&#34;example&#34;, TfImporterArgs.builder()        
+ *             .resources(            
+ *                 &#34;confluent_service_account&#34;,
+ *                 &#34;confluent_environment&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with the `confluentcloud.TfImporter` resource:
+ *   * `cloud-importer`: Export _Cloud_ resources (for example, Service Accounts, Environments)
+ *   * `kafka-importer`: Export _Kafka_ resources (for example, ACLs, Topics)
+ * 
+ */
 @ResourceType(type="confluentcloud:index/tfImporter:TfImporter")
 public class TfImporter extends com.pulumi.resources.CustomResource {
+    /**
+     * An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn&#39;t exist. Defaults to `./imported_confluent_infrastructure`.
+     * 
+     * These are the exportable resources:
+     * * Service Accounts
+     * * Environments
+     * * Connectors
+     * * Kafka Clusters
+     * * Access Control Lists (ACLs)
+     * * Topics
+     * * Schemas
+     * 
+     * &gt; **Note:** File an issue to request a support for other resources.
+     * 
+     */
     @Export(name="outputPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> outputPath;
 
+    /**
+     * @return An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn&#39;t exist. Defaults to `./imported_confluent_infrastructure`.
+     * 
+     * These are the exportable resources:
+     * * Service Accounts
+     * * Environments
+     * * Connectors
+     * * Kafka Clusters
+     * * Access Control Lists (ACLs)
+     * * Topics
+     * * Schemas
+     * 
+     * &gt; **Note:** File an issue to request a support for other resources.
+     * 
+     */
     public Output<Optional<String>> outputPath() {
         return Codegen.optional(this.outputPath);
     }

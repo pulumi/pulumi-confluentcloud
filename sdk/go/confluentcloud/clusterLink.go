@@ -11,6 +11,79 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewClusterLink(ctx, "east-to-west", &confluentcloud.ClusterLinkArgs{
+//				LinkMode: pulumi.String("BIDIRECTIONAL"),
+//				LocalKafkaCluster: &confluentcloud.ClusterLinkLocalKafkaClusterArgs{
+//					Id:           pulumi.Any(data.Confluent_kafka_cluster.East.Id),
+//					RestEndpoint: pulumi.Any(data.Confluent_kafka_cluster.East.Rest_endpoint),
+//					Credentials: &confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs{
+//						Key:    pulumi.Any(confluent_api_key.AppManagerEastClusterApiKey.Id),
+//						Secret: pulumi.Any(confluent_api_key.AppManagerEastClusterApiKey.Secret),
+//					},
+//				},
+//				RemoteKafkaCluster: &confluentcloud.ClusterLinkRemoteKafkaClusterArgs{
+//					Id:                pulumi.Any(data.Confluent_kafka_cluster.West.Id),
+//					BootstrapEndpoint: pulumi.Any(data.Confluent_kafka_cluster.West.Bootstrap_endpoint),
+//					Credentials: &confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs{
+//						Key:    pulumi.Any(confluent_api_key.AppManagerWestClusterApiKey.Id),
+//						Secret: pulumi.Any(confluent_api_key.AppManagerWestClusterApiKey.Secret),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewClusterLink(ctx, "west-to-east", &confluentcloud.ClusterLinkArgs{
+//				LinkMode: pulumi.String("BIDIRECTIONAL"),
+//				LocalKafkaCluster: &confluentcloud.ClusterLinkLocalKafkaClusterArgs{
+//					Id:           pulumi.Any(data.Confluent_kafka_cluster.West.Id),
+//					RestEndpoint: pulumi.Any(data.Confluent_kafka_cluster.West.Rest_endpoint),
+//					Credentials: &confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs{
+//						Key:    pulumi.Any(confluent_api_key.AppManagerWestClusterApiKey.Id),
+//						Secret: pulumi.Any(confluent_api_key.AppManagerWestClusterApiKey.Secret),
+//					},
+//				},
+//				RemoteKafkaCluster: &confluentcloud.ClusterLinkRemoteKafkaClusterArgs{
+//					Id:                pulumi.Any(data.Confluent_kafka_cluster.East.Id),
+//					BootstrapEndpoint: pulumi.Any(data.Confluent_kafka_cluster.East.Bootstrap_endpoint),
+//					Credentials: &confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs{
+//						Key:    pulumi.Any(confluent_api_key.AppManagerEastClusterApiKey.Id),
+//						Secret: pulumi.Any(confluent_api_key.AppManagerEastClusterApiKey.Secret),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `ClusterLink` resource:
+//   - `destination-initiated-cluster-link-rbac`: An example of setting up a _destination_ initiated cluster link with a mirror topic
+//   - `source-initiated-cluster-link-rbac`: An example of setting up a _source_ initiated cluster link with a mirror topic
+//   - `regular-bidirectional-cluster-link-rbac`: An example of setting up a bidirectional cluster link with 2 mirror topics
+//   - `advanced-bidirectional-cluster-link-rbac`: An example of setting up a bidirectional cluster link with 2 mirror topics ([advanced option](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode))
+//
+// See [Cluster Linking on Confluent Cloud](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/index.html) to learn more about Cluster Linking on Confluent Cloud.
+//
 // ## Import
 //
 // # You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode, source (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote

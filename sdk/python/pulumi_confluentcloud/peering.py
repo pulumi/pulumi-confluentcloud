@@ -212,6 +212,81 @@ class Peering(pulumi.CustomResource):
                  network: Optional[pulumi.Input[pulumi.InputType['PeeringNetworkArgs']]] = None,
                  __props__=None):
         """
+        ## Example Usage
+        ### Example Peering on AWS
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        aws_peering = confluentcloud.Network("aws-peering",
+            display_name="AWS Peering Network",
+            cloud="AWS",
+            region="us-east-2",
+            cidr="10.10.0.0/16",
+            connection_types=["PEERING"],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        aws = confluentcloud.Peering("aws",
+            display_name="AWS Peering",
+            aws=confluentcloud.PeeringAwsArgs(
+                account="012345678901",
+                vpc="vpc-abcdef0123456789a",
+                routes=["172.31.0.0/16"],
+                customer_region="us-east-2",
+            ),
+            environment=confluentcloud.PeeringEnvironmentArgs(
+                id=development.id,
+            ),
+            network=confluentcloud.PeeringNetworkArgs(
+                id=aws_peering.id,
+            ))
+        ```
+        ### Example Peering on Azure
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        azure_peering = confluentcloud.Network("azure-peering",
+            display_name="Azure Peering Network",
+            cloud="AZURE",
+            region="centralus",
+            cidr="10.10.0.0/16",
+            connection_types=["PEERING"],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        azure = confluentcloud.Peering("azure",
+            display_name="Azure Peering",
+            azure=confluentcloud.PeeringAzureArgs(
+                tenant="1111tttt-1111-1111-1111-111111tttttt",
+                vnet="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet",
+                customer_region="centralus",
+            ),
+            environment=confluentcloud.PeeringEnvironmentArgs(
+                id=development.id,
+            ),
+            network=confluentcloud.PeeringNetworkArgs(
+                id=azure_peering.id,
+            ))
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `Peering` resource:
+          * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+          * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+          * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+
         ## Import
 
         You can import a Peering by using Environment ID and Peering ID, in the format `<Environment ID>/<Peering ID>`. The following example shows how to import a Peering$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
@@ -236,6 +311,81 @@ class Peering(pulumi.CustomResource):
                  args: PeeringArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+        ### Example Peering on AWS
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        aws_peering = confluentcloud.Network("aws-peering",
+            display_name="AWS Peering Network",
+            cloud="AWS",
+            region="us-east-2",
+            cidr="10.10.0.0/16",
+            connection_types=["PEERING"],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        aws = confluentcloud.Peering("aws",
+            display_name="AWS Peering",
+            aws=confluentcloud.PeeringAwsArgs(
+                account="012345678901",
+                vpc="vpc-abcdef0123456789a",
+                routes=["172.31.0.0/16"],
+                customer_region="us-east-2",
+            ),
+            environment=confluentcloud.PeeringEnvironmentArgs(
+                id=development.id,
+            ),
+            network=confluentcloud.PeeringNetworkArgs(
+                id=aws_peering.id,
+            ))
+        ```
+        ### Example Peering on Azure
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        azure_peering = confluentcloud.Network("azure-peering",
+            display_name="Azure Peering Network",
+            cloud="AZURE",
+            region="centralus",
+            cidr="10.10.0.0/16",
+            connection_types=["PEERING"],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        azure = confluentcloud.Peering("azure",
+            display_name="Azure Peering",
+            azure=confluentcloud.PeeringAzureArgs(
+                tenant="1111tttt-1111-1111-1111-111111tttttt",
+                vnet="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet",
+                customer_region="centralus",
+            ),
+            environment=confluentcloud.PeeringEnvironmentArgs(
+                id=development.id,
+            ),
+            network=confluentcloud.PeeringNetworkArgs(
+                id=azure_peering.id,
+            ))
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `Peering` resource:
+          * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+          * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+          * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+
         ## Import
 
         You can import a Peering by using Environment ID and Peering ID, in the format `<Environment ID>/<Peering ID>`. The following example shows how to import a Peering$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

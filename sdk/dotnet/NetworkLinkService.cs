@@ -10,6 +10,73 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// ## Example Usage
+    /// ### Example Network Link Service on AWS
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var development = new ConfluentCloud.Environment("development");
+    /// 
+    ///     var aws_private_link = new ConfluentCloud.Network("aws-private-link", new()
+    ///     {
+    ///         DisplayName = "AWS Private Link Network",
+    ///         Cloud = "AWS",
+    ///         Region = "us-east-1",
+    ///         ConnectionTypes = new[]
+    ///         {
+    ///             "PRIVATELINK",
+    ///         },
+    ///         Zones = new[]
+    ///         {
+    ///             "use1-az1",
+    ///             "use1-az2",
+    ///             "use1-az6",
+    ///         },
+    ///         Environment = new ConfluentCloud.Inputs.NetworkEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var awsNls = new ConfluentCloud.NetworkLinkService("awsNls", new()
+    ///     {
+    ///         DisplayName = "AWS Private Link network link service",
+    ///         Environment = new ConfluentCloud.Inputs.NetworkLinkServiceEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///         Network = new ConfluentCloud.Inputs.NetworkLinkServiceNetworkArgs
+    ///         {
+    ///             Id = aws_private_link.Id,
+    ///         },
+    ///         Description = "Test NL service",
+    ///         Accept = new ConfluentCloud.Inputs.NetworkLinkServiceAcceptArgs
+    ///         {
+    ///             Environments = new[]
+    ///             {
+    ///                 "env-5678",
+    ///                 "env-0923",
+    ///             },
+    ///             Networks = new[]
+    ///             {
+    ///                 "n-1234",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with `confluentcloud.NetworkLinkService` resource:
+    /// * `cluster-link-over-aws-private-link-networks`: Cluster link over two dedicated clusters in separate AWS PrivateLink networks
+    /// 
     /// ## Import
     /// 
     /// You can import a Network Link Service by using Environment ID and Network Link Service ID, in the format `&lt;Environment ID&gt;/&lt;Network Link Service ID&gt;`. The following example shows how to import a Network Link Service$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"

@@ -12,6 +12,185 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+// ### Example Network that supports Private Link Connections
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewNetwork(ctx, "aws-private-link", &confluentcloud.NetworkArgs{
+//				DisplayName: pulumi.String("AWS Private Link Network"),
+//				Cloud:       pulumi.String("AWS"),
+//				Region:      pulumi.String("us-east-1"),
+//				ConnectionTypes: pulumi.StringArray{
+//					pulumi.String("PRIVATELINK"),
+//				},
+//				Zones: pulumi.StringArray{
+//					pulumi.String("use1-az1"),
+//					pulumi.String("use1-az2"),
+//					pulumi.String("use1-az6"),
+//				},
+//				Environment: &confluentcloud.NetworkEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example Network that supports Peering Connections
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewNetwork(ctx, "azure-peering", &confluentcloud.NetworkArgs{
+//				DisplayName: pulumi.String("Azure Peering Network"),
+//				Cloud:       pulumi.String("AZURE"),
+//				Region:      pulumi.String("eastus2"),
+//				Cidr:        pulumi.String("10.10.0.0/16"),
+//				ConnectionTypes: pulumi.StringArray{
+//					pulumi.String("PEERING"),
+//				},
+//				Environment: &confluentcloud.NetworkEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example Network that supports Private Service Connect Connections
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewNetwork(ctx, "gcp-private-service-connect", &confluentcloud.NetworkArgs{
+//				DisplayName: pulumi.String("GCP Private Service Connect Network"),
+//				Cloud:       pulumi.String("GCP"),
+//				Region:      pulumi.String("us-central1"),
+//				ConnectionTypes: pulumi.StringArray{
+//					pulumi.String("PRIVATELINK"),
+//				},
+//				Zones: pulumi.StringArray{
+//					pulumi.String("us-central1-a"),
+//					pulumi.String("us-central1-b"),
+//					pulumi.String("us-central1-c"),
+//				},
+//				Environment: &confluentcloud.NetworkEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//				DnsConfig: &confluentcloud.NetworkDnsConfigArgs{
+//					Resolution: pulumi.String("PRIVATE"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example Network that supports Transit Gateway Endpoints
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewNetwork(ctx, "aws-transit-gateway-attachment", &confluentcloud.NetworkArgs{
+//				DisplayName: pulumi.String("AWS Transit Gateway Attachment Network"),
+//				Cloud:       pulumi.String("AWS"),
+//				Region:      pulumi.String("us-east-1"),
+//				Cidr:        pulumi.String("10.10.0.0/16"),
+//				ConnectionTypes: pulumi.StringArray{
+//					pulumi.String("TRANSITGATEWAY"),
+//				},
+//				Environment: &confluentcloud.NetworkEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `Network` resource:
+//   - `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+//   - `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+//   - `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+//   - `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+//   - `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+//   - `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+//   - `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+//   - `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+//   - `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+//
 // ## Import
 //
 // You can import a Network by using Environment ID and Network ID, in the format `<Environment ID>/<Network ID>`. The following example shows how to import a Network$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

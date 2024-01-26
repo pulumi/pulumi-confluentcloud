@@ -22,6 +22,196 @@ import java.util.Map;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ### Example Network that supports Private Link Connections
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.Network;
+ * import com.pulumi.confluentcloud.NetworkArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var development = new Environment(&#34;development&#34;);
+ * 
+ *         var aws_private_link = new Network(&#34;aws-private-link&#34;, NetworkArgs.builder()        
+ *             .displayName(&#34;AWS Private Link Network&#34;)
+ *             .cloud(&#34;AWS&#34;)
+ *             .region(&#34;us-east-1&#34;)
+ *             .connectionTypes(&#34;PRIVATELINK&#34;)
+ *             .zones(            
+ *                 &#34;use1-az1&#34;,
+ *                 &#34;use1-az2&#34;,
+ *                 &#34;use1-az6&#34;)
+ *             .environment(NetworkEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example Network that supports Peering Connections
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.Network;
+ * import com.pulumi.confluentcloud.NetworkArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var development = new Environment(&#34;development&#34;);
+ * 
+ *         var azure_peering = new Network(&#34;azure-peering&#34;, NetworkArgs.builder()        
+ *             .displayName(&#34;Azure Peering Network&#34;)
+ *             .cloud(&#34;AZURE&#34;)
+ *             .region(&#34;eastus2&#34;)
+ *             .cidr(&#34;10.10.0.0/16&#34;)
+ *             .connectionTypes(&#34;PEERING&#34;)
+ *             .environment(NetworkEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example Network that supports Private Service Connect Connections
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.Network;
+ * import com.pulumi.confluentcloud.NetworkArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkDnsConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var development = new Environment(&#34;development&#34;);
+ * 
+ *         var gcp_private_service_connect = new Network(&#34;gcp-private-service-connect&#34;, NetworkArgs.builder()        
+ *             .displayName(&#34;GCP Private Service Connect Network&#34;)
+ *             .cloud(&#34;GCP&#34;)
+ *             .region(&#34;us-central1&#34;)
+ *             .connectionTypes(&#34;PRIVATELINK&#34;)
+ *             .zones(            
+ *                 &#34;us-central1-a&#34;,
+ *                 &#34;us-central1-b&#34;,
+ *                 &#34;us-central1-c&#34;)
+ *             .environment(NetworkEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .dnsConfig(NetworkDnsConfigArgs.builder()
+ *                 .resolution(&#34;PRIVATE&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example Network that supports Transit Gateway Endpoints
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.Network;
+ * import com.pulumi.confluentcloud.NetworkArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var development = new Environment(&#34;development&#34;);
+ * 
+ *         var aws_transit_gateway_attachment = new Network(&#34;aws-transit-gateway-attachment&#34;, NetworkArgs.builder()        
+ *             .displayName(&#34;AWS Transit Gateway Attachment Network&#34;)
+ *             .cloud(&#34;AWS&#34;)
+ *             .region(&#34;us-east-1&#34;)
+ *             .cidr(&#34;10.10.0.0/16&#34;)
+ *             .connectionTypes(&#34;TRANSITGATEWAY&#34;)
+ *             .environment(NetworkEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.Network` resource:
+ *   * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ *   * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+ *   * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+ *   * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+ *   * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+ *   * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+ *   * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+ *   * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+ *   * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+ *   * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+ *   * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+ *   * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+ *   * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ * 
  * ## Import
  * 
  * You can import a Network by using Environment ID and Network ID, in the format `&lt;Environment ID&gt;/&lt;Network ID&gt;`. The following example shows how to import a Network$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;

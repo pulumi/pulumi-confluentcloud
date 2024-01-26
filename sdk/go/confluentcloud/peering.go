@@ -12,6 +12,133 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+// ### Example Peering on AWS
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewNetwork(ctx, "aws-peering", &confluentcloud.NetworkArgs{
+//				DisplayName: pulumi.String("AWS Peering Network"),
+//				Cloud:       pulumi.String("AWS"),
+//				Region:      pulumi.String("us-east-2"),
+//				Cidr:        pulumi.String("10.10.0.0/16"),
+//				ConnectionTypes: pulumi.StringArray{
+//					pulumi.String("PEERING"),
+//				},
+//				Environment: &confluentcloud.NetworkEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewPeering(ctx, "aws", &confluentcloud.PeeringArgs{
+//				DisplayName: pulumi.String("AWS Peering"),
+//				Aws: &confluentcloud.PeeringAwsArgs{
+//					Account: pulumi.String("012345678901"),
+//					Vpc:     pulumi.String("vpc-abcdef0123456789a"),
+//					Routes: pulumi.StringArray{
+//						pulumi.String("172.31.0.0/16"),
+//					},
+//					CustomerRegion: pulumi.String("us-east-2"),
+//				},
+//				Environment: &confluentcloud.PeeringEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//				Network: &confluentcloud.PeeringNetworkArgs{
+//					Id: aws_peering.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example Peering on Azure
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewNetwork(ctx, "azure-peering", &confluentcloud.NetworkArgs{
+//				DisplayName: pulumi.String("Azure Peering Network"),
+//				Cloud:       pulumi.String("AZURE"),
+//				Region:      pulumi.String("centralus"),
+//				Cidr:        pulumi.String("10.10.0.0/16"),
+//				ConnectionTypes: pulumi.StringArray{
+//					pulumi.String("PEERING"),
+//				},
+//				Environment: &confluentcloud.NetworkEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewPeering(ctx, "azure", &confluentcloud.PeeringArgs{
+//				DisplayName: pulumi.String("Azure Peering"),
+//				Azure: &confluentcloud.PeeringAzureArgs{
+//					Tenant:         pulumi.String("1111tttt-1111-1111-1111-111111tttttt"),
+//					Vnet:           pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet"),
+//					CustomerRegion: pulumi.String("centralus"),
+//				},
+//				Environment: &confluentcloud.PeeringEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//				Network: &confluentcloud.PeeringNetworkArgs{
+//					Id: azure_peering.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `Peering` resource:
+//   - `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+//   - `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+//   - `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+//
 // ## Import
 //
 // You can import a Peering by using Environment ID and Peering ID, in the format `<Environment ID>/<Peering ID>`. The following example shows how to import a Peering$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

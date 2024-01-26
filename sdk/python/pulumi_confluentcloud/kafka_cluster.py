@@ -471,6 +471,134 @@ class KafkaCluster(pulumi.CustomResource):
                  standard: Optional[pulumi.Input[pulumi.InputType['KafkaClusterStandardArgs']]] = None,
                  __props__=None):
         """
+        ## Example Usage
+        ### Example Kafka clusters on AWS
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        basic = confluentcloud.KafkaCluster("basic",
+            availability="SINGLE_ZONE",
+            cloud="AWS",
+            region="us-east-2",
+            basic=confluentcloud.KafkaClusterBasicArgs(),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        standard = confluentcloud.KafkaCluster("standard",
+            availability="SINGLE_ZONE",
+            cloud="AWS",
+            region="us-east-2",
+            standard=confluentcloud.KafkaClusterStandardArgs(),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        dedicated = confluentcloud.KafkaCluster("dedicated",
+            availability="MULTI_ZONE",
+            cloud="AWS",
+            region="us-east-2",
+            dedicated=confluentcloud.KafkaClusterDedicatedArgs(
+                cku=2,
+            ),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        ```
+        ### Example Kafka clusters on Azure
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        basic = confluentcloud.KafkaCluster("basic",
+            availability="SINGLE_ZONE",
+            cloud="AZURE",
+            region="centralus",
+            basic=confluentcloud.KafkaClusterBasicArgs(),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        standard = confluentcloud.KafkaCluster("standard",
+            availability="SINGLE_ZONE",
+            cloud="AZURE",
+            region="centralus",
+            standard=confluentcloud.KafkaClusterStandardArgs(),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        dedicated = confluentcloud.KafkaCluster("dedicated",
+            availability="MULTI_ZONE",
+            cloud="AZURE",
+            region="centralus",
+            dedicated=confluentcloud.KafkaClusterDedicatedArgs(
+                cku=2,
+            ),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        ```
+        ### Example Kafka clusters on GCP
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        basic = confluentcloud.KafkaCluster("basic",
+            availability="SINGLE_ZONE",
+            cloud="GCP",
+            region="us-central1",
+            basic=confluentcloud.KafkaClusterBasicArgs(),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        standard = confluentcloud.KafkaCluster("standard",
+            availability="SINGLE_ZONE",
+            cloud="GCP",
+            region="us-central1",
+            standard=confluentcloud.KafkaClusterStandardArgs(),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        dedicated = confluentcloud.KafkaCluster("dedicated",
+            availability="MULTI_ZONE",
+            cloud="GCP",
+            region="us-central1",
+            dedicated=confluentcloud.KafkaClusterDedicatedArgs(
+                cku=2,
+            ),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `KafkaCluster` resource:
+          * `basic-kafka-acls`: _Basic_ Kafka cluster with authorization using ACLs
+          * `basic-kafka-acls-with-alias`: _Basic_ Kafka cluster with authorization using ACLs
+          * `standard-kafka-acls`: _Standard_ Kafka cluster with authorization using ACLs
+          * `standard-kafka-rbac`: _Standard_ Kafka cluster with authorization using RBAC
+          * `dedicated-public-kafka-acls`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using ACLs
+          * `dedicated-public-kafka-rbac`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC
+          * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+          * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+          * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+          * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+          * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+          * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+          * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+          * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+          * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+
         ## Import
 
         You can import a Kafka cluster by using Environment ID and Kafka cluster ID, in the format `<Environment ID>/<Kafka cluster ID>`, e.g. $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
@@ -502,6 +630,134 @@ class KafkaCluster(pulumi.CustomResource):
                  args: KafkaClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+        ### Example Kafka clusters on AWS
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        basic = confluentcloud.KafkaCluster("basic",
+            availability="SINGLE_ZONE",
+            cloud="AWS",
+            region="us-east-2",
+            basic=confluentcloud.KafkaClusterBasicArgs(),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        standard = confluentcloud.KafkaCluster("standard",
+            availability="SINGLE_ZONE",
+            cloud="AWS",
+            region="us-east-2",
+            standard=confluentcloud.KafkaClusterStandardArgs(),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        dedicated = confluentcloud.KafkaCluster("dedicated",
+            availability="MULTI_ZONE",
+            cloud="AWS",
+            region="us-east-2",
+            dedicated=confluentcloud.KafkaClusterDedicatedArgs(
+                cku=2,
+            ),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        ```
+        ### Example Kafka clusters on Azure
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        basic = confluentcloud.KafkaCluster("basic",
+            availability="SINGLE_ZONE",
+            cloud="AZURE",
+            region="centralus",
+            basic=confluentcloud.KafkaClusterBasicArgs(),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        standard = confluentcloud.KafkaCluster("standard",
+            availability="SINGLE_ZONE",
+            cloud="AZURE",
+            region="centralus",
+            standard=confluentcloud.KafkaClusterStandardArgs(),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        dedicated = confluentcloud.KafkaCluster("dedicated",
+            availability="MULTI_ZONE",
+            cloud="AZURE",
+            region="centralus",
+            dedicated=confluentcloud.KafkaClusterDedicatedArgs(
+                cku=2,
+            ),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        ```
+        ### Example Kafka clusters on GCP
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        basic = confluentcloud.KafkaCluster("basic",
+            availability="SINGLE_ZONE",
+            cloud="GCP",
+            region="us-central1",
+            basic=confluentcloud.KafkaClusterBasicArgs(),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        standard = confluentcloud.KafkaCluster("standard",
+            availability="SINGLE_ZONE",
+            cloud="GCP",
+            region="us-central1",
+            standard=confluentcloud.KafkaClusterStandardArgs(),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        dedicated = confluentcloud.KafkaCluster("dedicated",
+            availability="MULTI_ZONE",
+            cloud="GCP",
+            region="us-central1",
+            dedicated=confluentcloud.KafkaClusterDedicatedArgs(
+                cku=2,
+            ),
+            environment=confluentcloud.KafkaClusterEnvironmentArgs(
+                id=development.id,
+            ))
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `KafkaCluster` resource:
+          * `basic-kafka-acls`: _Basic_ Kafka cluster with authorization using ACLs
+          * `basic-kafka-acls-with-alias`: _Basic_ Kafka cluster with authorization using ACLs
+          * `standard-kafka-acls`: _Standard_ Kafka cluster with authorization using ACLs
+          * `standard-kafka-rbac`: _Standard_ Kafka cluster with authorization using RBAC
+          * `dedicated-public-kafka-acls`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using ACLs
+          * `dedicated-public-kafka-rbac`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC
+          * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+          * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+          * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+          * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+          * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+          * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+          * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+          * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+          * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+          * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+          * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+
         ## Import
 
         You can import a Kafka cluster by using Environment ID and Kafka cluster ID, in the format `<Environment ID>/<Kafka cluster ID>`, e.g. $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

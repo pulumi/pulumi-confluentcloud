@@ -18,6 +18,264 @@ import java.util.Map;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ### Example Managed [Datagen Source Connector](https://docs.confluent.io/cloud/current/connectors/cc-datagen-source.html) that uses a service account to communicate with your Kafka cluster
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Connector;
+ * import com.pulumi.confluentcloud.ConnectorArgs;
+ * import com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var source = new Connector(&#34;source&#34;, ConnectorArgs.builder()        
+ *             .environment(ConnectorEnvironmentArgs.builder()
+ *                 .id(confluent_environment.staging().id())
+ *                 .build())
+ *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
+ *                 .id(confluent_kafka_cluster.basic().id())
+ *                 .build())
+ *             .configSensitive()
+ *             .configNonsensitive(Map.ofEntries(
+ *                 Map.entry(&#34;connector.class&#34;, &#34;DatagenSource&#34;),
+ *                 Map.entry(&#34;name&#34;, &#34;DatagenSourceConnector_0&#34;),
+ *                 Map.entry(&#34;kafka.auth.mode&#34;, &#34;SERVICE_ACCOUNT&#34;),
+ *                 Map.entry(&#34;kafka.service.account.id&#34;, confluent_service_account.app-connector().id()),
+ *                 Map.entry(&#34;kafka.topic&#34;, confluent_kafka_topic.orders().topic_name()),
+ *                 Map.entry(&#34;output.data.format&#34;, &#34;JSON&#34;),
+ *                 Map.entry(&#34;quickstart&#34;, &#34;ORDERS&#34;),
+ *                 Map.entry(&#34;tasks.max&#34;, &#34;1&#34;)
+ *             ))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     confluent_kafka_acl.app-connector-describe-on-cluster(),
+ *                     confluent_kafka_acl.app-connector-write-on-target-topic(),
+ *                     confluent_kafka_acl.app-connector-create-on-data-preview-topics(),
+ *                     confluent_kafka_acl.app-connector-write-on-data-preview-topics())
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example Managed [Amazon S3 Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-s3-sink.html) that uses a service account to communicate with your Kafka cluster
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Connector;
+ * import com.pulumi.confluentcloud.ConnectorArgs;
+ * import com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var sink = new Connector(&#34;sink&#34;, ConnectorArgs.builder()        
+ *             .environment(ConnectorEnvironmentArgs.builder()
+ *                 .id(confluent_environment.staging().id())
+ *                 .build())
+ *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
+ *                 .id(confluent_kafka_cluster.basic().id())
+ *                 .build())
+ *             .configSensitive(Map.ofEntries(
+ *                 Map.entry(&#34;aws.access.key.id&#34;, &#34;***REDACTED***&#34;),
+ *                 Map.entry(&#34;aws.secret.access.key&#34;, &#34;***REDACTED***&#34;)
+ *             ))
+ *             .configNonsensitive(Map.ofEntries(
+ *                 Map.entry(&#34;topics&#34;, confluent_kafka_topic.orders().topic_name()),
+ *                 Map.entry(&#34;input.data.format&#34;, &#34;JSON&#34;),
+ *                 Map.entry(&#34;connector.class&#34;, &#34;S3_SINK&#34;),
+ *                 Map.entry(&#34;name&#34;, &#34;S3_SINKConnector_0&#34;),
+ *                 Map.entry(&#34;kafka.auth.mode&#34;, &#34;SERVICE_ACCOUNT&#34;),
+ *                 Map.entry(&#34;kafka.service.account.id&#34;, confluent_service_account.app-connector().id()),
+ *                 Map.entry(&#34;s3.bucket.name&#34;, &#34;&lt;s3-bucket-name&gt;&#34;),
+ *                 Map.entry(&#34;output.data.format&#34;, &#34;JSON&#34;),
+ *                 Map.entry(&#34;time.interval&#34;, &#34;DAILY&#34;),
+ *                 Map.entry(&#34;flush.size&#34;, &#34;1000&#34;),
+ *                 Map.entry(&#34;tasks.max&#34;, &#34;1&#34;)
+ *             ))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     confluent_kafka_acl.app-connector-describe-on-cluster(),
+ *                     confluent_kafka_acl.app-connector-read-on-target-topic(),
+ *                     confluent_kafka_acl.app-connector-create-on-dlq-lcc-topics(),
+ *                     confluent_kafka_acl.app-connector-write-on-dlq-lcc-topics(),
+ *                     confluent_kafka_acl.app-connector-create-on-success-lcc-topics(),
+ *                     confluent_kafka_acl.app-connector-write-on-success-lcc-topics(),
+ *                     confluent_kafka_acl.app-connector-create-on-error-lcc-topics(),
+ *                     confluent_kafka_acl.app-connector-write-on-error-lcc-topics(),
+ *                     confluent_kafka_acl.app-connector-read-on-connect-lcc-group())
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example Managed [Amazon DynamoDB Connector](https://docs.confluent.io/cloud/current/connectors/cc-amazon-dynamo-db-sink.html) that uses a service account to communicate with your Kafka cluster
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Connector;
+ * import com.pulumi.confluentcloud.ConnectorArgs;
+ * import com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var sink = new Connector(&#34;sink&#34;, ConnectorArgs.builder()        
+ *             .environment(ConnectorEnvironmentArgs.builder()
+ *                 .id(confluent_environment.staging().id())
+ *                 .build())
+ *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
+ *                 .id(confluent_kafka_cluster.basic().id())
+ *                 .build())
+ *             .configSensitive(Map.ofEntries(
+ *                 Map.entry(&#34;aws.access.key.id&#34;, &#34;***REDACTED***&#34;),
+ *                 Map.entry(&#34;aws.secret.access.key&#34;, &#34;***REDACTED***&#34;)
+ *             ))
+ *             .configNonsensitive(Map.ofEntries(
+ *                 Map.entry(&#34;topics&#34;, confluent_kafka_topic.orders().topic_name()),
+ *                 Map.entry(&#34;input.data.format&#34;, &#34;JSON&#34;),
+ *                 Map.entry(&#34;connector.class&#34;, &#34;DynamoDbSink&#34;),
+ *                 Map.entry(&#34;name&#34;, &#34;DynamoDbSinkConnector_0&#34;),
+ *                 Map.entry(&#34;kafka.auth.mode&#34;, &#34;SERVICE_ACCOUNT&#34;),
+ *                 Map.entry(&#34;kafka.service.account.id&#34;, confluent_service_account.app-connector().id()),
+ *                 Map.entry(&#34;aws.dynamodb.pk.hash&#34;, &#34;value.userid&#34;),
+ *                 Map.entry(&#34;aws.dynamodb.pk.sort&#34;, &#34;value.pageid&#34;),
+ *                 Map.entry(&#34;tasks.max&#34;, &#34;1&#34;)
+ *             ))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     confluent_kafka_acl.app-connector-describe-on-cluster(),
+ *                     confluent_kafka_acl.app-connector-read-on-target-topic(),
+ *                     confluent_kafka_acl.app-connector-create-on-dlq-lcc-topics(),
+ *                     confluent_kafka_acl.app-connector-write-on-dlq-lcc-topics(),
+ *                     confluent_kafka_acl.app-connector-create-on-success-lcc-topics(),
+ *                     confluent_kafka_acl.app-connector-write-on-success-lcc-topics(),
+ *                     confluent_kafka_acl.app-connector-create-on-error-lcc-topics(),
+ *                     confluent_kafka_acl.app-connector-write-on-error-lcc-topics(),
+ *                     confluent_kafka_acl.app-connector-read-on-connect-lcc-group())
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example Custom [Datagen Source Connector](https://www.confluent.io/hub/confluentinc/kafka-connect-datagen) that uses a Kafka API Key to communicate with your Kafka cluster
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Connector;
+ * import com.pulumi.confluentcloud.ConnectorArgs;
+ * import com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var source = new Connector(&#34;source&#34;, ConnectorArgs.builder()        
+ *             .environment(ConnectorEnvironmentArgs.builder()
+ *                 .id(confluent_environment.staging().id())
+ *                 .build())
+ *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
+ *                 .id(confluent_kafka_cluster.basic().id())
+ *                 .build())
+ *             .configSensitive(Map.ofEntries(
+ *                 Map.entry(&#34;kafka.api.key&#34;, &#34;***REDACTED***&#34;),
+ *                 Map.entry(&#34;kafka.api.secret&#34;, &#34;***REDACTED***&#34;)
+ *             ))
+ *             .configNonsensitive(Map.ofEntries(
+ *                 Map.entry(&#34;confluent.connector.type&#34;, &#34;CUSTOM&#34;),
+ *                 Map.entry(&#34;connector.class&#34;, confluent_custom_connector_plugin.source().connector_class()),
+ *                 Map.entry(&#34;name&#34;, &#34;DatagenConnectorExampleName&#34;),
+ *                 Map.entry(&#34;kafka.auth.mode&#34;, &#34;KAFKA_API_KEY&#34;),
+ *                 Map.entry(&#34;kafka.topic&#34;, confluent_kafka_topic.orders().topic_name()),
+ *                 Map.entry(&#34;output.data.format&#34;, &#34;JSON&#34;),
+ *                 Map.entry(&#34;quickstart&#34;, &#34;ORDERS&#34;),
+ *                 Map.entry(&#34;confluent.custom.plugin.id&#34;, confluent_custom_connector_plugin.source().id()),
+ *                 Map.entry(&#34;min.interval&#34;, &#34;1000&#34;),
+ *                 Map.entry(&#34;max.interval&#34;, &#34;2000&#34;),
+ *                 Map.entry(&#34;tasks.max&#34;, &#34;1&#34;)
+ *             ))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(confluent_role_binding.app-manager-kafka-cluster-admin())
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * &gt; **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+ * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.Connector` resource:
+ * * `s3-sink-connector`
+ * * `snowflake-sink-connector`
+ * * `managed-datagen-source-connector`
+ * * `elasticsearch-sink-connector`
+ * * `dynamo-db-sink-connector`
+ * * `mongo-db-source-connector`
+ * * `mongo-db-sink-connector`
+ * * `sql-server-cdc-debezium-source-connector`
+ * * `postgre-sql-cdc-debezium-source-connector`
+ * * `custom-datagen-source-connector`
+ * 
+ * &gt; **Note:** Certain connectors require additional ACL entries. See [Additional ACL entries](https://docs.confluent.io/cloud/current/connectors/service-account.html#additional-acl-entries) for more details.
+ * 
  * ## Import
  * 
  * You can import a connector by using Environment ID, Kafka cluster ID, and connector&#39;s name, in the format `&lt;Environment ID&gt;/&lt;Kafka cluster ID&gt;/&lt;Connector name&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
@@ -77,9 +335,25 @@ public class Connector extends com.pulumi.resources.CustomResource {
     public Output<ConnectorKafkaCluster> kafkaCluster() {
         return this.kafkaCluster;
     }
+    /**
+     * The status of the connector (one of `&#34;NONE&#34;`, `&#34;PROVISIONING&#34;`, `&#34;RUNNING&#34;`, `&#34;DEGRADED&#34;`, `&#34;FAILED&#34;`, `&#34;PAUSED&#34;`, `&#34;DELETED&#34;`). Pausing (`&#34;RUNNING&#34; &gt; &#34;PAUSED&#34;`) and resuming (`&#34;PAUSED&#34; &gt; &#34;RUNNING&#34;`) a connector is supported via an update operation.
+     * 
+     * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+     * 
+     * &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id=&#34;foo&#34;`).
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return The status of the connector (one of `&#34;NONE&#34;`, `&#34;PROVISIONING&#34;`, `&#34;RUNNING&#34;`, `&#34;DEGRADED&#34;`, `&#34;FAILED&#34;`, `&#34;PAUSED&#34;`, `&#34;DELETED&#34;`). Pausing (`&#34;RUNNING&#34; &gt; &#34;PAUSED&#34;`) and resuming (`&#34;PAUSED&#34; &gt; &#34;RUNNING&#34;`) a connector is supported via an update operation.
+     * 
+     * &gt; **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+     * 
+     * &gt; **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id=&#34;foo&#34;`).
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

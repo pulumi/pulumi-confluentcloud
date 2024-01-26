@@ -10,6 +10,68 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// ## Example Usage
+    /// ### Example Transit Gateway Attachment on AWS
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var development = new ConfluentCloud.Environment("development");
+    /// 
+    ///     var aws_transit_gateway_attachment = new ConfluentCloud.Network("aws-transit-gateway-attachment", new()
+    ///     {
+    ///         DisplayName = "AWS Transit Gateway Attachment Network",
+    ///         Cloud = "AWS",
+    ///         Region = "us-east-2",
+    ///         Cidr = "10.10.0.0/16",
+    ///         ConnectionTypes = new[]
+    ///         {
+    ///             "TRANSITGATEWAY",
+    ///         },
+    ///         Environment = new ConfluentCloud.Inputs.NetworkEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var aws = new ConfluentCloud.TransitGatewayAttachment("aws", new()
+    ///     {
+    ///         DisplayName = "AWS Transit Gateway Attachment",
+    ///         Aws = new ConfluentCloud.Inputs.TransitGatewayAttachmentAwsArgs
+    ///         {
+    ///             RamResourceShareArn = "arn:aws:ram:us-east-2:000000000000:resource-share/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    ///             TransitGatewayId = "tgw-xxxxxxxxxxxxxxxxx",
+    ///             Routes = new[]
+    ///             {
+    ///                 "192.168.0.0/16",
+    ///                 "172.16.0.0/12",
+    ///                 "100.64.0.0/10",
+    ///                 "10.0.0.0/8",
+    ///             },
+    ///         },
+    ///         Environment = new ConfluentCloud.Inputs.TransitGatewayAttachmentEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///         Network = new ConfluentCloud.Inputs.TransitGatewayAttachmentNetworkArgs
+    ///         {
+    ///             Id = aws_transit_gateway_attachment.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with `confluentcloud.TransitGatewayAttachment` resource:
+    ///   * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+    ///   * enterprise-privatelinkattachment-aws-kafka-acls
+    /// 
     /// ## Import
     /// 
     /// You can import a Transit Gateway Attachment by using Environment ID and Transit Gateway Attachment ID, in the format `&lt;Environment ID&gt;/&lt;Transit Gateway Attachment ID&gt;`. The following example shows how to import a Transit Gateway Attachment$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"

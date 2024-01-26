@@ -170,6 +170,48 @@ class TransitGatewayAttachment(pulumi.CustomResource):
                  network: Optional[pulumi.Input[pulumi.InputType['TransitGatewayAttachmentNetworkArgs']]] = None,
                  __props__=None):
         """
+        ## Example Usage
+        ### Example Transit Gateway Attachment on AWS
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        aws_transit_gateway_attachment = confluentcloud.Network("aws-transit-gateway-attachment",
+            display_name="AWS Transit Gateway Attachment Network",
+            cloud="AWS",
+            region="us-east-2",
+            cidr="10.10.0.0/16",
+            connection_types=["TRANSITGATEWAY"],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        aws = confluentcloud.TransitGatewayAttachment("aws",
+            display_name="AWS Transit Gateway Attachment",
+            aws=confluentcloud.TransitGatewayAttachmentAwsArgs(
+                ram_resource_share_arn="arn:aws:ram:us-east-2:000000000000:resource-share/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+                transit_gateway_id="tgw-xxxxxxxxxxxxxxxxx",
+                routes=[
+                    "192.168.0.0/16",
+                    "172.16.0.0/12",
+                    "100.64.0.0/10",
+                    "10.0.0.0/8",
+                ],
+            ),
+            environment=confluentcloud.TransitGatewayAttachmentEnvironmentArgs(
+                id=development.id,
+            ),
+            network=confluentcloud.TransitGatewayAttachmentNetworkArgs(
+                id=aws_transit_gateway_attachment.id,
+            ))
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `TransitGatewayAttachment` resource:
+          * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+          * enterprise-privatelinkattachment-aws-kafka-acls
+
         ## Import
 
         You can import a Transit Gateway Attachment by using Environment ID and Transit Gateway Attachment ID, in the format `<Environment ID>/<Transit Gateway Attachment ID>`. The following example shows how to import a Transit Gateway Attachment$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
@@ -195,6 +237,48 @@ class TransitGatewayAttachment(pulumi.CustomResource):
                  args: TransitGatewayAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+        ### Example Transit Gateway Attachment on AWS
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        aws_transit_gateway_attachment = confluentcloud.Network("aws-transit-gateway-attachment",
+            display_name="AWS Transit Gateway Attachment Network",
+            cloud="AWS",
+            region="us-east-2",
+            cidr="10.10.0.0/16",
+            connection_types=["TRANSITGATEWAY"],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        aws = confluentcloud.TransitGatewayAttachment("aws",
+            display_name="AWS Transit Gateway Attachment",
+            aws=confluentcloud.TransitGatewayAttachmentAwsArgs(
+                ram_resource_share_arn="arn:aws:ram:us-east-2:000000000000:resource-share/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+                transit_gateway_id="tgw-xxxxxxxxxxxxxxxxx",
+                routes=[
+                    "192.168.0.0/16",
+                    "172.16.0.0/12",
+                    "100.64.0.0/10",
+                    "10.0.0.0/8",
+                ],
+            ),
+            environment=confluentcloud.TransitGatewayAttachmentEnvironmentArgs(
+                id=development.id,
+            ),
+            network=confluentcloud.TransitGatewayAttachmentNetworkArgs(
+                id=aws_transit_gateway_attachment.id,
+            ))
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `TransitGatewayAttachment` resource:
+          * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+          * enterprise-privatelinkattachment-aws-kafka-acls
+
         ## Import
 
         You can import a Transit Gateway Attachment by using Environment ID and Transit Gateway Attachment ID, in the format `<Environment ID>/<Transit Gateway Attachment ID>`. The following example shows how to import a Transit Gateway Attachment$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

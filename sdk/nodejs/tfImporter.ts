@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const example = new confluentcloud.TfImporter("example", {resources: [
+ *     "confluent_service_account",
+ *     "confluent_environment",
+ * ]});
+ * ```
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with the `confluentcloud.TfImporter` resource:
+ *   * `cloud-importer`: Export _Cloud_ resources (for example, Service Accounts, Environments)
+ *   * `kafka-importer`: Export _Kafka_ resources (for example, ACLs, Topics)
+ */
 export class TfImporter extends pulumi.CustomResource {
     /**
      * Get an existing TfImporter resource's state with the given name, ID, and optional extra
@@ -32,6 +50,20 @@ export class TfImporter extends pulumi.CustomResource {
         return obj['__pulumiType'] === TfImporter.__pulumiType;
     }
 
+    /**
+     * An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+     *
+     * These are the exportable resources:
+     * * Service Accounts
+     * * Environments
+     * * Connectors
+     * * Kafka Clusters
+     * * Access Control Lists (ACLs)
+     * * Topics
+     * * Schemas
+     *
+     * > **Note:** File an issue to request a support for other resources.
+     */
     public readonly outputPath!: pulumi.Output<string | undefined>;
     /**
      * A list of resources names to export. Defaults to all exportable resources.
@@ -67,6 +99,20 @@ export class TfImporter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TfImporter resources.
  */
 export interface TfImporterState {
+    /**
+     * An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+     *
+     * These are the exportable resources:
+     * * Service Accounts
+     * * Environments
+     * * Connectors
+     * * Kafka Clusters
+     * * Access Control Lists (ACLs)
+     * * Topics
+     * * Schemas
+     *
+     * > **Note:** File an issue to request a support for other resources.
+     */
     outputPath?: pulumi.Input<string>;
     /**
      * A list of resources names to export. Defaults to all exportable resources.
@@ -78,6 +124,20 @@ export interface TfImporterState {
  * The set of arguments for constructing a TfImporter resource.
  */
 export interface TfImporterArgs {
+    /**
+     * An absolute path to a folder for outputting generated TF state and TF configuration files for your infrastructure. The folder is created if it doesn't exist. Defaults to `./imported_confluent_infrastructure`.
+     *
+     * These are the exportable resources:
+     * * Service Accounts
+     * * Environments
+     * * Connectors
+     * * Kafka Clusters
+     * * Access Control Lists (ACLs)
+     * * Topics
+     * * Schemas
+     *
+     * > **Note:** File an issue to request a support for other resources.
+     */
     outputPath?: pulumi.Input<string>;
     /**
      * A list of resources names to export. Defaults to all exportable resources.
