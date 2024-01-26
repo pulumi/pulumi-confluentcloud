@@ -12,6 +12,52 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluentcloud.NewKafkaMirrorTopic(ctx, "example", &confluentcloud.KafkaMirrorTopicArgs{
+//				SourceKafkaTopic: &confluentcloud.KafkaMirrorTopicSourceKafkaTopicArgs{
+//					TopicName: pulumi.String("orders"),
+//				},
+//				ClusterLink: &confluentcloud.KafkaMirrorTopicClusterLinkArgs{
+//					LinkName: pulumi.Any(confluent_cluster_link.SourceOutbound.Link_name),
+//				},
+//				KafkaCluster: &confluentcloud.KafkaMirrorTopicKafkaClusterArgs{
+//					Id:           pulumi.Any(data.Confluent_kafka_cluster.Destination.Id),
+//					RestEndpoint: pulumi.Any(data.Confluent_kafka_cluster.Destination.Rest_endpoint),
+//					Credentials: &confluentcloud.KafkaMirrorTopicKafkaClusterCredentialsArgs{
+//						Key:    pulumi.Any(confluent_api_key.AppManagerDestinationClusterApiKey.Id),
+//						Secret: pulumi.Any(confluent_api_key.AppManagerDestinationClusterApiKey.Secret),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `KafkaMirrorTopic` resource:
+//   - `destination-initiated-cluster-link-rbac`: An example of setting up a _destination_ initiated cluster link with a mirror topic
+//   - `source-initiated-cluster-link-rbac`: An example of setting up a _source_ initiated cluster link with a mirror topic
+//
+// See [Mirror Topics on Confluent Cloud](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/mirror-topics-cc.html) to learn more about Mirror Topics on Confluent Cloud.
+//
 // ## Import
 //
 // You can import a Kafka mirror topic by using the Kafka cluster ID, cluster link name, and Kafka topic name in the format `<Kafka cluster ID>/<Cluster link name>/<Kafka topic name>`, for example$ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"

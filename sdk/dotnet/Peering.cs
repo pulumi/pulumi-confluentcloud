@@ -10,6 +10,122 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// ## Example Usage
+    /// ### Example Peering on AWS
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var development = new ConfluentCloud.Environment("development");
+    /// 
+    ///     var aws_peering = new ConfluentCloud.Network("aws-peering", new()
+    ///     {
+    ///         DisplayName = "AWS Peering Network",
+    ///         Cloud = "AWS",
+    ///         Region = "us-east-2",
+    ///         Cidr = "10.10.0.0/16",
+    ///         ConnectionTypes = new[]
+    ///         {
+    ///             "PEERING",
+    ///         },
+    ///         Environment = new ConfluentCloud.Inputs.NetworkEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var aws = new ConfluentCloud.Peering("aws", new()
+    ///     {
+    ///         DisplayName = "AWS Peering",
+    ///         Aws = new ConfluentCloud.Inputs.PeeringAwsArgs
+    ///         {
+    ///             Account = "012345678901",
+    ///             Vpc = "vpc-abcdef0123456789a",
+    ///             Routes = new[]
+    ///             {
+    ///                 "172.31.0.0/16",
+    ///             },
+    ///             CustomerRegion = "us-east-2",
+    ///         },
+    ///         Environment = new ConfluentCloud.Inputs.PeeringEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///         Network = new ConfluentCloud.Inputs.PeeringNetworkArgs
+    ///         {
+    ///             Id = aws_peering.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Example Peering on Azure
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var development = new ConfluentCloud.Environment("development");
+    /// 
+    ///     var azure_peering = new ConfluentCloud.Network("azure-peering", new()
+    ///     {
+    ///         DisplayName = "Azure Peering Network",
+    ///         Cloud = "AZURE",
+    ///         Region = "centralus",
+    ///         Cidr = "10.10.0.0/16",
+    ///         ConnectionTypes = new[]
+    ///         {
+    ///             "PEERING",
+    ///         },
+    ///         Environment = new ConfluentCloud.Inputs.NetworkEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var azure = new ConfluentCloud.Peering("azure", new()
+    ///     {
+    ///         DisplayName = "Azure Peering",
+    ///         Azure = new ConfluentCloud.Inputs.PeeringAzureArgs
+    ///         {
+    ///             Tenant = "1111tttt-1111-1111-1111-111111tttttt",
+    ///             Vnet = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/my-vnet",
+    ///             CustomerRegion = "centralus",
+    ///         },
+    ///         Environment = new ConfluentCloud.Inputs.PeeringEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///         Network = new ConfluentCloud.Inputs.PeeringNetworkArgs
+    ///         {
+    ///             Id = azure_peering.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with `confluentcloud.Peering` resource:
+    ///   * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+    ///   * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+    ///   * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+    ///   * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+    ///   * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+    ///   * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+    ///   * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+    ///   * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+    ///   * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+    /// 
     /// ## Import
     /// 
     /// You can import a Peering by using Environment ID and Peering ID, in the format `&lt;Environment ID&gt;/&lt;Peering ID&gt;`. The following example shows how to import a Peering$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"

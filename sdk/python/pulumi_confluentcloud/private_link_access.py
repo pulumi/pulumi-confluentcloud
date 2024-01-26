@@ -212,6 +212,108 @@ class PrivateLinkAccess(pulumi.CustomResource):
                  network: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAccessNetworkArgs']]] = None,
                  __props__=None):
         """
+        ## Example Usage
+        ### Example Private Link Access on AWS
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        aws_private_link = confluentcloud.Network("aws-private-link",
+            display_name="AWS Private Link Network",
+            cloud="AWS",
+            region="us-east-1",
+            connection_types=["PRIVATELINK"],
+            zones=[
+                "use1-az1",
+                "use1-az2",
+                "use1-az6",
+            ],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        aws = confluentcloud.PrivateLinkAccess("aws",
+            display_name="AWS Private Link Access",
+            aws=confluentcloud.PrivateLinkAccessAwsArgs(
+                account="012345678901",
+            ),
+            environment=confluentcloud.PrivateLinkAccessEnvironmentArgs(
+                id=development.id,
+            ),
+            network=confluentcloud.PrivateLinkAccessNetworkArgs(
+                id=aws_private_link.id,
+            ))
+        ```
+        ### Example Private Link Access on Azure
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        azure_private_link = confluentcloud.Network("azure-private-link",
+            display_name="Azure Private Link Network",
+            cloud="AZURE",
+            region="centralus",
+            connection_types=["PRIVATELINK"],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        azure = confluentcloud.PrivateLinkAccess("azure",
+            display_name="Azure Private Link Access",
+            azure=confluentcloud.PrivateLinkAccessAzureArgs(
+                subscription="1234abcd-12ab-34cd-1234-123456abcdef",
+            ),
+            environment=confluentcloud.PrivateLinkAccessEnvironmentArgs(
+                id=development.id,
+            ),
+            network=confluentcloud.PrivateLinkAccessNetworkArgs(
+                id=azure_private_link.id,
+            ))
+        ```
+        ### Example Private Service Connect on GCP
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        gcp_private_service_connect = confluentcloud.Network("gcp-private-service-connect",
+            display_name="GCP Private Service Connect Network",
+            cloud="GCP",
+            region="us-central1",
+            connection_types=["PRIVATELINK"],
+            zones=[
+                "us-central1-a",
+                "us-central1-b",
+                "us-central1-c",
+            ],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        gcp = confluentcloud.PrivateLinkAccess("gcp",
+            display_name="GCP Private Service Connect",
+            gcp=confluentcloud.PrivateLinkAccessGcpArgs(
+                project="temp-gear-123456",
+            ),
+            environment=confluentcloud.PrivateLinkAccessEnvironmentArgs(
+                id=development.id,
+            ),
+            network=confluentcloud.PrivateLinkAccessNetworkArgs(
+                id=gcp_private_service_connect.id,
+            ))
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `PrivateLinkAccess` resource:
+          * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+          * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+          * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+          * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+          * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+          * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+
         ## Import
 
         You can import a Private Link Access by using Environment ID and Private Link Access ID, in the format `<Environment ID>/<Private Link Access ID>`. The following example shows how to import a Private Link Access$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
@@ -236,6 +338,108 @@ class PrivateLinkAccess(pulumi.CustomResource):
                  args: PrivateLinkAccessArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+        ### Example Private Link Access on AWS
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        aws_private_link = confluentcloud.Network("aws-private-link",
+            display_name="AWS Private Link Network",
+            cloud="AWS",
+            region="us-east-1",
+            connection_types=["PRIVATELINK"],
+            zones=[
+                "use1-az1",
+                "use1-az2",
+                "use1-az6",
+            ],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        aws = confluentcloud.PrivateLinkAccess("aws",
+            display_name="AWS Private Link Access",
+            aws=confluentcloud.PrivateLinkAccessAwsArgs(
+                account="012345678901",
+            ),
+            environment=confluentcloud.PrivateLinkAccessEnvironmentArgs(
+                id=development.id,
+            ),
+            network=confluentcloud.PrivateLinkAccessNetworkArgs(
+                id=aws_private_link.id,
+            ))
+        ```
+        ### Example Private Link Access on Azure
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        azure_private_link = confluentcloud.Network("azure-private-link",
+            display_name="Azure Private Link Network",
+            cloud="AZURE",
+            region="centralus",
+            connection_types=["PRIVATELINK"],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        azure = confluentcloud.PrivateLinkAccess("azure",
+            display_name="Azure Private Link Access",
+            azure=confluentcloud.PrivateLinkAccessAzureArgs(
+                subscription="1234abcd-12ab-34cd-1234-123456abcdef",
+            ),
+            environment=confluentcloud.PrivateLinkAccessEnvironmentArgs(
+                id=development.id,
+            ),
+            network=confluentcloud.PrivateLinkAccessNetworkArgs(
+                id=azure_private_link.id,
+            ))
+        ```
+        ### Example Private Service Connect on GCP
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        gcp_private_service_connect = confluentcloud.Network("gcp-private-service-connect",
+            display_name="GCP Private Service Connect Network",
+            cloud="GCP",
+            region="us-central1",
+            connection_types=["PRIVATELINK"],
+            zones=[
+                "us-central1-a",
+                "us-central1-b",
+                "us-central1-c",
+            ],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        gcp = confluentcloud.PrivateLinkAccess("gcp",
+            display_name="GCP Private Service Connect",
+            gcp=confluentcloud.PrivateLinkAccessGcpArgs(
+                project="temp-gear-123456",
+            ),
+            environment=confluentcloud.PrivateLinkAccessEnvironmentArgs(
+                id=development.id,
+            ),
+            network=confluentcloud.PrivateLinkAccessNetworkArgs(
+                id=gcp_private_service_connect.id,
+            ))
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `PrivateLinkAccess` resource:
+          * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+          * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+          * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+          * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+          * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+          * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+
         ## Import
 
         You can import a Private Link Access by using Environment ID and Private Link Access ID, in the format `<Environment ID>/<Private Link Access ID>`. The following example shows how to import a Private Link Access$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

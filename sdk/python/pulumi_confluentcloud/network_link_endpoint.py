@@ -210,6 +210,31 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
                  network_link_service: Optional[pulumi.Input[pulumi.InputType['NetworkLinkEndpointNetworkLinkServiceArgs']]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        nle = confluentcloud.NetworkLinkEndpoint("nle",
+            display_name="nle1",
+            description="TEST-NLE1",
+            environment=confluentcloud.NetworkLinkEndpointEnvironmentArgs(
+                id="env-xyz456",
+            ),
+            network=confluentcloud.NetworkLinkEndpointNetworkArgs(
+                id="n-abc123",
+            ),
+            network_link_service=confluentcloud.NetworkLinkEndpointNetworkLinkServiceArgs(
+                id="nls-g3e1ox",
+            ))
+        pulumi.export("networkLinkEndpoint", nle)
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `NetworkLinkEndpoint` resource:
+        * `cluster-link-over-aws-private-link-networks`: Cluster link over two dedicated clusters in separate AWS PrivateLink networks
+
         ## Import
 
         You can import a Network Link Endpoint by using Environment ID and Network Link Endpoint ID, in the format `<Environment ID>/<Network Link Endpoint ID>`. The following example shows how to import a Network Link Endpoint$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
@@ -235,6 +260,31 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
                  args: NetworkLinkEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        nle = confluentcloud.NetworkLinkEndpoint("nle",
+            display_name="nle1",
+            description="TEST-NLE1",
+            environment=confluentcloud.NetworkLinkEndpointEnvironmentArgs(
+                id="env-xyz456",
+            ),
+            network=confluentcloud.NetworkLinkEndpointNetworkArgs(
+                id="n-abc123",
+            ),
+            network_link_service=confluentcloud.NetworkLinkEndpointNetworkLinkServiceArgs(
+                id="nls-g3e1ox",
+            ))
+        pulumi.export("networkLinkEndpoint", nle)
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `NetworkLinkEndpoint` resource:
+        * `cluster-link-over-aws-private-link-networks`: Cluster link over two dedicated clusters in separate AWS PrivateLink networks
+
         ## Import
 
         You can import a Network Link Endpoint by using Environment ID and Network Link Endpoint ID, in the format `<Environment ID>/<Network Link Endpoint ID>`. The following example shows how to import a Network Link Endpoint$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

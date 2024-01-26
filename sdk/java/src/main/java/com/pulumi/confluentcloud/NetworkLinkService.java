@@ -17,6 +17,77 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ### Example Network Link Service on AWS
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.Network;
+ * import com.pulumi.confluentcloud.NetworkArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
+ * import com.pulumi.confluentcloud.NetworkLinkService;
+ * import com.pulumi.confluentcloud.NetworkLinkServiceArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkLinkServiceEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkLinkServiceNetworkArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkLinkServiceAcceptArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var development = new Environment(&#34;development&#34;);
+ * 
+ *         var aws_private_link = new Network(&#34;aws-private-link&#34;, NetworkArgs.builder()        
+ *             .displayName(&#34;AWS Private Link Network&#34;)
+ *             .cloud(&#34;AWS&#34;)
+ *             .region(&#34;us-east-1&#34;)
+ *             .connectionTypes(&#34;PRIVATELINK&#34;)
+ *             .zones(            
+ *                 &#34;use1-az1&#34;,
+ *                 &#34;use1-az2&#34;,
+ *                 &#34;use1-az6&#34;)
+ *             .environment(NetworkEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var awsNls = new NetworkLinkService(&#34;awsNls&#34;, NetworkLinkServiceArgs.builder()        
+ *             .displayName(&#34;AWS Private Link network link service&#34;)
+ *             .environment(NetworkLinkServiceEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .network(NetworkLinkServiceNetworkArgs.builder()
+ *                 .id(aws_private_link.id())
+ *                 .build())
+ *             .description(&#34;Test NL service&#34;)
+ *             .accept(NetworkLinkServiceAcceptArgs.builder()
+ *                 .environments(                
+ *                     &#34;env-5678&#34;,
+ *                     &#34;env-0923&#34;)
+ *                 .networks(&#34;n-1234&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.NetworkLinkService` resource:
+ * * `cluster-link-over-aws-private-link-networks`: Cluster link over two dedicated clusters in separate AWS PrivateLink networks
+ * 
  * ## Import
  * 
  * You can import a Network Link Service by using Environment ID and Network Link Service ID, in the format `&lt;Environment ID&gt;/&lt;Network Link Service ID&gt;`. The following example shows how to import a Network Link Service$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;

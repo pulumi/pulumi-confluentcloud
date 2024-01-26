@@ -16,6 +16,85 @@ import com.pulumi.core.internal.Codegen;
 import javax.annotation.Nullable;
 
 /**
+ * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * 
+ * `confluentcloud.ByokKey` provides a BYOK Key resource that enables creating, editing, and deleting BYOK Key on Confluent Cloud.
+ * 
+ * ## Example Usage
+ * ### Example BYOK Key on Azure
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ByokKey;
+ * import com.pulumi.confluentcloud.ByokKeyArgs;
+ * import com.pulumi.confluentcloud.inputs.ByokKeyAzureArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var azureKey = new ByokKey(&#34;azureKey&#34;, ByokKeyArgs.builder()        
+ *             .azure(ByokKeyAzureArgs.builder()
+ *                 .keyIdentifier(&#34;https://test-vault.vault.azure.net/keys/test-key&#34;)
+ *                 .keyVaultId(&#34;/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault&#34;)
+ *                 .tenantId(&#34;11111111-1111-1111-1111-111111111111&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example BYOK Key on GCP
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.ByokKey;
+ * import com.pulumi.confluentcloud.ByokKeyArgs;
+ * import com.pulumi.confluentcloud.inputs.ByokKeyGcpArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var gcpKey = new ByokKey(&#34;gcpKey&#34;, ByokKeyArgs.builder()        
+ *             .gcp(ByokKeyGcpArgs.builder()
+ *                 .keyId(&#34;projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.ByokKey` resource:
+ *   * dedicated-public-aws-byok-kafka-acls: An example of Encrypting Confluent Cloud Dedicated Kafka Clusters using Self-Managed Keys on AWS.
+ *   * dedicated-public-azure-byok-kafka-acls: An example of Encrypting Confluent Cloud Dedicated Kafka Clusters using Self-Managed Keys on Azure.
+ * 
+ * See [Confluent Cloud Bring Your Own Key (BYOK) Management API](https://docs.confluent.io/cloud/current/clusters/byok/index.html) to learn more about Encrypting Confluent Cloud Kafka Clusters using Self-Managed Keys.
+ * 
  * ## Import
  * 
  * You can import a BYOK Key by using BYOK Key ID. The following example shows how to import a BYOK Key$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;

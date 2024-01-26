@@ -12,6 +12,215 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+// ### Example Kafka clusters on AWS
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewKafkaCluster(ctx, "basic", &confluentcloud.KafkaClusterArgs{
+//				Availability: pulumi.String("SINGLE_ZONE"),
+//				Cloud:        pulumi.String("AWS"),
+//				Region:       pulumi.String("us-east-2"),
+//				Basic:        nil,
+//				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewKafkaCluster(ctx, "standard", &confluentcloud.KafkaClusterArgs{
+//				Availability: pulumi.String("SINGLE_ZONE"),
+//				Cloud:        pulumi.String("AWS"),
+//				Region:       pulumi.String("us-east-2"),
+//				Standard:     nil,
+//				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewKafkaCluster(ctx, "dedicated", &confluentcloud.KafkaClusterArgs{
+//				Availability: pulumi.String("MULTI_ZONE"),
+//				Cloud:        pulumi.String("AWS"),
+//				Region:       pulumi.String("us-east-2"),
+//				Dedicated: &confluentcloud.KafkaClusterDedicatedArgs{
+//					Cku: pulumi.Int(2),
+//				},
+//				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example Kafka clusters on Azure
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewKafkaCluster(ctx, "basic", &confluentcloud.KafkaClusterArgs{
+//				Availability: pulumi.String("SINGLE_ZONE"),
+//				Cloud:        pulumi.String("AZURE"),
+//				Region:       pulumi.String("centralus"),
+//				Basic:        nil,
+//				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewKafkaCluster(ctx, "standard", &confluentcloud.KafkaClusterArgs{
+//				Availability: pulumi.String("SINGLE_ZONE"),
+//				Cloud:        pulumi.String("AZURE"),
+//				Region:       pulumi.String("centralus"),
+//				Standard:     nil,
+//				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewKafkaCluster(ctx, "dedicated", &confluentcloud.KafkaClusterArgs{
+//				Availability: pulumi.String("MULTI_ZONE"),
+//				Cloud:        pulumi.String("AZURE"),
+//				Region:       pulumi.String("centralus"),
+//				Dedicated: &confluentcloud.KafkaClusterDedicatedArgs{
+//					Cku: pulumi.Int(2),
+//				},
+//				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example Kafka clusters on GCP
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewKafkaCluster(ctx, "basic", &confluentcloud.KafkaClusterArgs{
+//				Availability: pulumi.String("SINGLE_ZONE"),
+//				Cloud:        pulumi.String("GCP"),
+//				Region:       pulumi.String("us-central1"),
+//				Basic:        nil,
+//				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewKafkaCluster(ctx, "standard", &confluentcloud.KafkaClusterArgs{
+//				Availability: pulumi.String("SINGLE_ZONE"),
+//				Cloud:        pulumi.String("GCP"),
+//				Region:       pulumi.String("us-central1"),
+//				Standard:     nil,
+//				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewKafkaCluster(ctx, "dedicated", &confluentcloud.KafkaClusterArgs{
+//				Availability: pulumi.String("MULTI_ZONE"),
+//				Cloud:        pulumi.String("GCP"),
+//				Region:       pulumi.String("us-central1"),
+//				Dedicated: &confluentcloud.KafkaClusterDedicatedArgs{
+//					Cku: pulumi.Int(2),
+//				},
+//				Environment: &confluentcloud.KafkaClusterEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `KafkaCluster` resource:
+//   - `basic-kafka-acls`: _Basic_ Kafka cluster with authorization using ACLs
+//   - `basic-kafka-acls-with-alias`: _Basic_ Kafka cluster with authorization using ACLs
+//   - `standard-kafka-acls`: _Standard_ Kafka cluster with authorization using ACLs
+//   - `standard-kafka-rbac`: _Standard_ Kafka cluster with authorization using RBAC
+//   - `dedicated-public-kafka-acls`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using ACLs
+//   - `dedicated-public-kafka-rbac`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC
+//   - `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+//   - `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+//   - `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+//   - `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+//   - `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+//   - `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+//   - `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+//   - `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+//   - `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+//   - `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+//   - `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+//
 // ## Import
 //
 // You can import a Kafka cluster by using Environment ID and Kafka cluster ID, in the format `<Environment ID>/<Kafka cluster ID>`, e.g. $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

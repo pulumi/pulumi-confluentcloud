@@ -20,6 +20,196 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ### Example Private Link Access on AWS
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.Network;
+ * import com.pulumi.confluentcloud.NetworkArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
+ * import com.pulumi.confluentcloud.PrivateLinkAccess;
+ * import com.pulumi.confluentcloud.PrivateLinkAccessArgs;
+ * import com.pulumi.confluentcloud.inputs.PrivateLinkAccessAwsArgs;
+ * import com.pulumi.confluentcloud.inputs.PrivateLinkAccessEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.PrivateLinkAccessNetworkArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var development = new Environment(&#34;development&#34;);
+ * 
+ *         var aws_private_link = new Network(&#34;aws-private-link&#34;, NetworkArgs.builder()        
+ *             .displayName(&#34;AWS Private Link Network&#34;)
+ *             .cloud(&#34;AWS&#34;)
+ *             .region(&#34;us-east-1&#34;)
+ *             .connectionTypes(&#34;PRIVATELINK&#34;)
+ *             .zones(            
+ *                 &#34;use1-az1&#34;,
+ *                 &#34;use1-az2&#34;,
+ *                 &#34;use1-az6&#34;)
+ *             .environment(NetworkEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var aws = new PrivateLinkAccess(&#34;aws&#34;, PrivateLinkAccessArgs.builder()        
+ *             .displayName(&#34;AWS Private Link Access&#34;)
+ *             .aws(PrivateLinkAccessAwsArgs.builder()
+ *                 .account(&#34;012345678901&#34;)
+ *                 .build())
+ *             .environment(PrivateLinkAccessEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .network(PrivateLinkAccessNetworkArgs.builder()
+ *                 .id(aws_private_link.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example Private Link Access on Azure
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.Network;
+ * import com.pulumi.confluentcloud.NetworkArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
+ * import com.pulumi.confluentcloud.PrivateLinkAccess;
+ * import com.pulumi.confluentcloud.PrivateLinkAccessArgs;
+ * import com.pulumi.confluentcloud.inputs.PrivateLinkAccessAzureArgs;
+ * import com.pulumi.confluentcloud.inputs.PrivateLinkAccessEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.PrivateLinkAccessNetworkArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var development = new Environment(&#34;development&#34;);
+ * 
+ *         var azure_private_link = new Network(&#34;azure-private-link&#34;, NetworkArgs.builder()        
+ *             .displayName(&#34;Azure Private Link Network&#34;)
+ *             .cloud(&#34;AZURE&#34;)
+ *             .region(&#34;centralus&#34;)
+ *             .connectionTypes(&#34;PRIVATELINK&#34;)
+ *             .environment(NetworkEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var azure = new PrivateLinkAccess(&#34;azure&#34;, PrivateLinkAccessArgs.builder()        
+ *             .displayName(&#34;Azure Private Link Access&#34;)
+ *             .azure(PrivateLinkAccessAzureArgs.builder()
+ *                 .subscription(&#34;1234abcd-12ab-34cd-1234-123456abcdef&#34;)
+ *                 .build())
+ *             .environment(PrivateLinkAccessEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .network(PrivateLinkAccessNetworkArgs.builder()
+ *                 .id(azure_private_link.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example Private Service Connect on GCP
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.Network;
+ * import com.pulumi.confluentcloud.NetworkArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
+ * import com.pulumi.confluentcloud.PrivateLinkAccess;
+ * import com.pulumi.confluentcloud.PrivateLinkAccessArgs;
+ * import com.pulumi.confluentcloud.inputs.PrivateLinkAccessGcpArgs;
+ * import com.pulumi.confluentcloud.inputs.PrivateLinkAccessEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.PrivateLinkAccessNetworkArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var development = new Environment(&#34;development&#34;);
+ * 
+ *         var gcp_private_service_connect = new Network(&#34;gcp-private-service-connect&#34;, NetworkArgs.builder()        
+ *             .displayName(&#34;GCP Private Service Connect Network&#34;)
+ *             .cloud(&#34;GCP&#34;)
+ *             .region(&#34;us-central1&#34;)
+ *             .connectionTypes(&#34;PRIVATELINK&#34;)
+ *             .zones(            
+ *                 &#34;us-central1-a&#34;,
+ *                 &#34;us-central1-b&#34;,
+ *                 &#34;us-central1-c&#34;)
+ *             .environment(NetworkEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var gcp = new PrivateLinkAccess(&#34;gcp&#34;, PrivateLinkAccessArgs.builder()        
+ *             .displayName(&#34;GCP Private Service Connect&#34;)
+ *             .gcp(PrivateLinkAccessGcpArgs.builder()
+ *                 .project(&#34;temp-gear-123456&#34;)
+ *                 .build())
+ *             .environment(PrivateLinkAccessEnvironmentArgs.builder()
+ *                 .id(development.id())
+ *                 .build())
+ *             .network(PrivateLinkAccessNetworkArgs.builder()
+ *                 .id(gcp_private_service_connect.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAccess` resource:
+ *   * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ *   * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+ *   * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+ *   * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+ *   * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+ *   * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+ * 
  * ## Import
  * 
  * You can import a Private Link Access by using Environment ID and Private Link Access ID, in the format `&lt;Environment ID&gt;/&lt;Private Link Access ID&gt;`. The following example shows how to import a Private Link Access$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;

@@ -7,6 +7,50 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ * ### Example Transit Gateway Attachment on AWS
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const development = new confluentcloud.Environment("development", {});
+ * const aws_transit_gateway_attachment = new confluentcloud.Network("aws-transit-gateway-attachment", {
+ *     displayName: "AWS Transit Gateway Attachment Network",
+ *     cloud: "AWS",
+ *     region: "us-east-2",
+ *     cidr: "10.10.0.0/16",
+ *     connectionTypes: ["TRANSITGATEWAY"],
+ *     environment: {
+ *         id: development.id,
+ *     },
+ * });
+ * const aws = new confluentcloud.TransitGatewayAttachment("aws", {
+ *     displayName: "AWS Transit Gateway Attachment",
+ *     aws: {
+ *         ramResourceShareArn: "arn:aws:ram:us-east-2:000000000000:resource-share/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+ *         transitGatewayId: "tgw-xxxxxxxxxxxxxxxxx",
+ *         routes: [
+ *             "192.168.0.0/16",
+ *             "172.16.0.0/12",
+ *             "100.64.0.0/10",
+ *             "10.0.0.0/8",
+ *         ],
+ *     },
+ *     environment: {
+ *         id: development.id,
+ *     },
+ *     network: {
+ *         id: aws_transit_gateway_attachment.id,
+ *     },
+ * });
+ * ```
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.TransitGatewayAttachment` resource:
+ *   * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+ *   * enterprise-privatelinkattachment-aws-kafka-acls
+ *
  * ## Import
  *
  * You can import a Transit Gateway Attachment by using Environment ID and Transit Gateway Attachment ID, in the format `<Environment ID>/<Transit Gateway Attachment ID>`. The following example shows how to import a Transit Gateway Attachment$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

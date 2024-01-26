@@ -10,6 +10,182 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// ## Example Usage
+    /// ### Example Kafka API Key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var app_manager_kafka_api_key = new ConfluentCloud.ApiKey("app-manager-kafka-api-key", new()
+    ///     {
+    ///         Description = "Kafka API Key that is owned by 'app-manager' service account",
+    ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
+    ///         {
+    ///             Id = confluent_service_account.App_manager.Id,
+    ///             ApiVersion = confluent_service_account.App_manager.Api_version,
+    ///             Kind = confluent_service_account.App_manager.Kind,
+    ///         },
+    ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
+    ///         {
+    ///             Id = confluent_kafka_cluster.Basic.Id,
+    ///             ApiVersion = confluent_kafka_cluster.Basic.Api_version,
+    ///             Kind = confluent_kafka_cluster.Basic.Kind,
+    ///             Environment = new ConfluentCloud.Inputs.ApiKeyManagedResourceEnvironmentArgs
+    ///             {
+    ///                 Id = confluent_environment.Staging.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Example ksqlDB API Key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ksqldb_api_key = new ConfluentCloud.ApiKey("ksqldb-api-key", new()
+    ///     {
+    ///         Description = "KsqlDB API Key that is owned by 'app-manager' service account",
+    ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
+    ///         {
+    ///             Id = confluent_service_account.App_manager.Id,
+    ///             ApiVersion = confluent_service_account.App_manager.Api_version,
+    ///             Kind = confluent_service_account.App_manager.Kind,
+    ///         },
+    ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
+    ///         {
+    ///             Id = confluent_ksql_cluster.Main.Id,
+    ///             ApiVersion = confluent_ksql_cluster.Main.Api_version,
+    ///             Kind = confluent_ksql_cluster.Main.Kind,
+    ///             Environment = new ConfluentCloud.Inputs.ApiKeyManagedResourceEnvironmentArgs
+    ///             {
+    ///                 Id = confluent_environment.Staging.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Example Schema Registry API Key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var env_manager_schema_registry_api_key = new ConfluentCloud.ApiKey("env-manager-schema-registry-api-key", new()
+    ///     {
+    ///         Description = "Schema Registry API Key that is owned by 'env-manager' service account",
+    ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
+    ///         {
+    ///             Id = confluent_service_account.Env_manager.Id,
+    ///             ApiVersion = confluent_service_account.Env_manager.Api_version,
+    ///             Kind = confluent_service_account.Env_manager.Kind,
+    ///         },
+    ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
+    ///         {
+    ///             Id = confluent_schema_registry_cluster.Essentials.Id,
+    ///             ApiVersion = confluent_schema_registry_cluster.Essentials.Api_version,
+    ///             Kind = confluent_schema_registry_cluster.Essentials.Kind,
+    ///             Environment = new ConfluentCloud.Inputs.ApiKeyManagedResourceEnvironmentArgs
+    ///             {
+    ///                 Id = confluent_environment.Staging.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Example Flink API Key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var env_manager_flink_api_key = new ConfluentCloud.ApiKey("env-manager-flink-api-key", new()
+    ///     {
+    ///         Description = "Flink API Key that is owned by 'env-manager' service account",
+    ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
+    ///         {
+    ///             Id = confluent_service_account.Env_manager.Id,
+    ///             ApiVersion = confluent_service_account.Env_manager.Api_version,
+    ///             Kind = confluent_service_account.Env_manager.Kind,
+    ///         },
+    ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
+    ///         {
+    ///             Id = data.Confluent_flink_region.Example.Id,
+    ///             ApiVersion = data.Confluent_flink_region.Example.Api_version,
+    ///             Kind = data.Confluent_flink_region.Example.Kind,
+    ///             Environment = new ConfluentCloud.Inputs.ApiKeyManagedResourceEnvironmentArgs
+    ///             {
+    ///                 Id = confluent_environment.Staging.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Example Cloud API Key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var env_manager_cloud_api_key = new ConfluentCloud.ApiKey("env-manager-cloud-api-key", new()
+    ///     {
+    ///         Description = "Cloud API Key that is owned by 'env-manager' service account",
+    ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
+    ///         {
+    ///             Id = confluent_service_account.Env_manager.Id,
+    ///             ApiVersion = confluent_service_account.Env_manager.Api_version,
+    ///             Kind = confluent_service_account.Env_manager.Kind,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with `confluentcloud.ApiKey` resource:
+    ///   * `basic-kafka-acls`: _Basic_ Kafka cluster with authorization using ACLs
+    ///   * `basic-kafka-acls-with-alias`: _Basic_ Kafka cluster with authorization using ACLs
+    ///   * `standard-kafka-acls`: _Standard_ Kafka cluster with authorization using ACLs
+    ///   * `standard-kafka-rbac`: _Standard_ Kafka cluster with authorization using RBAC
+    ///   * `dedicated-public-kafka-acls`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using ACLs
+    ///   * `dedicated-public-kafka-rbac`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC
+    ///   * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+    ///   * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+    ///   * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+    ///   * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+    ///   * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+    ///   * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+    ///   * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+    ///   * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+    ///   * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+    ///   * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+    ///   * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+    ///   * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+    ///   * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+    ///   * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+    ///   * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+    /// 
     /// ## Import
     /// 
     /// You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `&lt;Environment ID&gt;/&lt;Cluster API Key ID&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;" $ export API_KEY_SECRET="&lt;api_key_secret&gt;" Option #1Cluster API Key

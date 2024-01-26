@@ -7,6 +7,114 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ * ### Example Private Link Access on AWS
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const development = new confluentcloud.Environment("development", {});
+ * const aws_private_link = new confluentcloud.Network("aws-private-link", {
+ *     displayName: "AWS Private Link Network",
+ *     cloud: "AWS",
+ *     region: "us-east-1",
+ *     connectionTypes: ["PRIVATELINK"],
+ *     zones: [
+ *         "use1-az1",
+ *         "use1-az2",
+ *         "use1-az6",
+ *     ],
+ *     environment: {
+ *         id: development.id,
+ *     },
+ * });
+ * const aws = new confluentcloud.PrivateLinkAccess("aws", {
+ *     displayName: "AWS Private Link Access",
+ *     aws: {
+ *         account: "012345678901",
+ *     },
+ *     environment: {
+ *         id: development.id,
+ *     },
+ *     network: {
+ *         id: aws_private_link.id,
+ *     },
+ * });
+ * ```
+ * ### Example Private Link Access on Azure
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const development = new confluentcloud.Environment("development", {});
+ * const azure_private_link = new confluentcloud.Network("azure-private-link", {
+ *     displayName: "Azure Private Link Network",
+ *     cloud: "AZURE",
+ *     region: "centralus",
+ *     connectionTypes: ["PRIVATELINK"],
+ *     environment: {
+ *         id: development.id,
+ *     },
+ * });
+ * const azure = new confluentcloud.PrivateLinkAccess("azure", {
+ *     displayName: "Azure Private Link Access",
+ *     azure: {
+ *         subscription: "1234abcd-12ab-34cd-1234-123456abcdef",
+ *     },
+ *     environment: {
+ *         id: development.id,
+ *     },
+ *     network: {
+ *         id: azure_private_link.id,
+ *     },
+ * });
+ * ```
+ * ### Example Private Service Connect on GCP
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const development = new confluentcloud.Environment("development", {});
+ * const gcp_private_service_connect = new confluentcloud.Network("gcp-private-service-connect", {
+ *     displayName: "GCP Private Service Connect Network",
+ *     cloud: "GCP",
+ *     region: "us-central1",
+ *     connectionTypes: ["PRIVATELINK"],
+ *     zones: [
+ *         "us-central1-a",
+ *         "us-central1-b",
+ *         "us-central1-c",
+ *     ],
+ *     environment: {
+ *         id: development.id,
+ *     },
+ * });
+ * const gcp = new confluentcloud.PrivateLinkAccess("gcp", {
+ *     displayName: "GCP Private Service Connect",
+ *     gcp: {
+ *         project: "temp-gear-123456",
+ *     },
+ *     environment: {
+ *         id: development.id,
+ *     },
+ *     network: {
+ *         id: gcp_private_service_connect.id,
+ *     },
+ * });
+ * ```
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAccess` resource:
+ *   * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ *   * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+ *   * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+ *   * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+ *   * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+ *   * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+ *
  * ## Import
  *
  * You can import a Private Link Access by using Environment ID and Private Link Access ID, in the format `<Environment ID>/<Private Link Access ID>`. The following example shows how to import a Private Link Access$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

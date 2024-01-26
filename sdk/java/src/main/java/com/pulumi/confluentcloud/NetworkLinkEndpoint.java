@@ -17,6 +17,54 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.NetworkLinkEndpoint;
+ * import com.pulumi.confluentcloud.NetworkLinkEndpointArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkLinkEndpointEnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkLinkEndpointNetworkArgs;
+ * import com.pulumi.confluentcloud.inputs.NetworkLinkEndpointNetworkLinkServiceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var nle = new NetworkLinkEndpoint(&#34;nle&#34;, NetworkLinkEndpointArgs.builder()        
+ *             .displayName(&#34;nle1&#34;)
+ *             .description(&#34;TEST-NLE1&#34;)
+ *             .environment(NetworkLinkEndpointEnvironmentArgs.builder()
+ *                 .id(&#34;env-xyz456&#34;)
+ *                 .build())
+ *             .network(NetworkLinkEndpointNetworkArgs.builder()
+ *                 .id(&#34;n-abc123&#34;)
+ *                 .build())
+ *             .networkLinkService(NetworkLinkEndpointNetworkLinkServiceArgs.builder()
+ *                 .id(&#34;nls-g3e1ox&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         ctx.export(&#34;networkLinkEndpoint&#34;, nle);
+ *     }
+ * }
+ * ```
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.NetworkLinkEndpoint` resource:
+ * * `cluster-link-over-aws-private-link-networks`: Cluster link over two dedicated clusters in separate AWS PrivateLink networks
+ * 
  * ## Import
  * 
  * You can import a Network Link Endpoint by using Environment ID and Network Link Endpoint ID, in the format `&lt;Environment ID&gt;/&lt;Network Link Endpoint ID&gt;`. The following example shows how to import a Network Link Endpoint$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;

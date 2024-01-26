@@ -10,6 +10,45 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nle = new ConfluentCloud.NetworkLinkEndpoint("nle", new()
+    ///     {
+    ///         DisplayName = "nle1",
+    ///         Description = "TEST-NLE1",
+    ///         Environment = new ConfluentCloud.Inputs.NetworkLinkEndpointEnvironmentArgs
+    ///         {
+    ///             Id = "env-xyz456",
+    ///         },
+    ///         Network = new ConfluentCloud.Inputs.NetworkLinkEndpointNetworkArgs
+    ///         {
+    ///             Id = "n-abc123",
+    ///         },
+    ///         NetworkLinkService = new ConfluentCloud.Inputs.NetworkLinkEndpointNetworkLinkServiceArgs
+    ///         {
+    ///             Id = "nls-g3e1ox",
+    ///         },
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["networkLinkEndpoint"] = nle,
+    ///     };
+    /// });
+    /// ```
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with `confluentcloud.NetworkLinkEndpoint` resource:
+    /// * `cluster-link-over-aws-private-link-networks`: Cluster link over two dedicated clusters in separate AWS PrivateLink networks
+    /// 
     /// ## Import
     /// 
     /// You can import a Network Link Endpoint by using Environment ID and Network Link Endpoint ID, in the format `&lt;Environment ID&gt;/&lt;Network Link Endpoint ID&gt;`. The following example shows how to import a Network Link Endpoint$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"

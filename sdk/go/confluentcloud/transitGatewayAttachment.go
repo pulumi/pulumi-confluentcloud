@@ -12,6 +12,73 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+// ### Example Transit Gateway Attachment on AWS
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewNetwork(ctx, "aws-transit-gateway-attachment", &confluentcloud.NetworkArgs{
+//				DisplayName: pulumi.String("AWS Transit Gateway Attachment Network"),
+//				Cloud:       pulumi.String("AWS"),
+//				Region:      pulumi.String("us-east-2"),
+//				Cidr:        pulumi.String("10.10.0.0/16"),
+//				ConnectionTypes: pulumi.StringArray{
+//					pulumi.String("TRANSITGATEWAY"),
+//				},
+//				Environment: &confluentcloud.NetworkEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confluentcloud.NewTransitGatewayAttachment(ctx, "aws", &confluentcloud.TransitGatewayAttachmentArgs{
+//				DisplayName: pulumi.String("AWS Transit Gateway Attachment"),
+//				Aws: &confluentcloud.TransitGatewayAttachmentAwsArgs{
+//					RamResourceShareArn: pulumi.String("arn:aws:ram:us-east-2:000000000000:resource-share/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"),
+//					TransitGatewayId:    pulumi.String("tgw-xxxxxxxxxxxxxxxxx"),
+//					Routes: pulumi.StringArray{
+//						pulumi.String("192.168.0.0/16"),
+//						pulumi.String("172.16.0.0/12"),
+//						pulumi.String("100.64.0.0/10"),
+//						pulumi.String("10.0.0.0/8"),
+//					},
+//				},
+//				Environment: &confluentcloud.TransitGatewayAttachmentEnvironmentArgs{
+//					Id: development.ID(),
+//				},
+//				Network: &confluentcloud.TransitGatewayAttachmentNetworkArgs{
+//					Id: aws_transit_gateway_attachment.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `TransitGatewayAttachment` resource:
+//   - `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+//   - enterprise-privatelinkattachment-aws-kafka-acls
+//
 // ## Import
 //
 // You can import a Transit Gateway Attachment by using Environment ID and Transit Gateway Attachment ID, in the format `<Environment ID>/<Transit Gateway Attachment ID>`. The following example shows how to import a Transit Gateway Attachment$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

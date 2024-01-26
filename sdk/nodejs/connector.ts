@@ -7,6 +7,176 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ * ### Example Managed [Datagen Source Connector](https://docs.confluent.io/cloud/current/connectors/cc-datagen-source.html) that uses a service account to communicate with your Kafka cluster
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const source = new confluentcloud.Connector("source", {
+ *     environment: {
+ *         id: confluent_environment.staging.id,
+ *     },
+ *     kafkaCluster: {
+ *         id: confluent_kafka_cluster.basic.id,
+ *     },
+ *     configSensitive: {},
+ *     configNonsensitive: {
+ *         "connector.class": "DatagenSource",
+ *         name: "DatagenSourceConnector_0",
+ *         "kafka.auth.mode": "SERVICE_ACCOUNT",
+ *         "kafka.service.account.id": confluent_service_account["app-connector"].id,
+ *         "kafka.topic": confluent_kafka_topic.orders.topic_name,
+ *         "output.data.format": "JSON",
+ *         quickstart: "ORDERS",
+ *         "tasks.max": "1",
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         confluent_kafka_acl["app-connector-describe-on-cluster"],
+ *         confluent_kafka_acl["app-connector-write-on-target-topic"],
+ *         confluent_kafka_acl["app-connector-create-on-data-preview-topics"],
+ *         confluent_kafka_acl["app-connector-write-on-data-preview-topics"],
+ *     ],
+ * });
+ * ```
+ * ### Example Managed [Amazon S3 Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-s3-sink.html) that uses a service account to communicate with your Kafka cluster
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const sink = new confluentcloud.Connector("sink", {
+ *     environment: {
+ *         id: confluent_environment.staging.id,
+ *     },
+ *     kafkaCluster: {
+ *         id: confluent_kafka_cluster.basic.id,
+ *     },
+ *     configSensitive: {
+ *         "aws.access.key.id": "***REDACTED***",
+ *         "aws.secret.access.key": "***REDACTED***",
+ *     },
+ *     configNonsensitive: {
+ *         topics: confluent_kafka_topic.orders.topic_name,
+ *         "input.data.format": "JSON",
+ *         "connector.class": "S3_SINK",
+ *         name: "S3_SINKConnector_0",
+ *         "kafka.auth.mode": "SERVICE_ACCOUNT",
+ *         "kafka.service.account.id": confluent_service_account["app-connector"].id,
+ *         "s3.bucket.name": "<s3-bucket-name>",
+ *         "output.data.format": "JSON",
+ *         "time.interval": "DAILY",
+ *         "flush.size": "1000",
+ *         "tasks.max": "1",
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         confluent_kafka_acl["app-connector-describe-on-cluster"],
+ *         confluent_kafka_acl["app-connector-read-on-target-topic"],
+ *         confluent_kafka_acl["app-connector-create-on-dlq-lcc-topics"],
+ *         confluent_kafka_acl["app-connector-write-on-dlq-lcc-topics"],
+ *         confluent_kafka_acl["app-connector-create-on-success-lcc-topics"],
+ *         confluent_kafka_acl["app-connector-write-on-success-lcc-topics"],
+ *         confluent_kafka_acl["app-connector-create-on-error-lcc-topics"],
+ *         confluent_kafka_acl["app-connector-write-on-error-lcc-topics"],
+ *         confluent_kafka_acl["app-connector-read-on-connect-lcc-group"],
+ *     ],
+ * });
+ * ```
+ * ### Example Managed [Amazon DynamoDB Connector](https://docs.confluent.io/cloud/current/connectors/cc-amazon-dynamo-db-sink.html) that uses a service account to communicate with your Kafka cluster
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const sink = new confluentcloud.Connector("sink", {
+ *     environment: {
+ *         id: confluent_environment.staging.id,
+ *     },
+ *     kafkaCluster: {
+ *         id: confluent_kafka_cluster.basic.id,
+ *     },
+ *     configSensitive: {
+ *         "aws.access.key.id": "***REDACTED***",
+ *         "aws.secret.access.key": "***REDACTED***",
+ *     },
+ *     configNonsensitive: {
+ *         topics: confluent_kafka_topic.orders.topic_name,
+ *         "input.data.format": "JSON",
+ *         "connector.class": "DynamoDbSink",
+ *         name: "DynamoDbSinkConnector_0",
+ *         "kafka.auth.mode": "SERVICE_ACCOUNT",
+ *         "kafka.service.account.id": confluent_service_account["app-connector"].id,
+ *         "aws.dynamodb.pk.hash": "value.userid",
+ *         "aws.dynamodb.pk.sort": "value.pageid",
+ *         "tasks.max": "1",
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         confluent_kafka_acl["app-connector-describe-on-cluster"],
+ *         confluent_kafka_acl["app-connector-read-on-target-topic"],
+ *         confluent_kafka_acl["app-connector-create-on-dlq-lcc-topics"],
+ *         confluent_kafka_acl["app-connector-write-on-dlq-lcc-topics"],
+ *         confluent_kafka_acl["app-connector-create-on-success-lcc-topics"],
+ *         confluent_kafka_acl["app-connector-write-on-success-lcc-topics"],
+ *         confluent_kafka_acl["app-connector-create-on-error-lcc-topics"],
+ *         confluent_kafka_acl["app-connector-write-on-error-lcc-topics"],
+ *         confluent_kafka_acl["app-connector-read-on-connect-lcc-group"],
+ *     ],
+ * });
+ * ```
+ * ### Example Custom [Datagen Source Connector](https://www.confluent.io/hub/confluentinc/kafka-connect-datagen) that uses a Kafka API Key to communicate with your Kafka cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as confluentcloud from "@pulumi/confluentcloud";
+ *
+ * const source = new confluentcloud.Connector("source", {
+ *     environment: {
+ *         id: confluent_environment.staging.id,
+ *     },
+ *     kafkaCluster: {
+ *         id: confluent_kafka_cluster.basic.id,
+ *     },
+ *     configSensitive: {
+ *         "kafka.api.key": "***REDACTED***",
+ *         "kafka.api.secret": "***REDACTED***",
+ *     },
+ *     configNonsensitive: {
+ *         "confluent.connector.type": "CUSTOM",
+ *         "connector.class": confluent_custom_connector_plugin.source.connector_class,
+ *         name: "DatagenConnectorExampleName",
+ *         "kafka.auth.mode": "KAFKA_API_KEY",
+ *         "kafka.topic": confluent_kafka_topic.orders.topic_name,
+ *         "output.data.format": "JSON",
+ *         quickstart: "ORDERS",
+ *         "confluent.custom.plugin.id": confluent_custom_connector_plugin.source.id,
+ *         "min.interval": "1000",
+ *         "max.interval": "2000",
+ *         "tasks.max": "1",
+ *     },
+ * }, {
+ *     dependsOn: [confluent_role_binding["app-manager-kafka-cluster-admin"]],
+ * });
+ * ```
+ *
+ * > **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
+ * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.Connector` resource:
+ * * `s3-sink-connector`
+ * * `snowflake-sink-connector`
+ * * `managed-datagen-source-connector`
+ * * `elasticsearch-sink-connector`
+ * * `dynamo-db-sink-connector`
+ * * `mongo-db-source-connector`
+ * * `mongo-db-sink-connector`
+ * * `sql-server-cdc-debezium-source-connector`
+ * * `postgre-sql-cdc-debezium-source-connector`
+ * * `custom-datagen-source-connector`
+ *
+ * > **Note:** Certain connectors require additional ACL entries. See [Additional ACL entries](https://docs.confluent.io/cloud/current/connectors/service-account.html#additional-acl-entries) for more details.
+ *
  * ## Import
  *
  * You can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `<Environment ID>/<Kafka cluster ID>/<Connector name>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
@@ -56,6 +226,13 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly environment!: pulumi.Output<outputs.ConnectorEnvironment>;
     public readonly kafkaCluster!: pulumi.Output<outputs.ConnectorKafkaCluster>;
+    /**
+     * The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+     *
+     * > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+     *
+     * > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
+     */
     public readonly status!: pulumi.Output<string>;
 
     /**
@@ -117,6 +294,13 @@ export interface ConnectorState {
      */
     environment?: pulumi.Input<inputs.ConnectorEnvironment>;
     kafkaCluster?: pulumi.Input<inputs.ConnectorKafkaCluster>;
+    /**
+     * The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+     *
+     * > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+     *
+     * > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
+     */
     status?: pulumi.Input<string>;
 }
 
@@ -137,5 +321,12 @@ export interface ConnectorArgs {
      */
     environment: pulumi.Input<inputs.ConnectorEnvironment>;
     kafkaCluster: pulumi.Input<inputs.ConnectorKafkaCluster>;
+    /**
+     * The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+     *
+     * > **Note:** If there are no _sensitive_ configuration settings for your connector, set `configSensitive = {}` explicitly.
+     *
+     * > **Note:** You may declare sensitive variables for secrets `configSensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
+     */
     status?: pulumi.Input<string>;
 }

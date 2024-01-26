@@ -211,6 +211,49 @@ class NetworkLinkService(pulumi.CustomResource):
                  network: Optional[pulumi.Input[pulumi.InputType['NetworkLinkServiceNetworkArgs']]] = None,
                  __props__=None):
         """
+        ## Example Usage
+        ### Example Network Link Service on AWS
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        aws_private_link = confluentcloud.Network("aws-private-link",
+            display_name="AWS Private Link Network",
+            cloud="AWS",
+            region="us-east-1",
+            connection_types=["PRIVATELINK"],
+            zones=[
+                "use1-az1",
+                "use1-az2",
+                "use1-az6",
+            ],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        aws_nls = confluentcloud.NetworkLinkService("awsNls",
+            display_name="AWS Private Link network link service",
+            environment=confluentcloud.NetworkLinkServiceEnvironmentArgs(
+                id=development.id,
+            ),
+            network=confluentcloud.NetworkLinkServiceNetworkArgs(
+                id=aws_private_link.id,
+            ),
+            description="Test NL service",
+            accept=confluentcloud.NetworkLinkServiceAcceptArgs(
+                environments=[
+                    "env-5678",
+                    "env-0923",
+                ],
+                networks=["n-1234"],
+            ))
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `NetworkLinkService` resource:
+        * `cluster-link-over-aws-private-link-networks`: Cluster link over two dedicated clusters in separate AWS PrivateLink networks
+
         ## Import
 
         You can import a Network Link Service by using Environment ID and Network Link Service ID, in the format `<Environment ID>/<Network Link Service ID>`. The following example shows how to import a Network Link Service$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
@@ -236,6 +279,49 @@ class NetworkLinkService(pulumi.CustomResource):
                  args: NetworkLinkServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+        ### Example Network Link Service on AWS
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        development = confluentcloud.Environment("development")
+        aws_private_link = confluentcloud.Network("aws-private-link",
+            display_name="AWS Private Link Network",
+            cloud="AWS",
+            region="us-east-1",
+            connection_types=["PRIVATELINK"],
+            zones=[
+                "use1-az1",
+                "use1-az2",
+                "use1-az6",
+            ],
+            environment=confluentcloud.NetworkEnvironmentArgs(
+                id=development.id,
+            ))
+        aws_nls = confluentcloud.NetworkLinkService("awsNls",
+            display_name="AWS Private Link network link service",
+            environment=confluentcloud.NetworkLinkServiceEnvironmentArgs(
+                id=development.id,
+            ),
+            network=confluentcloud.NetworkLinkServiceNetworkArgs(
+                id=aws_private_link.id,
+            ),
+            description="Test NL service",
+            accept=confluentcloud.NetworkLinkServiceAcceptArgs(
+                environments=[
+                    "env-5678",
+                    "env-0923",
+                ],
+                networks=["n-1234"],
+            ))
+        ```
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `NetworkLinkService` resource:
+        * `cluster-link-over-aws-private-link-networks`: Cluster link over two dedicated clusters in separate AWS PrivateLink networks
+
         ## Import
 
         You can import a Network Link Service by using Environment ID and Network Link Service ID, in the format `<Environment ID>/<Network Link Service ID>`. The following example shows how to import a Network Link Service$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"

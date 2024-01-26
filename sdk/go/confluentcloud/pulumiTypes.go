@@ -5639,6 +5639,13 @@ func (o KafkaClusterConfigKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type KafkaClusterDedicated struct {
+	// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+	//
+	// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
+	//
+	// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
+	//
+	// > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
 	Cku           int     `pulumi:"cku"`
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
@@ -5660,6 +5667,13 @@ type KafkaClusterDedicatedInput interface {
 }
 
 type KafkaClusterDedicatedArgs struct {
+	// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+	//
+	// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
+	//
+	// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
+	//
+	// > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
 	Cku           pulumi.IntInput       `pulumi:"cku"`
 	EncryptionKey pulumi.StringPtrInput `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
@@ -5746,6 +5760,13 @@ func (o KafkaClusterDedicatedOutput) ToKafkaClusterDedicatedPtrOutputWithContext
 	}).(KafkaClusterDedicatedPtrOutput)
 }
 
+// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+//
+// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
+//
+// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
+//
+// > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
 func (o KafkaClusterDedicatedOutput) Cku() pulumi.IntOutput {
 	return o.ApplyT(func(v KafkaClusterDedicated) int { return v.Cku }).(pulumi.IntOutput)
 }
@@ -5786,6 +5807,13 @@ func (o KafkaClusterDedicatedPtrOutput) Elem() KafkaClusterDedicatedOutput {
 	}).(KafkaClusterDedicatedOutput)
 }
 
+// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+//
+// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
+//
+// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
+//
+// > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
 func (o KafkaClusterDedicatedPtrOutput) Cku() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterDedicated) *int {
 		if v == nil {

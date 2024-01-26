@@ -26,6 +26,11 @@ class ConnectorArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input['ConnectorEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
+        :param pulumi.Input[str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+               
+               > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+               
+               > **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
         """
         pulumi.set(__self__, "config_nonsensitive", config_nonsensitive)
         pulumi.set(__self__, "environment", environment)
@@ -83,6 +88,13 @@ class ConnectorArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+
+        > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+
+        > **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -103,6 +115,11 @@ class _ConnectorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input['ConnectorEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+               
+               > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+               
+               > **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
         """
         if config_nonsensitive is not None:
             pulumi.set(__self__, "config_nonsensitive", config_nonsensitive)
@@ -163,6 +180,13 @@ class _ConnectorState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+
+        > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+
+        > **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -182,6 +206,168 @@ class Connector(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+        ### Example Managed [Datagen Source Connector](https://docs.confluent.io/cloud/current/connectors/cc-datagen-source.html) that uses a service account to communicate with your Kafka cluster
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        source = confluentcloud.Connector("source",
+            environment=confluentcloud.ConnectorEnvironmentArgs(
+                id=confluent_environment["staging"]["id"],
+            ),
+            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
+                id=confluent_kafka_cluster["basic"]["id"],
+            ),
+            config_sensitive={},
+            config_nonsensitive={
+                "connector.class": "DatagenSource",
+                "name": "DatagenSourceConnector_0",
+                "kafka.auth.mode": "SERVICE_ACCOUNT",
+                "kafka.service.account.id": confluent_service_account["app-connector"]["id"],
+                "kafka.topic": confluent_kafka_topic["orders"]["topic_name"],
+                "output.data.format": "JSON",
+                "quickstart": "ORDERS",
+                "tasks.max": "1",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    confluent_kafka_acl["app-connector-describe-on-cluster"],
+                    confluent_kafka_acl["app-connector-write-on-target-topic"],
+                    confluent_kafka_acl["app-connector-create-on-data-preview-topics"],
+                    confluent_kafka_acl["app-connector-write-on-data-preview-topics"],
+                ]))
+        ```
+        ### Example Managed [Amazon S3 Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-s3-sink.html) that uses a service account to communicate with your Kafka cluster
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        sink = confluentcloud.Connector("sink",
+            environment=confluentcloud.ConnectorEnvironmentArgs(
+                id=confluent_environment["staging"]["id"],
+            ),
+            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
+                id=confluent_kafka_cluster["basic"]["id"],
+            ),
+            config_sensitive={
+                "aws.access.key.id": "***REDACTED***",
+                "aws.secret.access.key": "***REDACTED***",
+            },
+            config_nonsensitive={
+                "topics": confluent_kafka_topic["orders"]["topic_name"],
+                "input.data.format": "JSON",
+                "connector.class": "S3_SINK",
+                "name": "S3_SINKConnector_0",
+                "kafka.auth.mode": "SERVICE_ACCOUNT",
+                "kafka.service.account.id": confluent_service_account["app-connector"]["id"],
+                "s3.bucket.name": "<s3-bucket-name>",
+                "output.data.format": "JSON",
+                "time.interval": "DAILY",
+                "flush.size": "1000",
+                "tasks.max": "1",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    confluent_kafka_acl["app-connector-describe-on-cluster"],
+                    confluent_kafka_acl["app-connector-read-on-target-topic"],
+                    confluent_kafka_acl["app-connector-create-on-dlq-lcc-topics"],
+                    confluent_kafka_acl["app-connector-write-on-dlq-lcc-topics"],
+                    confluent_kafka_acl["app-connector-create-on-success-lcc-topics"],
+                    confluent_kafka_acl["app-connector-write-on-success-lcc-topics"],
+                    confluent_kafka_acl["app-connector-create-on-error-lcc-topics"],
+                    confluent_kafka_acl["app-connector-write-on-error-lcc-topics"],
+                    confluent_kafka_acl["app-connector-read-on-connect-lcc-group"],
+                ]))
+        ```
+        ### Example Managed [Amazon DynamoDB Connector](https://docs.confluent.io/cloud/current/connectors/cc-amazon-dynamo-db-sink.html) that uses a service account to communicate with your Kafka cluster
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        sink = confluentcloud.Connector("sink",
+            environment=confluentcloud.ConnectorEnvironmentArgs(
+                id=confluent_environment["staging"]["id"],
+            ),
+            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
+                id=confluent_kafka_cluster["basic"]["id"],
+            ),
+            config_sensitive={
+                "aws.access.key.id": "***REDACTED***",
+                "aws.secret.access.key": "***REDACTED***",
+            },
+            config_nonsensitive={
+                "topics": confluent_kafka_topic["orders"]["topic_name"],
+                "input.data.format": "JSON",
+                "connector.class": "DynamoDbSink",
+                "name": "DynamoDbSinkConnector_0",
+                "kafka.auth.mode": "SERVICE_ACCOUNT",
+                "kafka.service.account.id": confluent_service_account["app-connector"]["id"],
+                "aws.dynamodb.pk.hash": "value.userid",
+                "aws.dynamodb.pk.sort": "value.pageid",
+                "tasks.max": "1",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    confluent_kafka_acl["app-connector-describe-on-cluster"],
+                    confluent_kafka_acl["app-connector-read-on-target-topic"],
+                    confluent_kafka_acl["app-connector-create-on-dlq-lcc-topics"],
+                    confluent_kafka_acl["app-connector-write-on-dlq-lcc-topics"],
+                    confluent_kafka_acl["app-connector-create-on-success-lcc-topics"],
+                    confluent_kafka_acl["app-connector-write-on-success-lcc-topics"],
+                    confluent_kafka_acl["app-connector-create-on-error-lcc-topics"],
+                    confluent_kafka_acl["app-connector-write-on-error-lcc-topics"],
+                    confluent_kafka_acl["app-connector-read-on-connect-lcc-group"],
+                ]))
+        ```
+        ### Example Custom [Datagen Source Connector](https://www.confluent.io/hub/confluentinc/kafka-connect-datagen) that uses a Kafka API Key to communicate with your Kafka cluster
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        source = confluentcloud.Connector("source",
+            environment=confluentcloud.ConnectorEnvironmentArgs(
+                id=confluent_environment["staging"]["id"],
+            ),
+            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
+                id=confluent_kafka_cluster["basic"]["id"],
+            ),
+            config_sensitive={
+                "kafka.api.key": "***REDACTED***",
+                "kafka.api.secret": "***REDACTED***",
+            },
+            config_nonsensitive={
+                "confluent.connector.type": "CUSTOM",
+                "connector.class": confluent_custom_connector_plugin["source"]["connector_class"],
+                "name": "DatagenConnectorExampleName",
+                "kafka.auth.mode": "KAFKA_API_KEY",
+                "kafka.topic": confluent_kafka_topic["orders"]["topic_name"],
+                "output.data.format": "JSON",
+                "quickstart": "ORDERS",
+                "confluent.custom.plugin.id": confluent_custom_connector_plugin["source"]["id"],
+                "min.interval": "1000",
+                "max.interval": "2000",
+                "tasks.max": "1",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[confluent_role_binding["app-manager-kafka-cluster-admin"]]))
+        ```
+
+        > **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\\
+        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `Connector` resource:
+        * `s3-sink-connector`
+        * `snowflake-sink-connector`
+        * `managed-datagen-source-connector`
+        * `elasticsearch-sink-connector`
+        * `dynamo-db-sink-connector`
+        * `mongo-db-source-connector`
+        * `mongo-db-sink-connector`
+        * `sql-server-cdc-debezium-source-connector`
+        * `postgre-sql-cdc-debezium-source-connector`
+        * `custom-datagen-source-connector`
+
+        > **Note:** Certain connectors require additional ACL entries. See [Additional ACL entries](https://docs.confluent.io/cloud/current/connectors/service-account.html#additional-acl-entries) for more details.
+
         ## Import
 
         You can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `<Environment ID>/<Kafka cluster ID>/<Connector name>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
@@ -195,6 +381,11 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[pulumi.InputType['ConnectorEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+               
+               > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+               
+               > **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
         """
         ...
     @overload
@@ -203,6 +394,168 @@ class Connector(pulumi.CustomResource):
                  args: ConnectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+        ### Example Managed [Datagen Source Connector](https://docs.confluent.io/cloud/current/connectors/cc-datagen-source.html) that uses a service account to communicate with your Kafka cluster
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        source = confluentcloud.Connector("source",
+            environment=confluentcloud.ConnectorEnvironmentArgs(
+                id=confluent_environment["staging"]["id"],
+            ),
+            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
+                id=confluent_kafka_cluster["basic"]["id"],
+            ),
+            config_sensitive={},
+            config_nonsensitive={
+                "connector.class": "DatagenSource",
+                "name": "DatagenSourceConnector_0",
+                "kafka.auth.mode": "SERVICE_ACCOUNT",
+                "kafka.service.account.id": confluent_service_account["app-connector"]["id"],
+                "kafka.topic": confluent_kafka_topic["orders"]["topic_name"],
+                "output.data.format": "JSON",
+                "quickstart": "ORDERS",
+                "tasks.max": "1",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    confluent_kafka_acl["app-connector-describe-on-cluster"],
+                    confluent_kafka_acl["app-connector-write-on-target-topic"],
+                    confluent_kafka_acl["app-connector-create-on-data-preview-topics"],
+                    confluent_kafka_acl["app-connector-write-on-data-preview-topics"],
+                ]))
+        ```
+        ### Example Managed [Amazon S3 Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-s3-sink.html) that uses a service account to communicate with your Kafka cluster
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        sink = confluentcloud.Connector("sink",
+            environment=confluentcloud.ConnectorEnvironmentArgs(
+                id=confluent_environment["staging"]["id"],
+            ),
+            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
+                id=confluent_kafka_cluster["basic"]["id"],
+            ),
+            config_sensitive={
+                "aws.access.key.id": "***REDACTED***",
+                "aws.secret.access.key": "***REDACTED***",
+            },
+            config_nonsensitive={
+                "topics": confluent_kafka_topic["orders"]["topic_name"],
+                "input.data.format": "JSON",
+                "connector.class": "S3_SINK",
+                "name": "S3_SINKConnector_0",
+                "kafka.auth.mode": "SERVICE_ACCOUNT",
+                "kafka.service.account.id": confluent_service_account["app-connector"]["id"],
+                "s3.bucket.name": "<s3-bucket-name>",
+                "output.data.format": "JSON",
+                "time.interval": "DAILY",
+                "flush.size": "1000",
+                "tasks.max": "1",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    confluent_kafka_acl["app-connector-describe-on-cluster"],
+                    confluent_kafka_acl["app-connector-read-on-target-topic"],
+                    confluent_kafka_acl["app-connector-create-on-dlq-lcc-topics"],
+                    confluent_kafka_acl["app-connector-write-on-dlq-lcc-topics"],
+                    confluent_kafka_acl["app-connector-create-on-success-lcc-topics"],
+                    confluent_kafka_acl["app-connector-write-on-success-lcc-topics"],
+                    confluent_kafka_acl["app-connector-create-on-error-lcc-topics"],
+                    confluent_kafka_acl["app-connector-write-on-error-lcc-topics"],
+                    confluent_kafka_acl["app-connector-read-on-connect-lcc-group"],
+                ]))
+        ```
+        ### Example Managed [Amazon DynamoDB Connector](https://docs.confluent.io/cloud/current/connectors/cc-amazon-dynamo-db-sink.html) that uses a service account to communicate with your Kafka cluster
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        sink = confluentcloud.Connector("sink",
+            environment=confluentcloud.ConnectorEnvironmentArgs(
+                id=confluent_environment["staging"]["id"],
+            ),
+            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
+                id=confluent_kafka_cluster["basic"]["id"],
+            ),
+            config_sensitive={
+                "aws.access.key.id": "***REDACTED***",
+                "aws.secret.access.key": "***REDACTED***",
+            },
+            config_nonsensitive={
+                "topics": confluent_kafka_topic["orders"]["topic_name"],
+                "input.data.format": "JSON",
+                "connector.class": "DynamoDbSink",
+                "name": "DynamoDbSinkConnector_0",
+                "kafka.auth.mode": "SERVICE_ACCOUNT",
+                "kafka.service.account.id": confluent_service_account["app-connector"]["id"],
+                "aws.dynamodb.pk.hash": "value.userid",
+                "aws.dynamodb.pk.sort": "value.pageid",
+                "tasks.max": "1",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    confluent_kafka_acl["app-connector-describe-on-cluster"],
+                    confluent_kafka_acl["app-connector-read-on-target-topic"],
+                    confluent_kafka_acl["app-connector-create-on-dlq-lcc-topics"],
+                    confluent_kafka_acl["app-connector-write-on-dlq-lcc-topics"],
+                    confluent_kafka_acl["app-connector-create-on-success-lcc-topics"],
+                    confluent_kafka_acl["app-connector-write-on-success-lcc-topics"],
+                    confluent_kafka_acl["app-connector-create-on-error-lcc-topics"],
+                    confluent_kafka_acl["app-connector-write-on-error-lcc-topics"],
+                    confluent_kafka_acl["app-connector-read-on-connect-lcc-group"],
+                ]))
+        ```
+        ### Example Custom [Datagen Source Connector](https://www.confluent.io/hub/confluentinc/kafka-connect-datagen) that uses a Kafka API Key to communicate with your Kafka cluster
+
+        ```python
+        import pulumi
+        import pulumi_confluentcloud as confluentcloud
+
+        source = confluentcloud.Connector("source",
+            environment=confluentcloud.ConnectorEnvironmentArgs(
+                id=confluent_environment["staging"]["id"],
+            ),
+            kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(
+                id=confluent_kafka_cluster["basic"]["id"],
+            ),
+            config_sensitive={
+                "kafka.api.key": "***REDACTED***",
+                "kafka.api.secret": "***REDACTED***",
+            },
+            config_nonsensitive={
+                "confluent.connector.type": "CUSTOM",
+                "connector.class": confluent_custom_connector_plugin["source"]["connector_class"],
+                "name": "DatagenConnectorExampleName",
+                "kafka.auth.mode": "KAFKA_API_KEY",
+                "kafka.topic": confluent_kafka_topic["orders"]["topic_name"],
+                "output.data.format": "JSON",
+                "quickstart": "ORDERS",
+                "confluent.custom.plugin.id": confluent_custom_connector_plugin["source"]["id"],
+                "min.interval": "1000",
+                "max.interval": "2000",
+                "tasks.max": "1",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[confluent_role_binding["app-manager-kafka-cluster-admin"]]))
+        ```
+
+        > **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\\
+        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `Connector` resource:
+        * `s3-sink-connector`
+        * `snowflake-sink-connector`
+        * `managed-datagen-source-connector`
+        * `elasticsearch-sink-connector`
+        * `dynamo-db-sink-connector`
+        * `mongo-db-source-connector`
+        * `mongo-db-sink-connector`
+        * `sql-server-cdc-debezium-source-connector`
+        * `postgre-sql-cdc-debezium-source-connector`
+        * `custom-datagen-source-connector`
+
+        > **Note:** Certain connectors require additional ACL entries. See [Additional ACL entries](https://docs.confluent.io/cloud/current/connectors/service-account.html#additional-acl-entries) for more details.
+
         ## Import
 
         You can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `<Environment ID>/<Kafka cluster ID>/<Connector name>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
@@ -278,6 +631,11 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_nonsensitive: Block for custom *nonsensitive* configuration properties that are *not* labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] config_sensitive: Block for custom *sensitive* configuration properties that are labelled with "Type: password" under "Configuration Properties" section in [the docs](https://docs.confluent.io/cloud/current/connectors/index.html):
         :param pulumi.Input[pulumi.InputType['ConnectorEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[str] status: The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+               
+               > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+               
+               > **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -322,5 +680,12 @@ class Connector(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The status of the connector (one of `"NONE"`, `"PROVISIONING"`, `"RUNNING"`, `"DEGRADED"`, `"FAILED"`, `"PAUSED"`, `"DELETED"`). Pausing (`"RUNNING" > "PAUSED"`) and resuming (`"PAUSED" > "RUNNING"`) a connector is supported via an update operation.
+
+        > **Note:** If there are no _sensitive_ configuration settings for your connector, set `config_sensitive = {}` explicitly.
+
+        > **Note:** You may declare sensitive variables for secrets `config_sensitive` block and set them using environment variables (for example, `export TF_VAR_aws_access_key_id="foo"`).
+        """
         return pulumi.get(self, "status")
 

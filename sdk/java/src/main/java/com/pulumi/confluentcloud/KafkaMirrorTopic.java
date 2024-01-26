@@ -17,6 +17,60 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.confluentcloud.KafkaMirrorTopic;
+ * import com.pulumi.confluentcloud.KafkaMirrorTopicArgs;
+ * import com.pulumi.confluentcloud.inputs.KafkaMirrorTopicSourceKafkaTopicArgs;
+ * import com.pulumi.confluentcloud.inputs.KafkaMirrorTopicClusterLinkArgs;
+ * import com.pulumi.confluentcloud.inputs.KafkaMirrorTopicKafkaClusterArgs;
+ * import com.pulumi.confluentcloud.inputs.KafkaMirrorTopicKafkaClusterCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new KafkaMirrorTopic(&#34;example&#34;, KafkaMirrorTopicArgs.builder()        
+ *             .sourceKafkaTopic(KafkaMirrorTopicSourceKafkaTopicArgs.builder()
+ *                 .topicName(&#34;orders&#34;)
+ *                 .build())
+ *             .clusterLink(KafkaMirrorTopicClusterLinkArgs.builder()
+ *                 .linkName(confluent_cluster_link.source-outbound().link_name())
+ *                 .build())
+ *             .kafkaCluster(KafkaMirrorTopicKafkaClusterArgs.builder()
+ *                 .id(data.confluent_kafka_cluster().destination().id())
+ *                 .restEndpoint(data.confluent_kafka_cluster().destination().rest_endpoint())
+ *                 .credentials(KafkaMirrorTopicKafkaClusterCredentialsArgs.builder()
+ *                     .key(confluent_api_key.app-manager-destination-cluster-api-key().id())
+ *                     .secret(confluent_api_key.app-manager-destination-cluster-api-key().secret())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.KafkaMirrorTopic` resource:
+ *   * `destination-initiated-cluster-link-rbac`: An example of setting up a _destination_ initiated cluster link with a mirror topic
+ *   * `source-initiated-cluster-link-rbac`: An example of setting up a _source_ initiated cluster link with a mirror topic
+ * 
+ * See [Mirror Topics on Confluent Cloud](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/mirror-topics-cc.html) to learn more about Mirror Topics on Confluent Cloud.
+ * 
  * ## Import
  * 
  * You can import a Kafka mirror topic by using the Kafka cluster ID, cluster link name, and Kafka topic name in the format `&lt;Kafka cluster ID&gt;/&lt;Cluster link name&gt;/&lt;Kafka topic name&gt;`, for example$ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34; $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34; $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;

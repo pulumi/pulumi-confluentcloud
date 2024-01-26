@@ -10,6 +10,191 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
+    /// ## Example Usage
+    /// ### Example Kafka clusters on AWS
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var development = new ConfluentCloud.Environment("development");
+    /// 
+    ///     var basic = new ConfluentCloud.KafkaCluster("basic", new()
+    ///     {
+    ///         Availability = "SINGLE_ZONE",
+    ///         Cloud = "AWS",
+    ///         Region = "us-east-2",
+    ///         Basic = null,
+    ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var standard = new ConfluentCloud.KafkaCluster("standard", new()
+    ///     {
+    ///         Availability = "SINGLE_ZONE",
+    ///         Cloud = "AWS",
+    ///         Region = "us-east-2",
+    ///         Standard = null,
+    ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var dedicated = new ConfluentCloud.KafkaCluster("dedicated", new()
+    ///     {
+    ///         Availability = "MULTI_ZONE",
+    ///         Cloud = "AWS",
+    ///         Region = "us-east-2",
+    ///         Dedicated = new ConfluentCloud.Inputs.KafkaClusterDedicatedArgs
+    ///         {
+    ///             Cku = 2,
+    ///         },
+    ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Example Kafka clusters on Azure
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var development = new ConfluentCloud.Environment("development");
+    /// 
+    ///     var basic = new ConfluentCloud.KafkaCluster("basic", new()
+    ///     {
+    ///         Availability = "SINGLE_ZONE",
+    ///         Cloud = "AZURE",
+    ///         Region = "centralus",
+    ///         Basic = null,
+    ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var standard = new ConfluentCloud.KafkaCluster("standard", new()
+    ///     {
+    ///         Availability = "SINGLE_ZONE",
+    ///         Cloud = "AZURE",
+    ///         Region = "centralus",
+    ///         Standard = null,
+    ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var dedicated = new ConfluentCloud.KafkaCluster("dedicated", new()
+    ///     {
+    ///         Availability = "MULTI_ZONE",
+    ///         Cloud = "AZURE",
+    ///         Region = "centralus",
+    ///         Dedicated = new ConfluentCloud.Inputs.KafkaClusterDedicatedArgs
+    ///         {
+    ///             Cku = 2,
+    ///         },
+    ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Example Kafka clusters on GCP
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using ConfluentCloud = Pulumi.ConfluentCloud;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var development = new ConfluentCloud.Environment("development");
+    /// 
+    ///     var basic = new ConfluentCloud.KafkaCluster("basic", new()
+    ///     {
+    ///         Availability = "SINGLE_ZONE",
+    ///         Cloud = "GCP",
+    ///         Region = "us-central1",
+    ///         Basic = null,
+    ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var standard = new ConfluentCloud.KafkaCluster("standard", new()
+    ///     {
+    ///         Availability = "SINGLE_ZONE",
+    ///         Cloud = "GCP",
+    ///         Region = "us-central1",
+    ///         Standard = null,
+    ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var dedicated = new ConfluentCloud.KafkaCluster("dedicated", new()
+    ///     {
+    ///         Availability = "MULTI_ZONE",
+    ///         Cloud = "GCP",
+    ///         Region = "us-central1",
+    ///         Dedicated = new ConfluentCloud.Inputs.KafkaClusterDedicatedArgs
+    ///         {
+    ///             Cku = 2,
+    ///         },
+    ///         Environment = new ConfluentCloud.Inputs.KafkaClusterEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with `confluentcloud.KafkaCluster` resource:
+    ///   * `basic-kafka-acls`: _Basic_ Kafka cluster with authorization using ACLs
+    ///   * `basic-kafka-acls-with-alias`: _Basic_ Kafka cluster with authorization using ACLs
+    ///   * `standard-kafka-acls`: _Standard_ Kafka cluster with authorization using ACLs
+    ///   * `standard-kafka-rbac`: _Standard_ Kafka cluster with authorization using RBAC
+    ///   * `dedicated-public-kafka-acls`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using ACLs
+    ///   * `dedicated-public-kafka-rbac`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC
+    ///   * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+    ///   * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC
+    ///   * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC
+    ///   * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
+    ///   * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs
+    ///   * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC
+    ///   * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
+    ///   * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
+    ///   * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
+    ///   * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
+    ///   * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
+    ///   * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
+    ///   * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
+    ///   * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
+    ///   * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+    /// 
     /// ## Import
     /// 
     /// You can import a Kafka cluster by using Environment ID and Kafka cluster ID, in the format `&lt;Environment ID&gt;/&lt;Kafka cluster ID&gt;`, e.g. $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
