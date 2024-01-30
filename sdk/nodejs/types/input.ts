@@ -906,6 +906,42 @@ export interface GetSchemaRegistryClusterModeSchemaRegistryClusterArgs {
     id: pulumi.Input<string>;
 }
 
+export interface GetSchemaRegistryDekCredentials {
+    key: string;
+    secret: string;
+}
+
+export interface GetSchemaRegistryDekCredentialsArgs {
+    key: pulumi.Input<string>;
+    secret: pulumi.Input<string>;
+}
+
+export interface GetSchemaRegistryDekSchemaRegistryCluster {
+    id: string;
+}
+
+export interface GetSchemaRegistryDekSchemaRegistryClusterArgs {
+    id: pulumi.Input<string>;
+}
+
+export interface GetSchemaRegistryKekCredentials {
+    key: string;
+    secret: string;
+}
+
+export interface GetSchemaRegistryKekCredentialsArgs {
+    key: pulumi.Input<string>;
+    secret: pulumi.Input<string>;
+}
+
+export interface GetSchemaRegistryKekSchemaRegistryCluster {
+    id: string;
+}
+
+export interface GetSchemaRegistryKekSchemaRegistryClusterArgs {
+    id: pulumi.Input<string>;
+}
+
 export interface GetSchemaSchemaRegistryCluster {
     /**
      * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
@@ -1737,6 +1773,24 @@ export interface SchemaRegistryClusterRegion {
     /**
      * The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
      */
+    id: pulumi.Input<string>;
+}
+
+export interface SchemaRegistryDekCredentials {
+    key: pulumi.Input<string>;
+    secret: pulumi.Input<string>;
+}
+
+export interface SchemaRegistryDekSchemaRegistryCluster {
+    id: pulumi.Input<string>;
+}
+
+export interface SchemaRegistryKekCredentials {
+    key: pulumi.Input<string>;
+    secret: pulumi.Input<string>;
+}
+
+export interface SchemaRegistryKekSchemaRegistryCluster {
     id: pulumi.Input<string>;
 }
 

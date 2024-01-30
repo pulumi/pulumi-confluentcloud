@@ -1736,6 +1736,64 @@
                 "id"
             ]
         },
+        "confluentcloud:index/SchemaRegistryDekCredentials:SchemaRegistryDekCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/SchemaRegistryDekSchemaRegistryCluster:SchemaRegistryDekSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/SchemaRegistryKekCredentials:SchemaRegistryKekCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/SchemaRegistryKekSchemaRegistryCluster:SchemaRegistryKekSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/SchemaSchemaReference:SchemaSchemaReference": {
             "properties": {
                 "name": {
@@ -3291,6 +3349,62 @@
                     "requiredInputs": []
                 }
             }
+        },
+        "confluentcloud:index/getSchemaRegistryDekCredentials:getSchemaRegistryDekCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/getSchemaRegistryDekSchemaRegistryCluster:getSchemaRegistryDekSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/getSchemaRegistryKekCredentials:getSchemaRegistryKekCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/getSchemaRegistryKekSchemaRegistryCluster:getSchemaRegistryKekSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
         },
         "confluentcloud:index/getSchemaSchemaReference:getSchemaSchemaReference": {
             "properties": {
@@ -7713,6 +7827,280 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/schemaRegistryDek:SchemaRegistryDek": {
+            "properties": {
+                "algorithm": {
+                    "type": "string"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/SchemaRegistryDekCredentials:SchemaRegistryDekCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "encryptedKeyMaterial": {
+                    "type": "string"
+                },
+                "hardDelete": {
+                    "type": "boolean",
+                    "description": "Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek\non destroy. Defaults to `false` (soft delete).\n"
+                },
+                "kekName": {
+                    "type": "string"
+                },
+                "keyMaterial": {
+                    "type": "string"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example,\n`https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/SchemaRegistryDekSchemaRegistryCluster:SchemaRegistryDekSchemaRegistryCluster"
+                },
+                "subjectName": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "encryptedKeyMaterial",
+                "kekName",
+                "keyMaterial",
+                "subjectName"
+            ],
+            "inputProperties": {
+                "algorithm": {
+                    "type": "string"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/SchemaRegistryDekCredentials:SchemaRegistryDekCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "encryptedKeyMaterial": {
+                    "type": "string"
+                },
+                "hardDelete": {
+                    "type": "boolean",
+                    "description": "Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek\non destroy. Defaults to `false` (soft delete).\n"
+                },
+                "kekName": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example,\n`https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "willReplaceOnChanges": true
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/SchemaRegistryDekSchemaRegistryCluster:SchemaRegistryDekSchemaRegistryCluster",
+                    "willReplaceOnChanges": true
+                },
+                "subjectName": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "kekName",
+                "subjectName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SchemaRegistryDek resources.\n",
+                "properties": {
+                    "algorithm": {
+                        "type": "string"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/SchemaRegistryDekCredentials:SchemaRegistryDekCredentials",
+                        "description": "The Cluster API Credentials.\n",
+                        "secret": true
+                    },
+                    "encryptedKeyMaterial": {
+                        "type": "string"
+                    },
+                    "hardDelete": {
+                        "type": "boolean",
+                        "description": "Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek\non destroy. Defaults to `false` (soft delete).\n"
+                    },
+                    "kekName": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "keyMaterial": {
+                        "type": "string"
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example,\n`https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/SchemaRegistryDekSchemaRegistryCluster:SchemaRegistryDekSchemaRegistryCluster",
+                        "willReplaceOnChanges": true
+                    },
+                    "subjectName": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "confluentcloud:index/schemaRegistryKek:SchemaRegistryKek": {
+            "properties": {
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/SchemaRegistryKekCredentials:SchemaRegistryKekCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "doc": {
+                    "type": "string"
+                },
+                "hardDelete": {
+                    "type": "boolean",
+                    "description": "Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek\non destroy. Defaults to `false` (soft delete).\n"
+                },
+                "kmsKeyId": {
+                    "type": "string"
+                },
+                "kmsType": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "properties": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example,\n`https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/SchemaRegistryKekSchemaRegistryCluster:SchemaRegistryKekSchemaRegistryCluster"
+                },
+                "shared": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "doc",
+                "kmsKeyId",
+                "kmsType",
+                "name",
+                "properties",
+                "shared"
+            ],
+            "inputProperties": {
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/SchemaRegistryKekCredentials:SchemaRegistryKekCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "doc": {
+                    "type": "string"
+                },
+                "hardDelete": {
+                    "type": "boolean",
+                    "description": "Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek\non destroy. Defaults to `false` (soft delete).\n"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "kmsType": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "properties": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example,\n`https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "willReplaceOnChanges": true
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/SchemaRegistryKekSchemaRegistryCluster:SchemaRegistryKekSchemaRegistryCluster",
+                    "willReplaceOnChanges": true
+                },
+                "shared": {
+                    "type": "boolean"
+                }
+            },
+            "requiredInputs": [
+                "kmsKeyId",
+                "kmsType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SchemaRegistryKek resources.\n",
+                "properties": {
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/SchemaRegistryKekCredentials:SchemaRegistryKekCredentials",
+                        "description": "The Cluster API Credentials.\n",
+                        "secret": true
+                    },
+                    "doc": {
+                        "type": "string"
+                    },
+                    "hardDelete": {
+                        "type": "boolean",
+                        "description": "Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek\non destroy. Defaults to `false` (soft delete).\n"
+                    },
+                    "kmsKeyId": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "kmsType": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "properties": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example,\n`https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/SchemaRegistryKekSchemaRegistryCluster:SchemaRegistryKekSchemaRegistryCluster",
+                        "willReplaceOnChanges": true
+                    },
+                    "shared": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/serviceAccount:ServiceAccount": {
             "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.ServiceAccount` provides a Service Account resource that enables creating, editing, and deleting service accounts on Confluent Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst example_sa = new confluentcloud.ServiceAccount(\"example-sa\", {description: \"Service Account for orders app\"});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_sa = confluentcloud.ServiceAccount(\"example-sa\", description=\"Service Account for orders app\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example_sa = new ConfluentCloud.ServiceAccount(\"example-sa\", new()\n    {\n        Description = \"Service Account for orders app\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewServiceAccount(ctx, \"example-sa\", \u0026confluentcloud.ServiceAccountArgs{\n\t\t\tDescription: pulumi.String(\"Service Account for orders app\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ServiceAccount;\nimport com.pulumi.confluentcloud.ServiceAccountArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example_sa = new ServiceAccount(\"example-sa\", ServiceAccountArgs.builder()        \n            .description(\"Service Account for orders app\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example-sa:\n    type: confluentcloud:ServiceAccount\n    properties:\n      description: Service Account for orders app\n```\n\n{{% /example %}}\n{{% /examples %}}\n## Getting Started\n\nThe following end-to-end examples might help to get started with `confluentcloud.ServiceAccount` resource:\n  * `basic-kafka-acls`: _Basic_ Kafka cluster with authorization using ACLs\n  * `basic-kafka-acls-with-alias`: _Basic_ Kafka cluster with authorization using ACLs\n  * `standard-kafka-acls`: _Standard_ Kafka cluster with authorization using ACLs\n  * `standard-kafka-rbac`: _Standard_ Kafka cluster with authorization using RBAC\n  * `dedicated-public-kafka-acls`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using ACLs\n  * `dedicated-public-kafka-rbac`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC\n  * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs\n  * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC\n  * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC\n  * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs\n  * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs\n  * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC\n  * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs\n  * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC\n  * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs\n  * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC\n  * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs\n  * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC\n  * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs\n  * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC\n  * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs\n\n\n## Import\n\nYou can import a Service Account by using Service Account ID, for example$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\" $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes. ",
             "properties": {
@@ -8527,7 +8915,7 @@
             }
         },
         "confluentcloud:index/getEnvironments:getEnvironments": {
-            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.getEnvironments` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.getEnvironments` describes a data source for Environments.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getEnvironments({});\nexport const environments = main.then(main =\u003e main.ids);\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_environments()\npulumi.export(\"environments\", main.ids)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetEnvironments.Invoke();\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"environments\"] = main.Apply(getEnvironmentsResult =\u003e getEnvironmentsResult.Ids),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.GetEnvironments(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"environments\", main.Ids)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getEnvironments();\n\n        ctx.export(\"environments\", main.applyValue(getEnvironmentsResult -\u003e getEnvironmentsResult.ids()));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getEnvironments\n      Arguments: {}\noutputs:\n  environments: ${main.ids}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.getEnvironments` describes a data source for Environments.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getEnvironments({});\nexport const environments = main.then(main =\u003e main.ids);\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_environments()\npulumi.export(\"environments\", main.ids)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetEnvironments.Invoke();\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"environments\"] = main.Apply(getEnvironmentsResult =\u003e getEnvironmentsResult.Ids),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.GetEnvironments(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"environments\", main.Ids)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getEnvironments();\n\n        ctx.export(\"environments\", main.applyValue(getEnvironmentsResult -\u003e getEnvironmentsResult.ids()));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getEnvironments\n      Arguments: {}\noutputs:\n  environments: ${main.ids}\n```\n{{% /example %}}\n{{% /examples %}}",
             "outputs": {
                 "description": "A collection of values returned by getEnvironments.\n",
                 "properties": {
@@ -10301,7 +10689,7 @@
             }
         },
         "confluentcloud:index/getSchemaRegistryClusters:getSchemaRegistryClusters": {
-            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.getSchemaRegistryClusters` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.getSchemaRegistryClusters` describes a data source for Schema Registry Clusters.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getSchemaRegistryClusters({});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_schema_registry_clusters()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetSchemaRegistryClusters.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.GetSchemaRegistryClusters(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getSchemaRegistryClusters();\n\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getSchemaRegistryClusters\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.getSchemaRegistryClusters` describes a data source for Schema Registry Clusters.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getSchemaRegistryClusters({});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_schema_registry_clusters()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetSchemaRegistryClusters.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.GetSchemaRegistryClusters(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getSchemaRegistryClusters();\n\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getSchemaRegistryClusters\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
             "outputs": {
                 "description": "A collection of values returned by getSchemaRegistryClusters.\n",
                 "properties": {
@@ -10320,6 +10708,167 @@
                 "type": "object",
                 "required": [
                     "clusters",
+                    "id"
+                ]
+            }
+        },
+        "confluentcloud:index/getSchemaRegistryDek:getSchemaRegistryDek": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getSchemaRegistryDek.\n",
+                "properties": {
+                    "algorithm": {
+                        "type": "string"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRegistryDekCredentials:getSchemaRegistryDekCredentials",
+                        "secret": true
+                    },
+                    "kekName": {
+                        "type": "string"
+                    },
+                    "restEndpoint": {
+                        "type": "string"
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRegistryDekSchemaRegistryCluster:getSchemaRegistryDekSchemaRegistryCluster"
+                    },
+                    "subjectName": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "kekName",
+                    "subjectName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSchemaRegistryDek.\n",
+                "properties": {
+                    "algorithm": {
+                        "type": "string"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRegistryDekCredentials:getSchemaRegistryDekCredentials",
+                        "secret": true
+                    },
+                    "encryptedKeyMaterial": {
+                        "type": "string"
+                    },
+                    "hardDelete": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "kekName": {
+                        "type": "string"
+                    },
+                    "keyMaterial": {
+                        "type": "string"
+                    },
+                    "restEndpoint": {
+                        "type": "string"
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRegistryDekSchemaRegistryCluster:getSchemaRegistryDekSchemaRegistryCluster"
+                    },
+                    "subjectName": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "encryptedKeyMaterial",
+                    "hardDelete",
+                    "kekName",
+                    "keyMaterial",
+                    "subjectName",
+                    "id"
+                ]
+            }
+        },
+        "confluentcloud:index/getSchemaRegistryKek:getSchemaRegistryKek": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getSchemaRegistryKek.\n",
+                "properties": {
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRegistryKekCredentials:getSchemaRegistryKekCredentials",
+                        "secret": true
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "restEndpoint": {
+                        "type": "string"
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRegistryKekSchemaRegistryCluster:getSchemaRegistryKekSchemaRegistryCluster"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSchemaRegistryKek.\n",
+                "properties": {
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRegistryKekCredentials:getSchemaRegistryKekCredentials",
+                        "secret": true
+                    },
+                    "doc": {
+                        "type": "string"
+                    },
+                    "hardDelete": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "kmsKeyId": {
+                        "type": "string"
+                    },
+                    "kmsType": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "restEndpoint": {
+                        "type": "string"
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRegistryKekSchemaRegistryCluster:getSchemaRegistryKekSchemaRegistryCluster"
+                    },
+                    "shared": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "doc",
+                    "hardDelete",
+                    "kmsKeyId",
+                    "kmsType",
+                    "name",
+                    "properties",
+                    "shared",
                     "id"
                 ]
             }
@@ -10860,7 +11409,7 @@
             }
         },
         "confluentcloud:index/getUsers:getUsers": {
-            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.getUsers` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.getUsers` describes a data source for Users.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getUsers({});\nexport const users = main.then(main =\u003e main.ids);\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_users()\npulumi.export(\"users\", main.ids)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetUsers.Invoke();\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"users\"] = main.Apply(getUsersResult =\u003e getUsersResult.Ids),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.GetUsers(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"users\", main.Ids)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getUsers();\n\n        ctx.export(\"users\", main.applyValue(getUsersResult -\u003e getUsersResult.ids()));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getUsers\n      Arguments: {}\noutputs:\n  users: ${main.ids}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.getUsers` describes a data source for Users.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst main = confluentcloud.getUsers({});\nexport const users = main.then(main =\u003e main.ids);\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nmain = confluentcloud.get_users()\npulumi.export(\"users\", main.ids)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var main = ConfluentCloud.GetUsers.Invoke();\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"users\"] = main.Apply(getUsersResult =\u003e getUsersResult.Ids),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmain, err := confluentcloud.GetUsers(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"users\", main.Ids)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var main = ConfluentcloudFunctions.getUsers();\n\n        ctx.export(\"users\", main.applyValue(getUsersResult -\u003e getUsersResult.ids()));\n    }\n}\n```\n```yaml\nvariables:\n  main:\n    fn::invoke:\n      Function: confluentcloud:getUsers\n      Arguments: {}\noutputs:\n  users: ${main.ids}\n```\n{{% /example %}}\n{{% /examples %}}",
             "outputs": {
                 "description": "A collection of values returned by getUsers.\n",
                 "properties": {

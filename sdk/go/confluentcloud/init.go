@@ -89,6 +89,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SchemaRegistryClusterConfig{}
 	case "confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode":
 		r = &SchemaRegistryClusterMode{}
+	case "confluentcloud:index/schemaRegistryDek:SchemaRegistryDek":
+		r = &SchemaRegistryDek{}
+	case "confluentcloud:index/schemaRegistryKek:SchemaRegistryKek":
+		r = &SchemaRegistryKek{}
 	case "confluentcloud:index/serviceAccount:ServiceAccount":
 		r = &ServiceAccount{}
 	case "confluentcloud:index/subjectConfig:SubjectConfig":
@@ -302,6 +306,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/schemaRegistryClusterMode",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/schemaRegistryDek",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/schemaRegistryKek",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
