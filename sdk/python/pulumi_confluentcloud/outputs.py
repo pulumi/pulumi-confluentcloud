@@ -104,6 +104,10 @@ __all__ = [
     'SchemaRegistryClusterModeCredentials',
     'SchemaRegistryClusterModeSchemaRegistryCluster',
     'SchemaRegistryClusterRegion',
+    'SchemaRegistryDekCredentials',
+    'SchemaRegistryDekSchemaRegistryCluster',
+    'SchemaRegistryKekCredentials',
+    'SchemaRegistryKekSchemaRegistryCluster',
     'SchemaSchemaReference',
     'SchemaSchemaRegistryCluster',
     'SubjectConfigCredentials',
@@ -187,6 +191,10 @@ __all__ = [
     'GetSchemaRegistryClustersClusterResult',
     'GetSchemaRegistryClustersClusterEnvironmentResult',
     'GetSchemaRegistryClustersClusterRegionResult',
+    'GetSchemaRegistryDekCredentialsResult',
+    'GetSchemaRegistryDekSchemaRegistryClusterResult',
+    'GetSchemaRegistryKekCredentialsResult',
+    'GetSchemaRegistryKekSchemaRegistryClusterResult',
     'GetSchemaSchemaReferenceResult',
     'GetSchemaSchemaRegistryClusterResult',
     'GetSchemasCredentialsResult',
@@ -3134,6 +3142,68 @@ class SchemaRegistryClusterRegion(dict):
 
 
 @pulumi.output_type
+class SchemaRegistryDekCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class SchemaRegistryDekSchemaRegistryCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SchemaRegistryKekCredentials(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class SchemaRegistryKekSchemaRegistryCluster(dict):
+    def __init__(__self__, *,
+                 id: str):
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class SchemaSchemaReference(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5336,6 +5406,68 @@ class GetSchemaRegistryClustersClusterRegionResult(dict):
         """
         (Required String) The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See Schema Registry Regions.
         """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetSchemaRegistryDekCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetSchemaRegistryDekSchemaRegistryClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetSchemaRegistryKekCredentialsResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 secret: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class GetSchemaRegistryKekSchemaRegistryClusterResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         return pulumi.get(self, "id")
 
 

@@ -1002,6 +1002,24 @@ export interface GetSchemaRegistryClustersClusterRegion {
     id: string;
 }
 
+export interface GetSchemaRegistryDekCredentials {
+    key: string;
+    secret: string;
+}
+
+export interface GetSchemaRegistryDekSchemaRegistryCluster {
+    id: string;
+}
+
+export interface GetSchemaRegistryKekCredentials {
+    key: string;
+    secret: string;
+}
+
+export interface GetSchemaRegistryKekSchemaRegistryCluster {
+    id: string;
+}
+
 export interface GetSchemaSchemaReference {
     /**
      * (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
@@ -1797,6 +1815,24 @@ export interface SchemaRegistryClusterRegion {
     /**
      * The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
      */
+    id: string;
+}
+
+export interface SchemaRegistryDekCredentials {
+    key: string;
+    secret: string;
+}
+
+export interface SchemaRegistryDekSchemaRegistryCluster {
+    id: string;
+}
+
+export interface SchemaRegistryKekCredentials {
+    key: string;
+    secret: string;
+}
+
+export interface SchemaRegistryKekSchemaRegistryCluster {
     id: string;
 }
 

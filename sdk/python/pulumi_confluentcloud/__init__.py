@@ -45,6 +45,8 @@ from .get_schema_registry_cluster import *
 from .get_schema_registry_cluster_config import *
 from .get_schema_registry_cluster_mode import *
 from .get_schema_registry_clusters import *
+from .get_schema_registry_dek import *
+from .get_schema_registry_kek import *
 from .get_schema_registry_region import *
 from .get_schemas import *
 from .get_service_account import *
@@ -80,6 +82,8 @@ from .schema_exporter import *
 from .schema_registry_cluster import *
 from .schema_registry_cluster_config import *
 from .schema_registry_cluster_mode import *
+from .schema_registry_dek import *
+from .schema_registry_kek import *
 from .service_account import *
 from .subject_config import *
 from .subject_mode import *
@@ -370,6 +374,22 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode": "SchemaRegistryClusterMode"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/schemaRegistryDek",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/schemaRegistryDek:SchemaRegistryDek": "SchemaRegistryDek"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/schemaRegistryKek",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/schemaRegistryKek:SchemaRegistryKek": "SchemaRegistryKek"
   }
  },
  {
