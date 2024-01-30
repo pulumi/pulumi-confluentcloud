@@ -23,10 +23,9 @@ import (
 
 	tfschema "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 
 	"github.com/confluentinc/terraform-provider-confluent/shim"
 	"github.com/pulumi/pulumi-confluentcloud/provider/pkg/version"
@@ -160,6 +159,15 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+
+			// Manually verified that upstream docs are missing
+			"confluent_schema_registry_kek": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
+			"confluent_schema_registry_dek": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
+		},
+		DataSources: map[string]*tfbridge.DataSourceInfo{
+			// Manually verified that upstream docs are missing
+			"confluent_schema_registry_kek": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
+			"confluent_schema_registry_dek": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
@@ -170,14 +178,12 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/mime": "^2.0.0",
 			},
 		},
-		Python: (func() *tfbridge.PythonInfo {
-			i := &tfbridge.PythonInfo{
-				Requires: map[string]string{
-					"pulumi": ">=3.0.0,<4.0.0",
-				}}
-			i.PyProject.Enabled = true
-			return i
-		})(),
+		Python: &tfbridge.PythonInfo{
+			Requires: map[string]string{
+				"pulumi": ">=3.0.0,<4.0.0",
+			},
+			PyProject: struct{ Enabled bool }{true},
+		},
 
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: filepath.Join(
@@ -197,12 +203,12 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 	}
-	err := x.ComputeDefaults(&prov, x.TokensSingleModule("confluent_", mainMod,
-		x.MakeStandardToken(mainPkg)))
-	contract.AssertNoErrorf(err, "failed to apply auto token mapping")
 
-	err = x.AutoAliasing(&prov, prov.GetMetadata())
-	contract.AssertNoErrorf(err, "auto aliasing apply failed")
+	prov.MustComputeTokens(tokens.SingleModule("confluent_", mainMod,
+		tokens.MakeStandard(mainPkg)))
+
+	prov.MustApplyAutoAliases()
+
 	prov.SetAutonaming(255, "-")
 
 	return prov
