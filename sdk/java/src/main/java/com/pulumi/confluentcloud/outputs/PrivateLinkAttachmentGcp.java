@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PrivateLinkAttachmentGcp {
+    /**
+     * @return Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * 
+     */
     private @Nullable String privateServiceConnectServiceAttachment;
+    /**
+     * @return Zone associated with the PSC Service attachment.
+     * 
+     */
     private @Nullable String zone;
 
     private PrivateLinkAttachmentGcp() {}
+    /**
+     * @return Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * 
+     */
     public Optional<String> privateServiceConnectServiceAttachment() {
         return Optional.ofNullable(this.privateServiceConnectServiceAttachment);
     }
+    /**
+     * @return Zone associated with the PSC Service attachment.
+     * 
+     */
     public Optional<String> zone() {
         return Optional.ofNullable(this.zone);
     }

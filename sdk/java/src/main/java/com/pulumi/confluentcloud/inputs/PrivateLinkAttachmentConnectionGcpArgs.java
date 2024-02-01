@@ -14,9 +14,17 @@ public final class PrivateLinkAttachmentConnectionGcpArgs extends com.pulumi.res
 
     public static final PrivateLinkAttachmentConnectionGcpArgs Empty = new PrivateLinkAttachmentConnectionGcpArgs();
 
+    /**
+     * Id of the Private Service connection.
+     * 
+     */
     @Import(name="privateServiceConnectConnectionId", required=true)
     private Output<String> privateServiceConnectConnectionId;
 
+    /**
+     * @return Id of the Private Service connection.
+     * 
+     */
     public Output<String> privateServiceConnectConnectionId() {
         return this.privateServiceConnectConnectionId;
     }
@@ -45,11 +53,23 @@ public final class PrivateLinkAttachmentConnectionGcpArgs extends com.pulumi.res
             $ = new PrivateLinkAttachmentConnectionGcpArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param privateServiceConnectConnectionId Id of the Private Service connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateServiceConnectConnectionId(Output<String> privateServiceConnectConnectionId) {
             $.privateServiceConnectConnectionId = privateServiceConnectConnectionId;
             return this;
         }
 
+        /**
+         * @param privateServiceConnectConnectionId Id of the Private Service connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateServiceConnectConnectionId(String privateServiceConnectConnectionId) {
             return privateServiceConnectConnectionId(Output.of(privateServiceConnectConnectionId));
         }

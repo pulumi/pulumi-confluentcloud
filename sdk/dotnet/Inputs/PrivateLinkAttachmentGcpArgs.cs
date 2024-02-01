@@ -12,9 +12,15 @@ namespace Pulumi.ConfluentCloud.Inputs
 
     public sealed class PrivateLinkAttachmentGcpArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        /// </summary>
         [Input("privateServiceConnectServiceAttachment")]
         public Input<string>? PrivateServiceConnectServiceAttachment { get; set; }
 
+        /// <summary>
+        /// Zone associated with the PSC Service attachment.
+        /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
 

@@ -13,9 +13,17 @@ public final class GetSchemaRegistryDekSchemaRegistryCluster extends com.pulumi.
 
     public static final GetSchemaRegistryDekSchemaRegistryCluster Empty = new GetSchemaRegistryDekSchemaRegistryCluster();
 
+    /**
+     * The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     * 
+     */
     @Import(name="id", required=true)
     private String id;
 
+    /**
+     * @return The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     * 
+     */
     public String id() {
         return this.id;
     }
@@ -44,6 +52,12 @@ public final class GetSchemaRegistryDekSchemaRegistryCluster extends com.pulumi.
             $ = new GetSchemaRegistryDekSchemaRegistryCluster(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             $.id = id;
             return this;

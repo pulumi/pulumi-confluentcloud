@@ -17,6 +17,9 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
         /// </summary>
         public readonly string ApiVersion;
+        /// <summary>
+        /// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        /// </summary>
         public readonly Outputs.ApiKeyManagedResourceEnvironment Environment;
         /// <summary>
         /// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.

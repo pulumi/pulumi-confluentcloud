@@ -29,9 +29,17 @@ public final class SchemaRegistryClusterModeCredentialsArgs extends com.pulumi.r
         return this.key;
     }
 
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     * 
+     */
     @Import(name="secret", required=true)
     private Output<String> secret;
 
+    /**
+     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * 
+     */
     public Output<String> secret() {
         return this.secret;
     }
@@ -82,11 +90,23 @@ public final class SchemaRegistryClusterModeCredentialsArgs extends com.pulumi.r
             return key(Output.of(key));
         }
 
+        /**
+         * @param secret The Cluster API Secret for your Confluent Cloud cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secret(Output<String> secret) {
             $.secret = secret;
             return this;
         }
 
+        /**
+         * @param secret The Cluster API Secret for your Confluent Cloud cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secret(String secret) {
             return secret(Output.of(secret));
         }

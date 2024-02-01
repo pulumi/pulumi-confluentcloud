@@ -15,7 +15,8 @@ var _ = internal.GetEnvOrDefault
 
 type ApiKeyManagedResource struct {
 	// The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
-	ApiVersion  string                           `pulumi:"apiVersion"`
+	ApiVersion string `pulumi:"apiVersion"`
+	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment ApiKeyManagedResourceEnvironment `pulumi:"environment"`
 	// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
@@ -36,7 +37,8 @@ type ApiKeyManagedResourceInput interface {
 
 type ApiKeyManagedResourceArgs struct {
 	// The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
-	ApiVersion  pulumi.StringInput                    `pulumi:"apiVersion"`
+	ApiVersion pulumi.StringInput `pulumi:"apiVersion"`
+	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment ApiKeyManagedResourceEnvironmentInput `pulumi:"environment"`
 	// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -126,6 +128,7 @@ func (o ApiKeyManagedResourceOutput) ApiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyManagedResource) string { return v.ApiVersion }).(pulumi.StringOutput)
 }
 
+// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 func (o ApiKeyManagedResourceOutput) Environment() ApiKeyManagedResourceEnvironmentOutput {
 	return o.ApplyT(func(v ApiKeyManagedResource) ApiKeyManagedResourceEnvironment { return v.Environment }).(ApiKeyManagedResourceEnvironmentOutput)
 }
@@ -174,6 +177,7 @@ func (o ApiKeyManagedResourcePtrOutput) ApiVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 func (o ApiKeyManagedResourcePtrOutput) Environment() ApiKeyManagedResourceEnvironmentPtrOutput {
 	return o.ApplyT(func(v *ApiKeyManagedResource) *ApiKeyManagedResourceEnvironment {
 		if v == nil {
@@ -952,7 +956,8 @@ func (o BusinessMetadataBindingSchemaRegistryClusterPtrOutput) Id() pulumi.Strin
 
 type BusinessMetadataCredentials struct {
 	// The Schema Registry API Key.
-	Key    string `pulumi:"key"`
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -969,7 +974,8 @@ type BusinessMetadataCredentialsInput interface {
 
 type BusinessMetadataCredentialsArgs struct {
 	// The Schema Registry API Key.
-	Key    pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -1055,6 +1061,7 @@ func (o BusinessMetadataCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BusinessMetadataCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o BusinessMetadataCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v BusinessMetadataCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -1093,6 +1100,7 @@ func (o BusinessMetadataCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o BusinessMetadataCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BusinessMetadataCredentials) *string {
 		if v == nil {
@@ -1747,8 +1755,9 @@ func (o ByokKeyGcpPtrOutput) SecurityGroup() pulumi.StringPtrOutput {
 
 type ClusterLinkDestinationKafkaCluster struct {
 	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-	BootstrapEndpoint *string                                        `pulumi:"bootstrapEndpoint"`
-	Credentials       *ClusterLinkDestinationKafkaClusterCredentials `pulumi:"credentials"`
+	BootstrapEndpoint *string `pulumi:"bootstrapEndpoint"`
+	// The Kafka API Credentials.
+	Credentials *ClusterLinkDestinationKafkaClusterCredentials `pulumi:"credentials"`
 	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
 	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -1768,8 +1777,9 @@ type ClusterLinkDestinationKafkaClusterInput interface {
 
 type ClusterLinkDestinationKafkaClusterArgs struct {
 	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-	BootstrapEndpoint pulumi.StringPtrInput                                 `pulumi:"bootstrapEndpoint"`
-	Credentials       ClusterLinkDestinationKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
+	BootstrapEndpoint pulumi.StringPtrInput `pulumi:"bootstrapEndpoint"`
+	// The Kafka API Credentials.
+	Credentials ClusterLinkDestinationKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
 	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -1858,6 +1868,7 @@ func (o ClusterLinkDestinationKafkaClusterOutput) BootstrapEndpoint() pulumi.Str
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The Kafka API Credentials.
 func (o ClusterLinkDestinationKafkaClusterOutput) Credentials() ClusterLinkDestinationKafkaClusterCredentialsPtrOutput {
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaCluster) *ClusterLinkDestinationKafkaClusterCredentials {
 		return v.Credentials
@@ -1908,6 +1919,7 @@ func (o ClusterLinkDestinationKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Kafka API Credentials.
 func (o ClusterLinkDestinationKafkaClusterPtrOutput) Credentials() ClusterLinkDestinationKafkaClusterCredentialsPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkDestinationKafkaCluster) *ClusterLinkDestinationKafkaClusterCredentials {
 		if v == nil {
@@ -2095,8 +2107,9 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Secret() pulumi.
 
 type ClusterLinkLocalKafkaCluster struct {
 	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-	BootstrapEndpoint *string                                  `pulumi:"bootstrapEndpoint"`
-	Credentials       *ClusterLinkLocalKafkaClusterCredentials `pulumi:"credentials"`
+	BootstrapEndpoint *string `pulumi:"bootstrapEndpoint"`
+	// The Kafka API Credentials.
+	Credentials *ClusterLinkLocalKafkaClusterCredentials `pulumi:"credentials"`
 	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
 	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -2116,8 +2129,9 @@ type ClusterLinkLocalKafkaClusterInput interface {
 
 type ClusterLinkLocalKafkaClusterArgs struct {
 	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-	BootstrapEndpoint pulumi.StringPtrInput                           `pulumi:"bootstrapEndpoint"`
-	Credentials       ClusterLinkLocalKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
+	BootstrapEndpoint pulumi.StringPtrInput `pulumi:"bootstrapEndpoint"`
+	// The Kafka API Credentials.
+	Credentials ClusterLinkLocalKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
 	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -2206,6 +2220,7 @@ func (o ClusterLinkLocalKafkaClusterOutput) BootstrapEndpoint() pulumi.StringPtr
 	return o.ApplyT(func(v ClusterLinkLocalKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The Kafka API Credentials.
 func (o ClusterLinkLocalKafkaClusterOutput) Credentials() ClusterLinkLocalKafkaClusterCredentialsPtrOutput {
 	return o.ApplyT(func(v ClusterLinkLocalKafkaCluster) *ClusterLinkLocalKafkaClusterCredentials { return v.Credentials }).(ClusterLinkLocalKafkaClusterCredentialsPtrOutput)
 }
@@ -2254,6 +2269,7 @@ func (o ClusterLinkLocalKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Kafka API Credentials.
 func (o ClusterLinkLocalKafkaClusterPtrOutput) Credentials() ClusterLinkLocalKafkaClusterCredentialsPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkLocalKafkaCluster) *ClusterLinkLocalKafkaClusterCredentials {
 		if v == nil {
@@ -2441,8 +2457,9 @@ func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Secret() pulumi.String
 
 type ClusterLinkRemoteKafkaCluster struct {
 	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-	BootstrapEndpoint *string                                   `pulumi:"bootstrapEndpoint"`
-	Credentials       *ClusterLinkRemoteKafkaClusterCredentials `pulumi:"credentials"`
+	BootstrapEndpoint *string `pulumi:"bootstrapEndpoint"`
+	// The Kafka API Credentials.
+	Credentials *ClusterLinkRemoteKafkaClusterCredentials `pulumi:"credentials"`
 	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
 	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -2462,8 +2479,9 @@ type ClusterLinkRemoteKafkaClusterInput interface {
 
 type ClusterLinkRemoteKafkaClusterArgs struct {
 	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-	BootstrapEndpoint pulumi.StringPtrInput                            `pulumi:"bootstrapEndpoint"`
-	Credentials       ClusterLinkRemoteKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
+	BootstrapEndpoint pulumi.StringPtrInput `pulumi:"bootstrapEndpoint"`
+	// The Kafka API Credentials.
+	Credentials ClusterLinkRemoteKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
 	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -2552,6 +2570,7 @@ func (o ClusterLinkRemoteKafkaClusterOutput) BootstrapEndpoint() pulumi.StringPt
 	return o.ApplyT(func(v ClusterLinkRemoteKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The Kafka API Credentials.
 func (o ClusterLinkRemoteKafkaClusterOutput) Credentials() ClusterLinkRemoteKafkaClusterCredentialsPtrOutput {
 	return o.ApplyT(func(v ClusterLinkRemoteKafkaCluster) *ClusterLinkRemoteKafkaClusterCredentials { return v.Credentials }).(ClusterLinkRemoteKafkaClusterCredentialsPtrOutput)
 }
@@ -2600,6 +2619,7 @@ func (o ClusterLinkRemoteKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Kafka API Credentials.
 func (o ClusterLinkRemoteKafkaClusterPtrOutput) Credentials() ClusterLinkRemoteKafkaClusterCredentialsPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkRemoteKafkaCluster) *ClusterLinkRemoteKafkaClusterCredentials {
 		if v == nil {
@@ -2787,8 +2807,9 @@ func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Secret() pulumi.Strin
 
 type ClusterLinkSourceKafkaCluster struct {
 	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-	BootstrapEndpoint *string                                   `pulumi:"bootstrapEndpoint"`
-	Credentials       *ClusterLinkSourceKafkaClusterCredentials `pulumi:"credentials"`
+	BootstrapEndpoint *string `pulumi:"bootstrapEndpoint"`
+	// The Kafka API Credentials.
+	Credentials *ClusterLinkSourceKafkaClusterCredentials `pulumi:"credentials"`
 	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
 	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -2808,8 +2829,9 @@ type ClusterLinkSourceKafkaClusterInput interface {
 
 type ClusterLinkSourceKafkaClusterArgs struct {
 	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
-	BootstrapEndpoint pulumi.StringPtrInput                            `pulumi:"bootstrapEndpoint"`
-	Credentials       ClusterLinkSourceKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
+	BootstrapEndpoint pulumi.StringPtrInput `pulumi:"bootstrapEndpoint"`
+	// The Kafka API Credentials.
+	Credentials ClusterLinkSourceKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
 	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
@@ -2898,6 +2920,7 @@ func (o ClusterLinkSourceKafkaClusterOutput) BootstrapEndpoint() pulumi.StringPt
 	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// The Kafka API Credentials.
 func (o ClusterLinkSourceKafkaClusterOutput) Credentials() ClusterLinkSourceKafkaClusterCredentialsPtrOutput {
 	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) *ClusterLinkSourceKafkaClusterCredentials { return v.Credentials }).(ClusterLinkSourceKafkaClusterCredentialsPtrOutput)
 }
@@ -2946,6 +2969,7 @@ func (o ClusterLinkSourceKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Kafka API Credentials.
 func (o ClusterLinkSourceKafkaClusterPtrOutput) Credentials() ClusterLinkSourceKafkaClusterCredentialsPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkSourceKafkaCluster) *ClusterLinkSourceKafkaClusterCredentials {
 		if v == nil {
@@ -5646,7 +5670,8 @@ type KafkaClusterDedicated struct {
 	// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 	//
 	// > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
-	Cku           int     `pulumi:"cku"`
+	Cku int `pulumi:"cku"`
+	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
 	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -5674,7 +5699,8 @@ type KafkaClusterDedicatedArgs struct {
 	// !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
 	//
 	// > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
-	Cku           pulumi.IntInput       `pulumi:"cku"`
+	Cku pulumi.IntInput `pulumi:"cku"`
+	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 	EncryptionKey pulumi.StringPtrInput `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
 	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -5771,6 +5797,7 @@ func (o KafkaClusterDedicatedOutput) Cku() pulumi.IntOutput {
 	return o.ApplyT(func(v KafkaClusterDedicated) int { return v.Cku }).(pulumi.IntOutput)
 }
 
+// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 func (o KafkaClusterDedicatedOutput) EncryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterDedicated) *string { return v.EncryptionKey }).(pulumi.StringPtrOutput)
 }
@@ -5823,6 +5850,7 @@ func (o KafkaClusterDedicatedPtrOutput) Cku() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 func (o KafkaClusterDedicatedPtrOutput) EncryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterDedicated) *string {
 		if v == nil {
@@ -6463,6 +6491,7 @@ func (o KafkaMirrorTopicClusterLinkPtrOutput) LinkName() pulumi.StringPtrOutput 
 }
 
 type KafkaMirrorTopicKafkaCluster struct {
+	// The Kafka API Credentials.
 	Credentials *KafkaMirrorTopicKafkaClusterCredentials `pulumi:"credentials"`
 	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
@@ -6482,6 +6511,7 @@ type KafkaMirrorTopicKafkaClusterInput interface {
 }
 
 type KafkaMirrorTopicKafkaClusterArgs struct {
+	// The Kafka API Credentials.
 	Credentials KafkaMirrorTopicKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
 	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -6566,6 +6596,7 @@ func (o KafkaMirrorTopicKafkaClusterOutput) ToKafkaMirrorTopicKafkaClusterPtrOut
 	}).(KafkaMirrorTopicKafkaClusterPtrOutput)
 }
 
+// The Kafka API Credentials.
 func (o KafkaMirrorTopicKafkaClusterOutput) Credentials() KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
 	return o.ApplyT(func(v KafkaMirrorTopicKafkaCluster) *KafkaMirrorTopicKafkaClusterCredentials { return v.Credentials }).(KafkaMirrorTopicKafkaClusterCredentialsPtrOutput)
 }
@@ -6604,6 +6635,7 @@ func (o KafkaMirrorTopicKafkaClusterPtrOutput) Elem() KafkaMirrorTopicKafkaClust
 	}).(KafkaMirrorTopicKafkaClusterOutput)
 }
 
+// The Kafka API Credentials.
 func (o KafkaMirrorTopicKafkaClusterPtrOutput) Credentials() KafkaMirrorTopicKafkaClusterCredentialsPtrOutput {
 	return o.ApplyT(func(v *KafkaMirrorTopicKafkaCluster) *KafkaMirrorTopicKafkaClusterCredentials {
 		if v == nil {
@@ -10865,9 +10897,12 @@ func (o PrivateLinkAttachmentAwArrayOutput) Index(i pulumi.IntInput) PrivateLink
 }
 
 type PrivateLinkAttachmentAzure struct {
-	PrivateLinkServiceAlias      *string `pulumi:"privateLinkServiceAlias"`
+	// Azure PrivateLink service alias for the availability zone.
+	PrivateLinkServiceAlias *string `pulumi:"privateLinkServiceAlias"`
+	// Azure PrivateLink service resource id for the availability zone.
 	PrivateLinkServiceResourceId *string `pulumi:"privateLinkServiceResourceId"`
-	Zone                         *string `pulumi:"zone"`
+	// Availability zone associated with the Azure PrivateLink service.
+	Zone *string `pulumi:"zone"`
 }
 
 // PrivateLinkAttachmentAzureInput is an input type that accepts PrivateLinkAttachmentAzureArgs and PrivateLinkAttachmentAzureOutput values.
@@ -10882,9 +10917,12 @@ type PrivateLinkAttachmentAzureInput interface {
 }
 
 type PrivateLinkAttachmentAzureArgs struct {
-	PrivateLinkServiceAlias      pulumi.StringPtrInput `pulumi:"privateLinkServiceAlias"`
+	// Azure PrivateLink service alias for the availability zone.
+	PrivateLinkServiceAlias pulumi.StringPtrInput `pulumi:"privateLinkServiceAlias"`
+	// Azure PrivateLink service resource id for the availability zone.
 	PrivateLinkServiceResourceId pulumi.StringPtrInput `pulumi:"privateLinkServiceResourceId"`
-	Zone                         pulumi.StringPtrInput `pulumi:"zone"`
+	// Availability zone associated with the Azure PrivateLink service.
+	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
 func (PrivateLinkAttachmentAzureArgs) ElementType() reflect.Type {
@@ -10938,14 +10976,17 @@ func (o PrivateLinkAttachmentAzureOutput) ToPrivateLinkAttachmentAzureOutputWith
 	return o
 }
 
+// Azure PrivateLink service alias for the availability zone.
 func (o PrivateLinkAttachmentAzureOutput) PrivateLinkServiceAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentAzure) *string { return v.PrivateLinkServiceAlias }).(pulumi.StringPtrOutput)
 }
 
+// Azure PrivateLink service resource id for the availability zone.
 func (o PrivateLinkAttachmentAzureOutput) PrivateLinkServiceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentAzure) *string { return v.PrivateLinkServiceResourceId }).(pulumi.StringPtrOutput)
 }
 
+// Availability zone associated with the Azure PrivateLink service.
 func (o PrivateLinkAttachmentAzureOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentAzure) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
@@ -11108,6 +11149,7 @@ func (o PrivateLinkAttachmentConnectionAwsPtrOutput) VpcEndpointId() pulumi.Stri
 }
 
 type PrivateLinkAttachmentConnectionAzure struct {
+	// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
 	PrivateEndpointResourceId string `pulumi:"privateEndpointResourceId"`
 }
 
@@ -11123,6 +11165,7 @@ type PrivateLinkAttachmentConnectionAzureInput interface {
 }
 
 type PrivateLinkAttachmentConnectionAzureArgs struct {
+	// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
 	PrivateEndpointResourceId pulumi.StringInput `pulumi:"privateEndpointResourceId"`
 }
 
@@ -11203,6 +11246,7 @@ func (o PrivateLinkAttachmentConnectionAzureOutput) ToPrivateLinkAttachmentConne
 	}).(PrivateLinkAttachmentConnectionAzurePtrOutput)
 }
 
+// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
 func (o PrivateLinkAttachmentConnectionAzureOutput) PrivateEndpointResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentConnectionAzure) string { return v.PrivateEndpointResourceId }).(pulumi.StringOutput)
 }
@@ -11231,6 +11275,7 @@ func (o PrivateLinkAttachmentConnectionAzurePtrOutput) Elem() PrivateLinkAttachm
 	}).(PrivateLinkAttachmentConnectionAzureOutput)
 }
 
+// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
 func (o PrivateLinkAttachmentConnectionAzurePtrOutput) PrivateEndpointResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionAzure) *string {
 		if v == nil {
@@ -11378,6 +11423,7 @@ func (o PrivateLinkAttachmentConnectionEnvironmentPtrOutput) Id() pulumi.StringP
 }
 
 type PrivateLinkAttachmentConnectionGcp struct {
+	// Id of the Private Service connection.
 	PrivateServiceConnectConnectionId string `pulumi:"privateServiceConnectConnectionId"`
 }
 
@@ -11393,6 +11439,7 @@ type PrivateLinkAttachmentConnectionGcpInput interface {
 }
 
 type PrivateLinkAttachmentConnectionGcpArgs struct {
+	// Id of the Private Service connection.
 	PrivateServiceConnectConnectionId pulumi.StringInput `pulumi:"privateServiceConnectConnectionId"`
 }
 
@@ -11473,6 +11520,7 @@ func (o PrivateLinkAttachmentConnectionGcpOutput) ToPrivateLinkAttachmentConnect
 	}).(PrivateLinkAttachmentConnectionGcpPtrOutput)
 }
 
+// Id of the Private Service connection.
 func (o PrivateLinkAttachmentConnectionGcpOutput) PrivateServiceConnectConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentConnectionGcp) string { return v.PrivateServiceConnectConnectionId }).(pulumi.StringOutput)
 }
@@ -11501,6 +11549,7 @@ func (o PrivateLinkAttachmentConnectionGcpPtrOutput) Elem() PrivateLinkAttachmen
 	}).(PrivateLinkAttachmentConnectionGcpOutput)
 }
 
+// Id of the Private Service connection.
 func (o PrivateLinkAttachmentConnectionGcpPtrOutput) PrivateServiceConnectConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionGcp) *string {
 		if v == nil {
@@ -11785,8 +11834,10 @@ func (o PrivateLinkAttachmentEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkAttachmentGcp struct {
+	// Id of a Private Service Connect Service Attachment in Confluent Cloud.
 	PrivateServiceConnectServiceAttachment *string `pulumi:"privateServiceConnectServiceAttachment"`
-	Zone                                   *string `pulumi:"zone"`
+	// Zone associated with the PSC Service attachment.
+	Zone *string `pulumi:"zone"`
 }
 
 // PrivateLinkAttachmentGcpInput is an input type that accepts PrivateLinkAttachmentGcpArgs and PrivateLinkAttachmentGcpOutput values.
@@ -11801,8 +11852,10 @@ type PrivateLinkAttachmentGcpInput interface {
 }
 
 type PrivateLinkAttachmentGcpArgs struct {
+	// Id of a Private Service Connect Service Attachment in Confluent Cloud.
 	PrivateServiceConnectServiceAttachment pulumi.StringPtrInput `pulumi:"privateServiceConnectServiceAttachment"`
-	Zone                                   pulumi.StringPtrInput `pulumi:"zone"`
+	// Zone associated with the PSC Service attachment.
+	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
 func (PrivateLinkAttachmentGcpArgs) ElementType() reflect.Type {
@@ -11856,10 +11909,12 @@ func (o PrivateLinkAttachmentGcpOutput) ToPrivateLinkAttachmentGcpOutputWithCont
 	return o
 }
 
+// Id of a Private Service Connect Service Attachment in Confluent Cloud.
 func (o PrivateLinkAttachmentGcpOutput) PrivateServiceConnectServiceAttachment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentGcp) *string { return v.PrivateServiceConnectServiceAttachment }).(pulumi.StringPtrOutput)
 }
 
+// Zone associated with the PSC Service attachment.
 func (o PrivateLinkAttachmentGcpOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentGcp) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
@@ -11886,7 +11941,8 @@ func (o PrivateLinkAttachmentGcpArrayOutput) Index(i pulumi.IntInput) PrivateLin
 
 type SchemaCredentials struct {
 	// The Schema Registry API Key.
-	Key    string `pulumi:"key"`
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -11903,7 +11959,8 @@ type SchemaCredentialsInput interface {
 
 type SchemaCredentialsArgs struct {
 	// The Schema Registry API Key.
-	Key    pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -11989,6 +12046,7 @@ func (o SchemaCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o SchemaCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -12027,6 +12085,7 @@ func (o SchemaCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o SchemaCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaCredentials) *string {
 		if v == nil {
@@ -12641,7 +12700,8 @@ func (o SchemaExporterSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutpu
 
 type SchemaRegistryClusterConfigCredentials struct {
 	// The Schema Registry API Key.
-	Key    string `pulumi:"key"`
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -12658,7 +12718,8 @@ type SchemaRegistryClusterConfigCredentialsInput interface {
 
 type SchemaRegistryClusterConfigCredentialsArgs struct {
 	// The Schema Registry API Key.
-	Key    pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -12744,6 +12805,7 @@ func (o SchemaRegistryClusterConfigCredentialsOutput) Key() pulumi.StringOutput 
 	return o.ApplyT(func(v SchemaRegistryClusterConfigCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o SchemaRegistryClusterConfigCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryClusterConfigCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -12782,6 +12844,7 @@ func (o SchemaRegistryClusterConfigCredentialsPtrOutput) Key() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o SchemaRegistryClusterConfigCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryClusterConfigCredentials) *string {
 		if v == nil {
@@ -13067,7 +13130,8 @@ func (o SchemaRegistryClusterEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 
 type SchemaRegistryClusterModeCredentials struct {
 	// The Schema Registry API Key.
-	Key    string `pulumi:"key"`
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -13084,7 +13148,8 @@ type SchemaRegistryClusterModeCredentialsInput interface {
 
 type SchemaRegistryClusterModeCredentialsArgs struct {
 	// The Schema Registry API Key.
-	Key    pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -13170,6 +13235,7 @@ func (o SchemaRegistryClusterModeCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryClusterModeCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o SchemaRegistryClusterModeCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryClusterModeCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -13208,6 +13274,7 @@ func (o SchemaRegistryClusterModeCredentialsPtrOutput) Key() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o SchemaRegistryClusterModeCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryClusterModeCredentials) *string {
 		if v == nil {
@@ -13492,7 +13559,9 @@ func (o SchemaRegistryClusterRegionPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type SchemaRegistryDekCredentials struct {
-	Key    string `pulumi:"key"`
+	// The Cluster API Key for your Confluent Cloud cluster.
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -13508,7 +13577,9 @@ type SchemaRegistryDekCredentialsInput interface {
 }
 
 type SchemaRegistryDekCredentialsArgs struct {
-	Key    pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Key for your Confluent Cloud cluster.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -13589,10 +13660,12 @@ func (o SchemaRegistryDekCredentialsOutput) ToSchemaRegistryDekCredentialsPtrOut
 	}).(SchemaRegistryDekCredentialsPtrOutput)
 }
 
+// The Cluster API Key for your Confluent Cloud cluster.
 func (o SchemaRegistryDekCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryDekCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o SchemaRegistryDekCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryDekCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -13621,6 +13694,7 @@ func (o SchemaRegistryDekCredentialsPtrOutput) Elem() SchemaRegistryDekCredentia
 	}).(SchemaRegistryDekCredentialsOutput)
 }
 
+// The Cluster API Key for your Confluent Cloud cluster.
 func (o SchemaRegistryDekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryDekCredentials) *string {
 		if v == nil {
@@ -13630,6 +13704,7 @@ func (o SchemaRegistryDekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o SchemaRegistryDekCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryDekCredentials) *string {
 		if v == nil {
@@ -13640,6 +13715,7 @@ func (o SchemaRegistryDekCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 }
 
 type SchemaRegistryDekSchemaRegistryCluster struct {
+	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 	Id string `pulumi:"id"`
 }
 
@@ -13655,6 +13731,7 @@ type SchemaRegistryDekSchemaRegistryClusterInput interface {
 }
 
 type SchemaRegistryDekSchemaRegistryClusterArgs struct {
+	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -13735,6 +13812,7 @@ func (o SchemaRegistryDekSchemaRegistryClusterOutput) ToSchemaRegistryDekSchemaR
 	}).(SchemaRegistryDekSchemaRegistryClusterPtrOutput)
 }
 
+// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 func (o SchemaRegistryDekSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryDekSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -13763,6 +13841,7 @@ func (o SchemaRegistryDekSchemaRegistryClusterPtrOutput) Elem() SchemaRegistryDe
 	}).(SchemaRegistryDekSchemaRegistryClusterOutput)
 }
 
+// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 func (o SchemaRegistryDekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryDekSchemaRegistryCluster) *string {
 		if v == nil {
@@ -13773,7 +13852,9 @@ func (o SchemaRegistryDekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOu
 }
 
 type SchemaRegistryKekCredentials struct {
-	Key    string `pulumi:"key"`
+	// The Cluster API Key for your Confluent Cloud cluster.
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -13789,7 +13870,9 @@ type SchemaRegistryKekCredentialsInput interface {
 }
 
 type SchemaRegistryKekCredentialsArgs struct {
-	Key    pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Key for your Confluent Cloud cluster.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -13870,10 +13953,12 @@ func (o SchemaRegistryKekCredentialsOutput) ToSchemaRegistryKekCredentialsPtrOut
 	}).(SchemaRegistryKekCredentialsPtrOutput)
 }
 
+// The Cluster API Key for your Confluent Cloud cluster.
 func (o SchemaRegistryKekCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryKekCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o SchemaRegistryKekCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryKekCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -13902,6 +13987,7 @@ func (o SchemaRegistryKekCredentialsPtrOutput) Elem() SchemaRegistryKekCredentia
 	}).(SchemaRegistryKekCredentialsOutput)
 }
 
+// The Cluster API Key for your Confluent Cloud cluster.
 func (o SchemaRegistryKekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryKekCredentials) *string {
 		if v == nil {
@@ -13911,6 +13997,7 @@ func (o SchemaRegistryKekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o SchemaRegistryKekCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryKekCredentials) *string {
 		if v == nil {
@@ -13921,6 +14008,7 @@ func (o SchemaRegistryKekCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 }
 
 type SchemaRegistryKekSchemaRegistryCluster struct {
+	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 	Id string `pulumi:"id"`
 }
 
@@ -13936,6 +14024,7 @@ type SchemaRegistryKekSchemaRegistryClusterInput interface {
 }
 
 type SchemaRegistryKekSchemaRegistryClusterArgs struct {
+	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -14016,6 +14105,7 @@ func (o SchemaRegistryKekSchemaRegistryClusterOutput) ToSchemaRegistryKekSchemaR
 	}).(SchemaRegistryKekSchemaRegistryClusterPtrOutput)
 }
 
+// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 func (o SchemaRegistryKekSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryKekSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -14044,6 +14134,7 @@ func (o SchemaRegistryKekSchemaRegistryClusterPtrOutput) Elem() SchemaRegistryKe
 	}).(SchemaRegistryKekSchemaRegistryClusterOutput)
 }
 
+// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 func (o SchemaRegistryKekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryKekSchemaRegistryCluster) *string {
 		if v == nil {
@@ -14307,7 +14398,8 @@ func (o SchemaSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
 
 type SubjectConfigCredentials struct {
 	// The Schema Registry API Key.
-	Key    string `pulumi:"key"`
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -14324,7 +14416,8 @@ type SubjectConfigCredentialsInput interface {
 
 type SubjectConfigCredentialsArgs struct {
 	// The Schema Registry API Key.
-	Key    pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -14410,6 +14503,7 @@ func (o SubjectConfigCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SubjectConfigCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o SubjectConfigCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v SubjectConfigCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -14448,6 +14542,7 @@ func (o SubjectConfigCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o SubjectConfigCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubjectConfigCredentials) *string {
 		if v == nil {
@@ -14596,7 +14691,8 @@ func (o SubjectConfigSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput
 
 type SubjectModeCredentials struct {
 	// The Schema Registry API Key.
-	Key    string `pulumi:"key"`
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -14613,7 +14709,8 @@ type SubjectModeCredentialsInput interface {
 
 type SubjectModeCredentialsArgs struct {
 	// The Schema Registry API Key.
-	Key    pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -14699,6 +14796,7 @@ func (o SubjectModeCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SubjectModeCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o SubjectModeCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v SubjectModeCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -14737,6 +14835,7 @@ func (o SubjectModeCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o SubjectModeCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubjectModeCredentials) *string {
 		if v == nil {
@@ -18171,7 +18270,8 @@ func (o GetKafkaClusterByokKeyArrayOutput) Index(i pulumi.IntInput) GetKafkaClus
 
 type GetKafkaClusterDedicated struct {
 	// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-	Cku           int    `pulumi:"cku"`
+	Cku int `pulumi:"cku"`
+	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 	EncryptionKey string `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
 	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -18193,7 +18293,8 @@ type GetKafkaClusterDedicatedInput interface {
 
 type GetKafkaClusterDedicatedArgs struct {
 	// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
-	Cku           pulumi.IntInput    `pulumi:"cku"`
+	Cku pulumi.IntInput `pulumi:"cku"`
+	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 	EncryptionKey pulumi.StringInput `pulumi:"encryptionKey"`
 	// (Required List of String) The list of zones the cluster is in.
 	// On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -18284,6 +18385,7 @@ func (o GetKafkaClusterDedicatedOutput) Cku() pulumi.IntOutput {
 	return o.ApplyT(func(v GetKafkaClusterDedicated) int { return v.Cku }).(pulumi.IntOutput)
 }
 
+// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 func (o GetKafkaClusterDedicatedOutput) EncryptionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaClusterDedicated) string { return v.EncryptionKey }).(pulumi.StringOutput)
 }
@@ -18330,6 +18432,7 @@ func (o GetKafkaClusterDedicatedPtrOutput) Cku() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 func (o GetKafkaClusterDedicatedPtrOutput) EncryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetKafkaClusterDedicated) *string {
 		if v == nil {
@@ -18691,7 +18794,8 @@ func (o GetKafkaClusterStandardArrayOutput) Index(i pulumi.IntInput) GetKafkaClu
 
 type GetKafkaTopicCredentials struct {
 	// The Kafka API Key.
-	Key    string `pulumi:"key"`
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -18708,7 +18812,8 @@ type GetKafkaTopicCredentialsInput interface {
 
 type GetKafkaTopicCredentialsArgs struct {
 	// The Kafka API Key.
-	Key    pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -18794,6 +18899,7 @@ func (o GetKafkaTopicCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaTopicCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o GetKafkaTopicCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaTopicCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -18832,6 +18938,7 @@ func (o GetKafkaTopicCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o GetKafkaTopicCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetKafkaTopicCredentials) *string {
 		if v == nil {
@@ -21452,9 +21559,12 @@ func (o GetPrivateLinkAttachmentAwArrayOutput) Index(i pulumi.IntInput) GetPriva
 }
 
 type GetPrivateLinkAttachmentAzure struct {
-	PrivateLinkServiceAlias      string `pulumi:"privateLinkServiceAlias"`
+	// Azure PrivateLink service alias for the availability zone.
+	PrivateLinkServiceAlias string `pulumi:"privateLinkServiceAlias"`
+	// Azure PrivateLink service resource id for the availability zone.
 	PrivateLinkServiceResourceId string `pulumi:"privateLinkServiceResourceId"`
-	Zone                         string `pulumi:"zone"`
+	// Availability zone associated with the Azure PrivateLink service.
+	Zone string `pulumi:"zone"`
 }
 
 // GetPrivateLinkAttachmentAzureInput is an input type that accepts GetPrivateLinkAttachmentAzureArgs and GetPrivateLinkAttachmentAzureOutput values.
@@ -21469,9 +21579,12 @@ type GetPrivateLinkAttachmentAzureInput interface {
 }
 
 type GetPrivateLinkAttachmentAzureArgs struct {
-	PrivateLinkServiceAlias      pulumi.StringInput `pulumi:"privateLinkServiceAlias"`
+	// Azure PrivateLink service alias for the availability zone.
+	PrivateLinkServiceAlias pulumi.StringInput `pulumi:"privateLinkServiceAlias"`
+	// Azure PrivateLink service resource id for the availability zone.
 	PrivateLinkServiceResourceId pulumi.StringInput `pulumi:"privateLinkServiceResourceId"`
-	Zone                         pulumi.StringInput `pulumi:"zone"`
+	// Availability zone associated with the Azure PrivateLink service.
+	Zone pulumi.StringInput `pulumi:"zone"`
 }
 
 func (GetPrivateLinkAttachmentAzureArgs) ElementType() reflect.Type {
@@ -21525,14 +21638,17 @@ func (o GetPrivateLinkAttachmentAzureOutput) ToGetPrivateLinkAttachmentAzureOutp
 	return o
 }
 
+// Azure PrivateLink service alias for the availability zone.
 func (o GetPrivateLinkAttachmentAzureOutput) PrivateLinkServiceAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentAzure) string { return v.PrivateLinkServiceAlias }).(pulumi.StringOutput)
 }
 
+// Azure PrivateLink service resource id for the availability zone.
 func (o GetPrivateLinkAttachmentAzureOutput) PrivateLinkServiceResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentAzure) string { return v.PrivateLinkServiceResourceId }).(pulumi.StringOutput)
 }
 
+// Availability zone associated with the Azure PrivateLink service.
 func (o GetPrivateLinkAttachmentAzureOutput) Zone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentAzure) string { return v.Zone }).(pulumi.StringOutput)
 }
@@ -21655,6 +21771,7 @@ func (o GetPrivateLinkAttachmentConnectionAwArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetPrivateLinkAttachmentConnectionAzure struct {
+	// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
 	PrivateEndpointResourceId string `pulumi:"privateEndpointResourceId"`
 }
 
@@ -21670,6 +21787,7 @@ type GetPrivateLinkAttachmentConnectionAzureInput interface {
 }
 
 type GetPrivateLinkAttachmentConnectionAzureArgs struct {
+	// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
 	PrivateEndpointResourceId pulumi.StringInput `pulumi:"privateEndpointResourceId"`
 }
 
@@ -21724,6 +21842,7 @@ func (o GetPrivateLinkAttachmentConnectionAzureOutput) ToGetPrivateLinkAttachmen
 	return o
 }
 
+// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
 func (o GetPrivateLinkAttachmentConnectionAzureOutput) PrivateEndpointResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentConnectionAzure) string { return v.PrivateEndpointResourceId }).(pulumi.StringOutput)
 }
@@ -21801,6 +21920,7 @@ func (o GetPrivateLinkAttachmentConnectionEnvironmentOutput) Id() pulumi.StringO
 }
 
 type GetPrivateLinkAttachmentConnectionGcp struct {
+	// Id of the Private Service connection.
 	PrivateServiceConnectConnectionId string `pulumi:"privateServiceConnectConnectionId"`
 }
 
@@ -21816,6 +21936,7 @@ type GetPrivateLinkAttachmentConnectionGcpInput interface {
 }
 
 type GetPrivateLinkAttachmentConnectionGcpArgs struct {
+	// Id of the Private Service connection.
 	PrivateServiceConnectConnectionId pulumi.StringInput `pulumi:"privateServiceConnectConnectionId"`
 }
 
@@ -21870,6 +21991,7 @@ func (o GetPrivateLinkAttachmentConnectionGcpOutput) ToGetPrivateLinkAttachmentC
 	return o
 }
 
+// Id of the Private Service connection.
 func (o GetPrivateLinkAttachmentConnectionGcpOutput) PrivateServiceConnectConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentConnectionGcp) string { return v.PrivateServiceConnectConnectionId }).(pulumi.StringOutput)
 }
@@ -22044,8 +22166,10 @@ func (o GetPrivateLinkAttachmentEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetPrivateLinkAttachmentGcp struct {
+	// Id of a Private Service Connect Service Attachment in Confluent Cloud.
 	PrivateServiceConnectServiceAttachment string `pulumi:"privateServiceConnectServiceAttachment"`
-	Zone                                   string `pulumi:"zone"`
+	// Zone associated with the PSC Service attachment.
+	Zone string `pulumi:"zone"`
 }
 
 // GetPrivateLinkAttachmentGcpInput is an input type that accepts GetPrivateLinkAttachmentGcpArgs and GetPrivateLinkAttachmentGcpOutput values.
@@ -22060,8 +22184,10 @@ type GetPrivateLinkAttachmentGcpInput interface {
 }
 
 type GetPrivateLinkAttachmentGcpArgs struct {
+	// Id of a Private Service Connect Service Attachment in Confluent Cloud.
 	PrivateServiceConnectServiceAttachment pulumi.StringInput `pulumi:"privateServiceConnectServiceAttachment"`
-	Zone                                   pulumi.StringInput `pulumi:"zone"`
+	// Zone associated with the PSC Service attachment.
+	Zone pulumi.StringInput `pulumi:"zone"`
 }
 
 func (GetPrivateLinkAttachmentGcpArgs) ElementType() reflect.Type {
@@ -22115,10 +22241,12 @@ func (o GetPrivateLinkAttachmentGcpOutput) ToGetPrivateLinkAttachmentGcpOutputWi
 	return o
 }
 
+// Id of a Private Service Connect Service Attachment in Confluent Cloud.
 func (o GetPrivateLinkAttachmentGcpOutput) PrivateServiceConnectServiceAttachment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentGcp) string { return v.PrivateServiceConnectServiceAttachment }).(pulumi.StringOutput)
 }
 
+// Zone associated with the PSC Service attachment.
 func (o GetPrivateLinkAttachmentGcpOutput) Zone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentGcp) string { return v.Zone }).(pulumi.StringOutput)
 }
@@ -23375,7 +23503,9 @@ func (o GetSchemaRegistryClustersClusterRegionArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetSchemaRegistryDekCredentials struct {
-	Key    string `pulumi:"key"`
+	// The Cluster API Key for your Confluent Cloud cluster.
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -23391,7 +23521,9 @@ type GetSchemaRegistryDekCredentialsInput interface {
 }
 
 type GetSchemaRegistryDekCredentialsArgs struct {
-	Key    pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Key for your Confluent Cloud cluster.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -23472,10 +23604,12 @@ func (o GetSchemaRegistryDekCredentialsOutput) ToGetSchemaRegistryDekCredentials
 	}).(GetSchemaRegistryDekCredentialsPtrOutput)
 }
 
+// The Cluster API Key for your Confluent Cloud cluster.
 func (o GetSchemaRegistryDekCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryDekCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o GetSchemaRegistryDekCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryDekCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -23504,6 +23638,7 @@ func (o GetSchemaRegistryDekCredentialsPtrOutput) Elem() GetSchemaRegistryDekCre
 	}).(GetSchemaRegistryDekCredentialsOutput)
 }
 
+// The Cluster API Key for your Confluent Cloud cluster.
 func (o GetSchemaRegistryDekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSchemaRegistryDekCredentials) *string {
 		if v == nil {
@@ -23513,6 +23648,7 @@ func (o GetSchemaRegistryDekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o GetSchemaRegistryDekCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSchemaRegistryDekCredentials) *string {
 		if v == nil {
@@ -23523,6 +23659,7 @@ func (o GetSchemaRegistryDekCredentialsPtrOutput) Secret() pulumi.StringPtrOutpu
 }
 
 type GetSchemaRegistryDekSchemaRegistryCluster struct {
+	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 	Id string `pulumi:"id"`
 }
 
@@ -23538,6 +23675,7 @@ type GetSchemaRegistryDekSchemaRegistryClusterInput interface {
 }
 
 type GetSchemaRegistryDekSchemaRegistryClusterArgs struct {
+	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -23618,6 +23756,7 @@ func (o GetSchemaRegistryDekSchemaRegistryClusterOutput) ToGetSchemaRegistryDekS
 	}).(GetSchemaRegistryDekSchemaRegistryClusterPtrOutput)
 }
 
+// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 func (o GetSchemaRegistryDekSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryDekSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -23646,6 +23785,7 @@ func (o GetSchemaRegistryDekSchemaRegistryClusterPtrOutput) Elem() GetSchemaRegi
 	}).(GetSchemaRegistryDekSchemaRegistryClusterOutput)
 }
 
+// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 func (o GetSchemaRegistryDekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSchemaRegistryDekSchemaRegistryCluster) *string {
 		if v == nil {
@@ -23656,7 +23796,9 @@ func (o GetSchemaRegistryDekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPt
 }
 
 type GetSchemaRegistryKekCredentials struct {
-	Key    string `pulumi:"key"`
+	// The Cluster API Key for your Confluent Cloud cluster.
+	Key string `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -23672,7 +23814,9 @@ type GetSchemaRegistryKekCredentialsInput interface {
 }
 
 type GetSchemaRegistryKekCredentialsArgs struct {
-	Key    pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Key for your Confluent Cloud cluster.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -23753,10 +23897,12 @@ func (o GetSchemaRegistryKekCredentialsOutput) ToGetSchemaRegistryKekCredentials
 	}).(GetSchemaRegistryKekCredentialsPtrOutput)
 }
 
+// The Cluster API Key for your Confluent Cloud cluster.
 func (o GetSchemaRegistryKekCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryKekCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o GetSchemaRegistryKekCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryKekCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -23785,6 +23931,7 @@ func (o GetSchemaRegistryKekCredentialsPtrOutput) Elem() GetSchemaRegistryKekCre
 	}).(GetSchemaRegistryKekCredentialsOutput)
 }
 
+// The Cluster API Key for your Confluent Cloud cluster.
 func (o GetSchemaRegistryKekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSchemaRegistryKekCredentials) *string {
 		if v == nil {
@@ -23794,6 +23941,7 @@ func (o GetSchemaRegistryKekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Cluster API Secret for your Confluent Cloud cluster.
 func (o GetSchemaRegistryKekCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSchemaRegistryKekCredentials) *string {
 		if v == nil {
@@ -23804,6 +23952,7 @@ func (o GetSchemaRegistryKekCredentialsPtrOutput) Secret() pulumi.StringPtrOutpu
 }
 
 type GetSchemaRegistryKekSchemaRegistryCluster struct {
+	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 	Id string `pulumi:"id"`
 }
 
@@ -23819,6 +23968,7 @@ type GetSchemaRegistryKekSchemaRegistryClusterInput interface {
 }
 
 type GetSchemaRegistryKekSchemaRegistryClusterArgs struct {
+	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -23899,6 +24049,7 @@ func (o GetSchemaRegistryKekSchemaRegistryClusterOutput) ToGetSchemaRegistryKekS
 	}).(GetSchemaRegistryKekSchemaRegistryClusterPtrOutput)
 }
 
+// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 func (o GetSchemaRegistryKekSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryKekSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -23927,6 +24078,7 @@ func (o GetSchemaRegistryKekSchemaRegistryClusterPtrOutput) Elem() GetSchemaRegi
 	}).(GetSchemaRegistryKekSchemaRegistryClusterOutput)
 }
 
+// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
 func (o GetSchemaRegistryKekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSchemaRegistryKekSchemaRegistryCluster) *string {
 		if v == nil {
