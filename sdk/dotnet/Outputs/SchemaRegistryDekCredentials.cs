@@ -13,7 +13,13 @@ namespace Pulumi.ConfluentCloud.Outputs
     [OutputType]
     public sealed class SchemaRegistryDekCredentials
     {
+        /// <summary>
+        /// The Cluster API Key for your Confluent Cloud cluster.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The Cluster API Secret for your Confluent Cloud cluster.
+        /// </summary>
         public readonly string Secret;
 
         [OutputConstructor]

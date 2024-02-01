@@ -13,16 +13,32 @@ public final class GetSchemaRegistryDekCredentials extends com.pulumi.resources.
 
     public static final GetSchemaRegistryDekCredentials Empty = new GetSchemaRegistryDekCredentials();
 
+    /**
+     * The Cluster API Key for your Confluent Cloud cluster.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return The Cluster API Key for your Confluent Cloud cluster.
+     * 
+     */
     public String key() {
         return this.key;
     }
 
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     * 
+     */
     @Import(name="secret", required=true)
     private String secret;
 
+    /**
+     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * 
+     */
     public String secret() {
         return this.secret;
     }
@@ -52,11 +68,23 @@ public final class GetSchemaRegistryDekCredentials extends com.pulumi.resources.
             $ = new GetSchemaRegistryDekCredentials(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key The Cluster API Key for your Confluent Cloud cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param secret The Cluster API Secret for your Confluent Cloud cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secret(String secret) {
             $.secret = secret;
             return this;

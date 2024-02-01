@@ -14,9 +14,17 @@ public final class PrivateLinkAttachmentConnectionAzureArgs extends com.pulumi.r
 
     public static final PrivateLinkAttachmentConnectionAzureArgs Empty = new PrivateLinkAttachmentConnectionAzureArgs();
 
+    /**
+     * Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+     * 
+     */
     @Import(name="privateEndpointResourceId", required=true)
     private Output<String> privateEndpointResourceId;
 
+    /**
+     * @return Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+     * 
+     */
     public Output<String> privateEndpointResourceId() {
         return this.privateEndpointResourceId;
     }
@@ -45,11 +53,23 @@ public final class PrivateLinkAttachmentConnectionAzureArgs extends com.pulumi.r
             $ = new PrivateLinkAttachmentConnectionAzureArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param privateEndpointResourceId Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateEndpointResourceId(Output<String> privateEndpointResourceId) {
             $.privateEndpointResourceId = privateEndpointResourceId;
             return this;
         }
 
+        /**
+         * @param privateEndpointResourceId Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateEndpointResourceId(String privateEndpointResourceId) {
             return privateEndpointResourceId(Output.of(privateEndpointResourceId));
         }

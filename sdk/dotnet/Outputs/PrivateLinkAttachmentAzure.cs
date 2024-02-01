@@ -13,8 +13,17 @@ namespace Pulumi.ConfluentCloud.Outputs
     [OutputType]
     public sealed class PrivateLinkAttachmentAzure
     {
+        /// <summary>
+        /// Azure PrivateLink service alias for the availability zone.
+        /// </summary>
         public readonly string? PrivateLinkServiceAlias;
+        /// <summary>
+        /// Azure PrivateLink service resource id for the availability zone.
+        /// </summary>
         public readonly string? PrivateLinkServiceResourceId;
+        /// <summary>
+        /// Availability zone associated with the Azure PrivateLink service.
+        /// </summary>
         public readonly string? Zone;
 
         [OutputConstructor]

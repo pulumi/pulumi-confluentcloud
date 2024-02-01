@@ -31,9 +31,17 @@ public final class GetKafkaClusterDedicatedArgs extends com.pulumi.resources.Res
         return this.cku;
     }
 
+    /**
+     * The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+     * 
+     */
     @Import(name="encryptionKey", required=true)
     private Output<String> encryptionKey;
 
+    /**
+     * @return The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+     * 
+     */
     public Output<String> encryptionKey() {
         return this.encryptionKey;
     }
@@ -106,11 +114,23 @@ public final class GetKafkaClusterDedicatedArgs extends com.pulumi.resources.Res
             return cku(Output.of(cku));
         }
 
+        /**
+         * @param encryptionKey The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptionKey(Output<String> encryptionKey) {
             $.encryptionKey = encryptionKey;
             return this;
         }
 
+        /**
+         * @param encryptionKey The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptionKey(String encryptionKey) {
             return encryptionKey(Output.of(encryptionKey));
         }

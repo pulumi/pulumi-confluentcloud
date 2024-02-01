@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KafkaMirrorTopicKafkaCluster {
+    /**
+     * @return The Kafka API Credentials.
+     * 
+     */
     private @Nullable KafkaMirrorTopicKafkaClusterCredentials credentials;
     /**
      * @return The ID of the destination Kafka cluster, for example, `lkc-abc123`.
@@ -26,6 +30,10 @@ public final class KafkaMirrorTopicKafkaCluster {
     private @Nullable String restEndpoint;
 
     private KafkaMirrorTopicKafkaCluster() {}
+    /**
+     * @return The Kafka API Credentials.
+     * 
+     */
     public Optional<KafkaMirrorTopicKafkaClusterCredentials> credentials() {
         return Optional.ofNullable(this.credentials);
     }

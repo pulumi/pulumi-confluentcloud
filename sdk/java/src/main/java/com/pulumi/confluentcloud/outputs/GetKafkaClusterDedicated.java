@@ -17,6 +17,10 @@ public final class GetKafkaClusterDedicated {
      * 
      */
     private Integer cku;
+    /**
+     * @return The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+     * 
+     */
     private String encryptionKey;
     /**
      * @return (Required List of String) The list of zones the cluster is in.
@@ -35,6 +39,10 @@ public final class GetKafkaClusterDedicated {
     public Integer cku() {
         return this.cku;
     }
+    /**
+     * @return The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+     * 
+     */
     public String encryptionKey() {
         return this.encryptionKey;
     }

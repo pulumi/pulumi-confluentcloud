@@ -32,9 +32,17 @@ public final class ClusterLinkDestinationKafkaClusterArgs extends com.pulumi.res
         return Optional.ofNullable(this.bootstrapEndpoint);
     }
 
+    /**
+     * The Kafka API Credentials.
+     * 
+     */
     @Import(name="credentials")
     private @Nullable Output<ClusterLinkDestinationKafkaClusterCredentialsArgs> credentials;
 
+    /**
+     * @return The Kafka API Credentials.
+     * 
+     */
     public Optional<Output<ClusterLinkDestinationKafkaClusterCredentialsArgs>> credentials() {
         return Optional.ofNullable(this.credentials);
     }
@@ -117,11 +125,23 @@ public final class ClusterLinkDestinationKafkaClusterArgs extends com.pulumi.res
             return bootstrapEndpoint(Output.of(bootstrapEndpoint));
         }
 
+        /**
+         * @param credentials The Kafka API Credentials.
+         * 
+         * @return builder
+         * 
+         */
         public Builder credentials(@Nullable Output<ClusterLinkDestinationKafkaClusterCredentialsArgs> credentials) {
             $.credentials = credentials;
             return this;
         }
 
+        /**
+         * @param credentials The Kafka API Credentials.
+         * 
+         * @return builder
+         * 
+         */
         public Builder credentials(ClusterLinkDestinationKafkaClusterCredentialsArgs credentials) {
             return credentials(Output.of(credentials));
         }

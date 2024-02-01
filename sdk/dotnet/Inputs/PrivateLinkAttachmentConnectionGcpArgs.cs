@@ -12,6 +12,9 @@ namespace Pulumi.ConfluentCloud.Inputs
 
     public sealed class PrivateLinkAttachmentConnectionGcpArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Id of the Private Service connection.
+        /// </summary>
         [Input("privateServiceConnectConnectionId", required: true)]
         public Input<string> PrivateServiceConnectConnectionId { get; set; } = null!;
 

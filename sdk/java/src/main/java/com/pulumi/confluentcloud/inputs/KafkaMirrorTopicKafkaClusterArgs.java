@@ -17,9 +17,17 @@ public final class KafkaMirrorTopicKafkaClusterArgs extends com.pulumi.resources
 
     public static final KafkaMirrorTopicKafkaClusterArgs Empty = new KafkaMirrorTopicKafkaClusterArgs();
 
+    /**
+     * The Kafka API Credentials.
+     * 
+     */
     @Import(name="credentials")
     private @Nullable Output<KafkaMirrorTopicKafkaClusterCredentialsArgs> credentials;
 
+    /**
+     * @return The Kafka API Credentials.
+     * 
+     */
     public Optional<Output<KafkaMirrorTopicKafkaClusterCredentialsArgs>> credentials() {
         return Optional.ofNullable(this.credentials);
     }
@@ -80,11 +88,23 @@ public final class KafkaMirrorTopicKafkaClusterArgs extends com.pulumi.resources
             $ = new KafkaMirrorTopicKafkaClusterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param credentials The Kafka API Credentials.
+         * 
+         * @return builder
+         * 
+         */
         public Builder credentials(@Nullable Output<KafkaMirrorTopicKafkaClusterCredentialsArgs> credentials) {
             $.credentials = credentials;
             return this;
         }
 
+        /**
+         * @param credentials The Kafka API Credentials.
+         * 
+         * @return builder
+         * 
+         */
         public Builder credentials(KafkaMirrorTopicKafkaClusterCredentialsArgs credentials) {
             return credentials(Output.of(credentials));
         }

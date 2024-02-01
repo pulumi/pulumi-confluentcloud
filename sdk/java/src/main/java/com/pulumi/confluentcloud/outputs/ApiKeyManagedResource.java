@@ -16,6 +16,10 @@ public final class ApiKeyManagedResource {
      * 
      */
     private String apiVersion;
+    /**
+     * @return Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+     * 
+     */
     private ApiKeyManagedResourceEnvironment environment;
     /**
      * @return The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
@@ -36,6 +40,10 @@ public final class ApiKeyManagedResource {
     public String apiVersion() {
         return this.apiVersion;
     }
+    /**
+     * @return Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+     * 
+     */
     public ApiKeyManagedResourceEnvironment environment() {
         return this.environment;
     }
