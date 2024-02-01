@@ -20,6 +20,10 @@ namespace Pulumi.ConfluentCloud.Inputs
 
         [Input("credentials")]
         private Input<Inputs.ClusterLinkRemoteKafkaClusterCredentialsArgs>? _credentials;
+
+        /// <summary>
+        /// The Kafka API Credentials.
+        /// </summary>
         public Input<Inputs.ClusterLinkRemoteKafkaClusterCredentialsArgs>? Credentials
         {
             get => _credentials;

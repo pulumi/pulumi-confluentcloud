@@ -18,6 +18,10 @@ public final class ClusterLinkRemoteKafkaCluster {
      * 
      */
     private @Nullable String bootstrapEndpoint;
+    /**
+     * @return The Kafka API Credentials.
+     * 
+     */
     private @Nullable ClusterLinkRemoteKafkaClusterCredentials credentials;
     /**
      * @return The ID of the remote Kafka cluster, for example, `lkc-abc123`.
@@ -38,6 +42,10 @@ public final class ClusterLinkRemoteKafkaCluster {
     public Optional<String> bootstrapEndpoint() {
         return Optional.ofNullable(this.bootstrapEndpoint);
     }
+    /**
+     * @return The Kafka API Credentials.
+     * 
+     */
     public Optional<ClusterLinkRemoteKafkaClusterCredentials> credentials() {
         return Optional.ofNullable(this.credentials);
     }

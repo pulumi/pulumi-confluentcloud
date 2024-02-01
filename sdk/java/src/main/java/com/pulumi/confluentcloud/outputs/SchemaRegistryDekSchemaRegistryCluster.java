@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class SchemaRegistryDekSchemaRegistryCluster {
+    /**
+     * @return The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     * 
+     */
     private String id;
 
     private SchemaRegistryDekSchemaRegistryCluster() {}
+    /**
+     * @return The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     * 
+     */
     public String id() {
         return this.id;
     }

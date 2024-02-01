@@ -10,6 +10,9 @@ export interface ApiKeyManagedResource {
      * The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
      */
     apiVersion: pulumi.Input<string>;
+    /**
+     * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+     */
     environment: pulumi.Input<inputs.ApiKeyManagedResourceEnvironment>;
     /**
      * The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
@@ -93,6 +96,9 @@ export interface BusinessMetadataCredentials {
      * The Schema Registry API Key.
      */
     key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
     secret: pulumi.Input<string>;
 }
 
@@ -149,6 +155,9 @@ export interface ClusterLinkDestinationKafkaCluster {
      * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: pulumi.Input<string>;
+    /**
+     * The Kafka API Credentials.
+     */
     credentials?: pulumi.Input<inputs.ClusterLinkDestinationKafkaClusterCredentials>;
     /**
      * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
@@ -176,6 +185,9 @@ export interface ClusterLinkLocalKafkaCluster {
      * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: pulumi.Input<string>;
+    /**
+     * The Kafka API Credentials.
+     */
     credentials?: pulumi.Input<inputs.ClusterLinkLocalKafkaClusterCredentials>;
     /**
      * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
@@ -203,6 +215,9 @@ export interface ClusterLinkRemoteKafkaCluster {
      * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: pulumi.Input<string>;
+    /**
+     * The Kafka API Credentials.
+     */
     credentials?: pulumi.Input<inputs.ClusterLinkRemoteKafkaClusterCredentials>;
     /**
      * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
@@ -230,6 +245,9 @@ export interface ClusterLinkSourceKafkaCluster {
      * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: pulumi.Input<string>;
+    /**
+     * The Kafka API Credentials.
+     */
     credentials?: pulumi.Input<inputs.ClusterLinkSourceKafkaClusterCredentials>;
     /**
      * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
@@ -463,6 +481,9 @@ export interface GetKafkaClusterDedicated {
      * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
      */
     cku?: number;
+    /**
+     * The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+     */
     encryptionKey?: string;
     /**
      * (Required List of String) The list of zones the cluster is in.
@@ -478,6 +499,9 @@ export interface GetKafkaClusterDedicatedArgs {
      * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
      */
     cku?: pulumi.Input<number>;
+    /**
+     * The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+     */
     encryptionKey?: pulumi.Input<string>;
     /**
      * (Required List of String) The list of zones the cluster is in.
@@ -523,6 +547,9 @@ export interface GetKafkaTopicCredentials {
      * The Kafka API Key.
      */
     key: string;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
     secret: string;
 }
 
@@ -531,6 +558,9 @@ export interface GetKafkaTopicCredentialsArgs {
      * The Kafka API Key.
      */
     key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
     secret: pulumi.Input<string>;
 }
 
@@ -907,38 +937,74 @@ export interface GetSchemaRegistryClusterModeSchemaRegistryClusterArgs {
 }
 
 export interface GetSchemaRegistryDekCredentials {
+    /**
+     * The Cluster API Key for your Confluent Cloud cluster.
+     */
     key: string;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
     secret: string;
 }
 
 export interface GetSchemaRegistryDekCredentialsArgs {
+    /**
+     * The Cluster API Key for your Confluent Cloud cluster.
+     */
     key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
     secret: pulumi.Input<string>;
 }
 
 export interface GetSchemaRegistryDekSchemaRegistryCluster {
+    /**
+     * The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     */
     id: string;
 }
 
 export interface GetSchemaRegistryDekSchemaRegistryClusterArgs {
+    /**
+     * The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     */
     id: pulumi.Input<string>;
 }
 
 export interface GetSchemaRegistryKekCredentials {
+    /**
+     * The Cluster API Key for your Confluent Cloud cluster.
+     */
     key: string;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
     secret: string;
 }
 
 export interface GetSchemaRegistryKekCredentialsArgs {
+    /**
+     * The Cluster API Key for your Confluent Cloud cluster.
+     */
     key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
     secret: pulumi.Input<string>;
 }
 
 export interface GetSchemaRegistryKekSchemaRegistryCluster {
+    /**
+     * The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     */
     id: string;
 }
 
 export interface GetSchemaRegistryKekSchemaRegistryClusterArgs {
+    /**
+     * The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     */
     id: pulumi.Input<string>;
 }
 
@@ -1299,6 +1365,9 @@ export interface KafkaClusterDedicated {
      * > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
      */
     cku: pulumi.Input<number>;
+    /**
+     * The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+     */
     encryptionKey?: pulumi.Input<string>;
     /**
      * (Required List of String) The list of zones the cluster is in.
@@ -1337,6 +1406,9 @@ export interface KafkaMirrorTopicClusterLink {
 }
 
 export interface KafkaMirrorTopicKafkaCluster {
+    /**
+     * The Kafka API Credentials.
+     */
     credentials?: pulumi.Input<inputs.KafkaMirrorTopicKafkaClusterCredentials>;
     /**
      * The ID of the destination Kafka cluster, for example, `lkc-abc123`.
@@ -1641,8 +1713,17 @@ export interface PrivateLinkAttachmentAw {
 }
 
 export interface PrivateLinkAttachmentAzure {
+    /**
+     * Azure PrivateLink service alias for the availability zone.
+     */
     privateLinkServiceAlias?: pulumi.Input<string>;
+    /**
+     * Azure PrivateLink service resource id for the availability zone.
+     */
     privateLinkServiceResourceId?: pulumi.Input<string>;
+    /**
+     * Availability zone associated with the Azure PrivateLink service.
+     */
     zone?: pulumi.Input<string>;
 }
 
@@ -1654,6 +1735,9 @@ export interface PrivateLinkAttachmentConnectionAws {
 }
 
 export interface PrivateLinkAttachmentConnectionAzure {
+    /**
+     * Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+     */
     privateEndpointResourceId: pulumi.Input<string>;
 }
 
@@ -1665,6 +1749,9 @@ export interface PrivateLinkAttachmentConnectionEnvironment {
 }
 
 export interface PrivateLinkAttachmentConnectionGcp {
+    /**
+     * Id of the Private Service connection.
+     */
     privateServiceConnectConnectionId: pulumi.Input<string>;
 }
 
@@ -1683,7 +1770,13 @@ export interface PrivateLinkAttachmentEnvironment {
 }
 
 export interface PrivateLinkAttachmentGcp {
+    /**
+     * Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     */
     privateServiceConnectServiceAttachment?: pulumi.Input<string>;
+    /**
+     * Zone associated with the PSC Service attachment.
+     */
     zone?: pulumi.Input<string>;
 }
 
@@ -1692,6 +1785,9 @@ export interface SchemaCredentials {
      * The Schema Registry API Key.
      */
     key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
     secret: pulumi.Input<string>;
 }
 
@@ -1737,6 +1833,9 @@ export interface SchemaRegistryClusterConfigCredentials {
      * The Schema Registry API Key.
      */
     key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
     secret: pulumi.Input<string>;
 }
 
@@ -1759,6 +1858,9 @@ export interface SchemaRegistryClusterModeCredentials {
      * The Schema Registry API Key.
      */
     key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
     secret: pulumi.Input<string>;
 }
 
@@ -1777,20 +1879,38 @@ export interface SchemaRegistryClusterRegion {
 }
 
 export interface SchemaRegistryDekCredentials {
+    /**
+     * The Cluster API Key for your Confluent Cloud cluster.
+     */
     key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
     secret: pulumi.Input<string>;
 }
 
 export interface SchemaRegistryDekSchemaRegistryCluster {
+    /**
+     * The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     */
     id: pulumi.Input<string>;
 }
 
 export interface SchemaRegistryKekCredentials {
+    /**
+     * The Cluster API Key for your Confluent Cloud cluster.
+     */
     key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
     secret: pulumi.Input<string>;
 }
 
 export interface SchemaRegistryKekSchemaRegistryCluster {
+    /**
+     * The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     */
     id: pulumi.Input<string>;
 }
 
@@ -1821,6 +1941,9 @@ export interface SubjectConfigCredentials {
      * The Schema Registry API Key.
      */
     key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
     secret: pulumi.Input<string>;
 }
 
@@ -1836,6 +1959,9 @@ export interface SubjectModeCredentials {
      * The Schema Registry API Key.
      */
     key: pulumi.Input<string>;
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     */
     secret: pulumi.Input<string>;
 }
 

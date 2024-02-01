@@ -17,6 +17,9 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         /// </summary>
         public readonly string? BootstrapEndpoint;
+        /// <summary>
+        /// The Kafka API Credentials.
+        /// </summary>
         public readonly Outputs.ClusterLinkRemoteKafkaClusterCredentials? Credentials;
         /// <summary>
         /// The ID of the remote Kafka cluster, for example, `lkc-abc123`.

@@ -14,16 +14,32 @@ public final class GetSchemaRegistryDekCredentialsArgs extends com.pulumi.resour
 
     public static final GetSchemaRegistryDekCredentialsArgs Empty = new GetSchemaRegistryDekCredentialsArgs();
 
+    /**
+     * The Cluster API Key for your Confluent Cloud cluster.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return The Cluster API Key for your Confluent Cloud cluster.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     * 
+     */
     @Import(name="secret", required=true)
     private Output<String> secret;
 
+    /**
+     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * 
+     */
     public Output<String> secret() {
         return this.secret;
     }
@@ -53,20 +69,44 @@ public final class GetSchemaRegistryDekCredentialsArgs extends com.pulumi.resour
             $ = new GetSchemaRegistryDekCredentialsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key The Cluster API Key for your Confluent Cloud cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key The Cluster API Key for your Confluent Cloud cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param secret The Cluster API Secret for your Confluent Cloud cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secret(Output<String> secret) {
             $.secret = secret;
             return this;
         }
 
+        /**
+         * @param secret The Cluster API Secret for your Confluent Cloud cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secret(String secret) {
             return secret(Output.of(secret));
         }

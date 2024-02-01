@@ -15,6 +15,10 @@ public final class SchemaRegistryClusterModeCredentials {
      * 
      */
     private String key;
+    /**
+     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * 
+     */
     private String secret;
 
     private SchemaRegistryClusterModeCredentials() {}
@@ -25,6 +29,10 @@ public final class SchemaRegistryClusterModeCredentials {
     public String key() {
         return this.key;
     }
+    /**
+     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * 
+     */
     public String secret() {
         return this.secret;
     }

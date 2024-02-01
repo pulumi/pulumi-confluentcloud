@@ -26,6 +26,10 @@ namespace Pulumi.ConfluentCloud.Inputs
 
         [Input("secret", required: true)]
         private string? _secret;
+
+        /// <summary>
+        /// The Cluster API Secret for your Confluent Cloud cluster.
+        /// </summary>
         public string? Secret
         {
             get => _secret;

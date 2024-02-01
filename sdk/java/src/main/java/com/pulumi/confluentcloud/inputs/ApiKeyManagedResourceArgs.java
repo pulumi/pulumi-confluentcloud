@@ -30,9 +30,17 @@ public final class ApiKeyManagedResourceArgs extends com.pulumi.resources.Resour
         return this.apiVersion;
     }
 
+    /**
+     * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+     * 
+     */
     @Import(name="environment", required=true)
     private Output<ApiKeyManagedResourceEnvironmentArgs> environment;
 
+    /**
+     * @return Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+     * 
+     */
     public Output<ApiKeyManagedResourceEnvironmentArgs> environment() {
         return this.environment;
     }
@@ -115,11 +123,23 @@ public final class ApiKeyManagedResourceArgs extends com.pulumi.resources.Resour
             return apiVersion(Output.of(apiVersion));
         }
 
+        /**
+         * @param environment Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(Output<ApiKeyManagedResourceEnvironmentArgs> environment) {
             $.environment = environment;
             return this;
         }
 
+        /**
+         * @param environment Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder environment(ApiKeyManagedResourceEnvironmentArgs environment) {
             return environment(Output.of(environment));
         }

@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPrivateLinkAttachmentGcp {
+    /**
+     * @return Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * 
+     */
     private String privateServiceConnectServiceAttachment;
+    /**
+     * @return Zone associated with the PSC Service attachment.
+     * 
+     */
     private String zone;
 
     private GetPrivateLinkAttachmentGcp() {}
+    /**
+     * @return Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * 
+     */
     public String privateServiceConnectServiceAttachment() {
         return this.privateServiceConnectServiceAttachment;
     }
+    /**
+     * @return Zone associated with the PSC Service attachment.
+     * 
+     */
     public String zone() {
         return this.zone;
     }

@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PrivateLinkAttachmentAzure {
+    /**
+     * @return Azure PrivateLink service alias for the availability zone.
+     * 
+     */
     private @Nullable String privateLinkServiceAlias;
+    /**
+     * @return Azure PrivateLink service resource id for the availability zone.
+     * 
+     */
     private @Nullable String privateLinkServiceResourceId;
+    /**
+     * @return Availability zone associated with the Azure PrivateLink service.
+     * 
+     */
     private @Nullable String zone;
 
     private PrivateLinkAttachmentAzure() {}
+    /**
+     * @return Azure PrivateLink service alias for the availability zone.
+     * 
+     */
     public Optional<String> privateLinkServiceAlias() {
         return Optional.ofNullable(this.privateLinkServiceAlias);
     }
+    /**
+     * @return Azure PrivateLink service resource id for the availability zone.
+     * 
+     */
     public Optional<String> privateLinkServiceResourceId() {
         return Optional.ofNullable(this.privateLinkServiceResourceId);
     }
+    /**
+     * @return Availability zone associated with the Azure PrivateLink service.
+     * 
+     */
     public Optional<String> zone() {
         return Optional.ofNullable(this.zone);
     }

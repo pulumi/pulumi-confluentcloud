@@ -241,6 +241,7 @@ class ApiKeyManagedResource(dict):
                  kind: str):
         """
         :param str api_version: The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+        :param 'ApiKeyManagedResourceEnvironmentArgs' environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param str id: The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
         :param str kind: The kind of the managed resource that the API Key associated with, for example, `Cluster`.
         """
@@ -260,6 +261,9 @@ class ApiKeyManagedResource(dict):
     @property
     @pulumi.getter
     def environment(self) -> 'outputs.ApiKeyManagedResourceEnvironment':
+        """
+        Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        """
         return pulumi.get(self, "environment")
 
     @property
@@ -505,6 +509,7 @@ class BusinessMetadataCredentials(dict):
                  secret: str):
         """
         :param str key: The Schema Registry API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -520,6 +525,9 @@ class BusinessMetadataCredentials(dict):
     @property
     @pulumi.getter
     def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -741,6 +749,7 @@ class ClusterLinkDestinationKafkaCluster(dict):
         """
         :param str id: The ID of the remote Kafka cluster, for example, `lkc-abc123`.
         :param str bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param 'ClusterLinkDestinationKafkaClusterCredentialsArgs' credentials: The Kafka API Credentials.
         :param str rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "id", id)
@@ -770,6 +779,9 @@ class ClusterLinkDestinationKafkaCluster(dict):
     @property
     @pulumi.getter
     def credentials(self) -> Optional['outputs.ClusterLinkDestinationKafkaClusterCredentials']:
+        """
+        The Kafka API Credentials.
+        """
         return pulumi.get(self, "credentials")
 
     @property
@@ -839,6 +851,7 @@ class ClusterLinkLocalKafkaCluster(dict):
         """
         :param str id: The ID of the remote Kafka cluster, for example, `lkc-abc123`.
         :param str bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param 'ClusterLinkLocalKafkaClusterCredentialsArgs' credentials: The Kafka API Credentials.
         :param str rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "id", id)
@@ -868,6 +881,9 @@ class ClusterLinkLocalKafkaCluster(dict):
     @property
     @pulumi.getter
     def credentials(self) -> Optional['outputs.ClusterLinkLocalKafkaClusterCredentials']:
+        """
+        The Kafka API Credentials.
+        """
         return pulumi.get(self, "credentials")
 
     @property
@@ -937,6 +953,7 @@ class ClusterLinkRemoteKafkaCluster(dict):
         """
         :param str id: The ID of the remote Kafka cluster, for example, `lkc-abc123`.
         :param str bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param 'ClusterLinkRemoteKafkaClusterCredentialsArgs' credentials: The Kafka API Credentials.
         :param str rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "id", id)
@@ -966,6 +983,9 @@ class ClusterLinkRemoteKafkaCluster(dict):
     @property
     @pulumi.getter
     def credentials(self) -> Optional['outputs.ClusterLinkRemoteKafkaClusterCredentials']:
+        """
+        The Kafka API Credentials.
+        """
         return pulumi.get(self, "credentials")
 
     @property
@@ -1035,6 +1055,7 @@ class ClusterLinkSourceKafkaCluster(dict):
         """
         :param str id: The ID of the remote Kafka cluster, for example, `lkc-abc123`.
         :param str bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param 'ClusterLinkSourceKafkaClusterCredentialsArgs' credentials: The Kafka API Credentials.
         :param str rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "id", id)
@@ -1064,6 +1085,9 @@ class ClusterLinkSourceKafkaCluster(dict):
     @property
     @pulumi.getter
     def credentials(self) -> Optional['outputs.ClusterLinkSourceKafkaClusterCredentials']:
+        """
+        The Kafka API Credentials.
+        """
         return pulumi.get(self, "credentials")
 
     @property
@@ -1544,6 +1568,7 @@ class KafkaClusterDedicated(dict):
                !> **Warning:** You can only upgrade clusters from `basic` to `standard`.
                
                > **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
+        :param str encryption_key: The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
         :param Sequence[str] zones: (Required List of String) The list of zones the cluster is in.
                On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
@@ -1572,6 +1597,9 @@ class KafkaClusterDedicated(dict):
     @property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> Optional[str]:
+        """
+        The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+        """
         return pulumi.get(self, "encryption_key")
 
     @property
@@ -1694,6 +1722,7 @@ class KafkaMirrorTopicKafkaCluster(dict):
                  rest_endpoint: Optional[str] = None):
         """
         :param str id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        :param 'KafkaMirrorTopicKafkaClusterCredentialsArgs' credentials: The Kafka API Credentials.
         :param str rest_endpoint: The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "id", id)
@@ -1713,6 +1742,9 @@ class KafkaMirrorTopicKafkaCluster(dict):
     @property
     @pulumi.getter
     def credentials(self) -> Optional['outputs.KafkaMirrorTopicKafkaClusterCredentials']:
+        """
+        The Kafka API Credentials.
+        """
         return pulumi.get(self, "credentials")
 
     @property
@@ -2668,6 +2700,11 @@ class PrivateLinkAttachmentAzure(dict):
                  private_link_service_alias: Optional[str] = None,
                  private_link_service_resource_id: Optional[str] = None,
                  zone: Optional[str] = None):
+        """
+        :param str private_link_service_alias: Azure PrivateLink service alias for the availability zone.
+        :param str private_link_service_resource_id: Azure PrivateLink service resource id for the availability zone.
+        :param str zone: Availability zone associated with the Azure PrivateLink service.
+        """
         if private_link_service_alias is not None:
             pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
         if private_link_service_resource_id is not None:
@@ -2678,16 +2715,25 @@ class PrivateLinkAttachmentAzure(dict):
     @property
     @pulumi.getter(name="privateLinkServiceAlias")
     def private_link_service_alias(self) -> Optional[str]:
+        """
+        Azure PrivateLink service alias for the availability zone.
+        """
         return pulumi.get(self, "private_link_service_alias")
 
     @property
     @pulumi.getter(name="privateLinkServiceResourceId")
     def private_link_service_resource_id(self) -> Optional[str]:
+        """
+        Azure PrivateLink service resource id for the availability zone.
+        """
         return pulumi.get(self, "private_link_service_resource_id")
 
     @property
     @pulumi.getter
     def zone(self) -> Optional[str]:
+        """
+        Availability zone associated with the Azure PrivateLink service.
+        """
         return pulumi.get(self, "zone")
 
 
@@ -2747,11 +2793,17 @@ class PrivateLinkAttachmentConnectionAzure(dict):
 
     def __init__(__self__, *,
                  private_endpoint_resource_id: str):
+        """
+        :param str private_endpoint_resource_id: Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+        """
         pulumi.set(__self__, "private_endpoint_resource_id", private_endpoint_resource_id)
 
     @property
     @pulumi.getter(name="privateEndpointResourceId")
     def private_endpoint_resource_id(self) -> str:
+        """
+        Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+        """
         return pulumi.get(self, "private_endpoint_resource_id")
 
 
@@ -2794,11 +2846,17 @@ class PrivateLinkAttachmentConnectionGcp(dict):
 
     def __init__(__self__, *,
                  private_service_connect_connection_id: str):
+        """
+        :param str private_service_connect_connection_id: Id of the Private Service connection.
+        """
         pulumi.set(__self__, "private_service_connect_connection_id", private_service_connect_connection_id)
 
     @property
     @pulumi.getter(name="privateServiceConnectConnectionId")
     def private_service_connect_connection_id(self) -> str:
+        """
+        Id of the Private Service connection.
+        """
         return pulumi.get(self, "private_service_connect_connection_id")
 
 
@@ -2860,6 +2918,10 @@ class PrivateLinkAttachmentGcp(dict):
     def __init__(__self__, *,
                  private_service_connect_service_attachment: Optional[str] = None,
                  zone: Optional[str] = None):
+        """
+        :param str private_service_connect_service_attachment: Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        :param str zone: Zone associated with the PSC Service attachment.
+        """
         if private_service_connect_service_attachment is not None:
             pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
         if zone is not None:
@@ -2868,11 +2930,17 @@ class PrivateLinkAttachmentGcp(dict):
     @property
     @pulumi.getter(name="privateServiceConnectServiceAttachment")
     def private_service_connect_service_attachment(self) -> Optional[str]:
+        """
+        Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        """
         return pulumi.get(self, "private_service_connect_service_attachment")
 
     @property
     @pulumi.getter
     def zone(self) -> Optional[str]:
+        """
+        Zone associated with the PSC Service attachment.
+        """
         return pulumi.get(self, "zone")
 
 
@@ -2883,6 +2951,7 @@ class SchemaCredentials(dict):
                  secret: str):
         """
         :param str key: The Schema Registry API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -2898,6 +2967,9 @@ class SchemaCredentials(dict):
     @property
     @pulumi.getter
     def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -3026,6 +3098,7 @@ class SchemaRegistryClusterConfigCredentials(dict):
                  secret: str):
         """
         :param str key: The Schema Registry API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -3041,6 +3114,9 @@ class SchemaRegistryClusterConfigCredentials(dict):
     @property
     @pulumi.getter
     def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -3087,6 +3163,7 @@ class SchemaRegistryClusterModeCredentials(dict):
                  secret: str):
         """
         :param str key: The Schema Registry API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -3102,6 +3179,9 @@ class SchemaRegistryClusterModeCredentials(dict):
     @property
     @pulumi.getter
     def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -3146,17 +3226,27 @@ class SchemaRegistryDekCredentials(dict):
     def __init__(__self__, *,
                  key: str,
                  secret: str):
+        """
+        :param str key: The Cluster API Key for your Confluent Cloud cluster.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The Cluster API Key for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -3164,11 +3254,17 @@ class SchemaRegistryDekCredentials(dict):
 class SchemaRegistryDekSchemaRegistryCluster(dict):
     def __init__(__self__, *,
                  id: str):
+        """
+        :param str id: The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        """
         pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        """
         return pulumi.get(self, "id")
 
 
@@ -3177,17 +3273,27 @@ class SchemaRegistryKekCredentials(dict):
     def __init__(__self__, *,
                  key: str,
                  secret: str):
+        """
+        :param str key: The Cluster API Key for your Confluent Cloud cluster.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The Cluster API Key for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -3195,11 +3301,17 @@ class SchemaRegistryKekCredentials(dict):
 class SchemaRegistryKekSchemaRegistryCluster(dict):
     def __init__(__self__, *,
                  id: str):
+        """
+        :param str id: The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        """
         pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        """
         return pulumi.get(self, "id")
 
 
@@ -3285,6 +3397,7 @@ class SubjectConfigCredentials(dict):
                  secret: str):
         """
         :param str key: The Schema Registry API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -3300,6 +3413,9 @@ class SubjectConfigCredentials(dict):
     @property
     @pulumi.getter
     def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -3328,6 +3444,7 @@ class SubjectModeCredentials(dict):
                  secret: str):
         """
         :param str key: The Schema Registry API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -3343,6 +3460,9 @@ class SubjectModeCredentials(dict):
     @property
     @pulumi.getter
     def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -4175,6 +4295,7 @@ class GetKafkaClusterDedicatedResult(dict):
                  zones: Sequence[str]):
         """
         :param int cku: (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+        :param str encryption_key: The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
         :param Sequence[str] zones: (Required List of String) The list of zones the cluster is in.
                On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
                On GCP, zones are GCP [zones](https://cloud.google.com/compute/docs/regions-zones), for example, `us-central1-c`.
@@ -4195,6 +4316,9 @@ class GetKafkaClusterDedicatedResult(dict):
     @property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> str:
+        """
+        The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+        """
         return pulumi.get(self, "encryption_key")
 
     @property
@@ -4272,6 +4396,7 @@ class GetKafkaTopicCredentialsResult(dict):
                  secret: str):
         """
         :param str key: The Kafka API Key.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -4287,6 +4412,9 @@ class GetKafkaTopicCredentialsResult(dict):
     @property
     @pulumi.getter
     def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -4961,6 +5089,11 @@ class GetPrivateLinkAttachmentAzureResult(dict):
                  private_link_service_alias: str,
                  private_link_service_resource_id: str,
                  zone: str):
+        """
+        :param str private_link_service_alias: Azure PrivateLink service alias for the availability zone.
+        :param str private_link_service_resource_id: Azure PrivateLink service resource id for the availability zone.
+        :param str zone: Availability zone associated with the Azure PrivateLink service.
+        """
         pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
         pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
         pulumi.set(__self__, "zone", zone)
@@ -4968,16 +5101,25 @@ class GetPrivateLinkAttachmentAzureResult(dict):
     @property
     @pulumi.getter(name="privateLinkServiceAlias")
     def private_link_service_alias(self) -> str:
+        """
+        Azure PrivateLink service alias for the availability zone.
+        """
         return pulumi.get(self, "private_link_service_alias")
 
     @property
     @pulumi.getter(name="privateLinkServiceResourceId")
     def private_link_service_resource_id(self) -> str:
+        """
+        Azure PrivateLink service resource id for the availability zone.
+        """
         return pulumi.get(self, "private_link_service_resource_id")
 
     @property
     @pulumi.getter
     def zone(self) -> str:
+        """
+        Availability zone associated with the Azure PrivateLink service.
+        """
         return pulumi.get(self, "zone")
 
 
@@ -5003,11 +5145,17 @@ class GetPrivateLinkAttachmentConnectionAwResult(dict):
 class GetPrivateLinkAttachmentConnectionAzureResult(dict):
     def __init__(__self__, *,
                  private_endpoint_resource_id: str):
+        """
+        :param str private_endpoint_resource_id: Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+        """
         pulumi.set(__self__, "private_endpoint_resource_id", private_endpoint_resource_id)
 
     @property
     @pulumi.getter(name="privateEndpointResourceId")
     def private_endpoint_resource_id(self) -> str:
+        """
+        Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+        """
         return pulumi.get(self, "private_endpoint_resource_id")
 
 
@@ -5033,11 +5181,17 @@ class GetPrivateLinkAttachmentConnectionEnvironmentResult(dict):
 class GetPrivateLinkAttachmentConnectionGcpResult(dict):
     def __init__(__self__, *,
                  private_service_connect_connection_id: str):
+        """
+        :param str private_service_connect_connection_id: Id of the Private Service connection.
+        """
         pulumi.set(__self__, "private_service_connect_connection_id", private_service_connect_connection_id)
 
     @property
     @pulumi.getter(name="privateServiceConnectConnectionId")
     def private_service_connect_connection_id(self) -> str:
+        """
+        Id of the Private Service connection.
+        """
         return pulumi.get(self, "private_service_connect_connection_id")
 
 
@@ -5082,17 +5236,27 @@ class GetPrivateLinkAttachmentGcpResult(dict):
     def __init__(__self__, *,
                  private_service_connect_service_attachment: str,
                  zone: str):
+        """
+        :param str private_service_connect_service_attachment: Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        :param str zone: Zone associated with the PSC Service attachment.
+        """
         pulumi.set(__self__, "private_service_connect_service_attachment", private_service_connect_service_attachment)
         pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="privateServiceConnectServiceAttachment")
     def private_service_connect_service_attachment(self) -> str:
+        """
+        Id of a Private Service Connect Service Attachment in Confluent Cloud.
+        """
         return pulumi.get(self, "private_service_connect_service_attachment")
 
     @property
     @pulumi.getter
     def zone(self) -> str:
+        """
+        Zone associated with the PSC Service attachment.
+        """
         return pulumi.get(self, "zone")
 
 
@@ -5414,17 +5578,27 @@ class GetSchemaRegistryDekCredentialsResult(dict):
     def __init__(__self__, *,
                  key: str,
                  secret: str):
+        """
+        :param str key: The Cluster API Key for your Confluent Cloud cluster.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The Cluster API Key for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -5432,11 +5606,17 @@ class GetSchemaRegistryDekCredentialsResult(dict):
 class GetSchemaRegistryDekSchemaRegistryClusterResult(dict):
     def __init__(__self__, *,
                  id: str):
+        """
+        :param str id: The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        """
         pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        """
         return pulumi.get(self, "id")
 
 
@@ -5445,17 +5625,27 @@ class GetSchemaRegistryKekCredentialsResult(dict):
     def __init__(__self__, *,
                  key: str,
                  secret: str):
+        """
+        :param str key: The Cluster API Key for your Confluent Cloud cluster.
+        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The Cluster API Key for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def secret(self) -> str:
+        """
+        The Cluster API Secret for your Confluent Cloud cluster.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -5463,11 +5653,17 @@ class GetSchemaRegistryKekCredentialsResult(dict):
 class GetSchemaRegistryKekSchemaRegistryClusterResult(dict):
     def __init__(__self__, *,
                  id: str):
+        """
+        :param str id: The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        """
         pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        """
         return pulumi.get(self, "id")
 
 

@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSchemaRegistryKekCredentials {
+    /**
+     * @return The Cluster API Key for your Confluent Cloud cluster.
+     * 
+     */
     private String key;
+    /**
+     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * 
+     */
     private String secret;
 
     private GetSchemaRegistryKekCredentials() {}
+    /**
+     * @return The Cluster API Key for your Confluent Cloud cluster.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * 
+     */
     public String secret() {
         return this.secret;
     }

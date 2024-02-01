@@ -15,23 +15,47 @@ public final class PrivateLinkAttachmentAzureArgs extends com.pulumi.resources.R
 
     public static final PrivateLinkAttachmentAzureArgs Empty = new PrivateLinkAttachmentAzureArgs();
 
+    /**
+     * Azure PrivateLink service alias for the availability zone.
+     * 
+     */
     @Import(name="privateLinkServiceAlias")
     private @Nullable Output<String> privateLinkServiceAlias;
 
+    /**
+     * @return Azure PrivateLink service alias for the availability zone.
+     * 
+     */
     public Optional<Output<String>> privateLinkServiceAlias() {
         return Optional.ofNullable(this.privateLinkServiceAlias);
     }
 
+    /**
+     * Azure PrivateLink service resource id for the availability zone.
+     * 
+     */
     @Import(name="privateLinkServiceResourceId")
     private @Nullable Output<String> privateLinkServiceResourceId;
 
+    /**
+     * @return Azure PrivateLink service resource id for the availability zone.
+     * 
+     */
     public Optional<Output<String>> privateLinkServiceResourceId() {
         return Optional.ofNullable(this.privateLinkServiceResourceId);
     }
 
+    /**
+     * Availability zone associated with the Azure PrivateLink service.
+     * 
+     */
     @Import(name="zone")
     private @Nullable Output<String> zone;
 
+    /**
+     * @return Availability zone associated with the Azure PrivateLink service.
+     * 
+     */
     public Optional<Output<String>> zone() {
         return Optional.ofNullable(this.zone);
     }
@@ -62,29 +86,65 @@ public final class PrivateLinkAttachmentAzureArgs extends com.pulumi.resources.R
             $ = new PrivateLinkAttachmentAzureArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param privateLinkServiceAlias Azure PrivateLink service alias for the availability zone.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateLinkServiceAlias(@Nullable Output<String> privateLinkServiceAlias) {
             $.privateLinkServiceAlias = privateLinkServiceAlias;
             return this;
         }
 
+        /**
+         * @param privateLinkServiceAlias Azure PrivateLink service alias for the availability zone.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateLinkServiceAlias(String privateLinkServiceAlias) {
             return privateLinkServiceAlias(Output.of(privateLinkServiceAlias));
         }
 
+        /**
+         * @param privateLinkServiceResourceId Azure PrivateLink service resource id for the availability zone.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateLinkServiceResourceId(@Nullable Output<String> privateLinkServiceResourceId) {
             $.privateLinkServiceResourceId = privateLinkServiceResourceId;
             return this;
         }
 
+        /**
+         * @param privateLinkServiceResourceId Azure PrivateLink service resource id for the availability zone.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateLinkServiceResourceId(String privateLinkServiceResourceId) {
             return privateLinkServiceResourceId(Output.of(privateLinkServiceResourceId));
         }
 
+        /**
+         * @param zone Availability zone associated with the Azure PrivateLink service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zone(@Nullable Output<String> zone) {
             $.zone = zone;
             return this;
         }
 
+        /**
+         * @param zone Availability zone associated with the Azure PrivateLink service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zone(String zone) {
             return zone(Output.of(zone));
         }

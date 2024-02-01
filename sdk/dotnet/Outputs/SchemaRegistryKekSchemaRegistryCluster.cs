@@ -13,6 +13,9 @@ namespace Pulumi.ConfluentCloud.Outputs
     [OutputType]
     public sealed class SchemaRegistryKekSchemaRegistryCluster
     {
+        /// <summary>
+        /// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]
