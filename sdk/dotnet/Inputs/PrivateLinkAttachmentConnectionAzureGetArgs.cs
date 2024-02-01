@@ -12,6 +12,9 @@ namespace Pulumi.ConfluentCloud.Inputs
 
     public sealed class PrivateLinkAttachmentConnectionAzureGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+        /// </summary>
         [Input("privateEndpointResourceId", required: true)]
         public Input<string> PrivateEndpointResourceId { get; set; } = null!;
 

@@ -12,6 +12,9 @@ namespace Pulumi.ConfluentCloud.Inputs
 
     public sealed class GetSchemaRegistryDekSchemaRegistryClusterArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 

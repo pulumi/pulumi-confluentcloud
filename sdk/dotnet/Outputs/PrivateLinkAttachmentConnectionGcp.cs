@@ -13,6 +13,9 @@ namespace Pulumi.ConfluentCloud.Outputs
     [OutputType]
     public sealed class PrivateLinkAttachmentConnectionGcp
     {
+        /// <summary>
+        /// Id of the Private Service connection.
+        /// </summary>
         public readonly string PrivateServiceConnectConnectionId;
 
         [OutputConstructor]

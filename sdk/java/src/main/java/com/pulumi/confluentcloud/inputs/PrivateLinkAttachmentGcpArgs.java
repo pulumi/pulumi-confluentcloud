@@ -15,16 +15,32 @@ public final class PrivateLinkAttachmentGcpArgs extends com.pulumi.resources.Res
 
     public static final PrivateLinkAttachmentGcpArgs Empty = new PrivateLinkAttachmentGcpArgs();
 
+    /**
+     * Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * 
+     */
     @Import(name="privateServiceConnectServiceAttachment")
     private @Nullable Output<String> privateServiceConnectServiceAttachment;
 
+    /**
+     * @return Id of a Private Service Connect Service Attachment in Confluent Cloud.
+     * 
+     */
     public Optional<Output<String>> privateServiceConnectServiceAttachment() {
         return Optional.ofNullable(this.privateServiceConnectServiceAttachment);
     }
 
+    /**
+     * Zone associated with the PSC Service attachment.
+     * 
+     */
     @Import(name="zone")
     private @Nullable Output<String> zone;
 
+    /**
+     * @return Zone associated with the PSC Service attachment.
+     * 
+     */
     public Optional<Output<String>> zone() {
         return Optional.ofNullable(this.zone);
     }
@@ -54,20 +70,44 @@ public final class PrivateLinkAttachmentGcpArgs extends com.pulumi.resources.Res
             $ = new PrivateLinkAttachmentGcpArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param privateServiceConnectServiceAttachment Id of a Private Service Connect Service Attachment in Confluent Cloud.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateServiceConnectServiceAttachment(@Nullable Output<String> privateServiceConnectServiceAttachment) {
             $.privateServiceConnectServiceAttachment = privateServiceConnectServiceAttachment;
             return this;
         }
 
+        /**
+         * @param privateServiceConnectServiceAttachment Id of a Private Service Connect Service Attachment in Confluent Cloud.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateServiceConnectServiceAttachment(String privateServiceConnectServiceAttachment) {
             return privateServiceConnectServiceAttachment(Output.of(privateServiceConnectServiceAttachment));
         }
 
+        /**
+         * @param zone Zone associated with the PSC Service attachment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zone(@Nullable Output<String> zone) {
             $.zone = zone;
             return this;
         }
 
+        /**
+         * @param zone Zone associated with the PSC Service attachment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zone(String zone) {
             return zone(Output.of(zone));
         }

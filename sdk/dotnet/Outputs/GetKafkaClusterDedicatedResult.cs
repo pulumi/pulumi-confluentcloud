@@ -17,6 +17,9 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
         /// </summary>
         public readonly int Cku;
+        /// <summary>
+        /// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+        /// </summary>
         public readonly string EncryptionKey;
         /// <summary>
         /// (Required List of String) The list of zones the cluster is in.

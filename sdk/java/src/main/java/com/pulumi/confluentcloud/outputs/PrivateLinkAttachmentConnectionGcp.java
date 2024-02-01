@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class PrivateLinkAttachmentConnectionGcp {
+    /**
+     * @return Id of the Private Service connection.
+     * 
+     */
     private String privateServiceConnectConnectionId;
 
     private PrivateLinkAttachmentConnectionGcp() {}
+    /**
+     * @return Id of the Private Service connection.
+     * 
+     */
     public String privateServiceConnectConnectionId() {
         return this.privateServiceConnectConnectionId;
     }

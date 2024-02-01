@@ -18,6 +18,9 @@ namespace Pulumi.ConfluentCloud.Inputs
         [Input("cku", required: true)]
         public Input<int> Cku { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+        /// </summary>
         [Input("encryptionKey", required: true)]
         public Input<string> EncryptionKey { get; set; } = null!;
 

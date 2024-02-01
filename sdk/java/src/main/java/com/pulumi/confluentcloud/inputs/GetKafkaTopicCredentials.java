@@ -28,9 +28,17 @@ public final class GetKafkaTopicCredentials extends com.pulumi.resources.InvokeA
         return this.key;
     }
 
+    /**
+     * The Cluster API Secret for your Confluent Cloud cluster.
+     * 
+     */
     @Import(name="secret", required=true)
     private String secret;
 
+    /**
+     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * 
+     */
     public String secret() {
         return this.secret;
     }
@@ -71,6 +79,12 @@ public final class GetKafkaTopicCredentials extends com.pulumi.resources.InvokeA
             return this;
         }
 
+        /**
+         * @param secret The Cluster API Secret for your Confluent Cloud cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secret(String secret) {
             $.secret = secret;
             return this;

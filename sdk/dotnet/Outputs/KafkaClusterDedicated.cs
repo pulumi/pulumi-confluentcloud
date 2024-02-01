@@ -23,6 +23,9 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// &gt; **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.
         /// </summary>
         public readonly int Cku;
+        /// <summary>
+        /// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
+        /// </summary>
         public readonly string? EncryptionKey;
         /// <summary>
         /// (Required List of String) The list of zones the cluster is in.

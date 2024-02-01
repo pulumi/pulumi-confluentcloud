@@ -18,6 +18,9 @@ namespace Pulumi.ConfluentCloud.Inputs
         [Input("apiVersion", required: true)]
         public Input<string> ApiVersion { get; set; } = null!;
 
+        /// <summary>
+        /// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        /// </summary>
         [Input("environment", required: true)]
         public Input<Inputs.ApiKeyManagedResourceEnvironmentArgs> Environment { get; set; } = null!;
 

@@ -13,6 +13,9 @@ namespace Pulumi.ConfluentCloud.Outputs
     [OutputType]
     public sealed class KafkaMirrorTopicKafkaCluster
     {
+        /// <summary>
+        /// The Kafka API Credentials.
+        /// </summary>
         public readonly Outputs.KafkaMirrorTopicKafkaClusterCredentials? Credentials;
         /// <summary>
         /// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
