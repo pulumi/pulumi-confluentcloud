@@ -47,10 +47,14 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Import
     /// 
-    /// You can import a Schema Registry cluster by using Environment ID and Schema Registry cluster ID, in the format `&lt;Environment ID&gt;/&lt;Schema Registry cluster ID&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
+    /// You can import a Schema Registry cluster by using Environment ID and Schema Registry cluster ID, in the format `&lt;Environment ID&gt;/&lt;Schema Registry cluster ID&gt;`, for example:
+    /// 
+    ///  $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
+    /// 
+    ///  $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// 
     /// ```sh
-    ///  $ pulumi import confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster example env-abc123/lsrc-abc123
+    /// $ pulumi import confluentcloud:index/schemaRegistryCluster:SchemaRegistryCluster example env-abc123/lsrc-abc123
     /// ```
     /// 
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

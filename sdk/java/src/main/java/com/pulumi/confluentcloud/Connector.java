@@ -278,10 +278,14 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * You can import a connector by using Environment ID, Kafka cluster ID, and connector&#39;s name, in the format `&lt;Environment ID&gt;/&lt;Kafka cluster ID&gt;/&lt;Connector name&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
+ * You can import a connector by using Environment ID, Kafka cluster ID, and connector&#39;s name, in the format `&lt;Environment ID&gt;/&lt;Kafka cluster ID&gt;/&lt;Connector name&gt;`, for example:
+ * 
+ *  $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * 
+ *  $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * 
  * ```sh
- *  $ pulumi import confluentcloud:index/connector:Connector my_connector &#34;env-abc123/lkc-abc123/S3_SINKConnector_0&#34;
+ * $ pulumi import confluentcloud:index/connector:Connector my_connector &#34;env-abc123/lkc-abc123/S3_SINKConnector_0&#34;
  * ```
  * 
  */

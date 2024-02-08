@@ -23,16 +23,34 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreate_on_update = false`) of the Schema in the format `&lt;Schema Registry cluster ID&gt;/&lt;Subject name&gt;/&lt;Schema identifier&gt;`, for exampleOption Arecreate_on_update = false (by default) $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34; $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34; $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34; $ export SCHEMA_CONTENT=&#34;&lt;schema_content&gt;&#34; # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
+ * You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreate_on_update = false`) of the Schema in the format `&lt;Schema Registry cluster ID&gt;/&lt;Subject name&gt;/&lt;Schema identifier&gt;`, for example:
+ * 
+ *  Option A: recreate_on_update = false (by default)
+ * 
+ *  $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
+ * 
+ *  $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
+ * 
+ *  $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
+ * 
+ *  $ export SCHEMA_CONTENT=&#34;&lt;schema_content&gt;&#34; # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
  * 
  * ```sh
- *  $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest
+ * $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest
  * ```
  * 
- *  Option Brecreate_on_update = true $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34; $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34; $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34; $ export SCHEMA_CONTENT=&#34;&lt;schema_content&gt;&#34; # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
+ *  Option B: recreate_on_update = true
+ * 
+ *  $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
+ * 
+ *  $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
+ * 
+ *  $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
+ * 
+ *  $ export SCHEMA_CONTENT=&#34;&lt;schema_content&gt;&#34; # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
  * 
  * ```sh
- *  $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003
+ * $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003
  * ```
  * 
  *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

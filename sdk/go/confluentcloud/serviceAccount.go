@@ -67,12 +67,14 @@ import (
 //
 // ## Import
 //
-// You can import a Service Account by using Service Account ID, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+// You can import a Service Account by using Service Account ID, for example:
+//
+//	$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+//
+//	$ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
-//
-//	$ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
-//
+// $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
 // ```
 //
 //	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

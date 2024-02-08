@@ -85,18 +85,46 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Import
     /// 
-    /// You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode, source (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote
+    /// You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode,
     /// 
-    /// for bidirectional cluster links) Kafka cluster ID, in the format `&lt;Cluster link name&gt;/&lt;Cluster link mode&gt;/&lt;Cluster connection mode&gt;/&lt;Source (Local) Kafka cluster ID&gt;/&lt;Destination (Remote) Kafka cluster ID&gt;`, for exampleOption #1 when using source-initiated or destination-initiated cluster links $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="&lt;source_kafka_bootstrap_endpoint&gt;" $ export IMPORT_SOURCE_KAFKA_API_KEY="&lt;source_kafka_api_key&gt;" $ export IMPORT_SOURCE_KAFKA_API_SECRET="&lt;source_kafka_api_secret&gt;" $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="&lt;destination_kafka_rest_endpoint&gt;" $ export IMPORT_DESTINATION_KAFKA_API_KEY="&lt;destination_kafka_api_key&gt;" $ export IMPORT_DESTINATION_KAFKA_API_SECRET="&lt;destination_kafka_api_secret&gt;"
+    ///  source (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote
+    /// 
+    /// for bidirectional cluster links) Kafka cluster ID, in the format `&lt;Cluster link name&gt;/&lt;Cluster link mode&gt;/&lt;Cluster connection mode&gt;/&lt;Source (Local) Kafka cluster ID&gt;/&lt;Destination (Remote) Kafka cluster ID&gt;`, for example:
+    /// 
+    ///  Option #1 when using source-initiated or destination-initiated cluster links
+    /// 
+    ///  $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="&lt;source_kafka_bootstrap_endpoint&gt;"
+    /// 
+    ///  $ export IMPORT_SOURCE_KAFKA_API_KEY="&lt;source_kafka_api_key&gt;"
+    /// 
+    ///  $ export IMPORT_SOURCE_KAFKA_API_SECRET="&lt;source_kafka_api_secret&gt;"
+    /// 
+    ///  $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="&lt;destination_kafka_rest_endpoint&gt;"
+    /// 
+    ///  $ export IMPORT_DESTINATION_KAFKA_API_KEY="&lt;destination_kafka_api_key&gt;"
+    /// 
+    ///  $ export IMPORT_DESTINATION_KAFKA_API_SECRET="&lt;destination_kafka_api_secret&gt;"
     /// 
     /// ```sh
-    ///  $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456
+    /// $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456
     /// ```
     /// 
-    ///  Option #2 when using bidirectional cluster links $ export IMPORT_LOCAL_KAFKA_BOOTSTRAP_ENDPOINT="&lt;local_kafka_bootstrap_endpoint&gt;" $ export IMPORT_LOCAL_KAFKA_API_KEY="&lt;local_kafka_api_key&gt;" $ export IMPORT_LOCAL_KAFKA_API_SECRET="&lt;local_kafka_api_secret&gt;" $ export IMPORT_REMOTE_KAFKA_REST_ENDPOINT="&lt;remote_kafka_rest_endpoint&gt;" $ export IMPORT_REMOTE_KAFKA_API_KEY="&lt;remote_kafka_api_key&gt;" $ export IMPORT_REMOTE_KAFKA_API_SECRET="&lt;remote_kafka_api_secret&gt;"
+    ///  Option #2 when using bidirectional cluster links
+    /// 
+    ///  $ export IMPORT_LOCAL_KAFKA_BOOTSTRAP_ENDPOINT="&lt;local_kafka_bootstrap_endpoint&gt;"
+    /// 
+    ///  $ export IMPORT_LOCAL_KAFKA_API_KEY="&lt;local_kafka_api_key&gt;"
+    /// 
+    ///  $ export IMPORT_LOCAL_KAFKA_API_SECRET="&lt;local_kafka_api_secret&gt;"
+    /// 
+    ///  $ export IMPORT_REMOTE_KAFKA_REST_ENDPOINT="&lt;remote_kafka_rest_endpoint&gt;"
+    /// 
+    ///  $ export IMPORT_REMOTE_KAFKA_API_KEY="&lt;remote_kafka_api_key&gt;"
+    /// 
+    ///  $ export IMPORT_REMOTE_KAFKA_API_SECRET="&lt;remote_kafka_api_secret&gt;"
     /// 
     /// ```sh
-    ///  $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456
+    /// $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456
     /// ```
     /// 
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

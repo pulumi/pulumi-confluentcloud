@@ -62,10 +62,14 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * You can import a Private Link Attachment by using Environment ID and Private Link Attachment ID, in the format `&lt;Environment ID&gt;/&lt;Private Link Attachment ID&gt;`. The following example shows how to import a Private Link Attachment$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
+ * You can import a Private Link Attachment by using Environment ID and Private Link Attachment ID, in the format `&lt;Environment ID&gt;/&lt;Private Link Attachment ID&gt;`. The following example shows how to import a Private Link Attachment:
+ * 
+ *  $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * 
+ *  $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * 
  * ```sh
- *  $ pulumi import confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment main env-abc123/platt-abc123
+ * $ pulumi import confluentcloud:index/privateLinkAttachment:PrivateLinkAttachment main env-abc123/platt-abc123
  * ```
  * 
  *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

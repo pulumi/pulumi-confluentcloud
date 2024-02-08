@@ -370,10 +370,14 @@ class Connector(pulumi.CustomResource):
 
         ## Import
 
-        You can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `<Environment ID>/<Kafka cluster ID>/<Connector name>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        You can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `<Environment ID>/<Kafka cluster ID>/<Connector name>`, for example:
+
+         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+
+         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
-         $ pulumi import confluentcloud:index/connector:Connector my_connector "env-abc123/lkc-abc123/S3_SINKConnector_0"
+        $ pulumi import confluentcloud:index/connector:Connector my_connector "env-abc123/lkc-abc123/S3_SINKConnector_0"
         ```
 
         :param str resource_name: The name of the resource.
@@ -558,10 +562,14 @@ class Connector(pulumi.CustomResource):
 
         ## Import
 
-        You can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `<Environment ID>/<Kafka cluster ID>/<Connector name>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        You can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `<Environment ID>/<Kafka cluster ID>/<Connector name>`, for example:
+
+         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+
+         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
-         $ pulumi import confluentcloud:index/connector:Connector my_connector "env-abc123/lkc-abc123/S3_SINKConnector_0"
+        $ pulumi import confluentcloud:index/connector:Connector my_connector "env-abc123/lkc-abc123/S3_SINKConnector_0"
         ```
 
         :param str resource_name: The name of the resource.
