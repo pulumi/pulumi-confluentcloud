@@ -36,10 +36,14 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * You can import a ksqlDB cluster by using Environment ID and ksqlDB cluster ID, in the format `&lt;Environment ID&gt;/&lt;ksqlDB cluster ID&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
+ * You can import a ksqlDB cluster by using Environment ID and ksqlDB cluster ID, in the format `&lt;Environment ID&gt;/&lt;ksqlDB cluster ID&gt;`, for example:
+ * 
+ *  $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * 
+ *  $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * 
  * ```sh
- *  $ pulumi import confluentcloud:index/ksqlCluster:KsqlCluster example env-abc123/lksqlc-abc123
+ * $ pulumi import confluentcloud:index/ksqlCluster:KsqlCluster example env-abc123/lksqlc-abc123
  * ```
  * 
  *  !&gt; **Warning:**

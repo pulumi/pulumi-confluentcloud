@@ -58,10 +58,14 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * You can import an Invitation by using Invitation ID, for example$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
+ * You can import an Invitation by using Invitation ID, for example:
+ * 
+ *  $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * 
+ *  $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * 
  * ```sh
- *  $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1
+ * $ pulumi import confluentcloud:index/invitation:Invitation main i-gxxn1
  * ```
  * 
  *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

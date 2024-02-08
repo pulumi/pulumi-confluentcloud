@@ -9,16 +9,28 @@ import * as utilities from "./utilities";
 /**
  * ## Import
  *
- * You can import a Flink topic by using the Flink Statement name, for exampleOption #1Manage multiple Flink Compute Pools in the same Terraform workspace $ export IMPORT_FLINK_COMPUTE_POOL_ID="<flink_compute_pool_id>" $ export IMPORT_FLINK_API_KEY="<flink_api_key>" $ export IMPORT_FLINK_API_SECRET="<flink_api_secret>" $ export IMPORT_FLINK_REST_ENDPOINT="<flink_rest_endpoint>" $ export IMPORT_FLINK_PRINCIPAL_ID="<flink_rest_endpoint>"
+ * You can import a Flink topic by using the Flink Statement name, for example:
+ *
+ *  Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
+ *
+ *  $ export IMPORT_FLINK_COMPUTE_POOL_ID="<flink_compute_pool_id>"
+ *
+ *  $ export IMPORT_FLINK_API_KEY="<flink_api_key>"
+ *
+ *  $ export IMPORT_FLINK_API_SECRET="<flink_api_secret>"
+ *
+ *  $ export IMPORT_FLINK_REST_ENDPOINT="<flink_rest_endpoint>"
+ *
+ *  $ export IMPORT_FLINK_PRINCIPAL_ID="<flink_rest_endpoint>"
  *
  * ```sh
- *  $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
+ * $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
  * ```
  *
- *  Option #2Manage a single Flink Compute Pool in the same Terraform workspace
+ *  Option #2: Manage a single Flink Compute Pool in the same Terraform workspace
  *
  * ```sh
- *  $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
+ * $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
  * ```
  *
  *  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

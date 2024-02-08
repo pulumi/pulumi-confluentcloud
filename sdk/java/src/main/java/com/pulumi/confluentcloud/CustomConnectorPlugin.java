@@ -53,10 +53,14 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * You can import a Custom Connector Plugin by using a Custom Connector Plugin ID, in the format `&lt;Custom Connector Plugin&gt;`. The following example shows how to import a Custom Connector Plugin$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
+ * You can import a Custom Connector Plugin by using a Custom Connector Plugin ID, in the format `&lt;Custom Connector Plugin&gt;`. The following example shows how to import a Custom Connector Plugin:
+ * 
+ *  $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * 
+ *  $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * 
  * ```sh
- *  $ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz
+ * $ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz
  * ```
  * 
  *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

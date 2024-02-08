@@ -12,10 +12,16 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Import
     /// 
-    /// You can import a Tag by using the Schema Registry cluster ID, Tag name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Tag name&gt;`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
+    /// You can import a Tag by using the Schema Registry cluster ID, Tag name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Tag name&gt;`, for example:
+    /// 
+    ///  $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
+    /// 
+    ///  $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
+    /// 
+    ///  $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
     /// 
     /// ```sh
-    ///  $ pulumi import confluentcloud:index/tag:Tag pii lsrc-8wrx70/PII
+    /// $ pulumi import confluentcloud:index/tag:Tag pii lsrc-8wrx70/PII
     /// ```
     /// 
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

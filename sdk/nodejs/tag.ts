@@ -9,10 +9,16 @@ import * as utilities from "./utilities";
 /**
  * ## Import
  *
- * You can import a Tag by using the Schema Registry cluster ID, Tag name in the format `<Schema Registry cluster ID>/<Tag name>`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+ * You can import a Tag by using the Schema Registry cluster ID, Tag name in the format `<Schema Registry cluster ID>/<Tag name>`, for example:
+ *
+ *  $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+ *
+ *  $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+ *
+ *  $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
  *
  * ```sh
- *  $ pulumi import confluentcloud:index/tag:Tag pii lsrc-8wrx70/PII
+ * $ pulumi import confluentcloud:index/tag:Tag pii lsrc-8wrx70/PII
  * ```
  *
  *  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

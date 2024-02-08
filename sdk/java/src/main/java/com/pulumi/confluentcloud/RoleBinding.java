@@ -36,10 +36,14 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * You can import a Role Binding by using Role Binding ID, for example$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
+ * You can import a Role Binding by using Role Binding ID, for example:
+ * 
+ *  $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * 
+ *  $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * 
  * ```sh
- *  $ pulumi import confluentcloud:index/roleBinding:RoleBinding my_rb rb-f3a90de
+ * $ pulumi import confluentcloud:index/roleBinding:RoleBinding my_rb rb-f3a90de
  * ```
  * 
  *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
