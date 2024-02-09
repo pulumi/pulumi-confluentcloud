@@ -23,16 +23,28 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * You can import a Flink topic by using the Flink Statement name, for exampleOption #1Manage multiple Flink Compute Pools in the same Terraform workspace $ export IMPORT_FLINK_COMPUTE_POOL_ID=&#34;&lt;flink_compute_pool_id&gt;&#34; $ export IMPORT_FLINK_API_KEY=&#34;&lt;flink_api_key&gt;&#34; $ export IMPORT_FLINK_API_SECRET=&#34;&lt;flink_api_secret&gt;&#34; $ export IMPORT_FLINK_REST_ENDPOINT=&#34;&lt;flink_rest_endpoint&gt;&#34; $ export IMPORT_FLINK_PRINCIPAL_ID=&#34;&lt;flink_rest_endpoint&gt;&#34;
+ * You can import a Flink topic by using the Flink Statement name, for example:
+ * 
+ *  Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
+ * 
+ *  $ export IMPORT_FLINK_COMPUTE_POOL_ID=&#34;&lt;flink_compute_pool_id&gt;&#34;
+ * 
+ *  $ export IMPORT_FLINK_API_KEY=&#34;&lt;flink_api_key&gt;&#34;
+ * 
+ *  $ export IMPORT_FLINK_API_SECRET=&#34;&lt;flink_api_secret&gt;&#34;
+ * 
+ *  $ export IMPORT_FLINK_REST_ENDPOINT=&#34;&lt;flink_rest_endpoint&gt;&#34;
+ * 
+ *  $ export IMPORT_FLINK_PRINCIPAL_ID=&#34;&lt;flink_rest_endpoint&gt;&#34;
  * 
  * ```sh
- *  $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
+ * $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
  * ```
  * 
- *  Option #2Manage a single Flink Compute Pool in the same Terraform workspace
+ *  Option #2: Manage a single Flink Compute Pool in the same Terraform workspace
  * 
  * ```sh
- *  $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
+ * $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
  * ```
  * 
  *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

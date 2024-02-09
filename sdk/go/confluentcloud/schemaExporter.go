@@ -14,12 +14,16 @@ import (
 
 // ## Import
 //
-// You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `<Schema Registry cluster ID>/<Schema Exporter name>`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+// You can import a Schema Exporter by using the Schema Registry cluster ID, Schema Exporter name in the format `<Schema Registry cluster ID>/<Schema Exporter name>`, for example:
+//
+//	$ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+//
+//	$ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+//
+//	$ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
 //
 // ```sh
-//
-//	$ pulumi import confluentcloud:index/schemaExporter:SchemaExporter main lsrc-8wrx70/test-exporter
-//
+// $ pulumi import confluentcloud:index/schemaExporter:SchemaExporter main lsrc-8wrx70/test-exporter
 // ```
 //
 //	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

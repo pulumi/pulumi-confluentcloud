@@ -247,10 +247,14 @@ class IdentityPool(pulumi.CustomResource):
 
         ## Import
 
-        You can import an Identity Pool by using Identity Provider ID and Identity Pool ID, in the format `<Identity Provider ID>/<Identity Pool ID>`. The following example shows how to import an Identity Pool$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        You can import an Identity Pool by using Identity Provider ID and Identity Pool ID, in the format `<Identity Provider ID>/<Identity Pool ID>`. The following example shows how to import an Identity Pool:
+
+         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+
+         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
-         $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
+        $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
         ```
 
          !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
@@ -321,10 +325,14 @@ class IdentityPool(pulumi.CustomResource):
 
         ## Import
 
-        You can import an Identity Pool by using Identity Provider ID and Identity Pool ID, in the format `<Identity Provider ID>/<Identity Pool ID>`. The following example shows how to import an Identity Pool$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        You can import an Identity Pool by using Identity Provider ID and Identity Pool ID, in the format `<Identity Provider ID>/<Identity Pool ID>`. The following example shows how to import an Identity Pool:
+
+         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+
+         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
-         $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
+        $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
         ```
 
          !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

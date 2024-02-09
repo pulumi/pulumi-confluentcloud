@@ -9,10 +9,16 @@ import * as utilities from "./utilities";
 /**
  * ## Import
  *
- * You can import a Mode by using the Schema Registry cluster ID, Subject name in the format `<Schema Registry cluster ID>`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+ * You can import a Mode by using the Schema Registry cluster ID, Subject name in the format `<Schema Registry cluster ID>`, for example:
+ *
+ *  $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+ *
+ *  $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+ *
+ *  $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
  *
  * ```sh
- *  $ pulumi import confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode example lsrc-abc123
+ * $ pulumi import confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode example lsrc-abc123
  * ```
  *
  *  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
