@@ -235,10 +235,14 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Import
     /// 
-    /// You can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `&lt;Environment ID&gt;/&lt;Kafka cluster ID&gt;/&lt;Connector name&gt;`, for example$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
+    /// You can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `&lt;Environment ID&gt;/&lt;Kafka cluster ID&gt;/&lt;Connector name&gt;`, for example:
+    /// 
+    ///  $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
+    /// 
+    ///  $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// 
     /// ```sh
-    ///  $ pulumi import confluentcloud:index/connector:Connector my_connector "env-abc123/lkc-abc123/S3_SINKConnector_0"
+    /// $ pulumi import confluentcloud:index/connector:Connector my_connector "env-abc123/lkc-abc123/S3_SINKConnector_0"
     /// ```
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/connector:Connector")]

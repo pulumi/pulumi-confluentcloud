@@ -22,16 +22,24 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka topic name&gt;`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34; $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34; $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;
+ * You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka topic name&gt;`, for example:
+ * 
+ *  Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+ * 
+ *  $ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34;
+ * 
+ *  $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34;
+ * 
+ *  $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;
  * 
  * ```sh
- *  $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
+ * $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
  * ```
  * 
- *  Option #2Manage a single Kafka cluster in the same Terraform workspace
+ *  Option #2: Manage a single Kafka cluster in the same Terraform workspace
  * 
  * ```sh
- *  $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
+ * $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
  * ```
  * 
  *  resource &#34;confluent_kafka_topic&#34; &#34;orders&#34; {
@@ -114,7 +122,11 @@ import javax.annotation.Nullable;
  * 
  *  secret = confluent_api_key.app-manager-kafka-api-key.secret
  * 
- *  } } !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ *  }
+ * 
+ *  }
+ * 
+ *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/kafkaTopic:KafkaTopic")

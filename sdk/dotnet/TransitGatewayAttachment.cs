@@ -74,10 +74,14 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Import
     /// 
-    /// You can import a Transit Gateway Attachment by using Environment ID and Transit Gateway Attachment ID, in the format `&lt;Environment ID&gt;/&lt;Transit Gateway Attachment ID&gt;`. The following example shows how to import a Transit Gateway Attachment$ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
+    /// You can import a Transit Gateway Attachment by using Environment ID and Transit Gateway Attachment ID, in the format `&lt;Environment ID&gt;/&lt;Transit Gateway Attachment ID&gt;`. The following example shows how to import a Transit Gateway Attachment:
+    /// 
+    ///  $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
+    /// 
+    ///  $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// 
     /// ```sh
-    ///  $ pulumi import confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment my_tgwa env-abc123/tgwa-abc123
+    /// $ pulumi import confluentcloud:index/transitGatewayAttachment:TransitGatewayAttachment my_tgwa env-abc123/tgwa-abc123
     /// ```
     /// 
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

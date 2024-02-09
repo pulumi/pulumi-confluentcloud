@@ -34,12 +34,14 @@ import (
 //
 // ## Import
 //
-// You can import a Role Binding by using Role Binding ID, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+// You can import a Role Binding by using Role Binding ID, for example:
+//
+//	$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+//
+//	$ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
-//
-//	$ pulumi import confluentcloud:index/roleBinding:RoleBinding my_rb rb-f3a90de
-//
+// $ pulumi import confluentcloud:index/roleBinding:RoleBinding my_rb rb-f3a90de
 // ```
 //
 //	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

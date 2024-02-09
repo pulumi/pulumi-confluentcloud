@@ -20,10 +20,16 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * You can import a Subject Mode by using the Schema Registry cluster ID, Subject name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Subject name&gt;`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34; $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34; $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
+ * You can import a Subject Mode by using the Schema Registry cluster ID, Subject name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Subject name&gt;`, for example:
+ * 
+ *  $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
+ * 
+ *  $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
+ * 
+ *  $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
  * 
  * ```sh
- *  $ pulumi import confluentcloud:index/subjectMode:SubjectMode example lsrc-abc123/test-subject
+ * $ pulumi import confluentcloud:index/subjectMode:SubjectMode example lsrc-abc123/test-subject
  * ```
  * 
  *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

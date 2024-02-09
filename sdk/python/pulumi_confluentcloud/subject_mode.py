@@ -194,10 +194,16 @@ class SubjectMode(pulumi.CustomResource):
         """
         ## Import
 
-        You can import a Subject Mode by using the Schema Registry cluster ID, Subject name in the format `<Schema Registry cluster ID>/<Subject name>`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+        You can import a Subject Mode by using the Schema Registry cluster ID, Subject name in the format `<Schema Registry cluster ID>/<Subject name>`, for example:
+
+         $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+
+         $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+
+         $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
 
         ```sh
-         $ pulumi import confluentcloud:index/subjectMode:SubjectMode example lsrc-abc123/test-subject
+        $ pulumi import confluentcloud:index/subjectMode:SubjectMode example lsrc-abc123/test-subject
         ```
 
          !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
@@ -218,10 +224,16 @@ class SubjectMode(pulumi.CustomResource):
         """
         ## Import
 
-        You can import a Subject Mode by using the Schema Registry cluster ID, Subject name in the format `<Schema Registry cluster ID>/<Subject name>`, for example$ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>" $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>" $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+        You can import a Subject Mode by using the Schema Registry cluster ID, Subject name in the format `<Schema Registry cluster ID>/<Subject name>`, for example:
+
+         $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+
+         $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+
+         $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
 
         ```sh
-         $ pulumi import confluentcloud:index/subjectMode:SubjectMode example lsrc-abc123/test-subject
+        $ pulumi import confluentcloud:index/subjectMode:SubjectMode example lsrc-abc123/test-subject
         ```
 
          !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

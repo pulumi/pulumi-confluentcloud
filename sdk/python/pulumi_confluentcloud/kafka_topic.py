@@ -264,16 +264,24 @@ class KafkaTopic(pulumi.CustomResource):
         """
         ## Import
 
-        You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+        You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for example:
+
+         Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+
+         $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
+
+         $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
+
+         $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
 
         ```sh
-         $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
+        $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
         ```
 
-         Option #2Manage a single Kafka cluster in the same Terraform workspace
+         Option #2: Manage a single Kafka cluster in the same Terraform workspace
 
         ```sh
-         $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
+        $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
         ```
 
          resource "confluent_kafka_topic" "orders" {
@@ -356,7 +364,11 @@ class KafkaTopic(pulumi.CustomResource):
 
          secret = confluent_api_key.app-manager-kafka-api-key.secret
 
-         } } !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+         }
+
+         }
+
+         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -375,16 +387,24 @@ class KafkaTopic(pulumi.CustomResource):
         """
         ## Import
 
-        You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for exampleOption #1Manage multiple Kafka clusters in the same Terraform workspace $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>" $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>" $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+        You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for example:
+
+         Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+
+         $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
+
+         $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
+
+         $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
 
         ```sh
-         $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
+        $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
         ```
 
-         Option #2Manage a single Kafka cluster in the same Terraform workspace
+         Option #2: Manage a single Kafka cluster in the same Terraform workspace
 
         ```sh
-         $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
+        $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
         ```
 
          resource "confluent_kafka_topic" "orders" {
@@ -467,7 +487,11 @@ class KafkaTopic(pulumi.CustomResource):
 
          secret = confluent_api_key.app-manager-kafka-api-key.secret
 
-         } } !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+         }
+
+         }
+
+         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param KafkaTopicArgs args: The arguments to use to populate this resource's properties.

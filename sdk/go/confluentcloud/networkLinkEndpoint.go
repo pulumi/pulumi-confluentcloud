@@ -55,12 +55,14 @@ import (
 //
 // ## Import
 //
-// You can import a Network Link Endpoint by using Environment ID and Network Link Endpoint ID, in the format `<Environment ID>/<Network Link Endpoint ID>`. The following example shows how to import a Network Link Endpoint$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+// You can import a Network Link Endpoint by using Environment ID and Network Link Endpoint ID, in the format `<Environment ID>/<Network Link Endpoint ID>`. The following example shows how to import a Network Link Endpoint:
+//
+//	$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+//
+//	$ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
-//
-//	$ pulumi import confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint my_nle env-abc123/nle-abc123
-//
+// $ pulumi import confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint my_nle env-abc123/nle-abc123
 // ```
 //
 //	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

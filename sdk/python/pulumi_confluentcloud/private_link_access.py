@@ -316,10 +316,14 @@ class PrivateLinkAccess(pulumi.CustomResource):
 
         ## Import
 
-        You can import a Private Link Access by using Environment ID and Private Link Access ID, in the format `<Environment ID>/<Private Link Access ID>`. The following example shows how to import a Private Link Access$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        You can import a Private Link Access by using Environment ID and Private Link Access ID, in the format `<Environment ID>/<Private Link Access ID>`. The following example shows how to import a Private Link Access:
+
+         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+
+         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
-         $ pulumi import confluentcloud:index/privateLinkAccess:PrivateLinkAccess my_pla env-abc123/pla-abc123
+        $ pulumi import confluentcloud:index/privateLinkAccess:PrivateLinkAccess my_pla env-abc123/pla-abc123
         ```
 
          !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
@@ -442,10 +446,14 @@ class PrivateLinkAccess(pulumi.CustomResource):
 
         ## Import
 
-        You can import a Private Link Access by using Environment ID and Private Link Access ID, in the format `<Environment ID>/<Private Link Access ID>`. The following example shows how to import a Private Link Access$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        You can import a Private Link Access by using Environment ID and Private Link Access ID, in the format `<Environment ID>/<Private Link Access ID>`. The following example shows how to import a Private Link Access:
+
+         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+
+         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
-         $ pulumi import confluentcloud:index/privateLinkAccess:PrivateLinkAccess my_pla env-abc123/pla-abc123
+        $ pulumi import confluentcloud:index/privateLinkAccess:PrivateLinkAccess my_pla env-abc123/pla-abc123
         ```
 
          !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

@@ -197,10 +197,14 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ## Import
     /// 
-    /// You can import a Kafka cluster by using Environment ID and Kafka cluster ID, in the format `&lt;Environment ID&gt;/&lt;Kafka cluster ID&gt;`, e.g. $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;" $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
+    /// You can import a Kafka cluster by using Environment ID and Kafka cluster ID, in the format `&lt;Environment ID&gt;/&lt;Kafka cluster ID&gt;`, e.g.
+    /// 
+    ///  $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
+    /// 
+    ///  $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// 
     /// ```sh
-    ///  $ pulumi import confluentcloud:index/kafkaCluster:KafkaCluster my_kafka env-abc123/lkc-abc123
+    /// $ pulumi import confluentcloud:index/kafkaCluster:KafkaCluster my_kafka env-abc123/lkc-abc123
     /// ```
     /// 
     ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

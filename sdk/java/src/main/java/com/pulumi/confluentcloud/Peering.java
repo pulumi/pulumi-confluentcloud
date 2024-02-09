@@ -218,10 +218,14 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * You can import a Peering by using Environment ID and Peering ID, in the format `&lt;Environment ID&gt;/&lt;Peering ID&gt;`. The following example shows how to import a Peering$ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34; $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
+ * You can import a Peering by using Environment ID and Peering ID, in the format `&lt;Environment ID&gt;/&lt;Peering ID&gt;`. The following example shows how to import a Peering:
+ * 
+ *  $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * 
+ *  $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * 
  * ```sh
- *  $ pulumi import confluentcloud:index/peering:Peering my_peer env-abc123/peer-abc123
+ * $ pulumi import confluentcloud:index/peering:Peering my_peer env-abc123/peer-abc123
  * ```
  * 
  *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.

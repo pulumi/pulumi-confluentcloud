@@ -325,10 +325,14 @@ class KsqlCluster(pulumi.CustomResource):
 
         ## Import
 
-        You can import a ksqlDB cluster by using Environment ID and ksqlDB cluster ID, in the format `<Environment ID>/<ksqlDB cluster ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        You can import a ksqlDB cluster by using Environment ID and ksqlDB cluster ID, in the format `<Environment ID>/<ksqlDB cluster ID>`, for example:
+
+         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+
+         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
-         $ pulumi import confluentcloud:index/ksqlCluster:KsqlCluster example env-abc123/lksqlc-abc123
+        $ pulumi import confluentcloud:index/ksqlCluster:KsqlCluster example env-abc123/lksqlc-abc123
         ```
 
          !> **Warning:**
@@ -365,10 +369,14 @@ class KsqlCluster(pulumi.CustomResource):
 
         ## Import
 
-        You can import a ksqlDB cluster by using Environment ID and ksqlDB cluster ID, in the format `<Environment ID>/<ksqlDB cluster ID>`, for example$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>" $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        You can import a ksqlDB cluster by using Environment ID and ksqlDB cluster ID, in the format `<Environment ID>/<ksqlDB cluster ID>`, for example:
+
+         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+
+         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
-         $ pulumi import confluentcloud:index/ksqlCluster:KsqlCluster example env-abc123/lksqlc-abc123
+        $ pulumi import confluentcloud:index/ksqlCluster:KsqlCluster example env-abc123/lksqlc-abc123
         ```
 
          !> **Warning:**
