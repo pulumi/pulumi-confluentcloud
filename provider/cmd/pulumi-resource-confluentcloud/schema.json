@@ -70,6 +70,10 @@
                 "type": "string",
                 "description": "The base endpoint of Confluent Cloud API.\n"
             },
+            "environmentId": {
+                "type": "string",
+                "description": "The Flink Environment ID.\n"
+            },
             "flinkApiKey": {
                 "type": "string",
                 "description": "The Flink API Key.\n",
@@ -113,6 +117,10 @@
             "maxRetries": {
                 "type": "integer",
                 "description": "Maximum number of retries of HTTP client. Defaults to 4.\n"
+            },
+            "organizationId": {
+                "type": "string",
+                "description": "The Flink Organization ID.\n"
             },
             "schemaRegistryApiKey": {
                 "type": "string",
@@ -621,6 +629,51 @@
                 "id"
             ]
         },
+        "confluentcloud:index/DnsForwarderEnvironment:DnsForwarderEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/DnsForwarderForwardViaIp:DnsForwarderForwardViaIp": {
+            "properties": {
+                "dnsServerIps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of IP addresses of the DNS server.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "dnsServerIps"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/DnsForwarderGateway:DnsForwarderGateway": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/FlinkComputePoolEnvironment:FlinkComputePoolEnvironment": {
             "properties": {
                 "id": {
@@ -664,6 +717,32 @@
             "required": [
                 "key",
                 "secret"
+            ]
+        },
+        "confluentcloud:index/FlinkStatementEnvironment:FlinkStatementEnvironment": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "confluentcloud:index/FlinkStatementOrganization:FlinkStatementOrganization": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
             ]
         },
         "confluentcloud:index/FlinkStatementPrincipal:FlinkStatementPrincipal": {
@@ -1119,6 +1198,22 @@
             "required": [
                 "id"
             ]
+        },
+        "confluentcloud:index/NetworkGateway:NetworkGateway": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Network belongs to, for example, `env-abc123`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id"
+                    ]
+                }
+            }
         },
         "confluentcloud:index/NetworkGcp:NetworkGcp": {
             "properties": {
@@ -2670,6 +2765,23 @@
                 "id"
             ]
         },
+        "confluentcloud:index/getNetworkGateway:getNetworkGateway": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Environment that the Network belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/getNetworkGcp:getNetworkGcp": {
             "properties": {
                 "privateServiceConnectServiceAttachments": {
@@ -3812,6 +3924,10 @@
                 "type": "string",
                 "description": "The base endpoint of Confluent Cloud API.\n"
             },
+            "environmentId": {
+                "type": "string",
+                "description": "The Flink Environment ID.\n"
+            },
             "flinkApiKey": {
                 "type": "string",
                 "description": "The Flink API Key.\n",
@@ -3855,6 +3971,10 @@
             "maxRetries": {
                 "type": "integer",
                 "description": "Maximum number of retries of HTTP client. Defaults to 4.\n"
+            },
+            "organizationId": {
+                "type": "string",
+                "description": "The Flink Organization ID.\n"
             },
             "schemaRegistryApiKey": {
                 "type": "string",
@@ -3890,6 +4010,10 @@
                 "type": "string",
                 "description": "The base endpoint of Confluent Cloud API.\n"
             },
+            "environmentId": {
+                "type": "string",
+                "description": "The Flink Environment ID.\n"
+            },
             "flinkApiKey": {
                 "type": "string",
                 "description": "The Flink API Key.\n",
@@ -3933,6 +4057,10 @@
             "maxRetries": {
                 "type": "integer",
                 "description": "Maximum number of retries of HTTP client. Defaults to 4.\n"
+            },
+            "organizationId": {
+                "type": "string",
+                "description": "The Flink Organization ID.\n"
             },
             "schemaRegistryApiKey": {
                 "type": "string",
@@ -4699,6 +4827,99 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/dnsForwarder:DnsForwarder": {
+            "description": "[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n\u003e **Note:** `confluentcloud.DnsForwarder` resource is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n`confluentcloud.DnsForwarder` provides a DNS Forwarder resource that enables creating, editing, and deleting DNS Forwarders on Confluent Cloud.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {});\nconst main = new confluentcloud.DnsForwarder(\"main\", {\n    displayName: \"dns_forwarder\",\n    environment: {\n        id: development.id,\n    },\n    domains: [\n        \"example.com\",\n        \"domainname.com\",\n    ],\n    gateway: {\n        id: confluent_network.main.gateway[0].id,\n    },\n    forwardViaIp: {\n        dnsServerIps: [\n            \"10.200.0.0\",\n            \"10.200.0.1\",\n        ],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\")\nmain = confluentcloud.DnsForwarder(\"main\",\n    display_name=\"dns_forwarder\",\n    environment=confluentcloud.DnsForwarderEnvironmentArgs(\n        id=development.id,\n    ),\n    domains=[\n        \"example.com\",\n        \"domainname.com\",\n    ],\n    gateway=confluentcloud.DnsForwarderGatewayArgs(\n        id=confluent_network[\"main\"][\"gateway\"][0][\"id\"],\n    ),\n    forward_via_ip=confluentcloud.DnsForwarderForwardViaIpArgs(\n        dns_server_ips=[\n            \"10.200.0.0\",\n            \"10.200.0.1\",\n        ],\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\");\n\n    var main = new ConfluentCloud.DnsForwarder(\"main\", new()\n    {\n        DisplayName = \"dns_forwarder\",\n        Environment = new ConfluentCloud.Inputs.DnsForwarderEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Domains = new[]\n        {\n            \"example.com\",\n            \"domainname.com\",\n        },\n        Gateway = new ConfluentCloud.Inputs.DnsForwarderGatewayArgs\n        {\n            Id = confluent_network.Main.Gateway[0].Id,\n        },\n        ForwardViaIp = new ConfluentCloud.Inputs.DnsForwarderForwardViaIpArgs\n        {\n            DnsServerIps = new[]\n            {\n                \"10.200.0.0\",\n                \"10.200.0.1\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewDnsForwarder(ctx, \"main\", \u0026confluentcloud.DnsForwarderArgs{\n\t\t\tDisplayName: pulumi.String(\"dns_forwarder\"),\n\t\t\tEnvironment: \u0026confluentcloud.DnsForwarderEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t\tDomains: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"example.com\"),\n\t\t\t\tpulumi.String(\"domainname.com\"),\n\t\t\t},\n\t\t\tGateway: \u0026confluentcloud.DnsForwarderGatewayArgs{\n\t\t\t\tId: pulumi.Any(confluent_network.Main.Gateway[0].Id),\n\t\t\t},\n\t\t\tForwardViaIp: \u0026confluentcloud.DnsForwarderForwardViaIpArgs{\n\t\t\t\tDnsServerIps: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"10.200.0.0\"),\n\t\t\t\t\tpulumi.String(\"10.200.0.1\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.DnsForwarder;\nimport com.pulumi.confluentcloud.DnsForwarderArgs;\nimport com.pulumi.confluentcloud.inputs.DnsForwarderEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.DnsForwarderGatewayArgs;\nimport com.pulumi.confluentcloud.inputs.DnsForwarderForwardViaIpArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\");\n\n        var main = new DnsForwarder(\"main\", DnsForwarderArgs.builder()        \n            .displayName(\"dns_forwarder\")\n            .environment(DnsForwarderEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .domains(            \n                \"example.com\",\n                \"domainname.com\")\n            .gateway(DnsForwarderGatewayArgs.builder()\n                .id(confluent_network.main().gateway()[0].id())\n                .build())\n            .forwardViaIp(DnsForwarderForwardViaIpArgs.builder()\n                .dnsServerIps(                \n                    \"10.200.0.0\",\n                    \"10.200.0.1\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n  main:\n    type: confluentcloud:DnsForwarder\n    properties:\n      displayName: dns_forwarder\n      environment:\n        id: ${development.id}\n      domains:\n        - example.com\n        - domainname.com\n      gateway:\n        id: ${confluent_network.main.gateway[0].id}\n      forwardViaIp:\n        dnsServerIps:\n          - 10.200.0.0\n          - 10.200.0.1\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nYou can import a DNS Forwarder by using Environment ID and DNS Forwarder ID, in the format `\u003cEnvironment ID\u003e/\u003cDNS Forwarder ID\u003e`. The following example shows how to import a DNS Forwarder:\n\n $ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n ```sh\n $ pulumi import confluentcloud:index/dnsForwarder:DnsForwarder main env-abc123/dnsf-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n ",
+            "properties": {
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the DNS Forwarder.\n"
+                },
+                "domains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of domains for the DNS forwarder to use.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/DnsForwarderEnvironment:DnsForwarderEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
+                },
+                "forwardViaIp": {
+                    "$ref": "#/types/confluentcloud:index/DnsForwarderForwardViaIp:DnsForwarderForwardViaIp"
+                },
+                "gateway": {
+                    "$ref": "#/types/confluentcloud:index/DnsForwarderGateway:DnsForwarderGateway"
+                }
+            },
+            "required": [
+                "displayName",
+                "domains",
+                "environment",
+                "gateway"
+            ],
+            "inputProperties": {
+                "displayName": {
+                    "type": "string",
+                    "description": "The name of the DNS Forwarder.\n"
+                },
+                "domains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of domains for the DNS forwarder to use.\n"
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/DnsForwarderEnvironment:DnsForwarderEnvironment",
+                    "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                    "willReplaceOnChanges": true
+                },
+                "forwardViaIp": {
+                    "$ref": "#/types/confluentcloud:index/DnsForwarderForwardViaIp:DnsForwarderForwardViaIp",
+                    "willReplaceOnChanges": true
+                },
+                "gateway": {
+                    "$ref": "#/types/confluentcloud:index/DnsForwarderGateway:DnsForwarderGateway",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "domains",
+                "environment",
+                "gateway"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DnsForwarder resources.\n",
+                "properties": {
+                    "displayName": {
+                        "type": "string",
+                        "description": "The name of the DNS Forwarder.\n"
+                    },
+                    "domains": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of domains for the DNS forwarder to use.\n"
+                    },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/DnsForwarderEnvironment:DnsForwarderEnvironment",
+                        "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "forwardViaIp": {
+                        "$ref": "#/types/confluentcloud:index/DnsForwarderForwardViaIp:DnsForwarderForwardViaIp",
+                        "willReplaceOnChanges": true
+                    },
+                    "gateway": {
+                        "$ref": "#/types/confluentcloud:index/DnsForwarderGateway:DnsForwarderGateway",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/environment:Environment": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var prod = new Environment(\"prod\", EnvironmentArgs.builder()        \n            .lifecycle(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  prod:\n    type: confluentcloud:Environment\n    properties:\n      lifecycle:\n        preventDestroy: true\n```\n\n{{% /example %}}\n{{% /examples %}}\n## Getting Started\n\nThe following end-to-end examples might help to get started with `confluentcloud.Environment` resource:\n  * `basic-kafka-acls`: _Basic_ Kafka cluster with authorization using ACLs\n  * `basic-kafka-acls-with-alias`: _Basic_ Kafka cluster with authorization using ACLs\n  * `standard-kafka-acls`: _Standard_ Kafka cluster with authorization using ACLs\n  * `standard-kafka-rbac`: _Standard_ Kafka cluster with authorization using RBAC\n  * `dedicated-public-kafka-acls`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using ACLs\n  * `dedicated-public-kafka-rbac`: _Dedicated_ Kafka cluster that is accessible over the public internet with authorization using RBAC\n  * `dedicated-privatelink-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs\n  * `dedicated-privatelink-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using RBAC\n  * `dedicated-privatelink-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using RBAC\n  * `dedicated-privatelink-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs\n  * `dedicated-private-service-connect-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using ACLs\n  * `dedicated-private-service-connect-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via Private Service Connect connections with authorization using RBAC\n  * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs\n  * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC\n  * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs\n  * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC\n  * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs\n  * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC\n  * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs\n  * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC\n  * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs\n\n\n## Import\n\nYou can import an Environment by using Environment ID, for example:\n\n $ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n $ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n ```sh\n $ pulumi import confluentcloud:index/environment:Environment my_env env-abc123\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n ",
             "properties": {
@@ -4749,7 +4970,8 @@
                 },
                 "currentCfu": {
                     "type": "integer",
-                    "description": "(Required Integer) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.\n"
+                    "description": "(Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.\n",
+                    "deprecationMessage": "`confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage)."
                 },
                 "displayName": {
                     "type": "string",
@@ -4777,7 +4999,8 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "(Required String) The API endpoint of the Flink Compute Pool.\n"
+                    "description": "(Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.\n",
+                    "deprecationMessage": "`confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead."
                 }
             },
             "required": [
@@ -4837,7 +5060,8 @@
                     },
                     "currentCfu": {
                         "type": "integer",
-                        "description": "(Required Integer) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.\n"
+                        "description": "(Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.\n",
+                        "deprecationMessage": "`confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage)."
                     },
                     "displayName": {
                         "type": "string",
@@ -4867,14 +5091,15 @@
                     },
                     "restEndpoint": {
                         "type": "string",
-                        "description": "(Required String) The API endpoint of the Flink Compute Pool.\n"
+                        "description": "(Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.\n",
+                        "deprecationMessage": "`confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead."
                     }
                 },
                 "type": "object"
             }
         },
         "confluentcloud:index/flinkStatement:FlinkStatement": {
-            "description": "\n\n\n## Import\n\nYou can import a Flink topic by using the Flink Statement name, for example:\n\n Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace\n\n $ export IMPORT_FLINK_COMPUTE_POOL_ID=\"\u003cflink_compute_pool_id\u003e\"\n\n $ export IMPORT_FLINK_API_KEY=\"\u003cflink_api_key\u003e\"\n\n $ export IMPORT_FLINK_API_SECRET=\"\u003cflink_api_secret\u003e\"\n\n $ export IMPORT_FLINK_REST_ENDPOINT=\"\u003cflink_rest_endpoint\u003e\"\n\n $ export IMPORT_FLINK_PRINCIPAL_ID=\"\u003cflink_rest_endpoint\u003e\"\n\n ```sh\n $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67\n```\n\n Option #2: Manage a single Flink Compute Pool in the same Terraform workspace\n\n ```sh\n $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n ",
+            "description": "\n\n\n## Import\n\nYou can import a Flink statement by using the Flink Statement name, for example:\n\n Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace\n\n $ export IMPORT_ORGANIZATION_ID=\"\u003corganization_id\u003e\"\n\n $ export IMPORT_ENVIRONMENT_ID=\"\u003cenvironment_id\u003e\"\n\n $ export IMPORT_FLINK_COMPUTE_POOL_ID=\"\u003cflink_compute_pool_id\u003e\"\n\n $ export IMPORT_FLINK_API_KEY=\"\u003cflink_api_key\u003e\"\n\n $ export IMPORT_FLINK_API_SECRET=\"\u003cflink_api_secret\u003e\"\n\n $ export IMPORT_FLINK_REST_ENDPOINT=\"\u003cflink_rest_endpoint\u003e\"\n\n $ export IMPORT_FLINK_PRINCIPAL_ID=\"\u003cflink_rest_endpoint\u003e\"\n\n ```sh\n $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67\n```\n\n Option #2: Manage a single Flink Compute Pool in the same Terraform workspace\n\n ```sh\n $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67\n```\n\n !\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n ",
             "properties": {
                 "computePool": {
                     "$ref": "#/types/confluentcloud:index/FlinkStatementComputePool:FlinkStatementComputePool"
@@ -4883,6 +5108,12 @@
                     "$ref": "#/types/confluentcloud:index/FlinkStatementCredentials:FlinkStatementCredentials",
                     "description": "The Cluster API Credentials.\n",
                     "secret": true
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/FlinkStatementEnvironment:FlinkStatementEnvironment"
+                },
+                "organization": {
+                    "$ref": "#/types/confluentcloud:index/FlinkStatementOrganization:FlinkStatementOrganization"
                 },
                 "principal": {
                     "$ref": "#/types/confluentcloud:index/FlinkStatementPrincipal:FlinkStatementPrincipal"
@@ -4894,13 +5125,9 @@
                     },
                     "description": "The custom topic settings to set:\n"
                 },
-                "resourceVersion": {
-                    "type": "string",
-                    "description": "(Required String) The ID of the Flink statement's version, for example, `2`.\n"
-                },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).\n"
+                    "description": "The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).\n"
                 },
                 "statement": {
                     "type": "string",
@@ -4917,9 +5144,10 @@
             },
             "required": [
                 "computePool",
+                "environment",
+                "organization",
                 "principal",
                 "properties",
-                "resourceVersion",
                 "statement",
                 "statementName"
             ],
@@ -4931,6 +5159,12 @@
                     "$ref": "#/types/confluentcloud:index/FlinkStatementCredentials:FlinkStatementCredentials",
                     "description": "The Cluster API Credentials.\n",
                     "secret": true
+                },
+                "environment": {
+                    "$ref": "#/types/confluentcloud:index/FlinkStatementEnvironment:FlinkStatementEnvironment"
+                },
+                "organization": {
+                    "$ref": "#/types/confluentcloud:index/FlinkStatementOrganization:FlinkStatementOrganization"
                 },
                 "principal": {
                     "$ref": "#/types/confluentcloud:index/FlinkStatementPrincipal:FlinkStatementPrincipal"
@@ -4944,7 +5178,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).\n",
+                    "description": "The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).\n",
                     "willReplaceOnChanges": true
                 },
                 "statement": {
@@ -4975,6 +5209,12 @@
                         "description": "The Cluster API Credentials.\n",
                         "secret": true
                     },
+                    "environment": {
+                        "$ref": "#/types/confluentcloud:index/FlinkStatementEnvironment:FlinkStatementEnvironment"
+                    },
+                    "organization": {
+                        "$ref": "#/types/confluentcloud:index/FlinkStatementOrganization:FlinkStatementOrganization"
+                    },
                     "principal": {
                         "$ref": "#/types/confluentcloud:index/FlinkStatementPrincipal:FlinkStatementPrincipal"
                     },
@@ -4985,13 +5225,9 @@
                         },
                         "description": "The custom topic settings to set:\n"
                     },
-                    "resourceVersion": {
-                        "type": "string",
-                        "description": "(Required String) The ID of the Flink statement's version, for example, `2`.\n"
-                    },
                     "restEndpoint": {
                         "type": "string",
-                        "description": "The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).\n",
+                        "description": "The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).\n",
                         "willReplaceOnChanges": true
                     },
                     "statement": {
@@ -6322,6 +6558,12 @@
                     "$ref": "#/types/confluentcloud:index/NetworkEnvironment:NetworkEnvironment",
                     "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n"
                 },
+                "gateways": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/NetworkGateway:NetworkGateway"
+                    }
+                },
                 "gcps": {
                     "type": "array",
                     "items": {
@@ -6373,6 +6615,7 @@
                 "dnsConfig",
                 "dnsDomain",
                 "environment",
+                "gateways",
                 "gcps",
                 "region",
                 "reservedCidr",
@@ -6518,6 +6761,12 @@
                         "$ref": "#/types/confluentcloud:index/NetworkEnvironment:NetworkEnvironment",
                         "description": "Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "gateways": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/NetworkGateway:NetworkGateway"
+                        }
                     },
                     "gcps": {
                         "type": "array",
@@ -9015,7 +9264,8 @@
                     },
                     "currentCfu": {
                         "type": "integer",
-                        "description": "(Required Integer) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.\n"
+                        "description": "(Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.\n",
+                        "deprecationMessage": "`confluent_flink_compute_pool` data source's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage)."
                     },
                     "displayName": {
                         "type": "string",
@@ -9047,7 +9297,8 @@
                     },
                     "restEndpoint": {
                         "type": "string",
-                        "description": "(Required String) The API endpoint of the Flink Compute Pool.\n"
+                        "description": "(Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.\n",
+                        "deprecationMessage": "`confluent_flink_compute_pool` data source's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead."
                     }
                 },
                 "type": "object",
@@ -9875,6 +10126,12 @@
                     "environment": {
                         "$ref": "#/types/confluentcloud:index/getNetworkEnvironment:getNetworkEnvironment"
                     },
+                    "gateways": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getNetworkGateway:getNetworkGateway"
+                        }
+                    },
                     "gcps": {
                         "type": "array",
                         "items": {
@@ -9930,6 +10187,7 @@
                     "dnsConfigs",
                     "dnsDomain",
                     "environment",
+                    "gateways",
                     "gcps",
                     "id",
                     "region",

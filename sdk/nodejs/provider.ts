@@ -38,6 +38,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly endpoint!: pulumi.Output<string | undefined>;
     /**
+     * The Flink Environment ID.
+     */
+    public readonly environmentId!: pulumi.Output<string | undefined>;
+    /**
      * The Flink API Key.
      */
     public readonly flinkApiKey!: pulumi.Output<string | undefined>;
@@ -74,6 +78,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly kafkaRestEndpoint!: pulumi.Output<string | undefined>;
     /**
+     * The Flink Organization ID.
+     */
+    public readonly organizationId!: pulumi.Output<string | undefined>;
+    /**
      * The Schema Registry Cluster API Key.
      */
     public readonly schemaRegistryApiKey!: pulumi.Output<string | undefined>;
@@ -104,6 +112,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["cloudApiKey"] = args?.cloudApiKey ? pulumi.secret(args.cloudApiKey) : undefined;
             resourceInputs["cloudApiSecret"] = args?.cloudApiSecret ? pulumi.secret(args.cloudApiSecret) : undefined;
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
+            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["flinkApiKey"] = args?.flinkApiKey ? pulumi.secret(args.flinkApiKey) : undefined;
             resourceInputs["flinkApiSecret"] = args?.flinkApiSecret ? pulumi.secret(args.flinkApiSecret) : undefined;
             resourceInputs["flinkComputePoolId"] = args ? args.flinkComputePoolId : undefined;
@@ -114,6 +123,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["kafkaId"] = args ? args.kafkaId : undefined;
             resourceInputs["kafkaRestEndpoint"] = args ? args.kafkaRestEndpoint : undefined;
             resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
+            resourceInputs["organizationId"] = args ? args.organizationId : undefined;
             resourceInputs["schemaRegistryApiKey"] = args?.schemaRegistryApiKey ? pulumi.secret(args.schemaRegistryApiKey) : undefined;
             resourceInputs["schemaRegistryApiSecret"] = args?.schemaRegistryApiSecret ? pulumi.secret(args.schemaRegistryApiSecret) : undefined;
             resourceInputs["schemaRegistryId"] = args ? args.schemaRegistryId : undefined;
@@ -142,6 +152,10 @@ export interface ProviderArgs {
      * The base endpoint of Confluent Cloud API.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * The Flink Environment ID.
+     */
+    environmentId?: pulumi.Input<string>;
     /**
      * The Flink API Key.
      */
@@ -182,6 +196,10 @@ export interface ProviderArgs {
      * Maximum number of retries of HTTP client. Defaults to 4.
      */
     maxRetries?: pulumi.Input<number>;
+    /**
+     * The Flink Organization ID.
+     */
+    organizationId?: pulumi.Input<string>;
     /**
      * The Schema Registry Cluster API Key.
      */

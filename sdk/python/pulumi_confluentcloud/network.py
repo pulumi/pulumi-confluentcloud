@@ -251,6 +251,7 @@ class _NetworkState:
                  dns_config: Optional[pulumi.Input['NetworkDnsConfigArgs']] = None,
                  dns_domain: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input['NetworkEnvironmentArgs']] = None,
+                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGatewayArgs']]]] = None,
                  gcps: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  reserved_cidr: Optional[pulumi.Input[str]] = None,
@@ -302,6 +303,8 @@ class _NetworkState:
             pulumi.set(__self__, "dns_domain", dns_domain)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if gateways is not None:
+            pulumi.set(__self__, "gateways", gateways)
         if gcps is not None:
             pulumi.set(__self__, "gcps", gcps)
         if region is not None:
@@ -426,6 +429,15 @@ class _NetworkState:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input['NetworkEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGatewayArgs']]]]:
+        return pulumi.get(self, "gateways")
+
+    @gateways.setter
+    def gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGatewayArgs']]]]):
+        pulumi.set(self, "gateways", value)
 
     @property
     @pulumi.getter
@@ -844,6 +856,7 @@ class Network(pulumi.CustomResource):
             __props__.__dict__["zone_infos"] = zone_infos
             __props__.__dict__["zones"] = zones
             __props__.__dict__["dns_domain"] = None
+            __props__.__dict__["gateways"] = None
             __props__.__dict__["resource_name"] = None
             __props__.__dict__["zonal_subdomains"] = None
         super(Network, __self__).__init__(
@@ -865,6 +878,7 @@ class Network(pulumi.CustomResource):
             dns_config: Optional[pulumi.Input[pulumi.InputType['NetworkDnsConfigArgs']]] = None,
             dns_domain: Optional[pulumi.Input[str]] = None,
             environment: Optional[pulumi.Input[pulumi.InputType['NetworkEnvironmentArgs']]] = None,
+            gateways: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkGatewayArgs']]]]] = None,
             gcps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkGcpArgs']]]]] = None,
             region: Optional[pulumi.Input[str]] = None,
             reserved_cidr: Optional[pulumi.Input[str]] = None,
@@ -916,6 +930,7 @@ class Network(pulumi.CustomResource):
         __props__.__dict__["dns_config"] = dns_config
         __props__.__dict__["dns_domain"] = dns_domain
         __props__.__dict__["environment"] = environment
+        __props__.__dict__["gateways"] = gateways
         __props__.__dict__["gcps"] = gcps
         __props__.__dict__["region"] = region
         __props__.__dict__["reserved_cidr"] = reserved_cidr
@@ -998,6 +1013,11 @@ class Network(pulumi.CustomResource):
         Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         """
         return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
+    def gateways(self) -> pulumi.Output[Sequence['outputs.NetworkGateway']]:
+        return pulumi.get(self, "gateways")
 
     @property
     @pulumi.getter

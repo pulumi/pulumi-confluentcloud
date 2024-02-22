@@ -41,6 +41,17 @@ Object.defineProperty(exports, "endpoint", {
 });
 
 /**
+ * The Flink Environment ID.
+ */
+export declare const environmentId: string | undefined;
+Object.defineProperty(exports, "environmentId", {
+    get() {
+        return __config.get("environmentId");
+    },
+    enumerable: true,
+});
+
+/**
  * The Flink API Key.
  */
 export declare const flinkApiKey: string | undefined;
@@ -146,6 +157,17 @@ export declare const maxRetries: number | undefined;
 Object.defineProperty(exports, "maxRetries", {
     get() {
         return __config.getObject<number>("maxRetries");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Flink Organization ID.
+ */
+export declare const organizationId: string | undefined;
+Object.defineProperty(exports, "organizationId", {
+    get() {
+        return __config.get("organizationId");
     },
     enumerable: true,
 });

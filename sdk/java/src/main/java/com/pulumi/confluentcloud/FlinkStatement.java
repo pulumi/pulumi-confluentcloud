@@ -8,6 +8,8 @@ import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.FlinkStatementState;
 import com.pulumi.confluentcloud.outputs.FlinkStatementComputePool;
 import com.pulumi.confluentcloud.outputs.FlinkStatementCredentials;
+import com.pulumi.confluentcloud.outputs.FlinkStatementEnvironment;
+import com.pulumi.confluentcloud.outputs.FlinkStatementOrganization;
 import com.pulumi.confluentcloud.outputs.FlinkStatementPrincipal;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -23,9 +25,13 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * You can import a Flink topic by using the Flink Statement name, for example:
+ * You can import a Flink statement by using the Flink Statement name, for example:
  * 
  *  Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
+ * 
+ *  $ export IMPORT_ORGANIZATION_ID=&#34;&lt;organization_id&gt;&#34;
+ * 
+ *  $ export IMPORT_ENVIRONMENT_ID=&#34;&lt;environment_id&gt;&#34;
  * 
  *  $ export IMPORT_FLINK_COMPUTE_POOL_ID=&#34;&lt;flink_compute_pool_id&gt;&#34;
  * 
@@ -72,6 +78,18 @@ public class FlinkStatement extends com.pulumi.resources.CustomResource {
     public Output<Optional<FlinkStatementCredentials>> credentials() {
         return Codegen.optional(this.credentials);
     }
+    @Export(name="environment", refs={FlinkStatementEnvironment.class}, tree="[0]")
+    private Output<FlinkStatementEnvironment> environment;
+
+    public Output<FlinkStatementEnvironment> environment() {
+        return this.environment;
+    }
+    @Export(name="organization", refs={FlinkStatementOrganization.class}, tree="[0]")
+    private Output<FlinkStatementOrganization> organization;
+
+    public Output<FlinkStatementOrganization> organization() {
+        return this.organization;
+    }
     @Export(name="principal", refs={FlinkStatementPrincipal.class}, tree="[0]")
     private Output<FlinkStatementPrincipal> principal;
 
@@ -93,28 +111,14 @@ public class FlinkStatement extends com.pulumi.resources.CustomResource {
         return this.properties;
     }
     /**
-     * (Required String) The ID of the Flink statement&#39;s version, for example, `2`.
-     * 
-     */
-    @Export(name="resourceVersion", refs={String.class}, tree="[0]")
-    private Output<String> resourceVersion;
-
-    /**
-     * @return (Required String) The ID of the Flink statement&#39;s version, for example, `2`.
-     * 
-     */
-    public Output<String> resourceVersion() {
-        return this.resourceVersion;
-    }
-    /**
-     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      * 
      */
     @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+     * @return The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      * 
      */
     public Output<Optional<String>> restEndpoint() {

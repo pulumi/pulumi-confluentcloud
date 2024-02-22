@@ -129,6 +129,30 @@
                     }
                 }
             },
+            "confluent_dns_forwarder": {
+                "current": "confluentcloud:index/dnsForwarder:DnsForwarder",
+                "fields": {
+                    "domains": {
+                        "maxItemsOne": false
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "forward_via_ip": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "dns_server_ips": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "gateway": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_environment": {
                 "current": "confluentcloud:index/environment:Environment"
             },
@@ -147,6 +171,12 @@
                         "maxItemsOne": true
                     },
                     "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "organization": {
                         "maxItemsOne": true
                     },
                     "principal": {
@@ -314,6 +344,9 @@
                     },
                     "environment": {
                         "maxItemsOne": true
+                    },
+                    "gateway": {
+                        "maxItemsOne": false
                     },
                     "gcp": {
                         "maxItemsOne": false
@@ -845,6 +878,9 @@
                     "environment": {
                         "maxItemsOne": true
                     },
+                    "gateway": {
+                        "maxItemsOne": false
+                    },
                     "gcp": {
                         "maxItemsOne": false
                     },
@@ -1192,6 +1228,7 @@
             "confluentcloud:index/clusterLink:ClusterLink": "confluent_cluster_link",
             "confluentcloud:index/connector:Connector": "confluent_connector",
             "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin": "confluent_custom_connector_plugin",
+            "confluentcloud:index/dnsForwarder:DnsForwarder": "confluent_dns_forwarder",
             "confluentcloud:index/environment:Environment": "confluent_environment",
             "confluentcloud:index/flinkComputePool:FlinkComputePool": "confluent_flink_compute_pool",
             "confluentcloud:index/flinkStatement:FlinkStatement": "confluent_flink_statement",
@@ -1313,6 +1350,9 @@
                 "bootstrapEndpoint": "bootstrap_endpoint",
                 "restEndpoint": "rest_endpoint"
             },
+            "confluentcloud:index/DnsForwarderForwardViaIp:DnsForwarderForwardViaIp": {
+                "dnsServerIps": "dns_server_ips"
+            },
             "confluentcloud:index/KafkaClientQuotaThroughput:KafkaClientQuotaThroughput": {
                 "egressByteRate": "egress_byte_rate",
                 "ingressByteRate": "ingress_byte_rate"
@@ -1420,6 +1460,10 @@
                 "documentationLink": "documentation_link",
                 "sensitiveConfigProperties": "sensitive_config_properties"
             },
+            "confluentcloud:index/dnsForwarder:DnsForwarder": {
+                "displayName": "display_name",
+                "forwardViaIp": "forward_via_ip"
+            },
             "confluentcloud:index/environment:Environment": {
                 "displayName": "display_name",
                 "resourceName": "resource_name"
@@ -1434,7 +1478,6 @@
             },
             "confluentcloud:index/flinkStatement:FlinkStatement": {
                 "computePool": "compute_pool",
-                "resourceVersion": "resource_version",
                 "restEndpoint": "rest_endpoint",
                 "statementName": "statement_name"
             },
@@ -1564,6 +1607,7 @@
                 "displayName": "display_name",
                 "dnsConfigs": "dns_config",
                 "dnsDomain": "dns_domain",
+                "gateways": "gateway",
                 "gcps": "gcp",
                 "reservedCidr": "reserved_cidr",
                 "resourceName": "resource_name",
@@ -1835,6 +1879,7 @@
                 "displayName": "display_name",
                 "dnsConfig": "dns_config",
                 "dnsDomain": "dns_domain",
+                "gateways": "gateway",
                 "gcps": "gcp",
                 "reservedCidr": "reserved_cidr",
                 "resourceName": "resource_name",
@@ -1956,6 +2001,7 @@
             "confluentcloud:index:Provider": {
                 "cloudApiKey": "cloud_api_key",
                 "cloudApiSecret": "cloud_api_secret",
+                "environmentId": "environment_id",
                 "flinkApiKey": "flink_api_key",
                 "flinkApiSecret": "flink_api_secret",
                 "flinkComputePoolId": "flink_compute_pool_id",
@@ -1966,6 +2012,7 @@
                 "kafkaId": "kafka_id",
                 "kafkaRestEndpoint": "kafka_rest_endpoint",
                 "maxRetries": "max_retries",
+                "organizationId": "organization_id",
                 "schemaRegistryApiKey": "schema_registry_api_key",
                 "schemaRegistryApiSecret": "schema_registry_api_secret",
                 "schemaRegistryId": "schema_registry_id",
@@ -1975,6 +2022,7 @@
         "renamedConfigProperties": {
             "cloudApiKey": "cloud_api_key",
             "cloudApiSecret": "cloud_api_secret",
+            "environmentId": "environment_id",
             "flinkApiKey": "flink_api_key",
             "flinkApiSecret": "flink_api_secret",
             "flinkComputePoolId": "flink_compute_pool_id",
@@ -1985,6 +2033,7 @@
             "kafkaId": "kafka_id",
             "kafkaRestEndpoint": "kafka_rest_endpoint",
             "maxRetries": "max_retries",
+            "organizationId": "organization_id",
             "schemaRegistryApiKey": "schema_registry_api_key",
             "schemaRegistryApiSecret": "schema_registry_api_secret",
             "schemaRegistryId": "schema_registry_id",

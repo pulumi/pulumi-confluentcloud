@@ -226,7 +226,8 @@ type Network struct {
 	// (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
 	DnsDomain pulumi.StringOutput `pulumi:"dnsDomain"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
-	Environment NetworkEnvironmentOutput `pulumi:"environment"`
+	Environment NetworkEnvironmentOutput  `pulumi:"environment"`
+	Gateways    NetworkGatewayArrayOutput `pulumi:"gateways"`
 	// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
 	Gcps NetworkGcpArrayOutput `pulumi:"gcps"`
 	// The cloud provider region where the network exists.
@@ -310,6 +311,7 @@ type networkState struct {
 	DnsDomain *string `pulumi:"dnsDomain"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *NetworkEnvironment `pulumi:"environment"`
+	Gateways    []NetworkGateway    `pulumi:"gateways"`
 	// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
 	Gcps []NetworkGcp `pulumi:"gcps"`
 	// The cloud provider region where the network exists.
@@ -352,6 +354,7 @@ type NetworkState struct {
 	DnsDomain pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment NetworkEnvironmentPtrInput
+	Gateways    NetworkGatewayArrayInput
 	// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
 	Gcps NetworkGcpArrayInput
 	// The cloud provider region where the network exists.
@@ -582,6 +585,10 @@ func (o NetworkOutput) DnsDomain() pulumi.StringOutput {
 // Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 func (o NetworkOutput) Environment() NetworkEnvironmentOutput {
 	return o.ApplyT(func(v *Network) NetworkEnvironmentOutput { return v.Environment }).(NetworkEnvironmentOutput)
+}
+
+func (o NetworkOutput) Gateways() NetworkGatewayArrayOutput {
+	return o.ApplyT(func(v *Network) NetworkGatewayArrayOutput { return v.Gateways }).(NetworkGatewayArrayOutput)
 }
 
 // (Optional Configuration Block) The GCP-specific network details if available. It supports the following:

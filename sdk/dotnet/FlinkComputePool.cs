@@ -67,7 +67,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Cloud { get; private set; } = null!;
 
         /// <summary>
-        /// (Required Integer) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
+        /// (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
         /// </summary>
         [Output("currentCfu")]
         public Output<int> CurrentCfu { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> ResourceName { get; private set; } = null!;
 
         /// <summary>
-        /// (Required String) The API endpoint of the Flink Compute Pool.
+        /// (Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
         /// </summary>
         [Output("restEndpoint")]
         public Output<string> RestEndpoint { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Cloud { get; set; }
 
         /// <summary>
-        /// (Required Integer) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
+        /// (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
         /// </summary>
         [Input("currentCfu")]
         public Input<int>? CurrentCfu { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? ResourceName { get; set; }
 
         /// <summary>
-        /// (Required String) The API endpoint of the Flink Compute Pool.
+        /// (Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }

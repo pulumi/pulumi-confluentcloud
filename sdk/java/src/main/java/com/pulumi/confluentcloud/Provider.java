@@ -66,6 +66,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.endpoint);
     }
     /**
+     * The Flink Environment ID.
+     * 
+     */
+    @Export(name="environmentId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> environmentId;
+
+    /**
+     * @return The Flink Environment ID.
+     * 
+     */
+    public Output<Optional<String>> environmentId() {
+        return Codegen.optional(this.environmentId);
+    }
+    /**
      * The Flink API Key.
      * 
      */
@@ -190,6 +204,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<Optional<String>> kafkaRestEndpoint() {
         return Codegen.optional(this.kafkaRestEndpoint);
+    }
+    /**
+     * The Flink Organization ID.
+     * 
+     */
+    @Export(name="organizationId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> organizationId;
+
+    /**
+     * @return The Flink Organization ID.
+     * 
+     */
+    public Output<Optional<String>> organizationId() {
+        return Codegen.optional(this.organizationId);
     }
     /**
      * The Schema Registry Cluster API Key.

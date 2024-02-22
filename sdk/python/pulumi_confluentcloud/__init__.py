@@ -12,6 +12,7 @@ from .byok_key import *
 from .cluster_link import *
 from .connector import *
 from .custom_connector_plugin import *
+from .dns_forwarder import *
 from .environment import *
 from .flink_compute_pool import *
 from .flink_statement import *
@@ -158,6 +159,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin": "CustomConnectorPlugin"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/dnsForwarder",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/dnsForwarder:DnsForwarder": "DnsForwarder"
   }
  },
  {

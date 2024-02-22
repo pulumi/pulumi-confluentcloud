@@ -23,7 +23,7 @@ class GetNetworkResult:
     """
     A collection of values returned by getNetwork.
     """
-    def __init__(__self__, aws=None, azures=None, cidr=None, cloud=None, connection_types=None, display_name=None, dns_configs=None, dns_domain=None, environment=None, gcps=None, id=None, region=None, reserved_cidr=None, resource_name=None, zonal_subdomains=None, zone_infos=None, zones=None):
+    def __init__(__self__, aws=None, azures=None, cidr=None, cloud=None, connection_types=None, display_name=None, dns_configs=None, dns_domain=None, environment=None, gateways=None, gcps=None, id=None, region=None, reserved_cidr=None, resource_name=None, zonal_subdomains=None, zone_infos=None, zones=None):
         if aws and not isinstance(aws, list):
             raise TypeError("Expected argument 'aws' to be a list")
         pulumi.set(__self__, "aws", aws)
@@ -51,6 +51,9 @@ class GetNetworkResult:
         if environment and not isinstance(environment, dict):
             raise TypeError("Expected argument 'environment' to be a dict")
         pulumi.set(__self__, "environment", environment)
+        if gateways and not isinstance(gateways, list):
+            raise TypeError("Expected argument 'gateways' to be a list")
+        pulumi.set(__self__, "gateways", gateways)
         if gcps and not isinstance(gcps, list):
             raise TypeError("Expected argument 'gcps' to be a list")
         pulumi.set(__self__, "gcps", gcps)
@@ -144,6 +147,11 @@ class GetNetworkResult:
 
     @property
     @pulumi.getter
+    def gateways(self) -> Sequence['outputs.GetNetworkGatewayResult']:
+        return pulumi.get(self, "gateways")
+
+    @property
+    @pulumi.getter
     def gcps(self) -> Sequence['outputs.GetNetworkGcpResult']:
         """
         (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
@@ -224,6 +232,7 @@ class AwaitableGetNetworkResult(GetNetworkResult):
             dns_configs=self.dns_configs,
             dns_domain=self.dns_domain,
             environment=self.environment,
+            gateways=self.gateways,
             gcps=self.gcps,
             id=self.id,
             region=self.region,
@@ -292,6 +301,7 @@ def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = 
         dns_configs=pulumi.get(__ret__, 'dns_configs'),
         dns_domain=pulumi.get(__ret__, 'dns_domain'),
         environment=pulumi.get(__ret__, 'environment'),
+        gateways=pulumi.get(__ret__, 'gateways'),
         gcps=pulumi.get(__ret__, 'gcps'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),

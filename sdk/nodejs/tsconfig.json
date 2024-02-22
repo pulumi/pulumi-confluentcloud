@@ -22,6 +22,7 @@
         "config/vars.ts",
         "connector.ts",
         "customConnectorPlugin.ts",
+        "dnsForwarder.ts",
         "environment.ts",
         "flinkComputePool.ts",
         "flinkStatement.ts",

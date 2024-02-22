@@ -78,8 +78,11 @@ class GetFlinkComputePoolResult:
     @pulumi.getter(name="currentCfu")
     def current_cfu(self) -> int:
         """
-        (Required Integer) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
+        (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
         """
+        warnings.warn("""`confluent_flink_compute_pool` data source's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage).""", DeprecationWarning)
+        pulumi.log.warn("""current_cfu is deprecated: `confluent_flink_compute_pool` data source's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage).""")
+
         return pulumi.get(self, "current_cfu")
 
     @property
@@ -142,8 +145,11 @@ class GetFlinkComputePoolResult:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> str:
         """
-        (Required String) The API endpoint of the Flink Compute Pool.
+        (Required String, **Deprecated** use `get_flink_region` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
         """
+        warnings.warn("""`confluent_flink_compute_pool` data source's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.""", DeprecationWarning)
+        pulumi.log.warn("""rest_endpoint is deprecated: `confluent_flink_compute_pool` data source's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.""")
+
         return pulumi.get(self, "rest_endpoint")
 
 

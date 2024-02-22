@@ -289,6 +289,7 @@ namespace Pulumi.ConfluentCloud
         public readonly ImmutableArray<Outputs.GetNetworkDnsConfigResult> DnsConfigs;
         public readonly string DnsDomain;
         public readonly Outputs.GetNetworkEnvironmentResult Environment;
+        public readonly ImmutableArray<Outputs.GetNetworkGatewayResult> Gateways;
         /// <summary>
         /// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
         /// </summary>
@@ -344,6 +345,8 @@ namespace Pulumi.ConfluentCloud
 
             Outputs.GetNetworkEnvironmentResult environment,
 
+            ImmutableArray<Outputs.GetNetworkGatewayResult> gateways,
+
             ImmutableArray<Outputs.GetNetworkGcpResult> gcps,
 
             string id,
@@ -369,6 +372,7 @@ namespace Pulumi.ConfluentCloud
             DnsConfigs = dnsConfigs;
             DnsDomain = dnsDomain;
             Environment = environment;
+            Gateways = gateways;
             Gcps = gcps;
             Id = id;
             Region = region;

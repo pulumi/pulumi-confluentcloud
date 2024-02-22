@@ -37,6 +37,12 @@ namespace Pulumi.ConfluentCloud
         public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// The Flink Environment ID.
+        /// </summary>
+        [Output("environmentId")]
+        public Output<string?> EnvironmentId { get; private set; } = null!;
+
+        /// <summary>
         /// The Flink API Key.
         /// </summary>
         [Output("flinkApiKey")]
@@ -89,6 +95,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("kafkaRestEndpoint")]
         public Output<string?> KafkaRestEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The Flink Organization ID.
+        /// </summary>
+        [Output("organizationId")]
+        public Output<string?> OrganizationId { get; private set; } = null!;
 
         /// <summary>
         /// The Schema Registry Cluster API Key.
@@ -191,6 +203,12 @@ namespace Pulumi.ConfluentCloud
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
+        /// <summary>
+        /// The Flink Environment ID.
+        /// </summary>
+        [Input("environmentId")]
+        public Input<string>? EnvironmentId { get; set; }
+
         [Input("flinkApiKey")]
         private Input<string>? _flinkApiKey;
 
@@ -290,6 +308,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("maxRetries", json: true)]
         public Input<int>? MaxRetries { get; set; }
+
+        /// <summary>
+        /// The Flink Organization ID.
+        /// </summary>
+        [Input("organizationId")]
+        public Input<string>? OrganizationId { get; set; }
 
         [Input("schemaRegistryApiKey")]
         private Input<string>? _schemaRegistryApiKey;

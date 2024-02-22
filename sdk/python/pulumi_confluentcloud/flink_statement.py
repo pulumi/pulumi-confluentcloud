@@ -19,6 +19,8 @@ class FlinkStatementArgs:
                  statement: pulumi.Input[str],
                  compute_pool: Optional[pulumi.Input['FlinkStatementComputePoolArgs']] = None,
                  credentials: Optional[pulumi.Input['FlinkStatementCredentialsArgs']] = None,
+                 environment: Optional[pulumi.Input['FlinkStatementEnvironmentArgs']] = None,
+                 organization: Optional[pulumi.Input['FlinkStatementOrganizationArgs']] = None,
                  principal: Optional[pulumi.Input['FlinkStatementPrincipalArgs']] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
@@ -29,7 +31,7 @@ class FlinkStatementArgs:
         :param pulumi.Input[str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input['FlinkStatementCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom topic settings to set:
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         :param pulumi.Input[str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         :param pulumi.Input[bool] stopped: Indicates whether the statement should be stopped.
         """
@@ -38,6 +40,10 @@ class FlinkStatementArgs:
             pulumi.set(__self__, "compute_pool", compute_pool)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if organization is not None:
+            pulumi.set(__self__, "organization", organization)
         if principal is not None:
             pulumi.set(__self__, "principal", principal)
         if properties is not None:
@@ -84,6 +90,24 @@ class FlinkStatementArgs:
 
     @property
     @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input['FlinkStatementEnvironmentArgs']]:
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input['FlinkStatementEnvironmentArgs']]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def organization(self) -> Optional[pulumi.Input['FlinkStatementOrganizationArgs']]:
+        return pulumi.get(self, "organization")
+
+    @organization.setter
+    def organization(self, value: Optional[pulumi.Input['FlinkStatementOrganizationArgs']]):
+        pulumi.set(self, "organization", value)
+
+    @property
+    @pulumi.getter
     def principal(self) -> Optional[pulumi.Input['FlinkStatementPrincipalArgs']]:
         return pulumi.get(self, "principal")
 
@@ -107,7 +131,7 @@ class FlinkStatementArgs:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -145,9 +169,10 @@ class _FlinkStatementState:
     def __init__(__self__, *,
                  compute_pool: Optional[pulumi.Input['FlinkStatementComputePoolArgs']] = None,
                  credentials: Optional[pulumi.Input['FlinkStatementCredentialsArgs']] = None,
+                 environment: Optional[pulumi.Input['FlinkStatementEnvironmentArgs']] = None,
+                 organization: Optional[pulumi.Input['FlinkStatementOrganizationArgs']] = None,
                  principal: Optional[pulumi.Input['FlinkStatementPrincipalArgs']] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_version: Optional[pulumi.Input[str]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
                  statement: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
@@ -156,8 +181,7 @@ class _FlinkStatementState:
         Input properties used for looking up and filtering FlinkStatement resources.
         :param pulumi.Input['FlinkStatementCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom topic settings to set:
-        :param pulumi.Input[str] resource_version: (Required String) The ID of the Flink statement's version, for example, `2`.
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         :param pulumi.Input[str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input[str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         :param pulumi.Input[bool] stopped: Indicates whether the statement should be stopped.
@@ -166,12 +190,14 @@ class _FlinkStatementState:
             pulumi.set(__self__, "compute_pool", compute_pool)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if organization is not None:
+            pulumi.set(__self__, "organization", organization)
         if principal is not None:
             pulumi.set(__self__, "principal", principal)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if resource_version is not None:
-            pulumi.set(__self__, "resource_version", resource_version)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
         if statement is not None:
@@ -204,6 +230,24 @@ class _FlinkStatementState:
 
     @property
     @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input['FlinkStatementEnvironmentArgs']]:
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input['FlinkStatementEnvironmentArgs']]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def organization(self) -> Optional[pulumi.Input['FlinkStatementOrganizationArgs']]:
+        return pulumi.get(self, "organization")
+
+    @organization.setter
+    def organization(self, value: Optional[pulumi.Input['FlinkStatementOrganizationArgs']]):
+        pulumi.set(self, "organization", value)
+
+    @property
+    @pulumi.getter
     def principal(self) -> Optional[pulumi.Input['FlinkStatementPrincipalArgs']]:
         return pulumi.get(self, "principal")
 
@@ -224,22 +268,10 @@ class _FlinkStatementState:
         pulumi.set(self, "properties", value)
 
     @property
-    @pulumi.getter(name="resourceVersion")
-    def resource_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        (Required String) The ID of the Flink statement's version, for example, `2`.
-        """
-        return pulumi.get(self, "resource_version")
-
-    @resource_version.setter
-    def resource_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_version", value)
-
-    @property
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -291,6 +323,8 @@ class FlinkStatement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_pool: Optional[pulumi.Input[pulumi.InputType['FlinkStatementComputePoolArgs']]] = None,
                  credentials: Optional[pulumi.Input[pulumi.InputType['FlinkStatementCredentialsArgs']]] = None,
+                 environment: Optional[pulumi.Input[pulumi.InputType['FlinkStatementEnvironmentArgs']]] = None,
+                 organization: Optional[pulumi.Input[pulumi.InputType['FlinkStatementOrganizationArgs']]] = None,
                  principal: Optional[pulumi.Input[pulumi.InputType['FlinkStatementPrincipalArgs']]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
@@ -301,9 +335,13 @@ class FlinkStatement(pulumi.CustomResource):
         """
         ## Import
 
-        You can import a Flink topic by using the Flink Statement name, for example:
+        You can import a Flink statement by using the Flink Statement name, for example:
 
          Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
+
+         $ export IMPORT_ORGANIZATION_ID="<organization_id>"
+
+         $ export IMPORT_ENVIRONMENT_ID="<environment_id>"
 
          $ export IMPORT_FLINK_COMPUTE_POOL_ID="<flink_compute_pool_id>"
 
@@ -331,7 +369,7 @@ class FlinkStatement(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FlinkStatementCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom topic settings to set:
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         :param pulumi.Input[str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input[str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         :param pulumi.Input[bool] stopped: Indicates whether the statement should be stopped.
@@ -345,9 +383,13 @@ class FlinkStatement(pulumi.CustomResource):
         """
         ## Import
 
-        You can import a Flink topic by using the Flink Statement name, for example:
+        You can import a Flink statement by using the Flink Statement name, for example:
 
          Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
+
+         $ export IMPORT_ORGANIZATION_ID="<organization_id>"
+
+         $ export IMPORT_ENVIRONMENT_ID="<environment_id>"
 
          $ export IMPORT_FLINK_COMPUTE_POOL_ID="<flink_compute_pool_id>"
 
@@ -388,6 +430,8 @@ class FlinkStatement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_pool: Optional[pulumi.Input[pulumi.InputType['FlinkStatementComputePoolArgs']]] = None,
                  credentials: Optional[pulumi.Input[pulumi.InputType['FlinkStatementCredentialsArgs']]] = None,
+                 environment: Optional[pulumi.Input[pulumi.InputType['FlinkStatementEnvironmentArgs']]] = None,
+                 organization: Optional[pulumi.Input[pulumi.InputType['FlinkStatementOrganizationArgs']]] = None,
                  principal: Optional[pulumi.Input[pulumi.InputType['FlinkStatementPrincipalArgs']]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
@@ -405,6 +449,8 @@ class FlinkStatement(pulumi.CustomResource):
 
             __props__.__dict__["compute_pool"] = compute_pool
             __props__.__dict__["credentials"] = None if credentials is None else pulumi.Output.secret(credentials)
+            __props__.__dict__["environment"] = environment
+            __props__.__dict__["organization"] = organization
             __props__.__dict__["principal"] = principal
             __props__.__dict__["properties"] = properties
             __props__.__dict__["rest_endpoint"] = rest_endpoint
@@ -413,7 +459,6 @@ class FlinkStatement(pulumi.CustomResource):
             __props__.__dict__["statement"] = statement
             __props__.__dict__["statement_name"] = statement_name
             __props__.__dict__["stopped"] = stopped
-            __props__.__dict__["resource_version"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["credentials"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(FlinkStatement, __self__).__init__(
@@ -428,9 +473,10 @@ class FlinkStatement(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             compute_pool: Optional[pulumi.Input[pulumi.InputType['FlinkStatementComputePoolArgs']]] = None,
             credentials: Optional[pulumi.Input[pulumi.InputType['FlinkStatementCredentialsArgs']]] = None,
+            environment: Optional[pulumi.Input[pulumi.InputType['FlinkStatementEnvironmentArgs']]] = None,
+            organization: Optional[pulumi.Input[pulumi.InputType['FlinkStatementOrganizationArgs']]] = None,
             principal: Optional[pulumi.Input[pulumi.InputType['FlinkStatementPrincipalArgs']]] = None,
             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            resource_version: Optional[pulumi.Input[str]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
             statement: Optional[pulumi.Input[str]] = None,
             statement_name: Optional[pulumi.Input[str]] = None,
@@ -444,8 +490,7 @@ class FlinkStatement(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FlinkStatementCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom topic settings to set:
-        :param pulumi.Input[str] resource_version: (Required String) The ID of the Flink statement's version, for example, `2`.
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         :param pulumi.Input[str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input[str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         :param pulumi.Input[bool] stopped: Indicates whether the statement should be stopped.
@@ -456,9 +501,10 @@ class FlinkStatement(pulumi.CustomResource):
 
         __props__.__dict__["compute_pool"] = compute_pool
         __props__.__dict__["credentials"] = credentials
+        __props__.__dict__["environment"] = environment
+        __props__.__dict__["organization"] = organization
         __props__.__dict__["principal"] = principal
         __props__.__dict__["properties"] = properties
-        __props__.__dict__["resource_version"] = resource_version
         __props__.__dict__["rest_endpoint"] = rest_endpoint
         __props__.__dict__["statement"] = statement
         __props__.__dict__["statement_name"] = statement_name
@@ -480,6 +526,16 @@ class FlinkStatement(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def environment(self) -> pulumi.Output['outputs.FlinkStatementEnvironment']:
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
+    def organization(self) -> pulumi.Output['outputs.FlinkStatementOrganization']:
+        return pulumi.get(self, "organization")
+
+    @property
+    @pulumi.getter
     def principal(self) -> pulumi.Output['outputs.FlinkStatementPrincipal']:
         return pulumi.get(self, "principal")
 
@@ -492,18 +548,10 @@ class FlinkStatement(pulumi.CustomResource):
         return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter(name="resourceVersion")
-    def resource_version(self) -> pulumi.Output[str]:
-        """
-        (Required String) The ID of the Flink statement's version, for example, `2`.
-        """
-        return pulumi.get(self, "resource_version")
-
-    @property
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
-        The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         """
         return pulumi.get(self, "rest_endpoint")
 

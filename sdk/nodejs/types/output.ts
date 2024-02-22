@@ -284,6 +284,27 @@ export interface ConnectorKafkaCluster {
     id: string;
 }
 
+export interface DnsForwarderEnvironment {
+    /**
+     * The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+     */
+    id: string;
+}
+
+export interface DnsForwarderForwardViaIp {
+    /**
+     * List of IP addresses of the DNS server.
+     */
+    dnsServerIps: string[];
+}
+
+export interface DnsForwarderGateway {
+    /**
+     * The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+     */
+    id: string;
+}
+
 export interface FlinkComputePoolEnvironment {
     /**
      * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
@@ -311,6 +332,20 @@ export interface FlinkStatementCredentials {
      * > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_statement.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_statement.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
      */
     secret: string;
+}
+
+export interface FlinkStatementEnvironment {
+    /**
+     * The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     */
+    id: string;
+}
+
+export interface FlinkStatementOrganization {
+    /**
+     * The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     */
+    id: string;
 }
 
 export interface FlinkStatementPrincipal {
@@ -666,6 +701,15 @@ export interface GetNetworkDnsConfig {
 }
 
 export interface GetNetworkEnvironment {
+    /**
+     * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+     *
+     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     */
+    id: string;
+}
+
+export interface GetNetworkGateway {
     /**
      * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
      *
@@ -1552,6 +1596,13 @@ export interface NetworkDnsConfig {
 }
 
 export interface NetworkEnvironment {
+    /**
+     * The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+     */
+    id: string;
+}
+
+export interface NetworkGateway {
     /**
      * The ID of the Environment that the Network belongs to, for example, `env-abc123`.
      */

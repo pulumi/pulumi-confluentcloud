@@ -76,7 +76,9 @@ export class FlinkComputePool extends pulumi.CustomResource {
      */
     public readonly cloud!: pulumi.Output<string>;
     /**
-     * (Required Integer) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
+     * (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
+     *
+     * @deprecated `confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage).
      */
     public /*out*/ readonly currentCfu!: pulumi.Output<number>;
     /**
@@ -104,7 +106,9 @@ export class FlinkComputePool extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceName!: pulumi.Output<string>;
     /**
-     * (Required String) The API endpoint of the Flink Compute Pool.
+     * (Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `restEndpoint` attribute instead) The API endpoint of the Flink Compute Pool.
+     *
+     * @deprecated `confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.
      */
     public /*out*/ readonly restEndpoint!: pulumi.Output<string>;
 
@@ -174,7 +178,9 @@ export interface FlinkComputePoolState {
      */
     cloud?: pulumi.Input<string>;
     /**
-     * (Required Integer) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
+     * (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
+     *
+     * @deprecated `confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage).
      */
     currentCfu?: pulumi.Input<number>;
     /**
@@ -202,7 +208,9 @@ export interface FlinkComputePoolState {
      */
     resourceName?: pulumi.Input<string>;
     /**
-     * (Required String) The API endpoint of the Flink Compute Pool.
+     * (Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `restEndpoint` attribute instead) The API endpoint of the Flink Compute Pool.
+     *
+     * @deprecated `confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.
      */
     restEndpoint?: pulumi.Input<string>;
 }

@@ -79,7 +79,9 @@ export interface GetFlinkComputePoolResult {
      */
     readonly cloud: string;
     /**
-     * (Required Integer) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
+     * (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
+     *
+     * @deprecated `confluent_flink_compute_pool` data source's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage).
      */
     readonly currentCfu: number;
     /**
@@ -111,7 +113,9 @@ export interface GetFlinkComputePoolResult {
      */
     readonly resourceName: string;
     /**
-     * (Required String) The API endpoint of the Flink Compute Pool.
+     * (Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `restEndpoint` attribute instead) The API endpoint of the Flink Compute Pool.
+     *
+     * @deprecated `confluent_flink_compute_pool` data source's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.
      */
     readonly restEndpoint: string;
 }

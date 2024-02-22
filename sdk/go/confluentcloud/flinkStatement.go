@@ -14,9 +14,13 @@ import (
 
 // ## Import
 //
-// You can import a Flink topic by using the Flink Statement name, for example:
+// You can import a Flink statement by using the Flink Statement name, for example:
 //
 //	Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
+//
+//	$ export IMPORT_ORGANIZATION_ID="<organization_id>"
+//
+//	$ export IMPORT_ENVIRONMENT_ID="<environment_id>"
 //
 //	$ export IMPORT_FLINK_COMPUTE_POOL_ID="<flink_compute_pool_id>"
 //
@@ -44,13 +48,13 @@ type FlinkStatement struct {
 
 	ComputePool FlinkStatementComputePoolOutput `pulumi:"computePool"`
 	// The Cluster API Credentials.
-	Credentials FlinkStatementCredentialsPtrOutput `pulumi:"credentials"`
-	Principal   FlinkStatementPrincipalOutput      `pulumi:"principal"`
+	Credentials  FlinkStatementCredentialsPtrOutput `pulumi:"credentials"`
+	Environment  FlinkStatementEnvironmentOutput    `pulumi:"environment"`
+	Organization FlinkStatementOrganizationOutput   `pulumi:"organization"`
+	Principal    FlinkStatementPrincipalOutput      `pulumi:"principal"`
 	// The custom topic settings to set:
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// (Required String) The ID of the Flink statement's version, for example, `2`.
-	ResourceVersion pulumi.StringOutput `pulumi:"resourceVersion"`
-	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement pulumi.StringOutput `pulumi:"statement"`
@@ -102,13 +106,13 @@ func GetFlinkStatement(ctx *pulumi.Context,
 type flinkStatementState struct {
 	ComputePool *FlinkStatementComputePool `pulumi:"computePool"`
 	// The Cluster API Credentials.
-	Credentials *FlinkStatementCredentials `pulumi:"credentials"`
-	Principal   *FlinkStatementPrincipal   `pulumi:"principal"`
+	Credentials  *FlinkStatementCredentials  `pulumi:"credentials"`
+	Environment  *FlinkStatementEnvironment  `pulumi:"environment"`
+	Organization *FlinkStatementOrganization `pulumi:"organization"`
+	Principal    *FlinkStatementPrincipal    `pulumi:"principal"`
 	// The custom topic settings to set:
 	Properties map[string]string `pulumi:"properties"`
-	// (Required String) The ID of the Flink statement's version, for example, `2`.
-	ResourceVersion *string `pulumi:"resourceVersion"`
-	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement *string `pulumi:"statement"`
@@ -121,13 +125,13 @@ type flinkStatementState struct {
 type FlinkStatementState struct {
 	ComputePool FlinkStatementComputePoolPtrInput
 	// The Cluster API Credentials.
-	Credentials FlinkStatementCredentialsPtrInput
-	Principal   FlinkStatementPrincipalPtrInput
+	Credentials  FlinkStatementCredentialsPtrInput
+	Environment  FlinkStatementEnvironmentPtrInput
+	Organization FlinkStatementOrganizationPtrInput
+	Principal    FlinkStatementPrincipalPtrInput
 	// The custom topic settings to set:
 	Properties pulumi.StringMapInput
-	// (Required String) The ID of the Flink statement's version, for example, `2`.
-	ResourceVersion pulumi.StringPtrInput
-	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint pulumi.StringPtrInput
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement pulumi.StringPtrInput
@@ -144,11 +148,13 @@ func (FlinkStatementState) ElementType() reflect.Type {
 type flinkStatementArgs struct {
 	ComputePool *FlinkStatementComputePool `pulumi:"computePool"`
 	// The Cluster API Credentials.
-	Credentials *FlinkStatementCredentials `pulumi:"credentials"`
-	Principal   *FlinkStatementPrincipal   `pulumi:"principal"`
+	Credentials  *FlinkStatementCredentials  `pulumi:"credentials"`
+	Environment  *FlinkStatementEnvironment  `pulumi:"environment"`
+	Organization *FlinkStatementOrganization `pulumi:"organization"`
+	Principal    *FlinkStatementPrincipal    `pulumi:"principal"`
 	// The custom topic settings to set:
 	Properties map[string]string `pulumi:"properties"`
-	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement string `pulumi:"statement"`
@@ -162,11 +168,13 @@ type flinkStatementArgs struct {
 type FlinkStatementArgs struct {
 	ComputePool FlinkStatementComputePoolPtrInput
 	// The Cluster API Credentials.
-	Credentials FlinkStatementCredentialsPtrInput
-	Principal   FlinkStatementPrincipalPtrInput
+	Credentials  FlinkStatementCredentialsPtrInput
+	Environment  FlinkStatementEnvironmentPtrInput
+	Organization FlinkStatementOrganizationPtrInput
+	Principal    FlinkStatementPrincipalPtrInput
 	// The custom topic settings to set:
 	Properties pulumi.StringMapInput
-	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint pulumi.StringPtrInput
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement pulumi.StringInput
@@ -272,6 +280,14 @@ func (o FlinkStatementOutput) Credentials() FlinkStatementCredentialsPtrOutput {
 	return o.ApplyT(func(v *FlinkStatement) FlinkStatementCredentialsPtrOutput { return v.Credentials }).(FlinkStatementCredentialsPtrOutput)
 }
 
+func (o FlinkStatementOutput) Environment() FlinkStatementEnvironmentOutput {
+	return o.ApplyT(func(v *FlinkStatement) FlinkStatementEnvironmentOutput { return v.Environment }).(FlinkStatementEnvironmentOutput)
+}
+
+func (o FlinkStatementOutput) Organization() FlinkStatementOrganizationOutput {
+	return o.ApplyT(func(v *FlinkStatement) FlinkStatementOrganizationOutput { return v.Organization }).(FlinkStatementOrganizationOutput)
+}
+
 func (o FlinkStatementOutput) Principal() FlinkStatementPrincipalOutput {
 	return o.ApplyT(func(v *FlinkStatement) FlinkStatementPrincipalOutput { return v.Principal }).(FlinkStatementPrincipalOutput)
 }
@@ -281,12 +297,7 @@ func (o FlinkStatementOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlinkStatement) pulumi.StringMapOutput { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// (Required String) The ID of the Flink statement's version, for example, `2`.
-func (o FlinkStatementOutput) ResourceVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *FlinkStatement) pulumi.StringOutput { return v.ResourceVersion }).(pulumi.StringOutput)
-}
-
-// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 func (o FlinkStatementOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlinkStatement) pulumi.StringPtrOutput { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }

@@ -62,6 +62,16 @@ namespace Pulumi.ConfluentCloud
             set => _endpoint.Set(value);
         }
 
+        private static readonly __Value<string?> _environmentId = new __Value<string?>(() => __config.Get("environmentId"));
+        /// <summary>
+        /// The Flink Environment ID.
+        /// </summary>
+        public static string? EnvironmentId
+        {
+            get => _environmentId.Get();
+            set => _environmentId.Set(value);
+        }
+
         private static readonly __Value<string?> _flinkApiKey = new __Value<string?>(() => __config.Get("flinkApiKey"));
         /// <summary>
         /// The Flink API Key.
@@ -160,6 +170,16 @@ namespace Pulumi.ConfluentCloud
         {
             get => _maxRetries.Get();
             set => _maxRetries.Set(value);
+        }
+
+        private static readonly __Value<string?> _organizationId = new __Value<string?>(() => __config.Get("organizationId"));
+        /// <summary>
+        /// The Flink Organization ID.
+        /// </summary>
+        public static string? OrganizationId
+        {
+            get => _organizationId.Get();
+            set => _organizationId.Set(value);
         }
 
         private static readonly __Value<string?> _schemaRegistryApiKey = new __Value<string?>(() => __config.Get("schemaRegistryApiKey"));

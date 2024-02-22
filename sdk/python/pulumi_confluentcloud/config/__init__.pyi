@@ -24,6 +24,11 @@ endpoint: Optional[str]
 The base endpoint of Confluent Cloud API.
 """
 
+environmentId: Optional[str]
+"""
+The Flink Environment ID.
+"""
+
 flinkApiKey: Optional[str]
 """
 The Flink API Key.
@@ -72,6 +77,11 @@ The Kafka Cluster REST Endpoint.
 maxRetries: Optional[int]
 """
 Maximum number of retries of HTTP client. Defaults to 4.
+"""
+
+organizationId: Optional[str]
+"""
+The Flink Organization ID.
 """
 
 schemaRegistryApiKey: Optional[str]

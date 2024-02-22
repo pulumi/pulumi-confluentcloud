@@ -62,6 +62,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Flink Environment ID.
+     * 
+     */
+    @Import(name="environmentId")
+    private @Nullable Output<String> environmentId;
+
+    /**
+     * @return The Flink Environment ID.
+     * 
+     */
+    public Optional<Output<String>> environmentId() {
+        return Optional.ofNullable(this.environmentId);
+    }
+
+    /**
      * The Flink API Key.
      * 
      */
@@ -212,6 +227,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Flink Organization ID.
+     * 
+     */
+    @Import(name="organizationId")
+    private @Nullable Output<String> organizationId;
+
+    /**
+     * @return The Flink Organization ID.
+     * 
+     */
+    public Optional<Output<String>> organizationId() {
+        return Optional.ofNullable(this.organizationId);
+    }
+
+    /**
      * The Schema Registry Cluster API Key.
      * 
      */
@@ -277,6 +307,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.cloudApiKey = $.cloudApiKey;
         this.cloudApiSecret = $.cloudApiSecret;
         this.endpoint = $.endpoint;
+        this.environmentId = $.environmentId;
         this.flinkApiKey = $.flinkApiKey;
         this.flinkApiSecret = $.flinkApiSecret;
         this.flinkComputePoolId = $.flinkComputePoolId;
@@ -287,6 +318,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.kafkaId = $.kafkaId;
         this.kafkaRestEndpoint = $.kafkaRestEndpoint;
         this.maxRetries = $.maxRetries;
+        this.organizationId = $.organizationId;
         this.schemaRegistryApiKey = $.schemaRegistryApiKey;
         this.schemaRegistryApiSecret = $.schemaRegistryApiSecret;
         this.schemaRegistryId = $.schemaRegistryId;
@@ -372,6 +404,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
+        }
+
+        /**
+         * @param environmentId The Flink Environment ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder environmentId(@Nullable Output<String> environmentId) {
+            $.environmentId = environmentId;
+            return this;
+        }
+
+        /**
+         * @param environmentId The Flink Environment ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder environmentId(String environmentId) {
+            return environmentId(Output.of(environmentId));
         }
 
         /**
@@ -582,6 +635,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder maxRetries(Integer maxRetries) {
             return maxRetries(Output.of(maxRetries));
+        }
+
+        /**
+         * @param organizationId The Flink Organization ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationId(@Nullable Output<String> organizationId) {
+            $.organizationId = organizationId;
+            return this;
+        }
+
+        /**
+         * @param organizationId The Flink Organization ID.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationId(String organizationId) {
+            return organizationId(Output.of(organizationId));
         }
 
         /**

@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.inputs.NetworkAwArgs;
 import com.pulumi.confluentcloud.inputs.NetworkAzureArgs;
 import com.pulumi.confluentcloud.inputs.NetworkDnsConfigArgs;
 import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
+import com.pulumi.confluentcloud.inputs.NetworkGatewayArgs;
 import com.pulumi.confluentcloud.inputs.NetworkGcpArgs;
 import com.pulumi.confluentcloud.inputs.NetworkZoneInfoArgs;
 import com.pulumi.core.Output;
@@ -162,6 +163,13 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.environment);
     }
 
+    @Import(name="gateways")
+    private @Nullable Output<List<NetworkGatewayArgs>> gateways;
+
+    public Optional<Output<List<NetworkGatewayArgs>>> gateways() {
+        return Optional.ofNullable(this.gateways);
+    }
+
     /**
      * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
      * 
@@ -289,6 +297,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         this.dnsConfig = $.dnsConfig;
         this.dnsDomain = $.dnsDomain;
         this.environment = $.environment;
+        this.gateways = $.gateways;
         this.gcps = $.gcps;
         this.region = $.region;
         this.reservedCidr = $.reservedCidr;
@@ -537,6 +546,19 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder environment(NetworkEnvironmentArgs environment) {
             return environment(Output.of(environment));
+        }
+
+        public Builder gateways(@Nullable Output<List<NetworkGatewayArgs>> gateways) {
+            $.gateways = gateways;
+            return this;
+        }
+
+        public Builder gateways(List<NetworkGatewayArgs> gateways) {
+            return gateways(Output.of(gateways));
+        }
+
+        public Builder gateways(NetworkGatewayArgs... gateways) {
+            return gateways(List.of(gateways));
         }
 
         /**

@@ -31,9 +31,14 @@ __all__ = [
     'ClusterLinkSourceKafkaClusterCredentialsArgs',
     'ConnectorEnvironmentArgs',
     'ConnectorKafkaClusterArgs',
+    'DnsForwarderEnvironmentArgs',
+    'DnsForwarderForwardViaIpArgs',
+    'DnsForwarderGatewayArgs',
     'FlinkComputePoolEnvironmentArgs',
     'FlinkStatementComputePoolArgs',
     'FlinkStatementCredentialsArgs',
+    'FlinkStatementEnvironmentArgs',
+    'FlinkStatementOrganizationArgs',
     'FlinkStatementPrincipalArgs',
     'IdentityPoolIdentityProviderArgs',
     'InvitationCreatorArgs',
@@ -65,6 +70,7 @@ __all__ = [
     'NetworkAzureArgs',
     'NetworkDnsConfigArgs',
     'NetworkEnvironmentArgs',
+    'NetworkGatewayArgs',
     'NetworkGcpArgs',
     'NetworkLinkEndpointEnvironmentArgs',
     'NetworkLinkEndpointNetworkArgs',
@@ -1150,6 +1156,73 @@ class ConnectorKafkaClusterArgs:
 
 
 @pulumi.input_type
+class DnsForwarderEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class DnsForwarderForwardViaIpArgs:
+    def __init__(__self__, *,
+                 dns_server_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_server_ips: List of IP addresses of the DNS server.
+        """
+        if dns_server_ips is not None:
+            pulumi.set(__self__, "dns_server_ips", dns_server_ips)
+
+    @property
+    @pulumi.getter(name="dnsServerIps")
+    def dns_server_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of IP addresses of the DNS server.
+        """
+        return pulumi.get(self, "dns_server_ips")
+
+    @dns_server_ips.setter
+    def dns_server_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_server_ips", value)
+
+
+@pulumi.input_type
+class DnsForwarderGatewayArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class FlinkComputePoolEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -1236,6 +1309,50 @@ class FlinkStatementCredentialsArgs:
     @secret.setter
     def secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class FlinkStatementEnvironmentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class FlinkStatementOrganizationArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -2098,6 +2215,29 @@ class NetworkEnvironmentArgs:
 
     @id.setter
     def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class NetworkGatewayArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
 

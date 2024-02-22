@@ -26,6 +26,11 @@ func GetEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "confluentcloud:endpoint")
 }
 
+// The Flink Environment ID.
+func GetEnvironmentId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:environmentId")
+}
+
 // The Flink API Key.
 func GetFlinkApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "confluentcloud:flinkApiKey")
@@ -74,6 +79,11 @@ func GetKafkaRestEndpoint(ctx *pulumi.Context) string {
 // Maximum number of retries of HTTP client. Defaults to 4.
 func GetMaxRetries(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "confluentcloud:maxRetries")
+}
+
+// The Flink Organization ID.
+func GetOrganizationId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "confluentcloud:organizationId")
 }
 
 // The Schema Registry Cluster API Key.
