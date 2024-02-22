@@ -32,9 +32,14 @@ __all__ = [
     'ClusterLinkSourceKafkaClusterCredentials',
     'ConnectorEnvironment',
     'ConnectorKafkaCluster',
+    'DnsForwarderEnvironment',
+    'DnsForwarderForwardViaIp',
+    'DnsForwarderGateway',
     'FlinkComputePoolEnvironment',
     'FlinkStatementComputePool',
     'FlinkStatementCredentials',
+    'FlinkStatementEnvironment',
+    'FlinkStatementOrganization',
     'FlinkStatementPrincipal',
     'IdentityPoolIdentityProvider',
     'InvitationCreator',
@@ -66,6 +71,7 @@ __all__ = [
     'NetworkAzure',
     'NetworkDnsConfig',
     'NetworkEnvironment',
+    'NetworkGateway',
     'NetworkGcp',
     'NetworkLinkEndpointEnvironment',
     'NetworkLinkEndpointNetwork',
@@ -154,6 +160,7 @@ __all__ = [
     'GetNetworkAzureResult',
     'GetNetworkDnsConfigResult',
     'GetNetworkEnvironmentResult',
+    'GetNetworkGatewayResult',
     'GetNetworkGcpResult',
     'GetNetworkLinkEndpointEnvironmentResult',
     'GetNetworkLinkEndpointNetworkResult',
@@ -1165,6 +1172,78 @@ class ConnectorKafkaCluster(dict):
 
 
 @pulumi.output_type
+class DnsForwarderEnvironment(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class DnsForwarderForwardViaIp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsServerIps":
+            suggest = "dns_server_ips"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DnsForwarderForwardViaIp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DnsForwarderForwardViaIp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DnsForwarderForwardViaIp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_server_ips: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] dns_server_ips: List of IP addresses of the DNS server.
+        """
+        if dns_server_ips is not None:
+            pulumi.set(__self__, "dns_server_ips", dns_server_ips)
+
+    @property
+    @pulumi.getter(name="dnsServerIps")
+    def dns_server_ips(self) -> Optional[Sequence[str]]:
+        """
+        List of IP addresses of the DNS server.
+        """
+        return pulumi.get(self, "dns_server_ips")
+
+
+@pulumi.output_type
+class DnsForwarderGateway(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class FlinkComputePoolEnvironment(dict):
     def __init__(__self__, *,
                  id: str):
@@ -1235,6 +1314,42 @@ class FlinkStatementCredentials(dict):
         > **Note:** Use Option #2 to simplify the key rotation process. When using Option #1, to rotate a Flink API key, create a new Flink API key, update the `credentials` block in all configuration files to use the new Flink API key, run `pulumi up -target="confluent_flink_statement.example"`, and remove the old Flink API key. Alternatively, in case the old Flink API Key was deleted already, you might need to run `pulumi preview -refresh=false -target="confluent_flink_statement.example" -out=rotate-flink-api-key` and `pulumi up rotate-flink-api-key` instead.
         """
         return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class FlinkStatementEnvironment(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class FlinkStatementOrganization(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -2059,6 +2174,25 @@ class NetworkEnvironment(dict):
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class NetworkGateway(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        :param str id: The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
         """
         The ID of the Environment that the Network belongs to, for example, `env-abc123`.
         """
@@ -4584,6 +4718,28 @@ class GetNetworkDnsConfigResult(dict):
 
 @pulumi.output_type
 class GetNetworkEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+               
+               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
+
+        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetNetworkGatewayResult(dict):
     def __init__(__self__, *,
                  id: str):
         """

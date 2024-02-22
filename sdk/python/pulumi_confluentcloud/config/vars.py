@@ -37,6 +37,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('endpoint')
 
     @property
+    def environment_id(self) -> Optional[str]:
+        """
+        The Flink Environment ID.
+        """
+        return __config__.get('environmentId')
+
+    @property
     def flink_api_key(self) -> Optional[str]:
         """
         The Flink API Key.
@@ -105,6 +112,13 @@ class _ExportableConfig(types.ModuleType):
         Maximum number of retries of HTTP client. Defaults to 4.
         """
         return __config__.get_int('maxRetries')
+
+    @property
+    def organization_id(self) -> Optional[str]:
+        """
+        The Flink Organization ID.
+        """
+        return __config__.get('organizationId')
 
     @property
     def schema_registry_api_key(self) -> Optional[str]:

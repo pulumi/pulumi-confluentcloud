@@ -12,9 +12,13 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Import
     /// 
-    /// You can import a Flink topic by using the Flink Statement name, for example:
+    /// You can import a Flink statement by using the Flink Statement name, for example:
     /// 
     ///  Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
+    /// 
+    ///  $ export IMPORT_ORGANIZATION_ID="&lt;organization_id&gt;"
+    /// 
+    ///  $ export IMPORT_ENVIRONMENT_ID="&lt;environment_id&gt;"
     /// 
     ///  $ export IMPORT_FLINK_COMPUTE_POOL_ID="&lt;flink_compute_pool_id&gt;"
     /// 
@@ -50,6 +54,12 @@ namespace Pulumi.ConfluentCloud
         [Output("credentials")]
         public Output<Outputs.FlinkStatementCredentials?> Credentials { get; private set; } = null!;
 
+        [Output("environment")]
+        public Output<Outputs.FlinkStatementEnvironment> Environment { get; private set; } = null!;
+
+        [Output("organization")]
+        public Output<Outputs.FlinkStatementOrganization> Organization { get; private set; } = null!;
+
         [Output("principal")]
         public Output<Outputs.FlinkStatementPrincipal> Principal { get; private set; } = null!;
 
@@ -60,13 +70,7 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// (Required String) The ID of the Flink statement's version, for example, `2`.
-        /// </summary>
-        [Output("resourceVersion")]
-        public Output<string> ResourceVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        /// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         /// </summary>
         [Output("restEndpoint")]
         public Output<string?> RestEndpoint { get; private set; } = null!;
@@ -158,6 +162,12 @@ namespace Pulumi.ConfluentCloud
             }
         }
 
+        [Input("environment")]
+        public Input<Inputs.FlinkStatementEnvironmentArgs>? Environment { get; set; }
+
+        [Input("organization")]
+        public Input<Inputs.FlinkStatementOrganizationArgs>? Organization { get; set; }
+
         [Input("principal")]
         public Input<Inputs.FlinkStatementPrincipalArgs>? Principal { get; set; }
 
@@ -174,7 +184,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        /// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
@@ -224,6 +234,12 @@ namespace Pulumi.ConfluentCloud
             }
         }
 
+        [Input("environment")]
+        public Input<Inputs.FlinkStatementEnvironmentGetArgs>? Environment { get; set; }
+
+        [Input("organization")]
+        public Input<Inputs.FlinkStatementOrganizationGetArgs>? Organization { get; set; }
+
         [Input("principal")]
         public Input<Inputs.FlinkStatementPrincipalGetArgs>? Principal { get; set; }
 
@@ -240,13 +256,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// (Required String) The ID of the Flink statement's version, for example, `2`.
-        /// </summary>
-        [Input("resourceVersion")]
-        public Input<string>? ResourceVersion { get; set; }
-
-        /// <summary>
-        /// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+        /// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }

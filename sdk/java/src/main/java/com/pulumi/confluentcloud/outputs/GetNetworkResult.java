@@ -7,6 +7,7 @@ import com.pulumi.confluentcloud.outputs.GetNetworkAw;
 import com.pulumi.confluentcloud.outputs.GetNetworkAzure;
 import com.pulumi.confluentcloud.outputs.GetNetworkDnsConfig;
 import com.pulumi.confluentcloud.outputs.GetNetworkEnvironment;
+import com.pulumi.confluentcloud.outputs.GetNetworkGateway;
 import com.pulumi.confluentcloud.outputs.GetNetworkGcp;
 import com.pulumi.confluentcloud.outputs.GetNetworkZoneInfo;
 import com.pulumi.core.annotations.CustomType;
@@ -55,6 +56,7 @@ public final class GetNetworkResult {
     private List<GetNetworkDnsConfig> dnsConfigs;
     private String dnsDomain;
     private GetNetworkEnvironment environment;
+    private List<GetNetworkGateway> gateways;
     /**
      * @return (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
      * 
@@ -153,6 +155,9 @@ public final class GetNetworkResult {
     public GetNetworkEnvironment environment() {
         return this.environment;
     }
+    public List<GetNetworkGateway> gateways() {
+        return this.gateways;
+    }
     /**
      * @return (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
      * 
@@ -229,6 +234,7 @@ public final class GetNetworkResult {
         private List<GetNetworkDnsConfig> dnsConfigs;
         private String dnsDomain;
         private GetNetworkEnvironment environment;
+        private List<GetNetworkGateway> gateways;
         private List<GetNetworkGcp> gcps;
         private String id;
         private String region;
@@ -249,6 +255,7 @@ public final class GetNetworkResult {
     	      this.dnsConfigs = defaults.dnsConfigs;
     	      this.dnsDomain = defaults.dnsDomain;
     	      this.environment = defaults.environment;
+    	      this.gateways = defaults.gateways;
     	      this.gcps = defaults.gcps;
     	      this.id = defaults.id;
     	      this.region = defaults.region;
@@ -344,6 +351,17 @@ public final class GetNetworkResult {
             return this;
         }
         @CustomType.Setter
+        public Builder gateways(List<GetNetworkGateway> gateways) {
+            if (gateways == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "gateways");
+            }
+            this.gateways = gateways;
+            return this;
+        }
+        public Builder gateways(GetNetworkGateway... gateways) {
+            return gateways(List.of(gateways));
+        }
+        @CustomType.Setter
         public Builder gcps(List<GetNetworkGcp> gcps) {
             if (gcps == null) {
               throw new MissingRequiredPropertyException("GetNetworkResult", "gcps");
@@ -427,6 +445,7 @@ public final class GetNetworkResult {
             _resultValue.dnsConfigs = dnsConfigs;
             _resultValue.dnsDomain = dnsDomain;
             _resultValue.environment = environment;
+            _resultValue.gateways = gateways;
             _resultValue.gcps = gcps;
             _resultValue.id = id;
             _resultValue.region = region;

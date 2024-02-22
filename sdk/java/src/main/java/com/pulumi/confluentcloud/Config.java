@@ -33,6 +33,13 @@ public final class Config {
         return Codegen.stringProp("endpoint").config(config).get();
     }
 /**
+ * The Flink Environment ID.
+ * 
+ */
+    public Optional<String> environmentId() {
+        return Codegen.stringProp("environmentId").config(config).get();
+    }
+/**
  * The Flink API Key.
  * 
  */
@@ -101,6 +108,13 @@ public final class Config {
  */
     public Optional<Integer> maxRetries() {
         return Codegen.integerProp("maxRetries").config(config).get();
+    }
+/**
+ * The Flink Organization ID.
+ * 
+ */
+    public Optional<String> organizationId() {
+        return Codegen.stringProp("organizationId").config(config).get();
     }
 /**
  * The Schema Registry Cluster API Key.

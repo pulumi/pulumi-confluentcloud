@@ -233,6 +233,9 @@ namespace Pulumi.ConfluentCloud
         [Output("environment")]
         public Output<Outputs.NetworkEnvironment> Environment { get; private set; } = null!;
 
+        [Output("gateways")]
+        public Output<ImmutableArray<Outputs.NetworkGateway>> Gateways { get; private set; } = null!;
+
         /// <summary>
         /// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
         /// </summary>
@@ -528,6 +531,14 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("environment")]
         public Input<Inputs.NetworkEnvironmentGetArgs>? Environment { get; set; }
+
+        [Input("gateways")]
+        private InputList<Inputs.NetworkGatewayGetArgs>? _gateways;
+        public InputList<Inputs.NetworkGatewayGetArgs> Gateways
+        {
+            get => _gateways ?? (_gateways = new InputList<Inputs.NetworkGatewayGetArgs>());
+            set => _gateways = value;
+        }
 
         [Input("gcps")]
         private InputList<Inputs.NetworkGcpGetArgs>? _gcps;

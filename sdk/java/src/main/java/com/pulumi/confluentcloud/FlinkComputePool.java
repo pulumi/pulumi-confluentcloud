@@ -102,14 +102,18 @@ public class FlinkComputePool extends com.pulumi.resources.CustomResource {
         return this.cloud;
     }
     /**
-     * (Required Integer) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
+     * (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
+     * 
+     * @deprecated
+     * `confluent_flink_compute_pool` resource&#39;s `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage).
      * 
      */
+    @Deprecated /* `confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). */
     @Export(name="currentCfu", refs={Integer.class}, tree="[0]")
     private Output<Integer> currentCfu;
 
     /**
-     * @return (Required Integer) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
+     * @return (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
      * 
      */
     public Output<Integer> currentCfu() {
@@ -200,14 +204,18 @@ public class FlinkComputePool extends com.pulumi.resources.CustomResource {
         return this.resourceName;
     }
     /**
-     * (Required String) The API endpoint of the Flink Compute Pool.
+     * (Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source&#39;s `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
+     * 
+     * @deprecated
+     * `confluent_flink_compute_pool` resource&#39;s `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source&#39;s `rest_endpoint` attribute instead.
      * 
      */
+    @Deprecated /* `confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead. */
     @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output<String> restEndpoint;
 
     /**
-     * @return (Required String) The API endpoint of the Flink Compute Pool.
+     * @return (Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source&#39;s `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
      * 
      */
     public Output<String> restEndpoint() {

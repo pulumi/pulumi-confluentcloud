@@ -184,7 +184,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string Cloud;
         /// <summary>
-        /// (Required Integer) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
+        /// (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
         /// </summary>
         public readonly int CurrentCfu;
         /// <summary>
@@ -216,7 +216,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string ResourceName;
         /// <summary>
-        /// (Required String) The API endpoint of the Flink Compute Pool.
+        /// (Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
         /// </summary>
         public readonly string RestEndpoint;
 

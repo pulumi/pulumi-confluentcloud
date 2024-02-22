@@ -9,9 +9,13 @@ import * as utilities from "./utilities";
 /**
  * ## Import
  *
- * You can import a Flink topic by using the Flink Statement name, for example:
+ * You can import a Flink statement by using the Flink Statement name, for example:
  *
  *  Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
+ *
+ *  $ export IMPORT_ORGANIZATION_ID="<organization_id>"
+ *
+ *  $ export IMPORT_ENVIRONMENT_ID="<environment_id>"
  *
  *  $ export IMPORT_FLINK_COMPUTE_POOL_ID="<flink_compute_pool_id>"
  *
@@ -68,17 +72,15 @@ export class FlinkStatement extends pulumi.CustomResource {
      * The Cluster API Credentials.
      */
     public readonly credentials!: pulumi.Output<outputs.FlinkStatementCredentials | undefined>;
+    public readonly environment!: pulumi.Output<outputs.FlinkStatementEnvironment>;
+    public readonly organization!: pulumi.Output<outputs.FlinkStatementOrganization>;
     public readonly principal!: pulumi.Output<outputs.FlinkStatementPrincipal>;
     /**
      * The custom topic settings to set:
      */
     public readonly properties!: pulumi.Output<{[key: string]: string}>;
     /**
-     * (Required String) The ID of the Flink statement's version, for example, `2`.
-     */
-    public /*out*/ readonly resourceVersion!: pulumi.Output<string>;
-    /**
-     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      */
     public readonly restEndpoint!: pulumi.Output<string | undefined>;
     /**
@@ -109,9 +111,10 @@ export class FlinkStatement extends pulumi.CustomResource {
             const state = argsOrState as FlinkStatementState | undefined;
             resourceInputs["computePool"] = state ? state.computePool : undefined;
             resourceInputs["credentials"] = state ? state.credentials : undefined;
+            resourceInputs["environment"] = state ? state.environment : undefined;
+            resourceInputs["organization"] = state ? state.organization : undefined;
             resourceInputs["principal"] = state ? state.principal : undefined;
             resourceInputs["properties"] = state ? state.properties : undefined;
-            resourceInputs["resourceVersion"] = state ? state.resourceVersion : undefined;
             resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
             resourceInputs["statement"] = state ? state.statement : undefined;
             resourceInputs["statementName"] = state ? state.statementName : undefined;
@@ -123,13 +126,14 @@ export class FlinkStatement extends pulumi.CustomResource {
             }
             resourceInputs["computePool"] = args ? args.computePool : undefined;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
+            resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["organization"] = args ? args.organization : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
             resourceInputs["statement"] = args ? args.statement : undefined;
             resourceInputs["statementName"] = args ? args.statementName : undefined;
             resourceInputs["stopped"] = args ? args.stopped : undefined;
-            resourceInputs["resourceVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["credentials"] };
@@ -147,17 +151,15 @@ export interface FlinkStatementState {
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.FlinkStatementCredentials>;
+    environment?: pulumi.Input<inputs.FlinkStatementEnvironment>;
+    organization?: pulumi.Input<inputs.FlinkStatementOrganization>;
     principal?: pulumi.Input<inputs.FlinkStatementPrincipal>;
     /**
      * The custom topic settings to set:
      */
     properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * (Required String) The ID of the Flink statement's version, for example, `2`.
-     */
-    resourceVersion?: pulumi.Input<string>;
-    /**
-     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      */
     restEndpoint?: pulumi.Input<string>;
     /**
@@ -183,13 +185,15 @@ export interface FlinkStatementArgs {
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.FlinkStatementCredentials>;
+    environment?: pulumi.Input<inputs.FlinkStatementEnvironment>;
+    organization?: pulumi.Input<inputs.FlinkStatementOrganization>;
     principal?: pulumi.Input<inputs.FlinkStatementPrincipal>;
     /**
      * The custom topic settings to set:
      */
     properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      */
     restEndpoint?: pulumi.Input<string>;
     /**

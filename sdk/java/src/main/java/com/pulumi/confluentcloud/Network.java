@@ -10,6 +10,7 @@ import com.pulumi.confluentcloud.outputs.NetworkAw;
 import com.pulumi.confluentcloud.outputs.NetworkAzure;
 import com.pulumi.confluentcloud.outputs.NetworkDnsConfig;
 import com.pulumi.confluentcloud.outputs.NetworkEnvironment;
+import com.pulumi.confluentcloud.outputs.NetworkGateway;
 import com.pulumi.confluentcloud.outputs.NetworkGcp;
 import com.pulumi.confluentcloud.outputs.NetworkZoneInfo;
 import com.pulumi.core.Output;
@@ -358,6 +359,12 @@ public class Network extends com.pulumi.resources.CustomResource {
      */
     public Output<NetworkEnvironment> environment() {
         return this.environment;
+    }
+    @Export(name="gateways", refs={List.class,NetworkGateway.class}, tree="[0,1]")
+    private Output<List<NetworkGateway>> gateways;
+
+    public Output<List<NetworkGateway>> gateways() {
+        return this.gateways;
     }
     /**
      * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:

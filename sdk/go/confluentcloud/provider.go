@@ -24,6 +24,8 @@ type Provider struct {
 	CloudApiSecret pulumi.StringPtrOutput `pulumi:"cloudApiSecret"`
 	// The base endpoint of Confluent Cloud API.
 	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
+	// The Flink Environment ID.
+	EnvironmentId pulumi.StringPtrOutput `pulumi:"environmentId"`
 	// The Flink API Key.
 	FlinkApiKey pulumi.StringPtrOutput `pulumi:"flinkApiKey"`
 	// The Flink API Secret.
@@ -42,6 +44,8 @@ type Provider struct {
 	KafkaId pulumi.StringPtrOutput `pulumi:"kafkaId"`
 	// The Kafka Cluster REST Endpoint.
 	KafkaRestEndpoint pulumi.StringPtrOutput `pulumi:"kafkaRestEndpoint"`
+	// The Flink Organization ID.
+	OrganizationId pulumi.StringPtrOutput `pulumi:"organizationId"`
 	// The Schema Registry Cluster API Key.
 	SchemaRegistryApiKey pulumi.StringPtrOutput `pulumi:"schemaRegistryApiKey"`
 	// The Schema Registry Cluster API Secret.
@@ -110,6 +114,8 @@ type providerArgs struct {
 	CloudApiSecret *string `pulumi:"cloudApiSecret"`
 	// The base endpoint of Confluent Cloud API.
 	Endpoint *string `pulumi:"endpoint"`
+	// The Flink Environment ID.
+	EnvironmentId *string `pulumi:"environmentId"`
 	// The Flink API Key.
 	FlinkApiKey *string `pulumi:"flinkApiKey"`
 	// The Flink API Secret.
@@ -130,6 +136,8 @@ type providerArgs struct {
 	KafkaRestEndpoint *string `pulumi:"kafkaRestEndpoint"`
 	// Maximum number of retries of HTTP client. Defaults to 4.
 	MaxRetries *int `pulumi:"maxRetries"`
+	// The Flink Organization ID.
+	OrganizationId *string `pulumi:"organizationId"`
 	// The Schema Registry Cluster API Key.
 	SchemaRegistryApiKey *string `pulumi:"schemaRegistryApiKey"`
 	// The Schema Registry Cluster API Secret.
@@ -148,6 +156,8 @@ type ProviderArgs struct {
 	CloudApiSecret pulumi.StringPtrInput
 	// The base endpoint of Confluent Cloud API.
 	Endpoint pulumi.StringPtrInput
+	// The Flink Environment ID.
+	EnvironmentId pulumi.StringPtrInput
 	// The Flink API Key.
 	FlinkApiKey pulumi.StringPtrInput
 	// The Flink API Secret.
@@ -168,6 +178,8 @@ type ProviderArgs struct {
 	KafkaRestEndpoint pulumi.StringPtrInput
 	// Maximum number of retries of HTTP client. Defaults to 4.
 	MaxRetries pulumi.IntPtrInput
+	// The Flink Organization ID.
+	OrganizationId pulumi.StringPtrInput
 	// The Schema Registry Cluster API Key.
 	SchemaRegistryApiKey pulumi.StringPtrInput
 	// The Schema Registry Cluster API Secret.
@@ -230,6 +242,11 @@ func (o ProviderOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
+// The Flink Environment ID.
+func (o ProviderOutput) EnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.EnvironmentId }).(pulumi.StringPtrOutput)
+}
+
 // The Flink API Key.
 func (o ProviderOutput) FlinkApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.FlinkApiKey }).(pulumi.StringPtrOutput)
@@ -273,6 +290,11 @@ func (o ProviderOutput) KafkaId() pulumi.StringPtrOutput {
 // The Kafka Cluster REST Endpoint.
 func (o ProviderOutput) KafkaRestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.KafkaRestEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The Flink Organization ID.
+func (o ProviderOutput) OrganizationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OrganizationId }).(pulumi.StringPtrOutput)
 }
 
 // The Schema Registry Cluster API Key.

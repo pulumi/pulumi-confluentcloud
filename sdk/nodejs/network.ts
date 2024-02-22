@@ -186,6 +186,7 @@ export class Network extends pulumi.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     public readonly environment!: pulumi.Output<outputs.NetworkEnvironment>;
+    public /*out*/ readonly gateways!: pulumi.Output<outputs.NetworkGateway[]>;
     /**
      * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
      */
@@ -242,6 +243,7 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["dnsConfig"] = state ? state.dnsConfig : undefined;
             resourceInputs["dnsDomain"] = state ? state.dnsDomain : undefined;
             resourceInputs["environment"] = state ? state.environment : undefined;
+            resourceInputs["gateways"] = state ? state.gateways : undefined;
             resourceInputs["gcps"] = state ? state.gcps : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["reservedCidr"] = state ? state.reservedCidr : undefined;
@@ -277,6 +279,7 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["zoneInfos"] = args ? args.zoneInfos : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["dnsDomain"] = undefined /*out*/;
+            resourceInputs["gateways"] = undefined /*out*/;
             resourceInputs["resourceName"] = undefined /*out*/;
             resourceInputs["zonalSubdomains"] = undefined /*out*/;
         }
@@ -327,6 +330,7 @@ export interface NetworkState {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment?: pulumi.Input<inputs.NetworkEnvironment>;
+    gateways?: pulumi.Input<pulumi.Input<inputs.NetworkGateway>[]>;
     /**
      * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
      */

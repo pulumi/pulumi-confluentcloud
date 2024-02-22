@@ -5,6 +5,8 @@ package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.confluentcloud.inputs.FlinkStatementComputePoolArgs;
 import com.pulumi.confluentcloud.inputs.FlinkStatementCredentialsArgs;
+import com.pulumi.confluentcloud.inputs.FlinkStatementEnvironmentArgs;
+import com.pulumi.confluentcloud.inputs.FlinkStatementOrganizationArgs;
 import com.pulumi.confluentcloud.inputs.FlinkStatementPrincipalArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -42,6 +44,20 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.credentials);
     }
 
+    @Import(name="environment")
+    private @Nullable Output<FlinkStatementEnvironmentArgs> environment;
+
+    public Optional<Output<FlinkStatementEnvironmentArgs>> environment() {
+        return Optional.ofNullable(this.environment);
+    }
+
+    @Import(name="organization")
+    private @Nullable Output<FlinkStatementOrganizationArgs> organization;
+
+    public Optional<Output<FlinkStatementOrganizationArgs>> organization() {
+        return Optional.ofNullable(this.organization);
+    }
+
     @Import(name="principal")
     private @Nullable Output<FlinkStatementPrincipalArgs> principal;
 
@@ -65,29 +81,14 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * (Required String) The ID of the Flink statement&#39;s version, for example, `2`.
-     * 
-     */
-    @Import(name="resourceVersion")
-    private @Nullable Output<String> resourceVersion;
-
-    /**
-     * @return (Required String) The ID of the Flink statement&#39;s version, for example, `2`.
-     * 
-     */
-    public Optional<Output<String>> resourceVersion() {
-        return Optional.ofNullable(this.resourceVersion);
-    }
-
-    /**
-     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      * 
      */
     @Import(name="restEndpoint")
     private @Nullable Output<String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+     * @return The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      * 
      */
     public Optional<Output<String>> restEndpoint() {
@@ -144,9 +145,10 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
     private FlinkStatementState(FlinkStatementState $) {
         this.computePool = $.computePool;
         this.credentials = $.credentials;
+        this.environment = $.environment;
+        this.organization = $.organization;
         this.principal = $.principal;
         this.properties = $.properties;
-        this.resourceVersion = $.resourceVersion;
         this.restEndpoint = $.restEndpoint;
         this.statement = $.statement;
         this.statementName = $.statementName;
@@ -201,6 +203,24 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
             return credentials(Output.of(credentials));
         }
 
+        public Builder environment(@Nullable Output<FlinkStatementEnvironmentArgs> environment) {
+            $.environment = environment;
+            return this;
+        }
+
+        public Builder environment(FlinkStatementEnvironmentArgs environment) {
+            return environment(Output.of(environment));
+        }
+
+        public Builder organization(@Nullable Output<FlinkStatementOrganizationArgs> organization) {
+            $.organization = organization;
+            return this;
+        }
+
+        public Builder organization(FlinkStatementOrganizationArgs organization) {
+            return organization(Output.of(organization));
+        }
+
         public Builder principal(@Nullable Output<FlinkStatementPrincipalArgs> principal) {
             $.principal = principal;
             return this;
@@ -232,28 +252,7 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceVersion (Required String) The ID of the Flink statement&#39;s version, for example, `2`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceVersion(@Nullable Output<String> resourceVersion) {
-            $.resourceVersion = resourceVersion;
-            return this;
-        }
-
-        /**
-         * @param resourceVersion (Required String) The ID of the Flink statement&#39;s version, for example, `2`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceVersion(String resourceVersion) {
-            return resourceVersion(Output.of(resourceVersion));
-        }
-
-        /**
-         * @param restEndpoint The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+         * @param restEndpoint The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
          * 
          * @return builder
          * 
@@ -264,7 +263,7 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.stag.cpdev.cloud/sql/v1beta1/organizations/1111aaaa-11aa-11aa-11aa-111111aaaaaa/environments/env-abc123`).
+         * @param restEndpoint The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
          * 
          * @return builder
          * 

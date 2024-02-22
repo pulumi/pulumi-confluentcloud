@@ -104,6 +104,7 @@ type LookupNetworkResult struct {
 	DnsConfigs  []GetNetworkDnsConfig `pulumi:"dnsConfigs"`
 	DnsDomain   string                `pulumi:"dnsDomain"`
 	Environment GetNetworkEnvironment `pulumi:"environment"`
+	Gateways    []GetNetworkGateway   `pulumi:"gateways"`
 	// (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
 	Gcps []GetNetworkGcp `pulumi:"gcps"`
 	// (Required String) The ID of the Network, for example, `n-abc123`.
@@ -218,6 +219,10 @@ func (o LookupNetworkResultOutput) DnsDomain() pulumi.StringOutput {
 
 func (o LookupNetworkResultOutput) Environment() GetNetworkEnvironmentOutput {
 	return o.ApplyT(func(v LookupNetworkResult) GetNetworkEnvironment { return v.Environment }).(GetNetworkEnvironmentOutput)
+}
+
+func (o LookupNetworkResultOutput) Gateways() GetNetworkGatewayArrayOutput {
+	return o.ApplyT(func(v LookupNetworkResult) []GetNetworkGateway { return v.Gateways }).(GetNetworkGatewayArrayOutput)
 }
 
 // (Optional Configuration Block) The GCP-specific network details if available. It supports the following:

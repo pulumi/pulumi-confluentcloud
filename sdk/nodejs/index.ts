@@ -40,6 +40,11 @@ export type CustomConnectorPlugin = import("./customConnectorPlugin").CustomConn
 export const CustomConnectorPlugin: typeof import("./customConnectorPlugin").CustomConnectorPlugin = null as any;
 utilities.lazyLoad(exports, ["CustomConnectorPlugin"], () => require("./customConnectorPlugin"));
 
+export { DnsForwarderArgs, DnsForwarderState } from "./dnsForwarder";
+export type DnsForwarder = import("./dnsForwarder").DnsForwarder;
+export const DnsForwarder: typeof import("./dnsForwarder").DnsForwarder = null as any;
+utilities.lazyLoad(exports, ["DnsForwarder"], () => require("./dnsForwarder"));
+
 export { EnvironmentArgs, EnvironmentState } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
@@ -463,6 +468,8 @@ const _module = {
                 return new Connector(name, <any>undefined, { urn })
             case "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin":
                 return new CustomConnectorPlugin(name, <any>undefined, { urn })
+            case "confluentcloud:index/dnsForwarder:DnsForwarder":
+                return new DnsForwarder(name, <any>undefined, { urn })
             case "confluentcloud:index/environment:Environment":
                 return new Environment(name, <any>undefined, { urn })
             case "confluentcloud:index/flinkComputePool:FlinkComputePool":
@@ -547,6 +554,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/byokKey", _module
 pulumi.runtime.registerResourceModule("confluentcloud", "index/clusterLink", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/connector", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/customConnectorPlugin", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/dnsForwarder", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/environment", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkComputePool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkStatement", _module)
