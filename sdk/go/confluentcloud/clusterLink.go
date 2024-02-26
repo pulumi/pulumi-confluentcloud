@@ -25,6 +25,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode
 //			_, err := confluentcloud.NewClusterLink(ctx, "east-to-west", &confluentcloud.ClusterLinkArgs{
 //				LinkMode: pulumi.String("BIDIRECTIONAL"),
 //				LocalKafkaCluster: &confluentcloud.ClusterLinkLocalKafkaClusterArgs{
