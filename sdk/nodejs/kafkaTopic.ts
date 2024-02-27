@@ -69,6 +69,14 @@ import * as utilities from "./utilities";
  *
  *  = "2097164"
  *
+ *  "message.timestamp.after.max.ms"
+ *
+ * = "9223372036854775807"
+ *
+ *  "message.timestamp.before.max.ms"
+ *
+ *  = "9223372036854775807"
+ *
  *  "message.timestamp.difference.max.ms" = "9223372036854775807"
  *
  *  "message.timestamp.type"

@@ -233,6 +233,9 @@ namespace Pulumi.ConfluentCloud
         [Output("environment")]
         public Output<Outputs.NetworkEnvironment> Environment { get; private set; } = null!;
 
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         [Output("gateways")]
         public Output<ImmutableArray<Outputs.NetworkGateway>> Gateways { get; private set; } = null!;
 
@@ -534,6 +537,10 @@ namespace Pulumi.ConfluentCloud
 
         [Input("gateways")]
         private InputList<Inputs.NetworkGatewayGetArgs>? _gateways;
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         public InputList<Inputs.NetworkGatewayGetArgs> Gateways
         {
             get => _gateways ?? (_gateways = new InputList<Inputs.NetworkGatewayGetArgs>());

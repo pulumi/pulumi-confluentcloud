@@ -163,9 +163,17 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.environment);
     }
 
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
     @Import(name="gateways")
     private @Nullable Output<List<NetworkGatewayArgs>> gateways;
 
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     public Optional<Output<List<NetworkGatewayArgs>>> gateways() {
         return Optional.ofNullable(this.gateways);
     }
@@ -548,15 +556,33 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
             return environment(Output.of(environment));
         }
 
+        /**
+         * @param gateways (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder gateways(@Nullable Output<List<NetworkGatewayArgs>> gateways) {
             $.gateways = gateways;
             return this;
         }
 
+        /**
+         * @param gateways (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder gateways(List<NetworkGatewayArgs> gateways) {
             return gateways(Output.of(gateways));
         }
 
+        /**
+         * @param gateways (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder gateways(NetworkGatewayArgs... gateways) {
             return gateways(List.of(gateways));
         }

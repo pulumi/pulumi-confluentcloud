@@ -272,6 +272,7 @@ class _NetworkState:
         :param pulumi.Input['NetworkDnsConfigArgs'] dns_config: Network DNS config. It applies only to the PRIVATELINK network connection type.
         :param pulumi.Input[str] dns_domain: (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
         :param pulumi.Input['NetworkEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkGatewayArgs']]] gateways: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkGcpArgs']]] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
         :param pulumi.Input[str] region: The cloud provider region where the network exists.
         :param pulumi.Input[str] reserved_cidr: The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
@@ -433,6 +434,9 @@ class _NetworkState:
     @property
     @pulumi.getter
     def gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkGatewayArgs']]]]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
         return pulumi.get(self, "gateways")
 
     @gateways.setter
@@ -904,6 +908,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NetworkDnsConfigArgs']] dns_config: Network DNS config. It applies only to the PRIVATELINK network connection type.
         :param pulumi.Input[str] dns_domain: (Optional String) The root DNS domain for the network, for example, `pr123a.us-east-2.aws.confluent.cloud` if applicable. Present on Networks that support Private Link.
         :param pulumi.Input[pulumi.InputType['NetworkEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkGatewayArgs']]]] gateways: (Optional Configuration Block) supports the following:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkGcpArgs']]]] gcps: (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
         :param pulumi.Input[str] region: The cloud provider region where the network exists.
         :param pulumi.Input[str] reserved_cidr: The reserved IPv4 CIDR block to be used for the network. Must be `/24`. If not specified, Confluent Cloud Network uses `172.20.255.0/24`.
@@ -1017,6 +1022,9 @@ class Network(pulumi.CustomResource):
     @property
     @pulumi.getter
     def gateways(self) -> pulumi.Output[Sequence['outputs.NetworkGateway']]:
+        """
+        (Optional Configuration Block) supports the following:
+        """
         return pulumi.get(self, "gateways")
 
     @property

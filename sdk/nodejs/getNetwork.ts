@@ -110,13 +110,16 @@ export interface GetNetworkResult {
     readonly dnsConfigs: outputs.GetNetworkDnsConfig[];
     readonly dnsDomain: string;
     readonly environment: outputs.GetNetworkEnvironment;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     readonly gateways: outputs.GetNetworkGateway[];
     /**
      * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
      */
     readonly gcps: outputs.GetNetworkGcp[];
     /**
-     * (Required String) The ID of the Network, for example, `n-abc123`.
+     * (Optional String) The ID of the Gateway, for example, `gw-abc123`.
      */
     readonly id: string;
     /**
