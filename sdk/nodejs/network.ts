@@ -186,6 +186,9 @@ export class Network extends pulumi.CustomResource {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     public readonly environment!: pulumi.Output<outputs.NetworkEnvironment>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     public /*out*/ readonly gateways!: pulumi.Output<outputs.NetworkGateway[]>;
     /**
      * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
@@ -330,6 +333,9 @@ export interface NetworkState {
      * Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
      */
     environment?: pulumi.Input<inputs.NetworkEnvironment>;
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
     gateways?: pulumi.Input<pulumi.Input<inputs.NetworkGateway>[]>;
     /**
      * (Optional Configuration Block) The GCP-specific network details if available. It supports the following:

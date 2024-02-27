@@ -148,6 +148,9 @@ class GetNetworkResult:
     @property
     @pulumi.getter
     def gateways(self) -> Sequence['outputs.GetNetworkGatewayResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
         return pulumi.get(self, "gateways")
 
     @property
@@ -162,7 +165,7 @@ class GetNetworkResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        (Required String) The ID of the Network, for example, `n-abc123`.
+        (Optional String) The ID of the Gateway, for example, `gw-abc123`.
         """
         return pulumi.get(self, "id")
 

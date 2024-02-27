@@ -360,9 +360,17 @@ public class Network extends com.pulumi.resources.CustomResource {
     public Output<NetworkEnvironment> environment() {
         return this.environment;
     }
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
     @Export(name="gateways", refs={List.class,NetworkGateway.class}, tree="[0,1]")
     private Output<List<NetworkGateway>> gateways;
 
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     public Output<List<NetworkGateway>> gateways() {
         return this.gateways;
     }

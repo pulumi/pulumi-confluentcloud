@@ -56,6 +56,10 @@ public final class GetNetworkResult {
     private List<GetNetworkDnsConfig> dnsConfigs;
     private String dnsDomain;
     private GetNetworkEnvironment environment;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     private List<GetNetworkGateway> gateways;
     /**
      * @return (Optional Configuration Block) The GCP-specific network details if available. It supports the following:
@@ -63,7 +67,7 @@ public final class GetNetworkResult {
      */
     private List<GetNetworkGcp> gcps;
     /**
-     * @return (Required String) The ID of the Network, for example, `n-abc123`.
+     * @return (Optional String) The ID of the Gateway, for example, `gw-abc123`.
      * 
      */
     private String id;
@@ -155,6 +159,10 @@ public final class GetNetworkResult {
     public GetNetworkEnvironment environment() {
         return this.environment;
     }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     public List<GetNetworkGateway> gateways() {
         return this.gateways;
     }
@@ -166,7 +174,7 @@ public final class GetNetworkResult {
         return this.gcps;
     }
     /**
-     * @return (Required String) The ID of the Network, for example, `n-abc123`.
+     * @return (Optional String) The ID of the Gateway, for example, `gw-abc123`.
      * 
      */
     public String id() {
