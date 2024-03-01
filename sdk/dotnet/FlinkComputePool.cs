@@ -67,12 +67,6 @@ namespace Pulumi.ConfluentCloud
         public Output<string> Cloud { get; private set; } = null!;
 
         /// <summary>
-        /// (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
-        /// </summary>
-        [Output("currentCfu")]
-        public Output<int> CurrentCfu { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the Flink Compute Pool.
         /// </summary>
         [Output("displayName")]
@@ -107,12 +101,6 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("resourceName")]
         public Output<string> ResourceName { get; private set; } = null!;
-
-        /// <summary>
-        /// (Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
-        /// </summary>
-        [Output("restEndpoint")]
-        public Output<string> RestEndpoint { get; private set; } = null!;
 
 
         /// <summary>
@@ -211,12 +199,6 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? Cloud { get; set; }
 
         /// <summary>
-        /// (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
-        /// </summary>
-        [Input("currentCfu")]
-        public Input<int>? CurrentCfu { get; set; }
-
-        /// <summary>
         /// The name of the Flink Compute Pool.
         /// </summary>
         [Input("displayName")]
@@ -251,12 +233,6 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
-
-        /// <summary>
-        /// (Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
-        /// </summary>
-        [Input("restEndpoint")]
-        public Input<string>? RestEndpoint { get; set; }
 
         public FlinkComputePoolState()
         {

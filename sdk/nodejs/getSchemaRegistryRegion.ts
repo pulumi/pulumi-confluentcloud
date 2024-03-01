@@ -5,9 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
+ *
+ * !> **Warning:** The `confluentcloud.getSchemaRegistryRegion` data source has been deprecated and will be removed in the next major version of the provider (2.0.0).
+ * Refer to the Upgrade Guide for more details.
+ * The guide will be published once version 2.0.0 is released.
  *
  * ## Example Usage
  *
@@ -66,9 +70,13 @@ export interface GetSchemaRegistryRegionResult {
     readonly region: string;
 }
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
+ *
+ * !> **Warning:** The `confluentcloud.getSchemaRegistryRegion` data source has been deprecated and will be removed in the next major version of the provider (2.0.0).
+ * Refer to the Upgrade Guide for more details.
+ * The guide will be published once version 2.0.0 is released.
  *
  * ## Example Usage
  *

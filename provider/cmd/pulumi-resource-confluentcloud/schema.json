@@ -4968,11 +4968,6 @@
                     "type": "string",
                     "description": "The cloud service provider that runs the Flink Compute Pool.\n"
                 },
-                "currentCfu": {
-                    "type": "integer",
-                    "description": "(Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.\n",
-                    "deprecationMessage": "`confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage)."
-                },
                 "displayName": {
                     "type": "string",
                     "description": "The name of the Flink Compute Pool.\n"
@@ -4996,24 +4991,17 @@
                 "resourceName": {
                     "type": "string",
                     "description": "(Required String) The Confluent Resource Name of the Flink Compute Pool.\n"
-                },
-                "restEndpoint": {
-                    "type": "string",
-                    "description": "(Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.\n",
-                    "deprecationMessage": "`confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead."
                 }
             },
             "required": [
                 "apiVersion",
                 "cloud",
-                "currentCfu",
                 "displayName",
                 "environment",
                 "kind",
                 "maxCfu",
                 "region",
-                "resourceName",
-                "restEndpoint"
+                "resourceName"
             ],
             "inputProperties": {
                 "cloud": {
@@ -5058,11 +5046,6 @@
                         "description": "The cloud service provider that runs the Flink Compute Pool.\n",
                         "willReplaceOnChanges": true
                     },
-                    "currentCfu": {
-                        "type": "integer",
-                        "description": "(Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.\n",
-                        "deprecationMessage": "`confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage)."
-                    },
                     "displayName": {
                         "type": "string",
                         "description": "The name of the Flink Compute Pool.\n"
@@ -5088,11 +5071,6 @@
                     "resourceName": {
                         "type": "string",
                         "description": "(Required String) The Confluent Resource Name of the Flink Compute Pool.\n"
-                    },
-                    "restEndpoint": {
-                        "type": "string",
-                        "description": "(Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.\n",
-                        "deprecationMessage": "`confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead."
                     }
                 },
                 "type": "object"
@@ -9264,11 +9242,6 @@
                         "type": "string",
                         "description": "(Required String) The cloud service provider that runs the Flink Compute Pool.\n"
                     },
-                    "currentCfu": {
-                        "type": "integer",
-                        "description": "(Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.\n",
-                        "deprecationMessage": "`confluent_flink_compute_pool` data source's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage)."
-                    },
                     "displayName": {
                         "type": "string",
                         "description": "(Required String) The name of the Flink Compute Pool.\n"
@@ -9296,26 +9269,19 @@
                     "resourceName": {
                         "type": "string",
                         "description": "(Required String) The Confluent Resource Name of the Flink Compute Pool.\n"
-                    },
-                    "restEndpoint": {
-                        "type": "string",
-                        "description": "(Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.\n",
-                        "deprecationMessage": "`confluent_flink_compute_pool` data source's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead."
                     }
                 },
                 "type": "object",
                 "required": [
                     "apiVersion",
                     "cloud",
-                    "currentCfu",
                     "displayName",
                     "environment",
                     "id",
                     "kind",
                     "maxCfu",
                     "region",
-                    "resourceName",
-                    "restEndpoint"
+                    "resourceName"
                 ]
             }
         },
@@ -11176,7 +11142,7 @@
             }
         },
         "confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion": {
-            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleSchemaRegistryRegion = confluentcloud.getSchemaRegistryRegion({\n    cloud: \"AWS\",\n    region: \"us-east-2\",\n    \"package\": \"ESSENTIALS\",\n});\nexport const example = exampleSchemaRegistryRegion;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_schema_registry_region = confluentcloud.get_schema_registry_region(cloud=\"AWS\",\n    region=\"us-east-2\",\n    package=\"ESSENTIALS\")\npulumi.export(\"example\", example_schema_registry_region)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleSchemaRegistryRegion = ConfluentCloud.GetSchemaRegistryRegion.Invoke(new()\n    {\n        Cloud = \"AWS\",\n        Region = \"us-east-2\",\n        Package = \"ESSENTIALS\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = exampleSchemaRegistryRegion,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleSchemaRegistryRegion, err := confluentcloud.GetSchemaRegistryRegion(ctx, \u0026confluentcloud.GetSchemaRegistryRegionArgs{\n\t\t\tCloud:   \"AWS\",\n\t\t\tRegion:  \"us-east-2\",\n\t\t\tPackage: \"ESSENTIALS\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", exampleSchemaRegistryRegion)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleSchemaRegistryRegion = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()\n            .cloud(\"AWS\")\n            .region(\"us-east-2\")\n            .package_(\"ESSENTIALS\")\n            .build());\n\n        ctx.export(\"example\", exampleSchemaRegistryRegion.applyValue(getSchemaRegistryRegionResult -\u003e getSchemaRegistryRegionResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleSchemaRegistryRegion:\n    fn::invoke:\n      Function: confluentcloud:getSchemaRegistryRegion\n      Arguments:\n        cloud: AWS\n        region: us-east-2\n        package: ESSENTIALS\noutputs:\n  example: ${exampleSchemaRegistryRegion}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "[![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.\n\n!\u003e **Warning:** The `confluentcloud.getSchemaRegistryRegion` data source has been deprecated and will be removed in the next major version of the provider (2.0.0). \nRefer to the Upgrade Guide for more details. \nThe guide will be published once version 2.0.0 is released.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst exampleSchemaRegistryRegion = confluentcloud.getSchemaRegistryRegion({\n    cloud: \"AWS\",\n    region: \"us-east-2\",\n    \"package\": \"ESSENTIALS\",\n});\nexport const example = exampleSchemaRegistryRegion;\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nexample_schema_registry_region = confluentcloud.get_schema_registry_region(cloud=\"AWS\",\n    region=\"us-east-2\",\n    package=\"ESSENTIALS\")\npulumi.export(\"example\", example_schema_registry_region)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleSchemaRegistryRegion = ConfluentCloud.GetSchemaRegistryRegion.Invoke(new()\n    {\n        Cloud = \"AWS\",\n        Region = \"us-east-2\",\n        Package = \"ESSENTIALS\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"example\"] = exampleSchemaRegistryRegion,\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleSchemaRegistryRegion, err := confluentcloud.GetSchemaRegistryRegion(ctx, \u0026confluentcloud.GetSchemaRegistryRegionArgs{\n\t\t\tCloud:   \"AWS\",\n\t\t\tRegion:  \"us-east-2\",\n\t\t\tPackage: \"ESSENTIALS\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"example\", exampleSchemaRegistryRegion)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ConfluentcloudFunctions;\nimport com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleSchemaRegistryRegion = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()\n            .cloud(\"AWS\")\n            .region(\"us-east-2\")\n            .package_(\"ESSENTIALS\")\n            .build());\n\n        ctx.export(\"example\", exampleSchemaRegistryRegion.applyValue(getSchemaRegistryRegionResult -\u003e getSchemaRegistryRegionResult));\n    }\n}\n```\n```yaml\nvariables:\n  exampleSchemaRegistryRegion:\n    fn::invoke:\n      Function: confluentcloud:getSchemaRegistryRegion\n      Arguments:\n        cloud: AWS\n        region: us-east-2\n        package: ESSENTIALS\noutputs:\n  example: ${exampleSchemaRegistryRegion}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getSchemaRegistryRegion.\n",
                 "properties": {

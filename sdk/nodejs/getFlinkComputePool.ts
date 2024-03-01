@@ -79,12 +79,6 @@ export interface GetFlinkComputePoolResult {
      */
     readonly cloud: string;
     /**
-     * (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
-     *
-     * @deprecated `confluent_flink_compute_pool` data source's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage).
-     */
-    readonly currentCfu: number;
-    /**
      * (Required String) The name of the Flink Compute Pool.
      */
     readonly displayName: string;
@@ -112,12 +106,6 @@ export interface GetFlinkComputePoolResult {
      * (Required String) The Confluent Resource Name of the Flink Compute Pool.
      */
     readonly resourceName: string;
-    /**
-     * (Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source's `restEndpoint` attribute instead) The API endpoint of the Flink Compute Pool.
-     *
-     * @deprecated `confluent_flink_compute_pool` data source's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.
-     */
-    readonly restEndpoint: string;
 }
 /**
  * [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

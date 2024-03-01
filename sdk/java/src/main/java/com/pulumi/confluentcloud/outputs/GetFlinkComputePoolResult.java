@@ -23,15 +23,6 @@ public final class GetFlinkComputePoolResult {
      */
     private String cloud;
     /**
-     * @return (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
-     * 
-     * @deprecated
-     * `confluent_flink_compute_pool` data source&#39;s `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage).
-     * 
-     */
-    @Deprecated /* `confluent_flink_compute_pool` data source's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage). */
-    private Integer currentCfu;
-    /**
      * @return (Required String) The name of the Flink Compute Pool.
      * 
      */
@@ -66,15 +57,6 @@ public final class GetFlinkComputePoolResult {
      * 
      */
     private String resourceName;
-    /**
-     * @return (Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source&#39;s `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
-     * 
-     * @deprecated
-     * `confluent_flink_compute_pool` data source&#39;s `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage). Use `confluent_flink_region` data source&#39;s `rest_endpoint` attribute instead.
-     * 
-     */
-    @Deprecated /* `confluent_flink_compute_pool` data source's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead. */
-    private String restEndpoint;
 
     private GetFlinkComputePoolResult() {}
     /**
@@ -90,17 +72,6 @@ public final class GetFlinkComputePoolResult {
      */
     public String cloud() {
         return this.cloud;
-    }
-    /**
-     * @return (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
-     * 
-     * @deprecated
-     * `confluent_flink_compute_pool` data source&#39;s `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage).
-     * 
-     */
-    @Deprecated /* `confluent_flink_compute_pool` data source's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage). */
-    public Integer currentCfu() {
-        return this.currentCfu;
     }
     /**
      * @return (Required String) The name of the Flink Compute Pool.
@@ -151,17 +122,6 @@ public final class GetFlinkComputePoolResult {
     public String resourceName() {
         return this.resourceName;
     }
-    /**
-     * @return (Required String, **Deprecated** use `confluentcloud.getFlinkRegion` data source&#39;s `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
-     * 
-     * @deprecated
-     * `confluent_flink_compute_pool` data source&#39;s `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage). Use `confluent_flink_region` data source&#39;s `rest_endpoint` attribute instead.
-     * 
-     */
-    @Deprecated /* `confluent_flink_compute_pool` data source's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead. */
-    public String restEndpoint() {
-        return this.restEndpoint;
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -174,7 +134,6 @@ public final class GetFlinkComputePoolResult {
     public static final class Builder {
         private String apiVersion;
         private String cloud;
-        private Integer currentCfu;
         private String displayName;
         private GetFlinkComputePoolEnvironment environment;
         private String id;
@@ -182,13 +141,11 @@ public final class GetFlinkComputePoolResult {
         private Integer maxCfu;
         private String region;
         private String resourceName;
-        private String restEndpoint;
         public Builder() {}
         public Builder(GetFlinkComputePoolResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiVersion = defaults.apiVersion;
     	      this.cloud = defaults.cloud;
-    	      this.currentCfu = defaults.currentCfu;
     	      this.displayName = defaults.displayName;
     	      this.environment = defaults.environment;
     	      this.id = defaults.id;
@@ -196,7 +153,6 @@ public final class GetFlinkComputePoolResult {
     	      this.maxCfu = defaults.maxCfu;
     	      this.region = defaults.region;
     	      this.resourceName = defaults.resourceName;
-    	      this.restEndpoint = defaults.restEndpoint;
         }
 
         @CustomType.Setter
@@ -213,14 +169,6 @@ public final class GetFlinkComputePoolResult {
               throw new MissingRequiredPropertyException("GetFlinkComputePoolResult", "cloud");
             }
             this.cloud = cloud;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder currentCfu(Integer currentCfu) {
-            if (currentCfu == null) {
-              throw new MissingRequiredPropertyException("GetFlinkComputePoolResult", "currentCfu");
-            }
-            this.currentCfu = currentCfu;
             return this;
         }
         @CustomType.Setter
@@ -279,19 +227,10 @@ public final class GetFlinkComputePoolResult {
             this.resourceName = resourceName;
             return this;
         }
-        @CustomType.Setter
-        public Builder restEndpoint(String restEndpoint) {
-            if (restEndpoint == null) {
-              throw new MissingRequiredPropertyException("GetFlinkComputePoolResult", "restEndpoint");
-            }
-            this.restEndpoint = restEndpoint;
-            return this;
-        }
         public GetFlinkComputePoolResult build() {
             final var _resultValue = new GetFlinkComputePoolResult();
             _resultValue.apiVersion = apiVersion;
             _resultValue.cloud = cloud;
-            _resultValue.currentCfu = currentCfu;
             _resultValue.displayName = displayName;
             _resultValue.environment = environment;
             _resultValue.id = id;
@@ -299,7 +238,6 @@ public final class GetFlinkComputePoolResult {
             _resultValue.maxCfu = maxCfu;
             _resultValue.region = region;
             _resultValue.resourceName = resourceName;
-            _resultValue.restEndpoint = restEndpoint;
             return _resultValue;
         }
     }
