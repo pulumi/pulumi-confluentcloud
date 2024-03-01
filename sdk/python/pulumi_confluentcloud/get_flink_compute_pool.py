@@ -23,16 +23,13 @@ class GetFlinkComputePoolResult:
     """
     A collection of values returned by getFlinkComputePool.
     """
-    def __init__(__self__, api_version=None, cloud=None, current_cfu=None, display_name=None, environment=None, id=None, kind=None, max_cfu=None, region=None, resource_name=None, rest_endpoint=None):
+    def __init__(__self__, api_version=None, cloud=None, display_name=None, environment=None, id=None, kind=None, max_cfu=None, region=None, resource_name=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
         if cloud and not isinstance(cloud, str):
             raise TypeError("Expected argument 'cloud' to be a str")
         pulumi.set(__self__, "cloud", cloud)
-        if current_cfu and not isinstance(current_cfu, int):
-            raise TypeError("Expected argument 'current_cfu' to be a int")
-        pulumi.set(__self__, "current_cfu", current_cfu)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -54,9 +51,6 @@ class GetFlinkComputePoolResult:
         if resource_name and not isinstance(resource_name, str):
             raise TypeError("Expected argument 'resource_name' to be a str")
         pulumi.set(__self__, "resource_name", resource_name)
-        if rest_endpoint and not isinstance(rest_endpoint, str):
-            raise TypeError("Expected argument 'rest_endpoint' to be a str")
-        pulumi.set(__self__, "rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter(name="apiVersion")
@@ -73,17 +67,6 @@ class GetFlinkComputePoolResult:
         (Required String) The cloud service provider that runs the Flink Compute Pool.
         """
         return pulumi.get(self, "cloud")
-
-    @property
-    @pulumi.getter(name="currentCfu")
-    def current_cfu(self) -> int:
-        """
-        (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
-        """
-        warnings.warn("""`confluent_flink_compute_pool` data source's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage).""", DeprecationWarning)
-        pulumi.log.warn("""current_cfu is deprecated: `confluent_flink_compute_pool` data source's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage).""")
-
-        return pulumi.get(self, "current_cfu")
 
     @property
     @pulumi.getter(name="displayName")
@@ -141,17 +124,6 @@ class GetFlinkComputePoolResult:
         """
         return pulumi.get(self, "resource_name")
 
-    @property
-    @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> str:
-        """
-        (Required String, **Deprecated** use `get_flink_region` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
-        """
-        warnings.warn("""`confluent_flink_compute_pool` data source's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.""", DeprecationWarning)
-        pulumi.log.warn("""rest_endpoint is deprecated: `confluent_flink_compute_pool` data source's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` data source is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.""")
-
-        return pulumi.get(self, "rest_endpoint")
-
 
 class AwaitableGetFlinkComputePoolResult(GetFlinkComputePoolResult):
     # pylint: disable=using-constant-test
@@ -161,15 +133,13 @@ class AwaitableGetFlinkComputePoolResult(GetFlinkComputePoolResult):
         return GetFlinkComputePoolResult(
             api_version=self.api_version,
             cloud=self.cloud,
-            current_cfu=self.current_cfu,
             display_name=self.display_name,
             environment=self.environment,
             id=self.id,
             kind=self.kind,
             max_cfu=self.max_cfu,
             region=self.region,
-            resource_name=self.resource_name,
-            rest_endpoint=self.rest_endpoint)
+            resource_name=self.resource_name)
 
 
 def get_flink_compute_pool(display_name: Optional[str] = None,
@@ -219,15 +189,13 @@ def get_flink_compute_pool(display_name: Optional[str] = None,
     return AwaitableGetFlinkComputePoolResult(
         api_version=pulumi.get(__ret__, 'api_version'),
         cloud=pulumi.get(__ret__, 'cloud'),
-        current_cfu=pulumi.get(__ret__, 'current_cfu'),
         display_name=pulumi.get(__ret__, 'display_name'),
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         max_cfu=pulumi.get(__ret__, 'max_cfu'),
         region=pulumi.get(__ret__, 'region'),
-        resource_name=pulumi.get(__ret__, 'resource_name'),
-        rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'))
+        resource_name=pulumi.get(__ret__, 'resource_name'))
 
 
 @_utilities.lift_output_func(get_flink_compute_pool)

@@ -68,10 +68,6 @@ type FlinkComputePool struct {
 	ApiVersion pulumi.StringOutput `pulumi:"apiVersion"`
 	// The cloud service provider that runs the Flink Compute Pool.
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
-	// (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
-	//
-	// Deprecated: `confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage).
-	CurrentCfu pulumi.IntOutput `pulumi:"currentCfu"`
 	// The name of the Flink Compute Pool.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -84,10 +80,6 @@ type FlinkComputePool struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// (Required String) The Confluent Resource Name of the Flink Compute Pool.
 	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
-	// (Required String, **Deprecated** use `getFlinkRegion` data source's `restEndpoint` attribute instead) The API endpoint of the Flink Compute Pool.
-	//
-	// Deprecated: `confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.
-	RestEndpoint pulumi.StringOutput `pulumi:"restEndpoint"`
 }
 
 // NewFlinkComputePool registers a new resource with the given unique name, arguments, and options.
@@ -136,10 +128,6 @@ type flinkComputePoolState struct {
 	ApiVersion *string `pulumi:"apiVersion"`
 	// The cloud service provider that runs the Flink Compute Pool.
 	Cloud *string `pulumi:"cloud"`
-	// (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
-	//
-	// Deprecated: `confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage).
-	CurrentCfu *int `pulumi:"currentCfu"`
 	// The name of the Flink Compute Pool.
 	DisplayName *string `pulumi:"displayName"`
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -152,10 +140,6 @@ type flinkComputePoolState struct {
 	Region *string `pulumi:"region"`
 	// (Required String) The Confluent Resource Name of the Flink Compute Pool.
 	ResourceName *string `pulumi:"resourceName"`
-	// (Required String, **Deprecated** use `getFlinkRegion` data source's `restEndpoint` attribute instead) The API endpoint of the Flink Compute Pool.
-	//
-	// Deprecated: `confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.
-	RestEndpoint *string `pulumi:"restEndpoint"`
 }
 
 type FlinkComputePoolState struct {
@@ -163,10 +147,6 @@ type FlinkComputePoolState struct {
 	ApiVersion pulumi.StringPtrInput
 	// The cloud service provider that runs the Flink Compute Pool.
 	Cloud pulumi.StringPtrInput
-	// (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
-	//
-	// Deprecated: `confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage).
-	CurrentCfu pulumi.IntPtrInput
 	// The name of the Flink Compute Pool.
 	DisplayName pulumi.StringPtrInput
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
@@ -179,10 +159,6 @@ type FlinkComputePoolState struct {
 	Region pulumi.StringPtrInput
 	// (Required String) The Confluent Resource Name of the Flink Compute Pool.
 	ResourceName pulumi.StringPtrInput
-	// (Required String, **Deprecated** use `getFlinkRegion` data source's `restEndpoint` attribute instead) The API endpoint of the Flink Compute Pool.
-	//
-	// Deprecated: `confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.
-	RestEndpoint pulumi.StringPtrInput
 }
 
 func (FlinkComputePoolState) ElementType() reflect.Type {
@@ -313,13 +289,6 @@ func (o FlinkComputePoolOutput) Cloud() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlinkComputePool) pulumi.StringOutput { return v.Cloud }).(pulumi.StringOutput)
 }
 
-// (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
-//
-// Deprecated: `confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage).
-func (o FlinkComputePoolOutput) CurrentCfu() pulumi.IntOutput {
-	return o.ApplyT(func(v *FlinkComputePool) pulumi.IntOutput { return v.CurrentCfu }).(pulumi.IntOutput)
-}
-
 // The name of the Flink Compute Pool.
 func (o FlinkComputePoolOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlinkComputePool) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
@@ -348,13 +317,6 @@ func (o FlinkComputePoolOutput) Region() pulumi.StringOutput {
 // (Required String) The Confluent Resource Name of the Flink Compute Pool.
 func (o FlinkComputePoolOutput) ResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlinkComputePool) pulumi.StringOutput { return v.ResourceName }).(pulumi.StringOutput)
-}
-
-// (Required String, **Deprecated** use `getFlinkRegion` data source's `restEndpoint` attribute instead) The API endpoint of the Flink Compute Pool.
-//
-// Deprecated: `confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.
-func (o FlinkComputePoolOutput) RestEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v *FlinkComputePool) pulumi.StringOutput { return v.RestEndpoint }).(pulumi.StringOutput)
 }
 
 type FlinkComputePoolArrayOutput struct{ *pulumi.OutputState }

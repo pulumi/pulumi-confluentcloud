@@ -5337,9 +5337,13 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getSchemaRegistryKek:getSchemaRegistryKek", TypeShape.of(GetSchemaRegistryKekResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
+     * 
+     * !&gt; **Warning:** The `confluentcloud.getSchemaRegistryRegion` data source has been deprecated and will be removed in the next major version of the provider (2.0.0).
+     * Refer to the Upgrade Guide for more details.
+     * The guide will be published once version 2.0.0 is released.
      * 
      * ## Example Usage
      * ```java
@@ -5379,9 +5383,13 @@ public final class ConfluentcloudFunctions {
         return getSchemaRegistryRegion(args, InvokeOptions.Empty);
     }
     /**
-     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
+     * 
+     * !&gt; **Warning:** The `confluentcloud.getSchemaRegistryRegion` data source has been deprecated and will be removed in the next major version of the provider (2.0.0).
+     * Refer to the Upgrade Guide for more details.
+     * The guide will be published once version 2.0.0 is released.
      * 
      * ## Example Usage
      * ```java
@@ -5421,9 +5429,13 @@ public final class ConfluentcloudFunctions {
         return getSchemaRegistryRegionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
+     * 
+     * !&gt; **Warning:** The `confluentcloud.getSchemaRegistryRegion` data source has been deprecated and will be removed in the next major version of the provider (2.0.0).
+     * Refer to the Upgrade Guide for more details.
+     * The guide will be published once version 2.0.0 is released.
      * 
      * ## Example Usage
      * ```java
@@ -5463,9 +5475,13 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion", TypeShape.of(GetSchemaRegistryRegionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
+     * 
+     * !&gt; **Warning:** The `confluentcloud.getSchemaRegistryRegion` data source has been deprecated and will be removed in the next major version of the provider (2.0.0).
+     * Refer to the Upgrade Guide for more details.
+     * The guide will be published once version 2.0.0 is released.
      * 
      * ## Example Usage
      * ```java

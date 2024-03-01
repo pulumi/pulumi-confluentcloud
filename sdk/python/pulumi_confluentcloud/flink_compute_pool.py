@@ -102,36 +102,27 @@ class _FlinkComputePoolState:
     def __init__(__self__, *,
                  api_version: Optional[pulumi.Input[str]] = None,
                  cloud: Optional[pulumi.Input[str]] = None,
-                 current_cfu: Optional[pulumi.Input[int]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input['FlinkComputePoolEnvironmentArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  max_cfu: Optional[pulumi.Input[int]] = None,
                  region: Optional[pulumi.Input[str]] = None,
-                 resource_name: Optional[pulumi.Input[str]] = None,
-                 rest_endpoint: Optional[pulumi.Input[str]] = None):
+                 resource_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FlinkComputePool resources.
         :param pulumi.Input[str] api_version: (Required String) The API Version of the schema version of the Flink Compute Pool, for example, `fcpm/v2`.
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Flink Compute Pool.
-        :param pulumi.Input[int] current_cfu: (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
         :param pulumi.Input[str] display_name: The name of the Flink Compute Pool.
         :param pulumi.Input['FlinkComputePoolEnvironmentArgs'] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] kind: (Required String) The kind of the Flink Compute Pool, for example, `ComputePool`.
         :param pulumi.Input[int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Compute Pool.
         :param pulumi.Input[str] resource_name: (Required String) The Confluent Resource Name of the Flink Compute Pool.
-        :param pulumi.Input[str] rest_endpoint: (Required String, **Deprecated** use `get_flink_region` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
         """
         if api_version is not None:
             pulumi.set(__self__, "api_version", api_version)
         if cloud is not None:
             pulumi.set(__self__, "cloud", cloud)
-        if current_cfu is not None:
-            warnings.warn("""`confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage).""", DeprecationWarning)
-            pulumi.log.warn("""current_cfu is deprecated: `confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage).""")
-        if current_cfu is not None:
-            pulumi.set(__self__, "current_cfu", current_cfu)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if environment is not None:
@@ -144,11 +135,6 @@ class _FlinkComputePoolState:
             pulumi.set(__self__, "region", region)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
-        if rest_endpoint is not None:
-            warnings.warn("""`confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.""", DeprecationWarning)
-            pulumi.log.warn("""rest_endpoint is deprecated: `confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.""")
-        if rest_endpoint is not None:
-            pulumi.set(__self__, "rest_endpoint", rest_endpoint)
 
     @property
     @pulumi.getter(name="apiVersion")
@@ -173,21 +159,6 @@ class _FlinkComputePoolState:
     @cloud.setter
     def cloud(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloud", value)
-
-    @property
-    @pulumi.getter(name="currentCfu")
-    def current_cfu(self) -> Optional[pulumi.Input[int]]:
-        """
-        (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
-        """
-        warnings.warn("""`confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage).""", DeprecationWarning)
-        pulumi.log.warn("""current_cfu is deprecated: `confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage).""")
-
-        return pulumi.get(self, "current_cfu")
-
-    @current_cfu.setter
-    def current_cfu(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "current_cfu", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -260,21 +231,6 @@ class _FlinkComputePoolState:
     @resource_name.setter
     def resource_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_name", value)
-
-    @property
-    @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        (Required String, **Deprecated** use `get_flink_region` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
-        """
-        warnings.warn("""`confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.""", DeprecationWarning)
-        pulumi.log.warn("""rest_endpoint is deprecated: `confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.""")
-
-        return pulumi.get(self, "rest_endpoint")
-
-    @rest_endpoint.setter
-    def rest_endpoint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "rest_endpoint", value)
 
 
 class FlinkComputePool(pulumi.CustomResource):
@@ -409,10 +365,8 @@ class FlinkComputePool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region
             __props__.__dict__["api_version"] = None
-            __props__.__dict__["current_cfu"] = None
             __props__.__dict__["kind"] = None
             __props__.__dict__["resource_name"] = None
-            __props__.__dict__["rest_endpoint"] = None
         super(FlinkComputePool, __self__).__init__(
             'confluentcloud:index/flinkComputePool:FlinkComputePool',
             resource_name,
@@ -425,14 +379,12 @@ class FlinkComputePool(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_version: Optional[pulumi.Input[str]] = None,
             cloud: Optional[pulumi.Input[str]] = None,
-            current_cfu: Optional[pulumi.Input[int]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             environment: Optional[pulumi.Input[pulumi.InputType['FlinkComputePoolEnvironmentArgs']]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             max_cfu: Optional[pulumi.Input[int]] = None,
             region: Optional[pulumi.Input[str]] = None,
-            resource_name_: Optional[pulumi.Input[str]] = None,
-            rest_endpoint: Optional[pulumi.Input[str]] = None) -> 'FlinkComputePool':
+            resource_name_: Optional[pulumi.Input[str]] = None) -> 'FlinkComputePool':
         """
         Get an existing FlinkComputePool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -442,14 +394,12 @@ class FlinkComputePool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_version: (Required String) The API Version of the schema version of the Flink Compute Pool, for example, `fcpm/v2`.
         :param pulumi.Input[str] cloud: The cloud service provider that runs the Flink Compute Pool.
-        :param pulumi.Input[int] current_cfu: (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
         :param pulumi.Input[str] display_name: The name of the Flink Compute Pool.
         :param pulumi.Input[pulumi.InputType['FlinkComputePoolEnvironmentArgs']] environment: Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
         :param pulumi.Input[str] kind: (Required String) The kind of the Flink Compute Pool, for example, `ComputePool`.
         :param pulumi.Input[int] max_cfu: Maximum number of Confluent Flink Units (CFUs) that the Flink compute pool should auto-scale to. The accepted values are: `5`, `10`, `20`, `30`, `40` and `50`.
         :param pulumi.Input[str] region: The cloud service provider region that hosts the Flink Compute Pool.
         :param pulumi.Input[str] resource_name_: (Required String) The Confluent Resource Name of the Flink Compute Pool.
-        :param pulumi.Input[str] rest_endpoint: (Required String, **Deprecated** use `get_flink_region` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -457,14 +407,12 @@ class FlinkComputePool(pulumi.CustomResource):
 
         __props__.__dict__["api_version"] = api_version
         __props__.__dict__["cloud"] = cloud
-        __props__.__dict__["current_cfu"] = current_cfu
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["environment"] = environment
         __props__.__dict__["kind"] = kind
         __props__.__dict__["max_cfu"] = max_cfu
         __props__.__dict__["region"] = region
         __props__.__dict__["resource_name"] = resource_name_
-        __props__.__dict__["rest_endpoint"] = rest_endpoint
         return FlinkComputePool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -482,17 +430,6 @@ class FlinkComputePool(pulumi.CustomResource):
         The cloud service provider that runs the Flink Compute Pool.
         """
         return pulumi.get(self, "cloud")
-
-    @property
-    @pulumi.getter(name="currentCfu")
-    def current_cfu(self) -> pulumi.Output[int]:
-        """
-        (Required Integer, **Deprecated**) The number of Confluent Flink Units (CFUs) currently allocated to this Flink compute pool.
-        """
-        warnings.warn("""`confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage).""", DeprecationWarning)
-        pulumi.log.warn("""current_cfu is deprecated: `confluent_flink_compute_pool` resource's `current_cfu` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage).""")
-
-        return pulumi.get(self, "current_cfu")
 
     @property
     @pulumi.getter(name="displayName")
@@ -541,15 +478,4 @@ class FlinkComputePool(pulumi.CustomResource):
         (Required String) The Confluent Resource Name of the Flink Compute Pool.
         """
         return pulumi.get(self, "resource_name")
-
-    @property
-    @pulumi.getter(name="restEndpoint")
-    def rest_endpoint(self) -> pulumi.Output[str]:
-        """
-        (Required String, **Deprecated** use `get_flink_region` data source's `rest_endpoint` attribute instead) The API endpoint of the Flink Compute Pool.
-        """
-        warnings.warn("""`confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.""", DeprecationWarning)
-        pulumi.log.warn("""rest_endpoint is deprecated: `confluent_flink_compute_pool` resource's `rest_endpoint` attribute has been deprecated and will be removed in a future minor version (as `confluent_flink_compute_pool` resource is still in a Preview lifecycle stage). Use `confluent_flink_region` data source's `rest_endpoint` attribute instead.""")
-
-        return pulumi.get(self, "rest_endpoint")
 
