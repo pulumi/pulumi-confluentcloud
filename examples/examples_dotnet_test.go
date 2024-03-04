@@ -21,7 +21,7 @@ func TestAccEnvironmentCSharp(t *testing.T) {
 }
 
 func getCsharpBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	base := getBaseOptions()
+	base := getBaseOptions(t)
 	baseCsharp := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
 			"Pulumi.ConfluentCloud",
