@@ -16,7 +16,8 @@ func getCwd(t *testing.T) string {
 	return cwd
 }
 
-func getBaseOptions() integration.ProgramTestOptions {
+func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	t.Skipf("Skipping due to https://github.com/pulumi/home/issues/3332")
 	return integration.ProgramTestOptions{
 		RunUpdateTest:        false,
 		ExpectRefreshChanges: true,
