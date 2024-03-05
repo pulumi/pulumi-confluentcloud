@@ -154,7 +154,12 @@
                 }
             },
             "confluent_environment": {
-                "current": "confluentcloud:index/environment:Environment"
+                "current": "confluentcloud:index/environment:Environment",
+                "fields": {
+                    "stream_governance": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_flink_compute_pool": {
                 "current": "confluentcloud:index/flinkComputePool:FlinkComputePool",
@@ -705,7 +710,12 @@
                 }
             },
             "confluent_environment": {
-                "current": "confluentcloud:index/getEnvironment:getEnvironment"
+                "current": "confluentcloud:index/getEnvironment:getEnvironment",
+                "fields": {
+                    "stream_governance": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_environments": {
                 "current": "confluentcloud:index/getEnvironments:getEnvironments",

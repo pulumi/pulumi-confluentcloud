@@ -674,6 +674,18 @@
                 "id"
             ]
         },
+        "confluentcloud:index/EnvironmentStreamGovernance:EnvironmentStreamGovernance": {
+            "properties": {
+                "package": {
+                    "type": "string",
+                    "description": "Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "package"
+            ]
+        },
         "confluentcloud:index/FlinkComputePoolEnvironment:FlinkComputePoolEnvironment": {
             "properties": {
                 "id": {
@@ -2329,6 +2341,18 @@
                     "requiredInputs": []
                 }
             }
+        },
+        "confluentcloud:index/getEnvironmentStreamGovernance:getEnvironmentStreamGovernance": {
+            "properties": {
+                "package": {
+                    "type": "string",
+                    "description": "Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "package"
+            ]
         },
         "confluentcloud:index/getFlinkComputePoolEnvironment:getFlinkComputePoolEnvironment": {
             "properties": {
@@ -4930,16 +4954,25 @@
                 "resourceName": {
                     "type": "string",
                     "description": "(Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.\n"
+                },
+                "streamGovernance": {
+                    "$ref": "#/types/confluentcloud:index/EnvironmentStreamGovernance:EnvironmentStreamGovernance",
+                    "description": "Stream Governance configurations for the environment\n"
                 }
             },
             "required": [
                 "displayName",
-                "resourceName"
+                "resourceName",
+                "streamGovernance"
             ],
             "inputProperties": {
                 "displayName": {
                     "type": "string",
                     "description": "A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, \"Development\". The name can contain hyphens and underscores.\n"
+                },
+                "streamGovernance": {
+                    "$ref": "#/types/confluentcloud:index/EnvironmentStreamGovernance:EnvironmentStreamGovernance",
+                    "description": "Stream Governance configurations for the environment\n"
                 }
             },
             "stateInputs": {
@@ -4952,6 +4985,10 @@
                     "resourceName": {
                         "type": "string",
                         "description": "(Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.\n"
+                    },
+                    "streamGovernance": {
+                        "$ref": "#/types/confluentcloud:index/EnvironmentStreamGovernance:EnvironmentStreamGovernance",
+                        "description": "Stream Governance configurations for the environment\n"
                     }
                 },
                 "type": "object"
@@ -5105,7 +5142,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).\n"
+                    "description": "The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).\n"
                 },
                 "statement": {
                     "type": "string",
@@ -5156,7 +5193,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).\n",
+                    "description": "The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).\n",
                     "willReplaceOnChanges": true
                 },
                 "statement": {
@@ -5205,7 +5242,7 @@
                     },
                     "restEndpoint": {
                         "type": "string",
-                        "description": "The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).\n",
+                        "description": "The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).\n",
                         "willReplaceOnChanges": true
                     },
                     "statement": {
@@ -9156,6 +9193,9 @@
                     "id": {
                         "type": "string",
                         "description": "The ID of the Environment, for example, `env-abc123`.\n"
+                    },
+                    "streamGovernance": {
+                        "$ref": "#/types/confluentcloud:index/getEnvironmentStreamGovernance:getEnvironmentStreamGovernance"
                     }
                 },
                 "type": "object"
@@ -9174,13 +9214,17 @@
                     "resourceName": {
                         "type": "string",
                         "description": "(Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.\n"
+                    },
+                    "streamGovernance": {
+                        "$ref": "#/types/confluentcloud:index/getEnvironmentStreamGovernance:getEnvironmentStreamGovernance"
                     }
                 },
                 "type": "object",
                 "required": [
                     "displayName",
                     "id",
-                    "resourceName"
+                    "resourceName",
+                    "streamGovernance"
                 ]
             }
         },
