@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -39,6 +41,7 @@ export function getEnvironment(args?: GetEnvironmentArgs, opts?: pulumi.InvokeOp
     return pulumi.runtime.invoke("confluentcloud:index/getEnvironment:getEnvironment", {
         "displayName": args.displayName,
         "id": args.id,
+        "streamGovernance": args.streamGovernance,
     }, opts);
 }
 
@@ -56,6 +59,7 @@ export interface GetEnvironmentArgs {
      * The ID of the Environment, for example, `env-abc123`.
      */
     id?: string;
+    streamGovernance?: inputs.GetEnvironmentStreamGovernance;
 }
 
 /**
@@ -74,6 +78,7 @@ export interface GetEnvironmentResult {
      * (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
      */
     readonly resourceName: string;
+    readonly streamGovernance: outputs.GetEnvironmentStreamGovernance;
 }
 /**
  * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -121,4 +126,5 @@ export interface GetEnvironmentOutputArgs {
      * The ID of the Environment, for example, `env-abc123`.
      */
     id?: pulumi.Input<string>;
+    streamGovernance?: pulumi.Input<inputs.GetEnvironmentStreamGovernanceArgs>;
 }

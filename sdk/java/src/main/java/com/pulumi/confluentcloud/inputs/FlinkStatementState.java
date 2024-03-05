@@ -81,14 +81,14 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+     * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      * 
      */
     @Import(name="restEndpoint")
     private @Nullable Output<String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+     * @return The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      * 
      */
     public Optional<Output<String>> restEndpoint() {
@@ -252,7 +252,7 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+         * @param restEndpoint The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class FlinkStatementState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+         * @param restEndpoint The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
          * 
          * @return builder
          * 

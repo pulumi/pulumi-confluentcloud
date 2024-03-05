@@ -3840,6 +3840,143 @@ func (o DnsForwarderGatewayPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type EnvironmentStreamGovernance struct {
+	// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+	Package string `pulumi:"package"`
+}
+
+// EnvironmentStreamGovernanceInput is an input type that accepts EnvironmentStreamGovernanceArgs and EnvironmentStreamGovernanceOutput values.
+// You can construct a concrete instance of `EnvironmentStreamGovernanceInput` via:
+//
+//	EnvironmentStreamGovernanceArgs{...}
+type EnvironmentStreamGovernanceInput interface {
+	pulumi.Input
+
+	ToEnvironmentStreamGovernanceOutput() EnvironmentStreamGovernanceOutput
+	ToEnvironmentStreamGovernanceOutputWithContext(context.Context) EnvironmentStreamGovernanceOutput
+}
+
+type EnvironmentStreamGovernanceArgs struct {
+	// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+	Package pulumi.StringInput `pulumi:"package"`
+}
+
+func (EnvironmentStreamGovernanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentStreamGovernance)(nil)).Elem()
+}
+
+func (i EnvironmentStreamGovernanceArgs) ToEnvironmentStreamGovernanceOutput() EnvironmentStreamGovernanceOutput {
+	return i.ToEnvironmentStreamGovernanceOutputWithContext(context.Background())
+}
+
+func (i EnvironmentStreamGovernanceArgs) ToEnvironmentStreamGovernanceOutputWithContext(ctx context.Context) EnvironmentStreamGovernanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStreamGovernanceOutput)
+}
+
+func (i EnvironmentStreamGovernanceArgs) ToEnvironmentStreamGovernancePtrOutput() EnvironmentStreamGovernancePtrOutput {
+	return i.ToEnvironmentStreamGovernancePtrOutputWithContext(context.Background())
+}
+
+func (i EnvironmentStreamGovernanceArgs) ToEnvironmentStreamGovernancePtrOutputWithContext(ctx context.Context) EnvironmentStreamGovernancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStreamGovernanceOutput).ToEnvironmentStreamGovernancePtrOutputWithContext(ctx)
+}
+
+// EnvironmentStreamGovernancePtrInput is an input type that accepts EnvironmentStreamGovernanceArgs, EnvironmentStreamGovernancePtr and EnvironmentStreamGovernancePtrOutput values.
+// You can construct a concrete instance of `EnvironmentStreamGovernancePtrInput` via:
+//
+//	        EnvironmentStreamGovernanceArgs{...}
+//
+//	or:
+//
+//	        nil
+type EnvironmentStreamGovernancePtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentStreamGovernancePtrOutput() EnvironmentStreamGovernancePtrOutput
+	ToEnvironmentStreamGovernancePtrOutputWithContext(context.Context) EnvironmentStreamGovernancePtrOutput
+}
+
+type environmentStreamGovernancePtrType EnvironmentStreamGovernanceArgs
+
+func EnvironmentStreamGovernancePtr(v *EnvironmentStreamGovernanceArgs) EnvironmentStreamGovernancePtrInput {
+	return (*environmentStreamGovernancePtrType)(v)
+}
+
+func (*environmentStreamGovernancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentStreamGovernance)(nil)).Elem()
+}
+
+func (i *environmentStreamGovernancePtrType) ToEnvironmentStreamGovernancePtrOutput() EnvironmentStreamGovernancePtrOutput {
+	return i.ToEnvironmentStreamGovernancePtrOutputWithContext(context.Background())
+}
+
+func (i *environmentStreamGovernancePtrType) ToEnvironmentStreamGovernancePtrOutputWithContext(ctx context.Context) EnvironmentStreamGovernancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStreamGovernancePtrOutput)
+}
+
+type EnvironmentStreamGovernanceOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentStreamGovernanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentStreamGovernance)(nil)).Elem()
+}
+
+func (o EnvironmentStreamGovernanceOutput) ToEnvironmentStreamGovernanceOutput() EnvironmentStreamGovernanceOutput {
+	return o
+}
+
+func (o EnvironmentStreamGovernanceOutput) ToEnvironmentStreamGovernanceOutputWithContext(ctx context.Context) EnvironmentStreamGovernanceOutput {
+	return o
+}
+
+func (o EnvironmentStreamGovernanceOutput) ToEnvironmentStreamGovernancePtrOutput() EnvironmentStreamGovernancePtrOutput {
+	return o.ToEnvironmentStreamGovernancePtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentStreamGovernanceOutput) ToEnvironmentStreamGovernancePtrOutputWithContext(ctx context.Context) EnvironmentStreamGovernancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentStreamGovernance) *EnvironmentStreamGovernance {
+		return &v
+	}).(EnvironmentStreamGovernancePtrOutput)
+}
+
+// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+func (o EnvironmentStreamGovernanceOutput) Package() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentStreamGovernance) string { return v.Package }).(pulumi.StringOutput)
+}
+
+type EnvironmentStreamGovernancePtrOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentStreamGovernancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentStreamGovernance)(nil)).Elem()
+}
+
+func (o EnvironmentStreamGovernancePtrOutput) ToEnvironmentStreamGovernancePtrOutput() EnvironmentStreamGovernancePtrOutput {
+	return o
+}
+
+func (o EnvironmentStreamGovernancePtrOutput) ToEnvironmentStreamGovernancePtrOutputWithContext(ctx context.Context) EnvironmentStreamGovernancePtrOutput {
+	return o
+}
+
+func (o EnvironmentStreamGovernancePtrOutput) Elem() EnvironmentStreamGovernanceOutput {
+	return o.ApplyT(func(v *EnvironmentStreamGovernance) EnvironmentStreamGovernance {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentStreamGovernance
+		return ret
+	}).(EnvironmentStreamGovernanceOutput)
+}
+
+// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+func (o EnvironmentStreamGovernancePtrOutput) Package() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentStreamGovernance) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Package
+	}).(pulumi.StringPtrOutput)
+}
+
 type FlinkComputePoolEnvironment struct {
 	// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
@@ -17904,6 +18041,143 @@ func (o GetByokKeyGcpArrayOutput) Index(i pulumi.IntInput) GetByokKeyGcpOutput {
 	}).(GetByokKeyGcpOutput)
 }
 
+type GetEnvironmentStreamGovernance struct {
+	// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+	Package string `pulumi:"package"`
+}
+
+// GetEnvironmentStreamGovernanceInput is an input type that accepts GetEnvironmentStreamGovernanceArgs and GetEnvironmentStreamGovernanceOutput values.
+// You can construct a concrete instance of `GetEnvironmentStreamGovernanceInput` via:
+//
+//	GetEnvironmentStreamGovernanceArgs{...}
+type GetEnvironmentStreamGovernanceInput interface {
+	pulumi.Input
+
+	ToGetEnvironmentStreamGovernanceOutput() GetEnvironmentStreamGovernanceOutput
+	ToGetEnvironmentStreamGovernanceOutputWithContext(context.Context) GetEnvironmentStreamGovernanceOutput
+}
+
+type GetEnvironmentStreamGovernanceArgs struct {
+	// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+	Package pulumi.StringInput `pulumi:"package"`
+}
+
+func (GetEnvironmentStreamGovernanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnvironmentStreamGovernance)(nil)).Elem()
+}
+
+func (i GetEnvironmentStreamGovernanceArgs) ToGetEnvironmentStreamGovernanceOutput() GetEnvironmentStreamGovernanceOutput {
+	return i.ToGetEnvironmentStreamGovernanceOutputWithContext(context.Background())
+}
+
+func (i GetEnvironmentStreamGovernanceArgs) ToGetEnvironmentStreamGovernanceOutputWithContext(ctx context.Context) GetEnvironmentStreamGovernanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEnvironmentStreamGovernanceOutput)
+}
+
+func (i GetEnvironmentStreamGovernanceArgs) ToGetEnvironmentStreamGovernancePtrOutput() GetEnvironmentStreamGovernancePtrOutput {
+	return i.ToGetEnvironmentStreamGovernancePtrOutputWithContext(context.Background())
+}
+
+func (i GetEnvironmentStreamGovernanceArgs) ToGetEnvironmentStreamGovernancePtrOutputWithContext(ctx context.Context) GetEnvironmentStreamGovernancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEnvironmentStreamGovernanceOutput).ToGetEnvironmentStreamGovernancePtrOutputWithContext(ctx)
+}
+
+// GetEnvironmentStreamGovernancePtrInput is an input type that accepts GetEnvironmentStreamGovernanceArgs, GetEnvironmentStreamGovernancePtr and GetEnvironmentStreamGovernancePtrOutput values.
+// You can construct a concrete instance of `GetEnvironmentStreamGovernancePtrInput` via:
+//
+//	        GetEnvironmentStreamGovernanceArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetEnvironmentStreamGovernancePtrInput interface {
+	pulumi.Input
+
+	ToGetEnvironmentStreamGovernancePtrOutput() GetEnvironmentStreamGovernancePtrOutput
+	ToGetEnvironmentStreamGovernancePtrOutputWithContext(context.Context) GetEnvironmentStreamGovernancePtrOutput
+}
+
+type getEnvironmentStreamGovernancePtrType GetEnvironmentStreamGovernanceArgs
+
+func GetEnvironmentStreamGovernancePtr(v *GetEnvironmentStreamGovernanceArgs) GetEnvironmentStreamGovernancePtrInput {
+	return (*getEnvironmentStreamGovernancePtrType)(v)
+}
+
+func (*getEnvironmentStreamGovernancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEnvironmentStreamGovernance)(nil)).Elem()
+}
+
+func (i *getEnvironmentStreamGovernancePtrType) ToGetEnvironmentStreamGovernancePtrOutput() GetEnvironmentStreamGovernancePtrOutput {
+	return i.ToGetEnvironmentStreamGovernancePtrOutputWithContext(context.Background())
+}
+
+func (i *getEnvironmentStreamGovernancePtrType) ToGetEnvironmentStreamGovernancePtrOutputWithContext(ctx context.Context) GetEnvironmentStreamGovernancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEnvironmentStreamGovernancePtrOutput)
+}
+
+type GetEnvironmentStreamGovernanceOutput struct{ *pulumi.OutputState }
+
+func (GetEnvironmentStreamGovernanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnvironmentStreamGovernance)(nil)).Elem()
+}
+
+func (o GetEnvironmentStreamGovernanceOutput) ToGetEnvironmentStreamGovernanceOutput() GetEnvironmentStreamGovernanceOutput {
+	return o
+}
+
+func (o GetEnvironmentStreamGovernanceOutput) ToGetEnvironmentStreamGovernanceOutputWithContext(ctx context.Context) GetEnvironmentStreamGovernanceOutput {
+	return o
+}
+
+func (o GetEnvironmentStreamGovernanceOutput) ToGetEnvironmentStreamGovernancePtrOutput() GetEnvironmentStreamGovernancePtrOutput {
+	return o.ToGetEnvironmentStreamGovernancePtrOutputWithContext(context.Background())
+}
+
+func (o GetEnvironmentStreamGovernanceOutput) ToGetEnvironmentStreamGovernancePtrOutputWithContext(ctx context.Context) GetEnvironmentStreamGovernancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetEnvironmentStreamGovernance) *GetEnvironmentStreamGovernance {
+		return &v
+	}).(GetEnvironmentStreamGovernancePtrOutput)
+}
+
+// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+func (o GetEnvironmentStreamGovernanceOutput) Package() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentStreamGovernance) string { return v.Package }).(pulumi.StringOutput)
+}
+
+type GetEnvironmentStreamGovernancePtrOutput struct{ *pulumi.OutputState }
+
+func (GetEnvironmentStreamGovernancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEnvironmentStreamGovernance)(nil)).Elem()
+}
+
+func (o GetEnvironmentStreamGovernancePtrOutput) ToGetEnvironmentStreamGovernancePtrOutput() GetEnvironmentStreamGovernancePtrOutput {
+	return o
+}
+
+func (o GetEnvironmentStreamGovernancePtrOutput) ToGetEnvironmentStreamGovernancePtrOutputWithContext(ctx context.Context) GetEnvironmentStreamGovernancePtrOutput {
+	return o
+}
+
+func (o GetEnvironmentStreamGovernancePtrOutput) Elem() GetEnvironmentStreamGovernanceOutput {
+	return o.ApplyT(func(v *GetEnvironmentStreamGovernance) GetEnvironmentStreamGovernance {
+		if v != nil {
+			return *v
+		}
+		var ret GetEnvironmentStreamGovernance
+		return ret
+	}).(GetEnvironmentStreamGovernanceOutput)
+}
+
+// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+func (o GetEnvironmentStreamGovernancePtrOutput) Package() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEnvironmentStreamGovernance) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Package
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetFlinkComputePoolEnvironment struct {
 	// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
 	//
@@ -27456,6 +27730,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsForwarderForwardViaIpPtrInput)(nil)).Elem(), DnsForwarderForwardViaIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsForwarderGatewayInput)(nil)).Elem(), DnsForwarderGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsForwarderGatewayPtrInput)(nil)).Elem(), DnsForwarderGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStreamGovernanceInput)(nil)).Elem(), EnvironmentStreamGovernanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStreamGovernancePtrInput)(nil)).Elem(), EnvironmentStreamGovernanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkComputePoolEnvironmentInput)(nil)).Elem(), FlinkComputePoolEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkComputePoolEnvironmentPtrInput)(nil)).Elem(), FlinkComputePoolEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkStatementComputePoolInput)(nil)).Elem(), FlinkStatementComputePoolArgs{})
@@ -27656,6 +27932,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAzureArrayInput)(nil)).Elem(), GetByokKeyAzureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyGcpInput)(nil)).Elem(), GetByokKeyGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyGcpArrayInput)(nil)).Elem(), GetByokKeyGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentStreamGovernanceInput)(nil)).Elem(), GetEnvironmentStreamGovernanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentStreamGovernancePtrInput)(nil)).Elem(), GetEnvironmentStreamGovernanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkComputePoolEnvironmentInput)(nil)).Elem(), GetFlinkComputePoolEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolIdentityProviderInput)(nil)).Elem(), GetIdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationCreatorInput)(nil)).Elem(), GetInvitationCreatorArgs{})
@@ -27860,6 +28138,8 @@ func init() {
 	pulumi.RegisterOutputType(DnsForwarderForwardViaIpPtrOutput{})
 	pulumi.RegisterOutputType(DnsForwarderGatewayOutput{})
 	pulumi.RegisterOutputType(DnsForwarderGatewayPtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentStreamGovernanceOutput{})
+	pulumi.RegisterOutputType(EnvironmentStreamGovernancePtrOutput{})
 	pulumi.RegisterOutputType(FlinkComputePoolEnvironmentOutput{})
 	pulumi.RegisterOutputType(FlinkComputePoolEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(FlinkStatementComputePoolOutput{})
@@ -28060,6 +28340,8 @@ func init() {
 	pulumi.RegisterOutputType(GetByokKeyAzureArrayOutput{})
 	pulumi.RegisterOutputType(GetByokKeyGcpOutput{})
 	pulumi.RegisterOutputType(GetByokKeyGcpArrayOutput{})
+	pulumi.RegisterOutputType(GetEnvironmentStreamGovernanceOutput{})
+	pulumi.RegisterOutputType(GetEnvironmentStreamGovernancePtrOutput{})
 	pulumi.RegisterOutputType(GetFlinkComputePoolEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetIdentityPoolIdentityProviderOutput{})
 	pulumi.RegisterOutputType(GetInvitationCreatorOutput{})

@@ -131,6 +131,9 @@ namespace Pulumi.ConfluentCloud
         [Input("id")]
         public string? Id { get; set; }
 
+        [Input("streamGovernance")]
+        public Inputs.GetEnvironmentStreamGovernanceArgs? StreamGovernance { get; set; }
+
         public GetEnvironmentArgs()
         {
         }
@@ -152,6 +155,9 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("streamGovernance")]
+        public Input<Inputs.GetEnvironmentStreamGovernanceInputArgs>? StreamGovernance { get; set; }
 
         public GetEnvironmentInvokeArgs()
         {
@@ -175,6 +181,7 @@ namespace Pulumi.ConfluentCloud
         /// (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
         /// </summary>
         public readonly string ResourceName;
+        public readonly Outputs.GetEnvironmentStreamGovernanceResult StreamGovernance;
 
         [OutputConstructor]
         private GetEnvironmentResult(
@@ -182,11 +189,14 @@ namespace Pulumi.ConfluentCloud
 
             string id,
 
-            string resourceName)
+            string resourceName,
+
+            Outputs.GetEnvironmentStreamGovernanceResult streamGovernance)
         {
             DisplayName = displayName;
             Id = id;
             ResourceName = resourceName;
+            StreamGovernance = streamGovernance;
         }
     }
 }

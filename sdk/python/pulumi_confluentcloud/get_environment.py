@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetEnvironmentResult',
@@ -21,7 +23,7 @@ class GetEnvironmentResult:
     """
     A collection of values returned by getEnvironment.
     """
-    def __init__(__self__, display_name=None, id=None, resource_name=None):
+    def __init__(__self__, display_name=None, id=None, resource_name=None, stream_governance=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -31,6 +33,9 @@ class GetEnvironmentResult:
         if resource_name and not isinstance(resource_name, str):
             raise TypeError("Expected argument 'resource_name' to be a str")
         pulumi.set(__self__, "resource_name", resource_name)
+        if stream_governance and not isinstance(stream_governance, dict):
+            raise TypeError("Expected argument 'stream_governance' to be a dict")
+        pulumi.set(__self__, "stream_governance", stream_governance)
 
     @property
     @pulumi.getter(name="displayName")
@@ -56,6 +61,11 @@ class GetEnvironmentResult:
         """
         return pulumi.get(self, "resource_name")
 
+    @property
+    @pulumi.getter(name="streamGovernance")
+    def stream_governance(self) -> 'outputs.GetEnvironmentStreamGovernanceResult':
+        return pulumi.get(self, "stream_governance")
+
 
 class AwaitableGetEnvironmentResult(GetEnvironmentResult):
     # pylint: disable=using-constant-test
@@ -65,11 +75,13 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
         return GetEnvironmentResult(
             display_name=self.display_name,
             id=self.id,
-            resource_name=self.resource_name)
+            resource_name=self.resource_name,
+            stream_governance=self.stream_governance)
 
 
 def get_environment(display_name: Optional[str] = None,
                     id: Optional[str] = None,
+                    stream_governance: Optional[pulumi.InputType['GetEnvironmentStreamGovernanceArgs']] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -101,18 +113,21 @@ def get_environment(display_name: Optional[str] = None,
     __args__ = dict()
     __args__['displayName'] = display_name
     __args__['id'] = id
+    __args__['streamGovernance'] = stream_governance
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('confluentcloud:index/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
     return AwaitableGetEnvironmentResult(
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
-        resource_name=pulumi.get(__ret__, 'resource_name'))
+        resource_name=pulumi.get(__ret__, 'resource_name'),
+        stream_governance=pulumi.get(__ret__, 'stream_governance'))
 
 
 @_utilities.lift_output_func(get_environment)
 def get_environment_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                            id: Optional[pulumi.Input[Optional[str]]] = None,
+                           stream_governance: Optional[pulumi.Input[Optional[pulumi.InputType['GetEnvironmentStreamGovernanceArgs']]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)

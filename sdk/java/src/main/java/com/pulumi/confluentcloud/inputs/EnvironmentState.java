@@ -3,6 +3,7 @@
 
 package com.pulumi.confluentcloud.inputs;
 
+import com.pulumi.confluentcloud.inputs.EnvironmentStreamGovernanceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -45,11 +46,27 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.resourceName);
     }
 
+    /**
+     * Stream Governance configurations for the environment
+     * 
+     */
+    @Import(name="streamGovernance")
+    private @Nullable Output<EnvironmentStreamGovernanceArgs> streamGovernance;
+
+    /**
+     * @return Stream Governance configurations for the environment
+     * 
+     */
+    public Optional<Output<EnvironmentStreamGovernanceArgs>> streamGovernance() {
+        return Optional.ofNullable(this.streamGovernance);
+    }
+
     private EnvironmentState() {}
 
     private EnvironmentState(EnvironmentState $) {
         this.displayName = $.displayName;
         this.resourceName = $.resourceName;
+        this.streamGovernance = $.streamGovernance;
     }
 
     public static Builder builder() {
@@ -110,6 +127,27 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceName(String resourceName) {
             return resourceName(Output.of(resourceName));
+        }
+
+        /**
+         * @param streamGovernance Stream Governance configurations for the environment
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamGovernance(@Nullable Output<EnvironmentStreamGovernanceArgs> streamGovernance) {
+            $.streamGovernance = streamGovernance;
+            return this;
+        }
+
+        /**
+         * @param streamGovernance Stream Governance configurations for the environment
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamGovernance(EnvironmentStreamGovernanceArgs streamGovernance) {
+            return streamGovernance(Output.of(streamGovernance));
         }
 
         public EnvironmentState build() {

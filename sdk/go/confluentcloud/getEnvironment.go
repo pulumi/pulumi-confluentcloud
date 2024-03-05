@@ -80,7 +80,8 @@ type LookupEnvironmentArgs struct {
 	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	DisplayName *string `pulumi:"displayName"`
 	// The ID of the Environment, for example, `env-abc123`.
-	Id *string `pulumi:"id"`
+	Id               *string                         `pulumi:"id"`
+	StreamGovernance *GetEnvironmentStreamGovernance `pulumi:"streamGovernance"`
 }
 
 // A collection of values returned by getEnvironment.
@@ -90,7 +91,8 @@ type LookupEnvironmentResult struct {
 	// (Required String) The ID of the Environment, for example, `env-abc123`.
 	Id string `pulumi:"id"`
 	// (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName     string                         `pulumi:"resourceName"`
+	StreamGovernance GetEnvironmentStreamGovernance `pulumi:"streamGovernance"`
 }
 
 func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentResultOutput {
@@ -113,7 +115,8 @@ type LookupEnvironmentOutputArgs struct {
 	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The ID of the Environment, for example, `env-abc123`.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id               pulumi.StringPtrInput                  `pulumi:"id"`
+	StreamGovernance GetEnvironmentStreamGovernancePtrInput `pulumi:"streamGovernance"`
 }
 
 func (LookupEnvironmentOutputArgs) ElementType() reflect.Type {
@@ -148,6 +151,10 @@ func (o LookupEnvironmentResultOutput) Id() pulumi.StringOutput {
 // (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
 func (o LookupEnvironmentResultOutput) ResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.ResourceName }).(pulumi.StringOutput)
+}
+
+func (o LookupEnvironmentResultOutput) StreamGovernance() GetEnvironmentStreamGovernanceOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) GetEnvironmentStreamGovernance { return v.StreamGovernance }).(GetEnvironmentStreamGovernanceOutput)
 }
 
 func init() {

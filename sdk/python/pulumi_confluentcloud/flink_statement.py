@@ -31,7 +31,7 @@ class FlinkStatementArgs:
         :param pulumi.Input[str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input['FlinkStatementCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom topic settings to set:
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         :param pulumi.Input[str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         :param pulumi.Input[bool] stopped: Indicates whether the statement should be stopped.
         """
@@ -131,7 +131,7 @@ class FlinkStatementArgs:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -181,7 +181,7 @@ class _FlinkStatementState:
         Input properties used for looking up and filtering FlinkStatement resources.
         :param pulumi.Input['FlinkStatementCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom topic settings to set:
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         :param pulumi.Input[str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input[str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         :param pulumi.Input[bool] stopped: Indicates whether the statement should be stopped.
@@ -271,7 +271,7 @@ class _FlinkStatementState:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -369,7 +369,7 @@ class FlinkStatement(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FlinkStatementCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom topic settings to set:
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         :param pulumi.Input[str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input[str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         :param pulumi.Input[bool] stopped: Indicates whether the statement should be stopped.
@@ -490,7 +490,7 @@ class FlinkStatement(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FlinkStatementCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom topic settings to set:
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         :param pulumi.Input[str] statement: The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
         :param pulumi.Input[str] statement_name: The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
         :param pulumi.Input[bool] stopped: Indicates whether the statement should be stopped.
@@ -551,7 +551,7 @@ class FlinkStatement(pulumi.CustomResource):
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
-        The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         """
         return pulumi.get(self, "rest_endpoint")
 

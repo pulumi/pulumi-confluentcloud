@@ -80,7 +80,7 @@ export class FlinkStatement extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+     * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      */
     public readonly restEndpoint!: pulumi.Output<string | undefined>;
     /**
@@ -159,7 +159,7 @@ export interface FlinkStatementState {
      */
     properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+     * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      */
     restEndpoint?: pulumi.Input<string>;
     /**
@@ -193,7 +193,7 @@ export interface FlinkStatementArgs {
      */
     properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+     * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      */
     restEndpoint?: pulumi.Input<string>;
     /**

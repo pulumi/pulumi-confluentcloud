@@ -305,6 +305,13 @@ export interface DnsForwarderGateway {
     id: pulumi.Input<string>;
 }
 
+export interface EnvironmentStreamGovernance {
+    /**
+     * Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+     */
+    package: pulumi.Input<string>;
+}
+
 export interface FlinkComputePoolEnvironment {
     /**
      * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
@@ -429,6 +436,20 @@ export interface GetBusinessMetadataSchemaRegistryClusterArgs {
      * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: pulumi.Input<string>;
+}
+
+export interface GetEnvironmentStreamGovernance {
+    /**
+     * Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+     */
+    package: string;
+}
+
+export interface GetEnvironmentStreamGovernanceArgs {
+    /**
+     * Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+     */
+    package: pulumi.Input<string>;
 }
 
 export interface GetFlinkComputePoolEnvironment {

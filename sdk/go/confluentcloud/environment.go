@@ -56,6 +56,8 @@ type Environment struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
 	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
+	// Stream Governance configurations for the environment
+	StreamGovernance EnvironmentStreamGovernanceOutput `pulumi:"streamGovernance"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -92,6 +94,8 @@ type environmentState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
 	ResourceName *string `pulumi:"resourceName"`
+	// Stream Governance configurations for the environment
+	StreamGovernance *EnvironmentStreamGovernance `pulumi:"streamGovernance"`
 }
 
 type EnvironmentState struct {
@@ -99,6 +103,8 @@ type EnvironmentState struct {
 	DisplayName pulumi.StringPtrInput
 	// (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
 	ResourceName pulumi.StringPtrInput
+	// Stream Governance configurations for the environment
+	StreamGovernance EnvironmentStreamGovernancePtrInput
 }
 
 func (EnvironmentState) ElementType() reflect.Type {
@@ -108,12 +114,16 @@ func (EnvironmentState) ElementType() reflect.Type {
 type environmentArgs struct {
 	// A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
 	DisplayName *string `pulumi:"displayName"`
+	// Stream Governance configurations for the environment
+	StreamGovernance *EnvironmentStreamGovernance `pulumi:"streamGovernance"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
 	// A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
 	DisplayName pulumi.StringPtrInput
+	// Stream Governance configurations for the environment
+	StreamGovernance EnvironmentStreamGovernancePtrInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -211,6 +221,11 @@ func (o EnvironmentOutput) DisplayName() pulumi.StringOutput {
 // (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
 func (o EnvironmentOutput) ResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ResourceName }).(pulumi.StringOutput)
+}
+
+// Stream Governance configurations for the environment
+func (o EnvironmentOutput) StreamGovernance() EnvironmentStreamGovernanceOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentStreamGovernanceOutput { return v.StreamGovernance }).(EnvironmentStreamGovernanceOutput)
 }
 
 type EnvironmentArrayOutput struct{ *pulumi.OutputState }

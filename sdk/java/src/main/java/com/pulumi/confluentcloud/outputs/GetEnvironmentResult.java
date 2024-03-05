@@ -3,6 +3,7 @@
 
 package com.pulumi.confluentcloud.outputs;
 
+import com.pulumi.confluentcloud.outputs.GetEnvironmentStreamGovernance;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -25,6 +26,7 @@ public final class GetEnvironmentResult {
      * 
      */
     private String resourceName;
+    private GetEnvironmentStreamGovernance streamGovernance;
 
     private GetEnvironmentResult() {}
     /**
@@ -48,6 +50,9 @@ public final class GetEnvironmentResult {
     public String resourceName() {
         return this.resourceName;
     }
+    public GetEnvironmentStreamGovernance streamGovernance() {
+        return this.streamGovernance;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,12 +66,14 @@ public final class GetEnvironmentResult {
         private String displayName;
         private String id;
         private String resourceName;
+        private GetEnvironmentStreamGovernance streamGovernance;
         public Builder() {}
         public Builder(GetEnvironmentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayName = defaults.displayName;
     	      this.id = defaults.id;
     	      this.resourceName = defaults.resourceName;
+    	      this.streamGovernance = defaults.streamGovernance;
         }
 
         @CustomType.Setter
@@ -93,11 +100,20 @@ public final class GetEnvironmentResult {
             this.resourceName = resourceName;
             return this;
         }
+        @CustomType.Setter
+        public Builder streamGovernance(GetEnvironmentStreamGovernance streamGovernance) {
+            if (streamGovernance == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "streamGovernance");
+            }
+            this.streamGovernance = streamGovernance;
+            return this;
+        }
         public GetEnvironmentResult build() {
             final var _resultValue = new GetEnvironmentResult();
             _resultValue.displayName = displayName;
             _resultValue.id = id;
             _resultValue.resourceName = resourceName;
+            _resultValue.streamGovernance = streamGovernance;
             return _resultValue;
         }
     }
