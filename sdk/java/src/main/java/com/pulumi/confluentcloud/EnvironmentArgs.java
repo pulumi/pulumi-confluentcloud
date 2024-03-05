@@ -3,6 +3,7 @@
 
 package com.pulumi.confluentcloud;
 
+import com.pulumi.confluentcloud.inputs.EnvironmentStreamGovernanceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -30,10 +31,26 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.displayName);
     }
 
+    /**
+     * Stream Governance configurations for the environment
+     * 
+     */
+    @Import(name="streamGovernance")
+    private @Nullable Output<EnvironmentStreamGovernanceArgs> streamGovernance;
+
+    /**
+     * @return Stream Governance configurations for the environment
+     * 
+     */
+    public Optional<Output<EnvironmentStreamGovernanceArgs>> streamGovernance() {
+        return Optional.ofNullable(this.streamGovernance);
+    }
+
     private EnvironmentArgs() {}
 
     private EnvironmentArgs(EnvironmentArgs $) {
         this.displayName = $.displayName;
+        this.streamGovernance = $.streamGovernance;
     }
 
     public static Builder builder() {
@@ -73,6 +90,27 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
+        }
+
+        /**
+         * @param streamGovernance Stream Governance configurations for the environment
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamGovernance(@Nullable Output<EnvironmentStreamGovernanceArgs> streamGovernance) {
+            $.streamGovernance = streamGovernance;
+            return this;
+        }
+
+        /**
+         * @param streamGovernance Stream Governance configurations for the environment
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamGovernance(EnvironmentStreamGovernanceArgs streamGovernance) {
+            return streamGovernance(Output.of(streamGovernance));
         }
 
         public EnvironmentArgs build() {

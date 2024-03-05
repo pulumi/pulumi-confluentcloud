@@ -305,6 +305,13 @@ export interface DnsForwarderGateway {
     id: string;
 }
 
+export interface EnvironmentStreamGovernance {
+    /**
+     * Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+     */
+    package: string;
+}
+
 export interface FlinkComputePoolEnvironment {
     /**
      * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-abc123`.
@@ -461,6 +468,13 @@ export interface GetByokKeyGcp {
      * (Optional String) The Google security group created for this key.
      */
     securityGroup: string;
+}
+
+export interface GetEnvironmentStreamGovernance {
+    /**
+     * Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+     */
+    package: string;
 }
 
 export interface GetFlinkComputePoolEnvironment {

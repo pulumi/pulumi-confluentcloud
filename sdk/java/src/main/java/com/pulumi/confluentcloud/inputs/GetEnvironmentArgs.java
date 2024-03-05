@@ -3,6 +3,7 @@
 
 package com.pulumi.confluentcloud.inputs;
 
+import com.pulumi.confluentcloud.inputs.GetEnvironmentStreamGovernanceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -49,11 +50,19 @@ public final class GetEnvironmentArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.id);
     }
 
+    @Import(name="streamGovernance")
+    private @Nullable Output<GetEnvironmentStreamGovernanceArgs> streamGovernance;
+
+    public Optional<Output<GetEnvironmentStreamGovernanceArgs>> streamGovernance() {
+        return Optional.ofNullable(this.streamGovernance);
+    }
+
     private GetEnvironmentArgs() {}
 
     private GetEnvironmentArgs(GetEnvironmentArgs $) {
         this.displayName = $.displayName;
         this.id = $.id;
+        this.streamGovernance = $.streamGovernance;
     }
 
     public static Builder builder() {
@@ -118,6 +127,15 @@ public final class GetEnvironmentArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder id(String id) {
             return id(Output.of(id));
+        }
+
+        public Builder streamGovernance(@Nullable Output<GetEnvironmentStreamGovernanceArgs> streamGovernance) {
+            $.streamGovernance = streamGovernance;
+            return this;
+        }
+
+        public Builder streamGovernance(GetEnvironmentStreamGovernanceArgs streamGovernance) {
+            return streamGovernance(Output.of(streamGovernance));
         }
 
         public GetEnvironmentArgs build() {

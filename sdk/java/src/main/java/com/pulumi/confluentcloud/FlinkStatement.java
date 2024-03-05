@@ -111,14 +111,14 @@ public class FlinkStatement extends com.pulumi.resources.CustomResource {
         return this.properties;
     }
     /**
-     * The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+     * The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      * 
      */
     @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+     * @return The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
      * 
      */
     public Output<Optional<String>> restEndpoint() {

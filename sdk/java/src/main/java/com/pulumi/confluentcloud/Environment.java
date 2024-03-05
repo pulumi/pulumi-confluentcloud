@@ -6,6 +6,7 @@ package com.pulumi.confluentcloud;
 import com.pulumi.confluentcloud.EnvironmentArgs;
 import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.EnvironmentState;
+import com.pulumi.confluentcloud.outputs.EnvironmentStreamGovernance;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -113,6 +114,20 @@ public class Environment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceName() {
         return this.resourceName;
+    }
+    /**
+     * Stream Governance configurations for the environment
+     * 
+     */
+    @Export(name="streamGovernance", refs={EnvironmentStreamGovernance.class}, tree="[0]")
+    private Output<EnvironmentStreamGovernance> streamGovernance;
+
+    /**
+     * @return Stream Governance configurations for the environment
+     * 
+     */
+    public Output<EnvironmentStreamGovernance> streamGovernance() {
+        return this.streamGovernance;
     }
 
     /**

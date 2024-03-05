@@ -34,6 +34,7 @@ __all__ = [
     'DnsForwarderEnvironmentArgs',
     'DnsForwarderForwardViaIpArgs',
     'DnsForwarderGatewayArgs',
+    'EnvironmentStreamGovernanceArgs',
     'FlinkComputePoolEnvironmentArgs',
     'FlinkStatementComputePoolArgs',
     'FlinkStatementCredentialsArgs',
@@ -130,6 +131,7 @@ __all__ = [
     'GetBusinessMetadataBindingSchemaRegistryClusterArgs',
     'GetBusinessMetadataCredentialsArgs',
     'GetBusinessMetadataSchemaRegistryClusterArgs',
+    'GetEnvironmentStreamGovernanceArgs',
     'GetFlinkComputePoolEnvironmentArgs',
     'GetIdentityPoolIdentityProviderArgs',
     'GetIpAddressesFilterArgs',
@@ -1220,6 +1222,28 @@ class DnsForwarderGatewayArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class EnvironmentStreamGovernanceArgs:
+    def __init__(__self__, *,
+                 package: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] package: Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+        """
+        pulumi.set(__self__, "package", package)
+
+    @property
+    @pulumi.getter
+    def package(self) -> pulumi.Input[str]:
+        """
+        Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+        """
+        return pulumi.get(self, "package")
+
+    @package.setter
+    def package(self, value: pulumi.Input[str]):
+        pulumi.set(self, "package", value)
 
 
 @pulumi.input_type
@@ -4083,6 +4107,28 @@ class GetBusinessMetadataSchemaRegistryClusterArgs:
     @id.setter
     def id(self, value: str):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetEnvironmentStreamGovernanceArgs:
+    def __init__(__self__, *,
+                 package: str):
+        """
+        :param str package: Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+        """
+        pulumi.set(__self__, "package", package)
+
+    @property
+    @pulumi.getter
+    def package(self) -> str:
+        """
+        Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+        """
+        return pulumi.get(self, "package")
+
+    @package.setter
+    def package(self, value: str):
+        pulumi.set(self, "package", value)
 
 
 @pulumi.input_type

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -80,6 +82,10 @@ export class Environment extends pulumi.CustomResource {
      * (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
      */
     public /*out*/ readonly resourceName!: pulumi.Output<string>;
+    /**
+     * Stream Governance configurations for the environment
+     */
+    public readonly streamGovernance!: pulumi.Output<outputs.EnvironmentStreamGovernance>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -96,9 +102,11 @@ export class Environment extends pulumi.CustomResource {
             const state = argsOrState as EnvironmentState | undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["resourceName"] = state ? state.resourceName : undefined;
+            resourceInputs["streamGovernance"] = state ? state.streamGovernance : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["streamGovernance"] = args ? args.streamGovernance : undefined;
             resourceInputs["resourceName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -118,6 +126,10 @@ export interface EnvironmentState {
      * (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
      */
     resourceName?: pulumi.Input<string>;
+    /**
+     * Stream Governance configurations for the environment
+     */
+    streamGovernance?: pulumi.Input<inputs.EnvironmentStreamGovernance>;
 }
 
 /**
@@ -128,4 +140,8 @@ export interface EnvironmentArgs {
      * A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * Stream Governance configurations for the environment
+     */
+    streamGovernance?: pulumi.Input<inputs.EnvironmentStreamGovernance>;
 }

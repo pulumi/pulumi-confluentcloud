@@ -70,7 +70,7 @@ namespace Pulumi.ConfluentCloud
         public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        /// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         /// </summary>
         [Output("restEndpoint")]
         public Output<string?> RestEndpoint { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        /// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+        /// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }

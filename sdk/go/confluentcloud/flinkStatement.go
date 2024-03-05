@@ -54,7 +54,7 @@ type FlinkStatement struct {
 	Principal    FlinkStatementPrincipalOutput      `pulumi:"principal"`
 	// The custom topic settings to set:
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint pulumi.StringPtrOutput `pulumi:"restEndpoint"`
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement pulumi.StringOutput `pulumi:"statement"`
@@ -112,7 +112,7 @@ type flinkStatementState struct {
 	Principal    *FlinkStatementPrincipal    `pulumi:"principal"`
 	// The custom topic settings to set:
 	Properties map[string]string `pulumi:"properties"`
-	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement *string `pulumi:"statement"`
@@ -131,7 +131,7 @@ type FlinkStatementState struct {
 	Principal    FlinkStatementPrincipalPtrInput
 	// The custom topic settings to set:
 	Properties pulumi.StringMapInput
-	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint pulumi.StringPtrInput
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement pulumi.StringPtrInput
@@ -154,7 +154,7 @@ type flinkStatementArgs struct {
 	Principal    *FlinkStatementPrincipal    `pulumi:"principal"`
 	// The custom topic settings to set:
 	Properties map[string]string `pulumi:"properties"`
-	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement string `pulumi:"statement"`
@@ -174,7 +174,7 @@ type FlinkStatementArgs struct {
 	Principal    FlinkStatementPrincipalPtrInput
 	// The custom topic settings to set:
 	Properties pulumi.StringMapInput
-	// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+	// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 	RestEndpoint pulumi.StringPtrInput
 	// The raw SQL text statement, for example, `SELECT CURRENT_TIMESTAMP;`.
 	Statement pulumi.StringInput
@@ -297,7 +297,7 @@ func (o FlinkStatementOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlinkStatement) pulumi.StringMapOutput { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// The REST endpoint of the Flink Compute Pool, for example, `https://flink.us-east-1.aws.confluent.cloud`).
+// The REST endpoint of the Flink region, for example, `https://flink.us-east-1.aws.confluent.cloud`).
 func (o FlinkStatementOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlinkStatement) pulumi.StringPtrOutput { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }

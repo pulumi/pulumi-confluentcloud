@@ -35,6 +35,7 @@ __all__ = [
     'DnsForwarderEnvironment',
     'DnsForwarderForwardViaIp',
     'DnsForwarderGateway',
+    'EnvironmentStreamGovernance',
     'FlinkComputePoolEnvironment',
     'FlinkStatementComputePool',
     'FlinkStatementCredentials',
@@ -135,6 +136,7 @@ __all__ = [
     'GetByokKeyAwResult',
     'GetByokKeyAzureResult',
     'GetByokKeyGcpResult',
+    'GetEnvironmentStreamGovernanceResult',
     'GetFlinkComputePoolEnvironmentResult',
     'GetIdentityPoolIdentityProviderResult',
     'GetInvitationCreatorResult',
@@ -1241,6 +1243,24 @@ class DnsForwarderGateway(dict):
         The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class EnvironmentStreamGovernance(dict):
+    def __init__(__self__, *,
+                 package: str):
+        """
+        :param str package: Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+        """
+        pulumi.set(__self__, "package", package)
+
+    @property
+    @pulumi.getter
+    def package(self) -> str:
+        """
+        Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+        """
+        return pulumi.get(self, "package")
 
 
 @pulumi.output_type
@@ -4107,6 +4127,24 @@ class GetByokKeyGcpResult(dict):
         (Optional String) The Google security group created for this key.
         """
         return pulumi.get(self, "security_group")
+
+
+@pulumi.output_type
+class GetEnvironmentStreamGovernanceResult(dict):
+    def __init__(__self__, *,
+                 package: str):
+        """
+        :param str package: Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+        """
+        pulumi.set(__self__, "package", package)
+
+    @property
+    @pulumi.getter
+    def package(self) -> str:
+        """
+        Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+        """
+        return pulumi.get(self, "package")
 
 
 @pulumi.output_type
