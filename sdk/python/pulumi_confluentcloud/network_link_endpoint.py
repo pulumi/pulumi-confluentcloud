@@ -212,6 +212,7 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -230,6 +231,8 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
             ))
         pulumi.export("networkLinkEndpoint", nle)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Getting Started
 
         The following end-to-end examples might help to get started with `NetworkLinkEndpoint` resource:
@@ -239,15 +242,15 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
 
         You can import a Network Link Endpoint by using Environment ID and Network Link Endpoint ID, in the format `<Environment ID>/<Network Link Endpoint ID>`. The following example shows how to import a Network Link Endpoint:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint my_nle env-abc123/nle-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -266,6 +269,7 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -284,6 +288,8 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
             ))
         pulumi.export("networkLinkEndpoint", nle)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Getting Started
 
         The following end-to-end examples might help to get started with `NetworkLinkEndpoint` resource:
@@ -293,15 +299,15 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
 
         You can import a Network Link Endpoint by using Environment ID and Network Link Endpoint ID, in the format `<Environment ID>/<Network Link Endpoint ID>`. The following example shows how to import a Network Link Endpoint:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint my_nle env-abc123/nle-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param NetworkLinkEndpointArgs args: The arguments to use to populate this resource's properties.

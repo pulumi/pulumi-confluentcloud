@@ -13,7 +13,9 @@ import (
 )
 
 // ## Example Usage
+//
 // ### Example Network that supports Private Link Connections
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,7 +56,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Network that supports Peering Connections
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,7 +96,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Network that supports Private Service Connect Connections
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -135,7 +143,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Network that supports Transit Gateway Endpoints
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -172,6 +183,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Getting Started
 //
 // The following end-to-end examples might help to get started with `Network` resource:
@@ -195,15 +208,15 @@ import (
 //
 // You can import a Network by using Environment ID and Network ID, in the format `<Environment ID>/<Network ID>`. The following example shows how to import a Network:
 //
-//	$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+// $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 //
-//	$ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+// $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
 // $ pulumi import confluentcloud:index/network:Network my_network env-abc123/n-abc123
 // ```
 //
-//	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type Network struct {
 	pulumi.CustomResourceState
 

@@ -59,18 +59,20 @@ class AwaitableGetSchemaRegistryClustersResult(GetSchemaRegistryClustersResult):
 
 def get_schema_registry_clusters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryClustersResult:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `get_schema_registry_clusters` describes a data source for Schema Registry Clusters.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_schema_registry_clusters()
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -84,17 +86,19 @@ def get_schema_registry_clusters(opts: Optional[pulumi.InvokeOptions] = None) ->
 @_utilities.lift_output_func(get_schema_registry_clusters)
 def get_schema_registry_clusters_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryClustersResult]:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `get_schema_registry_clusters` describes a data source for Schema Registry Clusters.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_schema_registry_clusters()
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

@@ -16,117 +16,83 @@ import (
 //
 // You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `<Kafka cluster ID>/<Kafka topic name>`, for example:
 //
-//	Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+// Option #1: Manage multiple Kafka clusters in the same Terraform workspace
 //
-//	$ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
+// $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
 //
-//	$ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
+// $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
 //
-//	$ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
-//
-// ```sh
-// $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
-// ```
-//
-//	Option #2: Manage a single Kafka cluster in the same Terraform workspace
+// $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
 //
 // ```sh
 // $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
 // ```
 //
-//	resource "confluent_kafka_topic" "orders" {
+// Option #2: Manage a single Kafka cluster in the same Terraform workspace
+//
+// ```sh
+// $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
+// ```
+//
+// resource "confluent_kafka_topic" "orders" {
 //
 //	kafka_cluster {
 //
-//	id = confluent_kafka_cluster.basic-cluster.id
+//	  id = confluent_kafka_cluster.basic-cluster.id
 //
 //	}
 //
-//	topic_name
+//	topic_name         = "orders"
 //
-//	= "orders"
+//	partitions_count   = 4
 //
-//	partitions_count
-//
-//	= 4
-//
-//	rest_endpoint
-//
-// = confluent_kafka_cluster.basic-cluster.rest_endpoint
+//	rest_endpoint      = confluent_kafka_cluster.basic-cluster.rest_endpoint
 //
 // # https://docs.confluent.io/cloud/current/client-apps/topics/manage.html#ak-topic-configurations-for-all-ccloud-cluster-types
 //
 //	config = {
 //
-//	"cleanup.policy"
+//	  "cleanup.policy"                      = "delete"
 //
-// = "delete"
+//	  "delete.retention.ms"                 = "86400000"
 //
-//	"delete.retention.ms"
+//	  "max.compaction.lag.ms"               = "9223372036854775807"
 //
-//	= "86400000"
+//	  "max.message.bytes"                   = "2097164"
 //
-//	"max.compaction.lag.ms"
+//	  "message.timestamp.after.max.ms"      = "9223372036854775807"
 //
-//	= "9223372036854775807"
+//	  "message.timestamp.before.max.ms"     = "9223372036854775807"
 //
-//	"max.message.bytes"
+//	  "message.timestamp.difference.max.ms" = "9223372036854775807"
 //
-//	= "2097164"
+//	  "message.timestamp.type"              = "CreateTime"
 //
-//	"message.timestamp.after.max.ms"
+//	  "min.compaction.lag.ms"               = "0"
 //
-// = "9223372036854775807"
+//	  "min.insync.replicas"                 = "2"
 //
-//	"message.timestamp.before.max.ms"
+//	  "retention.bytes"                     = "-1"
 //
-//	= "9223372036854775807"
+//	  "retention.ms"                        = "604800000"
 //
-//	"message.timestamp.difference.max.ms" = "9223372036854775807"
+//	  "segment.bytes"                       = "104857600"
 //
-//	"message.timestamp.type"
-//
-// = "CreateTime"
-//
-//	"min.compaction.lag.ms"
-//
-//	= "0"
-//
-//	"min.insync.replicas"
-//
-//	= "2"
-//
-//	"retention.bytes"
-//
-//	= "-1"
-//
-//	"retention.ms"
-//
-// = "604800000"
-//
-//	"segment.bytes"
-//
-//	= "104857600"
-//
-//	"segment.ms"
-//
-// = "604800000"
+//	  "segment.ms"                          = "604800000"
 //
 //	}
 //
 //	credentials {
 //
-//	key
+//	  key    = confluent_api_key.app-manager-kafka-api-key.id
 //
-// = confluent_api_key.app-manager-kafka-api-key.id
-//
-//	secret = confluent_api_key.app-manager-kafka-api-key.secret
+//	  secret = confluent_api_key.app-manager-kafka-api-key.secret
 //
 //	}
 //
-//	}
+// }
 //
-//	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type KafkaTopic struct {
 	pulumi.CustomResourceState
 

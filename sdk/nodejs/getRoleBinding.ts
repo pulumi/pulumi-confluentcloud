@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.RoleBinding` describes a Role Binding.
  *
@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -22,6 +23,7 @@ import * as utilities from "./utilities";
  * });
  * export const example = exampleRoleBinding;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRoleBinding(args: GetRoleBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleBindingResult> {
 
@@ -60,7 +62,7 @@ export interface GetRoleBindingResult {
     readonly roleName: string;
 }
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.RoleBinding` describes a Role Binding.
  *
@@ -68,6 +70,7 @@ export interface GetRoleBindingResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -77,6 +80,7 @@ export interface GetRoleBindingResult {
  * });
  * export const example = exampleRoleBinding;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRoleBindingOutput(args: GetRoleBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleBindingResult> {
     return pulumi.output(args).apply((a: any) => getRoleBinding(a, opts))

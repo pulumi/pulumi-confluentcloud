@@ -58,12 +58,13 @@ class AwaitableGetEnvironmentsResult(GetEnvironmentsResult):
 
 def get_environments(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentsResult:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `get_environments` describes a data source for Environments.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -71,6 +72,7 @@ def get_environments(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     main = confluentcloud.get_environments()
     pulumi.export("environments", main.ids)
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -84,12 +86,13 @@ def get_environments(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
 @_utilities.lift_output_func(get_environments)
 def get_environments_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentsResult]:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `get_environments` describes a data source for Environments.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -97,5 +100,6 @@ def get_environments_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
     main = confluentcloud.get_environments()
     pulumi.export("environments", main.ids)
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

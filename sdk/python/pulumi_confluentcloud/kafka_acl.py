@@ -355,29 +355,29 @@ class KafkaAcl(pulumi.CustomResource):
 
         You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for example:
 
-         Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+        Option #1: Manage multiple Kafka clusters in the same Terraform workspace
 
-         $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
+        $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
 
-         $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
+        $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
 
-         $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
-
-        ```sh
-        $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
-        ```
-
-         Option #2: Manage a single Kafka cluster in the same Terraform workspace
-
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
 
         ```sh
         $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        Option #2: Manage a single Kafka cluster in the same Terraform workspace
+
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+
+        ```sh
+        $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
+        ```
+
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -402,29 +402,29 @@ class KafkaAcl(pulumi.CustomResource):
 
         You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `<Kafka cluster ID>/<Kafka ACL resource type>#<Kafka ACL resource name>#<Kafka ACL pattern type>#<Kafka ACL principal>#<Kafka ACL host>#<Kafka ACL operation>#<Kafka ACL permission>`, for example:
 
-         Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+        Option #1: Manage multiple Kafka clusters in the same Terraform workspace
 
-         $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
+        $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
 
-         $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
+        $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
 
-         $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
-
-        ```sh
-        $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
-        ```
-
-         Option #2: Manage a single Kafka cluster in the same Terraform workspace
-
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
-
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
 
         ```sh
         $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        Option #2: Manage a single Kafka cluster in the same Terraform workspace
+
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+
+        ```sh
+        $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster "lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW"
+        ```
+
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param KafkaAclArgs args: The arguments to use to populate this resource's properties.

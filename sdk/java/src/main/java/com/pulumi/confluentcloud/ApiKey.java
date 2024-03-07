@@ -20,7 +20,9 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
  * ### Example Kafka API Key
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,7 +67,10 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example ksqlDB API Key
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -110,7 +115,10 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example Schema Registry API Key
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -155,7 +163,10 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example Flink API Key
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -200,7 +211,10 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example Cloud API Key
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -235,6 +249,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Getting Started
  * 
  * The following end-to-end examples might help to get started with `confluentcloud.ApiKey` resource:
@@ -264,33 +280,33 @@ import javax.annotation.Nullable;
  * 
  * You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `&lt;Environment ID&gt;/&lt;Cluster API Key ID&gt;`, for example:
  * 
- *  $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
  * 
- *  $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
+ * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * 
- *  $ export API_KEY_SECRET=&#34;&lt;api_key_secret&gt;&#34;
+ * $ export API_KEY_SECRET=&#34;&lt;api_key_secret&gt;&#34;
  * 
- *  Option #1: Cluster API Key
+ * Option #1: Cluster API Key
  * 
  * ```sh
  * $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key &#34;env-abc123/UTT6WDRXX7FHD2GV&#34;
  * ```
  * 
- *  You can import a Cloud API Key by using Cloud API Key ID, for example:
+ * You can import a Cloud API Key by using Cloud API Key ID, for example:
  * 
- *  $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
  * 
- *  $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
+ * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * 
- *  $ export API_KEY_SECRET=&#34;&lt;api_key_secret&gt;&#34;
+ * $ export API_KEY_SECRET=&#34;&lt;api_key_secret&gt;&#34;
  * 
- *  Option #2: Cloud API Key
+ * Option #2: Cloud API Key
  * 
  * ```sh
  * $ pulumi import confluentcloud:index/apiKey:ApiKey example_cloud_api_key &#34;4UEXOMMWIBE5KZQG&#34;
  * ```
  * 
- *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/apiKey:ApiKey")
