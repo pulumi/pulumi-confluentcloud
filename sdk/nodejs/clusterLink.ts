@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -53,6 +54,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Getting Started
  *
  * The following end-to-end examples might help to get started with `confluentcloud.ClusterLink` resource:
@@ -67,47 +70,45 @@ import * as utilities from "./utilities";
  *
  * You can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode,
  *
- *  source (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote
+ * source (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote  for bidirectional cluster links) Kafka cluster ID, in the format `<Cluster link name>/<Cluster link mode>/<Cluster connection mode>/<Source (Local) Kafka cluster ID>/<Destination (Remote) Kafka cluster ID>`, for example:
  *
- * for bidirectional cluster links) Kafka cluster ID, in the format `<Cluster link name>/<Cluster link mode>/<Cluster connection mode>/<Source (Local) Kafka cluster ID>/<Destination (Remote) Kafka cluster ID>`, for example:
+ * Option #1 when using source-initiated or destination-initiated cluster links
  *
- *  Option #1 when using source-initiated or destination-initiated cluster links
+ * $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="<source_kafka_bootstrap_endpoint>"
  *
- *  $ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT="<source_kafka_bootstrap_endpoint>"
+ * $ export IMPORT_SOURCE_KAFKA_API_KEY="<source_kafka_api_key>"
  *
- *  $ export IMPORT_SOURCE_KAFKA_API_KEY="<source_kafka_api_key>"
+ * $ export IMPORT_SOURCE_KAFKA_API_SECRET="<source_kafka_api_secret>"
  *
- *  $ export IMPORT_SOURCE_KAFKA_API_SECRET="<source_kafka_api_secret>"
+ * $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="<destination_kafka_rest_endpoint>"
  *
- *  $ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT="<destination_kafka_rest_endpoint>"
+ * $ export IMPORT_DESTINATION_KAFKA_API_KEY="<destination_kafka_api_key>"
  *
- *  $ export IMPORT_DESTINATION_KAFKA_API_KEY="<destination_kafka_api_key>"
- *
- *  $ export IMPORT_DESTINATION_KAFKA_API_SECRET="<destination_kafka_api_secret>"
+ * $ export IMPORT_DESTINATION_KAFKA_API_SECRET="<destination_kafka_api_secret>"
  *
  * ```sh
  * $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456
  * ```
  *
- *  Option #2 when using bidirectional cluster links
+ * Option #2 when using bidirectional cluster links
  *
- *  $ export IMPORT_LOCAL_KAFKA_BOOTSTRAP_ENDPOINT="<local_kafka_bootstrap_endpoint>"
+ * $ export IMPORT_LOCAL_KAFKA_BOOTSTRAP_ENDPOINT="<local_kafka_bootstrap_endpoint>"
  *
- *  $ export IMPORT_LOCAL_KAFKA_API_KEY="<local_kafka_api_key>"
+ * $ export IMPORT_LOCAL_KAFKA_API_KEY="<local_kafka_api_key>"
  *
- *  $ export IMPORT_LOCAL_KAFKA_API_SECRET="<local_kafka_api_secret>"
+ * $ export IMPORT_LOCAL_KAFKA_API_SECRET="<local_kafka_api_secret>"
  *
- *  $ export IMPORT_REMOTE_KAFKA_REST_ENDPOINT="<remote_kafka_rest_endpoint>"
+ * $ export IMPORT_REMOTE_KAFKA_REST_ENDPOINT="<remote_kafka_rest_endpoint>"
  *
- *  $ export IMPORT_REMOTE_KAFKA_API_KEY="<remote_kafka_api_key>"
+ * $ export IMPORT_REMOTE_KAFKA_API_KEY="<remote_kafka_api_key>"
  *
- *  $ export IMPORT_REMOTE_KAFKA_API_SECRET="<remote_kafka_api_secret>"
+ * $ export IMPORT_REMOTE_KAFKA_API_SECRET="<remote_kafka_api_secret>"
  *
  * ```sh
  * $ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456
  * ```
  *
- *  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class ClusterLink extends pulumi.CustomResource {
     /**

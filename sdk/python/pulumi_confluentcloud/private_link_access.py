@@ -213,8 +213,10 @@ class PrivateLinkAccess(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+
         ### Example Private Link Access on AWS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -245,8 +247,11 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 id=aws_private_link.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Private Link Access on Azure
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -272,8 +277,11 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 id=azure_private_link.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Private Service Connect on GCP
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -304,6 +312,8 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 id=gcp_private_service_connect.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Getting Started
 
         The following end-to-end examples might help to get started with `PrivateLinkAccess` resource:
@@ -318,15 +328,15 @@ class PrivateLinkAccess(pulumi.CustomResource):
 
         You can import a Private Link Access by using Environment ID and Private Link Access ID, in the format `<Environment ID>/<Private Link Access ID>`. The following example shows how to import a Private Link Access:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/privateLinkAccess:PrivateLinkAccess my_pla env-abc123/pla-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -343,8 +353,10 @@ class PrivateLinkAccess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
         ### Example Private Link Access on AWS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -375,8 +387,11 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 id=aws_private_link.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Private Link Access on Azure
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -402,8 +417,11 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 id=azure_private_link.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Private Service Connect on GCP
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -434,6 +452,8 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 id=gcp_private_service_connect.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Getting Started
 
         The following end-to-end examples might help to get started with `PrivateLinkAccess` resource:
@@ -448,15 +468,15 @@ class PrivateLinkAccess(pulumi.CustomResource):
 
         You can import a Private Link Access by using Environment ID and Private Link Access ID, in the format `<Environment ID>/<Private Link Access ID>`. The following example shows how to import a Private Link Access:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/privateLinkAccess:PrivateLinkAccess my_pla env-abc123/pla-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkAccessArgs args: The arguments to use to populate this resource's properties.

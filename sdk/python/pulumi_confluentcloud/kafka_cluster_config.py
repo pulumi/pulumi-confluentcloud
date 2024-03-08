@@ -163,25 +163,25 @@ class KafkaClusterConfig(pulumi.CustomResource):
 
         You can import a Kafka cluster config by using the Kafka cluster ID, for example:
 
-         Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+        Option #1: Manage multiple Kafka clusters in the same Terraform workspace
 
-         $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
+        $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
 
-         $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
+        $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
 
-         $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
-
-        ```sh
-        $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
-        ```
-
-         Option #2: Manage a single Kafka cluster in the same Terraform workspace
+        $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
 
         ```sh
         $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        Option #2: Manage a single Kafka cluster in the same Terraform workspace
+
+        ```sh
+        $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
+        ```
+
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,25 +200,25 @@ class KafkaClusterConfig(pulumi.CustomResource):
 
         You can import a Kafka cluster config by using the Kafka cluster ID, for example:
 
-         Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+        Option #1: Manage multiple Kafka clusters in the same Terraform workspace
 
-         $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
+        $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
 
-         $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
+        $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
 
-         $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
-
-        ```sh
-        $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
-        ```
-
-         Option #2: Manage a single Kafka cluster in the same Terraform workspace
+        $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
 
         ```sh
         $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        Option #2: Manage a single Kafka cluster in the same Terraform workspace
+
+        ```sh
+        $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
+        ```
+
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param KafkaClusterConfigArgs args: The arguments to use to populate this resource's properties.

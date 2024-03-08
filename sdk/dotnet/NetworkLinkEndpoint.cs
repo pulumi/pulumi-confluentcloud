@@ -12,6 +12,7 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,6 +45,8 @@ namespace Pulumi.ConfluentCloud
     ///     };
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Getting Started
     /// 
     /// The following end-to-end examples might help to get started with `confluentcloud.NetworkLinkEndpoint` resource:
@@ -53,15 +56,15 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// You can import a Network Link Endpoint by using Environment ID and Network Link Endpoint ID, in the format `&lt;Environment ID&gt;/&lt;Network Link Endpoint ID&gt;`. The following example shows how to import a Network Link Endpoint:
     /// 
-    ///  $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
+    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
     /// 
-    ///  $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
+    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint my_nle env-abc123/nle-abc123
     /// ```
     /// 
-    ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint")]
     public partial class NetworkLinkEndpoint : global::Pulumi.CustomResource

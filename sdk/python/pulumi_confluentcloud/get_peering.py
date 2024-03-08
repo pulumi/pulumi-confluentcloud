@@ -123,12 +123,13 @@ def get_peering(display_name: Optional[str] = None,
                 id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringResult:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `Peering` describes a Peering data source.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -144,6 +145,7 @@ def get_peering(display_name: Optional[str] = None,
         ))
     pulumi.export("exampleUsingName", example_using_name_peering)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: A human-readable name for the Peering.
@@ -175,12 +177,13 @@ def get_peering_output(display_name: Optional[pulumi.Input[Optional[str]]] = Non
                        id: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeeringResult]:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `Peering` describes a Peering data source.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -196,6 +199,7 @@ def get_peering_output(display_name: Optional[pulumi.Input[Optional[str]]] = Non
         ))
     pulumi.export("exampleUsingName", example_using_name_peering)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: A human-readable name for the Peering.

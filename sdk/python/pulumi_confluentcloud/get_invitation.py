@@ -132,12 +132,13 @@ class AwaitableGetInvitationResult(GetInvitationResult):
 def get_invitation(id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInvitationResult:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `Invitation` describes an Invitation data source.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -145,6 +146,7 @@ def get_invitation(id: Optional[str] = None,
     main = confluentcloud.get_invitation(id="i-gxxn1")
     pulumi.export("invitation", main)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Invitation, for example, `i-zyw30`.
@@ -169,12 +171,13 @@ def get_invitation(id: Optional[str] = None,
 def get_invitation_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInvitationResult]:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `Invitation` describes an Invitation data source.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -182,6 +185,7 @@ def get_invitation_output(id: Optional[pulumi.Input[str]] = None,
     main = confluentcloud.get_invitation(id="i-gxxn1")
     pulumi.export("invitation", main)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Invitation, for example, `i-zyw30`.

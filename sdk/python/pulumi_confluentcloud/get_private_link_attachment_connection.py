@@ -125,12 +125,13 @@ def get_private_link_attachment_connection(environment: Optional[pulumi.InputTyp
                                            id: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkAttachmentConnectionResult:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `PrivateLinkAttachmentConnection` describes a Private Link Attachment Connection data source.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -141,6 +142,7 @@ def get_private_link_attachment_connection(environment: Optional[pulumi.InputTyp
         ))
     pulumi.export("plattc", main)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
@@ -167,12 +169,13 @@ def get_private_link_attachment_connection_output(environment: Optional[pulumi.I
                                                   id: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkAttachmentConnectionResult]:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `PrivateLinkAttachmentConnection` describes a Private Link Attachment Connection data source.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -183,6 +186,7 @@ def get_private_link_attachment_connection_output(environment: Optional[pulumi.I
         ))
     pulumi.export("plattc", main)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.

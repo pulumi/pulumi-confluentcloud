@@ -12,7 +12,7 @@ namespace Pulumi.ConfluentCloud
     public static class GetSchemaRegistryRegion
     {
         /// <summary>
-        /// [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// [![Deprecated](https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
         /// 
@@ -20,10 +20,9 @@ namespace Pulumi.ConfluentCloud
         /// Refer to the Upgrade Guide for more details. 
         /// The guide will be published once version 2.0.0 is released.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -45,14 +44,13 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSchemaRegistryRegionResult> InvokeAsync(GetSchemaRegistryRegionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemaRegistryRegionResult>("confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion", args ?? new GetSchemaRegistryRegionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// [![Deprecated](https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
         /// 
@@ -60,10 +58,9 @@ namespace Pulumi.ConfluentCloud
         /// Refer to the Upgrade Guide for more details. 
         /// The guide will be published once version 2.0.0 is released.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -85,8 +82,7 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSchemaRegistryRegionResult> Invoke(GetSchemaRegistryRegionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryRegionResult>("confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion", args ?? new GetSchemaRegistryRegionInvokeArgs(), options.WithDefaults());

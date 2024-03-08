@@ -13,8 +13,10 @@ import (
 )
 
 // ## Example Usage
+//
 // ### Example Private Link Access on AWS
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,8 +72,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Private Link Access on Azure
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -122,8 +127,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Private Service Connect on GCP
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -179,6 +187,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Getting Started
 //
 // The following end-to-end examples might help to get started with `PrivateLinkAccess` resource:
@@ -193,15 +203,15 @@ import (
 //
 // You can import a Private Link Access by using Environment ID and Private Link Access ID, in the format `<Environment ID>/<Private Link Access ID>`. The following example shows how to import a Private Link Access:
 //
-//	$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+// $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 //
-//	$ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+// $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
 // $ pulumi import confluentcloud:index/privateLinkAccess:PrivateLinkAccess my_pla env-abc123/pla-abc123
 // ```
 //
-//	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type PrivateLinkAccess struct {
 	pulumi.CustomResourceState
 

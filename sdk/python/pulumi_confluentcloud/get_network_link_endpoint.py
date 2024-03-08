@@ -119,12 +119,13 @@ def get_network_link_endpoint(environment: Optional[pulumi.InputType['GetNetwork
                               id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkLinkEndpointResult:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `NetworkLinkEndpoint` describes a Network Link Endpoint data source.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -135,6 +136,7 @@ def get_network_link_endpoint(environment: Optional[pulumi.InputType['GetNetwork
         ))
     pulumi.export("networkLinkEndpoint", nle)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
@@ -160,12 +162,13 @@ def get_network_link_endpoint_output(environment: Optional[pulumi.Input[pulumi.I
                                      id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkLinkEndpointResult]:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `NetworkLinkEndpoint` describes a Network Link Endpoint data source.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -176,6 +179,7 @@ def get_network_link_endpoint_output(environment: Optional[pulumi.Input[pulumi.I
         ))
     pulumi.export("networkLinkEndpoint", nle)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.

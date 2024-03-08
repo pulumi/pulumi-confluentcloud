@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -32,20 +33,21 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * You can import a Kafka Client Quota by using Kafka Client Quota ID. The following example shows how to import a Kafka Client Quota ID:
  *
- *  $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+ * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
  *
- *  $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+ * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
  *
  * ```sh
  * $ pulumi import confluentcloud:index/kafkaClientQuota:KafkaClientQuota example cq-abc123
  * ```
  *
- *  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class KafkaClientQuota extends pulumi.CustomResource {
     /**

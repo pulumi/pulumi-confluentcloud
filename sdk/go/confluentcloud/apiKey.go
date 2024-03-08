@@ -13,7 +13,9 @@ import (
 )
 
 // ## Example Usage
+//
 // ### Example Kafka API Key
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,7 +52,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example ksqlDB API Key
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,7 +92,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Schema Registry API Key
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -124,7 +132,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Flink API Key
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -161,7 +172,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Cloud API Key
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -190,6 +204,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Getting Started
 //
 // The following end-to-end examples might help to get started with `ApiKey` resource:
@@ -219,33 +235,33 @@ import (
 //
 // You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `<Environment ID>/<Cluster API Key ID>`, for example:
 //
-//	$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+// $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 //
-//	$ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+// $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
-//	$ export API_KEY_SECRET="<api_key_secret>"
+// $ export API_KEY_SECRET="<api_key_secret>"
 //
-//	Option #1: Cluster API Key
+// Option #1: Cluster API Key
 //
 // ```sh
 // $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key "env-abc123/UTT6WDRXX7FHD2GV"
 // ```
 //
-//	You can import a Cloud API Key by using Cloud API Key ID, for example:
+// You can import a Cloud API Key by using Cloud API Key ID, for example:
 //
-//	$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+// $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 //
-//	$ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+// $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
-//	$ export API_KEY_SECRET="<api_key_secret>"
+// $ export API_KEY_SECRET="<api_key_secret>"
 //
-//	Option #2: Cloud API Key
+// Option #2: Cloud API Key
 //
 // ```sh
 // $ pulumi import confluentcloud:index/apiKey:ApiKey example_cloud_api_key "4UEXOMMWIBE5KZQG"
 // ```
 //
-//	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type ApiKey struct {
 	pulumi.CustomResourceState
 

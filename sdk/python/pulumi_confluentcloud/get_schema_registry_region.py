@@ -76,7 +76,7 @@ def get_schema_registry_region(cloud: Optional[str] = None,
                                region: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryRegionResult:
     """
-    [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![Deprecated](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Deprecated-yellow>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `get_schema_registry_region` describes a Schema Registry cluster data source.
 
@@ -86,6 +86,7 @@ def get_schema_registry_region(cloud: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -95,6 +96,7 @@ def get_schema_registry_region(cloud: Optional[str] = None,
         package="ESSENTIALS")
     pulumi.export("example", example_schema_registry_region)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cloud: The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
@@ -123,7 +125,7 @@ def get_schema_registry_region_output(cloud: Optional[pulumi.Input[str]] = None,
                                       region: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryRegionResult]:
     """
-    [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![Deprecated](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Deprecated-yellow>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `get_schema_registry_region` describes a Schema Registry cluster data source.
 
@@ -133,6 +135,7 @@ def get_schema_registry_region_output(cloud: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -142,6 +145,7 @@ def get_schema_registry_region_output(cloud: Optional[pulumi.Input[str]] = None,
         package="ESSENTIALS")
     pulumi.export("example", example_schema_registry_region)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cloud: The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.

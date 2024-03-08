@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.GroupMapping` describes a Group Mapping data source.
  *
@@ -13,6 +13,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -25,6 +26,7 @@ import * as utilities from "./utilities";
  *     displayName: "Default",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getGroupMapping(args?: GetGroupMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupMappingResult> {
     args = args || {};
@@ -74,7 +76,7 @@ export interface GetGroupMappingResult {
     readonly id: string;
 }
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.GroupMapping` describes a Group Mapping data source.
  *
@@ -82,6 +84,7 @@ export interface GetGroupMappingResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -94,6 +97,7 @@ export interface GetGroupMappingResult {
  *     displayName: "Default",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getGroupMappingOutput(args?: GetGroupMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupMappingResult> {
     return pulumi.output(args).apply((a: any) => getGroupMapping(a, opts))
