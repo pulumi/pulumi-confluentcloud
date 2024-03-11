@@ -7,12 +7,13 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.PrivateLinkAttachment` describes a Private Link Attachment data source.
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -25,6 +26,7 @@ import * as utilities from "./utilities";
  * });
  * export const platt = main;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrivateLinkAttachment(args: GetPrivateLinkAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkAttachmentResult> {
 
@@ -80,12 +82,13 @@ export interface GetPrivateLinkAttachmentResult {
     readonly resourceName: string;
 }
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.PrivateLinkAttachment` describes a Private Link Attachment data source.
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -98,6 +101,7 @@ export interface GetPrivateLinkAttachmentResult {
  * });
  * export const platt = main;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrivateLinkAttachmentOutput(args: GetPrivateLinkAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkAttachment(a, opts))

@@ -146,6 +146,7 @@ class TfImporter(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -155,6 +156,8 @@ class TfImporter(pulumi.CustomResource):
             "confluent_environment",
         ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Getting Started
 
         The following end-to-end examples might help to get started with the `TfImporter` resource:
@@ -186,6 +189,7 @@ class TfImporter(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -195,6 +199,8 @@ class TfImporter(pulumi.CustomResource):
             "confluent_environment",
         ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Getting Started
 
         The following end-to-end examples might help to get started with the `TfImporter` resource:

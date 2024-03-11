@@ -24,117 +24,83 @@ import javax.annotation.Nullable;
  * 
  * You can import a Kafka topic by using the Kafka cluster ID and Kafka topic name in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka topic name&gt;`, for example:
  * 
- *  Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+ * Option #1: Manage multiple Kafka clusters in the same Terraform workspace
  * 
- *  $ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34;
+ * $ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34;
  * 
- *  $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34;
+ * $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34;
  * 
- *  $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;
- * 
- * ```sh
- * $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
- * ```
- * 
- *  Option #2: Manage a single Kafka cluster in the same Terraform workspace
+ * $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;
  * 
  * ```sh
  * $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
  * ```
  * 
- *  resource &#34;confluent_kafka_topic&#34; &#34;orders&#34; {
+ * Option #2: Manage a single Kafka cluster in the same Terraform workspace
  * 
- *  kafka_cluster {
+ * ```sh
+ * $ pulumi import confluentcloud:index/kafkaTopic:KafkaTopic my_topic lkc-abc123/orders-123
+ * ```
  * 
- *  id = confluent_kafka_cluster.basic-cluster.id
+ * resource &#34;confluent_kafka_topic&#34; &#34;orders&#34; {
  * 
- *  }
+ *   kafka_cluster {
  * 
- *  topic_name
+ *     id = confluent_kafka_cluster.basic-cluster.id
  * 
- *  = &#34;orders&#34;
+ *   }
  * 
- *  partitions_count
+ *   topic_name         = &#34;orders&#34;
  * 
- *  = 4
+ *   partitions_count   = 4
  * 
- *  rest_endpoint
- * 
- * = confluent_kafka_cluster.basic-cluster.rest_endpoint
+ *   rest_endpoint      = confluent_kafka_cluster.basic-cluster.rest_endpoint
  * 
  * # https://docs.confluent.io/cloud/current/client-apps/topics/manage.html#ak-topic-configurations-for-all-ccloud-cluster-types
  * 
- *  config = {
+ *   config = {
  * 
- *  &#34;cleanup.policy&#34;
+ *     &#34;cleanup.policy&#34;                      = &#34;delete&#34;
+ *     
+ *     &#34;delete.retention.ms&#34;                 = &#34;86400000&#34;
+ *     
+ *     &#34;max.compaction.lag.ms&#34;               = &#34;9223372036854775807&#34;
+ *     
+ *     &#34;max.message.bytes&#34;                   = &#34;2097164&#34;
+ *     
+ *     &#34;message.timestamp.after.max.ms&#34;      = &#34;9223372036854775807&#34;
+ *     
+ *     &#34;message.timestamp.before.max.ms&#34;     = &#34;9223372036854775807&#34;      
+ *     
+ *     &#34;message.timestamp.difference.max.ms&#34; = &#34;9223372036854775807&#34;
+ *     
+ *     &#34;message.timestamp.type&#34;              = &#34;CreateTime&#34;
+ *     
+ *     &#34;min.compaction.lag.ms&#34;               = &#34;0&#34;
+ *     
+ *     &#34;min.insync.replicas&#34;                 = &#34;2&#34;
+ *     
+ *     &#34;retention.bytes&#34;                     = &#34;-1&#34;
+ *     
+ *     &#34;retention.ms&#34;                        = &#34;604800000&#34;
+ *     
+ *     &#34;segment.bytes&#34;                       = &#34;104857600&#34;
+ *     
+ *     &#34;segment.ms&#34;                          = &#34;604800000&#34;
  * 
- * = &#34;delete&#34;
+ *   }
  * 
- *  &#34;delete.retention.ms&#34;
+ *   credentials {
  * 
- *  = &#34;86400000&#34;
+ *     key    = confluent_api_key.app-manager-kafka-api-key.id
+ *     
+ *     secret = confluent_api_key.app-manager-kafka-api-key.secret
  * 
- *  &#34;max.compaction.lag.ms&#34;
+ *   }
  * 
- *  = &#34;9223372036854775807&#34;
+ * }
  * 
- *  &#34;max.message.bytes&#34;
- * 
- *  = &#34;2097164&#34;
- * 
- *  &#34;message.timestamp.after.max.ms&#34;
- * 
- * = &#34;9223372036854775807&#34;
- * 
- *  &#34;message.timestamp.before.max.ms&#34;
- * 
- *  = &#34;9223372036854775807&#34;
- * 
- *  &#34;message.timestamp.difference.max.ms&#34; = &#34;9223372036854775807&#34;
- * 
- *  &#34;message.timestamp.type&#34;
- * 
- * = &#34;CreateTime&#34;
- * 
- *  &#34;min.compaction.lag.ms&#34;
- * 
- *  = &#34;0&#34;
- * 
- *  &#34;min.insync.replicas&#34;
- * 
- *  = &#34;2&#34;
- * 
- *  &#34;retention.bytes&#34;
- * 
- *  = &#34;-1&#34;
- * 
- *  &#34;retention.ms&#34;
- * 
- * = &#34;604800000&#34;
- * 
- *  &#34;segment.bytes&#34;
- * 
- *  = &#34;104857600&#34;
- * 
- *  &#34;segment.ms&#34;
- * 
- * = &#34;604800000&#34;
- * 
- *  }
- * 
- *  credentials {
- * 
- *  key
- * 
- * = confluent_api_key.app-manager-kafka-api-key.id
- * 
- *  secret = confluent_api_key.app-manager-kafka-api-key.secret
- * 
- *  }
- * 
- *  }
- * 
- *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/kafkaTopic:KafkaTopic")

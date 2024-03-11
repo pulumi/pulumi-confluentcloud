@@ -14,33 +14,25 @@ import (
 
 // ## # KsqlCluster Resource
 //
-// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+// [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 //
 // !> **Warning:**  It is strongly recommended that you provision a `SchemaRegistryCluster` resource before you provision a `KsqlCluster` resource in a given environment. If you're provisioning the `SchemaRegistryCluster` and the `KsqlCluster` resource in the same pulumi up command, reference the `SchemaRegistryCluster` from the `dependsOn` argument inside the `KsqlCluster` resource. This ensures that the `SchemaRegistryCluster` resource is created before the `KsqlCluster` resource. If you provision a `KsqlCluster` resource without a `SchemaRegistryCluster` resource, and later, you want to add a `SchemaRegistryCluster` resource, you must destroy and re-create your `KsqlCluster` resource after provisioning a `SchemaRegistryCluster` resource.
 //
 // `KsqlCluster` provides a ksqlDB cluster resource that enables creating, editing, and deleting ksqlDB clusters on Confluent Cloud.
 //
-// ## Getting Started
-//
-// The following end-to-end examples might help to get started with `KsqlCluster` resource:
-// * `ksql-acls`
-// * `ksql-rbac`
-//
 // ## Import
 //
 // You can import a ksqlDB cluster by using Environment ID and ksqlDB cluster ID, in the format `<Environment ID>/<ksqlDB cluster ID>`, for example:
 //
-//	$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+// $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 //
-//	$ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+// $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
 // $ pulumi import confluentcloud:index/ksqlCluster:KsqlCluster example env-abc123/lksqlc-abc123
 // ```
 //
-//	!> **Warning:**
-//
-// Do not forget to delete the terminal's command history afterward for security purposes.
+// !> **Warning:**  Do not forget to delete the terminal's command history afterward for security purposes.
 type KsqlCluster struct {
 	pulumi.CustomResourceState
 

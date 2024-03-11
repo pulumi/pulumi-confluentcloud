@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -28,6 +29,8 @@ import * as utilities from "./utilities";
  * });
  * export const networkLinkEndpoint = nle;
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Getting Started
  *
  * The following end-to-end examples might help to get started with `confluentcloud.NetworkLinkEndpoint` resource:
@@ -37,15 +40,15 @@ import * as utilities from "./utilities";
  *
  * You can import a Network Link Endpoint by using Environment ID and Network Link Endpoint ID, in the format `<Environment ID>/<Network Link Endpoint ID>`. The following example shows how to import a Network Link Endpoint:
  *
- *  $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+ * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
  *
- *  $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+ * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
  *
  * ```sh
  * $ pulumi import confluentcloud:index/networkLinkEndpoint:NetworkLinkEndpoint my_nle env-abc123/nle-abc123
  * ```
  *
- *  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class NetworkLinkEndpoint extends pulumi.CustomResource {
     /**

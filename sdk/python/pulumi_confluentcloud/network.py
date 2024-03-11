@@ -554,7 +554,9 @@ class Network(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+
         ### Example Network that supports Private Link Connections
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -574,7 +576,10 @@ class Network(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Network that supports Peering Connections
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -590,7 +595,10 @@ class Network(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Network that supports Private Service Connect Connections
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -613,7 +621,10 @@ class Network(pulumi.CustomResource):
                 resolution="PRIVATE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Network that supports Transit Gateway Endpoints
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -629,6 +640,8 @@ class Network(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Getting Started
 
         The following end-to-end examples might help to get started with `Network` resource:
@@ -652,15 +665,15 @@ class Network(pulumi.CustomResource):
 
         You can import a Network by using Environment ID and Network ID, in the format `<Environment ID>/<Network ID>`. The following example shows how to import a Network:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/network:Network my_network env-abc123/n-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -693,7 +706,9 @@ class Network(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
         ### Example Network that supports Private Link Connections
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -713,7 +728,10 @@ class Network(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Network that supports Peering Connections
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -729,7 +747,10 @@ class Network(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Network that supports Private Service Connect Connections
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -752,7 +773,10 @@ class Network(pulumi.CustomResource):
                 resolution="PRIVATE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Network that supports Transit Gateway Endpoints
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -768,6 +792,8 @@ class Network(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Getting Started
 
         The following end-to-end examples might help to get started with `Network` resource:
@@ -791,15 +817,15 @@ class Network(pulumi.CustomResource):
 
         You can import a Network by using Environment ID and Network ID, in the format `<Environment ID>/<Network ID>`. The following example shows how to import a Network:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/network:Network my_network env-abc123/n-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param NetworkArgs args: The arguments to use to populate this resource's properties.

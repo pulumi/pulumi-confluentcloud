@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -28,6 +29,7 @@ import * as utilities from "./utilities";
  * });
  * export const exampleUsingName = exampleUsingNameNetwork;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetwork(args: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
 
@@ -152,6 +154,7 @@ export interface GetNetworkResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -171,6 +174,7 @@ export interface GetNetworkResult {
  * });
  * export const exampleUsingName = exampleUsingNameNetwork;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {
     return pulumi.output(args).apply((a: any) => getNetwork(a, opts))

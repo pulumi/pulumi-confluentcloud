@@ -15,17 +15,17 @@ import (
 //
 // You can import a Business Metadata by using the Schema Registry cluster ID, Business Metadata name in the format `<Schema Registry cluster ID>/<Business Metadata name>`, for example:
 //
-//	$ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
 //
-//	$ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
 //
-//	$ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
 //
 // ```sh
 // $ pulumi import confluentcloud:index/businessMetadata:BusinessMetadata pii lsrc-8wrx70/PII
 // ```
 //
-//	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type BusinessMetadata struct {
 	pulumi.CustomResourceState
 

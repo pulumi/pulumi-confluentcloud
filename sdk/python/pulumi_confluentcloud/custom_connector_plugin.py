@@ -263,6 +263,7 @@ class CustomConnectorPlugin(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -275,20 +276,21 @@ class CustomConnectorPlugin(pulumi.CustomResource):
             filename="confluentinc-kafka-connect-datagen-0.6.2.zip",
             sensitive_config_properties=[])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         You can import a Custom Connector Plugin by using a Custom Connector Plugin ID, in the format `<Custom Connector Plugin>`. The following example shows how to import a Custom Connector Plugin:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -309,6 +311,7 @@ class CustomConnectorPlugin(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -321,20 +324,21 @@ class CustomConnectorPlugin(pulumi.CustomResource):
             filename="confluentinc-kafka-connect-datagen-0.6.2.zip",
             sensitive_config_properties=[])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         You can import a Custom Connector Plugin by using a Custom Connector Plugin ID, in the format `<Custom Connector Plugin>`. The following example shows how to import a Custom Connector Plugin:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param CustomConnectorPluginArgs args: The arguments to use to populate this resource's properties.

@@ -14,33 +14,33 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// You can import a Flink statement by using the Flink Statement name, for example:
     /// 
-    ///  Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
+    /// Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
     /// 
-    ///  $ export IMPORT_ORGANIZATION_ID="&lt;organization_id&gt;"
+    /// $ export IMPORT_ORGANIZATION_ID="&lt;organization_id&gt;"
     /// 
-    ///  $ export IMPORT_ENVIRONMENT_ID="&lt;environment_id&gt;"
+    /// $ export IMPORT_ENVIRONMENT_ID="&lt;environment_id&gt;"
     /// 
-    ///  $ export IMPORT_FLINK_COMPUTE_POOL_ID="&lt;flink_compute_pool_id&gt;"
+    /// $ export IMPORT_FLINK_COMPUTE_POOL_ID="&lt;flink_compute_pool_id&gt;"
     /// 
-    ///  $ export IMPORT_FLINK_API_KEY="&lt;flink_api_key&gt;"
+    /// $ export IMPORT_FLINK_API_KEY="&lt;flink_api_key&gt;"
     /// 
-    ///  $ export IMPORT_FLINK_API_SECRET="&lt;flink_api_secret&gt;"
+    /// $ export IMPORT_FLINK_API_SECRET="&lt;flink_api_secret&gt;"
     /// 
-    ///  $ export IMPORT_FLINK_REST_ENDPOINT="&lt;flink_rest_endpoint&gt;"
+    /// $ export IMPORT_FLINK_REST_ENDPOINT="&lt;flink_rest_endpoint&gt;"
     /// 
-    ///  $ export IMPORT_FLINK_PRINCIPAL_ID="&lt;flink_rest_endpoint&gt;"
-    /// 
-    /// ```sh
-    /// $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
-    /// ```
-    /// 
-    ///  Option #2: Manage a single Flink Compute Pool in the same Terraform workspace
+    /// $ export IMPORT_FLINK_PRINCIPAL_ID="&lt;flink_rest_endpoint&gt;"
     /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
     /// ```
     /// 
-    ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// Option #2: Manage a single Flink Compute Pool in the same Terraform workspace
+    /// 
+    /// ```sh
+    /// $ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67
+    /// ```
+    /// 
+    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/flinkStatement:FlinkStatement")]
     public partial class FlinkStatement : global::Pulumi.CustomResource
