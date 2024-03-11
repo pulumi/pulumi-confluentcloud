@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -30,6 +31,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Getting Started
  *
  * The following end-to-end examples might help to get started with `confluentcloud.KafkaMirrorTopic` resource:
@@ -42,17 +45,17 @@ import * as utilities from "./utilities";
  *
  * You can import a Kafka mirror topic by using the Kafka cluster ID, cluster link name, and Kafka topic name in the format `<Kafka cluster ID>/<Cluster link name>/<Kafka topic name>`, for example:
  *
- *  $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
+ * $ export IMPORT_KAFKA_API_KEY="<kafka_api_key>"
  *
- *  $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
+ * $ export IMPORT_KAFKA_API_SECRET="<kafka_api_secret>"
  *
- *  $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
+ * $ export IMPORT_KAFKA_REST_ENDPOINT="<kafka_rest_endpoint>"
  *
  * ```sh
  * $ pulumi import confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic my_mirror_topic lkc-abc123/my-cluster-link/orders-123
  * ```
  *
- *  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class KafkaMirrorTopic extends pulumi.CustomResource {
     /**

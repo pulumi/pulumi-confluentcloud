@@ -5,12 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.getOrganization` describes an Organization data source.
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -18,6 +19,7 @@ import * as utilities from "./utilities";
  * const exampleOrganization = confluentcloud.getOrganization({});
  * export const example = exampleOrganization;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrganization(opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> {
 
@@ -40,12 +42,13 @@ export interface GetOrganizationResult {
     readonly resourceName: string;
 }
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.getOrganization` describes an Organization data source.
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -53,6 +56,7 @@ export interface GetOrganizationResult {
  * const exampleOrganization = confluentcloud.getOrganization({});
  * export const example = exampleOrganization;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOrganizationOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationResult> {
     return pulumi.output(getOrganization(opts))

@@ -8,7 +8,9 @@ import * as utilities from "./utilities";
 
 /**
  * ## Example Usage
+ *
  * ### Example Network that supports Private Link Connections
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -29,7 +31,10 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example Network that supports Peering Connections
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -46,7 +51,10 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example Network that supports Private Service Connect Connections
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -70,7 +78,10 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example Network that supports Transit Gateway Endpoints
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -87,6 +98,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Getting Started
  *
  * The following end-to-end examples might help to get started with `confluentcloud.Network` resource:
@@ -110,15 +123,15 @@ import * as utilities from "./utilities";
  *
  * You can import a Network by using Environment ID and Network ID, in the format `<Environment ID>/<Network ID>`. The following example shows how to import a Network:
  *
- *  $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+ * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
  *
- *  $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+ * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
  *
  * ```sh
  * $ pulumi import confluentcloud:index/network:Network my_network env-abc123/n-abc123
  * ```
  *
- *  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class Network extends pulumi.CustomResource {
     /**

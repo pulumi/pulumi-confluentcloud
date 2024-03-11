@@ -212,8 +212,10 @@ class NetworkLinkService(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+
         ### Example Network Link Service on AWS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -249,6 +251,8 @@ class NetworkLinkService(pulumi.CustomResource):
                 networks=["n-1234"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Getting Started
 
         The following end-to-end examples might help to get started with `NetworkLinkService` resource:
@@ -258,15 +262,15 @@ class NetworkLinkService(pulumi.CustomResource):
 
         You can import a Network Link Service by using Environment ID and Network Link Service ID, in the format `<Environment ID>/<Network Link Service ID>`. The following example shows how to import a Network Link Service:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/networkLinkService:NetworkLinkService my_nls env-abc123/nls-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,8 +288,10 @@ class NetworkLinkService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
         ### Example Network Link Service on AWS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -321,6 +327,8 @@ class NetworkLinkService(pulumi.CustomResource):
                 networks=["n-1234"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Getting Started
 
         The following end-to-end examples might help to get started with `NetworkLinkService` resource:
@@ -330,15 +338,15 @@ class NetworkLinkService(pulumi.CustomResource):
 
         You can import a Network Link Service by using Environment ID and Network Link Service ID, in the format `<Environment ID>/<Network Link Service ID>`. The following example shows how to import a Network Link Service:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/networkLinkService:NetworkLinkService my_nls env-abc123/nls-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param NetworkLinkServiceArgs args: The arguments to use to populate this resource's properties.

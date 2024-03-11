@@ -14,25 +14,25 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// You can import a Kafka cluster config by using the Kafka cluster ID, for example:
     /// 
-    ///  Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+    /// Option #1: Manage multiple Kafka clusters in the same Terraform workspace
     /// 
-    ///  $ export IMPORT_KAFKA_API_KEY="&lt;kafka_api_key&gt;"
+    /// $ export IMPORT_KAFKA_API_KEY="&lt;kafka_api_key&gt;"
     /// 
-    ///  $ export IMPORT_KAFKA_API_SECRET="&lt;kafka_api_secret&gt;"
+    /// $ export IMPORT_KAFKA_API_SECRET="&lt;kafka_api_secret&gt;"
     /// 
-    ///  $ export IMPORT_KAFKA_REST_ENDPOINT="&lt;kafka_rest_endpoint&gt;"
-    /// 
-    /// ```sh
-    /// $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
-    /// ```
-    /// 
-    ///  Option #2: Manage a single Kafka cluster in the same Terraform workspace
+    /// $ export IMPORT_KAFKA_REST_ENDPOINT="&lt;kafka_rest_endpoint&gt;"
     /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
     /// ```
     /// 
-    ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// Option #2: Manage a single Kafka cluster in the same Terraform workspace
+    /// 
+    /// ```sh
+    /// $ pulumi import confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig test lkc-abc123
+    /// ```
+    /// 
+    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/kafkaClusterConfig:KafkaClusterConfig")]
     public partial class KafkaClusterConfig : global::Pulumi.CustomResource

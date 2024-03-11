@@ -213,8 +213,10 @@ class Peering(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+
         ### Example Peering on AWS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -244,8 +246,11 @@ class Peering(pulumi.CustomResource):
                 id=aws_peering.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Peering on Azure
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -274,32 +279,21 @@ class Peering(pulumi.CustomResource):
                 id=azure_peering.id,
             ))
         ```
-        ## Getting Started
-
-        The following end-to-end examples might help to get started with `Peering` resource:
-          * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
-          * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
-          * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
-          * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
-          * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
-          * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
-          * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
-          * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
-          * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         You can import a Peering by using Environment ID and Peering ID, in the format `<Environment ID>/<Peering ID>`. The following example shows how to import a Peering:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/peering:Peering my_peer env-abc123/peer-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,8 +310,10 @@ class Peering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
         ### Example Peering on AWS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -347,8 +343,11 @@ class Peering(pulumi.CustomResource):
                 id=aws_peering.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Peering on Azure
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -377,32 +376,21 @@ class Peering(pulumi.CustomResource):
                 id=azure_peering.id,
             ))
         ```
-        ## Getting Started
-
-        The following end-to-end examples might help to get started with `Peering` resource:
-          * `dedicated-vnet-peering-azure-kafka-acls`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using ACLs
-          * `dedicated-vnet-peering-azure-kafka-rbac`: _Dedicated_ Kafka cluster on Azure that is accessible via VPC Peering connections with authorization using RBAC
-          * `dedicated-vpc-peering-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using ACLs
-          * `dedicated-vpc-peering-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via VPC Peering connections with authorization using RBAC
-          * `dedicated-vpc-peering-gcp-kafka-acls`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using ACLs
-          * `dedicated-vpc-peering-gcp-kafka-rbac`: _Dedicated_ Kafka cluster on GCP that is accessible via VPC Peering connections with authorization using RBAC
-          * `dedicated-transit-gateway-attachment-aws-kafka-acls`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using ACLs
-          * `dedicated-transit-gateway-attachment-aws-kafka-rbac`: _Dedicated_ Kafka cluster on AWS that is accessible via Transit Gateway Endpoint with authorization using RBAC
-          * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         You can import a Peering by using Environment ID and Peering ID, in the format `<Environment ID>/<Peering ID>`. The following example shows how to import a Peering:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/peering:Peering my_peer env-abc123/peer-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param PeeringArgs args: The arguments to use to populate this resource's properties.

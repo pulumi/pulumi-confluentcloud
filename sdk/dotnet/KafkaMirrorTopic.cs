@@ -12,6 +12,7 @@ namespace Pulumi.ConfluentCloud
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,6 +45,8 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Getting Started
     /// 
     /// The following end-to-end examples might help to get started with `confluentcloud.KafkaMirrorTopic` resource:
@@ -56,17 +59,17 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// You can import a Kafka mirror topic by using the Kafka cluster ID, cluster link name, and Kafka topic name in the format `&lt;Kafka cluster ID&gt;/&lt;Cluster link name&gt;/&lt;Kafka topic name&gt;`, for example:
     /// 
-    ///  $ export IMPORT_KAFKA_API_KEY="&lt;kafka_api_key&gt;"
+    /// $ export IMPORT_KAFKA_API_KEY="&lt;kafka_api_key&gt;"
     /// 
-    ///  $ export IMPORT_KAFKA_API_SECRET="&lt;kafka_api_secret&gt;"
+    /// $ export IMPORT_KAFKA_API_SECRET="&lt;kafka_api_secret&gt;"
     /// 
-    ///  $ export IMPORT_KAFKA_REST_ENDPOINT="&lt;kafka_rest_endpoint&gt;"
+    /// $ export IMPORT_KAFKA_REST_ENDPOINT="&lt;kafka_rest_endpoint&gt;"
     /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic my_mirror_topic lkc-abc123/my-cluster-link/orders-123
     /// ```
     /// 
-    ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/kafkaMirrorTopic:KafkaMirrorTopic")]
     public partial class KafkaMirrorTopic : global::Pulumi.CustomResource

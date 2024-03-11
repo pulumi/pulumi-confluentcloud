@@ -22,29 +22,29 @@ import javax.annotation.Nullable;
  * 
  * You can import Kafka ACLs by using the Kafka cluster ID and attributes of `confluent_kafka_acl` resource in the format `&lt;Kafka cluster ID&gt;/&lt;Kafka ACL resource type&gt;#&lt;Kafka ACL resource name&gt;#&lt;Kafka ACL pattern type&gt;#&lt;Kafka ACL principal&gt;#&lt;Kafka ACL host&gt;#&lt;Kafka ACL operation&gt;#&lt;Kafka ACL permission&gt;`, for example:
  * 
- *  Option #1: Manage multiple Kafka clusters in the same Terraform workspace
+ * Option #1: Manage multiple Kafka clusters in the same Terraform workspace
  * 
- *  $ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34;
+ * $ export IMPORT_KAFKA_API_KEY=&#34;&lt;kafka_api_key&gt;&#34;
  * 
- *  $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34;
+ * $ export IMPORT_KAFKA_API_SECRET=&#34;&lt;kafka_api_secret&gt;&#34;
  * 
- *  $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;
- * 
- * ```sh
- * $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster &#34;lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW&#34;
- * ```
- * 
- *  Option #2: Manage a single Kafka cluster in the same Terraform workspace
- * 
- *  $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
- * 
- *  $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
+ * $ export IMPORT_KAFKA_REST_ENDPOINT=&#34;&lt;kafka_rest_endpoint&gt;&#34;
  * 
  * ```sh
  * $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster &#34;lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW&#34;
  * ```
  * 
- *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * Option #2: Manage a single Kafka cluster in the same Terraform workspace
+ * 
+ * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * 
+ * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
+ * 
+ * ```sh
+ * $ pulumi import confluentcloud:index/kafkaAcl:KafkaAcl describe-cluster &#34;lkc-12345/CLUSTER#kafka-cluster#LITERAL#User:sa-xyz123#*#DESCRIBE#ALLOW&#34;
+ * ```
+ * 
+ * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/kafkaAcl:KafkaAcl")

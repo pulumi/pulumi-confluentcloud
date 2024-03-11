@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -24,20 +25,21 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * You can import a Flink Compute Pool by using Environment ID and Flink Compute Pool ID, in the format `<Environment ID>/<Flink Compute Pool ID>`. The following example shows how to import a Flink Compute Pool:
  *
- *  $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+ * $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
  *
- *  $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+ * $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
  *
  * ```sh
  * $ pulumi import confluentcloud:index/flinkComputePool:FlinkComputePool main env-abc123/lfcp-abc123
  * ```
  *
- *  !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  */
 export class FlinkComputePool extends pulumi.CustomResource {
     /**

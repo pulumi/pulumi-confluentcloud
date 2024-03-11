@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![Deprecated](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Deprecated-yellow>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
  *
@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -26,6 +27,7 @@ import * as utilities from "./utilities";
  * });
  * export const example = exampleSchemaRegistryRegion;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSchemaRegistryRegion(args: GetSchemaRegistryRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryRegionResult> {
 
@@ -70,7 +72,7 @@ export interface GetSchemaRegistryRegionResult {
     readonly region: string;
 }
 /**
- * [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![Deprecated](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Deprecated-yellow>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.getSchemaRegistryRegion` describes a Schema Registry cluster data source.
  *
@@ -80,6 +82,7 @@ export interface GetSchemaRegistryRegionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -91,6 +94,7 @@ export interface GetSchemaRegistryRegionResult {
  * });
  * export const example = exampleSchemaRegistryRegion;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSchemaRegistryRegionOutput(args: GetSchemaRegistryRegionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryRegionResult> {
     return pulumi.output(args).apply((a: any) => getSchemaRegistryRegion(a, opts))

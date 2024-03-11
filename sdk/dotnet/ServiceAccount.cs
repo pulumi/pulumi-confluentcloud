@@ -10,12 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.ConfluentCloud
 {
     /// <summary>
-    /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    /// [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
     /// 
     /// `confluentcloud.ServiceAccount` provides a Service Account resource that enables creating, editing, and deleting service accounts on Confluent Cloud.
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,6 +32,8 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Getting Started
     /// 
     /// The following end-to-end examples might help to get started with `confluentcloud.ServiceAccount` resource:
@@ -60,15 +63,15 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// You can import a Service Account by using Service Account ID, for example:
     /// 
-    ///  $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
+    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
     /// 
-    ///  $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
+    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
     /// ```
     /// 
-    ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/serviceAccount:ServiceAccount")]
     public partial class ServiceAccount : global::Pulumi.CustomResource

@@ -14,35 +14,35 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// You can import a Schema by using the Schema Registry cluster ID, Subject name, and unique identifier (or `latest` when `recreate_on_update = false`) of the Schema in the format `&lt;Schema Registry cluster ID&gt;/&lt;Subject name&gt;/&lt;Schema identifier&gt;`, for example:
     /// 
-    ///  Option A: recreate_on_update = false (by default)
+    /// Option A: recreate_on_update = false (by default)
     /// 
-    ///  $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
     /// 
-    ///  $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
     /// 
-    ///  $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
     /// 
-    ///  $ export SCHEMA_CONTENT="&lt;schema_content&gt;" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
+    /// $ export SCHEMA_CONTENT="&lt;schema_content&gt;" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
     /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest
     /// ```
     /// 
-    ///  Option B: recreate_on_update = true
+    /// Option B: recreate_on_update = true
     /// 
-    ///  $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
     /// 
-    ///  $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
     /// 
-    ///  $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
     /// 
-    ///  $ export SCHEMA_CONTENT="&lt;schema_content&gt;" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
+    /// $ export SCHEMA_CONTENT="&lt;schema_content&gt;" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
     /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003
     /// ```
     /// 
-    ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/schema:Schema")]
     public partial class Schema : global::Pulumi.CustomResource

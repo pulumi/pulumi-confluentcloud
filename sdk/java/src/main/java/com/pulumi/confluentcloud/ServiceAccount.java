@@ -15,11 +15,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  * 
  * `confluentcloud.ServiceAccount` provides a Service Account resource that enables creating, editing, and deleting service accounts on Confluent Cloud.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,6 +50,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Getting Started
  * 
  * The following end-to-end examples might help to get started with `confluentcloud.ServiceAccount` resource:
@@ -77,15 +81,15 @@ import javax.annotation.Nullable;
  * 
  * You can import a Service Account by using Service Account ID, for example:
  * 
- *  $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
  * 
- *  $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
+ * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * 
  * ```sh
  * $ pulumi import confluentcloud:index/serviceAccount:ServiceAccount my_sa sa-abc123
  * ```
  * 
- *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/serviceAccount:ServiceAccount")

@@ -196,17 +196,17 @@ class SubjectConfig(pulumi.CustomResource):
 
         You can import a Subject Config by using the Schema Registry cluster ID, Subject name in the format `<Schema Registry cluster ID>/<Subject name>`, for example:
 
-         $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+        $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
 
-         $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+        $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
 
-         $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+        $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
 
         ```sh
         $ pulumi import confluentcloud:index/subjectConfig:SubjectConfig example lsrc-abc123/test-subject
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,17 +226,17 @@ class SubjectConfig(pulumi.CustomResource):
 
         You can import a Subject Config by using the Schema Registry cluster ID, Subject name in the format `<Schema Registry cluster ID>/<Subject name>`, for example:
 
-         $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+        $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
 
-         $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+        $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
 
-         $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+        $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
 
         ```sh
         $ pulumi import confluentcloud:index/subjectConfig:SubjectConfig example lsrc-abc123/test-subject
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param SubjectConfigArgs args: The arguments to use to populate this resource's properties.

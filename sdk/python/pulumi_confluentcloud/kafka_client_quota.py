@@ -223,6 +223,7 @@ class KafkaClientQuota(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -245,20 +246,21 @@ class KafkaClientQuota(pulumi.CustomResource):
                 id=confluent_environment["development"]["id"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         You can import a Kafka Client Quota by using Kafka Client Quota ID. The following example shows how to import a Kafka Client Quota ID:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/kafkaClientQuota:KafkaClientQuota example cq-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -277,6 +279,7 @@ class KafkaClientQuota(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -299,20 +302,21 @@ class KafkaClientQuota(pulumi.CustomResource):
                 id=confluent_environment["development"]["id"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         You can import a Kafka Client Quota by using Kafka Client Quota ID. The following example shows how to import a Kafka Client Quota ID:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/kafkaClientQuota:KafkaClientQuota example cq-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param KafkaClientQuotaArgs args: The arguments to use to populate this resource's properties.

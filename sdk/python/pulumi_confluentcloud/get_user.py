@@ -97,12 +97,13 @@ def get_user(email: Optional[str] = None,
              id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `get_user` describes a User data source.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -125,6 +126,7 @@ def get_user(email: Optional[str] = None,
         crn_pattern=standard_cluster_on_aws.rbac_crn)
     example_using_full_name = confluentcloud.get_user(full_name="John Doe")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str email: The email address of the User.
@@ -154,12 +156,13 @@ def get_user_output(email: Optional[pulumi.Input[Optional[str]]] = None,
                     id: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `get_user` describes a User data source.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -182,6 +185,7 @@ def get_user_output(email: Optional[pulumi.Input[Optional[str]]] = None,
         crn_pattern=standard_cluster_on_aws.rbac_crn)
     example_using_full_name = confluentcloud.get_user(full_name="John Doe")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str email: The email address of the User.

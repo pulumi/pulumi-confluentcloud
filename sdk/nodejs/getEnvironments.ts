@@ -5,12 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.getEnvironments` describes a data source for Environments.
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -18,6 +19,7 @@ import * as utilities from "./utilities";
  * const main = confluentcloud.getEnvironments({});
  * export const environments = main.then(main => main.ids);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEnvironments(opts?: pulumi.InvokeOptions): Promise<GetEnvironmentsResult> {
 
@@ -40,12 +42,13 @@ export interface GetEnvironmentsResult {
     readonly ids: string[];
 }
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.getEnvironments` describes a data source for Environments.
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -53,6 +56,7 @@ export interface GetEnvironmentsResult {
  * const main = confluentcloud.getEnvironments({});
  * export const environments = main.then(main => main.ids);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEnvironmentsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentsResult> {
     return pulumi.output(getEnvironments(opts))

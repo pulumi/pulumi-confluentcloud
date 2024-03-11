@@ -9,12 +9,13 @@ import * as utilities from "./utilities";
 /**
  * ## # confluentcloud.KsqlCluster Data Source
  *
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -34,6 +35,7 @@ import * as utilities from "./utilities";
  * });
  * export const exampleUsingName = exampleUsingNameKsqlCluster;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getKsqlCluster(args: GetKsqlClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKsqlClusterResult> {
 
@@ -116,12 +118,13 @@ export interface GetKsqlClusterResult {
 /**
  * ## # confluentcloud.KsqlCluster Data Source
  *
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.KsqlCluster` describes a ksqlDB cluster data source.
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -141,6 +144,7 @@ export interface GetKsqlClusterResult {
  * });
  * export const exampleUsingName = exampleUsingNameKsqlCluster;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getKsqlClusterOutput(args: GetKsqlClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKsqlClusterResult> {
     return pulumi.output(args).apply((a: any) => getKsqlCluster(a, opts))

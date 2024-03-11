@@ -7,12 +7,13 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.NetworkLinkEndpoint` describes a Network Link Endpoint data source.
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -25,6 +26,7 @@ import * as utilities from "./utilities";
  * });
  * export const networkLinkEndpoint = nle;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkLinkEndpoint(args: GetNetworkLinkEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkLinkEndpointResult> {
 
@@ -77,12 +79,13 @@ export interface GetNetworkLinkEndpointResult {
     readonly resourceName: string;
 }
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.NetworkLinkEndpoint` describes a Network Link Endpoint data source.
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -95,6 +98,7 @@ export interface GetNetworkLinkEndpointResult {
  * });
  * export const networkLinkEndpoint = nle;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkLinkEndpointOutput(args: GetNetworkLinkEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkLinkEndpointResult> {
     return pulumi.output(args).apply((a: any) => getNetworkLinkEndpoint(a, opts))

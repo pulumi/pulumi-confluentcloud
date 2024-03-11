@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,20 +43,21 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // You can import a Custom Connector Plugin by using a Custom Connector Plugin ID, in the format `<Custom Connector Plugin>`. The following example shows how to import a Custom Connector Plugin:
 //
-//	$ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+// $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 //
-//	$ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+// $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 //
 // ```sh
 // $ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz
 // ```
 //
-//	!> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type CustomConnectorPlugin struct {
 	pulumi.CustomResourceState
 

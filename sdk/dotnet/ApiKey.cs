@@ -11,7 +11,9 @@ namespace Pulumi.ConfluentCloud
 {
     /// <summary>
     /// ## Example Usage
+    /// 
     /// ### Example Kafka API Key
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,7 +45,10 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example ksqlDB API Key
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,7 +80,10 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Schema Registry API Key
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -107,7 +115,10 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Flink API Key
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -139,7 +150,10 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Cloud API Key
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -161,6 +175,8 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Getting Started
     /// 
     /// The following end-to-end examples might help to get started with `confluentcloud.ApiKey` resource:
@@ -190,33 +206,33 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// You can import a Cluster API Key by using the Environment ID and Cluster API Key ID in the format `&lt;Environment ID&gt;/&lt;Cluster API Key ID&gt;`, for example:
     /// 
-    ///  $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
+    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
     /// 
-    ///  $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
+    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// 
-    ///  $ export API_KEY_SECRET="&lt;api_key_secret&gt;"
+    /// $ export API_KEY_SECRET="&lt;api_key_secret&gt;"
     /// 
-    ///  Option #1: Cluster API Key
+    /// Option #1: Cluster API Key
     /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/apiKey:ApiKey example_kafka_api_key "env-abc123/UTT6WDRXX7FHD2GV"
     /// ```
     /// 
-    ///  You can import a Cloud API Key by using Cloud API Key ID, for example:
+    /// You can import a Cloud API Key by using Cloud API Key ID, for example:
     /// 
-    ///  $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
+    /// $ export CONFLUENT_CLOUD_API_KEY="&lt;cloud_api_key&gt;"
     /// 
-    ///  $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
+    /// $ export CONFLUENT_CLOUD_API_SECRET="&lt;cloud_api_secret&gt;"
     /// 
-    ///  $ export API_KEY_SECRET="&lt;api_key_secret&gt;"
+    /// $ export API_KEY_SECRET="&lt;api_key_secret&gt;"
     /// 
-    ///  Option #2: Cloud API Key
+    /// Option #2: Cloud API Key
     /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/apiKey:ApiKey example_cloud_api_key "4UEXOMMWIBE5KZQG"
     /// ```
     /// 
-    ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/apiKey:ApiKey")]
     public partial class ApiKey : global::Pulumi.CustomResource

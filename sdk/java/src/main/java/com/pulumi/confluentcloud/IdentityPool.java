@@ -15,12 +15,15 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  * 
  * `confluentcloud.IdentityPool` provides an Identity Pool resource that enables creating, editing, and deleting identity pools on Confluent Cloud.
  * 
  * ## Example Usage
+ * 
  * ### Example Identity Pool to be used with Azure AD
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,7 +68,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example Identity Pool to be used with Okta
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -110,6 +117,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## External Documentation
  * 
  * * [Use identity pools with your OAuth provider](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html).
@@ -118,15 +127,15 @@ import javax.annotation.Nullable;
  * 
  * You can import an Identity Pool by using Identity Provider ID and Identity Pool ID, in the format `&lt;Identity Provider ID&gt;/&lt;Identity Pool ID&gt;`. The following example shows how to import an Identity Pool:
  * 
- *  $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
+ * $ export CONFLUENT_CLOUD_API_KEY=&#34;&lt;cloud_api_key&gt;&#34;
  * 
- *  $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
+ * $ export CONFLUENT_CLOUD_API_SECRET=&#34;&lt;cloud_api_secret&gt;&#34;
  * 
  * ```sh
  * $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
  * ```
  * 
- *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/identityPool:IdentityPool")

@@ -7,18 +7,20 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.getSchemaRegistryClusters` describes a data source for Schema Registry Clusters.
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * const main = confluentcloud.getSchemaRegistryClusters({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSchemaRegistryClusters(opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryClustersResult> {
 
@@ -41,18 +43,20 @@ export interface GetSchemaRegistryClustersResult {
     readonly id: string;
 }
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.getSchemaRegistryClusters` describes a data source for Schema Registry Clusters.
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * const main = confluentcloud.getSchemaRegistryClusters({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSchemaRegistryClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryClustersResult> {
     return pulumi.output(getSchemaRegistryClusters(opts))

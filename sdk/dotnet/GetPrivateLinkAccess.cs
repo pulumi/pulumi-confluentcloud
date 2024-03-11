@@ -12,14 +12,13 @@ namespace Pulumi.ConfluentCloud
     public static class GetPrivateLinkAccess
     {
         /// <summary>
-        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.PrivateLinkAccess` describes a Private Link Access data source.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -53,21 +52,19 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPrivateLinkAccessResult> InvokeAsync(GetPrivateLinkAccessArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkAccessResult>("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", args ?? new GetPrivateLinkAccessArgs(), options.WithDefaults());
 
         /// <summary>
-        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.PrivateLinkAccess` describes a Private Link Access data source.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -101,8 +98,7 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPrivateLinkAccessResult> Invoke(GetPrivateLinkAccessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkAccessResult>("confluentcloud:index/getPrivateLinkAccess:getPrivateLinkAccess", args ?? new GetPrivateLinkAccessInvokeArgs(), options.WithDefaults());

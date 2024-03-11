@@ -131,7 +131,7 @@ class GroupMapping(pulumi.CustomResource):
                  filter: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
         `GroupMapping` provides a Group Mapping resource that enables creating, editing, and deleting group mappings on Confluent Cloud.
 
@@ -139,6 +139,7 @@ class GroupMapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -152,20 +153,21 @@ class GroupMapping(pulumi.CustomResource):
             role_name="EnvironmentAdmin",
             crn_pattern=data["confluent_environment"]["prod"]["resource_name"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         You can import a Group Mapping by using Group Mapping ID, for example:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/groupMapping:GroupMapping application-developers group-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,7 +182,7 @@ class GroupMapping(pulumi.CustomResource):
                  args: GroupMappingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
         `GroupMapping` provides a Group Mapping resource that enables creating, editing, and deleting group mappings on Confluent Cloud.
 
@@ -188,6 +190,7 @@ class GroupMapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -201,20 +204,21 @@ class GroupMapping(pulumi.CustomResource):
             role_name="EnvironmentAdmin",
             crn_pattern=data["confluent_environment"]["prod"]["resource_name"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         You can import a Group Mapping by using Group Mapping ID, for example:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/groupMapping:GroupMapping application-developers group-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param GroupMappingArgs args: The arguments to use to populate this resource's properties.

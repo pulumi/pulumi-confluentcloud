@@ -23,17 +23,17 @@ import javax.annotation.Nullable;
  * 
  * You can import a Tag by using the Schema Registry cluster ID, Tag name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Tag name&gt;`, for example:
  * 
- *  $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
+ * $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
  * 
- *  $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
+ * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
  * 
- *  $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
+ * $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
  * 
  * ```sh
  * $ pulumi import confluentcloud:index/tag:Tag pii lsrc-8wrx70/PII
  * ```
  * 
- *  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
  * 
  */
 @ResourceType(type="confluentcloud:index/tag:Tag")

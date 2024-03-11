@@ -96,12 +96,13 @@ def get_service_account(display_name: Optional[str] = None,
                         id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceAccountResult:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `ServiceAccount` describes a Service Account data source.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -111,6 +112,7 @@ def get_service_account(display_name: Optional[str] = None,
     example_using_name = confluentcloud.get_service_account(display_name="test_sa")
     test_env = confluentcloud.Environment("test-env")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: A human-readable name for the Service Account.
@@ -137,12 +139,13 @@ def get_service_account_output(display_name: Optional[pulumi.Input[Optional[str]
                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceAccountResult]:
     """
-    [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `ServiceAccount` describes a Service Account data source.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -152,6 +155,7 @@ def get_service_account_output(display_name: Optional[pulumi.Input[Optional[str]
     example_using_name = confluentcloud.get_service_account(display_name="test_sa")
     test_env = confluentcloud.Environment("test-env")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: A human-readable name for the Service Account.

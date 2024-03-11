@@ -196,13 +196,15 @@ class IdentityPool(pulumi.CustomResource):
                  identity_provider: Optional[pulumi.Input[pulumi.InputType['IdentityPoolIdentityProviderArgs']]] = None,
                  __props__=None):
         """
-        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
         `IdentityPool` provides an Identity Pool resource that enables creating, editing, and deleting identity pools on Confluent Cloud.
 
         ## Example Usage
+
         ### Example Identity Pool to be used with Azure AD
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -221,8 +223,11 @@ class IdentityPool(pulumi.CustomResource):
             identity_claim="claims.sub",
             filter="claims.aud==\\"confluent\\" && claims.group!=\\"invalid_group\\"")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Identity Pool to be used with Okta
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -241,6 +246,8 @@ class IdentityPool(pulumi.CustomResource):
             identity_claim="claims.sub",
             filter="claims.aud==\\"confluent\\" && claims.group!=\\"invalid_group\\"")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## External Documentation
 
         * [Use identity pools with your OAuth provider](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html).
@@ -249,15 +256,15 @@ class IdentityPool(pulumi.CustomResource):
 
         You can import an Identity Pool by using Identity Provider ID and Identity Pool ID, in the format `<Identity Provider ID>/<Identity Pool ID>`. The following example shows how to import an Identity Pool:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,13 +281,15 @@ class IdentityPool(pulumi.CustomResource):
                  args: IdentityPoolArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
         `IdentityPool` provides an Identity Pool resource that enables creating, editing, and deleting identity pools on Confluent Cloud.
 
         ## Example Usage
+
         ### Example Identity Pool to be used with Azure AD
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -299,8 +308,11 @@ class IdentityPool(pulumi.CustomResource):
             identity_claim="claims.sub",
             filter="claims.aud==\\"confluent\\" && claims.group!=\\"invalid_group\\"")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Identity Pool to be used with Okta
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -319,6 +331,8 @@ class IdentityPool(pulumi.CustomResource):
             identity_claim="claims.sub",
             filter="claims.aud==\\"confluent\\" && claims.group!=\\"invalid_group\\"")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## External Documentation
 
         * [Use identity pools with your OAuth provider](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/identity-pools.html).
@@ -327,15 +341,15 @@ class IdentityPool(pulumi.CustomResource):
 
         You can import an Identity Pool by using Identity Provider ID and Identity Pool ID, in the format `<Identity Provider ID>/<Identity Pool ID>`. The following example shows how to import an Identity Pool:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/identityPool:IdentityPool example op-abc123/pool-xyz456
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param IdentityPoolArgs args: The arguments to use to populate this resource's properties.

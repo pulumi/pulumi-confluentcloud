@@ -170,13 +170,15 @@ class IdentityProvider(pulumi.CustomResource):
                  jwks_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
         `IdentityProvider` provides an Identity Provider resource that enables creating, editing, and deleting identity providers on Confluent Cloud.
 
         ## Example Usage
+
         ### Example Identity Provider: Azure AD
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -187,8 +189,11 @@ class IdentityProvider(pulumi.CustomResource):
             issuer="https://login.microsoftonline.com/{tenant_id}/v2.0",
             jwks_uri="https://login.microsoftonline.com/common/discovery/v2.0/keys")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Identity Provider: Okta
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -199,6 +204,8 @@ class IdentityProvider(pulumi.CustomResource):
             issuer="https://mycompany.okta.com/oauth2/default",
             jwks_uri="https://mycompany.okta.com/oauth2/default/v1/keys")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## External Documentation
 
         * [Authenticating with OAuth](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/overview.html).
@@ -207,15 +214,15 @@ class IdentityProvider(pulumi.CustomResource):
 
         You can import an Identity Provider by using Identity Provider ID, for example:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/identityProvider:IdentityProvider example op-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,13 +240,15 @@ class IdentityProvider(pulumi.CustomResource):
                  args: IdentityProviderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
         `IdentityProvider` provides an Identity Provider resource that enables creating, editing, and deleting identity providers on Confluent Cloud.
 
         ## Example Usage
+
         ### Example Identity Provider: Azure AD
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -250,8 +259,11 @@ class IdentityProvider(pulumi.CustomResource):
             issuer="https://login.microsoftonline.com/{tenant_id}/v2.0",
             jwks_uri="https://login.microsoftonline.com/common/discovery/v2.0/keys")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Identity Provider: Okta
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -262,6 +274,8 @@ class IdentityProvider(pulumi.CustomResource):
             issuer="https://mycompany.okta.com/oauth2/default",
             jwks_uri="https://mycompany.okta.com/oauth2/default/v1/keys")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## External Documentation
 
         * [Authenticating with OAuth](https://docs.confluent.io/cloud/current/access-management/authenticate/oauth/overview.html).
@@ -270,15 +284,15 @@ class IdentityProvider(pulumi.CustomResource):
 
         You can import an Identity Provider by using Identity Provider ID, for example:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/identityProvider:IdentityProvider example op-abc123
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param IdentityProviderArgs args: The arguments to use to populate this resource's properties.

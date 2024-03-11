@@ -135,13 +135,15 @@ class ByokKey(pulumi.CustomResource):
                  gcp: Optional[pulumi.Input[pulumi.InputType['ByokKeyGcpArgs']]] = None,
                  __props__=None):
         """
-        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
         `ByokKey` provides a BYOK Key resource that enables creating, editing, and deleting BYOK Key on Confluent Cloud.
 
         ## Example Usage
+
         ### Example BYOK Key on Azure
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -152,8 +154,11 @@ class ByokKey(pulumi.CustomResource):
             tenant_id="11111111-1111-1111-1111-111111111111",
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example BYOK Key on GCP
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -162,6 +167,8 @@ class ByokKey(pulumi.CustomResource):
             key_id="projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test",
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Getting Started
 
         The following end-to-end examples might help to get started with `ByokKey` resource:
@@ -174,15 +181,15 @@ class ByokKey(pulumi.CustomResource):
 
         You can import a BYOK Key by using BYOK Key ID. The following example shows how to import a BYOK Key:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/byokKey:ByokKey aws_key cck-abcde
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,13 +204,15 @@ class ByokKey(pulumi.CustomResource):
                  args: Optional[ByokKeyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
         `ByokKey` provides a BYOK Key resource that enables creating, editing, and deleting BYOK Key on Confluent Cloud.
 
         ## Example Usage
+
         ### Example BYOK Key on Azure
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -214,8 +223,11 @@ class ByokKey(pulumi.CustomResource):
             tenant_id="11111111-1111-1111-1111-111111111111",
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example BYOK Key on GCP
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -224,6 +236,8 @@ class ByokKey(pulumi.CustomResource):
             key_id="projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test",
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Getting Started
 
         The following end-to-end examples might help to get started with `ByokKey` resource:
@@ -236,15 +250,15 @@ class ByokKey(pulumi.CustomResource):
 
         You can import a BYOK Key by using BYOK Key ID. The following example shows how to import a BYOK Key:
 
-         $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
+        $ export CONFLUENT_CLOUD_API_KEY="<cloud_api_key>"
 
-         $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
+        $ export CONFLUENT_CLOUD_API_SECRET="<cloud_api_secret>"
 
         ```sh
         $ pulumi import confluentcloud:index/byokKey:ByokKey aws_key cck-abcde
         ```
 
-         !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 
         :param str resource_name: The name of the resource.
         :param ByokKeyArgs args: The arguments to use to populate this resource's properties.

@@ -14,17 +14,17 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// You can import a Mode by using the Schema Registry cluster ID, Subject name in the format `&lt;Schema Registry cluster ID&gt;`, for example:
     /// 
-    ///  $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
     /// 
-    ///  $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
     /// 
-    ///  $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
+    /// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
     /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode example lsrc-abc123
     /// ```
     /// 
-    ///  !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
     /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/schemaRegistryClusterMode:SchemaRegistryClusterMode")]
     public partial class SchemaRegistryClusterMode : global::Pulumi.CustomResource

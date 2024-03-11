@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.KafkaClientQuota` describes a Kafka Client Quota.
  *
@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -24,6 +25,7 @@ import * as utilities from "./utilities";
  * });
  * export const example = exampleKafkaClientQuota;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getKafkaClientQuota(args: GetKafkaClientQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaClientQuotaResult> {
 
@@ -77,7 +79,7 @@ export interface GetKafkaClientQuotaResult {
     readonly throughputs: outputs.GetKafkaClientQuotaThroughput[];
 }
 /**
- * [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+ * [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
  *
  * `confluentcloud.KafkaClientQuota` describes a Kafka Client Quota.
  *
@@ -85,6 +87,7 @@ export interface GetKafkaClientQuotaResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -94,6 +97,7 @@ export interface GetKafkaClientQuotaResult {
  * });
  * export const example = exampleKafkaClientQuota;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getKafkaClientQuotaOutput(args: GetKafkaClientQuotaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaClientQuotaResult> {
     return pulumi.output(args).apply((a: any) => getKafkaClientQuota(a, opts))
