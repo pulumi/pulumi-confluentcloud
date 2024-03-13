@@ -1688,7 +1688,7 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "The Schema Registry API Key.\n",
+                    "description": "The setting name.\n",
                     "secret": true
                 },
                 "secret": {
@@ -1770,6 +1770,65 @@
             "required": [
                 "id"
             ]
+        },
+        "confluentcloud:index/SchemaMetadata:SchemaMetadata": {
+            "properties": {
+                "properties": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The custom properties to set:\n"
+                },
+                "sensitives": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of metadata properties to be encrypted.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/SchemaMetadataTag:SchemaMetadataTag"
+                    },
+                    "description": "The tags to which the rule applies, if any.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "properties",
+                        "sensitives",
+                        "tags"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/SchemaMetadataTag:SchemaMetadataTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The setting name.\n"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of tags.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "key",
+                        "values"
+                    ]
+                }
+            }
         },
         "confluentcloud:index/SchemaRegistryClusterConfigCredentials:SchemaRegistryClusterConfigCredentials": {
             "properties": {
@@ -1865,12 +1924,12 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "The Cluster API Key for your Confluent Cloud cluster.\n",
+                    "description": "The Schema Registry API Key.\n",
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Cluster API Secret for your Confluent Cloud cluster.\n",
+                    "description": "The Schema Registry API Secret.\n",
                     "secret": true
                 }
             },
@@ -1884,7 +1943,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The Schema Registry cluster ID (e.g., `lsrc-abc123`).\n",
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1897,12 +1956,12 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "The Cluster API Key for your Confluent Cloud cluster.\n",
+                    "description": "The Schema Registry API Key.\n",
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Cluster API Secret for your Confluent Cloud cluster.\n",
+                    "description": "The Schema Registry API Secret.\n",
                     "secret": true
                 }
             },
@@ -1916,7 +1975,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The Schema Registry cluster ID (e.g., `lsrc-abc123`).\n",
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1925,11 +1984,170 @@
                 "id"
             ]
         },
+        "confluentcloud:index/SchemaRuleset:SchemaRuleset": {
+            "properties": {
+                "domainRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/SchemaRulesetDomainRule:SchemaRulesetDomainRule"
+                    }
+                },
+                "migrationRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/SchemaRulesetMigrationRule:SchemaRulesetMigrationRule"
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "domainRules",
+                        "migrationRules"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/SchemaRulesetDomainRule:SchemaRulesetDomainRule": {
+            "properties": {
+                "doc": {
+                    "type": "string",
+                    "description": "An optional description of the rule.\n"
+                },
+                "expr": {
+                    "type": "string",
+                    "description": "The body of the rule, which is optional.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A user-defined name that can be used to reference the rule.\n"
+                },
+                "onFailure": {
+                    "type": "string",
+                    "description": "An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.\n"
+                },
+                "onSuccess": {
+                    "type": "string",
+                    "description": "An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as \"NONE,ERROR\" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.\n"
+                },
+                "params": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n\n\u003e **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).\n\n\u003e **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The tags to which the rule applies, if any.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "doc",
+                        "expr",
+                        "kind",
+                        "mode",
+                        "name",
+                        "onFailure",
+                        "onSuccess",
+                        "params",
+                        "tags",
+                        "type"
+                    ]
+                }
+            }
+        },
+        "confluentcloud:index/SchemaRulesetMigrationRule:SchemaRulesetMigrationRule": {
+            "properties": {
+                "doc": {
+                    "type": "string",
+                    "description": "An optional description of the rule.\n"
+                },
+                "expr": {
+                    "type": "string",
+                    "description": "The body of the rule, which is optional.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A user-defined name that can be used to reference the rule.\n"
+                },
+                "onFailure": {
+                    "type": "string",
+                    "description": "An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.\n"
+                },
+                "onSuccess": {
+                    "type": "string",
+                    "description": "An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as \"NONE,ERROR\" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.\n"
+                },
+                "params": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n\n\u003e **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).\n\n\u003e **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The tags to which the rule applies, if any.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "doc",
+                        "expr",
+                        "kind",
+                        "mode",
+                        "name",
+                        "onFailure",
+                        "onSuccess",
+                        "params",
+                        "tags",
+                        "type"
+                    ]
+                }
+            }
+        },
         "confluentcloud:index/SchemaSchemaReference:SchemaSchemaReference": {
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "The name of the subject, representing the subject under which the referenced schema is registered.\n"
+                    "description": "A user-defined name that can be used to reference the rule.\n"
                 },
                 "subjectName": {
                     "type": "string",
@@ -3336,6 +3554,67 @@
                 "secret"
             ]
         },
+        "confluentcloud:index/getSchemaMetadata:getSchemaMetadata": {
+            "properties": {
+                "properties": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "(Optional Map) The custom properties to set:\n"
+                },
+                "sensitives": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Optional List of Strings) A list of metadata properties to be encrypted.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaMetadataTag:getSchemaMetadataTag"
+                    },
+                    "description": "(Optional String List) The tags to which the rule applies, if any.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "properties",
+                "sensitives",
+                "tags"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getSchemaMetadataTag:getSchemaMetadataTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Schema Registry API Key.\n"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Required List of Strings) The list of tags.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "values"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/getSchemaRegistryClusterConfigCredentials:getSchemaRegistryClusterConfigCredentials": {
             "properties": {
                 "key": {
@@ -3525,12 +3804,12 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "The Cluster API Key for your Confluent Cloud cluster.\n",
+                    "description": "The Schema Registry API Key.\n",
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Cluster API Secret for your Confluent Cloud cluster.\n",
+                    "description": "The Schema Registry API Secret.\n",
                     "secret": true
                 }
             },
@@ -3544,7 +3823,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The Schema Registry cluster ID (e.g., `lsrc-abc123`).\n"
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3556,12 +3835,12 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "The Cluster API Key for your Confluent Cloud cluster.\n",
+                    "description": "The Schema Registry API Key.\n",
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Cluster API Secret for your Confluent Cloud cluster.\n",
+                    "description": "The Schema Registry API Secret.\n",
                     "secret": true
                 }
             },
@@ -3575,7 +3854,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The Schema Registry cluster ID (e.g., `lsrc-abc123`).\n"
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3583,11 +3862,174 @@
                 "id"
             ]
         },
+        "confluentcloud:index/getSchemaRuleset:getSchemaRuleset": {
+            "properties": {
+                "domainRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRulesetDomainRule:getSchemaRulesetDomainRule"
+                    },
+                    "description": "(Optional List of Blocks) supports the following:\n"
+                },
+                "migrationRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRulesetMigrationRule:getSchemaRulesetMigrationRule"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "domainRules",
+                "migrationRules"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getSchemaRulesetDomainRule:getSchemaRulesetDomainRule": {
+            "properties": {
+                "doc": {
+                    "type": "string",
+                    "description": "(Optional String) An optional description.\n"
+                },
+                "expr": {
+                    "type": "string",
+                    "description": "(Optional String) The body of the rule, which is optional.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Optional String) Either `CONDITION` or `TRANSFORM`.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "(Optional String) The mode of the rule.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "(Optional String) A user-defined name that can be used to reference the rule.\n"
+                },
+                "onFailure": {
+                    "type": "string",
+                    "description": "(Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.\n"
+                },
+                "onSuccess": {
+                    "type": "string",
+                    "description": "(Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.\n"
+                },
+                "params": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "(Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Optional String List) The tags to which the rule applies, if any.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "doc",
+                "expr",
+                "kind",
+                "mode",
+                "name",
+                "onFailure",
+                "onSuccess",
+                "params",
+                "tags",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getSchemaRulesetMigrationRule:getSchemaRulesetMigrationRule": {
+            "properties": {
+                "doc": {
+                    "type": "string",
+                    "description": "(Optional String) An optional description.\n"
+                },
+                "expr": {
+                    "type": "string",
+                    "description": "(Optional String) The body of the rule, which is optional.\n"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "(Optional String) Either `CONDITION` or `TRANSFORM`.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "(Optional String) The mode of the rule.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "(Optional String) A user-defined name that can be used to reference the rule.\n"
+                },
+                "onFailure": {
+                    "type": "string",
+                    "description": "(Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.\n"
+                },
+                "onSuccess": {
+                    "type": "string",
+                    "description": "(Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.\n"
+                },
+                "params": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "(Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Optional String List) The tags to which the rule applies, if any.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "(Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "doc",
+                "expr",
+                "kind",
+                "mode",
+                "name",
+                "onFailure",
+                "onSuccess",
+                "params",
+                "tags",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/getSchemaSchemaReference:getSchemaSchemaReference": {
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "(Required String) The name of the subject, representing the subject under which the referenced schema is registered.\n"
+                    "description": "(Optional String) A user-defined name that can be used to reference the rule.\n"
                 },
                 "subjectName": {
                     "type": "string",
@@ -5114,7 +5556,7 @@
             }
         },
         "confluentcloud:index/flinkStatement:FlinkStatement": {
-            "description": "\n\n## Import\n\nYou can import a Flink statement by using the Flink Statement name, for example:\n\nOption #1: Manage multiple Flink Compute Pools in the same Terraform workspace\n\n$ export IMPORT_ORGANIZATION_ID=\"\u003corganization_id\u003e\"\n\n$ export IMPORT_ENVIRONMENT_ID=\"\u003cenvironment_id\u003e\"\n\n$ export IMPORT_FLINK_COMPUTE_POOL_ID=\"\u003cflink_compute_pool_id\u003e\"\n\n$ export IMPORT_FLINK_API_KEY=\"\u003cflink_api_key\u003e\"\n\n$ export IMPORT_FLINK_API_SECRET=\"\u003cflink_api_secret\u003e\"\n\n$ export IMPORT_FLINK_REST_ENDPOINT=\"\u003cflink_rest_endpoint\u003e\"\n\n$ export IMPORT_FLINK_PRINCIPAL_ID=\"\u003cflink_rest_endpoint\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67\n```\n\nOption #2: Manage a single Flink Compute Pool in the same Terraform workspace\n\n```sh\n$ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "description": "\n\n## Import\n\nYou can import a Flink statement by using the Flink Statement name, for example:\n\nOption #1: Manage multiple Flink Compute Pools in the same Terraform workspace\n\n$ export IMPORT_CONFLUENT_ORGANIZATION_ID=\"\u003corganization_id\u003e\"\n\n$ export IMPORT_CONFLUENT_ENVIRONMENT_ID=\"\u003cenvironment_id\u003e\"\n\n$ export IMPORT_FLINK_COMPUTE_POOL_ID=\"\u003cflink_compute_pool_id\u003e\"\n\n$ export IMPORT_FLINK_API_KEY=\"\u003cflink_api_key\u003e\"\n\n$ export IMPORT_FLINK_API_SECRET=\"\u003cflink_api_secret\u003e\"\n\n$ export IMPORT_FLINK_REST_ENDPOINT=\"\u003cflink_rest_endpoint\u003e\"\n\n$ export IMPORT_FLINK_PRINCIPAL_ID=\"\u003cflink_rest_endpoint\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67\n```\n\nOption #2: Manage a single Flink Compute Pool in the same Terraform workspace\n\n```sh\n$ pulumi import confluentcloud:index/flinkStatement:FlinkStatement example cfeab4fe-b62c-49bd-9e99-51cc98c77a67\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
                 "computePool": {
                     "$ref": "#/types/confluentcloud:index/FlinkStatementComputePool:FlinkStatementComputePool"
@@ -7536,6 +7978,10 @@
                     "type": "boolean",
                     "description": "An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).\n"
                 },
+                "metadata": {
+                    "$ref": "#/types/confluentcloud:index/SchemaMetadata:SchemaMetadata",
+                    "description": "See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:\n"
+                },
                 "recreateOnUpdate": {
                     "type": "boolean",
                     "description": "An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.\n"
@@ -7543,6 +7989,10 @@
                 "restEndpoint": {
                     "type": "string",
                     "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                },
+                "ruleset": {
+                    "$ref": "#/types/confluentcloud:index/SchemaRuleset:SchemaRuleset",
+                    "description": "The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.\n"
                 },
                 "schema": {
                     "type": "string",
@@ -7578,6 +8028,8 @@
             },
             "required": [
                 "format",
+                "metadata",
+                "ruleset",
                 "schema",
                 "schemaIdentifier",
                 "subjectName",
@@ -7598,6 +8050,10 @@
                     "type": "boolean",
                     "description": "An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).\n"
                 },
+                "metadata": {
+                    "$ref": "#/types/confluentcloud:index/SchemaMetadata:SchemaMetadata",
+                    "description": "See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:\n"
+                },
                 "recreateOnUpdate": {
                     "type": "boolean",
                     "description": "An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.\n",
@@ -7607,6 +8063,10 @@
                     "type": "string",
                     "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                     "willReplaceOnChanges": true
+                },
+                "ruleset": {
+                    "$ref": "#/types/confluentcloud:index/SchemaRuleset:SchemaRuleset",
+                    "description": "The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.\n"
                 },
                 "schema": {
                     "type": "string",
@@ -7655,6 +8115,10 @@
                         "type": "boolean",
                         "description": "An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).\n"
                     },
+                    "metadata": {
+                        "$ref": "#/types/confluentcloud:index/SchemaMetadata:SchemaMetadata",
+                        "description": "See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:\n"
+                    },
                     "recreateOnUpdate": {
                         "type": "boolean",
                         "description": "An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.\n",
@@ -7664,6 +8128,10 @@
                         "type": "string",
                         "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                         "willReplaceOnChanges": true
+                    },
+                    "ruleset": {
+                        "$ref": "#/types/confluentcloud:index/SchemaRuleset:SchemaRuleset",
+                        "description": "The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.\n"
                     },
                     "schema": {
                         "type": "string",
@@ -8135,9 +8603,11 @@
             }
         },
         "confluentcloud:index/schemaRegistryDek:SchemaRegistryDek": {
+            "description": "\n\n## Import\n\nYou can import a Schema Registry Key by using the Schema Registry cluster ID, KEK name, Subject, Version and Algorithm in the format `\u003cSchema Registry Cluster Id\u003e/\u003cSchema Registry KEK Name\u003e/\u003cSubject\u003e/\u003cVersion\u003e/\u003cAlgorithm\u003e`, for example:\n\n$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/schemaRegistryDek:SchemaRegistryDek my_dek lsrc-8wrx70/testkek/ts/1/AES256_GCM\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
                 "algorithm": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.\n"
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryDekCredentials:SchemaRegistryDekCredentials",
@@ -8145,30 +8615,35 @@
                     "secret": true
                 },
                 "encryptedKeyMaterial": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The encrypted key material for the DEK.\n"
                 },
                 "hardDelete": {
                     "type": "boolean",
                     "description": "Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek\non destroy. Defaults to `false` (soft delete).\n"
                 },
                 "kekName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the KEK used to encrypt this DEK.\n"
                 },
                 "keyMaterial": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "(Optional String) The decrypted version of encrypted key material.\n"
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Schema Registry cluster, for example,\n`https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
                 },
                 "schemaRegistryCluster": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryDekSchemaRegistryCluster:SchemaRegistryDekSchemaRegistryCluster"
                 },
                 "subjectName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The subject for this DEK.\n"
                 },
                 "version": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The version of this DEK. Defaults to `1`.\n"
                 }
             },
             "required": [
@@ -8179,7 +8654,8 @@
             ],
             "inputProperties": {
                 "algorithm": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.\n"
                 },
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryDekCredentials:SchemaRegistryDekCredentials",
@@ -8187,7 +8663,8 @@
                     "secret": true
                 },
                 "encryptedKeyMaterial": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The encrypted key material for the DEK.\n"
                 },
                 "hardDelete": {
                     "type": "boolean",
@@ -8195,11 +8672,12 @@
                 },
                 "kekName": {
                     "type": "string",
+                    "description": "The name of the KEK used to encrypt this DEK.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Schema Registry cluster, for example,\n`https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                     "willReplaceOnChanges": true
                 },
                 "schemaRegistryCluster": {
@@ -8208,10 +8686,12 @@
                 },
                 "subjectName": {
                     "type": "string",
+                    "description": "The subject for this DEK.\n",
                     "willReplaceOnChanges": true
                 },
                 "version": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The version of this DEK. Defaults to `1`.\n"
                 }
             },
             "requiredInputs": [
@@ -8222,7 +8702,8 @@
                 "description": "Input properties used for looking up and filtering SchemaRegistryDek resources.\n",
                 "properties": {
                     "algorithm": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.\n"
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/SchemaRegistryDekCredentials:SchemaRegistryDekCredentials",
@@ -8230,7 +8711,8 @@
                         "secret": true
                     },
                     "encryptedKeyMaterial": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The encrypted key material for the DEK.\n"
                     },
                     "hardDelete": {
                         "type": "boolean",
@@ -8238,14 +8720,16 @@
                     },
                     "kekName": {
                         "type": "string",
+                        "description": "The name of the KEK used to encrypt this DEK.\n",
                         "willReplaceOnChanges": true
                     },
                     "keyMaterial": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(Optional String) The decrypted version of encrypted key material.\n"
                     },
                     "restEndpoint": {
                         "type": "string",
-                        "description": "The REST endpoint of the Schema Registry cluster, for example,\n`https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                         "willReplaceOnChanges": true
                     },
                     "schemaRegistryCluster": {
@@ -8254,16 +8738,19 @@
                     },
                     "subjectName": {
                         "type": "string",
+                        "description": "The subject for this DEK.\n",
                         "willReplaceOnChanges": true
                     },
                     "version": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The version of this DEK. Defaults to `1`.\n"
                     }
                 },
                 "type": "object"
             }
         },
         "confluentcloud:index/schemaRegistryKek:SchemaRegistryKek": {
+            "description": "\n\n## Import\n\nYou can import a Schema Registry Key by using the Schema Registry cluster ID, Kek name in the format `\u003cSchema Registry cluster ID\u003e/\u003cKek name\u003e`, for example:\n\n$ export IMPORT_SCHEMA_REGISTRY_API_KEY=\"\u003cschema_registry_api_key\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_API_SECRET=\"\u003cschema_registry_api_secret\u003e\"\n\n$ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=\"\u003cschema_registry_rest_endpoint\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/schemaRegistryKek:SchemaRegistryKek aws_key lsrc-8wrx70/aws_key\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
                 "credentials": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryKekCredentials:SchemaRegistryKekCredentials",
@@ -8271,36 +8758,42 @@
                     "secret": true
                 },
                 "doc": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The optional description for the KEK.\n"
                 },
                 "hardDelete": {
                     "type": "boolean",
                     "description": "Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek\non destroy. Defaults to `false` (soft delete).\n"
                 },
                 "kmsKeyId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the key from KMS. \n- When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.\n- When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.\n- When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.\n"
                 },
                 "kmsType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The custom property name (for example, `KeyUsage`).\n"
                 },
                 "properties": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):\n"
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Schema Registry cluster, for example,\n`https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
                 },
                 "schemaRegistryCluster": {
                     "$ref": "#/types/confluentcloud:index/SchemaRegistryKekSchemaRegistryCluster:SchemaRegistryKekSchemaRegistryCluster"
                 },
                 "shared": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.\n"
                 }
             },
             "required": [
@@ -8308,8 +8801,7 @@
                 "kmsKeyId",
                 "kmsType",
                 "name",
-                "properties",
-                "shared"
+                "properties"
             ],
             "inputProperties": {
                 "credentials": {
@@ -8318,7 +8810,8 @@
                     "secret": true
                 },
                 "doc": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The optional description for the KEK.\n"
                 },
                 "hardDelete": {
                     "type": "boolean",
@@ -8326,25 +8819,29 @@
                 },
                 "kmsKeyId": {
                     "type": "string",
+                    "description": "The ID of the key from KMS. \n- When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.\n- When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.\n- When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.\n",
                     "willReplaceOnChanges": true
                 },
                 "kmsType": {
                     "type": "string",
+                    "description": "The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.\n",
                     "willReplaceOnChanges": true
                 },
                 "name": {
                     "type": "string",
+                    "description": "The custom property name (for example, `KeyUsage`).\n",
                     "willReplaceOnChanges": true
                 },
                 "properties": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):\n"
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the Schema Registry cluster, for example,\n`https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                     "willReplaceOnChanges": true
                 },
                 "schemaRegistryCluster": {
@@ -8352,7 +8849,8 @@
                     "willReplaceOnChanges": true
                 },
                 "shared": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.\n"
                 }
             },
             "requiredInputs": [
@@ -8368,7 +8866,8 @@
                         "secret": true
                     },
                     "doc": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The optional description for the KEK.\n"
                     },
                     "hardDelete": {
                         "type": "boolean",
@@ -8376,25 +8875,29 @@
                     },
                     "kmsKeyId": {
                         "type": "string",
+                        "description": "The ID of the key from KMS. \n- When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.\n- When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.\n- When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.\n",
                         "willReplaceOnChanges": true
                     },
                     "kmsType": {
                         "type": "string",
+                        "description": "The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.\n",
                         "willReplaceOnChanges": true
                     },
                     "name": {
                         "type": "string",
+                        "description": "The custom property name (for example, `KeyUsage`).\n",
                         "willReplaceOnChanges": true
                     },
                     "properties": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
-                        }
+                        },
+                        "description": "The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):\n"
                     },
                     "restEndpoint": {
                         "type": "string",
-                        "description": "The REST endpoint of the Schema Registry cluster, for example,\n`https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                         "willReplaceOnChanges": true
                     },
                     "schemaRegistryCluster": {
@@ -8402,7 +8905,8 @@
                         "willReplaceOnChanges": true
                     },
                     "shared": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.\n"
                     }
                 },
                 "type": "object"
@@ -10739,10 +11243,18 @@
                         "$ref": "#/types/confluentcloud:index/getSchemaCredentials:getSchemaCredentials",
                         "secret": true
                     },
+                    "metadata": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaMetadata:getSchemaMetadata",
+                        "description": "(Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:\n"
+                    },
                     "restEndpoint": {
                         "type": "string",
                         "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                         "willReplaceOnChanges": true
+                    },
+                    "ruleset": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRuleset:getSchemaRuleset",
+                        "description": "(Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.\n"
                     },
                     "schemaIdentifier": {
                         "type": "integer",
@@ -10780,11 +11292,19 @@
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
+                    "metadata": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaMetadata:getSchemaMetadata",
+                        "description": "(Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:\n"
+                    },
                     "recreateOnUpdate": {
                         "type": "boolean"
                     },
                     "restEndpoint": {
                         "type": "string"
+                    },
+                    "ruleset": {
+                        "$ref": "#/types/confluentcloud:index/getSchemaRuleset:getSchemaRuleset",
+                        "description": "(Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.\n"
                     },
                     "schema": {
                         "type": "string",
@@ -10816,7 +11336,9 @@
                 "required": [
                     "format",
                     "hardDelete",
+                    "metadata",
                     "recreateOnUpdate",
+                    "ruleset",
                     "schema",
                     "schemaIdentifier",
                     "schemaReferences",
@@ -11029,26 +11551,31 @@
                 "description": "A collection of arguments for invoking getSchemaRegistryDek.\n",
                 "properties": {
                     "algorithm": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.\n\n\u003e **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.\n"
                     },
                     "credentials": {
                         "$ref": "#/types/confluentcloud:index/getSchemaRegistryDekCredentials:getSchemaRegistryDekCredentials",
                         "secret": true
                     },
                     "kekName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The name of the KEK used to encrypt this DEK.\n"
                     },
                     "restEndpoint": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
                     },
                     "schemaRegistryCluster": {
                         "$ref": "#/types/confluentcloud:index/getSchemaRegistryDekSchemaRegistryCluster:getSchemaRegistryDekSchemaRegistryCluster"
                     },
                     "subjectName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The subject for this DEK.\n"
                     },
                     "version": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The version of this DEK. Defaults to `1`.\n"
                     }
                 },
                 "type": "object",
@@ -11068,10 +11595,12 @@
                         "secret": true
                     },
                     "encryptedKeyMaterial": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(Optional String) The encrypted key material for the DEK.\n"
                     },
                     "hardDelete": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "(Optional Boolean) An optional flag to control whether a dek should be soft or hard deleted.\n"
                     },
                     "id": {
                         "type": "string",
@@ -11081,7 +11610,8 @@
                         "type": "string"
                     },
                     "keyMaterial": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(Optional String) The decrypted version of encrypted key material.\n"
                     },
                     "restEndpoint": {
                         "type": "string"
@@ -11116,10 +11646,12 @@
                         "secret": true
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The name for the KEK.\n\n\u003e **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.\n"
                     },
                     "restEndpoint": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
                     },
                     "schemaRegistryCluster": {
                         "$ref": "#/types/confluentcloud:index/getSchemaRegistryKekSchemaRegistryCluster:getSchemaRegistryKekSchemaRegistryCluster"
@@ -11138,29 +11670,35 @@
                         "secret": true
                     },
                     "doc": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(Optional String) The optional description for the KEK.\n"
                     },
                     "hardDelete": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "(Optional Boolean) The optional flag to control whether a kek should be soft or hard deleted. Defaults to `false`.\n"
                     },
                     "id": {
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
                     "kmsKeyId": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(Required String) The ID of the key from KMS.\n- When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.\n- When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.\n- When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.\n"
                     },
                     "kmsType": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(Required String) The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(Required String) The custom property name (for example, `KeyUsage`).\n"
                     },
                     "properties": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
-                        }
+                        },
+                        "description": "(Optional Map) The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):\n"
                     },
                     "restEndpoint": {
                         "type": "string"
@@ -11169,7 +11707,8 @@
                         "$ref": "#/types/confluentcloud:index/getSchemaRegistryKekSchemaRegistryCluster:getSchemaRegistryKekSchemaRegistryCluster"
                     },
                     "shared": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "(Optional Boolean) The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.\n"
                     }
                 },
                 "type": "object",
