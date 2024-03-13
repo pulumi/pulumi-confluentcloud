@@ -6,6 +6,23 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * You can import a Schema Registry Key by using the Schema Registry cluster ID, KEK name, Subject, Version and Algorithm in the format `<Schema Registry Cluster Id>/<Schema Registry KEK Name>/<Subject>/<Version>/<Algorithm>`, for example:
+ *
+ * $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+ *
+ * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+ *
+ * $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+ *
+ * ```sh
+ * $ pulumi import confluentcloud:index/schemaRegistryDek:SchemaRegistryDek my_dek lsrc-8wrx70/testkek/ts/1/AES256_GCM
+ * ```
+ *
+ * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ */
 export class SchemaRegistryDek extends pulumi.CustomResource {
     /**
      * Get an existing SchemaRegistryDek resource's state with the given name, ID, and optional extra
@@ -34,26 +51,43 @@ export class SchemaRegistryDek extends pulumi.CustomResource {
         return obj['__pulumiType'] === SchemaRegistryDek.__pulumiType;
     }
 
+    /**
+     * Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+     */
     public readonly algorithm!: pulumi.Output<string | undefined>;
     /**
      * The Cluster API Credentials.
      */
     public readonly credentials!: pulumi.Output<outputs.SchemaRegistryDekCredentials | undefined>;
+    /**
+     * The encrypted key material for the DEK.
+     */
     public readonly encryptedKeyMaterial!: pulumi.Output<string>;
     /**
      * Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
      * on destroy. Defaults to `false` (soft delete).
      */
     public readonly hardDelete!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the KEK used to encrypt this DEK.
+     */
     public readonly kekName!: pulumi.Output<string>;
+    /**
+     * (Optional String) The decrypted version of encrypted key material.
+     */
     public /*out*/ readonly keyMaterial!: pulumi.Output<string>;
     /**
-     * The REST endpoint of the Schema Registry cluster, for example,
-     * `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     public readonly restEndpoint!: pulumi.Output<string | undefined>;
     public readonly schemaRegistryCluster!: pulumi.Output<outputs.SchemaRegistryDekSchemaRegistryCluster | undefined>;
+    /**
+     * The subject for this DEK.
+     */
     public readonly subjectName!: pulumi.Output<string>;
+    /**
+     * The version of this DEK. Defaults to `1`.
+     */
     public readonly version!: pulumi.Output<number | undefined>;
 
     /**
@@ -109,26 +143,43 @@ export class SchemaRegistryDek extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SchemaRegistryDek resources.
  */
 export interface SchemaRegistryDekState {
+    /**
+     * Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+     */
     algorithm?: pulumi.Input<string>;
     /**
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.SchemaRegistryDekCredentials>;
+    /**
+     * The encrypted key material for the DEK.
+     */
     encryptedKeyMaterial?: pulumi.Input<string>;
     /**
      * Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
      * on destroy. Defaults to `false` (soft delete).
      */
     hardDelete?: pulumi.Input<boolean>;
+    /**
+     * The name of the KEK used to encrypt this DEK.
+     */
     kekName?: pulumi.Input<string>;
+    /**
+     * (Optional String) The decrypted version of encrypted key material.
+     */
     keyMaterial?: pulumi.Input<string>;
     /**
-     * The REST endpoint of the Schema Registry cluster, for example,
-     * `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
     schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryDekSchemaRegistryCluster>;
+    /**
+     * The subject for this DEK.
+     */
     subjectName?: pulumi.Input<string>;
+    /**
+     * The version of this DEK. Defaults to `1`.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -136,24 +187,38 @@ export interface SchemaRegistryDekState {
  * The set of arguments for constructing a SchemaRegistryDek resource.
  */
 export interface SchemaRegistryDekArgs {
+    /**
+     * Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+     */
     algorithm?: pulumi.Input<string>;
     /**
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.SchemaRegistryDekCredentials>;
+    /**
+     * The encrypted key material for the DEK.
+     */
     encryptedKeyMaterial?: pulumi.Input<string>;
     /**
      * Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
      * on destroy. Defaults to `false` (soft delete).
      */
     hardDelete?: pulumi.Input<boolean>;
+    /**
+     * The name of the KEK used to encrypt this DEK.
+     */
     kekName: pulumi.Input<string>;
     /**
-     * The REST endpoint of the Schema Registry cluster, for example,
-     * `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
     schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryDekSchemaRegistryCluster>;
+    /**
+     * The subject for this DEK.
+     */
     subjectName: pulumi.Input<string>;
+    /**
+     * The version of this DEK. Defaults to `1`.
+     */
     version?: pulumi.Input<number>;
 }

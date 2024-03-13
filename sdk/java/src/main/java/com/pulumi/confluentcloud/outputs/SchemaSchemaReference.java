@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class SchemaSchemaReference {
     /**
-     * @return The name of the subject, representing the subject under which the referenced schema is registered.
+     * @return A user-defined name that can be used to reference the rule.
      * 
      */
     private String name;
@@ -29,7 +29,7 @@ public final class SchemaSchemaReference {
 
     private SchemaSchemaReference() {}
     /**
-     * @return The name of the subject, representing the subject under which the referenced schema is registered.
+     * @return A user-defined name that can be used to reference the rule.
      * 
      */
     public String name() {

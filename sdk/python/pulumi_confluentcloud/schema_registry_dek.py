@@ -27,11 +27,15 @@ class SchemaRegistryDekArgs:
                  version: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a SchemaRegistryDek resource.
+        :param pulumi.Input[str] kek_name: The name of the KEK used to encrypt this DEK.
+        :param pulumi.Input[str] subject_name: The subject for this DEK.
+        :param pulumi.Input[str] algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
         :param pulumi.Input['SchemaRegistryDekCredentialsArgs'] credentials: The Cluster API Credentials.
+        :param pulumi.Input[str] encrypted_key_material: The encrypted key material for the DEK.
         :param pulumi.Input[bool] hard_delete: Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
                on destroy. Defaults to `false` (soft delete).
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example,
-               `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[int] version: The version of this DEK. Defaults to `1`.
         """
         pulumi.set(__self__, "kek_name", kek_name)
         pulumi.set(__self__, "subject_name", subject_name)
@@ -53,6 +57,9 @@ class SchemaRegistryDekArgs:
     @property
     @pulumi.getter(name="kekName")
     def kek_name(self) -> pulumi.Input[str]:
+        """
+        The name of the KEK used to encrypt this DEK.
+        """
         return pulumi.get(self, "kek_name")
 
     @kek_name.setter
@@ -62,6 +69,9 @@ class SchemaRegistryDekArgs:
     @property
     @pulumi.getter(name="subjectName")
     def subject_name(self) -> pulumi.Input[str]:
+        """
+        The subject for this DEK.
+        """
         return pulumi.get(self, "subject_name")
 
     @subject_name.setter
@@ -71,6 +81,9 @@ class SchemaRegistryDekArgs:
     @property
     @pulumi.getter
     def algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+        """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
@@ -92,6 +105,9 @@ class SchemaRegistryDekArgs:
     @property
     @pulumi.getter(name="encryptedKeyMaterial")
     def encrypted_key_material(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encrypted key material for the DEK.
+        """
         return pulumi.get(self, "encrypted_key_material")
 
     @encrypted_key_material.setter
@@ -115,8 +131,7 @@ class SchemaRegistryDekArgs:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The REST endpoint of the Schema Registry cluster, for example,
-        `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -136,6 +151,9 @@ class SchemaRegistryDekArgs:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version of this DEK. Defaults to `1`.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -158,11 +176,16 @@ class _SchemaRegistryDekState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering SchemaRegistryDek resources.
+        :param pulumi.Input[str] algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
         :param pulumi.Input['SchemaRegistryDekCredentialsArgs'] credentials: The Cluster API Credentials.
+        :param pulumi.Input[str] encrypted_key_material: The encrypted key material for the DEK.
         :param pulumi.Input[bool] hard_delete: Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
                on destroy. Defaults to `false` (soft delete).
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example,
-               `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] kek_name: The name of the KEK used to encrypt this DEK.
+        :param pulumi.Input[str] key_material: (Optional String) The decrypted version of encrypted key material.
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] subject_name: The subject for this DEK.
+        :param pulumi.Input[int] version: The version of this DEK. Defaults to `1`.
         """
         if algorithm is not None:
             pulumi.set(__self__, "algorithm", algorithm)
@@ -188,6 +211,9 @@ class _SchemaRegistryDekState:
     @property
     @pulumi.getter
     def algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+        """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
@@ -209,6 +235,9 @@ class _SchemaRegistryDekState:
     @property
     @pulumi.getter(name="encryptedKeyMaterial")
     def encrypted_key_material(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encrypted key material for the DEK.
+        """
         return pulumi.get(self, "encrypted_key_material")
 
     @encrypted_key_material.setter
@@ -231,6 +260,9 @@ class _SchemaRegistryDekState:
     @property
     @pulumi.getter(name="kekName")
     def kek_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the KEK used to encrypt this DEK.
+        """
         return pulumi.get(self, "kek_name")
 
     @kek_name.setter
@@ -240,6 +272,9 @@ class _SchemaRegistryDekState:
     @property
     @pulumi.getter(name="keyMaterial")
     def key_material(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional String) The decrypted version of encrypted key material.
+        """
         return pulumi.get(self, "key_material")
 
     @key_material.setter
@@ -250,8 +285,7 @@ class _SchemaRegistryDekState:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The REST endpoint of the Schema Registry cluster, for example,
-        `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -271,6 +305,9 @@ class _SchemaRegistryDekState:
     @property
     @pulumi.getter(name="subjectName")
     def subject_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subject for this DEK.
+        """
         return pulumi.get(self, "subject_name")
 
     @subject_name.setter
@@ -280,6 +317,9 @@ class _SchemaRegistryDekState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version of this DEK. Defaults to `1`.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -303,14 +343,33 @@ class SchemaRegistryDek(pulumi.CustomResource):
                  version: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a SchemaRegistryDek resource with the given unique name, props, and options.
+        ## Import
+
+        You can import a Schema Registry Key by using the Schema Registry cluster ID, KEK name, Subject, Version and Algorithm in the format `<Schema Registry Cluster Id>/<Schema Registry KEK Name>/<Subject>/<Version>/<Algorithm>`, for example:
+
+        $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+
+        $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+
+        $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+
+        ```sh
+        $ pulumi import confluentcloud:index/schemaRegistryDek:SchemaRegistryDek my_dek lsrc-8wrx70/testkek/ts/1/AES256_GCM
+        ```
+
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
         :param pulumi.Input[pulumi.InputType['SchemaRegistryDekCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[str] encrypted_key_material: The encrypted key material for the DEK.
         :param pulumi.Input[bool] hard_delete: Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
                on destroy. Defaults to `false` (soft delete).
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example,
-               `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] kek_name: The name of the KEK used to encrypt this DEK.
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] subject_name: The subject for this DEK.
+        :param pulumi.Input[int] version: The version of this DEK. Defaults to `1`.
         """
         ...
     @overload
@@ -319,7 +378,22 @@ class SchemaRegistryDek(pulumi.CustomResource):
                  args: SchemaRegistryDekArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SchemaRegistryDek resource with the given unique name, props, and options.
+        ## Import
+
+        You can import a Schema Registry Key by using the Schema Registry cluster ID, KEK name, Subject, Version and Algorithm in the format `<Schema Registry Cluster Id>/<Schema Registry KEK Name>/<Subject>/<Version>/<Algorithm>`, for example:
+
+        $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+
+        $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+
+        $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+
+        ```sh
+        $ pulumi import confluentcloud:index/schemaRegistryDek:SchemaRegistryDek my_dek lsrc-8wrx70/testkek/ts/1/AES256_GCM
+        ```
+
+        !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+
         :param str resource_name: The name of the resource.
         :param SchemaRegistryDekArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -396,11 +470,16 @@ class SchemaRegistryDek(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
         :param pulumi.Input[pulumi.InputType['SchemaRegistryDekCredentialsArgs']] credentials: The Cluster API Credentials.
+        :param pulumi.Input[str] encrypted_key_material: The encrypted key material for the DEK.
         :param pulumi.Input[bool] hard_delete: Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
                on destroy. Defaults to `false` (soft delete).
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example,
-               `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] kek_name: The name of the KEK used to encrypt this DEK.
+        :param pulumi.Input[str] key_material: (Optional String) The decrypted version of encrypted key material.
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] subject_name: The subject for this DEK.
+        :param pulumi.Input[int] version: The version of this DEK. Defaults to `1`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -421,6 +500,9 @@ class SchemaRegistryDek(pulumi.CustomResource):
     @property
     @pulumi.getter
     def algorithm(self) -> pulumi.Output[Optional[str]]:
+        """
+        Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+        """
         return pulumi.get(self, "algorithm")
 
     @property
@@ -434,6 +516,9 @@ class SchemaRegistryDek(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptedKeyMaterial")
     def encrypted_key_material(self) -> pulumi.Output[str]:
+        """
+        The encrypted key material for the DEK.
+        """
         return pulumi.get(self, "encrypted_key_material")
 
     @property
@@ -448,19 +533,24 @@ class SchemaRegistryDek(pulumi.CustomResource):
     @property
     @pulumi.getter(name="kekName")
     def kek_name(self) -> pulumi.Output[str]:
+        """
+        The name of the KEK used to encrypt this DEK.
+        """
         return pulumi.get(self, "kek_name")
 
     @property
     @pulumi.getter(name="keyMaterial")
     def key_material(self) -> pulumi.Output[str]:
+        """
+        (Optional String) The decrypted version of encrypted key material.
+        """
         return pulumi.get(self, "key_material")
 
     @property
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
-        The REST endpoint of the Schema Registry cluster, for example,
-        `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -472,10 +562,16 @@ class SchemaRegistryDek(pulumi.CustomResource):
     @property
     @pulumi.getter(name="subjectName")
     def subject_name(self) -> pulumi.Output[str]:
+        """
+        The subject for this DEK.
+        """
         return pulumi.get(self, "subject_name")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[int]]:
+        """
+        The version of this DEK. Defaults to `1`.
+        """
         return pulumi.get(self, "version")
 

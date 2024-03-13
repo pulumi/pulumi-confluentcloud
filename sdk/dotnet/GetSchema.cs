@@ -30,10 +30,22 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
+        /// (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+        /// </summary>
+        [Input("metadata")]
+        public Inputs.GetSchemaMetadataArgs? Metadata { get; set; }
+
+        /// <summary>
         /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         [Input("restEndpoint")]
         public string? RestEndpoint { get; set; }
+
+        /// <summary>
+        /// (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+        /// </summary>
+        [Input("ruleset")]
+        public Inputs.GetSchemaRulesetArgs? Ruleset { get; set; }
 
         /// <summary>
         /// The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
@@ -73,10 +85,22 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
+        /// (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+        /// </summary>
+        [Input("metadata")]
+        public Input<Inputs.GetSchemaMetadataInputArgs>? Metadata { get; set; }
+
+        /// <summary>
         /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
+
+        /// <summary>
+        /// (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+        /// </summary>
+        [Input("ruleset")]
+        public Input<Inputs.GetSchemaRulesetInputArgs>? Ruleset { get; set; }
 
         /// <summary>
         /// The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
@@ -115,8 +139,16 @@ namespace Pulumi.ConfluentCloud
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+        /// </summary>
+        public readonly Outputs.GetSchemaMetadataResult Metadata;
         public readonly bool RecreateOnUpdate;
         public readonly string? RestEndpoint;
+        /// <summary>
+        /// (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+        /// </summary>
+        public readonly Outputs.GetSchemaRulesetResult Ruleset;
         /// <summary>
         /// (Required String) The schema string, for example, `file("./schema_version_1.avsc")`.
         /// </summary>
@@ -146,9 +178,13 @@ namespace Pulumi.ConfluentCloud
 
             string id,
 
+            Outputs.GetSchemaMetadataResult metadata,
+
             bool recreateOnUpdate,
 
             string? restEndpoint,
+
+            Outputs.GetSchemaRulesetResult ruleset,
 
             string schema,
 
@@ -166,8 +202,10 @@ namespace Pulumi.ConfluentCloud
             Format = format;
             HardDelete = hardDelete;
             Id = id;
+            Metadata = metadata;
             RecreateOnUpdate = recreateOnUpdate;
             RestEndpoint = restEndpoint;
+            Ruleset = ruleset;
             Schema = schema;
             SchemaIdentifier = schemaIdentifier;
             SchemaReferences = schemaReferences;

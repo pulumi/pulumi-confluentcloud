@@ -24,8 +24,12 @@ func LookupSchema(ctx *pulumi.Context, args *LookupSchemaArgs, opts ...pulumi.In
 // A collection of arguments for invoking getSchema.
 type LookupSchemaArgs struct {
 	Credentials *GetSchemaCredentials `pulumi:"credentials"`
+	// (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+	Metadata *GetSchemaMetadata `pulumi:"metadata"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
+	// (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+	Ruleset *GetSchemaRuleset `pulumi:"ruleset"`
 	// The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
 	//
 	// > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
@@ -42,9 +46,13 @@ type LookupSchemaResult struct {
 	Format     string `pulumi:"format"`
 	HardDelete bool   `pulumi:"hardDelete"`
 	// The provider-assigned unique ID for this managed resource.
-	Id               string  `pulumi:"id"`
-	RecreateOnUpdate bool    `pulumi:"recreateOnUpdate"`
-	RestEndpoint     *string `pulumi:"restEndpoint"`
+	Id string `pulumi:"id"`
+	// (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+	Metadata         GetSchemaMetadata `pulumi:"metadata"`
+	RecreateOnUpdate bool              `pulumi:"recreateOnUpdate"`
+	RestEndpoint     *string           `pulumi:"restEndpoint"`
+	// (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+	Ruleset GetSchemaRuleset `pulumi:"ruleset"`
 	// (Required String) The schema string, for example, `file("./schema_version_1.avsc")`.
 	Schema           string `pulumi:"schema"`
 	SchemaIdentifier int    `pulumi:"schemaIdentifier"`
@@ -73,8 +81,12 @@ func LookupSchemaOutput(ctx *pulumi.Context, args LookupSchemaOutputArgs, opts .
 // A collection of arguments for invoking getSchema.
 type LookupSchemaOutputArgs struct {
 	Credentials GetSchemaCredentialsPtrInput `pulumi:"credentials"`
+	// (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+	Metadata GetSchemaMetadataPtrInput `pulumi:"metadata"`
 	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint pulumi.StringPtrInput `pulumi:"restEndpoint"`
+	// (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+	Ruleset GetSchemaRulesetPtrInput `pulumi:"ruleset"`
 	// The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
 	//
 	// > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
@@ -121,12 +133,22 @@ func (o LookupSchemaResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+func (o LookupSchemaResultOutput) Metadata() GetSchemaMetadataOutput {
+	return o.ApplyT(func(v LookupSchemaResult) GetSchemaMetadata { return v.Metadata }).(GetSchemaMetadataOutput)
+}
+
 func (o LookupSchemaResultOutput) RecreateOnUpdate() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSchemaResult) bool { return v.RecreateOnUpdate }).(pulumi.BoolOutput)
 }
 
 func (o LookupSchemaResultOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSchemaResult) *string { return v.RestEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+func (o LookupSchemaResultOutput) Ruleset() GetSchemaRulesetOutput {
+	return o.ApplyT(func(v LookupSchemaResult) GetSchemaRuleset { return v.Ruleset }).(GetSchemaRulesetOutput)
 }
 
 // (Required String) The schema string, for example, `file("./schema_version_1.avsc")`.

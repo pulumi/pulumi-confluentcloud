@@ -11,7 +11,9 @@ export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("confluentcloud:index/getSchema:getSchema", {
         "credentials": args.credentials,
+        "metadata": args.metadata,
         "restEndpoint": args.restEndpoint,
+        "ruleset": args.ruleset,
         "schemaIdentifier": args.schemaIdentifier,
         "schemaRegistryCluster": args.schemaRegistryCluster,
         "subjectName": args.subjectName,
@@ -24,9 +26,17 @@ export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Pro
 export interface GetSchemaArgs {
     credentials?: inputs.GetSchemaCredentials;
     /**
+     * (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+     */
+    metadata?: inputs.GetSchemaMetadata;
+    /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: string;
+    /**
+     * (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+     */
+    ruleset?: inputs.GetSchemaRuleset;
     /**
      * The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
      *
@@ -54,8 +64,16 @@ export interface GetSchemaResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+     */
+    readonly metadata: outputs.GetSchemaMetadata;
     readonly recreateOnUpdate: boolean;
     readonly restEndpoint?: string;
+    /**
+     * (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+     */
+    readonly ruleset: outputs.GetSchemaRuleset;
     /**
      * (Required String) The schema string, for example, `file("./schema_version_1.avsc")`.
      */
@@ -85,9 +103,17 @@ export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeO
 export interface GetSchemaOutputArgs {
     credentials?: pulumi.Input<inputs.GetSchemaCredentialsArgs>;
     /**
+     * (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+     */
+    metadata?: pulumi.Input<inputs.GetSchemaMetadataArgs>;
+    /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
+    /**
+     * (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+     */
+    ruleset?: pulumi.Input<inputs.GetSchemaRulesetArgs>;
     /**
      * The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
      *

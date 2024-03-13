@@ -15,14 +15,14 @@ public final class SchemaRegistryDekCredentialsArgs extends com.pulumi.resources
     public static final SchemaRegistryDekCredentialsArgs Empty = new SchemaRegistryDekCredentialsArgs();
 
     /**
-     * The Cluster API Key for your Confluent Cloud cluster.
+     * The Schema Registry API Key.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The Cluster API Key for your Confluent Cloud cluster.
+     * @return The Schema Registry API Key.
      * 
      */
     public Output<String> key() {
@@ -30,14 +30,14 @@ public final class SchemaRegistryDekCredentialsArgs extends com.pulumi.resources
     }
 
     /**
-     * The Cluster API Secret for your Confluent Cloud cluster.
+     * The Schema Registry API Secret.
      * 
      */
     @Import(name="secret", required=true)
     private Output<String> secret;
 
     /**
-     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * @return The Schema Registry API Secret.
      * 
      */
     public Output<String> secret() {
@@ -70,7 +70,7 @@ public final class SchemaRegistryDekCredentialsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param key The Cluster API Key for your Confluent Cloud cluster.
+         * @param key The Schema Registry API Key.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class SchemaRegistryDekCredentialsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param key The Cluster API Key for your Confluent Cloud cluster.
+         * @param key The Schema Registry API Key.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class SchemaRegistryDekCredentialsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param secret The Cluster API Secret for your Confluent Cloud cluster.
+         * @param secret The Schema Registry API Secret.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class SchemaRegistryDekCredentialsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param secret The Cluster API Secret for your Confluent Cloud cluster.
+         * @param secret The Schema Registry API Secret.
          * 
          * @return builder
          * 

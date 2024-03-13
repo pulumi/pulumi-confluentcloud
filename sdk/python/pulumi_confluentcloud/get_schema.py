@@ -23,7 +23,7 @@ class GetSchemaResult:
     """
     A collection of values returned by getSchema.
     """
-    def __init__(__self__, credentials=None, format=None, hard_delete=None, id=None, recreate_on_update=None, rest_endpoint=None, schema=None, schema_identifier=None, schema_references=None, schema_registry_cluster=None, subject_name=None, version=None):
+    def __init__(__self__, credentials=None, format=None, hard_delete=None, id=None, metadata=None, recreate_on_update=None, rest_endpoint=None, ruleset=None, schema=None, schema_identifier=None, schema_references=None, schema_registry_cluster=None, subject_name=None, version=None):
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
@@ -36,12 +36,18 @@ class GetSchemaResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        pulumi.set(__self__, "metadata", metadata)
         if recreate_on_update and not isinstance(recreate_on_update, bool):
             raise TypeError("Expected argument 'recreate_on_update' to be a bool")
         pulumi.set(__self__, "recreate_on_update", recreate_on_update)
         if rest_endpoint and not isinstance(rest_endpoint, str):
             raise TypeError("Expected argument 'rest_endpoint' to be a str")
         pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+        if ruleset and not isinstance(ruleset, dict):
+            raise TypeError("Expected argument 'ruleset' to be a dict")
+        pulumi.set(__self__, "ruleset", ruleset)
         if schema and not isinstance(schema, str):
             raise TypeError("Expected argument 'schema' to be a str")
         pulumi.set(__self__, "schema", schema)
@@ -88,6 +94,14 @@ class GetSchemaResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def metadata(self) -> 'outputs.GetSchemaMetadataResult':
+        """
+        (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
     @pulumi.getter(name="recreateOnUpdate")
     def recreate_on_update(self) -> bool:
         return pulumi.get(self, "recreate_on_update")
@@ -96,6 +110,14 @@ class GetSchemaResult:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[str]:
         return pulumi.get(self, "rest_endpoint")
+
+    @property
+    @pulumi.getter
+    def ruleset(self) -> 'outputs.GetSchemaRulesetResult':
+        """
+        (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+        """
+        return pulumi.get(self, "ruleset")
 
     @property
     @pulumi.getter
@@ -150,8 +172,10 @@ class AwaitableGetSchemaResult(GetSchemaResult):
             format=self.format,
             hard_delete=self.hard_delete,
             id=self.id,
+            metadata=self.metadata,
             recreate_on_update=self.recreate_on_update,
             rest_endpoint=self.rest_endpoint,
+            ruleset=self.ruleset,
             schema=self.schema,
             schema_identifier=self.schema_identifier,
             schema_references=self.schema_references,
@@ -161,7 +185,9 @@ class AwaitableGetSchemaResult(GetSchemaResult):
 
 
 def get_schema(credentials: Optional[pulumi.InputType['GetSchemaCredentialsArgs']] = None,
+               metadata: Optional[pulumi.InputType['GetSchemaMetadataArgs']] = None,
                rest_endpoint: Optional[str] = None,
+               ruleset: Optional[pulumi.InputType['GetSchemaRulesetArgs']] = None,
                schema_identifier: Optional[int] = None,
                schema_registry_cluster: Optional[pulumi.InputType['GetSchemaSchemaRegistryClusterArgs']] = None,
                subject_name: Optional[str] = None,
@@ -169,7 +195,9 @@ def get_schema(credentials: Optional[pulumi.InputType['GetSchemaCredentialsArgs'
     """
     Use this data source to access information about an existing resource.
 
+    :param pulumi.InputType['GetSchemaMetadataArgs'] metadata: (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+    :param pulumi.InputType['GetSchemaRulesetArgs'] ruleset: (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
     :param int schema_identifier: The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
            
            > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
@@ -177,7 +205,9 @@ def get_schema(credentials: Optional[pulumi.InputType['GetSchemaCredentialsArgs'
     """
     __args__ = dict()
     __args__['credentials'] = credentials
+    __args__['metadata'] = metadata
     __args__['restEndpoint'] = rest_endpoint
+    __args__['ruleset'] = ruleset
     __args__['schemaIdentifier'] = schema_identifier
     __args__['schemaRegistryCluster'] = schema_registry_cluster
     __args__['subjectName'] = subject_name
@@ -189,8 +219,10 @@ def get_schema(credentials: Optional[pulumi.InputType['GetSchemaCredentialsArgs'
         format=pulumi.get(__ret__, 'format'),
         hard_delete=pulumi.get(__ret__, 'hard_delete'),
         id=pulumi.get(__ret__, 'id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
         recreate_on_update=pulumi.get(__ret__, 'recreate_on_update'),
         rest_endpoint=pulumi.get(__ret__, 'rest_endpoint'),
+        ruleset=pulumi.get(__ret__, 'ruleset'),
         schema=pulumi.get(__ret__, 'schema'),
         schema_identifier=pulumi.get(__ret__, 'schema_identifier'),
         schema_references=pulumi.get(__ret__, 'schema_references'),
@@ -201,7 +233,9 @@ def get_schema(credentials: Optional[pulumi.InputType['GetSchemaCredentialsArgs'
 
 @_utilities.lift_output_func(get_schema)
 def get_schema_output(credentials: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemaCredentialsArgs']]]] = None,
+                      metadata: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemaMetadataArgs']]]] = None,
                       rest_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
+                      ruleset: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemaRulesetArgs']]]] = None,
                       schema_identifier: Optional[pulumi.Input[int]] = None,
                       schema_registry_cluster: Optional[pulumi.Input[Optional[pulumi.InputType['GetSchemaSchemaRegistryClusterArgs']]]] = None,
                       subject_name: Optional[pulumi.Input[str]] = None,
@@ -209,7 +243,9 @@ def get_schema_output(credentials: Optional[pulumi.Input[Optional[pulumi.InputTy
     """
     Use this data source to access information about an existing resource.
 
+    :param pulumi.InputType['GetSchemaMetadataArgs'] metadata: (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
     :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+    :param pulumi.InputType['GetSchemaRulesetArgs'] ruleset: (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
     :param int schema_identifier: The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
            
            > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.

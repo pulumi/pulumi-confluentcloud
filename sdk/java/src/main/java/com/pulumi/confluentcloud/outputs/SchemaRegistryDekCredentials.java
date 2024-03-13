@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class SchemaRegistryDekCredentials {
     /**
-     * @return The Cluster API Key for your Confluent Cloud cluster.
+     * @return The Schema Registry API Key.
      * 
      */
     private String key;
     /**
-     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * @return The Schema Registry API Secret.
      * 
      */
     private String secret;
 
     private SchemaRegistryDekCredentials() {}
     /**
-     * @return The Cluster API Key for your Confluent Cloud cluster.
+     * @return The Schema Registry API Key.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return The Cluster API Secret for your Confluent Cloud cluster.
+     * @return The Schema Registry API Secret.
      * 
      */
     public String secret() {

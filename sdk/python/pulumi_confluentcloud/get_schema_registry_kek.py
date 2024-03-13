@@ -66,11 +66,17 @@ class GetSchemaRegistryKekResult:
     @property
     @pulumi.getter
     def doc(self) -> str:
+        """
+        (Optional String) The optional description for the KEK.
+        """
         return pulumi.get(self, "doc")
 
     @property
     @pulumi.getter(name="hardDelete")
     def hard_delete(self) -> bool:
+        """
+        (Optional Boolean) The optional flag to control whether a kek should be soft or hard deleted. Defaults to `false`.
+        """
         return pulumi.get(self, "hard_delete")
 
     @property
@@ -84,21 +90,36 @@ class GetSchemaRegistryKekResult:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
+        """
+        (Required String) The ID of the key from KMS.
+        - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
+        - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
+        - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="kmsType")
     def kms_type(self) -> str:
+        """
+        (Required String) The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
+        """
         return pulumi.get(self, "kms_type")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        (Required String) The custom property name (for example, `KeyUsage`).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def properties(self) -> Mapping[str, str]:
+        """
+        (Optional Map) The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
+        """
         return pulumi.get(self, "properties")
 
     @property
@@ -114,6 +135,9 @@ class GetSchemaRegistryKekResult:
     @property
     @pulumi.getter
     def shared(self) -> bool:
+        """
+        (Optional Boolean) The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+        """
         return pulumi.get(self, "shared")
 
 
@@ -143,6 +167,11 @@ def get_schema_registry_kek(credentials: Optional[pulumi.InputType['GetSchemaReg
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryKekResult:
     """
     Use this data source to access information about an existing resource.
+
+    :param str name: The name for the KEK.
+           
+           > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+    :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """
     __args__ = dict()
     __args__['credentials'] = credentials
@@ -174,5 +203,10 @@ def get_schema_registry_kek_output(credentials: Optional[pulumi.Input[Optional[p
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryKekResult]:
     """
     Use this data source to access information about an existing resource.
+
+    :param str name: The name for the KEK.
+           
+           > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+    :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
     """
     ...

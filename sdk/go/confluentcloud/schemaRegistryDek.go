@@ -12,24 +12,44 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// You can import a Schema Registry Key by using the Schema Registry cluster ID, KEK name, Subject, Version and Algorithm in the format `<Schema Registry Cluster Id>/<Schema Registry KEK Name>/<Subject>/<Version>/<Algorithm>`, for example:
+//
+// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+//
+// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+//
+// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+//
+// ```sh
+// $ pulumi import confluentcloud:index/schemaRegistryDek:SchemaRegistryDek my_dek lsrc-8wrx70/testkek/ts/1/AES256_GCM
+// ```
+//
+// !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
 type SchemaRegistryDek struct {
 	pulumi.CustomResourceState
 
+	// Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
 	Algorithm pulumi.StringPtrOutput `pulumi:"algorithm"`
 	// The Cluster API Credentials.
-	Credentials          SchemaRegistryDekCredentialsPtrOutput `pulumi:"credentials"`
-	EncryptedKeyMaterial pulumi.StringOutput                   `pulumi:"encryptedKeyMaterial"`
+	Credentials SchemaRegistryDekCredentialsPtrOutput `pulumi:"credentials"`
+	// The encrypted key material for the DEK.
+	EncryptedKeyMaterial pulumi.StringOutput `pulumi:"encryptedKeyMaterial"`
 	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
 	// on destroy. Defaults to `false` (soft delete).
-	HardDelete  pulumi.BoolPtrOutput `pulumi:"hardDelete"`
-	KekName     pulumi.StringOutput  `pulumi:"kekName"`
-	KeyMaterial pulumi.StringOutput  `pulumi:"keyMaterial"`
-	// The REST endpoint of the Schema Registry cluster, for example,
-	// `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+	HardDelete pulumi.BoolPtrOutput `pulumi:"hardDelete"`
+	// The name of the KEK used to encrypt this DEK.
+	KekName pulumi.StringOutput `pulumi:"kekName"`
+	// (Optional String) The decrypted version of encrypted key material.
+	KeyMaterial pulumi.StringOutput `pulumi:"keyMaterial"`
+	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrOutput                          `pulumi:"restEndpoint"`
 	SchemaRegistryCluster SchemaRegistryDekSchemaRegistryClusterPtrOutput `pulumi:"schemaRegistryCluster"`
-	SubjectName           pulumi.StringOutput                             `pulumi:"subjectName"`
-	Version               pulumi.IntPtrOutput                             `pulumi:"version"`
+	// The subject for this DEK.
+	SubjectName pulumi.StringOutput `pulumi:"subjectName"`
+	// The version of this DEK. Defaults to `1`.
+	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
 // NewSchemaRegistryDek registers a new resource with the given unique name, arguments, and options.
@@ -75,39 +95,49 @@ func GetSchemaRegistryDek(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SchemaRegistryDek resources.
 type schemaRegistryDekState struct {
+	// Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
 	Algorithm *string `pulumi:"algorithm"`
 	// The Cluster API Credentials.
-	Credentials          *SchemaRegistryDekCredentials `pulumi:"credentials"`
-	EncryptedKeyMaterial *string                       `pulumi:"encryptedKeyMaterial"`
+	Credentials *SchemaRegistryDekCredentials `pulumi:"credentials"`
+	// The encrypted key material for the DEK.
+	EncryptedKeyMaterial *string `pulumi:"encryptedKeyMaterial"`
 	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
 	// on destroy. Defaults to `false` (soft delete).
-	HardDelete  *bool   `pulumi:"hardDelete"`
-	KekName     *string `pulumi:"kekName"`
+	HardDelete *bool `pulumi:"hardDelete"`
+	// The name of the KEK used to encrypt this DEK.
+	KekName *string `pulumi:"kekName"`
+	// (Optional String) The decrypted version of encrypted key material.
 	KeyMaterial *string `pulumi:"keyMaterial"`
-	// The REST endpoint of the Schema Registry cluster, for example,
-	// `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                                 `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *SchemaRegistryDekSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
-	SubjectName           *string                                 `pulumi:"subjectName"`
-	Version               *int                                    `pulumi:"version"`
+	// The subject for this DEK.
+	SubjectName *string `pulumi:"subjectName"`
+	// The version of this DEK. Defaults to `1`.
+	Version *int `pulumi:"version"`
 }
 
 type SchemaRegistryDekState struct {
+	// Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
 	Algorithm pulumi.StringPtrInput
 	// The Cluster API Credentials.
-	Credentials          SchemaRegistryDekCredentialsPtrInput
+	Credentials SchemaRegistryDekCredentialsPtrInput
+	// The encrypted key material for the DEK.
 	EncryptedKeyMaterial pulumi.StringPtrInput
 	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
 	// on destroy. Defaults to `false` (soft delete).
-	HardDelete  pulumi.BoolPtrInput
-	KekName     pulumi.StringPtrInput
+	HardDelete pulumi.BoolPtrInput
+	// The name of the KEK used to encrypt this DEK.
+	KekName pulumi.StringPtrInput
+	// (Optional String) The decrypted version of encrypted key material.
 	KeyMaterial pulumi.StringPtrInput
-	// The REST endpoint of the Schema Registry cluster, for example,
-	// `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
 	SchemaRegistryCluster SchemaRegistryDekSchemaRegistryClusterPtrInput
-	SubjectName           pulumi.StringPtrInput
-	Version               pulumi.IntPtrInput
+	// The subject for this DEK.
+	SubjectName pulumi.StringPtrInput
+	// The version of this DEK. Defaults to `1`.
+	Version pulumi.IntPtrInput
 }
 
 func (SchemaRegistryDekState) ElementType() reflect.Type {
@@ -115,38 +145,46 @@ func (SchemaRegistryDekState) ElementType() reflect.Type {
 }
 
 type schemaRegistryDekArgs struct {
+	// Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
 	Algorithm *string `pulumi:"algorithm"`
 	// The Cluster API Credentials.
-	Credentials          *SchemaRegistryDekCredentials `pulumi:"credentials"`
-	EncryptedKeyMaterial *string                       `pulumi:"encryptedKeyMaterial"`
+	Credentials *SchemaRegistryDekCredentials `pulumi:"credentials"`
+	// The encrypted key material for the DEK.
+	EncryptedKeyMaterial *string `pulumi:"encryptedKeyMaterial"`
 	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
 	// on destroy. Defaults to `false` (soft delete).
-	HardDelete *bool  `pulumi:"hardDelete"`
-	KekName    string `pulumi:"kekName"`
-	// The REST endpoint of the Schema Registry cluster, for example,
-	// `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+	HardDelete *bool `pulumi:"hardDelete"`
+	// The name of the KEK used to encrypt this DEK.
+	KekName string `pulumi:"kekName"`
+	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                                 `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *SchemaRegistryDekSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
-	SubjectName           string                                  `pulumi:"subjectName"`
-	Version               *int                                    `pulumi:"version"`
+	// The subject for this DEK.
+	SubjectName string `pulumi:"subjectName"`
+	// The version of this DEK. Defaults to `1`.
+	Version *int `pulumi:"version"`
 }
 
 // The set of arguments for constructing a SchemaRegistryDek resource.
 type SchemaRegistryDekArgs struct {
+	// Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
 	Algorithm pulumi.StringPtrInput
 	// The Cluster API Credentials.
-	Credentials          SchemaRegistryDekCredentialsPtrInput
+	Credentials SchemaRegistryDekCredentialsPtrInput
+	// The encrypted key material for the DEK.
 	EncryptedKeyMaterial pulumi.StringPtrInput
 	// Controls whether a dek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry dek
 	// on destroy. Defaults to `false` (soft delete).
 	HardDelete pulumi.BoolPtrInput
-	KekName    pulumi.StringInput
-	// The REST endpoint of the Schema Registry cluster, for example,
-	// `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The name of the KEK used to encrypt this DEK.
+	KekName pulumi.StringInput
+	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput
 	SchemaRegistryCluster SchemaRegistryDekSchemaRegistryClusterPtrInput
-	SubjectName           pulumi.StringInput
-	Version               pulumi.IntPtrInput
+	// The subject for this DEK.
+	SubjectName pulumi.StringInput
+	// The version of this DEK. Defaults to `1`.
+	Version pulumi.IntPtrInput
 }
 
 func (SchemaRegistryDekArgs) ElementType() reflect.Type {
@@ -236,6 +274,7 @@ func (o SchemaRegistryDekOutput) ToSchemaRegistryDekOutputWithContext(ctx contex
 	return o
 }
 
+// Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
 func (o SchemaRegistryDekOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryDek) pulumi.StringPtrOutput { return v.Algorithm }).(pulumi.StringPtrOutput)
 }
@@ -245,6 +284,7 @@ func (o SchemaRegistryDekOutput) Credentials() SchemaRegistryDekCredentialsPtrOu
 	return o.ApplyT(func(v *SchemaRegistryDek) SchemaRegistryDekCredentialsPtrOutput { return v.Credentials }).(SchemaRegistryDekCredentialsPtrOutput)
 }
 
+// The encrypted key material for the DEK.
 func (o SchemaRegistryDekOutput) EncryptedKeyMaterial() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchemaRegistryDek) pulumi.StringOutput { return v.EncryptedKeyMaterial }).(pulumi.StringOutput)
 }
@@ -255,16 +295,17 @@ func (o SchemaRegistryDekOutput) HardDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryDek) pulumi.BoolPtrOutput { return v.HardDelete }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the KEK used to encrypt this DEK.
 func (o SchemaRegistryDekOutput) KekName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchemaRegistryDek) pulumi.StringOutput { return v.KekName }).(pulumi.StringOutput)
 }
 
+// (Optional String) The decrypted version of encrypted key material.
 func (o SchemaRegistryDekOutput) KeyMaterial() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchemaRegistryDek) pulumi.StringOutput { return v.KeyMaterial }).(pulumi.StringOutput)
 }
 
-// The REST endpoint of the Schema Registry cluster, for example,
-// `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 func (o SchemaRegistryDekOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryDek) pulumi.StringPtrOutput { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -275,10 +316,12 @@ func (o SchemaRegistryDekOutput) SchemaRegistryCluster() SchemaRegistryDekSchema
 	}).(SchemaRegistryDekSchemaRegistryClusterPtrOutput)
 }
 
+// The subject for this DEK.
 func (o SchemaRegistryDekOutput) SubjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchemaRegistryDek) pulumi.StringOutput { return v.SubjectName }).(pulumi.StringOutput)
 }
 
+// The version of this DEK. Defaults to `1`.
 func (o SchemaRegistryDekOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryDek) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
 }

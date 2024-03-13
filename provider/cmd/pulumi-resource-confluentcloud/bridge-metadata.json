@@ -495,6 +495,53 @@
                     "credentials": {
                         "maxItemsOne": true
                     },
+                    "metadata": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "sensitive": {
+                                    "maxItemsOne": false
+                                },
+                                "tags": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "value": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "ruleset": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "domain_rules": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "tags": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "migration_rules": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "tags": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "schema_reference": {
                         "maxItemsOne": false
                     },
@@ -1035,6 +1082,53 @@
                 "fields": {
                     "credentials": {
                         "maxItemsOne": true
+                    },
+                    "metadata": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "sensitive": {
+                                    "maxItemsOne": false
+                                },
+                                "tags": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "value": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "ruleset": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "domain_rules": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "tags": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "migration_rules": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "tags": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "schema_reference": {
                         "maxItemsOne": false

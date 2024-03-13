@@ -29,9 +29,9 @@ import javax.annotation.Nullable;
  * 
  * Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
  * 
- * $ export IMPORT_ORGANIZATION_ID=&#34;&lt;organization_id&gt;&#34;
+ * $ export IMPORT_CONFLUENT_ORGANIZATION_ID=&#34;&lt;organization_id&gt;&#34;
  * 
- * $ export IMPORT_ENVIRONMENT_ID=&#34;&lt;environment_id&gt;&#34;
+ * $ export IMPORT_CONFLUENT_ENVIRONMENT_ID=&#34;&lt;environment_id&gt;&#34;
  * 
  * $ export IMPORT_FLINK_COMPUTE_POOL_ID=&#34;&lt;flink_compute_pool_id&gt;&#34;
  * 

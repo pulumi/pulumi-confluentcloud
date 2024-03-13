@@ -19,9 +19,21 @@ public final class GetSchemaRegistryDekArgs extends com.pulumi.resources.InvokeA
 
     public static final GetSchemaRegistryDekArgs Empty = new GetSchemaRegistryDekArgs();
 
+    /**
+     * Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+     * 
+     * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+     * 
+     */
     @Import(name="algorithm")
     private @Nullable Output<String> algorithm;
 
+    /**
+     * @return Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+     * 
+     * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+     * 
+     */
     public Optional<Output<String>> algorithm() {
         return Optional.ofNullable(this.algorithm);
     }
@@ -33,16 +45,32 @@ public final class GetSchemaRegistryDekArgs extends com.pulumi.resources.InvokeA
         return Optional.ofNullable(this.credentials);
     }
 
+    /**
+     * The name of the KEK used to encrypt this DEK.
+     * 
+     */
     @Import(name="kekName", required=true)
     private Output<String> kekName;
 
+    /**
+     * @return The name of the KEK used to encrypt this DEK.
+     * 
+     */
     public Output<String> kekName() {
         return this.kekName;
     }
 
+    /**
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * 
+     */
     @Import(name="restEndpoint")
     private @Nullable Output<String> restEndpoint;
 
+    /**
+     * @return The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * 
+     */
     public Optional<Output<String>> restEndpoint() {
         return Optional.ofNullable(this.restEndpoint);
     }
@@ -54,16 +82,32 @@ public final class GetSchemaRegistryDekArgs extends com.pulumi.resources.InvokeA
         return Optional.ofNullable(this.schemaRegistryCluster);
     }
 
+    /**
+     * The subject for this DEK.
+     * 
+     */
     @Import(name="subjectName", required=true)
     private Output<String> subjectName;
 
+    /**
+     * @return The subject for this DEK.
+     * 
+     */
     public Output<String> subjectName() {
         return this.subjectName;
     }
 
+    /**
+     * The version of this DEK. Defaults to `1`.
+     * 
+     */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
+    /**
+     * @return The version of this DEK. Defaults to `1`.
+     * 
+     */
     public Optional<Output<Integer>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -98,11 +142,27 @@ public final class GetSchemaRegistryDekArgs extends com.pulumi.resources.InvokeA
             $ = new GetSchemaRegistryDekArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param algorithm Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+         * 
+         * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder algorithm(@Nullable Output<String> algorithm) {
             $.algorithm = algorithm;
             return this;
         }
 
+        /**
+         * @param algorithm Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+         * 
+         * &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder algorithm(String algorithm) {
             return algorithm(Output.of(algorithm));
         }
@@ -116,20 +176,44 @@ public final class GetSchemaRegistryDekArgs extends com.pulumi.resources.InvokeA
             return credentials(Output.of(credentials));
         }
 
+        /**
+         * @param kekName The name of the KEK used to encrypt this DEK.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kekName(Output<String> kekName) {
             $.kekName = kekName;
             return this;
         }
 
+        /**
+         * @param kekName The name of the KEK used to encrypt this DEK.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kekName(String kekName) {
             return kekName(Output.of(kekName));
         }
 
+        /**
+         * @param restEndpoint The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder restEndpoint(@Nullable Output<String> restEndpoint) {
             $.restEndpoint = restEndpoint;
             return this;
         }
 
+        /**
+         * @param restEndpoint The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder restEndpoint(String restEndpoint) {
             return restEndpoint(Output.of(restEndpoint));
         }
@@ -143,20 +227,44 @@ public final class GetSchemaRegistryDekArgs extends com.pulumi.resources.InvokeA
             return schemaRegistryCluster(Output.of(schemaRegistryCluster));
         }
 
+        /**
+         * @param subjectName The subject for this DEK.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectName(Output<String> subjectName) {
             $.subjectName = subjectName;
             return this;
         }
 
+        /**
+         * @param subjectName The subject for this DEK.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectName(String subjectName) {
             return subjectName(Output.of(subjectName));
         }
 
+        /**
+         * @param version The version of this DEK. Defaults to `1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(@Nullable Output<Integer> version) {
             $.version = version;
             return this;
         }
 
+        /**
+         * @param version The version of this DEK. Defaults to `1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(Integer version) {
             return version(Output.of(version));
         }

@@ -19,9 +19,17 @@ public final class SchemaRegistryDekState extends com.pulumi.resources.ResourceA
 
     public static final SchemaRegistryDekState Empty = new SchemaRegistryDekState();
 
+    /**
+     * Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+     * 
+     */
     @Import(name="algorithm")
     private @Nullable Output<String> algorithm;
 
+    /**
+     * @return Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+     * 
+     */
     public Optional<Output<String>> algorithm() {
         return Optional.ofNullable(this.algorithm);
     }
@@ -41,9 +49,17 @@ public final class SchemaRegistryDekState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.credentials);
     }
 
+    /**
+     * The encrypted key material for the DEK.
+     * 
+     */
     @Import(name="encryptedKeyMaterial")
     private @Nullable Output<String> encryptedKeyMaterial;
 
+    /**
+     * @return The encrypted key material for the DEK.
+     * 
+     */
     public Optional<Output<String>> encryptedKeyMaterial() {
         return Optional.ofNullable(this.encryptedKeyMaterial);
     }
@@ -65,31 +81,45 @@ public final class SchemaRegistryDekState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.hardDelete);
     }
 
+    /**
+     * The name of the KEK used to encrypt this DEK.
+     * 
+     */
     @Import(name="kekName")
     private @Nullable Output<String> kekName;
 
+    /**
+     * @return The name of the KEK used to encrypt this DEK.
+     * 
+     */
     public Optional<Output<String>> kekName() {
         return Optional.ofNullable(this.kekName);
     }
 
+    /**
+     * (Optional String) The decrypted version of encrypted key material.
+     * 
+     */
     @Import(name="keyMaterial")
     private @Nullable Output<String> keyMaterial;
 
+    /**
+     * @return (Optional String) The decrypted version of encrypted key material.
+     * 
+     */
     public Optional<Output<String>> keyMaterial() {
         return Optional.ofNullable(this.keyMaterial);
     }
 
     /**
-     * The REST endpoint of the Schema Registry cluster, for example,
-     * `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
     @Import(name="restEndpoint")
     private @Nullable Output<String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the Schema Registry cluster, for example,
-     * `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * @return The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
     public Optional<Output<String>> restEndpoint() {
@@ -103,16 +133,32 @@ public final class SchemaRegistryDekState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.schemaRegistryCluster);
     }
 
+    /**
+     * The subject for this DEK.
+     * 
+     */
     @Import(name="subjectName")
     private @Nullable Output<String> subjectName;
 
+    /**
+     * @return The subject for this DEK.
+     * 
+     */
     public Optional<Output<String>> subjectName() {
         return Optional.ofNullable(this.subjectName);
     }
 
+    /**
+     * The version of this DEK. Defaults to `1`.
+     * 
+     */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
+    /**
+     * @return The version of this DEK. Defaults to `1`.
+     * 
+     */
     public Optional<Output<Integer>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -150,11 +196,23 @@ public final class SchemaRegistryDekState extends com.pulumi.resources.ResourceA
             $ = new SchemaRegistryDekState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param algorithm Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder algorithm(@Nullable Output<String> algorithm) {
             $.algorithm = algorithm;
             return this;
         }
 
+        /**
+         * @param algorithm Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder algorithm(String algorithm) {
             return algorithm(Output.of(algorithm));
         }
@@ -180,11 +238,23 @@ public final class SchemaRegistryDekState extends com.pulumi.resources.ResourceA
             return credentials(Output.of(credentials));
         }
 
+        /**
+         * @param encryptedKeyMaterial The encrypted key material for the DEK.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptedKeyMaterial(@Nullable Output<String> encryptedKeyMaterial) {
             $.encryptedKeyMaterial = encryptedKeyMaterial;
             return this;
         }
 
+        /**
+         * @param encryptedKeyMaterial The encrypted key material for the DEK.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptedKeyMaterial(String encryptedKeyMaterial) {
             return encryptedKeyMaterial(Output.of(encryptedKeyMaterial));
         }
@@ -212,27 +282,50 @@ public final class SchemaRegistryDekState extends com.pulumi.resources.ResourceA
             return hardDelete(Output.of(hardDelete));
         }
 
+        /**
+         * @param kekName The name of the KEK used to encrypt this DEK.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kekName(@Nullable Output<String> kekName) {
             $.kekName = kekName;
             return this;
         }
 
+        /**
+         * @param kekName The name of the KEK used to encrypt this DEK.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kekName(String kekName) {
             return kekName(Output.of(kekName));
         }
 
+        /**
+         * @param keyMaterial (Optional String) The decrypted version of encrypted key material.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyMaterial(@Nullable Output<String> keyMaterial) {
             $.keyMaterial = keyMaterial;
             return this;
         }
 
+        /**
+         * @param keyMaterial (Optional String) The decrypted version of encrypted key material.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyMaterial(String keyMaterial) {
             return keyMaterial(Output.of(keyMaterial));
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the Schema Registry cluster, for example,
-         * `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+         * @param restEndpoint The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
          * 
          * @return builder
          * 
@@ -243,8 +336,7 @@ public final class SchemaRegistryDekState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the Schema Registry cluster, for example,
-         * `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+         * @param restEndpoint The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
          * 
          * @return builder
          * 
@@ -262,20 +354,44 @@ public final class SchemaRegistryDekState extends com.pulumi.resources.ResourceA
             return schemaRegistryCluster(Output.of(schemaRegistryCluster));
         }
 
+        /**
+         * @param subjectName The subject for this DEK.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectName(@Nullable Output<String> subjectName) {
             $.subjectName = subjectName;
             return this;
         }
 
+        /**
+         * @param subjectName The subject for this DEK.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subjectName(String subjectName) {
             return subjectName(Output.of(subjectName));
         }
 
+        /**
+         * @param version The version of this DEK. Defaults to `1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(@Nullable Output<Integer> version) {
             $.version = version;
             return this;
         }
 
+        /**
+         * @param version The version of this DEK. Defaults to `1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(Integer version) {
             return version(Output.of(version));
         }

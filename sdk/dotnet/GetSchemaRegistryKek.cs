@@ -29,9 +29,17 @@ namespace Pulumi.ConfluentCloud
             set => _credentials = value;
         }
 
+        /// <summary>
+        /// The name for the KEK.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// </summary>
         [Input("restEndpoint")]
         public string? RestEndpoint { get; set; }
 
@@ -58,9 +66,17 @@ namespace Pulumi.ConfluentCloud
             }
         }
 
+        /// <summary>
+        /// The name for the KEK.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
 
@@ -78,18 +94,42 @@ namespace Pulumi.ConfluentCloud
     public sealed class GetSchemaRegistryKekResult
     {
         public readonly Outputs.GetSchemaRegistryKekCredentialsResult? Credentials;
+        /// <summary>
+        /// (Optional String) The optional description for the KEK.
+        /// </summary>
         public readonly string Doc;
+        /// <summary>
+        /// (Optional Boolean) The optional flag to control whether a kek should be soft or hard deleted. Defaults to `false`.
+        /// </summary>
         public readonly bool HardDelete;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// (Required String) The ID of the key from KMS.
+        /// - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
+        /// - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
+        /// - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
+        /// </summary>
         public readonly string KmsKeyId;
+        /// <summary>
+        /// (Required String) The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
+        /// </summary>
         public readonly string KmsType;
+        /// <summary>
+        /// (Required String) The custom property name (for example, `KeyUsage`).
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// (Optional Map) The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Properties;
         public readonly string? RestEndpoint;
         public readonly Outputs.GetSchemaRegistryKekSchemaRegistryClusterResult? SchemaRegistryCluster;
+        /// <summary>
+        /// (Optional Boolean) The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+        /// </summary>
         public readonly bool Shared;
 
         [OutputConstructor]

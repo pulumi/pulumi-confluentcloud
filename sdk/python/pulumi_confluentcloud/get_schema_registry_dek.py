@@ -71,11 +71,17 @@ class GetSchemaRegistryDekResult:
     @property
     @pulumi.getter(name="encryptedKeyMaterial")
     def encrypted_key_material(self) -> str:
+        """
+        (Optional String) The encrypted key material for the DEK.
+        """
         return pulumi.get(self, "encrypted_key_material")
 
     @property
     @pulumi.getter(name="hardDelete")
     def hard_delete(self) -> bool:
+        """
+        (Optional Boolean) An optional flag to control whether a dek should be soft or hard deleted.
+        """
         return pulumi.get(self, "hard_delete")
 
     @property
@@ -94,6 +100,9 @@ class GetSchemaRegistryDekResult:
     @property
     @pulumi.getter(name="keyMaterial")
     def key_material(self) -> str:
+        """
+        (Optional String) The decrypted version of encrypted key material.
+        """
         return pulumi.get(self, "key_material")
 
     @property
@@ -146,6 +155,14 @@ def get_schema_registry_dek(algorithm: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryDekResult:
     """
     Use this data source to access information about an existing resource.
+
+    :param str algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+           
+           > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+    :param str kek_name: The name of the KEK used to encrypt this DEK.
+    :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+    :param str subject_name: The subject for this DEK.
+    :param int version: The version of this DEK. Defaults to `1`.
     """
     __args__ = dict()
     __args__['algorithm'] = algorithm
@@ -183,5 +200,13 @@ def get_schema_registry_dek_output(algorithm: Optional[pulumi.Input[Optional[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryDekResult]:
     """
     Use this data source to access information about an existing resource.
+
+    :param str algorithm: Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+           
+           > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+    :param str kek_name: The name of the KEK used to encrypt this DEK.
+    :param str rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+    :param str subject_name: The subject for this DEK.
+    :param int version: The version of this DEK. Defaults to `1`.
     """
     ...

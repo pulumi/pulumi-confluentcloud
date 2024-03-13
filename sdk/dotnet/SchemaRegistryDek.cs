@@ -9,9 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.ConfluentCloud
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// You can import a Schema Registry Key by using the Schema Registry cluster ID, KEK name, Subject, Version and Algorithm in the format `&lt;Schema Registry Cluster Id&gt;/&lt;Schema Registry KEK Name&gt;/&lt;Subject&gt;/&lt;Version&gt;/&lt;Algorithm&gt;`, for example:
+    /// 
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
+    /// 
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
+    /// 
+    /// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
+    /// 
+    /// ```sh
+    /// $ pulumi import confluentcloud:index/schemaRegistryDek:SchemaRegistryDek my_dek lsrc-8wrx70/testkek/ts/1/AES256_GCM
+    /// ```
+    /// 
+    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/schemaRegistryDek:SchemaRegistryDek")]
     public partial class SchemaRegistryDek : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+        /// </summary>
         [Output("algorithm")]
         public Output<string?> Algorithm { get; private set; } = null!;
 
@@ -21,6 +41,9 @@ namespace Pulumi.ConfluentCloud
         [Output("credentials")]
         public Output<Outputs.SchemaRegistryDekCredentials?> Credentials { get; private set; } = null!;
 
+        /// <summary>
+        /// The encrypted key material for the DEK.
+        /// </summary>
         [Output("encryptedKeyMaterial")]
         public Output<string> EncryptedKeyMaterial { get; private set; } = null!;
 
@@ -31,15 +54,20 @@ namespace Pulumi.ConfluentCloud
         [Output("hardDelete")]
         public Output<bool?> HardDelete { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the KEK used to encrypt this DEK.
+        /// </summary>
         [Output("kekName")]
         public Output<string> KekName { get; private set; } = null!;
 
+        /// <summary>
+        /// (Optional String) The decrypted version of encrypted key material.
+        /// </summary>
         [Output("keyMaterial")]
         public Output<string> KeyMaterial { get; private set; } = null!;
 
         /// <summary>
-        /// The REST endpoint of the Schema Registry cluster, for example,
-        /// `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         [Output("restEndpoint")]
         public Output<string?> RestEndpoint { get; private set; } = null!;
@@ -47,9 +75,15 @@ namespace Pulumi.ConfluentCloud
         [Output("schemaRegistryCluster")]
         public Output<Outputs.SchemaRegistryDekSchemaRegistryCluster?> SchemaRegistryCluster { get; private set; } = null!;
 
+        /// <summary>
+        /// The subject for this DEK.
+        /// </summary>
         [Output("subjectName")]
         public Output<string> SubjectName { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of this DEK. Defaults to `1`.
+        /// </summary>
         [Output("version")]
         public Output<int?> Version { get; private set; } = null!;
 
@@ -103,6 +137,9 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class SchemaRegistryDekArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+        /// </summary>
         [Input("algorithm")]
         public Input<string>? Algorithm { get; set; }
 
@@ -122,6 +159,9 @@ namespace Pulumi.ConfluentCloud
             }
         }
 
+        /// <summary>
+        /// The encrypted key material for the DEK.
+        /// </summary>
         [Input("encryptedKeyMaterial")]
         public Input<string>? EncryptedKeyMaterial { get; set; }
 
@@ -132,12 +172,14 @@ namespace Pulumi.ConfluentCloud
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
 
+        /// <summary>
+        /// The name of the KEK used to encrypt this DEK.
+        /// </summary>
         [Input("kekName", required: true)]
         public Input<string> KekName { get; set; } = null!;
 
         /// <summary>
-        /// The REST endpoint of the Schema Registry cluster, for example,
-        /// `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
@@ -145,9 +187,15 @@ namespace Pulumi.ConfluentCloud
         [Input("schemaRegistryCluster")]
         public Input<Inputs.SchemaRegistryDekSchemaRegistryClusterArgs>? SchemaRegistryCluster { get; set; }
 
+        /// <summary>
+        /// The subject for this DEK.
+        /// </summary>
         [Input("subjectName", required: true)]
         public Input<string> SubjectName { get; set; } = null!;
 
+        /// <summary>
+        /// The version of this DEK. Defaults to `1`.
+        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 
@@ -159,6 +207,9 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class SchemaRegistryDekState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+        /// </summary>
         [Input("algorithm")]
         public Input<string>? Algorithm { get; set; }
 
@@ -178,6 +229,9 @@ namespace Pulumi.ConfluentCloud
             }
         }
 
+        /// <summary>
+        /// The encrypted key material for the DEK.
+        /// </summary>
         [Input("encryptedKeyMaterial")]
         public Input<string>? EncryptedKeyMaterial { get; set; }
 
@@ -188,15 +242,20 @@ namespace Pulumi.ConfluentCloud
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
 
+        /// <summary>
+        /// The name of the KEK used to encrypt this DEK.
+        /// </summary>
         [Input("kekName")]
         public Input<string>? KekName { get; set; }
 
+        /// <summary>
+        /// (Optional String) The decrypted version of encrypted key material.
+        /// </summary>
         [Input("keyMaterial")]
         public Input<string>? KeyMaterial { get; set; }
 
         /// <summary>
-        /// The REST endpoint of the Schema Registry cluster, for example,
-        /// `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
@@ -204,9 +263,15 @@ namespace Pulumi.ConfluentCloud
         [Input("schemaRegistryCluster")]
         public Input<Inputs.SchemaRegistryDekSchemaRegistryClusterGetArgs>? SchemaRegistryCluster { get; set; }
 
+        /// <summary>
+        /// The subject for this DEK.
+        /// </summary>
         [Input("subjectName")]
         public Input<string>? SubjectName { get; set; }
 
+        /// <summary>
+        /// The version of this DEK. Defaults to `1`.
+        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

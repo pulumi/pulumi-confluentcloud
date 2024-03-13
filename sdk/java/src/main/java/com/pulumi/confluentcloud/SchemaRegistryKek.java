@@ -19,6 +19,24 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * You can import a Schema Registry Key by using the Schema Registry cluster ID, Kek name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Kek name&gt;`, for example:
+ * 
+ * $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
+ * 
+ * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
+ * 
+ * $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
+ * 
+ * ```sh
+ * $ pulumi import confluentcloud:index/schemaRegistryKek:SchemaRegistryKek aws_key lsrc-8wrx70/aws_key
+ * ```
+ * 
+ * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * 
+ */
 @ResourceType(type="confluentcloud:index/schemaRegistryKek:SchemaRegistryKek")
 public class SchemaRegistryKek extends com.pulumi.resources.CustomResource {
     /**
@@ -35,9 +53,17 @@ public class SchemaRegistryKek extends com.pulumi.resources.CustomResource {
     public Output<Optional<SchemaRegistryKekCredentials>> credentials() {
         return Codegen.optional(this.credentials);
     }
+    /**
+     * The optional description for the KEK.
+     * 
+     */
     @Export(name="doc", refs={String.class}, tree="[0]")
     private Output<String> doc;
 
+    /**
+     * @return The optional description for the KEK.
+     * 
+     */
     public Output<String> doc() {
         return this.doc;
     }
@@ -57,41 +83,77 @@ public class SchemaRegistryKek extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> hardDelete() {
         return Codegen.optional(this.hardDelete);
     }
+    /**
+     * The ID of the key from KMS.
+     * - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
+     * - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
+     * - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
+     * 
+     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
+    /**
+     * @return The ID of the key from KMS.
+     * - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
+     * - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
+     * - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
+     * 
+     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
+    /**
+     * The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
+     * 
+     */
     @Export(name="kmsType", refs={String.class}, tree="[0]")
     private Output<String> kmsType;
 
+    /**
+     * @return The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
+     * 
+     */
     public Output<String> kmsType() {
         return this.kmsType;
     }
+    /**
+     * The custom property name (for example, `KeyUsage`).
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The custom property name (for example, `KeyUsage`).
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
+     * 
+     */
     @Export(name="properties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> properties;
 
+    /**
+     * @return The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
+     * 
+     */
     public Output<Map<String,String>> properties() {
         return this.properties;
     }
     /**
-     * The REST endpoint of the Schema Registry cluster, for example,
-     * `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
     @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the Schema Registry cluster, for example,
-     * `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * @return The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
     public Output<Optional<String>> restEndpoint() {
@@ -103,11 +165,19 @@ public class SchemaRegistryKek extends com.pulumi.resources.CustomResource {
     public Output<Optional<SchemaRegistryKekSchemaRegistryCluster>> schemaRegistryCluster() {
         return Codegen.optional(this.schemaRegistryCluster);
     }
+    /**
+     * The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+     * 
+     */
     @Export(name="shared", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> shared;
+    private Output</* @Nullable */ Boolean> shared;
 
-    public Output<Boolean> shared() {
-        return this.shared;
+    /**
+     * @return The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> shared() {
+        return Codegen.optional(this.shared);
     }
 
     /**

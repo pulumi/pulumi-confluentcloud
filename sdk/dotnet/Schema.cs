@@ -66,6 +66,12 @@ namespace Pulumi.ConfluentCloud
         public Output<bool?> HardDelete { get; private set; } = null!;
 
         /// <summary>
+        /// See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+        /// </summary>
+        [Output("metadata")]
+        public Output<Outputs.SchemaMetadata> Metadata { get; private set; } = null!;
+
+        /// <summary>
         /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
         /// </summary>
         [Output("recreateOnUpdate")]
@@ -76,6 +82,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Output("restEndpoint")]
         public Output<string?> RestEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+        /// </summary>
+        [Output("ruleset")]
+        public Output<Outputs.SchemaRuleset> Ruleset { get; private set; } = null!;
 
         /// <summary>
         /// The schema string, for example, `file("./schema_version_1.avsc")`.
@@ -189,6 +201,12 @@ namespace Pulumi.ConfluentCloud
         public Input<bool>? HardDelete { get; set; }
 
         /// <summary>
+        /// See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+        /// </summary>
+        [Input("metadata")]
+        public Input<Inputs.SchemaMetadataArgs>? Metadata { get; set; }
+
+        /// <summary>
         /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
         /// </summary>
         [Input("recreateOnUpdate")]
@@ -199,6 +217,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
+
+        /// <summary>
+        /// The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+        /// </summary>
+        [Input("ruleset")]
+        public Input<Inputs.SchemaRulesetArgs>? Ruleset { get; set; }
 
         /// <summary>
         /// The schema string, for example, `file("./schema_version_1.avsc")`.
@@ -264,6 +288,12 @@ namespace Pulumi.ConfluentCloud
         public Input<bool>? HardDelete { get; set; }
 
         /// <summary>
+        /// See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+        /// </summary>
+        [Input("metadata")]
+        public Input<Inputs.SchemaMetadataGetArgs>? Metadata { get; set; }
+
+        /// <summary>
         /// An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
         /// </summary>
         [Input("recreateOnUpdate")]
@@ -274,6 +304,12 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
+
+        /// <summary>
+        /// The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+        /// </summary>
+        [Input("ruleset")]
+        public Input<Inputs.SchemaRulesetGetArgs>? Ruleset { get; set; }
 
         /// <summary>
         /// The schema string, for example, `file("./schema_version_1.avsc")`.

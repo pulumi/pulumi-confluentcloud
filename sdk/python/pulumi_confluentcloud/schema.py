@@ -20,8 +20,10 @@ class SchemaArgs:
                  subject_name: pulumi.Input[str],
                  credentials: Optional[pulumi.Input['SchemaCredentialsArgs']] = None,
                  hard_delete: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input['SchemaMetadataArgs']] = None,
                  recreate_on_update: Optional[pulumi.Input[bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
+                 ruleset: Optional[pulumi.Input['SchemaRulesetArgs']] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  schema_references: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]] = None,
                  schema_registry_cluster: Optional[pulumi.Input['SchemaSchemaRegistryClusterArgs']] = None):
@@ -31,8 +33,10 @@ class SchemaArgs:
         :param pulumi.Input[str] subject_name: The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
         :param pulumi.Input['SchemaCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        :param pulumi.Input['SchemaMetadataArgs'] metadata: See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
         :param pulumi.Input[bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input['SchemaRulesetArgs'] ruleset: The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
         """
@@ -42,10 +46,14 @@ class SchemaArgs:
             pulumi.set(__self__, "credentials", credentials)
         if hard_delete is not None:
             pulumi.set(__self__, "hard_delete", hard_delete)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if recreate_on_update is not None:
             pulumi.set(__self__, "recreate_on_update", recreate_on_update)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+        if ruleset is not None:
+            pulumi.set(__self__, "ruleset", ruleset)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
         if schema_references is not None:
@@ -102,6 +110,18 @@ class SchemaArgs:
         pulumi.set(self, "hard_delete", value)
 
     @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input['SchemaMetadataArgs']]:
+        """
+        See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input['SchemaMetadataArgs']]):
+        pulumi.set(self, "metadata", value)
+
+    @property
     @pulumi.getter(name="recreateOnUpdate")
     def recreate_on_update(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -124,6 +144,18 @@ class SchemaArgs:
     @rest_endpoint.setter
     def rest_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rest_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def ruleset(self) -> Optional[pulumi.Input['SchemaRulesetArgs']]:
+        """
+        The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+        """
+        return pulumi.get(self, "ruleset")
+
+    @ruleset.setter
+    def ruleset(self, value: Optional[pulumi.Input['SchemaRulesetArgs']]):
+        pulumi.set(self, "ruleset", value)
 
     @property
     @pulumi.getter
@@ -165,8 +197,10 @@ class _SchemaState:
                  credentials: Optional[pulumi.Input['SchemaCredentialsArgs']] = None,
                  format: Optional[pulumi.Input[str]] = None,
                  hard_delete: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input['SchemaMetadataArgs']] = None,
                  recreate_on_update: Optional[pulumi.Input[bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
+                 ruleset: Optional[pulumi.Input['SchemaRulesetArgs']] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  schema_identifier: Optional[pulumi.Input[int]] = None,
                  schema_references: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]]] = None,
@@ -178,8 +212,10 @@ class _SchemaState:
         :param pulumi.Input['SchemaCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
         :param pulumi.Input[bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        :param pulumi.Input['SchemaMetadataArgs'] metadata: See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
         :param pulumi.Input[bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input['SchemaRulesetArgs'] ruleset: The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[int] schema_identifier: (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaSchemaReferenceArgs']]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
@@ -192,10 +228,14 @@ class _SchemaState:
             pulumi.set(__self__, "format", format)
         if hard_delete is not None:
             pulumi.set(__self__, "hard_delete", hard_delete)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if recreate_on_update is not None:
             pulumi.set(__self__, "recreate_on_update", recreate_on_update)
         if rest_endpoint is not None:
             pulumi.set(__self__, "rest_endpoint", rest_endpoint)
+        if ruleset is not None:
+            pulumi.set(__self__, "ruleset", ruleset)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
         if schema_identifier is not None:
@@ -246,6 +286,18 @@ class _SchemaState:
         pulumi.set(self, "hard_delete", value)
 
     @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input['SchemaMetadataArgs']]:
+        """
+        See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input['SchemaMetadataArgs']]):
+        pulumi.set(self, "metadata", value)
+
+    @property
     @pulumi.getter(name="recreateOnUpdate")
     def recreate_on_update(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -268,6 +320,18 @@ class _SchemaState:
     @rest_endpoint.setter
     def rest_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rest_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def ruleset(self) -> Optional[pulumi.Input['SchemaRulesetArgs']]:
+        """
+        The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+        """
+        return pulumi.get(self, "ruleset")
+
+    @ruleset.setter
+    def ruleset(self, value: Optional[pulumi.Input['SchemaRulesetArgs']]):
+        pulumi.set(self, "ruleset", value)
 
     @property
     @pulumi.getter
@@ -347,8 +411,10 @@ class Schema(pulumi.CustomResource):
                  credentials: Optional[pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']]] = None,
                  format: Optional[pulumi.Input[str]] = None,
                  hard_delete: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[pulumi.InputType['SchemaMetadataArgs']]] = None,
                  recreate_on_update: Optional[pulumi.Input[bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
+                 ruleset: Optional[pulumi.Input[pulumi.InputType['SchemaRulesetArgs']]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]]] = None,
                  schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaSchemaRegistryClusterArgs']]] = None,
@@ -394,8 +460,10 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
         :param pulumi.Input[bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        :param pulumi.Input[pulumi.InputType['SchemaMetadataArgs']] metadata: See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
         :param pulumi.Input[bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[pulumi.InputType['SchemaRulesetArgs']] ruleset: The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
         :param pulumi.Input[str] subject_name: The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
@@ -459,8 +527,10 @@ class Schema(pulumi.CustomResource):
                  credentials: Optional[pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']]] = None,
                  format: Optional[pulumi.Input[str]] = None,
                  hard_delete: Optional[pulumi.Input[bool]] = None,
+                 metadata: Optional[pulumi.Input[pulumi.InputType['SchemaMetadataArgs']]] = None,
                  recreate_on_update: Optional[pulumi.Input[bool]] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None,
+                 ruleset: Optional[pulumi.Input[pulumi.InputType['SchemaRulesetArgs']]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]]] = None,
                  schema_registry_cluster: Optional[pulumi.Input[pulumi.InputType['SchemaSchemaRegistryClusterArgs']]] = None,
@@ -479,8 +549,10 @@ class Schema(pulumi.CustomResource):
                 raise TypeError("Missing required property 'format'")
             __props__.__dict__["format"] = format
             __props__.__dict__["hard_delete"] = hard_delete
+            __props__.__dict__["metadata"] = metadata
             __props__.__dict__["recreate_on_update"] = recreate_on_update
             __props__.__dict__["rest_endpoint"] = rest_endpoint
+            __props__.__dict__["ruleset"] = ruleset
             __props__.__dict__["schema"] = schema
             __props__.__dict__["schema_references"] = schema_references
             __props__.__dict__["schema_registry_cluster"] = schema_registry_cluster
@@ -504,8 +576,10 @@ class Schema(pulumi.CustomResource):
             credentials: Optional[pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']]] = None,
             format: Optional[pulumi.Input[str]] = None,
             hard_delete: Optional[pulumi.Input[bool]] = None,
+            metadata: Optional[pulumi.Input[pulumi.InputType['SchemaMetadataArgs']]] = None,
             recreate_on_update: Optional[pulumi.Input[bool]] = None,
             rest_endpoint: Optional[pulumi.Input[str]] = None,
+            ruleset: Optional[pulumi.Input[pulumi.InputType['SchemaRulesetArgs']]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             schema_identifier: Optional[pulumi.Input[int]] = None,
             schema_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]]] = None,
@@ -522,8 +596,10 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SchemaCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] format: The format of the schema. Accepted values are: `AVRO`, `PROTOBUF`, and `JSON`.
         :param pulumi.Input[bool] hard_delete: An optional flag to control whether a schema should be soft or hard deleted. Set it to `true` if you want to hard delete a schema on destroy (see [Schema Deletion Guidelines](https://docs.confluent.io/platform/current/schema-registry/schema-deletion-guidelines.html#schema-deletion-guidelines) for more details). Must be unset when importing. Defaults to `false` (soft delete).
+        :param pulumi.Input[pulumi.InputType['SchemaMetadataArgs']] metadata: See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
         :param pulumi.Input[bool] recreate_on_update: An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[pulumi.InputType['SchemaRulesetArgs']] ruleset: The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
         :param pulumi.Input[str] schema: The schema string, for example, `file("./schema_version_1.avsc")`.
         :param pulumi.Input[int] schema_identifier: (Required Integer) The globally unique ID of the Schema, for example, `100003`. If the same schema is registered under a different subject, the same identifier will be returned. However, the `version` of the schema may be different under different subjects.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaSchemaReferenceArgs']]]] schema_references: The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
@@ -537,8 +613,10 @@ class Schema(pulumi.CustomResource):
         __props__.__dict__["credentials"] = credentials
         __props__.__dict__["format"] = format
         __props__.__dict__["hard_delete"] = hard_delete
+        __props__.__dict__["metadata"] = metadata
         __props__.__dict__["recreate_on_update"] = recreate_on_update
         __props__.__dict__["rest_endpoint"] = rest_endpoint
+        __props__.__dict__["ruleset"] = ruleset
         __props__.__dict__["schema"] = schema
         __props__.__dict__["schema_identifier"] = schema_identifier
         __props__.__dict__["schema_references"] = schema_references
@@ -572,6 +650,14 @@ class Schema(pulumi.CustomResource):
         return pulumi.get(self, "hard_delete")
 
     @property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Output['outputs.SchemaMetadata']:
+        """
+        See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
     @pulumi.getter(name="recreateOnUpdate")
     def recreate_on_update(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -586,6 +672,14 @@ class Schema(pulumi.CustomResource):
         The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
+
+    @property
+    @pulumi.getter
+    def ruleset(self) -> pulumi.Output['outputs.SchemaRuleset']:
+        """
+        The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+        """
+        return pulumi.get(self, "ruleset")
 
     @property
     @pulumi.getter
