@@ -23,24 +23,34 @@ func LookupSchemaRegistryDek(ctx *pulumi.Context, args *LookupSchemaRegistryDekA
 
 // A collection of arguments for invoking getSchemaRegistryDek.
 type LookupSchemaRegistryDekArgs struct {
-	Algorithm             *string                                    `pulumi:"algorithm"`
-	Credentials           *GetSchemaRegistryDekCredentials           `pulumi:"credentials"`
-	KekName               string                                     `pulumi:"kekName"`
+	// Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+	//
+	// > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+	Algorithm   *string                          `pulumi:"algorithm"`
+	Credentials *GetSchemaRegistryDekCredentials `pulumi:"credentials"`
+	// The name of the KEK used to encrypt this DEK.
+	KekName string `pulumi:"kekName"`
+	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                                    `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *GetSchemaRegistryDekSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
-	SubjectName           string                                     `pulumi:"subjectName"`
-	Version               *int                                       `pulumi:"version"`
+	// The subject for this DEK.
+	SubjectName string `pulumi:"subjectName"`
+	// The version of this DEK. Defaults to `1`.
+	Version *int `pulumi:"version"`
 }
 
 // A collection of values returned by getSchemaRegistryDek.
 type LookupSchemaRegistryDekResult struct {
-	Algorithm            *string                          `pulumi:"algorithm"`
-	Credentials          *GetSchemaRegistryDekCredentials `pulumi:"credentials"`
-	EncryptedKeyMaterial string                           `pulumi:"encryptedKeyMaterial"`
-	HardDelete           bool                             `pulumi:"hardDelete"`
+	Algorithm   *string                          `pulumi:"algorithm"`
+	Credentials *GetSchemaRegistryDekCredentials `pulumi:"credentials"`
+	// (Optional String) The encrypted key material for the DEK.
+	EncryptedKeyMaterial string `pulumi:"encryptedKeyMaterial"`
+	// (Optional Boolean) An optional flag to control whether a dek should be soft or hard deleted.
+	HardDelete bool `pulumi:"hardDelete"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                    string                                     `pulumi:"id"`
-	KekName               string                                     `pulumi:"kekName"`
+	Id      string `pulumi:"id"`
+	KekName string `pulumi:"kekName"`
+	// (Optional String) The decrypted version of encrypted key material.
 	KeyMaterial           string                                     `pulumi:"keyMaterial"`
 	RestEndpoint          *string                                    `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *GetSchemaRegistryDekSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
@@ -63,13 +73,20 @@ func LookupSchemaRegistryDekOutput(ctx *pulumi.Context, args LookupSchemaRegistr
 
 // A collection of arguments for invoking getSchemaRegistryDek.
 type LookupSchemaRegistryDekOutputArgs struct {
-	Algorithm             pulumi.StringPtrInput                             `pulumi:"algorithm"`
-	Credentials           GetSchemaRegistryDekCredentialsPtrInput           `pulumi:"credentials"`
-	KekName               pulumi.StringInput                                `pulumi:"kekName"`
+	// Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+	//
+	// > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+	Algorithm   pulumi.StringPtrInput                   `pulumi:"algorithm"`
+	Credentials GetSchemaRegistryDekCredentialsPtrInput `pulumi:"credentials"`
+	// The name of the KEK used to encrypt this DEK.
+	KekName pulumi.StringInput `pulumi:"kekName"`
+	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput                             `pulumi:"restEndpoint"`
 	SchemaRegistryCluster GetSchemaRegistryDekSchemaRegistryClusterPtrInput `pulumi:"schemaRegistryCluster"`
-	SubjectName           pulumi.StringInput                                `pulumi:"subjectName"`
-	Version               pulumi.IntPtrInput                                `pulumi:"version"`
+	// The subject for this DEK.
+	SubjectName pulumi.StringInput `pulumi:"subjectName"`
+	// The version of this DEK. Defaults to `1`.
+	Version pulumi.IntPtrInput `pulumi:"version"`
 }
 
 func (LookupSchemaRegistryDekOutputArgs) ElementType() reflect.Type {
@@ -99,10 +116,12 @@ func (o LookupSchemaRegistryDekResultOutput) Credentials() GetSchemaRegistryDekC
 	return o.ApplyT(func(v LookupSchemaRegistryDekResult) *GetSchemaRegistryDekCredentials { return v.Credentials }).(GetSchemaRegistryDekCredentialsPtrOutput)
 }
 
+// (Optional String) The encrypted key material for the DEK.
 func (o LookupSchemaRegistryDekResultOutput) EncryptedKeyMaterial() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryDekResult) string { return v.EncryptedKeyMaterial }).(pulumi.StringOutput)
 }
 
+// (Optional Boolean) An optional flag to control whether a dek should be soft or hard deleted.
 func (o LookupSchemaRegistryDekResultOutput) HardDelete() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryDekResult) bool { return v.HardDelete }).(pulumi.BoolOutput)
 }
@@ -116,6 +135,7 @@ func (o LookupSchemaRegistryDekResultOutput) KekName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryDekResult) string { return v.KekName }).(pulumi.StringOutput)
 }
 
+// (Optional String) The decrypted version of encrypted key material.
 func (o LookupSchemaRegistryDekResultOutput) KeyMaterial() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryDekResult) string { return v.KeyMaterial }).(pulumi.StringOutput)
 }

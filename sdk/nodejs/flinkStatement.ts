@@ -13,9 +13,9 @@ import * as utilities from "./utilities";
  *
  * Option #1: Manage multiple Flink Compute Pools in the same Terraform workspace
  *
- * $ export IMPORT_ORGANIZATION_ID="<organization_id>"
+ * $ export IMPORT_CONFLUENT_ORGANIZATION_ID="<organization_id>"
  *
- * $ export IMPORT_ENVIRONMENT_ID="<environment_id>"
+ * $ export IMPORT_CONFLUENT_ENVIRONMENT_ID="<environment_id>"
  *
  * $ export IMPORT_FLINK_COMPUTE_POOL_ID="<flink_compute_pool_id>"
  *

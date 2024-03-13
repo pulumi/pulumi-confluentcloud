@@ -19,11 +19,37 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * You can import a Schema Registry Key by using the Schema Registry cluster ID, KEK name, Subject, Version and Algorithm in the format `&lt;Schema Registry Cluster Id&gt;/&lt;Schema Registry KEK Name&gt;/&lt;Subject&gt;/&lt;Version&gt;/&lt;Algorithm&gt;`, for example:
+ * 
+ * $ export IMPORT_SCHEMA_REGISTRY_API_KEY=&#34;&lt;schema_registry_api_key&gt;&#34;
+ * 
+ * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
+ * 
+ * $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
+ * 
+ * ```sh
+ * $ pulumi import confluentcloud:index/schemaRegistryDek:SchemaRegistryDek my_dek lsrc-8wrx70/testkek/ts/1/AES256_GCM
+ * ```
+ * 
+ * !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ * 
+ */
 @ResourceType(type="confluentcloud:index/schemaRegistryDek:SchemaRegistryDek")
 public class SchemaRegistryDek extends com.pulumi.resources.CustomResource {
+    /**
+     * Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+     * 
+     */
     @Export(name="algorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> algorithm;
 
+    /**
+     * @return Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+     * 
+     */
     public Output<Optional<String>> algorithm() {
         return Codegen.optional(this.algorithm);
     }
@@ -41,9 +67,17 @@ public class SchemaRegistryDek extends com.pulumi.resources.CustomResource {
     public Output<Optional<SchemaRegistryDekCredentials>> credentials() {
         return Codegen.optional(this.credentials);
     }
+    /**
+     * The encrypted key material for the DEK.
+     * 
+     */
     @Export(name="encryptedKeyMaterial", refs={String.class}, tree="[0]")
     private Output<String> encryptedKeyMaterial;
 
+    /**
+     * @return The encrypted key material for the DEK.
+     * 
+     */
     public Output<String> encryptedKeyMaterial() {
         return this.encryptedKeyMaterial;
     }
@@ -63,29 +97,43 @@ public class SchemaRegistryDek extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> hardDelete() {
         return Codegen.optional(this.hardDelete);
     }
+    /**
+     * The name of the KEK used to encrypt this DEK.
+     * 
+     */
     @Export(name="kekName", refs={String.class}, tree="[0]")
     private Output<String> kekName;
 
+    /**
+     * @return The name of the KEK used to encrypt this DEK.
+     * 
+     */
     public Output<String> kekName() {
         return this.kekName;
     }
+    /**
+     * (Optional String) The decrypted version of encrypted key material.
+     * 
+     */
     @Export(name="keyMaterial", refs={String.class}, tree="[0]")
     private Output<String> keyMaterial;
 
+    /**
+     * @return (Optional String) The decrypted version of encrypted key material.
+     * 
+     */
     public Output<String> keyMaterial() {
         return this.keyMaterial;
     }
     /**
-     * The REST endpoint of the Schema Registry cluster, for example,
-     * `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
     @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the Schema Registry cluster, for example,
-     * `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * @return The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
     public Output<Optional<String>> restEndpoint() {
@@ -97,15 +145,31 @@ public class SchemaRegistryDek extends com.pulumi.resources.CustomResource {
     public Output<Optional<SchemaRegistryDekSchemaRegistryCluster>> schemaRegistryCluster() {
         return Codegen.optional(this.schemaRegistryCluster);
     }
+    /**
+     * The subject for this DEK.
+     * 
+     */
     @Export(name="subjectName", refs={String.class}, tree="[0]")
     private Output<String> subjectName;
 
+    /**
+     * @return The subject for this DEK.
+     * 
+     */
     public Output<String> subjectName() {
         return this.subjectName;
     }
+    /**
+     * The version of this DEK. Defaults to `1`.
+     * 
+     */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> version;
 
+    /**
+     * @return The version of this DEK. Defaults to `1`.
+     * 
+     */
     public Output<Optional<Integer>> version() {
         return Codegen.optional(this.version);
     }

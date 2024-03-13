@@ -23,8 +23,12 @@ func LookupSchemaRegistryKek(ctx *pulumi.Context, args *LookupSchemaRegistryKekA
 
 // A collection of arguments for invoking getSchemaRegistryKek.
 type LookupSchemaRegistryKekArgs struct {
-	Credentials           *GetSchemaRegistryKekCredentials           `pulumi:"credentials"`
-	Name                  string                                     `pulumi:"name"`
+	Credentials *GetSchemaRegistryKekCredentials `pulumi:"credentials"`
+	// The name for the KEK.
+	//
+	// > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+	Name string `pulumi:"name"`
+	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          *string                                    `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *GetSchemaRegistryKekSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
 }
@@ -32,17 +36,27 @@ type LookupSchemaRegistryKekArgs struct {
 // A collection of values returned by getSchemaRegistryKek.
 type LookupSchemaRegistryKekResult struct {
 	Credentials *GetSchemaRegistryKekCredentials `pulumi:"credentials"`
-	Doc         string                           `pulumi:"doc"`
-	HardDelete  bool                             `pulumi:"hardDelete"`
+	// (Optional String) The optional description for the KEK.
+	Doc string `pulumi:"doc"`
+	// (Optional Boolean) The optional flag to control whether a kek should be soft or hard deleted. Defaults to `false`.
+	HardDelete bool `pulumi:"hardDelete"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                    string                                     `pulumi:"id"`
-	KmsKeyId              string                                     `pulumi:"kmsKeyId"`
-	KmsType               string                                     `pulumi:"kmsType"`
-	Name                  string                                     `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// (Required String) The ID of the key from KMS.
+	// - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
+	// - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
+	// - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// (Required String) The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
+	KmsType string `pulumi:"kmsType"`
+	// (Required String) The custom property name (for example, `KeyUsage`).
+	Name string `pulumi:"name"`
+	// (Optional Map) The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
 	Properties            map[string]string                          `pulumi:"properties"`
 	RestEndpoint          *string                                    `pulumi:"restEndpoint"`
 	SchemaRegistryCluster *GetSchemaRegistryKekSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
-	Shared                bool                                       `pulumi:"shared"`
+	// (Optional Boolean) The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+	Shared bool `pulumi:"shared"`
 }
 
 func LookupSchemaRegistryKekOutput(ctx *pulumi.Context, args LookupSchemaRegistryKekOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaRegistryKekResultOutput {
@@ -60,8 +74,12 @@ func LookupSchemaRegistryKekOutput(ctx *pulumi.Context, args LookupSchemaRegistr
 
 // A collection of arguments for invoking getSchemaRegistryKek.
 type LookupSchemaRegistryKekOutputArgs struct {
-	Credentials           GetSchemaRegistryKekCredentialsPtrInput           `pulumi:"credentials"`
-	Name                  pulumi.StringInput                                `pulumi:"name"`
+	Credentials GetSchemaRegistryKekCredentialsPtrInput `pulumi:"credentials"`
+	// The name for the KEK.
+	//
+	// > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint          pulumi.StringPtrInput                             `pulumi:"restEndpoint"`
 	SchemaRegistryCluster GetSchemaRegistryKekSchemaRegistryClusterPtrInput `pulumi:"schemaRegistryCluster"`
 }
@@ -89,10 +107,12 @@ func (o LookupSchemaRegistryKekResultOutput) Credentials() GetSchemaRegistryKekC
 	return o.ApplyT(func(v LookupSchemaRegistryKekResult) *GetSchemaRegistryKekCredentials { return v.Credentials }).(GetSchemaRegistryKekCredentialsPtrOutput)
 }
 
+// (Optional String) The optional description for the KEK.
 func (o LookupSchemaRegistryKekResultOutput) Doc() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryKekResult) string { return v.Doc }).(pulumi.StringOutput)
 }
 
+// (Optional Boolean) The optional flag to control whether a kek should be soft or hard deleted. Defaults to `false`.
 func (o LookupSchemaRegistryKekResultOutput) HardDelete() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryKekResult) bool { return v.HardDelete }).(pulumi.BoolOutput)
 }
@@ -102,18 +122,25 @@ func (o LookupSchemaRegistryKekResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryKekResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// (Required String) The ID of the key from KMS.
+// - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
+// - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
+// - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
 func (o LookupSchemaRegistryKekResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryKekResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
+// (Required String) The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
 func (o LookupSchemaRegistryKekResultOutput) KmsType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryKekResult) string { return v.KmsType }).(pulumi.StringOutput)
 }
 
+// (Required String) The custom property name (for example, `KeyUsage`).
 func (o LookupSchemaRegistryKekResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryKekResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// (Optional Map) The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
 func (o LookupSchemaRegistryKekResultOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryKekResult) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
@@ -128,6 +155,7 @@ func (o LookupSchemaRegistryKekResultOutput) SchemaRegistryCluster() GetSchemaRe
 	}).(GetSchemaRegistryKekSchemaRegistryClusterPtrOutput)
 }
 
+// (Optional Boolean) The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
 func (o LookupSchemaRegistryKekResultOutput) Shared() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSchemaRegistryKekResult) bool { return v.Shared }).(pulumi.BoolOutput)
 }

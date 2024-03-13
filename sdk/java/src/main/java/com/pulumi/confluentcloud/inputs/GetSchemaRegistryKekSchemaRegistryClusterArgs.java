@@ -15,14 +15,14 @@ public final class GetSchemaRegistryKekSchemaRegistryClusterArgs extends com.pul
     public static final GetSchemaRegistryKekSchemaRegistryClusterArgs Empty = new GetSchemaRegistryKekSchemaRegistryClusterArgs();
 
     /**
-     * The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     * @return The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      * 
      */
     public Output<String> id() {
@@ -54,7 +54,7 @@ public final class GetSchemaRegistryKekSchemaRegistryClusterArgs extends com.pul
         }
 
         /**
-         * @param id The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+         * @param id The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GetSchemaRegistryKekSchemaRegistryClusterArgs extends com.pul
         }
 
         /**
-         * @param id The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+         * @param id The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
          * 
          * @return builder
          * 

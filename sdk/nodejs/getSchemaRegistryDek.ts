@@ -24,12 +24,29 @@ export function getSchemaRegistryDek(args: GetSchemaRegistryDekArgs, opts?: pulu
  * A collection of arguments for invoking getSchemaRegistryDek.
  */
 export interface GetSchemaRegistryDekArgs {
+    /**
+     * Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+     *
+     * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+     */
     algorithm?: string;
     credentials?: inputs.GetSchemaRegistryDekCredentials;
+    /**
+     * The name of the KEK used to encrypt this DEK.
+     */
     kekName: string;
+    /**
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
     restEndpoint?: string;
     schemaRegistryCluster?: inputs.GetSchemaRegistryDekSchemaRegistryCluster;
+    /**
+     * The subject for this DEK.
+     */
     subjectName: string;
+    /**
+     * The version of this DEK. Defaults to `1`.
+     */
     version?: number;
 }
 
@@ -39,13 +56,22 @@ export interface GetSchemaRegistryDekArgs {
 export interface GetSchemaRegistryDekResult {
     readonly algorithm?: string;
     readonly credentials?: outputs.GetSchemaRegistryDekCredentials;
+    /**
+     * (Optional String) The encrypted key material for the DEK.
+     */
     readonly encryptedKeyMaterial: string;
+    /**
+     * (Optional Boolean) An optional flag to control whether a dek should be soft or hard deleted.
+     */
     readonly hardDelete: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly kekName: string;
+    /**
+     * (Optional String) The decrypted version of encrypted key material.
+     */
     readonly keyMaterial: string;
     readonly restEndpoint?: string;
     readonly schemaRegistryCluster?: outputs.GetSchemaRegistryDekSchemaRegistryCluster;
@@ -60,11 +86,28 @@ export function getSchemaRegistryDekOutput(args: GetSchemaRegistryDekOutputArgs,
  * A collection of arguments for invoking getSchemaRegistryDek.
  */
 export interface GetSchemaRegistryDekOutputArgs {
+    /**
+     * Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+     *
+     * > **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+     */
     algorithm?: pulumi.Input<string>;
     credentials?: pulumi.Input<inputs.GetSchemaRegistryDekCredentialsArgs>;
+    /**
+     * The name of the KEK used to encrypt this DEK.
+     */
     kekName: pulumi.Input<string>;
+    /**
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     */
     restEndpoint?: pulumi.Input<string>;
     schemaRegistryCluster?: pulumi.Input<inputs.GetSchemaRegistryDekSchemaRegistryClusterArgs>;
+    /**
+     * The subject for this DEK.
+     */
     subjectName: pulumi.Input<string>;
+    /**
+     * The version of this DEK. Defaults to `1`.
+     */
     version?: pulumi.Input<number>;
 }

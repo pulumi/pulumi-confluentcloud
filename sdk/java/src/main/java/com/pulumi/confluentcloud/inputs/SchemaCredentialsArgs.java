@@ -15,14 +15,14 @@ public final class SchemaCredentialsArgs extends com.pulumi.resources.ResourceAr
     public static final SchemaCredentialsArgs Empty = new SchemaCredentialsArgs();
 
     /**
-     * The Schema Registry API Key.
+     * The setting name.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The Schema Registry API Key.
+     * @return The setting name.
      * 
      */
     public Output<String> key() {
@@ -70,7 +70,7 @@ public final class SchemaCredentialsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param key The Schema Registry API Key.
+         * @param key The setting name.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class SchemaCredentialsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param key The Schema Registry API Key.
+         * @param key The setting name.
          * 
          * @return builder
          * 

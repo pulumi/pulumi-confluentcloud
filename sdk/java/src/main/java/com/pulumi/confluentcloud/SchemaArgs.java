@@ -4,6 +4,8 @@
 package com.pulumi.confluentcloud;
 
 import com.pulumi.confluentcloud.inputs.SchemaCredentialsArgs;
+import com.pulumi.confluentcloud.inputs.SchemaMetadataArgs;
+import com.pulumi.confluentcloud.inputs.SchemaRulesetArgs;
 import com.pulumi.confluentcloud.inputs.SchemaSchemaReferenceArgs;
 import com.pulumi.confluentcloud.inputs.SchemaSchemaRegistryClusterArgs;
 import com.pulumi.core.Output;
@@ -67,6 +69,21 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+     * 
+     */
+    @Import(name="metadata")
+    private @Nullable Output<SchemaMetadataArgs> metadata;
+
+    /**
+     * @return See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+     * 
+     */
+    public Optional<Output<SchemaMetadataArgs>> metadata() {
+        return Optional.ofNullable(this.metadata);
+    }
+
+    /**
      * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
      * 
      */
@@ -94,6 +111,21 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> restEndpoint() {
         return Optional.ofNullable(this.restEndpoint);
+    }
+
+    /**
+     * The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+     * 
+     */
+    @Import(name="ruleset")
+    private @Nullable Output<SchemaRulesetArgs> ruleset;
+
+    /**
+     * @return The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+     * 
+     */
+    public Optional<Output<SchemaRulesetArgs>> ruleset() {
+        return Optional.ofNullable(this.ruleset);
     }
 
     /**
@@ -154,8 +186,10 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         this.credentials = $.credentials;
         this.format = $.format;
         this.hardDelete = $.hardDelete;
+        this.metadata = $.metadata;
         this.recreateOnUpdate = $.recreateOnUpdate;
         this.restEndpoint = $.restEndpoint;
+        this.ruleset = $.ruleset;
         this.schema = $.schema;
         this.schemaReferences = $.schemaReferences;
         this.schemaRegistryCluster = $.schemaRegistryCluster;
@@ -244,6 +278,27 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param metadata See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadata(@Nullable Output<SchemaMetadataArgs> metadata) {
+            $.metadata = metadata;
+            return this;
+        }
+
+        /**
+         * @param metadata See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadata(SchemaMetadataArgs metadata) {
+            return metadata(Output.of(metadata));
+        }
+
+        /**
          * @param recreateOnUpdate An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
          * 
          * @return builder
@@ -283,6 +338,27 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder restEndpoint(String restEndpoint) {
             return restEndpoint(Output.of(restEndpoint));
+        }
+
+        /**
+         * @param ruleset The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleset(@Nullable Output<SchemaRulesetArgs> ruleset) {
+            $.ruleset = ruleset;
+            return this;
+        }
+
+        /**
+         * @param ruleset The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleset(SchemaRulesetArgs ruleset) {
+            return ruleset(Output.of(ruleset));
         }
 
         /**

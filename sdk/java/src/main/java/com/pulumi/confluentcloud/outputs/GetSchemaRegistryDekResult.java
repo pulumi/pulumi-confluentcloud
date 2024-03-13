@@ -18,7 +18,15 @@ import javax.annotation.Nullable;
 public final class GetSchemaRegistryDekResult {
     private @Nullable String algorithm;
     private @Nullable GetSchemaRegistryDekCredentials credentials;
+    /**
+     * @return (Optional String) The encrypted key material for the DEK.
+     * 
+     */
     private String encryptedKeyMaterial;
+    /**
+     * @return (Optional Boolean) An optional flag to control whether a dek should be soft or hard deleted.
+     * 
+     */
     private Boolean hardDelete;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -26,6 +34,10 @@ public final class GetSchemaRegistryDekResult {
      */
     private String id;
     private String kekName;
+    /**
+     * @return (Optional String) The decrypted version of encrypted key material.
+     * 
+     */
     private String keyMaterial;
     private @Nullable String restEndpoint;
     private @Nullable GetSchemaRegistryDekSchemaRegistryCluster schemaRegistryCluster;
@@ -39,9 +51,17 @@ public final class GetSchemaRegistryDekResult {
     public Optional<GetSchemaRegistryDekCredentials> credentials() {
         return Optional.ofNullable(this.credentials);
     }
+    /**
+     * @return (Optional String) The encrypted key material for the DEK.
+     * 
+     */
     public String encryptedKeyMaterial() {
         return this.encryptedKeyMaterial;
     }
+    /**
+     * @return (Optional Boolean) An optional flag to control whether a dek should be soft or hard deleted.
+     * 
+     */
     public Boolean hardDelete() {
         return this.hardDelete;
     }
@@ -55,6 +75,10 @@ public final class GetSchemaRegistryDekResult {
     public String kekName() {
         return this.kekName;
     }
+    /**
+     * @return (Optional String) The decrypted version of encrypted key material.
+     * 
+     */
     public String keyMaterial() {
         return this.keyMaterial;
     }

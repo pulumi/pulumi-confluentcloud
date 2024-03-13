@@ -4,6 +4,8 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetSchemaCredentials;
+import com.pulumi.confluentcloud.outputs.GetSchemaMetadata;
+import com.pulumi.confluentcloud.outputs.GetSchemaRuleset;
 import com.pulumi.confluentcloud.outputs.GetSchemaSchemaReference;
 import com.pulumi.confluentcloud.outputs.GetSchemaSchemaRegistryCluster;
 import com.pulumi.core.annotations.CustomType;
@@ -30,8 +32,18 @@ public final class GetSchemaResult {
      * 
      */
     private String id;
+    /**
+     * @return (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+     * 
+     */
+    private GetSchemaMetadata metadata;
     private Boolean recreateOnUpdate;
     private @Nullable String restEndpoint;
+    /**
+     * @return (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+     * 
+     */
+    private GetSchemaRuleset ruleset;
     /**
      * @return (Required String) The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
      * 
@@ -76,11 +88,25 @@ public final class GetSchemaResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+     * 
+     */
+    public GetSchemaMetadata metadata() {
+        return this.metadata;
+    }
     public Boolean recreateOnUpdate() {
         return this.recreateOnUpdate;
     }
     public Optional<String> restEndpoint() {
         return Optional.ofNullable(this.restEndpoint);
+    }
+    /**
+     * @return (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+     * 
+     */
+    public GetSchemaRuleset ruleset() {
+        return this.ruleset;
     }
     /**
      * @return (Required String) The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.
@@ -130,8 +156,10 @@ public final class GetSchemaResult {
         private String format;
         private Boolean hardDelete;
         private String id;
+        private GetSchemaMetadata metadata;
         private Boolean recreateOnUpdate;
         private @Nullable String restEndpoint;
+        private GetSchemaRuleset ruleset;
         private String schema;
         private Integer schemaIdentifier;
         private List<GetSchemaSchemaReference> schemaReferences;
@@ -145,8 +173,10 @@ public final class GetSchemaResult {
     	      this.format = defaults.format;
     	      this.hardDelete = defaults.hardDelete;
     	      this.id = defaults.id;
+    	      this.metadata = defaults.metadata;
     	      this.recreateOnUpdate = defaults.recreateOnUpdate;
     	      this.restEndpoint = defaults.restEndpoint;
+    	      this.ruleset = defaults.ruleset;
     	      this.schema = defaults.schema;
     	      this.schemaIdentifier = defaults.schemaIdentifier;
     	      this.schemaReferences = defaults.schemaReferences;
@@ -186,6 +216,14 @@ public final class GetSchemaResult {
             return this;
         }
         @CustomType.Setter
+        public Builder metadata(GetSchemaMetadata metadata) {
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("GetSchemaResult", "metadata");
+            }
+            this.metadata = metadata;
+            return this;
+        }
+        @CustomType.Setter
         public Builder recreateOnUpdate(Boolean recreateOnUpdate) {
             if (recreateOnUpdate == null) {
               throw new MissingRequiredPropertyException("GetSchemaResult", "recreateOnUpdate");
@@ -197,6 +235,14 @@ public final class GetSchemaResult {
         public Builder restEndpoint(@Nullable String restEndpoint) {
 
             this.restEndpoint = restEndpoint;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ruleset(GetSchemaRuleset ruleset) {
+            if (ruleset == null) {
+              throw new MissingRequiredPropertyException("GetSchemaResult", "ruleset");
+            }
+            this.ruleset = ruleset;
             return this;
         }
         @CustomType.Setter
@@ -254,8 +300,10 @@ public final class GetSchemaResult {
             _resultValue.format = format;
             _resultValue.hardDelete = hardDelete;
             _resultValue.id = id;
+            _resultValue.metadata = metadata;
             _resultValue.recreateOnUpdate = recreateOnUpdate;
             _resultValue.restEndpoint = restEndpoint;
+            _resultValue.ruleset = ruleset;
             _resultValue.schema = schema;
             _resultValue.schemaIdentifier = schemaIdentifier;
             _resultValue.schemaReferences = schemaReferences;

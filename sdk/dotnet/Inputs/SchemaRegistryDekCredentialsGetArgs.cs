@@ -16,7 +16,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         private Input<string>? _key;
 
         /// <summary>
-        /// The Cluster API Key for your Confluent Cloud cluster.
+        /// The Schema Registry API Key.
         /// </summary>
         public Input<string>? Key
         {
@@ -32,7 +32,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         private Input<string>? _secret;
 
         /// <summary>
-        /// The Cluster API Secret for your Confluent Cloud cluster.
+        /// The Schema Registry API Secret.
         /// </summary>
         public Input<string>? Secret
         {

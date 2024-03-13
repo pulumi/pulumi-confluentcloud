@@ -21,6 +21,11 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class GetSchemaRegistryDekArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+        /// </summary>
         [Input("algorithm")]
         public string? Algorithm { get; set; }
 
@@ -32,18 +37,30 @@ namespace Pulumi.ConfluentCloud
             set => _credentials = value;
         }
 
+        /// <summary>
+        /// The name of the KEK used to encrypt this DEK.
+        /// </summary>
         [Input("kekName", required: true)]
         public string KekName { get; set; } = null!;
 
+        /// <summary>
+        /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// </summary>
         [Input("restEndpoint")]
         public string? RestEndpoint { get; set; }
 
         [Input("schemaRegistryCluster")]
         public Inputs.GetSchemaRegistryDekSchemaRegistryClusterArgs? SchemaRegistryCluster { get; set; }
 
+        /// <summary>
+        /// The subject for this DEK.
+        /// </summary>
         [Input("subjectName", required: true)]
         public string SubjectName { get; set; } = null!;
 
+        /// <summary>
+        /// The version of this DEK. Defaults to `1`.
+        /// </summary>
         [Input("version")]
         public int? Version { get; set; }
 
@@ -55,6 +72,11 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class GetSchemaRegistryDekInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Accepted values are: `AES128_GCM`, `AES256_GCM`, and `AES256_SIV`. Defaults to `AES256_GCM`.
+        /// 
+        /// &gt; **Note:** A Schema Registry API key consists of a key and a secret. Schema Registry API keys are required to interact with Schema Registry clusters in Confluent Cloud. Each Schema Registry API key is valid for one specific Schema Registry cluster.
+        /// </summary>
         [Input("algorithm")]
         public Input<string>? Algorithm { get; set; }
 
@@ -70,18 +92,30 @@ namespace Pulumi.ConfluentCloud
             }
         }
 
+        /// <summary>
+        /// The name of the KEK used to encrypt this DEK.
+        /// </summary>
         [Input("kekName", required: true)]
         public Input<string> KekName { get; set; } = null!;
 
+        /// <summary>
+        /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
 
         [Input("schemaRegistryCluster")]
         public Input<Inputs.GetSchemaRegistryDekSchemaRegistryClusterInputArgs>? SchemaRegistryCluster { get; set; }
 
+        /// <summary>
+        /// The subject for this DEK.
+        /// </summary>
         [Input("subjectName", required: true)]
         public Input<string> SubjectName { get; set; } = null!;
 
+        /// <summary>
+        /// The version of this DEK. Defaults to `1`.
+        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 
@@ -97,13 +131,22 @@ namespace Pulumi.ConfluentCloud
     {
         public readonly string? Algorithm;
         public readonly Outputs.GetSchemaRegistryDekCredentialsResult? Credentials;
+        /// <summary>
+        /// (Optional String) The encrypted key material for the DEK.
+        /// </summary>
         public readonly string EncryptedKeyMaterial;
+        /// <summary>
+        /// (Optional Boolean) An optional flag to control whether a dek should be soft or hard deleted.
+        /// </summary>
         public readonly bool HardDelete;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string KekName;
+        /// <summary>
+        /// (Optional String) The decrypted version of encrypted key material.
+        /// </summary>
         public readonly string KeyMaterial;
         public readonly string? RestEndpoint;
         public readonly Outputs.GetSchemaRegistryDekSchemaRegistryClusterResult? SchemaRegistryCluster;

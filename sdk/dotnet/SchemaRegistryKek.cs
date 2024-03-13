@@ -9,6 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.ConfluentCloud
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// You can import a Schema Registry Key by using the Schema Registry cluster ID, Kek name in the format `&lt;Schema Registry cluster ID&gt;/&lt;Kek name&gt;`, for example:
+    /// 
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_KEY="&lt;schema_registry_api_key&gt;"
+    /// 
+    /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
+    /// 
+    /// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
+    /// 
+    /// ```sh
+    /// $ pulumi import confluentcloud:index/schemaRegistryKek:SchemaRegistryKek aws_key lsrc-8wrx70/aws_key
+    /// ```
+    /// 
+    /// !&gt; **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+    /// </summary>
     [ConfluentCloudResourceType("confluentcloud:index/schemaRegistryKek:SchemaRegistryKek")]
     public partial class SchemaRegistryKek : global::Pulumi.CustomResource
     {
@@ -18,6 +35,9 @@ namespace Pulumi.ConfluentCloud
         [Output("credentials")]
         public Output<Outputs.SchemaRegistryKekCredentials?> Credentials { get; private set; } = null!;
 
+        /// <summary>
+        /// The optional description for the KEK.
+        /// </summary>
         [Output("doc")]
         public Output<string> Doc { get; private set; } = null!;
 
@@ -28,21 +48,35 @@ namespace Pulumi.ConfluentCloud
         [Output("hardDelete")]
         public Output<bool?> HardDelete { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the key from KMS. 
+        /// - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
+        /// - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
+        /// - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
+        /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
+        /// </summary>
         [Output("kmsType")]
         public Output<string> KmsType { get; private set; } = null!;
 
+        /// <summary>
+        /// The custom property name (for example, `KeyUsage`).
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
+        /// </summary>
         [Output("properties")]
         public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The REST endpoint of the Schema Registry cluster, for example,
-        /// `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         [Output("restEndpoint")]
         public Output<string?> RestEndpoint { get; private set; } = null!;
@@ -50,8 +84,11 @@ namespace Pulumi.ConfluentCloud
         [Output("schemaRegistryCluster")]
         public Output<Outputs.SchemaRegistryKekSchemaRegistryCluster?> SchemaRegistryCluster { get; private set; } = null!;
 
+        /// <summary>
+        /// The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+        /// </summary>
         [Output("shared")]
-        public Output<bool> Shared { get; private set; } = null!;
+        public Output<bool?> Shared { get; private set; } = null!;
 
 
         /// <summary>
@@ -119,6 +156,9 @@ namespace Pulumi.ConfluentCloud
             }
         }
 
+        /// <summary>
+        /// The optional description for the KEK.
+        /// </summary>
         [Input("doc")]
         public Input<string>? Doc { get; set; }
 
@@ -129,17 +169,33 @@ namespace Pulumi.ConfluentCloud
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
 
+        /// <summary>
+        /// The ID of the key from KMS. 
+        /// - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
+        /// - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
+        /// - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
+        /// </summary>
         [Input("kmsKeyId", required: true)]
         public Input<string> KmsKeyId { get; set; } = null!;
 
+        /// <summary>
+        /// The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
+        /// </summary>
         [Input("kmsType", required: true)]
         public Input<string> KmsType { get; set; } = null!;
 
+        /// <summary>
+        /// The custom property name (for example, `KeyUsage`).
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;
+
+        /// <summary>
+        /// The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
+        /// </summary>
         public InputMap<string> Properties
         {
             get => _properties ?? (_properties = new InputMap<string>());
@@ -147,8 +203,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The REST endpoint of the Schema Registry cluster, for example,
-        /// `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
@@ -156,6 +211,9 @@ namespace Pulumi.ConfluentCloud
         [Input("schemaRegistryCluster")]
         public Input<Inputs.SchemaRegistryKekSchemaRegistryClusterArgs>? SchemaRegistryCluster { get; set; }
 
+        /// <summary>
+        /// The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+        /// </summary>
         [Input("shared")]
         public Input<bool>? Shared { get; set; }
 
@@ -183,6 +241,9 @@ namespace Pulumi.ConfluentCloud
             }
         }
 
+        /// <summary>
+        /// The optional description for the KEK.
+        /// </summary>
         [Input("doc")]
         public Input<string>? Doc { get; set; }
 
@@ -193,17 +254,33 @@ namespace Pulumi.ConfluentCloud
         [Input("hardDelete")]
         public Input<bool>? HardDelete { get; set; }
 
+        /// <summary>
+        /// The ID of the key from KMS. 
+        /// - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
+        /// - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
+        /// - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
+        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
+        /// </summary>
         [Input("kmsType")]
         public Input<string>? KmsType { get; set; }
 
+        /// <summary>
+        /// The custom property name (for example, `KeyUsage`).
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;
+
+        /// <summary>
+        /// The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
+        /// </summary>
         public InputMap<string> Properties
         {
             get => _properties ?? (_properties = new InputMap<string>());
@@ -211,8 +288,7 @@ namespace Pulumi.ConfluentCloud
         }
 
         /// <summary>
-        /// The REST endpoint of the Schema Registry cluster, for example,
-        /// `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
@@ -220,6 +296,9 @@ namespace Pulumi.ConfluentCloud
         [Input("schemaRegistryCluster")]
         public Input<Inputs.SchemaRegistryKekSchemaRegistryClusterGetArgs>? SchemaRegistryCluster { get; set; }
 
+        /// <summary>
+        /// The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+        /// </summary>
         [Input("shared")]
         public Input<bool>? Shared { get; set; }
 

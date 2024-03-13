@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetSchemaRegistryKekSchemaRegistryCluster {
     /**
-     * @return The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     * @return The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      * 
      */
     private String id;
 
     private GetSchemaRegistryKekSchemaRegistryCluster() {}
     /**
-     * @return The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     * @return The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      * 
      */
     public String id() {

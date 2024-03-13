@@ -12859,7 +12859,7 @@ func (o PrivateLinkAttachmentGcpArrayOutput) Index(i pulumi.IntInput) PrivateLin
 }
 
 type SchemaCredentials struct {
-	// The Schema Registry API Key.
+	// The setting name.
 	Key string `pulumi:"key"`
 	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
@@ -12877,7 +12877,7 @@ type SchemaCredentialsInput interface {
 }
 
 type SchemaCredentialsArgs struct {
-	// The Schema Registry API Key.
+	// The setting name.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
@@ -12960,7 +12960,7 @@ func (o SchemaCredentialsOutput) ToSchemaCredentialsPtrOutputWithContext(ctx con
 	}).(SchemaCredentialsPtrOutput)
 }
 
-// The Schema Registry API Key.
+// The setting name.
 func (o SchemaCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -12994,7 +12994,7 @@ func (o SchemaCredentialsPtrOutput) Elem() SchemaCredentialsOutput {
 	}).(SchemaCredentialsOutput)
 }
 
-// The Schema Registry API Key.
+// The setting name.
 func (o SchemaCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaCredentials) *string {
 		if v == nil {
@@ -13615,6 +13615,287 @@ func (o SchemaExporterSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutpu
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+type SchemaMetadata struct {
+	// The custom properties to set:
+	Properties map[string]string `pulumi:"properties"`
+	// A list of metadata properties to be encrypted.
+	Sensitives []string `pulumi:"sensitives"`
+	// The tags to which the rule applies, if any.
+	Tags []SchemaMetadataTag `pulumi:"tags"`
+}
+
+// SchemaMetadataInput is an input type that accepts SchemaMetadataArgs and SchemaMetadataOutput values.
+// You can construct a concrete instance of `SchemaMetadataInput` via:
+//
+//	SchemaMetadataArgs{...}
+type SchemaMetadataInput interface {
+	pulumi.Input
+
+	ToSchemaMetadataOutput() SchemaMetadataOutput
+	ToSchemaMetadataOutputWithContext(context.Context) SchemaMetadataOutput
+}
+
+type SchemaMetadataArgs struct {
+	// The custom properties to set:
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// A list of metadata properties to be encrypted.
+	Sensitives pulumi.StringArrayInput `pulumi:"sensitives"`
+	// The tags to which the rule applies, if any.
+	Tags SchemaMetadataTagArrayInput `pulumi:"tags"`
+}
+
+func (SchemaMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaMetadata)(nil)).Elem()
+}
+
+func (i SchemaMetadataArgs) ToSchemaMetadataOutput() SchemaMetadataOutput {
+	return i.ToSchemaMetadataOutputWithContext(context.Background())
+}
+
+func (i SchemaMetadataArgs) ToSchemaMetadataOutputWithContext(ctx context.Context) SchemaMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaMetadataOutput)
+}
+
+func (i SchemaMetadataArgs) ToSchemaMetadataPtrOutput() SchemaMetadataPtrOutput {
+	return i.ToSchemaMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaMetadataArgs) ToSchemaMetadataPtrOutputWithContext(ctx context.Context) SchemaMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaMetadataOutput).ToSchemaMetadataPtrOutputWithContext(ctx)
+}
+
+// SchemaMetadataPtrInput is an input type that accepts SchemaMetadataArgs, SchemaMetadataPtr and SchemaMetadataPtrOutput values.
+// You can construct a concrete instance of `SchemaMetadataPtrInput` via:
+//
+//	        SchemaMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchemaMetadataPtrInput interface {
+	pulumi.Input
+
+	ToSchemaMetadataPtrOutput() SchemaMetadataPtrOutput
+	ToSchemaMetadataPtrOutputWithContext(context.Context) SchemaMetadataPtrOutput
+}
+
+type schemaMetadataPtrType SchemaMetadataArgs
+
+func SchemaMetadataPtr(v *SchemaMetadataArgs) SchemaMetadataPtrInput {
+	return (*schemaMetadataPtrType)(v)
+}
+
+func (*schemaMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaMetadata)(nil)).Elem()
+}
+
+func (i *schemaMetadataPtrType) ToSchemaMetadataPtrOutput() SchemaMetadataPtrOutput {
+	return i.ToSchemaMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaMetadataPtrType) ToSchemaMetadataPtrOutputWithContext(ctx context.Context) SchemaMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaMetadataPtrOutput)
+}
+
+type SchemaMetadataOutput struct{ *pulumi.OutputState }
+
+func (SchemaMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaMetadata)(nil)).Elem()
+}
+
+func (o SchemaMetadataOutput) ToSchemaMetadataOutput() SchemaMetadataOutput {
+	return o
+}
+
+func (o SchemaMetadataOutput) ToSchemaMetadataOutputWithContext(ctx context.Context) SchemaMetadataOutput {
+	return o
+}
+
+func (o SchemaMetadataOutput) ToSchemaMetadataPtrOutput() SchemaMetadataPtrOutput {
+	return o.ToSchemaMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaMetadataOutput) ToSchemaMetadataPtrOutputWithContext(ctx context.Context) SchemaMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaMetadata) *SchemaMetadata {
+		return &v
+	}).(SchemaMetadataPtrOutput)
+}
+
+// The custom properties to set:
+func (o SchemaMetadataOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SchemaMetadata) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// A list of metadata properties to be encrypted.
+func (o SchemaMetadataOutput) Sensitives() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SchemaMetadata) []string { return v.Sensitives }).(pulumi.StringArrayOutput)
+}
+
+// The tags to which the rule applies, if any.
+func (o SchemaMetadataOutput) Tags() SchemaMetadataTagArrayOutput {
+	return o.ApplyT(func(v SchemaMetadata) []SchemaMetadataTag { return v.Tags }).(SchemaMetadataTagArrayOutput)
+}
+
+type SchemaMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaMetadata)(nil)).Elem()
+}
+
+func (o SchemaMetadataPtrOutput) ToSchemaMetadataPtrOutput() SchemaMetadataPtrOutput {
+	return o
+}
+
+func (o SchemaMetadataPtrOutput) ToSchemaMetadataPtrOutputWithContext(ctx context.Context) SchemaMetadataPtrOutput {
+	return o
+}
+
+func (o SchemaMetadataPtrOutput) Elem() SchemaMetadataOutput {
+	return o.ApplyT(func(v *SchemaMetadata) SchemaMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaMetadata
+		return ret
+	}).(SchemaMetadataOutput)
+}
+
+// The custom properties to set:
+func (o SchemaMetadataPtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SchemaMetadata) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
+}
+
+// A list of metadata properties to be encrypted.
+func (o SchemaMetadataPtrOutput) Sensitives() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SchemaMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Sensitives
+	}).(pulumi.StringArrayOutput)
+}
+
+// The tags to which the rule applies, if any.
+func (o SchemaMetadataPtrOutput) Tags() SchemaMetadataTagArrayOutput {
+	return o.ApplyT(func(v *SchemaMetadata) []SchemaMetadataTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(SchemaMetadataTagArrayOutput)
+}
+
+type SchemaMetadataTag struct {
+	// The setting name.
+	Key *string `pulumi:"key"`
+	// The list of tags.
+	Values []string `pulumi:"values"`
+}
+
+// SchemaMetadataTagInput is an input type that accepts SchemaMetadataTagArgs and SchemaMetadataTagOutput values.
+// You can construct a concrete instance of `SchemaMetadataTagInput` via:
+//
+//	SchemaMetadataTagArgs{...}
+type SchemaMetadataTagInput interface {
+	pulumi.Input
+
+	ToSchemaMetadataTagOutput() SchemaMetadataTagOutput
+	ToSchemaMetadataTagOutputWithContext(context.Context) SchemaMetadataTagOutput
+}
+
+type SchemaMetadataTagArgs struct {
+	// The setting name.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The list of tags.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (SchemaMetadataTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaMetadataTag)(nil)).Elem()
+}
+
+func (i SchemaMetadataTagArgs) ToSchemaMetadataTagOutput() SchemaMetadataTagOutput {
+	return i.ToSchemaMetadataTagOutputWithContext(context.Background())
+}
+
+func (i SchemaMetadataTagArgs) ToSchemaMetadataTagOutputWithContext(ctx context.Context) SchemaMetadataTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaMetadataTagOutput)
+}
+
+// SchemaMetadataTagArrayInput is an input type that accepts SchemaMetadataTagArray and SchemaMetadataTagArrayOutput values.
+// You can construct a concrete instance of `SchemaMetadataTagArrayInput` via:
+//
+//	SchemaMetadataTagArray{ SchemaMetadataTagArgs{...} }
+type SchemaMetadataTagArrayInput interface {
+	pulumi.Input
+
+	ToSchemaMetadataTagArrayOutput() SchemaMetadataTagArrayOutput
+	ToSchemaMetadataTagArrayOutputWithContext(context.Context) SchemaMetadataTagArrayOutput
+}
+
+type SchemaMetadataTagArray []SchemaMetadataTagInput
+
+func (SchemaMetadataTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaMetadataTag)(nil)).Elem()
+}
+
+func (i SchemaMetadataTagArray) ToSchemaMetadataTagArrayOutput() SchemaMetadataTagArrayOutput {
+	return i.ToSchemaMetadataTagArrayOutputWithContext(context.Background())
+}
+
+func (i SchemaMetadataTagArray) ToSchemaMetadataTagArrayOutputWithContext(ctx context.Context) SchemaMetadataTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaMetadataTagArrayOutput)
+}
+
+type SchemaMetadataTagOutput struct{ *pulumi.OutputState }
+
+func (SchemaMetadataTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaMetadataTag)(nil)).Elem()
+}
+
+func (o SchemaMetadataTagOutput) ToSchemaMetadataTagOutput() SchemaMetadataTagOutput {
+	return o
+}
+
+func (o SchemaMetadataTagOutput) ToSchemaMetadataTagOutputWithContext(ctx context.Context) SchemaMetadataTagOutput {
+	return o
+}
+
+// The setting name.
+func (o SchemaMetadataTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaMetadataTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The list of tags.
+func (o SchemaMetadataTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SchemaMetadataTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SchemaMetadataTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SchemaMetadataTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaMetadataTag)(nil)).Elem()
+}
+
+func (o SchemaMetadataTagArrayOutput) ToSchemaMetadataTagArrayOutput() SchemaMetadataTagArrayOutput {
+	return o
+}
+
+func (o SchemaMetadataTagArrayOutput) ToSchemaMetadataTagArrayOutputWithContext(ctx context.Context) SchemaMetadataTagArrayOutput {
+	return o
+}
+
+func (o SchemaMetadataTagArrayOutput) Index(i pulumi.IntInput) SchemaMetadataTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaMetadataTag {
+		return vs[0].([]SchemaMetadataTag)[vs[1].(int)]
+	}).(SchemaMetadataTagOutput)
 }
 
 type SchemaRegistryClusterConfigCredentials struct {
@@ -14478,9 +14759,9 @@ func (o SchemaRegistryClusterRegionPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type SchemaRegistryDekCredentials struct {
-	// The Cluster API Key for your Confluent Cloud cluster.
+	// The Schema Registry API Key.
 	Key string `pulumi:"key"`
-	// The Cluster API Secret for your Confluent Cloud cluster.
+	// The Schema Registry API Secret.
 	Secret string `pulumi:"secret"`
 }
 
@@ -14496,9 +14777,9 @@ type SchemaRegistryDekCredentialsInput interface {
 }
 
 type SchemaRegistryDekCredentialsArgs struct {
-	// The Cluster API Key for your Confluent Cloud cluster.
+	// The Schema Registry API Key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Cluster API Secret for your Confluent Cloud cluster.
+	// The Schema Registry API Secret.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -14579,12 +14860,12 @@ func (o SchemaRegistryDekCredentialsOutput) ToSchemaRegistryDekCredentialsPtrOut
 	}).(SchemaRegistryDekCredentialsPtrOutput)
 }
 
-// The Cluster API Key for your Confluent Cloud cluster.
+// The Schema Registry API Key.
 func (o SchemaRegistryDekCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryDekCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Cluster API Secret for your Confluent Cloud cluster.
+// The Schema Registry API Secret.
 func (o SchemaRegistryDekCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryDekCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -14613,7 +14894,7 @@ func (o SchemaRegistryDekCredentialsPtrOutput) Elem() SchemaRegistryDekCredentia
 	}).(SchemaRegistryDekCredentialsOutput)
 }
 
-// The Cluster API Key for your Confluent Cloud cluster.
+// The Schema Registry API Key.
 func (o SchemaRegistryDekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryDekCredentials) *string {
 		if v == nil {
@@ -14623,7 +14904,7 @@ func (o SchemaRegistryDekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Cluster API Secret for your Confluent Cloud cluster.
+// The Schema Registry API Secret.
 func (o SchemaRegistryDekCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryDekCredentials) *string {
 		if v == nil {
@@ -14634,7 +14915,7 @@ func (o SchemaRegistryDekCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 }
 
 type SchemaRegistryDekSchemaRegistryCluster struct {
-	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -14650,7 +14931,7 @@ type SchemaRegistryDekSchemaRegistryClusterInput interface {
 }
 
 type SchemaRegistryDekSchemaRegistryClusterArgs struct {
-	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -14731,7 +15012,7 @@ func (o SchemaRegistryDekSchemaRegistryClusterOutput) ToSchemaRegistryDekSchemaR
 	}).(SchemaRegistryDekSchemaRegistryClusterPtrOutput)
 }
 
-// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o SchemaRegistryDekSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryDekSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -14760,7 +15041,7 @@ func (o SchemaRegistryDekSchemaRegistryClusterPtrOutput) Elem() SchemaRegistryDe
 	}).(SchemaRegistryDekSchemaRegistryClusterOutput)
 }
 
-// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o SchemaRegistryDekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryDekSchemaRegistryCluster) *string {
 		if v == nil {
@@ -14771,9 +15052,9 @@ func (o SchemaRegistryDekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOu
 }
 
 type SchemaRegistryKekCredentials struct {
-	// The Cluster API Key for your Confluent Cloud cluster.
+	// The Schema Registry API Key.
 	Key string `pulumi:"key"`
-	// The Cluster API Secret for your Confluent Cloud cluster.
+	// The Schema Registry API Secret.
 	Secret string `pulumi:"secret"`
 }
 
@@ -14789,9 +15070,9 @@ type SchemaRegistryKekCredentialsInput interface {
 }
 
 type SchemaRegistryKekCredentialsArgs struct {
-	// The Cluster API Key for your Confluent Cloud cluster.
+	// The Schema Registry API Key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Cluster API Secret for your Confluent Cloud cluster.
+	// The Schema Registry API Secret.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -14872,12 +15153,12 @@ func (o SchemaRegistryKekCredentialsOutput) ToSchemaRegistryKekCredentialsPtrOut
 	}).(SchemaRegistryKekCredentialsPtrOutput)
 }
 
-// The Cluster API Key for your Confluent Cloud cluster.
+// The Schema Registry API Key.
 func (o SchemaRegistryKekCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryKekCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Cluster API Secret for your Confluent Cloud cluster.
+// The Schema Registry API Secret.
 func (o SchemaRegistryKekCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryKekCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -14906,7 +15187,7 @@ func (o SchemaRegistryKekCredentialsPtrOutput) Elem() SchemaRegistryKekCredentia
 	}).(SchemaRegistryKekCredentialsOutput)
 }
 
-// The Cluster API Key for your Confluent Cloud cluster.
+// The Schema Registry API Key.
 func (o SchemaRegistryKekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryKekCredentials) *string {
 		if v == nil {
@@ -14916,7 +15197,7 @@ func (o SchemaRegistryKekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Cluster API Secret for your Confluent Cloud cluster.
+// The Schema Registry API Secret.
 func (o SchemaRegistryKekCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryKekCredentials) *string {
 		if v == nil {
@@ -14927,7 +15208,7 @@ func (o SchemaRegistryKekCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 }
 
 type SchemaRegistryKekSchemaRegistryCluster struct {
-	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -14943,7 +15224,7 @@ type SchemaRegistryKekSchemaRegistryClusterInput interface {
 }
 
 type SchemaRegistryKekSchemaRegistryClusterArgs struct {
-	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -15024,7 +15305,7 @@ func (o SchemaRegistryKekSchemaRegistryClusterOutput) ToSchemaRegistryKekSchemaR
 	}).(SchemaRegistryKekSchemaRegistryClusterPtrOutput)
 }
 
-// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o SchemaRegistryKekSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryKekSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -15053,7 +15334,7 @@ func (o SchemaRegistryKekSchemaRegistryClusterPtrOutput) Elem() SchemaRegistryKe
 	}).(SchemaRegistryKekSchemaRegistryClusterOutput)
 }
 
-// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o SchemaRegistryKekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryKekSchemaRegistryCluster) *string {
 		if v == nil {
@@ -15063,8 +15344,542 @@ func (o SchemaRegistryKekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type SchemaRuleset struct {
+	DomainRules    []SchemaRulesetDomainRule    `pulumi:"domainRules"`
+	MigrationRules []SchemaRulesetMigrationRule `pulumi:"migrationRules"`
+}
+
+// SchemaRulesetInput is an input type that accepts SchemaRulesetArgs and SchemaRulesetOutput values.
+// You can construct a concrete instance of `SchemaRulesetInput` via:
+//
+//	SchemaRulesetArgs{...}
+type SchemaRulesetInput interface {
+	pulumi.Input
+
+	ToSchemaRulesetOutput() SchemaRulesetOutput
+	ToSchemaRulesetOutputWithContext(context.Context) SchemaRulesetOutput
+}
+
+type SchemaRulesetArgs struct {
+	DomainRules    SchemaRulesetDomainRuleArrayInput    `pulumi:"domainRules"`
+	MigrationRules SchemaRulesetMigrationRuleArrayInput `pulumi:"migrationRules"`
+}
+
+func (SchemaRulesetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRuleset)(nil)).Elem()
+}
+
+func (i SchemaRulesetArgs) ToSchemaRulesetOutput() SchemaRulesetOutput {
+	return i.ToSchemaRulesetOutputWithContext(context.Background())
+}
+
+func (i SchemaRulesetArgs) ToSchemaRulesetOutputWithContext(ctx context.Context) SchemaRulesetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRulesetOutput)
+}
+
+func (i SchemaRulesetArgs) ToSchemaRulesetPtrOutput() SchemaRulesetPtrOutput {
+	return i.ToSchemaRulesetPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaRulesetArgs) ToSchemaRulesetPtrOutputWithContext(ctx context.Context) SchemaRulesetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRulesetOutput).ToSchemaRulesetPtrOutputWithContext(ctx)
+}
+
+// SchemaRulesetPtrInput is an input type that accepts SchemaRulesetArgs, SchemaRulesetPtr and SchemaRulesetPtrOutput values.
+// You can construct a concrete instance of `SchemaRulesetPtrInput` via:
+//
+//	        SchemaRulesetArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchemaRulesetPtrInput interface {
+	pulumi.Input
+
+	ToSchemaRulesetPtrOutput() SchemaRulesetPtrOutput
+	ToSchemaRulesetPtrOutputWithContext(context.Context) SchemaRulesetPtrOutput
+}
+
+type schemaRulesetPtrType SchemaRulesetArgs
+
+func SchemaRulesetPtr(v *SchemaRulesetArgs) SchemaRulesetPtrInput {
+	return (*schemaRulesetPtrType)(v)
+}
+
+func (*schemaRulesetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaRuleset)(nil)).Elem()
+}
+
+func (i *schemaRulesetPtrType) ToSchemaRulesetPtrOutput() SchemaRulesetPtrOutput {
+	return i.ToSchemaRulesetPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaRulesetPtrType) ToSchemaRulesetPtrOutputWithContext(ctx context.Context) SchemaRulesetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRulesetPtrOutput)
+}
+
+type SchemaRulesetOutput struct{ *pulumi.OutputState }
+
+func (SchemaRulesetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRuleset)(nil)).Elem()
+}
+
+func (o SchemaRulesetOutput) ToSchemaRulesetOutput() SchemaRulesetOutput {
+	return o
+}
+
+func (o SchemaRulesetOutput) ToSchemaRulesetOutputWithContext(ctx context.Context) SchemaRulesetOutput {
+	return o
+}
+
+func (o SchemaRulesetOutput) ToSchemaRulesetPtrOutput() SchemaRulesetPtrOutput {
+	return o.ToSchemaRulesetPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaRulesetOutput) ToSchemaRulesetPtrOutputWithContext(ctx context.Context) SchemaRulesetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaRuleset) *SchemaRuleset {
+		return &v
+	}).(SchemaRulesetPtrOutput)
+}
+
+func (o SchemaRulesetOutput) DomainRules() SchemaRulesetDomainRuleArrayOutput {
+	return o.ApplyT(func(v SchemaRuleset) []SchemaRulesetDomainRule { return v.DomainRules }).(SchemaRulesetDomainRuleArrayOutput)
+}
+
+func (o SchemaRulesetOutput) MigrationRules() SchemaRulesetMigrationRuleArrayOutput {
+	return o.ApplyT(func(v SchemaRuleset) []SchemaRulesetMigrationRule { return v.MigrationRules }).(SchemaRulesetMigrationRuleArrayOutput)
+}
+
+type SchemaRulesetPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaRulesetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaRuleset)(nil)).Elem()
+}
+
+func (o SchemaRulesetPtrOutput) ToSchemaRulesetPtrOutput() SchemaRulesetPtrOutput {
+	return o
+}
+
+func (o SchemaRulesetPtrOutput) ToSchemaRulesetPtrOutputWithContext(ctx context.Context) SchemaRulesetPtrOutput {
+	return o
+}
+
+func (o SchemaRulesetPtrOutput) Elem() SchemaRulesetOutput {
+	return o.ApplyT(func(v *SchemaRuleset) SchemaRuleset {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaRuleset
+		return ret
+	}).(SchemaRulesetOutput)
+}
+
+func (o SchemaRulesetPtrOutput) DomainRules() SchemaRulesetDomainRuleArrayOutput {
+	return o.ApplyT(func(v *SchemaRuleset) []SchemaRulesetDomainRule {
+		if v == nil {
+			return nil
+		}
+		return v.DomainRules
+	}).(SchemaRulesetDomainRuleArrayOutput)
+}
+
+func (o SchemaRulesetPtrOutput) MigrationRules() SchemaRulesetMigrationRuleArrayOutput {
+	return o.ApplyT(func(v *SchemaRuleset) []SchemaRulesetMigrationRule {
+		if v == nil {
+			return nil
+		}
+		return v.MigrationRules
+	}).(SchemaRulesetMigrationRuleArrayOutput)
+}
+
+type SchemaRulesetDomainRule struct {
+	// An optional description of the rule.
+	Doc *string `pulumi:"doc"`
+	// The body of the rule, which is optional.
+	Expr *string `pulumi:"expr"`
+	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+	Kind *string `pulumi:"kind"`
+	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+	Mode *string `pulumi:"mode"`
+	// A user-defined name that can be used to reference the rule.
+	Name *string `pulumi:"name"`
+	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure *string `pulumi:"onFailure"`
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	OnSuccess *string `pulumi:"onSuccess"`
+	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+	//
+	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+	//
+	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+	Params map[string]string `pulumi:"params"`
+	// The tags to which the rule applies, if any.
+	Tags []string `pulumi:"tags"`
+	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	Type *string `pulumi:"type"`
+}
+
+// SchemaRulesetDomainRuleInput is an input type that accepts SchemaRulesetDomainRuleArgs and SchemaRulesetDomainRuleOutput values.
+// You can construct a concrete instance of `SchemaRulesetDomainRuleInput` via:
+//
+//	SchemaRulesetDomainRuleArgs{...}
+type SchemaRulesetDomainRuleInput interface {
+	pulumi.Input
+
+	ToSchemaRulesetDomainRuleOutput() SchemaRulesetDomainRuleOutput
+	ToSchemaRulesetDomainRuleOutputWithContext(context.Context) SchemaRulesetDomainRuleOutput
+}
+
+type SchemaRulesetDomainRuleArgs struct {
+	// An optional description of the rule.
+	Doc pulumi.StringPtrInput `pulumi:"doc"`
+	// The body of the rule, which is optional.
+	Expr pulumi.StringPtrInput `pulumi:"expr"`
+	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// A user-defined name that can be used to reference the rule.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
+	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+	//
+	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+	//
+	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+	Params pulumi.StringMapInput `pulumi:"params"`
+	// The tags to which the rule applies, if any.
+	Tags pulumi.StringArrayInput `pulumi:"tags"`
+	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (SchemaRulesetDomainRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRulesetDomainRule)(nil)).Elem()
+}
+
+func (i SchemaRulesetDomainRuleArgs) ToSchemaRulesetDomainRuleOutput() SchemaRulesetDomainRuleOutput {
+	return i.ToSchemaRulesetDomainRuleOutputWithContext(context.Background())
+}
+
+func (i SchemaRulesetDomainRuleArgs) ToSchemaRulesetDomainRuleOutputWithContext(ctx context.Context) SchemaRulesetDomainRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRulesetDomainRuleOutput)
+}
+
+// SchemaRulesetDomainRuleArrayInput is an input type that accepts SchemaRulesetDomainRuleArray and SchemaRulesetDomainRuleArrayOutput values.
+// You can construct a concrete instance of `SchemaRulesetDomainRuleArrayInput` via:
+//
+//	SchemaRulesetDomainRuleArray{ SchemaRulesetDomainRuleArgs{...} }
+type SchemaRulesetDomainRuleArrayInput interface {
+	pulumi.Input
+
+	ToSchemaRulesetDomainRuleArrayOutput() SchemaRulesetDomainRuleArrayOutput
+	ToSchemaRulesetDomainRuleArrayOutputWithContext(context.Context) SchemaRulesetDomainRuleArrayOutput
+}
+
+type SchemaRulesetDomainRuleArray []SchemaRulesetDomainRuleInput
+
+func (SchemaRulesetDomainRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaRulesetDomainRule)(nil)).Elem()
+}
+
+func (i SchemaRulesetDomainRuleArray) ToSchemaRulesetDomainRuleArrayOutput() SchemaRulesetDomainRuleArrayOutput {
+	return i.ToSchemaRulesetDomainRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SchemaRulesetDomainRuleArray) ToSchemaRulesetDomainRuleArrayOutputWithContext(ctx context.Context) SchemaRulesetDomainRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRulesetDomainRuleArrayOutput)
+}
+
+type SchemaRulesetDomainRuleOutput struct{ *pulumi.OutputState }
+
+func (SchemaRulesetDomainRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRulesetDomainRule)(nil)).Elem()
+}
+
+func (o SchemaRulesetDomainRuleOutput) ToSchemaRulesetDomainRuleOutput() SchemaRulesetDomainRuleOutput {
+	return o
+}
+
+func (o SchemaRulesetDomainRuleOutput) ToSchemaRulesetDomainRuleOutputWithContext(ctx context.Context) SchemaRulesetDomainRuleOutput {
+	return o
+}
+
+// An optional description of the rule.
+func (o SchemaRulesetDomainRuleOutput) Doc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Doc }).(pulumi.StringPtrOutput)
+}
+
+// The body of the rule, which is optional.
+func (o SchemaRulesetDomainRuleOutput) Expr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Expr }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+func (o SchemaRulesetDomainRuleOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+func (o SchemaRulesetDomainRuleOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// A user-defined name that can be used to reference the rule.
+func (o SchemaRulesetDomainRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+func (o SchemaRulesetDomainRuleOutput) OnFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
+}
+
+// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+func (o SchemaRulesetDomainRuleOutput) OnSuccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
+}
+
+// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+//
+// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+//
+// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+func (o SchemaRulesetDomainRuleOutput) Params() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
+}
+
+// The tags to which the rule applies, if any.
+func (o SchemaRulesetDomainRuleOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+func (o SchemaRulesetDomainRuleOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type SchemaRulesetDomainRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SchemaRulesetDomainRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaRulesetDomainRule)(nil)).Elem()
+}
+
+func (o SchemaRulesetDomainRuleArrayOutput) ToSchemaRulesetDomainRuleArrayOutput() SchemaRulesetDomainRuleArrayOutput {
+	return o
+}
+
+func (o SchemaRulesetDomainRuleArrayOutput) ToSchemaRulesetDomainRuleArrayOutputWithContext(ctx context.Context) SchemaRulesetDomainRuleArrayOutput {
+	return o
+}
+
+func (o SchemaRulesetDomainRuleArrayOutput) Index(i pulumi.IntInput) SchemaRulesetDomainRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaRulesetDomainRule {
+		return vs[0].([]SchemaRulesetDomainRule)[vs[1].(int)]
+	}).(SchemaRulesetDomainRuleOutput)
+}
+
+type SchemaRulesetMigrationRule struct {
+	// An optional description of the rule.
+	Doc *string `pulumi:"doc"`
+	// The body of the rule, which is optional.
+	Expr *string `pulumi:"expr"`
+	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+	Kind *string `pulumi:"kind"`
+	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+	Mode *string `pulumi:"mode"`
+	// A user-defined name that can be used to reference the rule.
+	Name *string `pulumi:"name"`
+	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure *string `pulumi:"onFailure"`
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	OnSuccess *string `pulumi:"onSuccess"`
+	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+	//
+	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+	//
+	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+	Params map[string]string `pulumi:"params"`
+	// The tags to which the rule applies, if any.
+	Tags []string `pulumi:"tags"`
+	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	Type *string `pulumi:"type"`
+}
+
+// SchemaRulesetMigrationRuleInput is an input type that accepts SchemaRulesetMigrationRuleArgs and SchemaRulesetMigrationRuleOutput values.
+// You can construct a concrete instance of `SchemaRulesetMigrationRuleInput` via:
+//
+//	SchemaRulesetMigrationRuleArgs{...}
+type SchemaRulesetMigrationRuleInput interface {
+	pulumi.Input
+
+	ToSchemaRulesetMigrationRuleOutput() SchemaRulesetMigrationRuleOutput
+	ToSchemaRulesetMigrationRuleOutputWithContext(context.Context) SchemaRulesetMigrationRuleOutput
+}
+
+type SchemaRulesetMigrationRuleArgs struct {
+	// An optional description of the rule.
+	Doc pulumi.StringPtrInput `pulumi:"doc"`
+	// The body of the rule, which is optional.
+	Expr pulumi.StringPtrInput `pulumi:"expr"`
+	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// A user-defined name that can be used to reference the rule.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
+	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
+	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+	//
+	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+	//
+	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+	Params pulumi.StringMapInput `pulumi:"params"`
+	// The tags to which the rule applies, if any.
+	Tags pulumi.StringArrayInput `pulumi:"tags"`
+	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (SchemaRulesetMigrationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRulesetMigrationRule)(nil)).Elem()
+}
+
+func (i SchemaRulesetMigrationRuleArgs) ToSchemaRulesetMigrationRuleOutput() SchemaRulesetMigrationRuleOutput {
+	return i.ToSchemaRulesetMigrationRuleOutputWithContext(context.Background())
+}
+
+func (i SchemaRulesetMigrationRuleArgs) ToSchemaRulesetMigrationRuleOutputWithContext(ctx context.Context) SchemaRulesetMigrationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRulesetMigrationRuleOutput)
+}
+
+// SchemaRulesetMigrationRuleArrayInput is an input type that accepts SchemaRulesetMigrationRuleArray and SchemaRulesetMigrationRuleArrayOutput values.
+// You can construct a concrete instance of `SchemaRulesetMigrationRuleArrayInput` via:
+//
+//	SchemaRulesetMigrationRuleArray{ SchemaRulesetMigrationRuleArgs{...} }
+type SchemaRulesetMigrationRuleArrayInput interface {
+	pulumi.Input
+
+	ToSchemaRulesetMigrationRuleArrayOutput() SchemaRulesetMigrationRuleArrayOutput
+	ToSchemaRulesetMigrationRuleArrayOutputWithContext(context.Context) SchemaRulesetMigrationRuleArrayOutput
+}
+
+type SchemaRulesetMigrationRuleArray []SchemaRulesetMigrationRuleInput
+
+func (SchemaRulesetMigrationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaRulesetMigrationRule)(nil)).Elem()
+}
+
+func (i SchemaRulesetMigrationRuleArray) ToSchemaRulesetMigrationRuleArrayOutput() SchemaRulesetMigrationRuleArrayOutput {
+	return i.ToSchemaRulesetMigrationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SchemaRulesetMigrationRuleArray) ToSchemaRulesetMigrationRuleArrayOutputWithContext(ctx context.Context) SchemaRulesetMigrationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaRulesetMigrationRuleArrayOutput)
+}
+
+type SchemaRulesetMigrationRuleOutput struct{ *pulumi.OutputState }
+
+func (SchemaRulesetMigrationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaRulesetMigrationRule)(nil)).Elem()
+}
+
+func (o SchemaRulesetMigrationRuleOutput) ToSchemaRulesetMigrationRuleOutput() SchemaRulesetMigrationRuleOutput {
+	return o
+}
+
+func (o SchemaRulesetMigrationRuleOutput) ToSchemaRulesetMigrationRuleOutputWithContext(ctx context.Context) SchemaRulesetMigrationRuleOutput {
+	return o
+}
+
+// An optional description of the rule.
+func (o SchemaRulesetMigrationRuleOutput) Doc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Doc }).(pulumi.StringPtrOutput)
+}
+
+// The body of the rule, which is optional.
+func (o SchemaRulesetMigrationRuleOutput) Expr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Expr }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+func (o SchemaRulesetMigrationRuleOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+func (o SchemaRulesetMigrationRuleOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// A user-defined name that can be used to reference the rule.
+func (o SchemaRulesetMigrationRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+func (o SchemaRulesetMigrationRuleOutput) OnFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
+}
+
+// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+func (o SchemaRulesetMigrationRuleOutput) OnSuccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
+}
+
+// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+//
+// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+//
+// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+func (o SchemaRulesetMigrationRuleOutput) Params() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
+}
+
+// The tags to which the rule applies, if any.
+func (o SchemaRulesetMigrationRuleOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+func (o SchemaRulesetMigrationRuleOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type SchemaRulesetMigrationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SchemaRulesetMigrationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaRulesetMigrationRule)(nil)).Elem()
+}
+
+func (o SchemaRulesetMigrationRuleArrayOutput) ToSchemaRulesetMigrationRuleArrayOutput() SchemaRulesetMigrationRuleArrayOutput {
+	return o
+}
+
+func (o SchemaRulesetMigrationRuleArrayOutput) ToSchemaRulesetMigrationRuleArrayOutputWithContext(ctx context.Context) SchemaRulesetMigrationRuleArrayOutput {
+	return o
+}
+
+func (o SchemaRulesetMigrationRuleArrayOutput) Index(i pulumi.IntInput) SchemaRulesetMigrationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaRulesetMigrationRule {
+		return vs[0].([]SchemaRulesetMigrationRule)[vs[1].(int)]
+	}).(SchemaRulesetMigrationRuleOutput)
+}
+
 type SchemaSchemaReference struct {
-	// The name of the subject, representing the subject under which the referenced schema is registered.
+	// A user-defined name that can be used to reference the rule.
 	Name string `pulumi:"name"`
 	// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
 	SubjectName string `pulumi:"subjectName"`
@@ -15084,7 +15899,7 @@ type SchemaSchemaReferenceInput interface {
 }
 
 type SchemaSchemaReferenceArgs struct {
-	// The name of the subject, representing the subject under which the referenced schema is registered.
+	// A user-defined name that can be used to reference the rule.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
 	SubjectName pulumi.StringInput `pulumi:"subjectName"`
@@ -15143,7 +15958,7 @@ func (o SchemaSchemaReferenceOutput) ToSchemaSchemaReferenceOutputWithContext(ct
 	return o
 }
 
-// The name of the subject, representing the subject under which the referenced schema is registered.
+// A user-defined name that can be used to reference the rule.
 func (o SchemaSchemaReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaSchemaReference) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -23586,6 +24401,287 @@ func (o GetSchemaCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetSchemaMetadata struct {
+	// (Optional Map) The custom properties to set:
+	Properties map[string]string `pulumi:"properties"`
+	// (Optional List of Strings) A list of metadata properties to be encrypted.
+	Sensitives []string `pulumi:"sensitives"`
+	// (Optional String List) The tags to which the rule applies, if any.
+	Tags []GetSchemaMetadataTag `pulumi:"tags"`
+}
+
+// GetSchemaMetadataInput is an input type that accepts GetSchemaMetadataArgs and GetSchemaMetadataOutput values.
+// You can construct a concrete instance of `GetSchemaMetadataInput` via:
+//
+//	GetSchemaMetadataArgs{...}
+type GetSchemaMetadataInput interface {
+	pulumi.Input
+
+	ToGetSchemaMetadataOutput() GetSchemaMetadataOutput
+	ToGetSchemaMetadataOutputWithContext(context.Context) GetSchemaMetadataOutput
+}
+
+type GetSchemaMetadataArgs struct {
+	// (Optional Map) The custom properties to set:
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// (Optional List of Strings) A list of metadata properties to be encrypted.
+	Sensitives pulumi.StringArrayInput `pulumi:"sensitives"`
+	// (Optional String List) The tags to which the rule applies, if any.
+	Tags GetSchemaMetadataTagArrayInput `pulumi:"tags"`
+}
+
+func (GetSchemaMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaMetadata)(nil)).Elem()
+}
+
+func (i GetSchemaMetadataArgs) ToGetSchemaMetadataOutput() GetSchemaMetadataOutput {
+	return i.ToGetSchemaMetadataOutputWithContext(context.Background())
+}
+
+func (i GetSchemaMetadataArgs) ToGetSchemaMetadataOutputWithContext(ctx context.Context) GetSchemaMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaMetadataOutput)
+}
+
+func (i GetSchemaMetadataArgs) ToGetSchemaMetadataPtrOutput() GetSchemaMetadataPtrOutput {
+	return i.ToGetSchemaMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i GetSchemaMetadataArgs) ToGetSchemaMetadataPtrOutputWithContext(ctx context.Context) GetSchemaMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaMetadataOutput).ToGetSchemaMetadataPtrOutputWithContext(ctx)
+}
+
+// GetSchemaMetadataPtrInput is an input type that accepts GetSchemaMetadataArgs, GetSchemaMetadataPtr and GetSchemaMetadataPtrOutput values.
+// You can construct a concrete instance of `GetSchemaMetadataPtrInput` via:
+//
+//	        GetSchemaMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSchemaMetadataPtrInput interface {
+	pulumi.Input
+
+	ToGetSchemaMetadataPtrOutput() GetSchemaMetadataPtrOutput
+	ToGetSchemaMetadataPtrOutputWithContext(context.Context) GetSchemaMetadataPtrOutput
+}
+
+type getSchemaMetadataPtrType GetSchemaMetadataArgs
+
+func GetSchemaMetadataPtr(v *GetSchemaMetadataArgs) GetSchemaMetadataPtrInput {
+	return (*getSchemaMetadataPtrType)(v)
+}
+
+func (*getSchemaMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaMetadata)(nil)).Elem()
+}
+
+func (i *getSchemaMetadataPtrType) ToGetSchemaMetadataPtrOutput() GetSchemaMetadataPtrOutput {
+	return i.ToGetSchemaMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *getSchemaMetadataPtrType) ToGetSchemaMetadataPtrOutputWithContext(ctx context.Context) GetSchemaMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaMetadataPtrOutput)
+}
+
+type GetSchemaMetadataOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaMetadata)(nil)).Elem()
+}
+
+func (o GetSchemaMetadataOutput) ToGetSchemaMetadataOutput() GetSchemaMetadataOutput {
+	return o
+}
+
+func (o GetSchemaMetadataOutput) ToGetSchemaMetadataOutputWithContext(ctx context.Context) GetSchemaMetadataOutput {
+	return o
+}
+
+func (o GetSchemaMetadataOutput) ToGetSchemaMetadataPtrOutput() GetSchemaMetadataPtrOutput {
+	return o.ToGetSchemaMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o GetSchemaMetadataOutput) ToGetSchemaMetadataPtrOutputWithContext(ctx context.Context) GetSchemaMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSchemaMetadata) *GetSchemaMetadata {
+		return &v
+	}).(GetSchemaMetadataPtrOutput)
+}
+
+// (Optional Map) The custom properties to set:
+func (o GetSchemaMetadataOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSchemaMetadata) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// (Optional List of Strings) A list of metadata properties to be encrypted.
+func (o GetSchemaMetadataOutput) Sensitives() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSchemaMetadata) []string { return v.Sensitives }).(pulumi.StringArrayOutput)
+}
+
+// (Optional String List) The tags to which the rule applies, if any.
+func (o GetSchemaMetadataOutput) Tags() GetSchemaMetadataTagArrayOutput {
+	return o.ApplyT(func(v GetSchemaMetadata) []GetSchemaMetadataTag { return v.Tags }).(GetSchemaMetadataTagArrayOutput)
+}
+
+type GetSchemaMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaMetadata)(nil)).Elem()
+}
+
+func (o GetSchemaMetadataPtrOutput) ToGetSchemaMetadataPtrOutput() GetSchemaMetadataPtrOutput {
+	return o
+}
+
+func (o GetSchemaMetadataPtrOutput) ToGetSchemaMetadataPtrOutputWithContext(ctx context.Context) GetSchemaMetadataPtrOutput {
+	return o
+}
+
+func (o GetSchemaMetadataPtrOutput) Elem() GetSchemaMetadataOutput {
+	return o.ApplyT(func(v *GetSchemaMetadata) GetSchemaMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret GetSchemaMetadata
+		return ret
+	}).(GetSchemaMetadataOutput)
+}
+
+// (Optional Map) The custom properties to set:
+func (o GetSchemaMetadataPtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GetSchemaMetadata) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
+}
+
+// (Optional List of Strings) A list of metadata properties to be encrypted.
+func (o GetSchemaMetadataPtrOutput) Sensitives() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetSchemaMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Sensitives
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional String List) The tags to which the rule applies, if any.
+func (o GetSchemaMetadataPtrOutput) Tags() GetSchemaMetadataTagArrayOutput {
+	return o.ApplyT(func(v *GetSchemaMetadata) []GetSchemaMetadataTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(GetSchemaMetadataTagArrayOutput)
+}
+
+type GetSchemaMetadataTag struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// (Required List of Strings) The list of tags.
+	Values []string `pulumi:"values"`
+}
+
+// GetSchemaMetadataTagInput is an input type that accepts GetSchemaMetadataTagArgs and GetSchemaMetadataTagOutput values.
+// You can construct a concrete instance of `GetSchemaMetadataTagInput` via:
+//
+//	GetSchemaMetadataTagArgs{...}
+type GetSchemaMetadataTagInput interface {
+	pulumi.Input
+
+	ToGetSchemaMetadataTagOutput() GetSchemaMetadataTagOutput
+	ToGetSchemaMetadataTagOutputWithContext(context.Context) GetSchemaMetadataTagOutput
+}
+
+type GetSchemaMetadataTagArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Required List of Strings) The list of tags.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetSchemaMetadataTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaMetadataTag)(nil)).Elem()
+}
+
+func (i GetSchemaMetadataTagArgs) ToGetSchemaMetadataTagOutput() GetSchemaMetadataTagOutput {
+	return i.ToGetSchemaMetadataTagOutputWithContext(context.Background())
+}
+
+func (i GetSchemaMetadataTagArgs) ToGetSchemaMetadataTagOutputWithContext(ctx context.Context) GetSchemaMetadataTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaMetadataTagOutput)
+}
+
+// GetSchemaMetadataTagArrayInput is an input type that accepts GetSchemaMetadataTagArray and GetSchemaMetadataTagArrayOutput values.
+// You can construct a concrete instance of `GetSchemaMetadataTagArrayInput` via:
+//
+//	GetSchemaMetadataTagArray{ GetSchemaMetadataTagArgs{...} }
+type GetSchemaMetadataTagArrayInput interface {
+	pulumi.Input
+
+	ToGetSchemaMetadataTagArrayOutput() GetSchemaMetadataTagArrayOutput
+	ToGetSchemaMetadataTagArrayOutputWithContext(context.Context) GetSchemaMetadataTagArrayOutput
+}
+
+type GetSchemaMetadataTagArray []GetSchemaMetadataTagInput
+
+func (GetSchemaMetadataTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemaMetadataTag)(nil)).Elem()
+}
+
+func (i GetSchemaMetadataTagArray) ToGetSchemaMetadataTagArrayOutput() GetSchemaMetadataTagArrayOutput {
+	return i.ToGetSchemaMetadataTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetSchemaMetadataTagArray) ToGetSchemaMetadataTagArrayOutputWithContext(ctx context.Context) GetSchemaMetadataTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaMetadataTagArrayOutput)
+}
+
+type GetSchemaMetadataTagOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaMetadataTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaMetadataTag)(nil)).Elem()
+}
+
+func (o GetSchemaMetadataTagOutput) ToGetSchemaMetadataTagOutput() GetSchemaMetadataTagOutput {
+	return o
+}
+
+func (o GetSchemaMetadataTagOutput) ToGetSchemaMetadataTagOutputWithContext(ctx context.Context) GetSchemaMetadataTagOutput {
+	return o
+}
+
+// The Schema Registry API Key.
+func (o GetSchemaMetadataTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaMetadataTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// (Required List of Strings) The list of tags.
+func (o GetSchemaMetadataTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSchemaMetadataTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetSchemaMetadataTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaMetadataTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemaMetadataTag)(nil)).Elem()
+}
+
+func (o GetSchemaMetadataTagArrayOutput) ToGetSchemaMetadataTagArrayOutput() GetSchemaMetadataTagArrayOutput {
+	return o
+}
+
+func (o GetSchemaMetadataTagArrayOutput) ToGetSchemaMetadataTagArrayOutputWithContext(ctx context.Context) GetSchemaMetadataTagArrayOutput {
+	return o
+}
+
+func (o GetSchemaMetadataTagArrayOutput) Index(i pulumi.IntInput) GetSchemaMetadataTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSchemaMetadataTag {
+		return vs[0].([]GetSchemaMetadataTag)[vs[1].(int)]
+	}).(GetSchemaMetadataTagOutput)
+}
+
 type GetSchemaRegistryClusterConfigCredentials struct {
 	// The Schema Registry API Key.
 	Key string `pulumi:"key"`
@@ -24662,9 +25758,9 @@ func (o GetSchemaRegistryClustersClusterRegionArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetSchemaRegistryDekCredentials struct {
-	// The Cluster API Key for your Confluent Cloud cluster.
+	// The Schema Registry API Key.
 	Key string `pulumi:"key"`
-	// The Cluster API Secret for your Confluent Cloud cluster.
+	// The Schema Registry API Secret.
 	Secret string `pulumi:"secret"`
 }
 
@@ -24680,9 +25776,9 @@ type GetSchemaRegistryDekCredentialsInput interface {
 }
 
 type GetSchemaRegistryDekCredentialsArgs struct {
-	// The Cluster API Key for your Confluent Cloud cluster.
+	// The Schema Registry API Key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Cluster API Secret for your Confluent Cloud cluster.
+	// The Schema Registry API Secret.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -24763,12 +25859,12 @@ func (o GetSchemaRegistryDekCredentialsOutput) ToGetSchemaRegistryDekCredentials
 	}).(GetSchemaRegistryDekCredentialsPtrOutput)
 }
 
-// The Cluster API Key for your Confluent Cloud cluster.
+// The Schema Registry API Key.
 func (o GetSchemaRegistryDekCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryDekCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Cluster API Secret for your Confluent Cloud cluster.
+// The Schema Registry API Secret.
 func (o GetSchemaRegistryDekCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryDekCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -24797,7 +25893,7 @@ func (o GetSchemaRegistryDekCredentialsPtrOutput) Elem() GetSchemaRegistryDekCre
 	}).(GetSchemaRegistryDekCredentialsOutput)
 }
 
-// The Cluster API Key for your Confluent Cloud cluster.
+// The Schema Registry API Key.
 func (o GetSchemaRegistryDekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSchemaRegistryDekCredentials) *string {
 		if v == nil {
@@ -24807,7 +25903,7 @@ func (o GetSchemaRegistryDekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Cluster API Secret for your Confluent Cloud cluster.
+// The Schema Registry API Secret.
 func (o GetSchemaRegistryDekCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSchemaRegistryDekCredentials) *string {
 		if v == nil {
@@ -24818,7 +25914,7 @@ func (o GetSchemaRegistryDekCredentialsPtrOutput) Secret() pulumi.StringPtrOutpu
 }
 
 type GetSchemaRegistryDekSchemaRegistryCluster struct {
-	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -24834,7 +25930,7 @@ type GetSchemaRegistryDekSchemaRegistryClusterInput interface {
 }
 
 type GetSchemaRegistryDekSchemaRegistryClusterArgs struct {
-	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -24915,7 +26011,7 @@ func (o GetSchemaRegistryDekSchemaRegistryClusterOutput) ToGetSchemaRegistryDekS
 	}).(GetSchemaRegistryDekSchemaRegistryClusterPtrOutput)
 }
 
-// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o GetSchemaRegistryDekSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryDekSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -24944,7 +26040,7 @@ func (o GetSchemaRegistryDekSchemaRegistryClusterPtrOutput) Elem() GetSchemaRegi
 	}).(GetSchemaRegistryDekSchemaRegistryClusterOutput)
 }
 
-// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o GetSchemaRegistryDekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSchemaRegistryDekSchemaRegistryCluster) *string {
 		if v == nil {
@@ -24955,9 +26051,9 @@ func (o GetSchemaRegistryDekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPt
 }
 
 type GetSchemaRegistryKekCredentials struct {
-	// The Cluster API Key for your Confluent Cloud cluster.
+	// The Schema Registry API Key.
 	Key string `pulumi:"key"`
-	// The Cluster API Secret for your Confluent Cloud cluster.
+	// The Schema Registry API Secret.
 	Secret string `pulumi:"secret"`
 }
 
@@ -24973,9 +26069,9 @@ type GetSchemaRegistryKekCredentialsInput interface {
 }
 
 type GetSchemaRegistryKekCredentialsArgs struct {
-	// The Cluster API Key for your Confluent Cloud cluster.
+	// The Schema Registry API Key.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Cluster API Secret for your Confluent Cloud cluster.
+	// The Schema Registry API Secret.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -25056,12 +26152,12 @@ func (o GetSchemaRegistryKekCredentialsOutput) ToGetSchemaRegistryKekCredentials
 	}).(GetSchemaRegistryKekCredentialsPtrOutput)
 }
 
-// The Cluster API Key for your Confluent Cloud cluster.
+// The Schema Registry API Key.
 func (o GetSchemaRegistryKekCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryKekCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Cluster API Secret for your Confluent Cloud cluster.
+// The Schema Registry API Secret.
 func (o GetSchemaRegistryKekCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryKekCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -25090,7 +26186,7 @@ func (o GetSchemaRegistryKekCredentialsPtrOutput) Elem() GetSchemaRegistryKekCre
 	}).(GetSchemaRegistryKekCredentialsOutput)
 }
 
-// The Cluster API Key for your Confluent Cloud cluster.
+// The Schema Registry API Key.
 func (o GetSchemaRegistryKekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSchemaRegistryKekCredentials) *string {
 		if v == nil {
@@ -25100,7 +26196,7 @@ func (o GetSchemaRegistryKekCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Cluster API Secret for your Confluent Cloud cluster.
+// The Schema Registry API Secret.
 func (o GetSchemaRegistryKekCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSchemaRegistryKekCredentials) *string {
 		if v == nil {
@@ -25111,7 +26207,7 @@ func (o GetSchemaRegistryKekCredentialsPtrOutput) Secret() pulumi.StringPtrOutpu
 }
 
 type GetSchemaRegistryKekSchemaRegistryCluster struct {
-	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -25127,7 +26223,7 @@ type GetSchemaRegistryKekSchemaRegistryClusterInput interface {
 }
 
 type GetSchemaRegistryKekSchemaRegistryClusterArgs struct {
-	// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -25208,7 +26304,7 @@ func (o GetSchemaRegistryKekSchemaRegistryClusterOutput) ToGetSchemaRegistryKekS
 	}).(GetSchemaRegistryKekSchemaRegistryClusterPtrOutput)
 }
 
-// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o GetSchemaRegistryKekSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryKekSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -25237,7 +26333,7 @@ func (o GetSchemaRegistryKekSchemaRegistryClusterPtrOutput) Elem() GetSchemaRegi
 	}).(GetSchemaRegistryKekSchemaRegistryClusterOutput)
 }
 
-// The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
 func (o GetSchemaRegistryKekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSchemaRegistryKekSchemaRegistryCluster) *string {
 		if v == nil {
@@ -25247,8 +26343,516 @@ func (o GetSchemaRegistryKekSchemaRegistryClusterPtrOutput) Id() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetSchemaRuleset struct {
+	// (Optional List of Blocks) supports the following:
+	DomainRules    []GetSchemaRulesetDomainRule    `pulumi:"domainRules"`
+	MigrationRules []GetSchemaRulesetMigrationRule `pulumi:"migrationRules"`
+}
+
+// GetSchemaRulesetInput is an input type that accepts GetSchemaRulesetArgs and GetSchemaRulesetOutput values.
+// You can construct a concrete instance of `GetSchemaRulesetInput` via:
+//
+//	GetSchemaRulesetArgs{...}
+type GetSchemaRulesetInput interface {
+	pulumi.Input
+
+	ToGetSchemaRulesetOutput() GetSchemaRulesetOutput
+	ToGetSchemaRulesetOutputWithContext(context.Context) GetSchemaRulesetOutput
+}
+
+type GetSchemaRulesetArgs struct {
+	// (Optional List of Blocks) supports the following:
+	DomainRules    GetSchemaRulesetDomainRuleArrayInput    `pulumi:"domainRules"`
+	MigrationRules GetSchemaRulesetMigrationRuleArrayInput `pulumi:"migrationRules"`
+}
+
+func (GetSchemaRulesetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRuleset)(nil)).Elem()
+}
+
+func (i GetSchemaRulesetArgs) ToGetSchemaRulesetOutput() GetSchemaRulesetOutput {
+	return i.ToGetSchemaRulesetOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRulesetArgs) ToGetSchemaRulesetOutputWithContext(ctx context.Context) GetSchemaRulesetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRulesetOutput)
+}
+
+func (i GetSchemaRulesetArgs) ToGetSchemaRulesetPtrOutput() GetSchemaRulesetPtrOutput {
+	return i.ToGetSchemaRulesetPtrOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRulesetArgs) ToGetSchemaRulesetPtrOutputWithContext(ctx context.Context) GetSchemaRulesetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRulesetOutput).ToGetSchemaRulesetPtrOutputWithContext(ctx)
+}
+
+// GetSchemaRulesetPtrInput is an input type that accepts GetSchemaRulesetArgs, GetSchemaRulesetPtr and GetSchemaRulesetPtrOutput values.
+// You can construct a concrete instance of `GetSchemaRulesetPtrInput` via:
+//
+//	        GetSchemaRulesetArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSchemaRulesetPtrInput interface {
+	pulumi.Input
+
+	ToGetSchemaRulesetPtrOutput() GetSchemaRulesetPtrOutput
+	ToGetSchemaRulesetPtrOutputWithContext(context.Context) GetSchemaRulesetPtrOutput
+}
+
+type getSchemaRulesetPtrType GetSchemaRulesetArgs
+
+func GetSchemaRulesetPtr(v *GetSchemaRulesetArgs) GetSchemaRulesetPtrInput {
+	return (*getSchemaRulesetPtrType)(v)
+}
+
+func (*getSchemaRulesetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaRuleset)(nil)).Elem()
+}
+
+func (i *getSchemaRulesetPtrType) ToGetSchemaRulesetPtrOutput() GetSchemaRulesetPtrOutput {
+	return i.ToGetSchemaRulesetPtrOutputWithContext(context.Background())
+}
+
+func (i *getSchemaRulesetPtrType) ToGetSchemaRulesetPtrOutputWithContext(ctx context.Context) GetSchemaRulesetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRulesetPtrOutput)
+}
+
+type GetSchemaRulesetOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRulesetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRuleset)(nil)).Elem()
+}
+
+func (o GetSchemaRulesetOutput) ToGetSchemaRulesetOutput() GetSchemaRulesetOutput {
+	return o
+}
+
+func (o GetSchemaRulesetOutput) ToGetSchemaRulesetOutputWithContext(ctx context.Context) GetSchemaRulesetOutput {
+	return o
+}
+
+func (o GetSchemaRulesetOutput) ToGetSchemaRulesetPtrOutput() GetSchemaRulesetPtrOutput {
+	return o.ToGetSchemaRulesetPtrOutputWithContext(context.Background())
+}
+
+func (o GetSchemaRulesetOutput) ToGetSchemaRulesetPtrOutputWithContext(ctx context.Context) GetSchemaRulesetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSchemaRuleset) *GetSchemaRuleset {
+		return &v
+	}).(GetSchemaRulesetPtrOutput)
+}
+
+// (Optional List of Blocks) supports the following:
+func (o GetSchemaRulesetOutput) DomainRules() GetSchemaRulesetDomainRuleArrayOutput {
+	return o.ApplyT(func(v GetSchemaRuleset) []GetSchemaRulesetDomainRule { return v.DomainRules }).(GetSchemaRulesetDomainRuleArrayOutput)
+}
+
+func (o GetSchemaRulesetOutput) MigrationRules() GetSchemaRulesetMigrationRuleArrayOutput {
+	return o.ApplyT(func(v GetSchemaRuleset) []GetSchemaRulesetMigrationRule { return v.MigrationRules }).(GetSchemaRulesetMigrationRuleArrayOutput)
+}
+
+type GetSchemaRulesetPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRulesetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSchemaRuleset)(nil)).Elem()
+}
+
+func (o GetSchemaRulesetPtrOutput) ToGetSchemaRulesetPtrOutput() GetSchemaRulesetPtrOutput {
+	return o
+}
+
+func (o GetSchemaRulesetPtrOutput) ToGetSchemaRulesetPtrOutputWithContext(ctx context.Context) GetSchemaRulesetPtrOutput {
+	return o
+}
+
+func (o GetSchemaRulesetPtrOutput) Elem() GetSchemaRulesetOutput {
+	return o.ApplyT(func(v *GetSchemaRuleset) GetSchemaRuleset {
+		if v != nil {
+			return *v
+		}
+		var ret GetSchemaRuleset
+		return ret
+	}).(GetSchemaRulesetOutput)
+}
+
+// (Optional List of Blocks) supports the following:
+func (o GetSchemaRulesetPtrOutput) DomainRules() GetSchemaRulesetDomainRuleArrayOutput {
+	return o.ApplyT(func(v *GetSchemaRuleset) []GetSchemaRulesetDomainRule {
+		if v == nil {
+			return nil
+		}
+		return v.DomainRules
+	}).(GetSchemaRulesetDomainRuleArrayOutput)
+}
+
+func (o GetSchemaRulesetPtrOutput) MigrationRules() GetSchemaRulesetMigrationRuleArrayOutput {
+	return o.ApplyT(func(v *GetSchemaRuleset) []GetSchemaRulesetMigrationRule {
+		if v == nil {
+			return nil
+		}
+		return v.MigrationRules
+	}).(GetSchemaRulesetMigrationRuleArrayOutput)
+}
+
+type GetSchemaRulesetDomainRule struct {
+	// (Optional String) An optional description.
+	Doc string `pulumi:"doc"`
+	// (Optional String) The body of the rule, which is optional.
+	Expr string `pulumi:"expr"`
+	// (Optional String) Either `CONDITION` or `TRANSFORM`.
+	Kind string `pulumi:"kind"`
+	// (Optional String) The mode of the rule.
+	Mode string `pulumi:"mode"`
+	// (Optional String) A user-defined name that can be used to reference the rule.
+	Name string `pulumi:"name"`
+	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure string `pulumi:"onFailure"`
+	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+	OnSuccess string `pulumi:"onSuccess"`
+	// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+	Params map[string]string `pulumi:"params"`
+	// (Optional String List) The tags to which the rule applies, if any.
+	Tags []string `pulumi:"tags"`
+	// (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	Type string `pulumi:"type"`
+}
+
+// GetSchemaRulesetDomainRuleInput is an input type that accepts GetSchemaRulesetDomainRuleArgs and GetSchemaRulesetDomainRuleOutput values.
+// You can construct a concrete instance of `GetSchemaRulesetDomainRuleInput` via:
+//
+//	GetSchemaRulesetDomainRuleArgs{...}
+type GetSchemaRulesetDomainRuleInput interface {
+	pulumi.Input
+
+	ToGetSchemaRulesetDomainRuleOutput() GetSchemaRulesetDomainRuleOutput
+	ToGetSchemaRulesetDomainRuleOutputWithContext(context.Context) GetSchemaRulesetDomainRuleOutput
+}
+
+type GetSchemaRulesetDomainRuleArgs struct {
+	// (Optional String) An optional description.
+	Doc pulumi.StringInput `pulumi:"doc"`
+	// (Optional String) The body of the rule, which is optional.
+	Expr pulumi.StringInput `pulumi:"expr"`
+	// (Optional String) Either `CONDITION` or `TRANSFORM`.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// (Optional String) The mode of the rule.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// (Optional String) A user-defined name that can be used to reference the rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure pulumi.StringInput `pulumi:"onFailure"`
+	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+	OnSuccess pulumi.StringInput `pulumi:"onSuccess"`
+	// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+	Params pulumi.StringMapInput `pulumi:"params"`
+	// (Optional String List) The tags to which the rule applies, if any.
+	Tags pulumi.StringArrayInput `pulumi:"tags"`
+	// (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetSchemaRulesetDomainRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRulesetDomainRule)(nil)).Elem()
+}
+
+func (i GetSchemaRulesetDomainRuleArgs) ToGetSchemaRulesetDomainRuleOutput() GetSchemaRulesetDomainRuleOutput {
+	return i.ToGetSchemaRulesetDomainRuleOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRulesetDomainRuleArgs) ToGetSchemaRulesetDomainRuleOutputWithContext(ctx context.Context) GetSchemaRulesetDomainRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRulesetDomainRuleOutput)
+}
+
+// GetSchemaRulesetDomainRuleArrayInput is an input type that accepts GetSchemaRulesetDomainRuleArray and GetSchemaRulesetDomainRuleArrayOutput values.
+// You can construct a concrete instance of `GetSchemaRulesetDomainRuleArrayInput` via:
+//
+//	GetSchemaRulesetDomainRuleArray{ GetSchemaRulesetDomainRuleArgs{...} }
+type GetSchemaRulesetDomainRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetSchemaRulesetDomainRuleArrayOutput() GetSchemaRulesetDomainRuleArrayOutput
+	ToGetSchemaRulesetDomainRuleArrayOutputWithContext(context.Context) GetSchemaRulesetDomainRuleArrayOutput
+}
+
+type GetSchemaRulesetDomainRuleArray []GetSchemaRulesetDomainRuleInput
+
+func (GetSchemaRulesetDomainRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemaRulesetDomainRule)(nil)).Elem()
+}
+
+func (i GetSchemaRulesetDomainRuleArray) ToGetSchemaRulesetDomainRuleArrayOutput() GetSchemaRulesetDomainRuleArrayOutput {
+	return i.ToGetSchemaRulesetDomainRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRulesetDomainRuleArray) ToGetSchemaRulesetDomainRuleArrayOutputWithContext(ctx context.Context) GetSchemaRulesetDomainRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRulesetDomainRuleArrayOutput)
+}
+
+type GetSchemaRulesetDomainRuleOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRulesetDomainRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRulesetDomainRule)(nil)).Elem()
+}
+
+func (o GetSchemaRulesetDomainRuleOutput) ToGetSchemaRulesetDomainRuleOutput() GetSchemaRulesetDomainRuleOutput {
+	return o
+}
+
+func (o GetSchemaRulesetDomainRuleOutput) ToGetSchemaRulesetDomainRuleOutputWithContext(ctx context.Context) GetSchemaRulesetDomainRuleOutput {
+	return o
+}
+
+// (Optional String) An optional description.
+func (o GetSchemaRulesetDomainRuleOutput) Doc() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.Doc }).(pulumi.StringOutput)
+}
+
+// (Optional String) The body of the rule, which is optional.
+func (o GetSchemaRulesetDomainRuleOutput) Expr() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.Expr }).(pulumi.StringOutput)
+}
+
+// (Optional String) Either `CONDITION` or `TRANSFORM`.
+func (o GetSchemaRulesetDomainRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// (Optional String) The mode of the rule.
+func (o GetSchemaRulesetDomainRuleOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// (Optional String) A user-defined name that can be used to reference the rule.
+func (o GetSchemaRulesetDomainRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+func (o GetSchemaRulesetDomainRuleOutput) OnFailure() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.OnFailure }).(pulumi.StringOutput)
+}
+
+// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+func (o GetSchemaRulesetDomainRuleOutput) OnSuccess() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.OnSuccess }).(pulumi.StringOutput)
+}
+
+// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+func (o GetSchemaRulesetDomainRuleOutput) Params() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
+}
+
+// (Optional String List) The tags to which the rule applies, if any.
+func (o GetSchemaRulesetDomainRuleOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+func (o GetSchemaRulesetDomainRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetDomainRule) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetSchemaRulesetDomainRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRulesetDomainRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemaRulesetDomainRule)(nil)).Elem()
+}
+
+func (o GetSchemaRulesetDomainRuleArrayOutput) ToGetSchemaRulesetDomainRuleArrayOutput() GetSchemaRulesetDomainRuleArrayOutput {
+	return o
+}
+
+func (o GetSchemaRulesetDomainRuleArrayOutput) ToGetSchemaRulesetDomainRuleArrayOutputWithContext(ctx context.Context) GetSchemaRulesetDomainRuleArrayOutput {
+	return o
+}
+
+func (o GetSchemaRulesetDomainRuleArrayOutput) Index(i pulumi.IntInput) GetSchemaRulesetDomainRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSchemaRulesetDomainRule {
+		return vs[0].([]GetSchemaRulesetDomainRule)[vs[1].(int)]
+	}).(GetSchemaRulesetDomainRuleOutput)
+}
+
+type GetSchemaRulesetMigrationRule struct {
+	// (Optional String) An optional description.
+	Doc string `pulumi:"doc"`
+	// (Optional String) The body of the rule, which is optional.
+	Expr string `pulumi:"expr"`
+	// (Optional String) Either `CONDITION` or `TRANSFORM`.
+	Kind string `pulumi:"kind"`
+	// (Optional String) The mode of the rule.
+	Mode string `pulumi:"mode"`
+	// (Optional String) A user-defined name that can be used to reference the rule.
+	Name string `pulumi:"name"`
+	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure string `pulumi:"onFailure"`
+	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+	OnSuccess string `pulumi:"onSuccess"`
+	// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+	Params map[string]string `pulumi:"params"`
+	// (Optional String List) The tags to which the rule applies, if any.
+	Tags []string `pulumi:"tags"`
+	// (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	Type string `pulumi:"type"`
+}
+
+// GetSchemaRulesetMigrationRuleInput is an input type that accepts GetSchemaRulesetMigrationRuleArgs and GetSchemaRulesetMigrationRuleOutput values.
+// You can construct a concrete instance of `GetSchemaRulesetMigrationRuleInput` via:
+//
+//	GetSchemaRulesetMigrationRuleArgs{...}
+type GetSchemaRulesetMigrationRuleInput interface {
+	pulumi.Input
+
+	ToGetSchemaRulesetMigrationRuleOutput() GetSchemaRulesetMigrationRuleOutput
+	ToGetSchemaRulesetMigrationRuleOutputWithContext(context.Context) GetSchemaRulesetMigrationRuleOutput
+}
+
+type GetSchemaRulesetMigrationRuleArgs struct {
+	// (Optional String) An optional description.
+	Doc pulumi.StringInput `pulumi:"doc"`
+	// (Optional String) The body of the rule, which is optional.
+	Expr pulumi.StringInput `pulumi:"expr"`
+	// (Optional String) Either `CONDITION` or `TRANSFORM`.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// (Optional String) The mode of the rule.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// (Optional String) A user-defined name that can be used to reference the rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+	OnFailure pulumi.StringInput `pulumi:"onFailure"`
+	// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+	OnSuccess pulumi.StringInput `pulumi:"onSuccess"`
+	// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+	Params pulumi.StringMapInput `pulumi:"params"`
+	// (Optional String List) The tags to which the rule applies, if any.
+	Tags pulumi.StringArrayInput `pulumi:"tags"`
+	// (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetSchemaRulesetMigrationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRulesetMigrationRule)(nil)).Elem()
+}
+
+func (i GetSchemaRulesetMigrationRuleArgs) ToGetSchemaRulesetMigrationRuleOutput() GetSchemaRulesetMigrationRuleOutput {
+	return i.ToGetSchemaRulesetMigrationRuleOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRulesetMigrationRuleArgs) ToGetSchemaRulesetMigrationRuleOutputWithContext(ctx context.Context) GetSchemaRulesetMigrationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRulesetMigrationRuleOutput)
+}
+
+// GetSchemaRulesetMigrationRuleArrayInput is an input type that accepts GetSchemaRulesetMigrationRuleArray and GetSchemaRulesetMigrationRuleArrayOutput values.
+// You can construct a concrete instance of `GetSchemaRulesetMigrationRuleArrayInput` via:
+//
+//	GetSchemaRulesetMigrationRuleArray{ GetSchemaRulesetMigrationRuleArgs{...} }
+type GetSchemaRulesetMigrationRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetSchemaRulesetMigrationRuleArrayOutput() GetSchemaRulesetMigrationRuleArrayOutput
+	ToGetSchemaRulesetMigrationRuleArrayOutputWithContext(context.Context) GetSchemaRulesetMigrationRuleArrayOutput
+}
+
+type GetSchemaRulesetMigrationRuleArray []GetSchemaRulesetMigrationRuleInput
+
+func (GetSchemaRulesetMigrationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemaRulesetMigrationRule)(nil)).Elem()
+}
+
+func (i GetSchemaRulesetMigrationRuleArray) ToGetSchemaRulesetMigrationRuleArrayOutput() GetSchemaRulesetMigrationRuleArrayOutput {
+	return i.ToGetSchemaRulesetMigrationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetSchemaRulesetMigrationRuleArray) ToGetSchemaRulesetMigrationRuleArrayOutputWithContext(ctx context.Context) GetSchemaRulesetMigrationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSchemaRulesetMigrationRuleArrayOutput)
+}
+
+type GetSchemaRulesetMigrationRuleOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRulesetMigrationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSchemaRulesetMigrationRule)(nil)).Elem()
+}
+
+func (o GetSchemaRulesetMigrationRuleOutput) ToGetSchemaRulesetMigrationRuleOutput() GetSchemaRulesetMigrationRuleOutput {
+	return o
+}
+
+func (o GetSchemaRulesetMigrationRuleOutput) ToGetSchemaRulesetMigrationRuleOutputWithContext(ctx context.Context) GetSchemaRulesetMigrationRuleOutput {
+	return o
+}
+
+// (Optional String) An optional description.
+func (o GetSchemaRulesetMigrationRuleOutput) Doc() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.Doc }).(pulumi.StringOutput)
+}
+
+// (Optional String) The body of the rule, which is optional.
+func (o GetSchemaRulesetMigrationRuleOutput) Expr() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.Expr }).(pulumi.StringOutput)
+}
+
+// (Optional String) Either `CONDITION` or `TRANSFORM`.
+func (o GetSchemaRulesetMigrationRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// (Optional String) The mode of the rule.
+func (o GetSchemaRulesetMigrationRuleOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// (Optional String) A user-defined name that can be used to reference the rule.
+func (o GetSchemaRulesetMigrationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+func (o GetSchemaRulesetMigrationRuleOutput) OnFailure() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.OnFailure }).(pulumi.StringOutput)
+}
+
+// (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+func (o GetSchemaRulesetMigrationRuleOutput) OnSuccess() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.OnSuccess }).(pulumi.StringOutput)
+}
+
+// (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+func (o GetSchemaRulesetMigrationRuleOutput) Params() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
+}
+
+// (Optional String List) The tags to which the rule applies, if any.
+func (o GetSchemaRulesetMigrationRuleOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+func (o GetSchemaRulesetMigrationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSchemaRulesetMigrationRule) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetSchemaRulesetMigrationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSchemaRulesetMigrationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSchemaRulesetMigrationRule)(nil)).Elem()
+}
+
+func (o GetSchemaRulesetMigrationRuleArrayOutput) ToGetSchemaRulesetMigrationRuleArrayOutput() GetSchemaRulesetMigrationRuleArrayOutput {
+	return o
+}
+
+func (o GetSchemaRulesetMigrationRuleArrayOutput) ToGetSchemaRulesetMigrationRuleArrayOutputWithContext(ctx context.Context) GetSchemaRulesetMigrationRuleArrayOutput {
+	return o
+}
+
+func (o GetSchemaRulesetMigrationRuleArrayOutput) Index(i pulumi.IntInput) GetSchemaRulesetMigrationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSchemaRulesetMigrationRule {
+		return vs[0].([]GetSchemaRulesetMigrationRule)[vs[1].(int)]
+	}).(GetSchemaRulesetMigrationRuleOutput)
+}
+
 type GetSchemaSchemaReference struct {
-	// (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+	// (Optional String) A user-defined name that can be used to reference the rule.
 	Name string `pulumi:"name"`
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName string `pulumi:"subjectName"`
@@ -25268,7 +26872,7 @@ type GetSchemaSchemaReferenceInput interface {
 }
 
 type GetSchemaSchemaReferenceArgs struct {
-	// (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+	// (Optional String) A user-defined name that can be used to reference the rule.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName pulumi.StringInput `pulumi:"subjectName"`
@@ -25327,7 +26931,7 @@ func (o GetSchemaSchemaReferenceOutput) ToGetSchemaSchemaReferenceOutputWithCont
 	return o
 }
 
-// (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+// (Optional String) A user-defined name that can be used to reference the rule.
 func (o GetSchemaSchemaReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaSchemaReference) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -27870,6 +29474,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrInput)(nil)).Elem(), SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaExporterSchemaRegistryClusterInput)(nil)).Elem(), SchemaExporterSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaExporterSchemaRegistryClusterPtrInput)(nil)).Elem(), SchemaExporterSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMetadataInput)(nil)).Elem(), SchemaMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMetadataPtrInput)(nil)).Elem(), SchemaMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMetadataTagInput)(nil)).Elem(), SchemaMetadataTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMetadataTagArrayInput)(nil)).Elem(), SchemaMetadataTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterConfigCredentialsInput)(nil)).Elem(), SchemaRegistryClusterConfigCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterConfigCredentialsPtrInput)(nil)).Elem(), SchemaRegistryClusterConfigCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryClusterConfigSchemaRegistryClusterInput)(nil)).Elem(), SchemaRegistryClusterConfigSchemaRegistryClusterArgs{})
@@ -27890,6 +29498,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryKekCredentialsPtrInput)(nil)).Elem(), SchemaRegistryKekCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryKekSchemaRegistryClusterInput)(nil)).Elem(), SchemaRegistryKekSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryKekSchemaRegistryClusterPtrInput)(nil)).Elem(), SchemaRegistryKekSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRulesetInput)(nil)).Elem(), SchemaRulesetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRulesetPtrInput)(nil)).Elem(), SchemaRulesetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRulesetDomainRuleInput)(nil)).Elem(), SchemaRulesetDomainRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRulesetDomainRuleArrayInput)(nil)).Elem(), SchemaRulesetDomainRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRulesetMigrationRuleInput)(nil)).Elem(), SchemaRulesetMigrationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRulesetMigrationRuleArrayInput)(nil)).Elem(), SchemaRulesetMigrationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaSchemaReferenceInput)(nil)).Elem(), SchemaSchemaReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaSchemaReferenceArrayInput)(nil)).Elem(), SchemaSchemaReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaSchemaRegistryClusterInput)(nil)).Elem(), SchemaSchemaRegistryClusterArgs{})
@@ -28031,6 +29645,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkAttachmentGcpArrayInput)(nil)).Elem(), GetPrivateLinkAttachmentGcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaCredentialsInput)(nil)).Elem(), GetSchemaCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaCredentialsPtrInput)(nil)).Elem(), GetSchemaCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaMetadataInput)(nil)).Elem(), GetSchemaMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaMetadataPtrInput)(nil)).Elem(), GetSchemaMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaMetadataTagInput)(nil)).Elem(), GetSchemaMetadataTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaMetadataTagArrayInput)(nil)).Elem(), GetSchemaMetadataTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterConfigCredentialsInput)(nil)).Elem(), GetSchemaRegistryClusterConfigCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterConfigCredentialsPtrInput)(nil)).Elem(), GetSchemaRegistryClusterConfigCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryClusterConfigSchemaRegistryClusterInput)(nil)).Elem(), GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs{})
@@ -28055,6 +29673,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryKekCredentialsPtrInput)(nil)).Elem(), GetSchemaRegistryKekCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryKekSchemaRegistryClusterInput)(nil)).Elem(), GetSchemaRegistryKekSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRegistryKekSchemaRegistryClusterPtrInput)(nil)).Elem(), GetSchemaRegistryKekSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRulesetInput)(nil)).Elem(), GetSchemaRulesetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRulesetPtrInput)(nil)).Elem(), GetSchemaRulesetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRulesetDomainRuleInput)(nil)).Elem(), GetSchemaRulesetDomainRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRulesetDomainRuleArrayInput)(nil)).Elem(), GetSchemaRulesetDomainRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRulesetMigrationRuleInput)(nil)).Elem(), GetSchemaRulesetMigrationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaRulesetMigrationRuleArrayInput)(nil)).Elem(), GetSchemaRulesetMigrationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaSchemaReferenceInput)(nil)).Elem(), GetSchemaSchemaReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaSchemaReferenceArrayInput)(nil)).Elem(), GetSchemaSchemaReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSchemaSchemaRegistryClusterInput)(nil)).Elem(), GetSchemaSchemaRegistryClusterArgs{})
@@ -28278,6 +29902,10 @@ func init() {
 	pulumi.RegisterOutputType(SchemaExporterDestinationSchemaRegistryClusterCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(SchemaExporterSchemaRegistryClusterOutput{})
 	pulumi.RegisterOutputType(SchemaExporterSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(SchemaMetadataOutput{})
+	pulumi.RegisterOutputType(SchemaMetadataPtrOutput{})
+	pulumi.RegisterOutputType(SchemaMetadataTagOutput{})
+	pulumi.RegisterOutputType(SchemaMetadataTagArrayOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryClusterConfigCredentialsOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryClusterConfigCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryClusterConfigSchemaRegistryClusterOutput{})
@@ -28298,6 +29926,12 @@ func init() {
 	pulumi.RegisterOutputType(SchemaRegistryKekCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryKekSchemaRegistryClusterOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryKekSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(SchemaRulesetOutput{})
+	pulumi.RegisterOutputType(SchemaRulesetPtrOutput{})
+	pulumi.RegisterOutputType(SchemaRulesetDomainRuleOutput{})
+	pulumi.RegisterOutputType(SchemaRulesetDomainRuleArrayOutput{})
+	pulumi.RegisterOutputType(SchemaRulesetMigrationRuleOutput{})
+	pulumi.RegisterOutputType(SchemaRulesetMigrationRuleArrayOutput{})
 	pulumi.RegisterOutputType(SchemaSchemaReferenceOutput{})
 	pulumi.RegisterOutputType(SchemaSchemaReferenceArrayOutput{})
 	pulumi.RegisterOutputType(SchemaSchemaRegistryClusterOutput{})
@@ -28439,6 +30073,10 @@ func init() {
 	pulumi.RegisterOutputType(GetPrivateLinkAttachmentGcpArrayOutput{})
 	pulumi.RegisterOutputType(GetSchemaCredentialsOutput{})
 	pulumi.RegisterOutputType(GetSchemaCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(GetSchemaMetadataOutput{})
+	pulumi.RegisterOutputType(GetSchemaMetadataPtrOutput{})
+	pulumi.RegisterOutputType(GetSchemaMetadataTagOutput{})
+	pulumi.RegisterOutputType(GetSchemaMetadataTagArrayOutput{})
 	pulumi.RegisterOutputType(GetSchemaRegistryClusterConfigCredentialsOutput{})
 	pulumi.RegisterOutputType(GetSchemaRegistryClusterConfigCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetSchemaRegistryClusterConfigSchemaRegistryClusterOutput{})
@@ -28463,6 +30101,12 @@ func init() {
 	pulumi.RegisterOutputType(GetSchemaRegistryKekCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GetSchemaRegistryKekSchemaRegistryClusterOutput{})
 	pulumi.RegisterOutputType(GetSchemaRegistryKekSchemaRegistryClusterPtrOutput{})
+	pulumi.RegisterOutputType(GetSchemaRulesetOutput{})
+	pulumi.RegisterOutputType(GetSchemaRulesetPtrOutput{})
+	pulumi.RegisterOutputType(GetSchemaRulesetDomainRuleOutput{})
+	pulumi.RegisterOutputType(GetSchemaRulesetDomainRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetSchemaRulesetMigrationRuleOutput{})
+	pulumi.RegisterOutputType(GetSchemaRulesetMigrationRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetSchemaSchemaReferenceOutput{})
 	pulumi.RegisterOutputType(GetSchemaSchemaReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetSchemaSchemaRegistryClusterOutput{})

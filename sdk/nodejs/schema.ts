@@ -82,6 +82,10 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly hardDelete!: pulumi.Output<boolean | undefined>;
     /**
+     * See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+     */
+    public readonly metadata!: pulumi.Output<outputs.SchemaMetadata>;
+    /**
      * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
      */
     public readonly recreateOnUpdate!: pulumi.Output<boolean | undefined>;
@@ -89,6 +93,10 @@ export class Schema extends pulumi.CustomResource {
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     public readonly restEndpoint!: pulumi.Output<string | undefined>;
+    /**
+     * The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+     */
+    public readonly ruleset!: pulumi.Output<outputs.SchemaRuleset>;
     /**
      * The schema string, for example, `file("./schema_version_1.avsc")`.
      */
@@ -127,8 +135,10 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["credentials"] = state ? state.credentials : undefined;
             resourceInputs["format"] = state ? state.format : undefined;
             resourceInputs["hardDelete"] = state ? state.hardDelete : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
             resourceInputs["recreateOnUpdate"] = state ? state.recreateOnUpdate : undefined;
             resourceInputs["restEndpoint"] = state ? state.restEndpoint : undefined;
+            resourceInputs["ruleset"] = state ? state.ruleset : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["schemaIdentifier"] = state ? state.schemaIdentifier : undefined;
             resourceInputs["schemaReferences"] = state ? state.schemaReferences : undefined;
@@ -146,8 +156,10 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
             resourceInputs["hardDelete"] = args ? args.hardDelete : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["recreateOnUpdate"] = args ? args.recreateOnUpdate : undefined;
             resourceInputs["restEndpoint"] = args ? args.restEndpoint : undefined;
+            resourceInputs["ruleset"] = args ? args.ruleset : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["schemaReferences"] = args ? args.schemaReferences : undefined;
             resourceInputs["schemaRegistryCluster"] = args ? args.schemaRegistryCluster : undefined;
@@ -179,6 +191,10 @@ export interface SchemaState {
      */
     hardDelete?: pulumi.Input<boolean>;
     /**
+     * See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+     */
+    metadata?: pulumi.Input<inputs.SchemaMetadata>;
+    /**
      * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
      */
     recreateOnUpdate?: pulumi.Input<boolean>;
@@ -186,6 +202,10 @@ export interface SchemaState {
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
+    /**
+     * The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+     */
+    ruleset?: pulumi.Input<inputs.SchemaRuleset>;
     /**
      * The schema string, for example, `file("./schema_version_1.avsc")`.
      */
@@ -226,6 +246,10 @@ export interface SchemaArgs {
      */
     hardDelete?: pulumi.Input<boolean>;
     /**
+     * See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+     */
+    metadata?: pulumi.Input<inputs.SchemaMetadata>;
+    /**
      * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
      */
     recreateOnUpdate?: pulumi.Input<boolean>;
@@ -233,6 +257,10 @@ export interface SchemaArgs {
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
+    /**
+     * The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+     */
+    ruleset?: pulumi.Input<inputs.SchemaRuleset>;
     /**
      * The schema string, for example, `file("./schema_version_1.avsc")`.
      */

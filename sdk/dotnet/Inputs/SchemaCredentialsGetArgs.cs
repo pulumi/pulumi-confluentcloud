@@ -16,7 +16,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         private Input<string>? _key;
 
         /// <summary>
-        /// The Schema Registry API Key.
+        /// The setting name.
         /// </summary>
         public Input<string>? Key
         {

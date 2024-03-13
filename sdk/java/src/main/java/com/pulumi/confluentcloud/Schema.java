@@ -7,6 +7,8 @@ import com.pulumi.confluentcloud.SchemaArgs;
 import com.pulumi.confluentcloud.Utilities;
 import com.pulumi.confluentcloud.inputs.SchemaState;
 import com.pulumi.confluentcloud.outputs.SchemaCredentials;
+import com.pulumi.confluentcloud.outputs.SchemaMetadata;
+import com.pulumi.confluentcloud.outputs.SchemaRuleset;
 import com.pulumi.confluentcloud.outputs.SchemaSchemaReference;
 import com.pulumi.confluentcloud.outputs.SchemaSchemaRegistryCluster;
 import com.pulumi.core.Output;
@@ -101,6 +103,20 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hardDelete);
     }
     /**
+     * See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+     * 
+     */
+    @Export(name="metadata", refs={SchemaMetadata.class}, tree="[0]")
+    private Output<SchemaMetadata> metadata;
+
+    /**
+     * @return See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+     * 
+     */
+    public Output<SchemaMetadata> metadata() {
+        return this.metadata;
+    }
+    /**
      * An optional flag to control whether a schema should be recreated on an update. Set it to `true` if you want to manage different schema versions using different resource instances. Must be set to the target value when importing. Defaults to `false`, which manages the latest schema version only. The resource instance always points to the latest schema version by supporting in-place updates.
      * 
      */
@@ -127,6 +143,20 @@ public class Schema extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> restEndpoint() {
         return Codegen.optional(this.restEndpoint);
+    }
+    /**
+     * The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+     * 
+     */
+    @Export(name="ruleset", refs={SchemaRuleset.class}, tree="[0]")
+    private Output<SchemaRuleset> ruleset;
+
+    /**
+     * @return The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+     * 
+     */
+    public Output<SchemaRuleset> ruleset() {
+        return this.ruleset;
     }
     /**
      * The schema string, for example, `file(&#34;./schema_version_1.avsc&#34;)`.

@@ -4,6 +4,8 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.confluentcloud.inputs.GetSchemaCredentialsArgs;
+import com.pulumi.confluentcloud.inputs.GetSchemaMetadataArgs;
+import com.pulumi.confluentcloud.inputs.GetSchemaRulesetArgs;
 import com.pulumi.confluentcloud.inputs.GetSchemaSchemaRegistryClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -27,6 +29,21 @@ public final class GetSchemaArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+     * 
+     */
+    @Import(name="metadata")
+    private @Nullable Output<GetSchemaMetadataArgs> metadata;
+
+    /**
+     * @return (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+     * 
+     */
+    public Optional<Output<GetSchemaMetadataArgs>> metadata() {
+        return Optional.ofNullable(this.metadata);
+    }
+
+    /**
      * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
@@ -39,6 +56,21 @@ public final class GetSchemaArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<Output<String>> restEndpoint() {
         return Optional.ofNullable(this.restEndpoint);
+    }
+
+    /**
+     * (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+     * 
+     */
+    @Import(name="ruleset")
+    private @Nullable Output<GetSchemaRulesetArgs> ruleset;
+
+    /**
+     * @return (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+     * 
+     */
+    public Optional<Output<GetSchemaRulesetArgs>> ruleset() {
+        return Optional.ofNullable(this.ruleset);
     }
 
     /**
@@ -86,7 +118,9 @@ public final class GetSchemaArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetSchemaArgs(GetSchemaArgs $) {
         this.credentials = $.credentials;
+        this.metadata = $.metadata;
         this.restEndpoint = $.restEndpoint;
+        this.ruleset = $.ruleset;
         this.schemaIdentifier = $.schemaIdentifier;
         this.schemaRegistryCluster = $.schemaRegistryCluster;
         this.subjectName = $.subjectName;
@@ -120,6 +154,27 @@ public final class GetSchemaArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
+         * @param metadata (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadata(@Nullable Output<GetSchemaMetadataArgs> metadata) {
+            $.metadata = metadata;
+            return this;
+        }
+
+        /**
+         * @param metadata (Optional Block) See [here](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html) for more details. Supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadata(GetSchemaMetadataArgs metadata) {
+            return metadata(Output.of(metadata));
+        }
+
+        /**
          * @param restEndpoint The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
          * 
          * @return builder
@@ -138,6 +193,27 @@ public final class GetSchemaArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder restEndpoint(String restEndpoint) {
             return restEndpoint(Output.of(restEndpoint));
+        }
+
+        /**
+         * @param ruleset (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleset(@Nullable Output<GetSchemaRulesetArgs> ruleset) {
+            $.ruleset = ruleset;
+            return this;
+        }
+
+        /**
+         * @param ruleset (Optional Block) The list of schema rules. See [Data Contracts for Schema Registry](https://docs.confluent.io/platform/7.5/schema-registry/fundamentals/data-contracts.html#rules) for more details. For example, these rules can enforce that a field that contains sensitive information must be encrypted, or that a message containing an invalid age must be sent to a dead letter queue.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleset(GetSchemaRulesetArgs ruleset) {
+            return ruleset(Output.of(ruleset));
         }
 
         /**

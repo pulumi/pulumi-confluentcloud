@@ -996,6 +996,32 @@ export interface GetSchemaCredentials {
     secret: string;
 }
 
+export interface GetSchemaMetadata {
+    /**
+     * (Optional Map) The custom properties to set:
+     */
+    properties: {[key: string]: string};
+    /**
+     * (Optional List of Strings) A list of metadata properties to be encrypted.
+     */
+    sensitives: string[];
+    /**
+     * (Optional String List) The tags to which the rule applies, if any.
+     */
+    tags: outputs.GetSchemaMetadataTag[];
+}
+
+export interface GetSchemaMetadataTag {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * (Required List of Strings) The list of tags.
+     */
+    values: string[];
+}
+
 export interface GetSchemaRegistryClusterConfigCredentials {
     /**
      * The Schema Registry API Key.
@@ -1107,43 +1133,137 @@ export interface GetSchemaRegistryClustersClusterRegion {
 
 export interface GetSchemaRegistryDekCredentials {
     /**
-     * The Cluster API Key for your Confluent Cloud cluster.
+     * The Schema Registry API Key.
      */
     key: string;
     /**
-     * The Cluster API Secret for your Confluent Cloud cluster.
+     * The Schema Registry API Secret.
      */
     secret: string;
 }
 
 export interface GetSchemaRegistryDekSchemaRegistryCluster {
     /**
-     * The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: string;
 }
 
 export interface GetSchemaRegistryKekCredentials {
     /**
-     * The Cluster API Key for your Confluent Cloud cluster.
+     * The Schema Registry API Key.
      */
     key: string;
     /**
-     * The Cluster API Secret for your Confluent Cloud cluster.
+     * The Schema Registry API Secret.
      */
     secret: string;
 }
 
 export interface GetSchemaRegistryKekSchemaRegistryCluster {
     /**
-     * The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: string;
 }
 
+export interface GetSchemaRuleset {
+    /**
+     * (Optional List of Blocks) supports the following:
+     */
+    domainRules: outputs.GetSchemaRulesetDomainRule[];
+    migrationRules: outputs.GetSchemaRulesetMigrationRule[];
+}
+
+export interface GetSchemaRulesetDomainRule {
+    /**
+     * (Optional String) An optional description.
+     */
+    doc: string;
+    /**
+     * (Optional String) The body of the rule, which is optional.
+     */
+    expr: string;
+    /**
+     * (Optional String) Either `CONDITION` or `TRANSFORM`.
+     */
+    kind: string;
+    /**
+     * (Optional String) The mode of the rule.
+     */
+    mode: string;
+    /**
+     * (Optional String) A user-defined name that can be used to reference the rule.
+     */
+    name: string;
+    /**
+     * (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+     */
+    onFailure: string;
+    /**
+     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+     */
+    onSuccess: string;
+    /**
+     * (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+     */
+    params: {[key: string]: string};
+    /**
+     * (Optional String List) The tags to which the rule applies, if any.
+     */
+    tags: string[];
+    /**
+     * (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     */
+    type: string;
+}
+
+export interface GetSchemaRulesetMigrationRule {
+    /**
+     * (Optional String) An optional description.
+     */
+    doc: string;
+    /**
+     * (Optional String) The body of the rule, which is optional.
+     */
+    expr: string;
+    /**
+     * (Optional String) Either `CONDITION` or `TRANSFORM`.
+     */
+    kind: string;
+    /**
+     * (Optional String) The mode of the rule.
+     */
+    mode: string;
+    /**
+     * (Optional String) A user-defined name that can be used to reference the rule.
+     */
+    name: string;
+    /**
+     * (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+     */
+    onFailure: string;
+    /**
+     * (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+     */
+    onSuccess: string;
+    /**
+     * (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+     */
+    params: {[key: string]: string};
+    /**
+     * (Optional String List) The tags to which the rule applies, if any.
+     */
+    tags: string[];
+    /**
+     * (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     */
+    type: string;
+}
+
 export interface GetSchemaSchemaReference {
     /**
-     * (Required String) The name of the subject, representing the subject under which the referenced schema is registered.
+     * (Optional String) A user-defined name that can be used to reference the rule.
      */
     name: string;
     /**
@@ -1886,7 +2006,7 @@ export interface PrivateLinkAttachmentGcp {
 
 export interface SchemaCredentials {
     /**
-     * The Schema Registry API Key.
+     * The setting name.
      */
     key: string;
     /**
@@ -1930,6 +2050,32 @@ export interface SchemaExporterSchemaRegistryCluster {
      * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: string;
+}
+
+export interface SchemaMetadata {
+    /**
+     * The custom properties to set:
+     */
+    properties: {[key: string]: string};
+    /**
+     * A list of metadata properties to be encrypted.
+     */
+    sensitives: string[];
+    /**
+     * The tags to which the rule applies, if any.
+     */
+    tags: outputs.SchemaMetadataTag[];
+}
+
+export interface SchemaMetadataTag {
+    /**
+     * The setting name.
+     */
+    key: string;
+    /**
+     * The list of tags.
+     */
+    values: string[];
 }
 
 export interface SchemaRegistryClusterConfigCredentials {
@@ -1984,43 +2130,144 @@ export interface SchemaRegistryClusterRegion {
 
 export interface SchemaRegistryDekCredentials {
     /**
-     * The Cluster API Key for your Confluent Cloud cluster.
+     * The Schema Registry API Key.
      */
     key: string;
     /**
-     * The Cluster API Secret for your Confluent Cloud cluster.
+     * The Schema Registry API Secret.
      */
     secret: string;
 }
 
 export interface SchemaRegistryDekSchemaRegistryCluster {
     /**
-     * The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: string;
 }
 
 export interface SchemaRegistryKekCredentials {
     /**
-     * The Cluster API Key for your Confluent Cloud cluster.
+     * The Schema Registry API Key.
      */
     key: string;
     /**
-     * The Cluster API Secret for your Confluent Cloud cluster.
+     * The Schema Registry API Secret.
      */
     secret: string;
 }
 
 export interface SchemaRegistryKekSchemaRegistryCluster {
     /**
-     * The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
      */
     id: string;
 }
 
+export interface SchemaRuleset {
+    domainRules: outputs.SchemaRulesetDomainRule[];
+    migrationRules: outputs.SchemaRulesetMigrationRule[];
+}
+
+export interface SchemaRulesetDomainRule {
+    /**
+     * An optional description of the rule.
+     */
+    doc: string;
+    /**
+     * The body of the rule, which is optional.
+     */
+    expr: string;
+    /**
+     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+     */
+    kind: string;
+    /**
+     * The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+     */
+    mode: string;
+    /**
+     * A user-defined name that can be used to reference the rule.
+     */
+    name: string;
+    /**
+     * An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     */
+    onFailure: string;
+    /**
+     * An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     */
+    onSuccess: string;
+    /**
+     * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+     *
+     * > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     *
+     * > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     */
+    params: {[key: string]: string};
+    /**
+     * The tags to which the rule applies, if any.
+     */
+    tags: string[];
+    /**
+     * The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     */
+    type: string;
+}
+
+export interface SchemaRulesetMigrationRule {
+    /**
+     * An optional description of the rule.
+     */
+    doc: string;
+    /**
+     * The body of the rule, which is optional.
+     */
+    expr: string;
+    /**
+     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+     */
+    kind: string;
+    /**
+     * The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+     */
+    mode: string;
+    /**
+     * A user-defined name that can be used to reference the rule.
+     */
+    name: string;
+    /**
+     * An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+     */
+    onFailure: string;
+    /**
+     * An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+     */
+    onSuccess: string;
+    /**
+     * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+     *
+     * > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+     *
+     * > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+     */
+    params: {[key: string]: string};
+    /**
+     * The tags to which the rule applies, if any.
+     */
+    tags: string[];
+    /**
+     * The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+     */
+    type: string;
+}
+
 export interface SchemaSchemaReference {
     /**
-     * The name of the subject, representing the subject under which the referenced schema is registered.
+     * A user-defined name that can be used to reference the rule.
      */
     name: string;
     /**

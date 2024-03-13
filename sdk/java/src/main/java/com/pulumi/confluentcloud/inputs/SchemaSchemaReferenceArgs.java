@@ -16,14 +16,14 @@ public final class SchemaSchemaReferenceArgs extends com.pulumi.resources.Resour
     public static final SchemaSchemaReferenceArgs Empty = new SchemaSchemaReferenceArgs();
 
     /**
-     * The name of the subject, representing the subject under which the referenced schema is registered.
+     * A user-defined name that can be used to reference the rule.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the subject, representing the subject under which the referenced schema is registered.
+     * @return A user-defined name that can be used to reference the rule.
      * 
      */
     public Output<String> name() {
@@ -87,7 +87,7 @@ public final class SchemaSchemaReferenceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the subject, representing the subject under which the referenced schema is registered.
+         * @param name A user-defined name that can be used to reference the rule.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class SchemaSchemaReferenceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the subject, representing the subject under which the referenced schema is registered.
+         * @param name A user-defined name that can be used to reference the rule.
          * 
          * @return builder
          * 

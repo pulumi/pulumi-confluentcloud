@@ -17,28 +17,67 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSchemaRegistryKekResult {
     private @Nullable GetSchemaRegistryKekCredentials credentials;
+    /**
+     * @return (Optional String) The optional description for the KEK.
+     * 
+     */
     private String doc;
+    /**
+     * @return (Optional Boolean) The optional flag to control whether a kek should be soft or hard deleted. Defaults to `false`.
+     * 
+     */
     private Boolean hardDelete;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return (Required String) The ID of the key from KMS.
+     * - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
+     * - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
+     * - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
+     * 
+     */
     private String kmsKeyId;
+    /**
+     * @return (Required String) The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
+     * 
+     */
     private String kmsType;
+    /**
+     * @return (Required String) The custom property name (for example, `KeyUsage`).
+     * 
+     */
     private String name;
+    /**
+     * @return (Optional Map) The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
+     * 
+     */
     private Map<String,String> properties;
     private @Nullable String restEndpoint;
     private @Nullable GetSchemaRegistryKekSchemaRegistryCluster schemaRegistryCluster;
+    /**
+     * @return (Optional Boolean) The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+     * 
+     */
     private Boolean shared;
 
     private GetSchemaRegistryKekResult() {}
     public Optional<GetSchemaRegistryKekCredentials> credentials() {
         return Optional.ofNullable(this.credentials);
     }
+    /**
+     * @return (Optional String) The optional description for the KEK.
+     * 
+     */
     public String doc() {
         return this.doc;
     }
+    /**
+     * @return (Optional Boolean) The optional flag to control whether a kek should be soft or hard deleted. Defaults to `false`.
+     * 
+     */
     public Boolean hardDelete() {
         return this.hardDelete;
     }
@@ -49,15 +88,34 @@ public final class GetSchemaRegistryKekResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return (Required String) The ID of the key from KMS.
+     * - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
+     * - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
+     * - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
+     * 
+     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
+    /**
+     * @return (Required String) The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
+     * 
+     */
     public String kmsType() {
         return this.kmsType;
     }
+    /**
+     * @return (Required String) The custom property name (for example, `KeyUsage`).
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return (Optional Map) The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
+     * 
+     */
     public Map<String,String> properties() {
         return this.properties;
     }
@@ -67,6 +125,10 @@ public final class GetSchemaRegistryKekResult {
     public Optional<GetSchemaRegistryKekSchemaRegistryCluster> schemaRegistryCluster() {
         return Optional.ofNullable(this.schemaRegistryCluster);
     }
+    /**
+     * @return (Optional Boolean) The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+     * 
+     */
     public Boolean shared() {
         return this.shared;
     }

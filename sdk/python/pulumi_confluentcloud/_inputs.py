@@ -104,6 +104,8 @@ __all__ = [
     'SchemaExporterDestinationSchemaRegistryClusterArgs',
     'SchemaExporterDestinationSchemaRegistryClusterCredentialsArgs',
     'SchemaExporterSchemaRegistryClusterArgs',
+    'SchemaMetadataArgs',
+    'SchemaMetadataTagArgs',
     'SchemaRegistryClusterConfigCredentialsArgs',
     'SchemaRegistryClusterConfigSchemaRegistryClusterArgs',
     'SchemaRegistryClusterEnvironmentArgs',
@@ -114,6 +116,9 @@ __all__ = [
     'SchemaRegistryDekSchemaRegistryClusterArgs',
     'SchemaRegistryKekCredentialsArgs',
     'SchemaRegistryKekSchemaRegistryClusterArgs',
+    'SchemaRulesetArgs',
+    'SchemaRulesetDomainRuleArgs',
+    'SchemaRulesetMigrationRuleArgs',
     'SchemaSchemaReferenceArgs',
     'SchemaSchemaRegistryClusterArgs',
     'SubjectConfigCredentialsArgs',
@@ -156,6 +161,8 @@ __all__ = [
     'GetPrivateLinkAttachmentConnectionEnvironmentArgs',
     'GetPrivateLinkAttachmentEnvironmentArgs',
     'GetSchemaCredentialsArgs',
+    'GetSchemaMetadataArgs',
+    'GetSchemaMetadataTagArgs',
     'GetSchemaRegistryClusterConfigCredentialsArgs',
     'GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs',
     'GetSchemaRegistryClusterEnvironmentArgs',
@@ -165,6 +172,9 @@ __all__ = [
     'GetSchemaRegistryDekSchemaRegistryClusterArgs',
     'GetSchemaRegistryKekCredentialsArgs',
     'GetSchemaRegistryKekSchemaRegistryClusterArgs',
+    'GetSchemaRulesetArgs',
+    'GetSchemaRulesetDomainRuleArgs',
+    'GetSchemaRulesetMigrationRuleArgs',
     'GetSchemaSchemaRegistryClusterArgs',
     'GetSchemasCredentialsArgs',
     'GetSchemasFilterArgs',
@@ -3121,7 +3131,7 @@ class SchemaCredentialsArgs:
                  key: pulumi.Input[str],
                  secret: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The Schema Registry API Key.
+        :param pulumi.Input[str] key: The setting name.
         :param pulumi.Input[str] secret: The Cluster API Secret for your Confluent Cloud cluster.
         """
         pulumi.set(__self__, "key", key)
@@ -3131,7 +3141,7 @@ class SchemaCredentialsArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The Schema Registry API Key.
+        The setting name.
         """
         return pulumi.get(self, "key")
 
@@ -3279,6 +3289,100 @@ class SchemaExporterSchemaRegistryClusterArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class SchemaMetadataArgs:
+    def __init__(__self__, *,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 sensitives: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgs']]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom properties to set:
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sensitives: A list of metadata properties to be encrypted.
+        :param pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgs']]] tags: The tags to which the rule applies, if any.
+        """
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if sensitives is not None:
+            pulumi.set(__self__, "sensitives", sensitives)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The custom properties to set:
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def sensitives(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of metadata properties to be encrypted.
+        """
+        return pulumi.get(self, "sensitives")
+
+    @sensitives.setter
+    def sensitives(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "sensitives", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgs']]]]:
+        """
+        The tags to which the rule applies, if any.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class SchemaMetadataTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] key: The setting name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The list of tags.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The setting name.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of tags.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
@@ -3449,8 +3553,8 @@ class SchemaRegistryDekCredentialsArgs:
                  key: pulumi.Input[str],
                  secret: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The Cluster API Key for your Confluent Cloud cluster.
-        :param pulumi.Input[str] secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param pulumi.Input[str] key: The Schema Registry API Key.
+        :param pulumi.Input[str] secret: The Schema Registry API Secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -3459,7 +3563,7 @@ class SchemaRegistryDekCredentialsArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The Cluster API Key for your Confluent Cloud cluster.
+        The Schema Registry API Key.
         """
         return pulumi.get(self, "key")
 
@@ -3471,7 +3575,7 @@ class SchemaRegistryDekCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[str]:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Schema Registry API Secret.
         """
         return pulumi.get(self, "secret")
 
@@ -3485,7 +3589,7 @@ class SchemaRegistryDekSchemaRegistryClusterArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -3493,7 +3597,7 @@ class SchemaRegistryDekSchemaRegistryClusterArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -3508,8 +3612,8 @@ class SchemaRegistryKekCredentialsArgs:
                  key: pulumi.Input[str],
                  secret: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The Cluster API Key for your Confluent Cloud cluster.
-        :param pulumi.Input[str] secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param pulumi.Input[str] key: The Schema Registry API Key.
+        :param pulumi.Input[str] secret: The Schema Registry API Secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -3518,7 +3622,7 @@ class SchemaRegistryKekCredentialsArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The Cluster API Key for your Confluent Cloud cluster.
+        The Schema Registry API Key.
         """
         return pulumi.get(self, "key")
 
@@ -3530,7 +3634,7 @@ class SchemaRegistryKekCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[str]:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Schema Registry API Secret.
         """
         return pulumi.get(self, "secret")
 
@@ -3544,7 +3648,7 @@ class SchemaRegistryKekSchemaRegistryClusterArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -3552,7 +3656,7 @@ class SchemaRegistryKekSchemaRegistryClusterArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -3562,13 +3666,396 @@ class SchemaRegistryKekSchemaRegistryClusterArgs:
 
 
 @pulumi.input_type
+class SchemaRulesetArgs:
+    def __init__(__self__, *,
+                 domain_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]]] = None,
+                 migration_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgs']]]] = None):
+        if domain_rules is not None:
+            pulumi.set(__self__, "domain_rules", domain_rules)
+        if migration_rules is not None:
+            pulumi.set(__self__, "migration_rules", migration_rules)
+
+    @property
+    @pulumi.getter(name="domainRules")
+    def domain_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]]]:
+        return pulumi.get(self, "domain_rules")
+
+    @domain_rules.setter
+    def domain_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetDomainRuleArgs']]]]):
+        pulumi.set(self, "domain_rules", value)
+
+    @property
+    @pulumi.getter(name="migrationRules")
+    def migration_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgs']]]]:
+        return pulumi.get(self, "migration_rules")
+
+    @migration_rules.setter
+    def migration_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaRulesetMigrationRuleArgs']]]]):
+        pulumi.set(self, "migration_rules", value)
+
+
+@pulumi.input_type
+class SchemaRulesetDomainRuleArgs:
+    def __init__(__self__, *,
+                 doc: Optional[pulumi.Input[str]] = None,
+                 expr: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 on_failure: Optional[pulumi.Input[str]] = None,
+                 on_success: Optional[pulumi.Input[str]] = None,
+                 params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] doc: An optional description of the rule.
+        :param pulumi.Input[str] expr: The body of the rule, which is optional.
+        :param pulumi.Input[str] kind: The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+        :param pulumi.Input[str] mode: The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        :param pulumi.Input[str] name: A user-defined name that can be used to reference the rule.
+        :param pulumi.Input[str] on_failure: An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        :param pulumi.Input[str] on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] params: A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+               
+               > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+               
+               > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+               **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The tags to which the rule applies, if any.
+        :param pulumi.Input[str] type: The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        """
+        if doc is not None:
+            pulumi.set(__self__, "doc", doc)
+        if expr is not None:
+            pulumi.set(__self__, "expr", expr)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if on_failure is not None:
+            pulumi.set(__self__, "on_failure", on_failure)
+        if on_success is not None:
+            pulumi.set(__self__, "on_success", on_success)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def doc(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional description of the rule.
+        """
+        return pulumi.get(self, "doc")
+
+    @doc.setter
+    def doc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "doc", value)
+
+    @property
+    @pulumi.getter
+    def expr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The body of the rule, which is optional.
+        """
+        return pulumi.get(self, "expr")
+
+    @expr.setter
+    def expr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expr", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A user-defined name that can be used to reference the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="onFailure")
+    def on_failure(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        """
+        return pulumi.get(self, "on_failure")
+
+    @on_failure.setter
+    def on_failure(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_failure", value)
+
+    @property
+    @pulumi.getter(name="onSuccess")
+    def on_success(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        """
+        return pulumi.get(self, "on_success")
+
+    @on_success.setter
+    def on_success(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_success", value)
+
+    @property
+    @pulumi.getter
+    def params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+
+        > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+
+        > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "params", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The tags to which the rule applies, if any.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class SchemaRulesetMigrationRuleArgs:
+    def __init__(__self__, *,
+                 doc: Optional[pulumi.Input[str]] = None,
+                 expr: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 on_failure: Optional[pulumi.Input[str]] = None,
+                 on_success: Optional[pulumi.Input[str]] = None,
+                 params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] doc: An optional description of the rule.
+        :param pulumi.Input[str] expr: The body of the rule, which is optional.
+        :param pulumi.Input[str] kind: The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+        :param pulumi.Input[str] mode: The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        :param pulumi.Input[str] name: A user-defined name that can be used to reference the rule.
+        :param pulumi.Input[str] on_failure: An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        :param pulumi.Input[str] on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] params: A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+               
+               > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+               
+               > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+               **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The tags to which the rule applies, if any.
+        :param pulumi.Input[str] type: The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        """
+        if doc is not None:
+            pulumi.set(__self__, "doc", doc)
+        if expr is not None:
+            pulumi.set(__self__, "expr", expr)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if on_failure is not None:
+            pulumi.set(__self__, "on_failure", on_failure)
+        if on_success is not None:
+            pulumi.set(__self__, "on_success", on_success)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def doc(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional description of the rule.
+        """
+        return pulumi.get(self, "doc")
+
+    @doc.setter
+    def doc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "doc", value)
+
+    @property
+    @pulumi.getter
+    def expr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The body of the rule, which is optional.
+        """
+        return pulumi.get(self, "expr")
+
+    @expr.setter
+    def expr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expr", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A user-defined name that can be used to reference the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="onFailure")
+    def on_failure(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
+        """
+        return pulumi.get(self, "on_failure")
+
+    @on_failure.setter
+    def on_failure(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_failure", value)
+
+    @property
+    @pulumi.getter(name="onSuccess")
+    def on_success(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
+        """
+        return pulumi.get(self, "on_success")
+
+    @on_success.setter
+    def on_success(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_success", value)
+
+    @property
+    @pulumi.getter
+    def params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+
+        > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
+
+        > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
+        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "params", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The tags to which the rule applies, if any.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class SchemaSchemaReferenceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  subject_name: pulumi.Input[str],
                  version: pulumi.Input[int]):
         """
-        :param pulumi.Input[str] name: The name of the subject, representing the subject under which the referenced schema is registered.
+        :param pulumi.Input[str] name: A user-defined name that can be used to reference the rule.
         :param pulumi.Input[str] subject_name: The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
         :param pulumi.Input[int] version: The version, representing the exact version of the schema under the registered subject.
         """
@@ -3580,7 +4067,7 @@ class SchemaSchemaReferenceArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the subject, representing the subject under which the referenced schema is registered.
+        A user-defined name that can be used to reference the rule.
         """
         return pulumi.get(self, "name")
 
@@ -4834,6 +5321,95 @@ class GetSchemaCredentialsArgs:
 
 
 @pulumi.input_type
+class GetSchemaMetadataArgs:
+    def __init__(__self__, *,
+                 properties: Mapping[str, str],
+                 sensitives: Sequence[str],
+                 tags: Sequence['GetSchemaMetadataTagArgs']):
+        """
+        :param Mapping[str, str] properties: (Optional Map) The custom properties to set:
+        :param Sequence[str] sensitives: (Optional List of Strings) A list of metadata properties to be encrypted.
+        :param Sequence['GetSchemaMetadataTagArgs'] tags: (Optional String List) The tags to which the rule applies, if any.
+        """
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "sensitives", sensitives)
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Mapping[str, str]:
+        """
+        (Optional Map) The custom properties to set:
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Mapping[str, str]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def sensitives(self) -> Sequence[str]:
+        """
+        (Optional List of Strings) A list of metadata properties to be encrypted.
+        """
+        return pulumi.get(self, "sensitives")
+
+    @sensitives.setter
+    def sensitives(self, value: Sequence[str]):
+        pulumi.set(self, "sensitives", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence['GetSchemaMetadataTagArgs']:
+        """
+        (Optional String List) The tags to which the rule applies, if any.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Sequence['GetSchemaMetadataTagArgs']):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class GetSchemaMetadataTagArgs:
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: The Schema Registry API Key.
+        :param Sequence[str] values: (Required List of Strings) The list of tags.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        (Required List of Strings) The list of tags.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
 class GetSchemaRegistryClusterConfigCredentialsArgs:
     def __init__(__self__, *,
                  key: str,
@@ -4987,8 +5563,8 @@ class GetSchemaRegistryDekCredentialsArgs:
                  key: str,
                  secret: str):
         """
-        :param str key: The Cluster API Key for your Confluent Cloud cluster.
-        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -4997,7 +5573,7 @@ class GetSchemaRegistryDekCredentialsArgs:
     @pulumi.getter
     def key(self) -> str:
         """
-        The Cluster API Key for your Confluent Cloud cluster.
+        The Schema Registry API Key.
         """
         return pulumi.get(self, "key")
 
@@ -5009,7 +5585,7 @@ class GetSchemaRegistryDekCredentialsArgs:
     @pulumi.getter
     def secret(self) -> str:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Schema Registry API Secret.
         """
         return pulumi.get(self, "secret")
 
@@ -5023,7 +5599,7 @@ class GetSchemaRegistryDekSchemaRegistryClusterArgs:
     def __init__(__self__, *,
                  id: str):
         """
-        :param str id: The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -5031,7 +5607,7 @@ class GetSchemaRegistryDekSchemaRegistryClusterArgs:
     @pulumi.getter
     def id(self) -> str:
         """
-        The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -5046,8 +5622,8 @@ class GetSchemaRegistryKekCredentialsArgs:
                  key: str,
                  secret: str):
         """
-        :param str key: The Cluster API Key for your Confluent Cloud cluster.
-        :param str secret: The Cluster API Secret for your Confluent Cloud cluster.
+        :param str key: The Schema Registry API Key.
+        :param str secret: The Schema Registry API Secret.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -5056,7 +5632,7 @@ class GetSchemaRegistryKekCredentialsArgs:
     @pulumi.getter
     def key(self) -> str:
         """
-        The Cluster API Key for your Confluent Cloud cluster.
+        The Schema Registry API Key.
         """
         return pulumi.get(self, "key")
 
@@ -5068,7 +5644,7 @@ class GetSchemaRegistryKekCredentialsArgs:
     @pulumi.getter
     def secret(self) -> str:
         """
-        The Cluster API Secret for your Confluent Cloud cluster.
+        The Schema Registry API Secret.
         """
         return pulumi.get(self, "secret")
 
@@ -5082,7 +5658,7 @@ class GetSchemaRegistryKekSchemaRegistryClusterArgs:
     def __init__(__self__, *,
                  id: str):
         """
-        :param str id: The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        :param str id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -5090,13 +5666,360 @@ class GetSchemaRegistryKekSchemaRegistryClusterArgs:
     @pulumi.getter
     def id(self) -> str:
         """
-        The Schema Registry cluster ID (e.g., `lsrc-abc123`).
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
         """
         return pulumi.get(self, "id")
 
     @id.setter
     def id(self, value: str):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetSchemaRulesetArgs:
+    def __init__(__self__, *,
+                 domain_rules: Sequence['GetSchemaRulesetDomainRuleArgs'],
+                 migration_rules: Sequence['GetSchemaRulesetMigrationRuleArgs']):
+        """
+        :param Sequence['GetSchemaRulesetDomainRuleArgs'] domain_rules: (Optional List of Blocks) supports the following:
+        """
+        pulumi.set(__self__, "domain_rules", domain_rules)
+        pulumi.set(__self__, "migration_rules", migration_rules)
+
+    @property
+    @pulumi.getter(name="domainRules")
+    def domain_rules(self) -> Sequence['GetSchemaRulesetDomainRuleArgs']:
+        """
+        (Optional List of Blocks) supports the following:
+        """
+        return pulumi.get(self, "domain_rules")
+
+    @domain_rules.setter
+    def domain_rules(self, value: Sequence['GetSchemaRulesetDomainRuleArgs']):
+        pulumi.set(self, "domain_rules", value)
+
+    @property
+    @pulumi.getter(name="migrationRules")
+    def migration_rules(self) -> Sequence['GetSchemaRulesetMigrationRuleArgs']:
+        return pulumi.get(self, "migration_rules")
+
+    @migration_rules.setter
+    def migration_rules(self, value: Sequence['GetSchemaRulesetMigrationRuleArgs']):
+        pulumi.set(self, "migration_rules", value)
+
+
+@pulumi.input_type
+class GetSchemaRulesetDomainRuleArgs:
+    def __init__(__self__, *,
+                 doc: str,
+                 expr: str,
+                 kind: str,
+                 mode: str,
+                 name: str,
+                 on_failure: str,
+                 on_success: str,
+                 params: Mapping[str, str],
+                 tags: Sequence[str],
+                 type: str):
+        """
+        :param str doc: (Optional String) An optional description.
+        :param str expr: (Optional String) The body of the rule, which is optional.
+        :param str kind: (Optional String) Either `CONDITION` or `TRANSFORM`.
+        :param str mode: (Optional String) The mode of the rule.
+        :param str name: (Optional String) A user-defined name that can be used to reference the rule.
+        :param str on_failure: (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+        :param str on_success: (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+        :param Mapping[str, str] params: (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+        :param Sequence[str] tags: (Optional String List) The tags to which the rule applies, if any.
+        :param str type: (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        """
+        pulumi.set(__self__, "doc", doc)
+        pulumi.set(__self__, "expr", expr)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "on_failure", on_failure)
+        pulumi.set(__self__, "on_success", on_success)
+        pulumi.set(__self__, "params", params)
+        pulumi.set(__self__, "tags", tags)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def doc(self) -> str:
+        """
+        (Optional String) An optional description.
+        """
+        return pulumi.get(self, "doc")
+
+    @doc.setter
+    def doc(self, value: str):
+        pulumi.set(self, "doc", value)
+
+    @property
+    @pulumi.getter
+    def expr(self) -> str:
+        """
+        (Optional String) The body of the rule, which is optional.
+        """
+        return pulumi.get(self, "expr")
+
+    @expr.setter
+    def expr(self, value: str):
+        pulumi.set(self, "expr", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        (Optional String) Either `CONDITION` or `TRANSFORM`.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: str):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        (Optional String) The mode of the rule.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: str):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        (Optional String) A user-defined name that can be used to reference the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="onFailure")
+    def on_failure(self) -> str:
+        """
+        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+        """
+        return pulumi.get(self, "on_failure")
+
+    @on_failure.setter
+    def on_failure(self, value: str):
+        pulumi.set(self, "on_failure", value)
+
+    @property
+    @pulumi.getter(name="onSuccess")
+    def on_success(self) -> str:
+        """
+        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+        """
+        return pulumi.get(self, "on_success")
+
+    @on_success.setter
+    def on_success(self, value: str):
+        pulumi.set(self, "on_success", value)
+
+    @property
+    @pulumi.getter
+    def params(self) -> Mapping[str, str]:
+        """
+        (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: Mapping[str, str]):
+        pulumi.set(self, "params", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence[str]:
+        """
+        (Optional String List) The tags to which the rule applies, if any.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Sequence[str]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class GetSchemaRulesetMigrationRuleArgs:
+    def __init__(__self__, *,
+                 doc: str,
+                 expr: str,
+                 kind: str,
+                 mode: str,
+                 name: str,
+                 on_failure: str,
+                 on_success: str,
+                 params: Mapping[str, str],
+                 tags: Sequence[str],
+                 type: str):
+        """
+        :param str doc: (Optional String) An optional description.
+        :param str expr: (Optional String) The body of the rule, which is optional.
+        :param str kind: (Optional String) Either `CONDITION` or `TRANSFORM`.
+        :param str mode: (Optional String) The mode of the rule.
+        :param str name: (Optional String) A user-defined name that can be used to reference the rule.
+        :param str on_failure: (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+        :param str on_success: (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+        :param Mapping[str, str] params: (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+        :param Sequence[str] tags: (Optional String List) The tags to which the rule applies, if any.
+        :param str type: (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        """
+        pulumi.set(__self__, "doc", doc)
+        pulumi.set(__self__, "expr", expr)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "on_failure", on_failure)
+        pulumi.set(__self__, "on_success", on_success)
+        pulumi.set(__self__, "params", params)
+        pulumi.set(__self__, "tags", tags)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def doc(self) -> str:
+        """
+        (Optional String) An optional description.
+        """
+        return pulumi.get(self, "doc")
+
+    @doc.setter
+    def doc(self, value: str):
+        pulumi.set(self, "doc", value)
+
+    @property
+    @pulumi.getter
+    def expr(self) -> str:
+        """
+        (Optional String) The body of the rule, which is optional.
+        """
+        return pulumi.get(self, "expr")
+
+    @expr.setter
+    def expr(self, value: str):
+        pulumi.set(self, "expr", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        (Optional String) Either `CONDITION` or `TRANSFORM`.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: str):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        (Optional String) The mode of the rule.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: str):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        (Optional String) A user-defined name that can be used to reference the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="onFailure")
+    def on_failure(self) -> str:
+        """
+        (Optional String) An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, as mentioned above.
+        """
+        return pulumi.get(self, "on_failure")
+
+    @on_failure.setter
+    def on_failure(self, value: str):
+        pulumi.set(self, "on_failure", value)
+
+    @property
+    @pulumi.getter(name="onSuccess")
+    def on_success(self) -> str:
+        """
+        (Optional String) An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For UPDOWN and WRITEREAD rules, one can specify two actions separated by commas, such as “NONE,ERROR” for a WRITEREAD rule. In this case NONE applies to WRITE and ERROR applies to READ.
+        """
+        return pulumi.get(self, "on_success")
+
+    @on_success.setter
+    def on_success(self, value: str):
+        pulumi.set(self, "on_success", value)
+
+    @property
+    @pulumi.getter
+    def params(self) -> Mapping[str, str]:
+        """
+        (Optional Configuration Block) A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: Mapping[str, str]):
+        pulumi.set(self, "params", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence[str]:
+        """
+        (Optional String List) The tags to which the rule applies, if any.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Sequence[str]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        (Optional String) The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

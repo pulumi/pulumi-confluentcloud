@@ -6,6 +6,23 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * You can import a Schema Registry Key by using the Schema Registry cluster ID, Kek name in the format `<Schema Registry cluster ID>/<Kek name>`, for example:
+ *
+ * $ export IMPORT_SCHEMA_REGISTRY_API_KEY="<schema_registry_api_key>"
+ *
+ * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
+ *
+ * $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
+ *
+ * ```sh
+ * $ pulumi import confluentcloud:index/schemaRegistryKek:SchemaRegistryKek aws_key lsrc-8wrx70/aws_key
+ * ```
+ *
+ * !> **Warning:** Do not forget to delete terminal command history afterwards for security purposes.
+ */
 export class SchemaRegistryKek extends pulumi.CustomResource {
     /**
      * Get an existing SchemaRegistryKek resource's state with the given name, ID, and optional extra
@@ -38,23 +55,43 @@ export class SchemaRegistryKek extends pulumi.CustomResource {
      * The Cluster API Credentials.
      */
     public readonly credentials!: pulumi.Output<outputs.SchemaRegistryKekCredentials | undefined>;
+    /**
+     * The optional description for the KEK.
+     */
     public readonly doc!: pulumi.Output<string>;
     /**
      * Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
      * on destroy. Defaults to `false` (soft delete).
      */
     public readonly hardDelete!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of the key from KMS. 
+     * - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
+     * - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
+     * - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
+     */
     public readonly kmsKeyId!: pulumi.Output<string>;
+    /**
+     * The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
+     */
     public readonly kmsType!: pulumi.Output<string>;
+    /**
+     * The custom property name (for example, `KeyUsage`).
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
+     */
     public readonly properties!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The REST endpoint of the Schema Registry cluster, for example,
-     * `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     public readonly restEndpoint!: pulumi.Output<string | undefined>;
     public readonly schemaRegistryCluster!: pulumi.Output<outputs.SchemaRegistryKekSchemaRegistryCluster | undefined>;
-    public readonly shared!: pulumi.Output<boolean>;
+    /**
+     * The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+     */
+    public readonly shared!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SchemaRegistryKek resource with the given unique name, arguments, and options.
@@ -113,22 +150,42 @@ export interface SchemaRegistryKekState {
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.SchemaRegistryKekCredentials>;
+    /**
+     * The optional description for the KEK.
+     */
     doc?: pulumi.Input<string>;
     /**
      * Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
      * on destroy. Defaults to `false` (soft delete).
      */
     hardDelete?: pulumi.Input<boolean>;
+    /**
+     * The ID of the key from KMS. 
+     * - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
+     * - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
+     * - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
+     */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
+     */
     kmsType?: pulumi.Input<string>;
+    /**
+     * The custom property name (for example, `KeyUsage`).
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
+     */
     properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The REST endpoint of the Schema Registry cluster, for example,
-     * `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
     schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryKekSchemaRegistryCluster>;
+    /**
+     * The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+     */
     shared?: pulumi.Input<boolean>;
 }
 
@@ -140,21 +197,41 @@ export interface SchemaRegistryKekArgs {
      * The Cluster API Credentials.
      */
     credentials?: pulumi.Input<inputs.SchemaRegistryKekCredentials>;
+    /**
+     * The optional description for the KEK.
+     */
     doc?: pulumi.Input<string>;
     /**
      * Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
      * on destroy. Defaults to `false` (soft delete).
      */
     hardDelete?: pulumi.Input<boolean>;
+    /**
+     * The ID of the key from KMS. 
+     * - When using the AWS KMS, this is an ARN, for example, `arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789abc`.
+     * - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
+     * - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
+     */
     kmsKeyId: pulumi.Input<string>;
+    /**
+     * The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
+     */
     kmsType: pulumi.Input<string>;
+    /**
+     * The custom property name (for example, `KeyUsage`).
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
+     */
     properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The REST endpoint of the Schema Registry cluster, for example,
-     * `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
     schemaRegistryCluster?: pulumi.Input<inputs.SchemaRegistryKekSchemaRegistryCluster>;
+    /**
+     * The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
+     */
     shared?: pulumi.Input<boolean>;
 }
