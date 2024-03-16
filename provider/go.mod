@@ -89,7 +89,7 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.10.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-dnsforwarder v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-ip v0.2.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/networking-privatelink v0.1.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/networking-privatelink v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/org v0.9.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/schema-registry v0.4.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/srcm v0.2.0 // indirect
@@ -295,7 +295,7 @@ require (
 	google.golang.org/genproto/googleapis/api v0.0.0-20240123012728-ef4313101c80 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240123012728-ef4313101c80 // indirect
 	google.golang.org/grpc v1.62.0 // indirect
-	google.golang.org/protobuf v1.32.0 // indirect
+	google.golang.org/protobuf v1.33.0 // indirect
 	gopkg.in/square/go-jose.v2 v2.6.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
