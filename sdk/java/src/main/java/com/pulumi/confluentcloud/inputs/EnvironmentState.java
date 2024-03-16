@@ -47,14 +47,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Stream Governance configurations for the environment
+     * The stream governance configuration for the Environment. The block supports the following arguments:
      * 
      */
     @Import(name="streamGovernance")
     private @Nullable Output<EnvironmentStreamGovernanceArgs> streamGovernance;
 
     /**
-     * @return Stream Governance configurations for the environment
+     * @return The stream governance configuration for the Environment. The block supports the following arguments:
      * 
      */
     public Optional<Output<EnvironmentStreamGovernanceArgs>> streamGovernance() {
@@ -130,7 +130,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamGovernance Stream Governance configurations for the environment
+         * @param streamGovernance The stream governance configuration for the Environment. The block supports the following arguments:
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamGovernance Stream Governance configurations for the environment
+         * @param streamGovernance The stream governance configuration for the Environment. The block supports the following arguments:
          * 
          * @return builder
          * 

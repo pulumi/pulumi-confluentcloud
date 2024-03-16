@@ -20,11 +20,6 @@ public final class GetPrivateLinkAttachmentAzure {
      * 
      */
     private String privateLinkServiceResourceId;
-    /**
-     * @return Availability zone associated with the Azure PrivateLink service.
-     * 
-     */
-    private String zone;
 
     private GetPrivateLinkAttachmentAzure() {}
     /**
@@ -41,13 +36,6 @@ public final class GetPrivateLinkAttachmentAzure {
     public String privateLinkServiceResourceId() {
         return this.privateLinkServiceResourceId;
     }
-    /**
-     * @return Availability zone associated with the Azure PrivateLink service.
-     * 
-     */
-    public String zone() {
-        return this.zone;
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -60,13 +48,11 @@ public final class GetPrivateLinkAttachmentAzure {
     public static final class Builder {
         private String privateLinkServiceAlias;
         private String privateLinkServiceResourceId;
-        private String zone;
         public Builder() {}
         public Builder(GetPrivateLinkAttachmentAzure defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.privateLinkServiceAlias = defaults.privateLinkServiceAlias;
     	      this.privateLinkServiceResourceId = defaults.privateLinkServiceResourceId;
-    	      this.zone = defaults.zone;
         }
 
         @CustomType.Setter
@@ -85,19 +71,10 @@ public final class GetPrivateLinkAttachmentAzure {
             this.privateLinkServiceResourceId = privateLinkServiceResourceId;
             return this;
         }
-        @CustomType.Setter
-        public Builder zone(String zone) {
-            if (zone == null) {
-              throw new MissingRequiredPropertyException("GetPrivateLinkAttachmentAzure", "zone");
-            }
-            this.zone = zone;
-            return this;
-        }
         public GetPrivateLinkAttachmentAzure build() {
             final var _resultValue = new GetPrivateLinkAttachmentAzure();
             _resultValue.privateLinkServiceAlias = privateLinkServiceAlias;
             _resultValue.privateLinkServiceResourceId = privateLinkServiceResourceId;
-            _resultValue.zone = zone;
             return _resultValue;
         }
     }

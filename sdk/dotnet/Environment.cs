@@ -42,7 +42,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> ResourceName { get; private set; } = null!;
 
         /// <summary>
-        /// Stream Governance configurations for the environment
+        /// The stream governance configuration for the Environment. The block supports the following arguments:
         /// </summary>
         [Output("streamGovernance")]
         public Output<Outputs.EnvironmentStreamGovernance> StreamGovernance { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Stream Governance configurations for the environment
+        /// The stream governance configuration for the Environment. The block supports the following arguments:
         /// </summary>
         [Input("streamGovernance")]
         public Input<Inputs.EnvironmentStreamGovernanceArgs>? StreamGovernance { get; set; }
@@ -126,7 +126,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? ResourceName { get; set; }
 
         /// <summary>
-        /// Stream Governance configurations for the environment
+        /// The stream governance configuration for the Environment. The block supports the following arguments:
         /// </summary>
         [Input("streamGovernance")]
         public Input<Inputs.EnvironmentStreamGovernanceGetArgs>? StreamGovernance { get; set; }

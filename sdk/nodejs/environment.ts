@@ -60,7 +60,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceName!: pulumi.Output<string>;
     /**
-     * Stream Governance configurations for the environment
+     * The stream governance configuration for the Environment. The block supports the following arguments:
      */
     public readonly streamGovernance!: pulumi.Output<outputs.EnvironmentStreamGovernance>;
 
@@ -104,7 +104,7 @@ export interface EnvironmentState {
      */
     resourceName?: pulumi.Input<string>;
     /**
-     * Stream Governance configurations for the environment
+     * The stream governance configuration for the Environment. The block supports the following arguments:
      */
     streamGovernance?: pulumi.Input<inputs.EnvironmentStreamGovernance>;
 }
@@ -118,7 +118,7 @@ export interface EnvironmentArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Stream Governance configurations for the environment
+     * The stream governance configuration for the Environment. The block supports the following arguments:
      */
     streamGovernance?: pulumi.Input<inputs.EnvironmentStreamGovernance>;
 }

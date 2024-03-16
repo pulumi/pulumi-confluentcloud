@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class EnvironmentStreamGovernance {
     /**
-     * @return Stream Governance Package. &#39;ESSENTIALS&#39; or &#39;ADVANCED&#39;
+     * @return The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
      * 
      */
     private String package_;
 
     private EnvironmentStreamGovernance() {}
     /**
-     * @return Stream Governance Package. &#39;ESSENTIALS&#39; or &#39;ADVANCED&#39;
+     * @return The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
      * 
      */
     public String package_() {

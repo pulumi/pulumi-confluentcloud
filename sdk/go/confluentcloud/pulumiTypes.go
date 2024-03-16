@@ -3841,7 +3841,7 @@ func (o DnsForwarderGatewayPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type EnvironmentStreamGovernance struct {
-	// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+	// The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
 	Package string `pulumi:"package"`
 }
 
@@ -3857,7 +3857,7 @@ type EnvironmentStreamGovernanceInput interface {
 }
 
 type EnvironmentStreamGovernanceArgs struct {
-	// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+	// The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
 	Package pulumi.StringInput `pulumi:"package"`
 }
 
@@ -3938,7 +3938,7 @@ func (o EnvironmentStreamGovernanceOutput) ToEnvironmentStreamGovernancePtrOutpu
 	}).(EnvironmentStreamGovernancePtrOutput)
 }
 
-// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+// The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
 func (o EnvironmentStreamGovernanceOutput) Package() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentStreamGovernance) string { return v.Package }).(pulumi.StringOutput)
 }
@@ -3967,7 +3967,7 @@ func (o EnvironmentStreamGovernancePtrOutput) Elem() EnvironmentStreamGovernance
 	}).(EnvironmentStreamGovernanceOutput)
 }
 
-// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+// The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
 func (o EnvironmentStreamGovernancePtrOutput) Package() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentStreamGovernance) *string {
 		if v == nil {
@@ -11820,8 +11820,6 @@ type PrivateLinkAttachmentAzure struct {
 	PrivateLinkServiceAlias *string `pulumi:"privateLinkServiceAlias"`
 	// Azure PrivateLink service resource id for the availability zone.
 	PrivateLinkServiceResourceId *string `pulumi:"privateLinkServiceResourceId"`
-	// Availability zone associated with the Azure PrivateLink service.
-	Zone *string `pulumi:"zone"`
 }
 
 // PrivateLinkAttachmentAzureInput is an input type that accepts PrivateLinkAttachmentAzureArgs and PrivateLinkAttachmentAzureOutput values.
@@ -11840,8 +11838,6 @@ type PrivateLinkAttachmentAzureArgs struct {
 	PrivateLinkServiceAlias pulumi.StringPtrInput `pulumi:"privateLinkServiceAlias"`
 	// Azure PrivateLink service resource id for the availability zone.
 	PrivateLinkServiceResourceId pulumi.StringPtrInput `pulumi:"privateLinkServiceResourceId"`
-	// Availability zone associated with the Azure PrivateLink service.
-	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
 func (PrivateLinkAttachmentAzureArgs) ElementType() reflect.Type {
@@ -11903,11 +11899,6 @@ func (o PrivateLinkAttachmentAzureOutput) PrivateLinkServiceAlias() pulumi.Strin
 // Azure PrivateLink service resource id for the availability zone.
 func (o PrivateLinkAttachmentAzureOutput) PrivateLinkServiceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentAzure) *string { return v.PrivateLinkServiceResourceId }).(pulumi.StringPtrOutput)
-}
-
-// Availability zone associated with the Azure PrivateLink service.
-func (o PrivateLinkAttachmentAzureOutput) Zone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkAttachmentAzure) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
 
 type PrivateLinkAttachmentAzureArrayOutput struct{ *pulumi.OutputState }
@@ -23537,8 +23528,6 @@ type GetPrivateLinkAttachmentAzure struct {
 	PrivateLinkServiceAlias string `pulumi:"privateLinkServiceAlias"`
 	// Azure PrivateLink service resource id for the availability zone.
 	PrivateLinkServiceResourceId string `pulumi:"privateLinkServiceResourceId"`
-	// Availability zone associated with the Azure PrivateLink service.
-	Zone string `pulumi:"zone"`
 }
 
 // GetPrivateLinkAttachmentAzureInput is an input type that accepts GetPrivateLinkAttachmentAzureArgs and GetPrivateLinkAttachmentAzureOutput values.
@@ -23557,8 +23546,6 @@ type GetPrivateLinkAttachmentAzureArgs struct {
 	PrivateLinkServiceAlias pulumi.StringInput `pulumi:"privateLinkServiceAlias"`
 	// Azure PrivateLink service resource id for the availability zone.
 	PrivateLinkServiceResourceId pulumi.StringInput `pulumi:"privateLinkServiceResourceId"`
-	// Availability zone associated with the Azure PrivateLink service.
-	Zone pulumi.StringInput `pulumi:"zone"`
 }
 
 func (GetPrivateLinkAttachmentAzureArgs) ElementType() reflect.Type {
@@ -23620,11 +23607,6 @@ func (o GetPrivateLinkAttachmentAzureOutput) PrivateLinkServiceAlias() pulumi.St
 // Azure PrivateLink service resource id for the availability zone.
 func (o GetPrivateLinkAttachmentAzureOutput) PrivateLinkServiceResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentAzure) string { return v.PrivateLinkServiceResourceId }).(pulumi.StringOutput)
-}
-
-// Availability zone associated with the Azure PrivateLink service.
-func (o GetPrivateLinkAttachmentAzureOutput) Zone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPrivateLinkAttachmentAzure) string { return v.Zone }).(pulumi.StringOutput)
 }
 
 type GetPrivateLinkAttachmentAzureArrayOutput struct{ *pulumi.OutputState }

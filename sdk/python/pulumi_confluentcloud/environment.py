@@ -21,7 +21,7 @@ class EnvironmentArgs:
         """
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] display_name: A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
-        :param pulumi.Input['EnvironmentStreamGovernanceArgs'] stream_governance: Stream Governance configurations for the environment
+        :param pulumi.Input['EnvironmentStreamGovernanceArgs'] stream_governance: The stream governance configuration for the Environment. The block supports the following arguments:
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -44,7 +44,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="streamGovernance")
     def stream_governance(self) -> Optional[pulumi.Input['EnvironmentStreamGovernanceArgs']]:
         """
-        Stream Governance configurations for the environment
+        The stream governance configuration for the Environment. The block supports the following arguments:
         """
         return pulumi.get(self, "stream_governance")
 
@@ -63,7 +63,7 @@ class _EnvironmentState:
         Input properties used for looking up and filtering Environment resources.
         :param pulumi.Input[str] display_name: A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
         :param pulumi.Input[str] resource_name: (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
-        :param pulumi.Input['EnvironmentStreamGovernanceArgs'] stream_governance: Stream Governance configurations for the environment
+        :param pulumi.Input['EnvironmentStreamGovernanceArgs'] stream_governance: The stream governance configuration for the Environment. The block supports the following arguments:
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -100,7 +100,7 @@ class _EnvironmentState:
     @pulumi.getter(name="streamGovernance")
     def stream_governance(self) -> Optional[pulumi.Input['EnvironmentStreamGovernanceArgs']]:
         """
-        Stream Governance configurations for the environment
+        The stream governance configuration for the Environment. The block supports the following arguments:
         """
         return pulumi.get(self, "stream_governance")
 
@@ -137,7 +137,7 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
-        :param pulumi.Input[pulumi.InputType['EnvironmentStreamGovernanceArgs']] stream_governance: Stream Governance configurations for the environment
+        :param pulumi.Input[pulumi.InputType['EnvironmentStreamGovernanceArgs']] stream_governance: The stream governance configuration for the Environment. The block supports the following arguments:
         """
         ...
     @overload
@@ -213,7 +213,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: A human-readable name for the Environment. Start and end the name with alphanumeric characters, for example, "Development". The name can contain hyphens and underscores.
         :param pulumi.Input[str] resource_name_: (Required String) The Confluent Resource Name of the Environment, for example, `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-abc123`.
-        :param pulumi.Input[pulumi.InputType['EnvironmentStreamGovernanceArgs']] stream_governance: Stream Governance configurations for the environment
+        :param pulumi.Input[pulumi.InputType['EnvironmentStreamGovernanceArgs']] stream_governance: The stream governance configuration for the Environment. The block supports the following arguments:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -244,7 +244,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="streamGovernance")
     def stream_governance(self) -> pulumi.Output['outputs.EnvironmentStreamGovernance']:
         """
-        Stream Governance configurations for the environment
+        The stream governance configuration for the Environment. The block supports the following arguments:
         """
         return pulumi.get(self, "stream_governance")
 

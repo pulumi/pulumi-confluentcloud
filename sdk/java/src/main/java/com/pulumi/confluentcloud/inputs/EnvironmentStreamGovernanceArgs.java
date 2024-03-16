@@ -15,14 +15,14 @@ public final class EnvironmentStreamGovernanceArgs extends com.pulumi.resources.
     public static final EnvironmentStreamGovernanceArgs Empty = new EnvironmentStreamGovernanceArgs();
 
     /**
-     * Stream Governance Package. &#39;ESSENTIALS&#39; or &#39;ADVANCED&#39;
+     * The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
      * 
      */
     @Import(name="package", required=true)
     private Output<String> package_;
 
     /**
-     * @return Stream Governance Package. &#39;ESSENTIALS&#39; or &#39;ADVANCED&#39;
+     * @return The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
      * 
      */
     public Output<String> package_() {
@@ -54,7 +54,7 @@ public final class EnvironmentStreamGovernanceArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param package_ Stream Governance Package. &#39;ESSENTIALS&#39; or &#39;ADVANCED&#39;
+         * @param package_ The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class EnvironmentStreamGovernanceArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param package_ Stream Governance Package. &#39;ESSENTIALS&#39; or &#39;ADVANCED&#39;
+         * @param package_ The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
          * 
          * @return builder
          * 

@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.confluentcloud.Environment;
  * import com.pulumi.confluentcloud.EnvironmentArgs;
+ * import com.pulumi.confluentcloud.inputs.EnvironmentStreamGovernanceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -41,6 +42,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var prod = new Environment(&#34;prod&#34;, EnvironmentArgs.builder()        
  *             .lifecycle(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .streamGovernance(EnvironmentStreamGovernanceArgs.builder()
+ *                 .package_(&#34;ESSENTIALS&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -119,14 +123,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.resourceName;
     }
     /**
-     * Stream Governance configurations for the environment
+     * The stream governance configuration for the Environment. The block supports the following arguments:
      * 
      */
     @Export(name="streamGovernance", refs={EnvironmentStreamGovernance.class}, tree="[0]")
     private Output<EnvironmentStreamGovernance> streamGovernance;
 
     /**
-     * @return Stream Governance configurations for the environment
+     * @return The stream governance configuration for the Environment. The block supports the following arguments:
      * 
      */
     public Output<EnvironmentStreamGovernance> streamGovernance() {

@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class EnvironmentStreamGovernance
     {
         /// <summary>
-        /// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+        /// The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
         /// </summary>
         public readonly string Package;
 

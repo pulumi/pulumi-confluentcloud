@@ -927,10 +927,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getEnvironments:getEnvironments", TypeShape.of(GetEnvironmentsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Preview](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Preview-%!a(MISSING)fba&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.FlinkComputePool` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.FlinkComputePool` describes a Flink Compute Pool data source.
      * 
@@ -985,10 +982,7 @@ public final class ConfluentcloudFunctions {
         return getFlinkComputePool(args, InvokeOptions.Empty);
     }
     /**
-     * [![Preview](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Preview-%!a(MISSING)fba&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.FlinkComputePool` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.FlinkComputePool` describes a Flink Compute Pool data source.
      * 
@@ -1043,10 +1037,7 @@ public final class ConfluentcloudFunctions {
         return getFlinkComputePoolPlain(args, InvokeOptions.Empty);
     }
     /**
-     * [![Preview](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Preview-%!a(MISSING)fba&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.FlinkComputePool` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.FlinkComputePool` describes a Flink Compute Pool data source.
      * 
@@ -1101,10 +1092,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", TypeShape.of(GetFlinkComputePoolResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Preview](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Preview-%!a(MISSING)fba&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.FlinkComputePool` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.FlinkComputePool` describes a Flink Compute Pool data source.
      * 
@@ -1159,10 +1147,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", TypeShape.of(GetFlinkComputePoolResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Preview](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Preview-%!a(MISSING)fba&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.getFlinkRegion` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getFlinkRegion` describes a Flink cluster data source.
      * 
@@ -1206,10 +1191,7 @@ public final class ConfluentcloudFunctions {
         return getFlinkRegion(args, InvokeOptions.Empty);
     }
     /**
-     * [![Preview](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Preview-%!a(MISSING)fba&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.getFlinkRegion` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getFlinkRegion` describes a Flink cluster data source.
      * 
@@ -1253,10 +1235,7 @@ public final class ConfluentcloudFunctions {
         return getFlinkRegionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * [![Preview](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Preview-%!a(MISSING)fba&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.getFlinkRegion` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getFlinkRegion` describes a Flink cluster data source.
      * 
@@ -1300,10 +1279,7 @@ public final class ConfluentcloudFunctions {
         return Deployment.getInstance().invoke("confluentcloud:index/getFlinkRegion:getFlinkRegion", TypeShape.of(GetFlinkRegionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * [![Preview](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Preview-%!a(MISSING)fba&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
-     * 
-     * &gt; **Note:** `confluentcloud.getFlinkRegion` data source is available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing Preview releases of the Preview features at any time in Confluent’s sole discretion.
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
      * 
      * `confluentcloud.getFlinkRegion` describes a Flink cluster data source.
      * 
