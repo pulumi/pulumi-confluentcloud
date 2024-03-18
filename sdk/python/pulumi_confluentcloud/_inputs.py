@@ -1239,7 +1239,7 @@ class EnvironmentStreamGovernanceArgs:
     def __init__(__self__, *,
                  package: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] package: Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+        :param pulumi.Input[str] package: The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
         """
         pulumi.set(__self__, "package", package)
 
@@ -1247,7 +1247,7 @@ class EnvironmentStreamGovernanceArgs:
     @pulumi.getter
     def package(self) -> pulumi.Input[str]:
         """
-        Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+        The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
         """
         return pulumi.get(self, "package")
 
@@ -2903,19 +2903,15 @@ class PrivateLinkAttachmentAwArgs:
 class PrivateLinkAttachmentAzureArgs:
     def __init__(__self__, *,
                  private_link_service_alias: Optional[pulumi.Input[str]] = None,
-                 private_link_service_resource_id: Optional[pulumi.Input[str]] = None,
-                 zone: Optional[pulumi.Input[str]] = None):
+                 private_link_service_resource_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] private_link_service_alias: Azure PrivateLink service alias for the availability zone.
         :param pulumi.Input[str] private_link_service_resource_id: Azure PrivateLink service resource id for the availability zone.
-        :param pulumi.Input[str] zone: Availability zone associated with the Azure PrivateLink service.
         """
         if private_link_service_alias is not None:
             pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
         if private_link_service_resource_id is not None:
             pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
-        if zone is not None:
-            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="privateLinkServiceAlias")
@@ -2940,18 +2936,6 @@ class PrivateLinkAttachmentAzureArgs:
     @private_link_service_resource_id.setter
     def private_link_service_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_link_service_resource_id", value)
-
-    @property
-    @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[str]]:
-        """
-        Availability zone associated with the Azure PrivateLink service.
-        """
-        return pulumi.get(self, "zone")
-
-    @zone.setter
-    def zone(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "zone", value)
 
 
 @pulumi.input_type

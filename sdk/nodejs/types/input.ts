@@ -307,7 +307,7 @@ export interface DnsForwarderGateway {
 
 export interface EnvironmentStreamGovernance {
     /**
-     * Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+     * The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
      */
     package: pulumi.Input<string>;
 }
@@ -2024,10 +2024,6 @@ export interface PrivateLinkAttachmentAzure {
      * Azure PrivateLink service resource id for the availability zone.
      */
     privateLinkServiceResourceId?: pulumi.Input<string>;
-    /**
-     * Availability zone associated with the Azure PrivateLink service.
-     */
-    zone?: pulumi.Input<string>;
 }
 
 export interface PrivateLinkAttachmentConnectionAws {

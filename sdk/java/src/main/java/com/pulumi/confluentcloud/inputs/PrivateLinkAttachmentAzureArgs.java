@@ -45,27 +45,11 @@ public final class PrivateLinkAttachmentAzureArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.privateLinkServiceResourceId);
     }
 
-    /**
-     * Availability zone associated with the Azure PrivateLink service.
-     * 
-     */
-    @Import(name="zone")
-    private @Nullable Output<String> zone;
-
-    /**
-     * @return Availability zone associated with the Azure PrivateLink service.
-     * 
-     */
-    public Optional<Output<String>> zone() {
-        return Optional.ofNullable(this.zone);
-    }
-
     private PrivateLinkAttachmentAzureArgs() {}
 
     private PrivateLinkAttachmentAzureArgs(PrivateLinkAttachmentAzureArgs $) {
         this.privateLinkServiceAlias = $.privateLinkServiceAlias;
         this.privateLinkServiceResourceId = $.privateLinkServiceResourceId;
-        this.zone = $.zone;
     }
 
     public static Builder builder() {
@@ -126,27 +110,6 @@ public final class PrivateLinkAttachmentAzureArgs extends com.pulumi.resources.R
          */
         public Builder privateLinkServiceResourceId(String privateLinkServiceResourceId) {
             return privateLinkServiceResourceId(Output.of(privateLinkServiceResourceId));
-        }
-
-        /**
-         * @param zone Availability zone associated with the Azure PrivateLink service.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder zone(@Nullable Output<String> zone) {
-            $.zone = zone;
-            return this;
-        }
-
-        /**
-         * @param zone Availability zone associated with the Azure PrivateLink service.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder zone(String zone) {
-            return zone(Output.of(zone));
         }
 
         public PrivateLinkAttachmentAzureArgs build() {

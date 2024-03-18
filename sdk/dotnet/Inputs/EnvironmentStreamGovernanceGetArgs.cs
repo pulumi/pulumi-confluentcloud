@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class EnvironmentStreamGovernanceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+        /// The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
         /// </summary>
         [Input("package", required: true)]
         public Input<string> Package { get; set; } = null!;

@@ -307,7 +307,7 @@ export interface DnsForwarderGateway {
 
 export interface EnvironmentStreamGovernance {
     /**
-     * Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
+     * The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
      */
     package: string;
 }
@@ -926,10 +926,6 @@ export interface GetPrivateLinkAttachmentAzure {
      * Azure PrivateLink service resource id for the availability zone.
      */
     privateLinkServiceResourceId: string;
-    /**
-     * Availability zone associated with the Azure PrivateLink service.
-     */
-    zone: string;
 }
 
 export interface GetPrivateLinkAttachmentConnectionAw {
@@ -1945,10 +1941,6 @@ export interface PrivateLinkAttachmentAzure {
      * Azure PrivateLink service resource id for the availability zone.
      */
     privateLinkServiceResourceId: string;
-    /**
-     * Availability zone associated with the Azure PrivateLink service.
-     */
-    zone: string;
 }
 
 export interface PrivateLinkAttachmentConnectionAws {
