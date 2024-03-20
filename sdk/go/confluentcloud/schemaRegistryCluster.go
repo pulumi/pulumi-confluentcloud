@@ -40,12 +40,12 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewSchemaRegistryCluster(ctx, "essentials", &confluentcloud.SchemaRegistryClusterArgs{
-//				Package: *pulumi.String(example.Package),
+//				Package: pulumi.String(example.Package),
 //				Environment: &confluentcloud.SchemaRegistryClusterEnvironmentArgs{
 //					Id: development.ID(),
 //				},
 //				Region: &confluentcloud.SchemaRegistryClusterRegionArgs{
-//					Id: *pulumi.String(example.Id),
+//					Id: pulumi.String(example.Id),
 //				},
 //			})
 //			if err != nil {
