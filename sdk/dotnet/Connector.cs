@@ -46,12 +46,12 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             confluent_kafka_acl.App_connector_describe_on_cluster,
-    ///             confluent_kafka_acl.App_connector_write_on_target_topic,
-    ///             confluent_kafka_acl.App_connector_create_on_data_preview_topics,
-    ///             confluent_kafka_acl.App_connector_write_on_data_preview_topics,
+    ///             confluent_kafka_acl.App_connector_describe_on_cluster, 
+    ///             confluent_kafka_acl.App_connector_write_on_target_topic, 
+    ///             confluent_kafka_acl.App_connector_create_on_data_preview_topics, 
+    ///             confluent_kafka_acl.App_connector_write_on_data_preview_topics, 
     ///         },
     ///     });
     /// 
@@ -100,17 +100,17 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             confluent_kafka_acl.App_connector_describe_on_cluster,
-    ///             confluent_kafka_acl.App_connector_read_on_target_topic,
-    ///             confluent_kafka_acl.App_connector_create_on_dlq_lcc_topics,
-    ///             confluent_kafka_acl.App_connector_write_on_dlq_lcc_topics,
-    ///             confluent_kafka_acl.App_connector_create_on_success_lcc_topics,
-    ///             confluent_kafka_acl.App_connector_write_on_success_lcc_topics,
-    ///             confluent_kafka_acl.App_connector_create_on_error_lcc_topics,
-    ///             confluent_kafka_acl.App_connector_write_on_error_lcc_topics,
-    ///             confluent_kafka_acl.App_connector_read_on_connect_lcc_group,
+    ///             confluent_kafka_acl.App_connector_describe_on_cluster, 
+    ///             confluent_kafka_acl.App_connector_read_on_target_topic, 
+    ///             confluent_kafka_acl.App_connector_create_on_dlq_lcc_topics, 
+    ///             confluent_kafka_acl.App_connector_write_on_dlq_lcc_topics, 
+    ///             confluent_kafka_acl.App_connector_create_on_success_lcc_topics, 
+    ///             confluent_kafka_acl.App_connector_write_on_success_lcc_topics, 
+    ///             confluent_kafka_acl.App_connector_create_on_error_lcc_topics, 
+    ///             confluent_kafka_acl.App_connector_write_on_error_lcc_topics, 
+    ///             confluent_kafka_acl.App_connector_read_on_connect_lcc_group, 
     ///         },
     ///     });
     /// 
@@ -157,17 +157,17 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             confluent_kafka_acl.App_connector_describe_on_cluster,
-    ///             confluent_kafka_acl.App_connector_read_on_target_topic,
-    ///             confluent_kafka_acl.App_connector_create_on_dlq_lcc_topics,
-    ///             confluent_kafka_acl.App_connector_write_on_dlq_lcc_topics,
-    ///             confluent_kafka_acl.App_connector_create_on_success_lcc_topics,
-    ///             confluent_kafka_acl.App_connector_write_on_success_lcc_topics,
-    ///             confluent_kafka_acl.App_connector_create_on_error_lcc_topics,
-    ///             confluent_kafka_acl.App_connector_write_on_error_lcc_topics,
-    ///             confluent_kafka_acl.App_connector_read_on_connect_lcc_group,
+    ///             confluent_kafka_acl.App_connector_describe_on_cluster, 
+    ///             confluent_kafka_acl.App_connector_read_on_target_topic, 
+    ///             confluent_kafka_acl.App_connector_create_on_dlq_lcc_topics, 
+    ///             confluent_kafka_acl.App_connector_write_on_dlq_lcc_topics, 
+    ///             confluent_kafka_acl.App_connector_create_on_success_lcc_topics, 
+    ///             confluent_kafka_acl.App_connector_write_on_success_lcc_topics, 
+    ///             confluent_kafka_acl.App_connector_create_on_error_lcc_topics, 
+    ///             confluent_kafka_acl.App_connector_write_on_error_lcc_topics, 
+    ///             confluent_kafka_acl.App_connector_read_on_connect_lcc_group, 
     ///         },
     ///     });
     /// 
@@ -217,9 +217,9 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             confluent_role_binding.App_manager_kafka_cluster_admin,
+    ///             confluent_role_binding.App_manager_kafka_cluster_admin, 
     ///         },
     ///     });
     /// 
