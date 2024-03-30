@@ -1559,8 +1559,10 @@ github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0 h1:dtLqrG3nltpe2xucO8Bj17HP
 github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0/go.mod h1:0LAvd4VqlaRwKU4yvDEkVCtV43yNezt56+hBe9Lmg7Q=
 github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 h1:DaipFGVdZjAE8eSztUrA/4b74kj6k5lZ0EJmK1RqccU=
 github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0/go.mod h1:ufn9In8kDsyJ7Nru2ygpAaWdGw7DSDTOTtDhQVSmZjs=
-github.com/confluentinc/ccloud-sdk-go-v2/networking v0.10.0 h1:gqGScDC+kNUL0q9zBDI8Bvw5fEOVet80hz/2cL5SNnw=
-github.com/confluentinc/ccloud-sdk-go-v2/networking v0.10.0/go.mod h1:UITAYHPL/LWs/E4R8i+mvkJywhoCZBQSuNdXYRhxL5g=
+github.com/confluentinc/ccloud-sdk-go-v2/networking v0.11.0 h1:UWS2K/UYNBO63QU5wukkjvheChYKjyRGj/0mLe0edg4=
+github.com/confluentinc/ccloud-sdk-go-v2/networking v0.11.0/go.mod h1:jL9lLHYwFKzCJE5Fh62UdRqJCMJ9T/xg5QOdnQRYIUg=
+github.com/confluentinc/ccloud-sdk-go-v2/networking-access-point v0.1.0 h1:V/rWaPSmDXGaP/j1ITZEWI0n+POQjhWRQllR4YpLXKA=
+github.com/confluentinc/ccloud-sdk-go-v2/networking-access-point v0.1.0/go.mod h1:HV1xGUwTsGEU3Mgvc+7Ya/0HRpUO69L2rqqxO7LeWMc=
 github.com/confluentinc/ccloud-sdk-go-v2/networking-dnsforwarder v0.2.0 h1:OdIeCGfy8iQ2Bm+08CDXYttwZOUme0e9FVGrBjBJGx4=
 github.com/confluentinc/ccloud-sdk-go-v2/networking-dnsforwarder v0.2.0/go.mod h1:472T8ufudvXgXea2BhYxhE/2eowwhoulZzboDh6+ec4=
 github.com/confluentinc/ccloud-sdk-go-v2/networking-ip v0.2.0 h1:ZHNF2DeqVlNPuKGZ41SBMLGj8GBlvvcwOPnfZLZXA/4=
@@ -1746,8 +1748,8 @@ github.com/docker/distribution v2.8.2+incompatible/go.mod h1:J2gT2udsDAN96Uj4Kfc
 github.com/docker/docker v1.4.2-0.20190924003213-a8608b5b67c7/go.mod h1:eEKB0N0r5NX/I1kEveEz05bcu8tLC/8azJZsviup8Sk=
 github.com/docker/docker v20.10.14+incompatible/go.mod h1:eEKB0N0r5NX/I1kEveEz05bcu8tLC/8azJZsviup8Sk=
 github.com/docker/docker v20.10.17+incompatible/go.mod h1:eEKB0N0r5NX/I1kEveEz05bcu8tLC/8azJZsviup8Sk=
-github.com/docker/docker v24.0.7+incompatible h1:Wo6l37AuwP3JaMnZa226lzVXGA3F9Ig1seQen0cKYlM=
-github.com/docker/docker v24.0.7+incompatible/go.mod h1:eEKB0N0r5NX/I1kEveEz05bcu8tLC/8azJZsviup8Sk=
+github.com/docker/docker v24.0.9+incompatible h1:HPGzNmwfLZWdxHqK9/II92pyi1EpYKsAqcl4G0Of9v0=
+github.com/docker/docker v24.0.9+incompatible/go.mod h1:eEKB0N0r5NX/I1kEveEz05bcu8tLC/8azJZsviup8Sk=
 github.com/docker/docker-credential-helpers v0.6.3/go.mod h1:WRaJzqw3CTB9bk10avuGsjVBZsD05qeibJ1/TYlvc0Y=
 github.com/docker/go-connections v0.4.0 h1:El9xVISelRB7BuFusrZozjnkIM5YnzCViNKohAFqRJQ=
 github.com/docker/go-connections v0.4.0/go.mod h1:Gbd7IOopHjR8Iph03tsViu4nIes5XhDvyHbTtUxmeec=

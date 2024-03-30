@@ -1,6 +1,20 @@
 {
     "auto-aliasing": {
         "resources": {
+            "confluent_access_point": {
+                "current": "confluentcloud:index/accessPoint:AccessPoint",
+                "fields": {
+                    "aws_egress_private_link_endpoint": {
+                        "maxItemsOne": true
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "gateway": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_api_key": {
                 "current": "confluentcloud:index/apiKey:ApiKey",
                 "fields": {
@@ -149,6 +163,20 @@
                         }
                     },
                     "gateway": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "confluent_dns_record": {
+                "current": "confluentcloud:index/dnsRecord:DnsRecord",
+                "fields": {
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "gateway": {
+                        "maxItemsOne": true
+                    },
+                    "private_link_access_point": {
                         "maxItemsOne": true
                     }
                 }
@@ -710,6 +738,20 @@
             }
         },
         "datasources": {
+            "confluent_access_point": {
+                "current": "confluentcloud:index/getAccessPoint:getAccessPoint",
+                "fields": {
+                    "aws_egress_private_link_endpoint": {
+                        "maxItemsOne": false
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "gateway": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "confluent_business_metadata": {
                 "current": "confluentcloud:index/getBusinessMetadata:getBusinessMetadata",
                 "fields": {
@@ -756,6 +798,20 @@
                     }
                 }
             },
+            "confluent_dns_record": {
+                "current": "confluentcloud:index/getDnsRecord:getDnsRecord",
+                "fields": {
+                    "environment": {
+                        "maxItemsOne": true
+                    },
+                    "gateway": {
+                        "maxItemsOne": false
+                    },
+                    "private_link_access_point": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "confluent_environment": {
                 "current": "confluentcloud:index/getEnvironment:getEnvironment",
                 "fields": {
@@ -782,6 +838,20 @@
             },
             "confluent_flink_region": {
                 "current": "confluentcloud:index/getFlinkRegion:getFlinkRegion"
+            },
+            "confluent_gateway": {
+                "current": "confluentcloud:index/getGateway:getGateway",
+                "fields": {
+                    "aws_egress_private_link_gateway": {
+                        "maxItemsOne": false
+                    },
+                    "aws_peering_gateway": {
+                        "maxItemsOne": false
+                    },
+                    "environment": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "confluent_group_mapping": {
                 "current": "confluentcloud:index/getGroupMapping:getGroupMapping"

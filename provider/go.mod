@@ -86,7 +86,8 @@ require (
 	github.com/confluentinc/ccloud-sdk-go-v2/kafkarest v0.14.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/ksql v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/mds v0.3.0 // indirect
-	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.10.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/networking v0.11.0 // indirect
+	github.com/confluentinc/ccloud-sdk-go-v2/networking-access-point v0.1.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-dnsforwarder v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-ip v0.2.0 // indirect
 	github.com/confluentinc/ccloud-sdk-go-v2/networking-privatelink v0.2.0 // indirect
@@ -104,7 +105,7 @@ require (
 	github.com/dghubble/sling v1.4.1 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
 	github.com/docker/distribution v2.8.2+incompatible // indirect
-	github.com/docker/docker v24.0.7+incompatible // indirect
+	github.com/docker/docker v24.0.9+incompatible // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.5.0 // indirect
 	github.com/edsrzf/mmap-go v1.1.0 // indirect
