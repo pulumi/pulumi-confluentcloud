@@ -35,9 +35,19 @@ public final class PrivateLinkAttachmentState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.aws);
     }
 
+    /**
+     * (Optional Configuration Block) supports the following:
+     * - ` private_link_service_alias  ` - (Required String) Azure Private Link service alias for the availability zone.
+     * 
+     */
     @Import(name="azures")
     private @Nullable Output<List<PrivateLinkAttachmentAzureArgs>> azures;
 
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * - ` private_link_service_alias  ` - (Required String) Azure Private Link service alias for the availability zone.
+     * 
+     */
     public Optional<Output<List<PrivateLinkAttachmentAzureArgs>>> azures() {
         return Optional.ofNullable(this.azures);
     }
@@ -202,15 +212,36 @@ public final class PrivateLinkAttachmentState extends com.pulumi.resources.Resou
             return aws(List.of(aws));
         }
 
+        /**
+         * @param azures (Optional Configuration Block) supports the following:
+         * - ` private_link_service_alias  ` - (Required String) Azure Private Link service alias for the availability zone.
+         * 
+         * @return builder
+         * 
+         */
         public Builder azures(@Nullable Output<List<PrivateLinkAttachmentAzureArgs>> azures) {
             $.azures = azures;
             return this;
         }
 
+        /**
+         * @param azures (Optional Configuration Block) supports the following:
+         * - ` private_link_service_alias  ` - (Required String) Azure Private Link service alias for the availability zone.
+         * 
+         * @return builder
+         * 
+         */
         public Builder azures(List<PrivateLinkAttachmentAzureArgs> azures) {
             return azures(Output.of(azures));
         }
 
+        /**
+         * @param azures (Optional Configuration Block) supports the following:
+         * - ` private_link_service_alias  ` - (Required String) Azure Private Link service alias for the availability zone.
+         * 
+         * @return builder
+         * 
+         */
         public Builder azures(PrivateLinkAttachmentAzureArgs... azures) {
             return azures(List.of(azures));
         }

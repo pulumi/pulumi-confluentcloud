@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "confluentcloud:index/accessPoint:AccessPoint":
+		r = &AccessPoint{}
 	case "confluentcloud:index/apiKey:ApiKey":
 		r = &ApiKey{}
 	case "confluentcloud:index/businessMetadata:BusinessMetadata":
@@ -37,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomConnectorPlugin{}
 	case "confluentcloud:index/dnsForwarder:DnsForwarder":
 		r = &DnsForwarder{}
+	case "confluentcloud:index/dnsRecord:DnsRecord":
+		r = &DnsRecord{}
 	case "confluentcloud:index/environment:Environment":
 		r = &Environment{}
 	case "confluentcloud:index/flinkComputePool:FlinkComputePool":
@@ -142,6 +146,11 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
+		"index/accessPoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
 		"index/apiKey",
 		&module{version},
 	)
@@ -178,6 +187,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/dnsForwarder",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/dnsRecord",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

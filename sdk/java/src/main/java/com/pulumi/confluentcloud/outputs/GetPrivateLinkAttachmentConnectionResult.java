@@ -21,6 +21,10 @@ public final class GetPrivateLinkAttachmentConnectionResult {
      * 
      */
     private List<GetPrivateLinkAttachmentConnectionAw> aws;
+    /**
+     * @return (Optional Configuration Blocks) supports the following:
+     * 
+     */
     private List<GetPrivateLinkAttachmentConnectionAzure> azures;
     /**
      * @return (Optional String) The name of the Private Link Attachment Connection.
@@ -53,6 +57,10 @@ public final class GetPrivateLinkAttachmentConnectionResult {
     public List<GetPrivateLinkAttachmentConnectionAw> aws() {
         return this.aws;
     }
+    /**
+     * @return (Optional Configuration Blocks) supports the following:
+     * 
+     */
     public List<GetPrivateLinkAttachmentConnectionAzure> azures() {
         return this.azures;
     }

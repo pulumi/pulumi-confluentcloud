@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentConnectionEnvironmentArgs;
  * import com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentConnectionAwsArgs;
  * import com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs;
+ * import com.pulumi.confluentcloud.inputs.PrivateLinkAttachmentConnectionAzureArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new PrivateLinkAttachmentConnection(&#34;main&#34;, PrivateLinkAttachmentConnectionArgs.builder()        
+ *         var aws = new PrivateLinkAttachmentConnection(&#34;aws&#34;, PrivateLinkAttachmentConnectionArgs.builder()        
  *             .displayName(&#34;my_endpoint&#34;)
  *             .environment(PrivateLinkAttachmentConnectionEnvironmentArgs.builder()
  *                 .id(&#34;env-8gv0v5&#34;)
@@ -64,11 +65,29 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         ctx.export(&#34;privateLinkAttachmentConnection&#34;, main);
+ *         var azure = new PrivateLinkAttachmentConnection(&#34;azure&#34;, PrivateLinkAttachmentConnectionArgs.builder()        
+ *             .displayName(&#34;prod-azure-central-us-az1-connection&#34;)
+ *             .environment(PrivateLinkAttachmentConnectionEnvironmentArgs.builder()
+ *                 .id(&#34;env-12345&#34;)
+ *                 .build())
+ *             .azure(PrivateLinkAttachmentConnectionAzureArgs.builder()
+ *                 .privateEndpointResourceId(&#34;/subscriptions/123aaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/testvpc/providers/Microsoft.Network/privateEndpoints/pe-platt-abcdef-az1&#34;)
+ *                 .build())
+ *             .privateLinkAttachment(PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs.builder()
+ *                 .id(&#34;platt-abcdef&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         ctx.export(&#34;privateLinkAttachmentConnection&#34;, aws);
  *     }
  * }
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` resource:
+ * * enterprise-privatelinkattachment-aws-kafka-acls
  * 
  * ## Import
  * 

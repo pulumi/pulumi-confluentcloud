@@ -5,6 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface AccessPointAwsEgressPrivateLinkEndpoint {
+    /**
+     * Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+     */
+    enableHighAvailability?: boolean;
+    /**
+     * (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+     */
+    vpcEndpointDnsName: string;
+    /**
+     * (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+     */
+    vpcEndpointId: string;
+    /**
+     * AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+     */
+    vpcEndpointServiceName: string;
+}
+
+export interface AccessPointEnvironment {
+    /**
+     * The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+     */
+    id: string;
+}
+
+export interface AccessPointGateway {
+    /**
+     * The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+     */
+    id: string;
+}
+
 export interface ApiKeyManagedResource {
     /**
      * The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
@@ -305,6 +338,27 @@ export interface DnsForwarderGateway {
     id: string;
 }
 
+export interface DnsRecordEnvironment {
+    /**
+     * The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+     */
+    id: string;
+}
+
+export interface DnsRecordGateway {
+    /**
+     * The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+     */
+    id: string;
+}
+
+export interface DnsRecordPrivateLinkAccessPoint {
+    /**
+     * The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+     */
+    id: string;
+}
+
 export interface EnvironmentStreamGovernance {
     /**
      * The [stream governance package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages) for the Environment. Accepted values are: `ESSENTIALS` and `ADVANCED`.
@@ -358,6 +412,39 @@ export interface FlinkStatementOrganization {
 export interface FlinkStatementPrincipal {
     /**
      * The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     */
+    id: string;
+}
+
+export interface GetAccessPointAwsEgressPrivateLinkEndpoint {
+    /**
+     * (Required Boolean) Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+     */
+    enableHighAvailability: boolean;
+    /**
+     * (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+     */
+    vpcEndpointDnsName: string;
+    /**
+     * (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+     */
+    vpcEndpointId: string;
+    /**
+     * (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+     */
+    vpcEndpointServiceName: string;
+}
+
+export interface GetAccessPointEnvironment {
+    /**
+     * The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+     */
+    id: string;
+}
+
+export interface GetAccessPointGateway {
+    /**
+     * The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
      */
     id: string;
 }
@@ -470,6 +557,27 @@ export interface GetByokKeyGcp {
     securityGroup: string;
 }
 
+export interface GetDnsRecordEnvironment {
+    /**
+     * The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+     */
+    id: string;
+}
+
+export interface GetDnsRecordGateway {
+    /**
+     * The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+     */
+    id: string;
+}
+
+export interface GetDnsRecordPrivateLinkAccessPoint {
+    /**
+     * The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+     */
+    id: string;
+}
+
 export interface GetEnvironmentStreamGovernance {
     /**
      * Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
@@ -482,6 +590,31 @@ export interface GetFlinkComputePoolEnvironment {
      * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
      *
      * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     */
+    id: string;
+}
+
+export interface GetGatewayAwsEgressPrivateLinkGateway {
+    /**
+     * (Required String) The principal ARN used by the AWS Egress Private Link Gateway.
+     */
+    principalArn: string;
+    /**
+     * (Required String) AWS region of the Peering Gateway.
+     */
+    region: string;
+}
+
+export interface GetGatewayAwsPeeringGateway {
+    /**
+     * (Required String) AWS region of the Peering Gateway.
+     */
+    region: string;
+}
+
+export interface GetGatewayEnvironment {
+    /**
+     * The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
      */
     id: string;
 }
@@ -923,7 +1056,7 @@ export interface GetPrivateLinkAttachmentAzure {
      */
     privateLinkServiceAlias: string;
     /**
-     * Azure PrivateLink service resource id for the availability zone.
+     * (Required String) Azure Private Link service resource id for the availability zone.
      */
     privateLinkServiceResourceId: string;
 }
@@ -937,7 +1070,7 @@ export interface GetPrivateLinkAttachmentConnectionAw {
 
 export interface GetPrivateLinkAttachmentConnectionAzure {
     /**
-     * Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+     * (Required String) Resource ID of the Private Endpoint that is connected to the Private Link service.
      */
     privateEndpointResourceId: string;
 }
@@ -1938,7 +2071,7 @@ export interface PrivateLinkAttachmentAzure {
      */
     privateLinkServiceAlias: string;
     /**
-     * Azure PrivateLink service resource id for the availability zone.
+     * (Required String) Azure Private Link service resource id for the availability zone.
      */
     privateLinkServiceResourceId: string;
 }
@@ -1952,7 +2085,9 @@ export interface PrivateLinkAttachmentConnectionAws {
 
 export interface PrivateLinkAttachmentConnectionAzure {
     /**
-     * Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+     * Resource ID of the Private Endpoint that is connected to the Private Link service.
+     *
+     * > **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      */
     privateEndpointResourceId: string;
 }

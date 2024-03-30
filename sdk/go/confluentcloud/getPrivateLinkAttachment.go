@@ -46,6 +46,11 @@ import (
 //
 // ```
 // <!--End PulumiCodeChooser -->
+//
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `PrivateLinkAttachment` data source:
+// * enterprise-privatelinkattachment-aws-kafka-acls
 func LookupPrivateLinkAttachment(ctx *pulumi.Context, args *LookupPrivateLinkAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPrivateLinkAttachmentResult
@@ -66,7 +71,9 @@ type LookupPrivateLinkAttachmentArgs struct {
 // A collection of values returned by getPrivateLinkAttachment.
 type LookupPrivateLinkAttachmentResult struct {
 	// (Optional Configuration Block) supports the following:
-	Aws    []GetPrivateLinkAttachmentAw    `pulumi:"aws"`
+	Aws []GetPrivateLinkAttachmentAw `pulumi:"aws"`
+	// (Optional Configuration Block) supports the following:
+	// - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
 	Azures []GetPrivateLinkAttachmentAzure `pulumi:"azures"`
 	// (Optional String) The cloud service provider that hosts the resources to access with the Private Link Attachment.
 	Cloud string `pulumi:"cloud"`
@@ -127,6 +134,8 @@ func (o LookupPrivateLinkAttachmentResultOutput) Aws() GetPrivateLinkAttachmentA
 	return o.ApplyT(func(v LookupPrivateLinkAttachmentResult) []GetPrivateLinkAttachmentAw { return v.Aws }).(GetPrivateLinkAttachmentAwArrayOutput)
 }
 
+// (Optional Configuration Block) supports the following:
+// - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
 func (o LookupPrivateLinkAttachmentResultOutput) Azures() GetPrivateLinkAttachmentAzureArrayOutput {
 	return o.ApplyT(func(v LookupPrivateLinkAttachmentResult) []GetPrivateLinkAttachmentAzure { return v.Azures }).(GetPrivateLinkAttachmentAzureArrayOutput)
 }

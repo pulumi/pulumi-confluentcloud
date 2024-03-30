@@ -27,6 +27,11 @@ import * as utilities from "./utilities";
  * export const platt = main;
  * ```
  * <!--End PulumiCodeChooser -->
+ *
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
+ * * enterprise-privatelinkattachment-aws-kafka-acls
  */
 export function getPrivateLinkAttachment(args: GetPrivateLinkAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkAttachmentResult> {
 
@@ -56,6 +61,10 @@ export interface GetPrivateLinkAttachmentResult {
      * (Optional Configuration Block) supports the following:
      */
     readonly aws: outputs.GetPrivateLinkAttachmentAw[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     * - `privateLinkServiceAlias ` - (Required String) Azure Private Link service alias for the availability zone.
+     */
     readonly azures: outputs.GetPrivateLinkAttachmentAzure[];
     /**
      * (Optional String) The cloud service provider that hosts the resources to access with the Private Link Attachment.
@@ -102,6 +111,11 @@ export interface GetPrivateLinkAttachmentResult {
  * export const platt = main;
  * ```
  * <!--End PulumiCodeChooser -->
+ *
+ * ## Getting Started
+ *
+ * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
+ * * enterprise-privatelinkattachment-aws-kafka-acls
  */
 export function getPrivateLinkAttachmentOutput(args: GetPrivateLinkAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkAttachment(a, opts))

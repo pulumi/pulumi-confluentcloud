@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := confluentcloud.NewPrivateLinkAttachmentConnection(ctx, "main", &confluentcloud.PrivateLinkAttachmentConnectionArgs{
+//			aws, err := confluentcloud.NewPrivateLinkAttachmentConnection(ctx, "aws", &confluentcloud.PrivateLinkAttachmentConnectionArgs{
 //				DisplayName: pulumi.String("my_endpoint"),
 //				Environment: &confluentcloud.PrivateLinkAttachmentConnectionEnvironmentArgs{
 //					Id: pulumi.String("env-8gv0v5"),
@@ -46,13 +46,33 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("privateLinkAttachmentConnection", main)
+//			_, err = confluentcloud.NewPrivateLinkAttachmentConnection(ctx, "azure", &confluentcloud.PrivateLinkAttachmentConnectionArgs{
+//				DisplayName: pulumi.String("prod-azure-central-us-az1-connection"),
+//				Environment: &confluentcloud.PrivateLinkAttachmentConnectionEnvironmentArgs{
+//					Id: pulumi.String("env-12345"),
+//				},
+//				Azure: &confluentcloud.PrivateLinkAttachmentConnectionAzureArgs{
+//					PrivateEndpointResourceId: pulumi.String("/subscriptions/123aaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/testvpc/providers/Microsoft.Network/privateEndpoints/pe-platt-abcdef-az1"),
+//				},
+//				PrivateLinkAttachment: &confluentcloud.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs{
+//					Id: pulumi.String("platt-abcdef"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("privateLinkAttachmentConnection", aws)
 //			return nil
 //		})
 //	}
 //
 // ```
 // <!--End PulumiCodeChooser -->
+//
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `PrivateLinkAttachmentConnection` resource:
+// * enterprise-privatelinkattachment-aws-kafka-acls
 //
 // ## Import
 //

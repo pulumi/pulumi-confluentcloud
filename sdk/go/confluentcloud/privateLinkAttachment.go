@@ -50,6 +50,11 @@ import (
 // ```
 // <!--End PulumiCodeChooser -->
 //
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `PrivateLinkAttachment` resource:
+// * enterprise-privatelinkattachment-aws-kafka-acls
+//
 // ## Import
 //
 // You can import a Private Link Attachment by using Environment ID and Private Link Attachment ID, in the format `<Environment ID>/<Private Link Attachment ID>`. The following example shows how to import a Private Link Attachment:
@@ -67,7 +72,9 @@ type PrivateLinkAttachment struct {
 	pulumi.CustomResourceState
 
 	// (Optional Configuration Block) supports the following:
-	Aws    PrivateLinkAttachmentAwArrayOutput    `pulumi:"aws"`
+	Aws PrivateLinkAttachmentAwArrayOutput `pulumi:"aws"`
+	// (Optional Configuration Block) supports the following:
+	// - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
 	Azures PrivateLinkAttachmentAzureArrayOutput `pulumi:"azures"`
 	// The cloud service provider that hosts the resources to access with the Private Link Attachment.
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
@@ -124,7 +131,9 @@ func GetPrivateLinkAttachment(ctx *pulumi.Context,
 // Input properties used for looking up and filtering PrivateLinkAttachment resources.
 type privateLinkAttachmentState struct {
 	// (Optional Configuration Block) supports the following:
-	Aws    []PrivateLinkAttachmentAw    `pulumi:"aws"`
+	Aws []PrivateLinkAttachmentAw `pulumi:"aws"`
+	// (Optional Configuration Block) supports the following:
+	// - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
 	Azures []PrivateLinkAttachmentAzure `pulumi:"azures"`
 	// The cloud service provider that hosts the resources to access with the Private Link Attachment.
 	Cloud *string `pulumi:"cloud"`
@@ -143,7 +152,9 @@ type privateLinkAttachmentState struct {
 
 type PrivateLinkAttachmentState struct {
 	// (Optional Configuration Block) supports the following:
-	Aws    PrivateLinkAttachmentAwArrayInput
+	Aws PrivateLinkAttachmentAwArrayInput
+	// (Optional Configuration Block) supports the following:
+	// - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
 	Azures PrivateLinkAttachmentAzureArrayInput
 	// The cloud service provider that hosts the resources to access with the Private Link Attachment.
 	Cloud pulumi.StringPtrInput
@@ -279,6 +290,8 @@ func (o PrivateLinkAttachmentOutput) Aws() PrivateLinkAttachmentAwArrayOutput {
 	return o.ApplyT(func(v *PrivateLinkAttachment) PrivateLinkAttachmentAwArrayOutput { return v.Aws }).(PrivateLinkAttachmentAwArrayOutput)
 }
 
+// (Optional Configuration Block) supports the following:
+// - ` privateLinkServiceAlias  ` - (Required String) Azure Private Link service alias for the availability zone.
 func (o PrivateLinkAttachmentOutput) Azures() PrivateLinkAttachmentAzureArrayOutput {
 	return o.ApplyT(func(v *PrivateLinkAttachment) PrivateLinkAttachmentAzureArrayOutput { return v.Azures }).(PrivateLinkAttachmentAzureArrayOutput)
 }

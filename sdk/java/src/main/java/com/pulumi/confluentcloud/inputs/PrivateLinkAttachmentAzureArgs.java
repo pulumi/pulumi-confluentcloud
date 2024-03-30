@@ -31,14 +31,14 @@ public final class PrivateLinkAttachmentAzureArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Azure PrivateLink service resource id for the availability zone.
+     * (Required String) Azure Private Link service resource id for the availability zone.
      * 
      */
     @Import(name="privateLinkServiceResourceId")
     private @Nullable Output<String> privateLinkServiceResourceId;
 
     /**
-     * @return Azure PrivateLink service resource id for the availability zone.
+     * @return (Required String) Azure Private Link service resource id for the availability zone.
      * 
      */
     public Optional<Output<String>> privateLinkServiceResourceId() {
@@ -92,7 +92,7 @@ public final class PrivateLinkAttachmentAzureArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param privateLinkServiceResourceId Azure PrivateLink service resource id for the availability zone.
+         * @param privateLinkServiceResourceId (Required String) Azure Private Link service resource id for the availability zone.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PrivateLinkAttachmentAzureArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param privateLinkServiceResourceId Azure PrivateLink service resource id for the availability zone.
+         * @param privateLinkServiceResourceId (Required String) Azure Private Link service resource id for the availability zone.
          * 
          * @return builder
          * 

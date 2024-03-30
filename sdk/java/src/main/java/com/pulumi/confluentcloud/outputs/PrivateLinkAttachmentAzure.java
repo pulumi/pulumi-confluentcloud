@@ -17,7 +17,7 @@ public final class PrivateLinkAttachmentAzure {
      */
     private @Nullable String privateLinkServiceAlias;
     /**
-     * @return Azure PrivateLink service resource id for the availability zone.
+     * @return (Required String) Azure Private Link service resource id for the availability zone.
      * 
      */
     private @Nullable String privateLinkServiceResourceId;
@@ -31,7 +31,7 @@ public final class PrivateLinkAttachmentAzure {
         return Optional.ofNullable(this.privateLinkServiceAlias);
     }
     /**
-     * @return Azure PrivateLink service resource id for the availability zone.
+     * @return (Required String) Azure Private Link service resource id for the availability zone.
      * 
      */
     public Optional<String> privateLinkServiceResourceId() {

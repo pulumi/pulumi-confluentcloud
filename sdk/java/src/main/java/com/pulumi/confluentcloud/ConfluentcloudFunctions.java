@@ -4,18 +4,24 @@
 package com.pulumi.confluentcloud;
 
 import com.pulumi.confluentcloud.Utilities;
+import com.pulumi.confluentcloud.inputs.GetAccessPointArgs;
+import com.pulumi.confluentcloud.inputs.GetAccessPointPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetBusinessMetadataArgs;
 import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingArgs;
 import com.pulumi.confluentcloud.inputs.GetBusinessMetadataBindingPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetBusinessMetadataPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetByokKeyArgs;
 import com.pulumi.confluentcloud.inputs.GetByokKeyPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
+import com.pulumi.confluentcloud.inputs.GetDnsRecordPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.GetEnvironmentPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkComputePoolPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkRegionArgs;
 import com.pulumi.confluentcloud.inputs.GetFlinkRegionPlainArgs;
+import com.pulumi.confluentcloud.inputs.GetGatewayArgs;
+import com.pulumi.confluentcloud.inputs.GetGatewayPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetGroupMappingArgs;
 import com.pulumi.confluentcloud.inputs.GetGroupMappingPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetIdentityPoolArgs;
@@ -80,13 +86,16 @@ import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentArgs;
 import com.pulumi.confluentcloud.inputs.GetTransitGatewayAttachmentPlainArgs;
 import com.pulumi.confluentcloud.inputs.GetUserArgs;
 import com.pulumi.confluentcloud.inputs.GetUserPlainArgs;
+import com.pulumi.confluentcloud.outputs.GetAccessPointResult;
 import com.pulumi.confluentcloud.outputs.GetBusinessMetadataBindingResult;
 import com.pulumi.confluentcloud.outputs.GetBusinessMetadataResult;
 import com.pulumi.confluentcloud.outputs.GetByokKeyResult;
+import com.pulumi.confluentcloud.outputs.GetDnsRecordResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentResult;
 import com.pulumi.confluentcloud.outputs.GetEnvironmentsResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkComputePoolResult;
 import com.pulumi.confluentcloud.outputs.GetFlinkRegionResult;
+import com.pulumi.confluentcloud.outputs.GetGatewayResult;
 import com.pulumi.confluentcloud.outputs.GetGroupMappingResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityPoolResult;
 import com.pulumi.confluentcloud.outputs.GetIdentityProviderResult;
@@ -130,6 +139,194 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class ConfluentcloudFunctions {
+    /**
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.AccessPoint` describes a Access Point data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetAccessPointArgs;
+     * import com.pulumi.confluentcloud.inputs.GetAccessPointEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getAccessPoint(GetAccessPointArgs.builder()
+     *             .id(&#34;ap-abc123&#34;)
+     *             .environment(GetAccessPointEnvironmentArgs.builder()
+     *                 .id(&#34;env-123abc&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;accessPoint&#34;, main.applyValue(getAccessPointResult -&gt; getAccessPointResult));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAccessPointResult> getAccessPoint(GetAccessPointArgs args) {
+        return getAccessPoint(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.AccessPoint` describes a Access Point data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetAccessPointArgs;
+     * import com.pulumi.confluentcloud.inputs.GetAccessPointEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getAccessPoint(GetAccessPointArgs.builder()
+     *             .id(&#34;ap-abc123&#34;)
+     *             .environment(GetAccessPointEnvironmentArgs.builder()
+     *                 .id(&#34;env-123abc&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;accessPoint&#34;, main.applyValue(getAccessPointResult -&gt; getAccessPointResult));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetAccessPointResult> getAccessPointPlain(GetAccessPointPlainArgs args) {
+        return getAccessPointPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.AccessPoint` describes a Access Point data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetAccessPointArgs;
+     * import com.pulumi.confluentcloud.inputs.GetAccessPointEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getAccessPoint(GetAccessPointArgs.builder()
+     *             .id(&#34;ap-abc123&#34;)
+     *             .environment(GetAccessPointEnvironmentArgs.builder()
+     *                 .id(&#34;env-123abc&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;accessPoint&#34;, main.applyValue(getAccessPointResult -&gt; getAccessPointResult));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAccessPointResult> getAccessPoint(GetAccessPointArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getAccessPoint:getAccessPoint", TypeShape.of(GetAccessPointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.AccessPoint` describes a Access Point data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetAccessPointArgs;
+     * import com.pulumi.confluentcloud.inputs.GetAccessPointEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getAccessPoint(GetAccessPointArgs.builder()
+     *             .id(&#34;ap-abc123&#34;)
+     *             .environment(GetAccessPointEnvironmentArgs.builder()
+     *                 .id(&#34;env-123abc&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;accessPoint&#34;, main.applyValue(getAccessPointResult -&gt; getAccessPointResult));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetAccessPointResult> getAccessPointPlain(GetAccessPointPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getAccessPoint:getAccessPoint", TypeShape.of(GetAccessPointResult.class), args, Utilities.withVersion(options));
+    }
     public static Output<GetBusinessMetadataResult> getBusinessMetadata(GetBusinessMetadataArgs args) {
         return getBusinessMetadata(args, InvokeOptions.Empty);
     }
@@ -325,6 +522,194 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetByokKeyResult> getByokKeyPlain(GetByokKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getByokKey:getByokKey", TypeShape.of(GetByokKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.DnsRecord` describes a DNS Record data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
+     * import com.pulumi.confluentcloud.inputs.GetDnsRecordEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getDnsRecord(GetDnsRecordArgs.builder()
+     *             .id(&#34;dnsrec-abc123&#34;)
+     *             .environment(GetDnsRecordEnvironmentArgs.builder()
+     *                 .id(&#34;env-123abc&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsRecord&#34;, main.applyValue(getDnsRecordResult -&gt; getDnsRecordResult));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDnsRecordResult> getDnsRecord(GetDnsRecordArgs args) {
+        return getDnsRecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.DnsRecord` describes a DNS Record data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
+     * import com.pulumi.confluentcloud.inputs.GetDnsRecordEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getDnsRecord(GetDnsRecordArgs.builder()
+     *             .id(&#34;dnsrec-abc123&#34;)
+     *             .environment(GetDnsRecordEnvironmentArgs.builder()
+     *                 .id(&#34;env-123abc&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsRecord&#34;, main.applyValue(getDnsRecordResult -&gt; getDnsRecordResult));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetDnsRecordResult> getDnsRecordPlain(GetDnsRecordPlainArgs args) {
+        return getDnsRecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.DnsRecord` describes a DNS Record data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
+     * import com.pulumi.confluentcloud.inputs.GetDnsRecordEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getDnsRecord(GetDnsRecordArgs.builder()
+     *             .id(&#34;dnsrec-abc123&#34;)
+     *             .environment(GetDnsRecordEnvironmentArgs.builder()
+     *                 .id(&#34;env-123abc&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsRecord&#34;, main.applyValue(getDnsRecordResult -&gt; getDnsRecordResult));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDnsRecordResult> getDnsRecord(GetDnsRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getDnsRecord:getDnsRecord", TypeShape.of(GetDnsRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.DnsRecord` describes a DNS Record data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetDnsRecordArgs;
+     * import com.pulumi.confluentcloud.inputs.GetDnsRecordEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getDnsRecord(GetDnsRecordArgs.builder()
+     *             .id(&#34;dnsrec-abc123&#34;)
+     *             .environment(GetDnsRecordEnvironmentArgs.builder()
+     *                 .id(&#34;env-123abc&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsRecord&#34;, main.applyValue(getDnsRecordResult -&gt; getDnsRecordResult));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetDnsRecordResult> getDnsRecordPlain(GetDnsRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getDnsRecord:getDnsRecord", TypeShape.of(GetDnsRecordResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -1321,6 +1706,194 @@ public final class ConfluentcloudFunctions {
      */
     public static CompletableFuture<GetFlinkRegionResult> getFlinkRegionPlain(GetFlinkRegionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("confluentcloud:index/getFlinkRegion:getFlinkRegion", TypeShape.of(GetFlinkRegionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getGateway` describes a Gateway data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGatewayArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewayEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getGateway(GetGatewayArgs.builder()
+     *             .id(&#34;gw-abc123&#34;)
+     *             .environment(GetGatewayEnvironmentArgs.builder()
+     *                 .id(&#34;env-123abc&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;gateway&#34;, main.applyValue(getGatewayResult -&gt; getGatewayResult));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetGatewayResult> getGateway(GetGatewayArgs args) {
+        return getGateway(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getGateway` describes a Gateway data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGatewayArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewayEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getGateway(GetGatewayArgs.builder()
+     *             .id(&#34;gw-abc123&#34;)
+     *             .environment(GetGatewayEnvironmentArgs.builder()
+     *                 .id(&#34;env-123abc&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;gateway&#34;, main.applyValue(getGatewayResult -&gt; getGatewayResult));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args) {
+        return getGatewayPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getGateway` describes a Gateway data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGatewayArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewayEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getGateway(GetGatewayArgs.builder()
+     *             .id(&#34;gw-abc123&#34;)
+     *             .environment(GetGatewayEnvironmentArgs.builder()
+     *                 .id(&#34;env-123abc&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;gateway&#34;, main.applyValue(getGatewayResult -&gt; getGatewayResult));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetGatewayResult> getGateway(GetGatewayArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("confluentcloud:index/getGateway:getGateway", TypeShape.of(GetGatewayResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+     * 
+     * `confluentcloud.getGateway` describes a Gateway data source.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
+     * import com.pulumi.confluentcloud.inputs.GetGatewayArgs;
+     * import com.pulumi.confluentcloud.inputs.GetGatewayEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ConfluentcloudFunctions.getGateway(GetGatewayArgs.builder()
+     *             .id(&#34;gw-abc123&#34;)
+     *             .environment(GetGatewayEnvironmentArgs.builder()
+     *                 .id(&#34;env-123abc&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;gateway&#34;, main.applyValue(getGatewayResult -&gt; getGatewayResult));
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("confluentcloud:index/getGateway:getGateway", TypeShape.of(GetGatewayResult.class), args, Utilities.withVersion(options));
     }
     /**
      * [![General Availability](&lt;https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8&gt;)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
@@ -4603,6 +5176,11 @@ public final class ConfluentcloudFunctions {
      * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
+     * * enterprise-privatelinkattachment-aws-kafka-acls
+     * 
      */
     public static Output<GetPrivateLinkAttachmentResult> getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs args) {
         return getPrivateLinkAttachment(args, InvokeOptions.Empty);
@@ -4649,6 +5227,11 @@ public final class ConfluentcloudFunctions {
      * }
      * ```
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
+     * * enterprise-privatelinkattachment-aws-kafka-acls
      * 
      */
     public static CompletableFuture<GetPrivateLinkAttachmentResult> getPrivateLinkAttachmentPlain(GetPrivateLinkAttachmentPlainArgs args) {
@@ -4697,6 +5280,11 @@ public final class ConfluentcloudFunctions {
      * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
+     * * enterprise-privatelinkattachment-aws-kafka-acls
+     * 
      */
     public static Output<GetPrivateLinkAttachmentResult> getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment", TypeShape.of(GetPrivateLinkAttachmentResult.class), args, Utilities.withVersion(options));
@@ -4743,6 +5331,11 @@ public final class ConfluentcloudFunctions {
      * }
      * ```
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
+     * * enterprise-privatelinkattachment-aws-kafka-acls
      * 
      */
     public static CompletableFuture<GetPrivateLinkAttachmentResult> getPrivateLinkAttachmentPlain(GetPrivateLinkAttachmentPlainArgs args, InvokeOptions options) {
@@ -4791,6 +5384,11 @@ public final class ConfluentcloudFunctions {
      * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
+     * * enterprise-privatelinkattachment-aws-kafka-acls
+     * 
      */
     public static Output<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs args) {
         return getPrivateLinkAttachmentConnection(args, InvokeOptions.Empty);
@@ -4837,6 +5435,11 @@ public final class ConfluentcloudFunctions {
      * }
      * ```
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
+     * * enterprise-privatelinkattachment-aws-kafka-acls
      * 
      */
     public static CompletableFuture<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnectionPlain(GetPrivateLinkAttachmentConnectionPlainArgs args) {
@@ -4885,6 +5488,11 @@ public final class ConfluentcloudFunctions {
      * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
+     * * enterprise-privatelinkattachment-aws-kafka-acls
+     * 
      */
     public static Output<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection", TypeShape.of(GetPrivateLinkAttachmentConnectionResult.class), args, Utilities.withVersion(options));
@@ -4931,6 +5539,11 @@ public final class ConfluentcloudFunctions {
      * }
      * ```
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Getting Started
+     * 
+     * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
+     * * enterprise-privatelinkattachment-aws-kafka-acls
      * 
      */
     public static CompletableFuture<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnectionPlain(GetPrivateLinkAttachmentConnectionPlainArgs args, InvokeOptions options) {

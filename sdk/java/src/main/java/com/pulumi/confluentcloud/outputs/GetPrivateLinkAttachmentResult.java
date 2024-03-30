@@ -20,6 +20,11 @@ public final class GetPrivateLinkAttachmentResult {
      * 
      */
     private List<GetPrivateLinkAttachmentAw> aws;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * - ` private_link_service_alias  ` - (Required String) Azure Private Link service alias for the availability zone.
+     * 
+     */
     private List<GetPrivateLinkAttachmentAzure> azures;
     /**
      * @return (Optional String) The cloud service provider that hosts the resources to access with the Private Link Attachment.
@@ -58,6 +63,11 @@ public final class GetPrivateLinkAttachmentResult {
     public List<GetPrivateLinkAttachmentAw> aws() {
         return this.aws;
     }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * - ` private_link_service_alias  ` - (Required String) Azure Private Link service alias for the availability zone.
+     * 
+     */
     public List<GetPrivateLinkAttachmentAzure> azures() {
         return this.azures;
     }

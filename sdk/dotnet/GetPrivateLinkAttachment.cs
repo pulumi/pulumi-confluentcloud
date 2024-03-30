@@ -43,6 +43,12 @@ namespace Pulumi.ConfluentCloud
         /// });
         /// ```
         /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// 
+        /// ## Getting Started
+        /// 
+        /// The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
+        /// * enterprise-privatelinkattachment-aws-kafka-acls
         /// </summary>
         public static Task<GetPrivateLinkAttachmentResult> InvokeAsync(GetPrivateLinkAttachmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkAttachmentResult>("confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment", args ?? new GetPrivateLinkAttachmentArgs(), options.WithDefaults());
@@ -79,6 +85,12 @@ namespace Pulumi.ConfluentCloud
         /// });
         /// ```
         /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// 
+        /// ## Getting Started
+        /// 
+        /// The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
+        /// * enterprise-privatelinkattachment-aws-kafka-acls
         /// </summary>
         public static Output<GetPrivateLinkAttachmentResult> Invoke(GetPrivateLinkAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkAttachmentResult>("confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment", args ?? new GetPrivateLinkAttachmentInvokeArgs(), options.WithDefaults());
@@ -127,6 +139,10 @@ namespace Pulumi.ConfluentCloud
         /// (Optional Configuration Block) supports the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPrivateLinkAttachmentAwResult> Aws;
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetPrivateLinkAttachmentAzureResult> Azures;
         /// <summary>
         /// (Optional String) The cloud service provider that hosts the resources to access with the Private Link Attachment.

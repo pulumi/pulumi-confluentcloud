@@ -15,14 +15,18 @@ public final class PrivateLinkAttachmentConnectionAzureArgs extends com.pulumi.r
     public static final PrivateLinkAttachmentConnectionAzureArgs Empty = new PrivateLinkAttachmentConnectionAzureArgs();
 
     /**
-     * Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+     * Resource ID of the Private Endpoint that is connected to the Private Link service.
+     * 
+     * &gt; **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      * 
      */
     @Import(name="privateEndpointResourceId", required=true)
     private Output<String> privateEndpointResourceId;
 
     /**
-     * @return Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+     * @return Resource ID of the Private Endpoint that is connected to the Private Link service.
+     * 
+     * &gt; **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      * 
      */
     public Output<String> privateEndpointResourceId() {
@@ -54,7 +58,9 @@ public final class PrivateLinkAttachmentConnectionAzureArgs extends com.pulumi.r
         }
 
         /**
-         * @param privateEndpointResourceId Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+         * @param privateEndpointResourceId Resource ID of the Private Endpoint that is connected to the Private Link service.
+         * 
+         * &gt; **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
          * 
          * @return builder
          * 
@@ -65,7 +71,9 @@ public final class PrivateLinkAttachmentConnectionAzureArgs extends com.pulumi.r
         }
 
         /**
-         * @param privateEndpointResourceId Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+         * @param privateEndpointResourceId Resource ID of the Private Endpoint that is connected to the Private Link service.
+         * 
+         * &gt; **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
          * 
          * @return builder
          * 

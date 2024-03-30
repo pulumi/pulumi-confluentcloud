@@ -18,7 +18,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string PrivateLinkServiceAlias;
         /// <summary>
-        /// Azure PrivateLink service resource id for the availability zone.
+        /// (Required String) Azure Private Link service resource id for the availability zone.
         /// </summary>
         public readonly string PrivateLinkServiceResourceId;
 
