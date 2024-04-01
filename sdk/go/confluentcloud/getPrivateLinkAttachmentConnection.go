@@ -46,6 +46,11 @@ import (
 //
 // ```
 // <!--End PulumiCodeChooser -->
+//
+// ## Getting Started
+//
+// The following end-to-end examples might help to get started with `PrivateLinkAttachmentConnection` data source:
+// * enterprise-privatelinkattachment-aws-kafka-acls
 func LookupPrivateLinkAttachmentConnection(ctx *pulumi.Context, args *LookupPrivateLinkAttachmentConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkAttachmentConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPrivateLinkAttachmentConnectionResult
@@ -66,7 +71,8 @@ type LookupPrivateLinkAttachmentConnectionArgs struct {
 // A collection of values returned by getPrivateLinkAttachmentConnection.
 type LookupPrivateLinkAttachmentConnectionResult struct {
 	// (Optional Configuration Block) supports the following:
-	Aws    []GetPrivateLinkAttachmentConnectionAw    `pulumi:"aws"`
+	Aws []GetPrivateLinkAttachmentConnectionAw `pulumi:"aws"`
+	// (Optional Configuration Blocks) supports the following:
 	Azures []GetPrivateLinkAttachmentConnectionAzure `pulumi:"azures"`
 	// (Optional String) The name of the Private Link Attachment Connection.
 	DisplayName string                                        `pulumi:"displayName"`
@@ -126,6 +132,7 @@ func (o LookupPrivateLinkAttachmentConnectionResultOutput) Aws() GetPrivateLinkA
 	}).(GetPrivateLinkAttachmentConnectionAwArrayOutput)
 }
 
+// (Optional Configuration Blocks) supports the following:
 func (o LookupPrivateLinkAttachmentConnectionResultOutput) Azures() GetPrivateLinkAttachmentConnectionAzureArrayOutput {
 	return o.ApplyT(func(v LookupPrivateLinkAttachmentConnectionResult) []GetPrivateLinkAttachmentConnectionAzure {
 		return v.Azures

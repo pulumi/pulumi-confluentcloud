@@ -13,6 +13,474 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AccessPointAwsEgressPrivateLinkEndpoint struct {
+	// Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+	EnableHighAvailability *bool `pulumi:"enableHighAvailability"`
+	// (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+	VpcEndpointDnsName *string `pulumi:"vpcEndpointDnsName"`
+	// (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
+	// AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+	VpcEndpointServiceName string `pulumi:"vpcEndpointServiceName"`
+}
+
+// AccessPointAwsEgressPrivateLinkEndpointInput is an input type that accepts AccessPointAwsEgressPrivateLinkEndpointArgs and AccessPointAwsEgressPrivateLinkEndpointOutput values.
+// You can construct a concrete instance of `AccessPointAwsEgressPrivateLinkEndpointInput` via:
+//
+//	AccessPointAwsEgressPrivateLinkEndpointArgs{...}
+type AccessPointAwsEgressPrivateLinkEndpointInput interface {
+	pulumi.Input
+
+	ToAccessPointAwsEgressPrivateLinkEndpointOutput() AccessPointAwsEgressPrivateLinkEndpointOutput
+	ToAccessPointAwsEgressPrivateLinkEndpointOutputWithContext(context.Context) AccessPointAwsEgressPrivateLinkEndpointOutput
+}
+
+type AccessPointAwsEgressPrivateLinkEndpointArgs struct {
+	// Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+	EnableHighAvailability pulumi.BoolPtrInput `pulumi:"enableHighAvailability"`
+	// (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+	VpcEndpointDnsName pulumi.StringPtrInput `pulumi:"vpcEndpointDnsName"`
+	// (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
+	// AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+	VpcEndpointServiceName pulumi.StringInput `pulumi:"vpcEndpointServiceName"`
+}
+
+func (AccessPointAwsEgressPrivateLinkEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointAwsEgressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (i AccessPointAwsEgressPrivateLinkEndpointArgs) ToAccessPointAwsEgressPrivateLinkEndpointOutput() AccessPointAwsEgressPrivateLinkEndpointOutput {
+	return i.ToAccessPointAwsEgressPrivateLinkEndpointOutputWithContext(context.Background())
+}
+
+func (i AccessPointAwsEgressPrivateLinkEndpointArgs) ToAccessPointAwsEgressPrivateLinkEndpointOutputWithContext(ctx context.Context) AccessPointAwsEgressPrivateLinkEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointAwsEgressPrivateLinkEndpointOutput)
+}
+
+func (i AccessPointAwsEgressPrivateLinkEndpointArgs) ToAccessPointAwsEgressPrivateLinkEndpointPtrOutput() AccessPointAwsEgressPrivateLinkEndpointPtrOutput {
+	return i.ToAccessPointAwsEgressPrivateLinkEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPointAwsEgressPrivateLinkEndpointArgs) ToAccessPointAwsEgressPrivateLinkEndpointPtrOutputWithContext(ctx context.Context) AccessPointAwsEgressPrivateLinkEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointAwsEgressPrivateLinkEndpointOutput).ToAccessPointAwsEgressPrivateLinkEndpointPtrOutputWithContext(ctx)
+}
+
+// AccessPointAwsEgressPrivateLinkEndpointPtrInput is an input type that accepts AccessPointAwsEgressPrivateLinkEndpointArgs, AccessPointAwsEgressPrivateLinkEndpointPtr and AccessPointAwsEgressPrivateLinkEndpointPtrOutput values.
+// You can construct a concrete instance of `AccessPointAwsEgressPrivateLinkEndpointPtrInput` via:
+//
+//	        AccessPointAwsEgressPrivateLinkEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessPointAwsEgressPrivateLinkEndpointPtrInput interface {
+	pulumi.Input
+
+	ToAccessPointAwsEgressPrivateLinkEndpointPtrOutput() AccessPointAwsEgressPrivateLinkEndpointPtrOutput
+	ToAccessPointAwsEgressPrivateLinkEndpointPtrOutputWithContext(context.Context) AccessPointAwsEgressPrivateLinkEndpointPtrOutput
+}
+
+type accessPointAwsEgressPrivateLinkEndpointPtrType AccessPointAwsEgressPrivateLinkEndpointArgs
+
+func AccessPointAwsEgressPrivateLinkEndpointPtr(v *AccessPointAwsEgressPrivateLinkEndpointArgs) AccessPointAwsEgressPrivateLinkEndpointPtrInput {
+	return (*accessPointAwsEgressPrivateLinkEndpointPtrType)(v)
+}
+
+func (*accessPointAwsEgressPrivateLinkEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointAwsEgressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (i *accessPointAwsEgressPrivateLinkEndpointPtrType) ToAccessPointAwsEgressPrivateLinkEndpointPtrOutput() AccessPointAwsEgressPrivateLinkEndpointPtrOutput {
+	return i.ToAccessPointAwsEgressPrivateLinkEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPointAwsEgressPrivateLinkEndpointPtrType) ToAccessPointAwsEgressPrivateLinkEndpointPtrOutputWithContext(ctx context.Context) AccessPointAwsEgressPrivateLinkEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointAwsEgressPrivateLinkEndpointPtrOutput)
+}
+
+type AccessPointAwsEgressPrivateLinkEndpointOutput struct{ *pulumi.OutputState }
+
+func (AccessPointAwsEgressPrivateLinkEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointAwsEgressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (o AccessPointAwsEgressPrivateLinkEndpointOutput) ToAccessPointAwsEgressPrivateLinkEndpointOutput() AccessPointAwsEgressPrivateLinkEndpointOutput {
+	return o
+}
+
+func (o AccessPointAwsEgressPrivateLinkEndpointOutput) ToAccessPointAwsEgressPrivateLinkEndpointOutputWithContext(ctx context.Context) AccessPointAwsEgressPrivateLinkEndpointOutput {
+	return o
+}
+
+func (o AccessPointAwsEgressPrivateLinkEndpointOutput) ToAccessPointAwsEgressPrivateLinkEndpointPtrOutput() AccessPointAwsEgressPrivateLinkEndpointPtrOutput {
+	return o.ToAccessPointAwsEgressPrivateLinkEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointAwsEgressPrivateLinkEndpointOutput) ToAccessPointAwsEgressPrivateLinkEndpointPtrOutputWithContext(ctx context.Context) AccessPointAwsEgressPrivateLinkEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointAwsEgressPrivateLinkEndpoint) *AccessPointAwsEgressPrivateLinkEndpoint {
+		return &v
+	}).(AccessPointAwsEgressPrivateLinkEndpointPtrOutput)
+}
+
+// Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+func (o AccessPointAwsEgressPrivateLinkEndpointOutput) EnableHighAvailability() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessPointAwsEgressPrivateLinkEndpoint) *bool { return v.EnableHighAvailability }).(pulumi.BoolPtrOutput)
+}
+
+// (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+func (o AccessPointAwsEgressPrivateLinkEndpointOutput) VpcEndpointDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPointAwsEgressPrivateLinkEndpoint) *string { return v.VpcEndpointDnsName }).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+func (o AccessPointAwsEgressPrivateLinkEndpointOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPointAwsEgressPrivateLinkEndpoint) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
+}
+
+// AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+func (o AccessPointAwsEgressPrivateLinkEndpointOutput) VpcEndpointServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessPointAwsEgressPrivateLinkEndpoint) string { return v.VpcEndpointServiceName }).(pulumi.StringOutput)
+}
+
+type AccessPointAwsEgressPrivateLinkEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointAwsEgressPrivateLinkEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointAwsEgressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (o AccessPointAwsEgressPrivateLinkEndpointPtrOutput) ToAccessPointAwsEgressPrivateLinkEndpointPtrOutput() AccessPointAwsEgressPrivateLinkEndpointPtrOutput {
+	return o
+}
+
+func (o AccessPointAwsEgressPrivateLinkEndpointPtrOutput) ToAccessPointAwsEgressPrivateLinkEndpointPtrOutputWithContext(ctx context.Context) AccessPointAwsEgressPrivateLinkEndpointPtrOutput {
+	return o
+}
+
+func (o AccessPointAwsEgressPrivateLinkEndpointPtrOutput) Elem() AccessPointAwsEgressPrivateLinkEndpointOutput {
+	return o.ApplyT(func(v *AccessPointAwsEgressPrivateLinkEndpoint) AccessPointAwsEgressPrivateLinkEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointAwsEgressPrivateLinkEndpoint
+		return ret
+	}).(AccessPointAwsEgressPrivateLinkEndpointOutput)
+}
+
+// Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+func (o AccessPointAwsEgressPrivateLinkEndpointPtrOutput) EnableHighAvailability() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessPointAwsEgressPrivateLinkEndpoint) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableHighAvailability
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+func (o AccessPointAwsEgressPrivateLinkEndpointPtrOutput) VpcEndpointDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPointAwsEgressPrivateLinkEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointDnsName
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+func (o AccessPointAwsEgressPrivateLinkEndpointPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPointAwsEgressPrivateLinkEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointId
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+func (o AccessPointAwsEgressPrivateLinkEndpointPtrOutput) VpcEndpointServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPointAwsEgressPrivateLinkEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcEndpointServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessPointEnvironment struct {
+	// The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// AccessPointEnvironmentInput is an input type that accepts AccessPointEnvironmentArgs and AccessPointEnvironmentOutput values.
+// You can construct a concrete instance of `AccessPointEnvironmentInput` via:
+//
+//	AccessPointEnvironmentArgs{...}
+type AccessPointEnvironmentInput interface {
+	pulumi.Input
+
+	ToAccessPointEnvironmentOutput() AccessPointEnvironmentOutput
+	ToAccessPointEnvironmentOutputWithContext(context.Context) AccessPointEnvironmentOutput
+}
+
+type AccessPointEnvironmentArgs struct {
+	// The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (AccessPointEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointEnvironment)(nil)).Elem()
+}
+
+func (i AccessPointEnvironmentArgs) ToAccessPointEnvironmentOutput() AccessPointEnvironmentOutput {
+	return i.ToAccessPointEnvironmentOutputWithContext(context.Background())
+}
+
+func (i AccessPointEnvironmentArgs) ToAccessPointEnvironmentOutputWithContext(ctx context.Context) AccessPointEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointEnvironmentOutput)
+}
+
+func (i AccessPointEnvironmentArgs) ToAccessPointEnvironmentPtrOutput() AccessPointEnvironmentPtrOutput {
+	return i.ToAccessPointEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPointEnvironmentArgs) ToAccessPointEnvironmentPtrOutputWithContext(ctx context.Context) AccessPointEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointEnvironmentOutput).ToAccessPointEnvironmentPtrOutputWithContext(ctx)
+}
+
+// AccessPointEnvironmentPtrInput is an input type that accepts AccessPointEnvironmentArgs, AccessPointEnvironmentPtr and AccessPointEnvironmentPtrOutput values.
+// You can construct a concrete instance of `AccessPointEnvironmentPtrInput` via:
+//
+//	        AccessPointEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessPointEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToAccessPointEnvironmentPtrOutput() AccessPointEnvironmentPtrOutput
+	ToAccessPointEnvironmentPtrOutputWithContext(context.Context) AccessPointEnvironmentPtrOutput
+}
+
+type accessPointEnvironmentPtrType AccessPointEnvironmentArgs
+
+func AccessPointEnvironmentPtr(v *AccessPointEnvironmentArgs) AccessPointEnvironmentPtrInput {
+	return (*accessPointEnvironmentPtrType)(v)
+}
+
+func (*accessPointEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointEnvironment)(nil)).Elem()
+}
+
+func (i *accessPointEnvironmentPtrType) ToAccessPointEnvironmentPtrOutput() AccessPointEnvironmentPtrOutput {
+	return i.ToAccessPointEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPointEnvironmentPtrType) ToAccessPointEnvironmentPtrOutputWithContext(ctx context.Context) AccessPointEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointEnvironmentPtrOutput)
+}
+
+type AccessPointEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (AccessPointEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointEnvironment)(nil)).Elem()
+}
+
+func (o AccessPointEnvironmentOutput) ToAccessPointEnvironmentOutput() AccessPointEnvironmentOutput {
+	return o
+}
+
+func (o AccessPointEnvironmentOutput) ToAccessPointEnvironmentOutputWithContext(ctx context.Context) AccessPointEnvironmentOutput {
+	return o
+}
+
+func (o AccessPointEnvironmentOutput) ToAccessPointEnvironmentPtrOutput() AccessPointEnvironmentPtrOutput {
+	return o.ToAccessPointEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointEnvironmentOutput) ToAccessPointEnvironmentPtrOutputWithContext(ctx context.Context) AccessPointEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointEnvironment) *AccessPointEnvironment {
+		return &v
+	}).(AccessPointEnvironmentPtrOutput)
+}
+
+// The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+func (o AccessPointEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessPointEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type AccessPointEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointEnvironment)(nil)).Elem()
+}
+
+func (o AccessPointEnvironmentPtrOutput) ToAccessPointEnvironmentPtrOutput() AccessPointEnvironmentPtrOutput {
+	return o
+}
+
+func (o AccessPointEnvironmentPtrOutput) ToAccessPointEnvironmentPtrOutputWithContext(ctx context.Context) AccessPointEnvironmentPtrOutput {
+	return o
+}
+
+func (o AccessPointEnvironmentPtrOutput) Elem() AccessPointEnvironmentOutput {
+	return o.ApplyT(func(v *AccessPointEnvironment) AccessPointEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointEnvironment
+		return ret
+	}).(AccessPointEnvironmentOutput)
+}
+
+// The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+func (o AccessPointEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPointEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessPointGateway struct {
+	// The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// AccessPointGatewayInput is an input type that accepts AccessPointGatewayArgs and AccessPointGatewayOutput values.
+// You can construct a concrete instance of `AccessPointGatewayInput` via:
+//
+//	AccessPointGatewayArgs{...}
+type AccessPointGatewayInput interface {
+	pulumi.Input
+
+	ToAccessPointGatewayOutput() AccessPointGatewayOutput
+	ToAccessPointGatewayOutputWithContext(context.Context) AccessPointGatewayOutput
+}
+
+type AccessPointGatewayArgs struct {
+	// The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (AccessPointGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointGateway)(nil)).Elem()
+}
+
+func (i AccessPointGatewayArgs) ToAccessPointGatewayOutput() AccessPointGatewayOutput {
+	return i.ToAccessPointGatewayOutputWithContext(context.Background())
+}
+
+func (i AccessPointGatewayArgs) ToAccessPointGatewayOutputWithContext(ctx context.Context) AccessPointGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointGatewayOutput)
+}
+
+func (i AccessPointGatewayArgs) ToAccessPointGatewayPtrOutput() AccessPointGatewayPtrOutput {
+	return i.ToAccessPointGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPointGatewayArgs) ToAccessPointGatewayPtrOutputWithContext(ctx context.Context) AccessPointGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointGatewayOutput).ToAccessPointGatewayPtrOutputWithContext(ctx)
+}
+
+// AccessPointGatewayPtrInput is an input type that accepts AccessPointGatewayArgs, AccessPointGatewayPtr and AccessPointGatewayPtrOutput values.
+// You can construct a concrete instance of `AccessPointGatewayPtrInput` via:
+//
+//	        AccessPointGatewayArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessPointGatewayPtrInput interface {
+	pulumi.Input
+
+	ToAccessPointGatewayPtrOutput() AccessPointGatewayPtrOutput
+	ToAccessPointGatewayPtrOutputWithContext(context.Context) AccessPointGatewayPtrOutput
+}
+
+type accessPointGatewayPtrType AccessPointGatewayArgs
+
+func AccessPointGatewayPtr(v *AccessPointGatewayArgs) AccessPointGatewayPtrInput {
+	return (*accessPointGatewayPtrType)(v)
+}
+
+func (*accessPointGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointGateway)(nil)).Elem()
+}
+
+func (i *accessPointGatewayPtrType) ToAccessPointGatewayPtrOutput() AccessPointGatewayPtrOutput {
+	return i.ToAccessPointGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPointGatewayPtrType) ToAccessPointGatewayPtrOutputWithContext(ctx context.Context) AccessPointGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointGatewayPtrOutput)
+}
+
+type AccessPointGatewayOutput struct{ *pulumi.OutputState }
+
+func (AccessPointGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointGateway)(nil)).Elem()
+}
+
+func (o AccessPointGatewayOutput) ToAccessPointGatewayOutput() AccessPointGatewayOutput {
+	return o
+}
+
+func (o AccessPointGatewayOutput) ToAccessPointGatewayOutputWithContext(ctx context.Context) AccessPointGatewayOutput {
+	return o
+}
+
+func (o AccessPointGatewayOutput) ToAccessPointGatewayPtrOutput() AccessPointGatewayPtrOutput {
+	return o.ToAccessPointGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointGatewayOutput) ToAccessPointGatewayPtrOutputWithContext(ctx context.Context) AccessPointGatewayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointGateway) *AccessPointGateway {
+		return &v
+	}).(AccessPointGatewayPtrOutput)
+}
+
+// The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+func (o AccessPointGatewayOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessPointGateway) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type AccessPointGatewayPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointGateway)(nil)).Elem()
+}
+
+func (o AccessPointGatewayPtrOutput) ToAccessPointGatewayPtrOutput() AccessPointGatewayPtrOutput {
+	return o
+}
+
+func (o AccessPointGatewayPtrOutput) ToAccessPointGatewayPtrOutputWithContext(ctx context.Context) AccessPointGatewayPtrOutput {
+	return o
+}
+
+func (o AccessPointGatewayPtrOutput) Elem() AccessPointGatewayOutput {
+	return o.ApplyT(func(v *AccessPointGateway) AccessPointGateway {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointGateway
+		return ret
+	}).(AccessPointGatewayOutput)
+}
+
+// The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+func (o AccessPointGatewayPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPointGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApiKeyManagedResource struct {
 	// The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
 	ApiVersion string `pulumi:"apiVersion"`
@@ -3833,6 +4301,417 @@ func (o DnsForwarderGatewayPtrOutput) Elem() DnsForwarderGatewayOutput {
 // The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
 func (o DnsForwarderGatewayPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DnsForwarderGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type DnsRecordEnvironment struct {
+	// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+	Id string `pulumi:"id"`
+}
+
+// DnsRecordEnvironmentInput is an input type that accepts DnsRecordEnvironmentArgs and DnsRecordEnvironmentOutput values.
+// You can construct a concrete instance of `DnsRecordEnvironmentInput` via:
+//
+//	DnsRecordEnvironmentArgs{...}
+type DnsRecordEnvironmentInput interface {
+	pulumi.Input
+
+	ToDnsRecordEnvironmentOutput() DnsRecordEnvironmentOutput
+	ToDnsRecordEnvironmentOutputWithContext(context.Context) DnsRecordEnvironmentOutput
+}
+
+type DnsRecordEnvironmentArgs struct {
+	// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (DnsRecordEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DnsRecordEnvironment)(nil)).Elem()
+}
+
+func (i DnsRecordEnvironmentArgs) ToDnsRecordEnvironmentOutput() DnsRecordEnvironmentOutput {
+	return i.ToDnsRecordEnvironmentOutputWithContext(context.Background())
+}
+
+func (i DnsRecordEnvironmentArgs) ToDnsRecordEnvironmentOutputWithContext(ctx context.Context) DnsRecordEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsRecordEnvironmentOutput)
+}
+
+func (i DnsRecordEnvironmentArgs) ToDnsRecordEnvironmentPtrOutput() DnsRecordEnvironmentPtrOutput {
+	return i.ToDnsRecordEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i DnsRecordEnvironmentArgs) ToDnsRecordEnvironmentPtrOutputWithContext(ctx context.Context) DnsRecordEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsRecordEnvironmentOutput).ToDnsRecordEnvironmentPtrOutputWithContext(ctx)
+}
+
+// DnsRecordEnvironmentPtrInput is an input type that accepts DnsRecordEnvironmentArgs, DnsRecordEnvironmentPtr and DnsRecordEnvironmentPtrOutput values.
+// You can construct a concrete instance of `DnsRecordEnvironmentPtrInput` via:
+//
+//	        DnsRecordEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type DnsRecordEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToDnsRecordEnvironmentPtrOutput() DnsRecordEnvironmentPtrOutput
+	ToDnsRecordEnvironmentPtrOutputWithContext(context.Context) DnsRecordEnvironmentPtrOutput
+}
+
+type dnsRecordEnvironmentPtrType DnsRecordEnvironmentArgs
+
+func DnsRecordEnvironmentPtr(v *DnsRecordEnvironmentArgs) DnsRecordEnvironmentPtrInput {
+	return (*dnsRecordEnvironmentPtrType)(v)
+}
+
+func (*dnsRecordEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DnsRecordEnvironment)(nil)).Elem()
+}
+
+func (i *dnsRecordEnvironmentPtrType) ToDnsRecordEnvironmentPtrOutput() DnsRecordEnvironmentPtrOutput {
+	return i.ToDnsRecordEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *dnsRecordEnvironmentPtrType) ToDnsRecordEnvironmentPtrOutputWithContext(ctx context.Context) DnsRecordEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsRecordEnvironmentPtrOutput)
+}
+
+type DnsRecordEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (DnsRecordEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DnsRecordEnvironment)(nil)).Elem()
+}
+
+func (o DnsRecordEnvironmentOutput) ToDnsRecordEnvironmentOutput() DnsRecordEnvironmentOutput {
+	return o
+}
+
+func (o DnsRecordEnvironmentOutput) ToDnsRecordEnvironmentOutputWithContext(ctx context.Context) DnsRecordEnvironmentOutput {
+	return o
+}
+
+func (o DnsRecordEnvironmentOutput) ToDnsRecordEnvironmentPtrOutput() DnsRecordEnvironmentPtrOutput {
+	return o.ToDnsRecordEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o DnsRecordEnvironmentOutput) ToDnsRecordEnvironmentPtrOutputWithContext(ctx context.Context) DnsRecordEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DnsRecordEnvironment) *DnsRecordEnvironment {
+		return &v
+	}).(DnsRecordEnvironmentPtrOutput)
+}
+
+// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+func (o DnsRecordEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v DnsRecordEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type DnsRecordEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (DnsRecordEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DnsRecordEnvironment)(nil)).Elem()
+}
+
+func (o DnsRecordEnvironmentPtrOutput) ToDnsRecordEnvironmentPtrOutput() DnsRecordEnvironmentPtrOutput {
+	return o
+}
+
+func (o DnsRecordEnvironmentPtrOutput) ToDnsRecordEnvironmentPtrOutputWithContext(ctx context.Context) DnsRecordEnvironmentPtrOutput {
+	return o
+}
+
+func (o DnsRecordEnvironmentPtrOutput) Elem() DnsRecordEnvironmentOutput {
+	return o.ApplyT(func(v *DnsRecordEnvironment) DnsRecordEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret DnsRecordEnvironment
+		return ret
+	}).(DnsRecordEnvironmentOutput)
+}
+
+// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+func (o DnsRecordEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DnsRecordEnvironment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type DnsRecordGateway struct {
+	// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+	Id string `pulumi:"id"`
+}
+
+// DnsRecordGatewayInput is an input type that accepts DnsRecordGatewayArgs and DnsRecordGatewayOutput values.
+// You can construct a concrete instance of `DnsRecordGatewayInput` via:
+//
+//	DnsRecordGatewayArgs{...}
+type DnsRecordGatewayInput interface {
+	pulumi.Input
+
+	ToDnsRecordGatewayOutput() DnsRecordGatewayOutput
+	ToDnsRecordGatewayOutputWithContext(context.Context) DnsRecordGatewayOutput
+}
+
+type DnsRecordGatewayArgs struct {
+	// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (DnsRecordGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DnsRecordGateway)(nil)).Elem()
+}
+
+func (i DnsRecordGatewayArgs) ToDnsRecordGatewayOutput() DnsRecordGatewayOutput {
+	return i.ToDnsRecordGatewayOutputWithContext(context.Background())
+}
+
+func (i DnsRecordGatewayArgs) ToDnsRecordGatewayOutputWithContext(ctx context.Context) DnsRecordGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsRecordGatewayOutput)
+}
+
+func (i DnsRecordGatewayArgs) ToDnsRecordGatewayPtrOutput() DnsRecordGatewayPtrOutput {
+	return i.ToDnsRecordGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i DnsRecordGatewayArgs) ToDnsRecordGatewayPtrOutputWithContext(ctx context.Context) DnsRecordGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsRecordGatewayOutput).ToDnsRecordGatewayPtrOutputWithContext(ctx)
+}
+
+// DnsRecordGatewayPtrInput is an input type that accepts DnsRecordGatewayArgs, DnsRecordGatewayPtr and DnsRecordGatewayPtrOutput values.
+// You can construct a concrete instance of `DnsRecordGatewayPtrInput` via:
+//
+//	        DnsRecordGatewayArgs{...}
+//
+//	or:
+//
+//	        nil
+type DnsRecordGatewayPtrInput interface {
+	pulumi.Input
+
+	ToDnsRecordGatewayPtrOutput() DnsRecordGatewayPtrOutput
+	ToDnsRecordGatewayPtrOutputWithContext(context.Context) DnsRecordGatewayPtrOutput
+}
+
+type dnsRecordGatewayPtrType DnsRecordGatewayArgs
+
+func DnsRecordGatewayPtr(v *DnsRecordGatewayArgs) DnsRecordGatewayPtrInput {
+	return (*dnsRecordGatewayPtrType)(v)
+}
+
+func (*dnsRecordGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DnsRecordGateway)(nil)).Elem()
+}
+
+func (i *dnsRecordGatewayPtrType) ToDnsRecordGatewayPtrOutput() DnsRecordGatewayPtrOutput {
+	return i.ToDnsRecordGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *dnsRecordGatewayPtrType) ToDnsRecordGatewayPtrOutputWithContext(ctx context.Context) DnsRecordGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsRecordGatewayPtrOutput)
+}
+
+type DnsRecordGatewayOutput struct{ *pulumi.OutputState }
+
+func (DnsRecordGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DnsRecordGateway)(nil)).Elem()
+}
+
+func (o DnsRecordGatewayOutput) ToDnsRecordGatewayOutput() DnsRecordGatewayOutput {
+	return o
+}
+
+func (o DnsRecordGatewayOutput) ToDnsRecordGatewayOutputWithContext(ctx context.Context) DnsRecordGatewayOutput {
+	return o
+}
+
+func (o DnsRecordGatewayOutput) ToDnsRecordGatewayPtrOutput() DnsRecordGatewayPtrOutput {
+	return o.ToDnsRecordGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o DnsRecordGatewayOutput) ToDnsRecordGatewayPtrOutputWithContext(ctx context.Context) DnsRecordGatewayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DnsRecordGateway) *DnsRecordGateway {
+		return &v
+	}).(DnsRecordGatewayPtrOutput)
+}
+
+// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+func (o DnsRecordGatewayOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v DnsRecordGateway) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type DnsRecordGatewayPtrOutput struct{ *pulumi.OutputState }
+
+func (DnsRecordGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DnsRecordGateway)(nil)).Elem()
+}
+
+func (o DnsRecordGatewayPtrOutput) ToDnsRecordGatewayPtrOutput() DnsRecordGatewayPtrOutput {
+	return o
+}
+
+func (o DnsRecordGatewayPtrOutput) ToDnsRecordGatewayPtrOutputWithContext(ctx context.Context) DnsRecordGatewayPtrOutput {
+	return o
+}
+
+func (o DnsRecordGatewayPtrOutput) Elem() DnsRecordGatewayOutput {
+	return o.ApplyT(func(v *DnsRecordGateway) DnsRecordGateway {
+		if v != nil {
+			return *v
+		}
+		var ret DnsRecordGateway
+		return ret
+	}).(DnsRecordGatewayOutput)
+}
+
+// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+func (o DnsRecordGatewayPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DnsRecordGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type DnsRecordPrivateLinkAccessPoint struct {
+	// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+	Id string `pulumi:"id"`
+}
+
+// DnsRecordPrivateLinkAccessPointInput is an input type that accepts DnsRecordPrivateLinkAccessPointArgs and DnsRecordPrivateLinkAccessPointOutput values.
+// You can construct a concrete instance of `DnsRecordPrivateLinkAccessPointInput` via:
+//
+//	DnsRecordPrivateLinkAccessPointArgs{...}
+type DnsRecordPrivateLinkAccessPointInput interface {
+	pulumi.Input
+
+	ToDnsRecordPrivateLinkAccessPointOutput() DnsRecordPrivateLinkAccessPointOutput
+	ToDnsRecordPrivateLinkAccessPointOutputWithContext(context.Context) DnsRecordPrivateLinkAccessPointOutput
+}
+
+type DnsRecordPrivateLinkAccessPointArgs struct {
+	// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (DnsRecordPrivateLinkAccessPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DnsRecordPrivateLinkAccessPoint)(nil)).Elem()
+}
+
+func (i DnsRecordPrivateLinkAccessPointArgs) ToDnsRecordPrivateLinkAccessPointOutput() DnsRecordPrivateLinkAccessPointOutput {
+	return i.ToDnsRecordPrivateLinkAccessPointOutputWithContext(context.Background())
+}
+
+func (i DnsRecordPrivateLinkAccessPointArgs) ToDnsRecordPrivateLinkAccessPointOutputWithContext(ctx context.Context) DnsRecordPrivateLinkAccessPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsRecordPrivateLinkAccessPointOutput)
+}
+
+func (i DnsRecordPrivateLinkAccessPointArgs) ToDnsRecordPrivateLinkAccessPointPtrOutput() DnsRecordPrivateLinkAccessPointPtrOutput {
+	return i.ToDnsRecordPrivateLinkAccessPointPtrOutputWithContext(context.Background())
+}
+
+func (i DnsRecordPrivateLinkAccessPointArgs) ToDnsRecordPrivateLinkAccessPointPtrOutputWithContext(ctx context.Context) DnsRecordPrivateLinkAccessPointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsRecordPrivateLinkAccessPointOutput).ToDnsRecordPrivateLinkAccessPointPtrOutputWithContext(ctx)
+}
+
+// DnsRecordPrivateLinkAccessPointPtrInput is an input type that accepts DnsRecordPrivateLinkAccessPointArgs, DnsRecordPrivateLinkAccessPointPtr and DnsRecordPrivateLinkAccessPointPtrOutput values.
+// You can construct a concrete instance of `DnsRecordPrivateLinkAccessPointPtrInput` via:
+//
+//	        DnsRecordPrivateLinkAccessPointArgs{...}
+//
+//	or:
+//
+//	        nil
+type DnsRecordPrivateLinkAccessPointPtrInput interface {
+	pulumi.Input
+
+	ToDnsRecordPrivateLinkAccessPointPtrOutput() DnsRecordPrivateLinkAccessPointPtrOutput
+	ToDnsRecordPrivateLinkAccessPointPtrOutputWithContext(context.Context) DnsRecordPrivateLinkAccessPointPtrOutput
+}
+
+type dnsRecordPrivateLinkAccessPointPtrType DnsRecordPrivateLinkAccessPointArgs
+
+func DnsRecordPrivateLinkAccessPointPtr(v *DnsRecordPrivateLinkAccessPointArgs) DnsRecordPrivateLinkAccessPointPtrInput {
+	return (*dnsRecordPrivateLinkAccessPointPtrType)(v)
+}
+
+func (*dnsRecordPrivateLinkAccessPointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DnsRecordPrivateLinkAccessPoint)(nil)).Elem()
+}
+
+func (i *dnsRecordPrivateLinkAccessPointPtrType) ToDnsRecordPrivateLinkAccessPointPtrOutput() DnsRecordPrivateLinkAccessPointPtrOutput {
+	return i.ToDnsRecordPrivateLinkAccessPointPtrOutputWithContext(context.Background())
+}
+
+func (i *dnsRecordPrivateLinkAccessPointPtrType) ToDnsRecordPrivateLinkAccessPointPtrOutputWithContext(ctx context.Context) DnsRecordPrivateLinkAccessPointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsRecordPrivateLinkAccessPointPtrOutput)
+}
+
+type DnsRecordPrivateLinkAccessPointOutput struct{ *pulumi.OutputState }
+
+func (DnsRecordPrivateLinkAccessPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DnsRecordPrivateLinkAccessPoint)(nil)).Elem()
+}
+
+func (o DnsRecordPrivateLinkAccessPointOutput) ToDnsRecordPrivateLinkAccessPointOutput() DnsRecordPrivateLinkAccessPointOutput {
+	return o
+}
+
+func (o DnsRecordPrivateLinkAccessPointOutput) ToDnsRecordPrivateLinkAccessPointOutputWithContext(ctx context.Context) DnsRecordPrivateLinkAccessPointOutput {
+	return o
+}
+
+func (o DnsRecordPrivateLinkAccessPointOutput) ToDnsRecordPrivateLinkAccessPointPtrOutput() DnsRecordPrivateLinkAccessPointPtrOutput {
+	return o.ToDnsRecordPrivateLinkAccessPointPtrOutputWithContext(context.Background())
+}
+
+func (o DnsRecordPrivateLinkAccessPointOutput) ToDnsRecordPrivateLinkAccessPointPtrOutputWithContext(ctx context.Context) DnsRecordPrivateLinkAccessPointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DnsRecordPrivateLinkAccessPoint) *DnsRecordPrivateLinkAccessPoint {
+		return &v
+	}).(DnsRecordPrivateLinkAccessPointPtrOutput)
+}
+
+// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+func (o DnsRecordPrivateLinkAccessPointOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v DnsRecordPrivateLinkAccessPoint) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type DnsRecordPrivateLinkAccessPointPtrOutput struct{ *pulumi.OutputState }
+
+func (DnsRecordPrivateLinkAccessPointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DnsRecordPrivateLinkAccessPoint)(nil)).Elem()
+}
+
+func (o DnsRecordPrivateLinkAccessPointPtrOutput) ToDnsRecordPrivateLinkAccessPointPtrOutput() DnsRecordPrivateLinkAccessPointPtrOutput {
+	return o
+}
+
+func (o DnsRecordPrivateLinkAccessPointPtrOutput) ToDnsRecordPrivateLinkAccessPointPtrOutputWithContext(ctx context.Context) DnsRecordPrivateLinkAccessPointPtrOutput {
+	return o
+}
+
+func (o DnsRecordPrivateLinkAccessPointPtrOutput) Elem() DnsRecordPrivateLinkAccessPointOutput {
+	return o.ApplyT(func(v *DnsRecordPrivateLinkAccessPoint) DnsRecordPrivateLinkAccessPoint {
+		if v != nil {
+			return *v
+		}
+		var ret DnsRecordPrivateLinkAccessPoint
+		return ret
+	}).(DnsRecordPrivateLinkAccessPointOutput)
+}
+
+// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+func (o DnsRecordPrivateLinkAccessPointPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DnsRecordPrivateLinkAccessPoint) *string {
 		if v == nil {
 			return nil
 		}
@@ -11818,7 +12697,7 @@ func (o PrivateLinkAttachmentAwArrayOutput) Index(i pulumi.IntInput) PrivateLink
 type PrivateLinkAttachmentAzure struct {
 	// Azure PrivateLink service alias for the availability zone.
 	PrivateLinkServiceAlias *string `pulumi:"privateLinkServiceAlias"`
-	// Azure PrivateLink service resource id for the availability zone.
+	// (Required String) Azure Private Link service resource id for the availability zone.
 	PrivateLinkServiceResourceId *string `pulumi:"privateLinkServiceResourceId"`
 }
 
@@ -11836,7 +12715,7 @@ type PrivateLinkAttachmentAzureInput interface {
 type PrivateLinkAttachmentAzureArgs struct {
 	// Azure PrivateLink service alias for the availability zone.
 	PrivateLinkServiceAlias pulumi.StringPtrInput `pulumi:"privateLinkServiceAlias"`
-	// Azure PrivateLink service resource id for the availability zone.
+	// (Required String) Azure Private Link service resource id for the availability zone.
 	PrivateLinkServiceResourceId pulumi.StringPtrInput `pulumi:"privateLinkServiceResourceId"`
 }
 
@@ -11896,7 +12775,7 @@ func (o PrivateLinkAttachmentAzureOutput) PrivateLinkServiceAlias() pulumi.Strin
 	return o.ApplyT(func(v PrivateLinkAttachmentAzure) *string { return v.PrivateLinkServiceAlias }).(pulumi.StringPtrOutput)
 }
 
-// Azure PrivateLink service resource id for the availability zone.
+// (Required String) Azure Private Link service resource id for the availability zone.
 func (o PrivateLinkAttachmentAzureOutput) PrivateLinkServiceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentAzure) *string { return v.PrivateLinkServiceResourceId }).(pulumi.StringPtrOutput)
 }
@@ -12059,7 +12938,9 @@ func (o PrivateLinkAttachmentConnectionAwsPtrOutput) VpcEndpointId() pulumi.Stri
 }
 
 type PrivateLinkAttachmentConnectionAzure struct {
-	// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+	// Resource ID of the Private Endpoint that is connected to the Private Link service.
+	//
+	// > **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	PrivateEndpointResourceId string `pulumi:"privateEndpointResourceId"`
 }
 
@@ -12075,7 +12956,9 @@ type PrivateLinkAttachmentConnectionAzureInput interface {
 }
 
 type PrivateLinkAttachmentConnectionAzureArgs struct {
-	// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+	// Resource ID of the Private Endpoint that is connected to the Private Link service.
+	//
+	// > **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	PrivateEndpointResourceId pulumi.StringInput `pulumi:"privateEndpointResourceId"`
 }
 
@@ -12156,7 +13039,9 @@ func (o PrivateLinkAttachmentConnectionAzureOutput) ToPrivateLinkAttachmentConne
 	}).(PrivateLinkAttachmentConnectionAzurePtrOutput)
 }
 
-// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+// Resource ID of the Private Endpoint that is connected to the Private Link service.
+//
+// > **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o PrivateLinkAttachmentConnectionAzureOutput) PrivateEndpointResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentConnectionAzure) string { return v.PrivateEndpointResourceId }).(pulumi.StringOutput)
 }
@@ -12185,7 +13070,9 @@ func (o PrivateLinkAttachmentConnectionAzurePtrOutput) Elem() PrivateLinkAttachm
 	}).(PrivateLinkAttachmentConnectionAzureOutput)
 }
 
-// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+// Resource ID of the Private Endpoint that is connected to the Private Link service.
+//
+// > **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o PrivateLinkAttachmentConnectionAzurePtrOutput) PrivateEndpointResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionAzure) *string {
 		if v == nil {
@@ -17769,6 +18656,279 @@ func (o TransitGatewayAttachmentNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetAccessPointAwsEgressPrivateLinkEndpoint struct {
+	// (Required Boolean) Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+	EnableHighAvailability bool `pulumi:"enableHighAvailability"`
+	// (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+	VpcEndpointDnsName string `pulumi:"vpcEndpointDnsName"`
+	// (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+	VpcEndpointId string `pulumi:"vpcEndpointId"`
+	// (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+	VpcEndpointServiceName string `pulumi:"vpcEndpointServiceName"`
+}
+
+// GetAccessPointAwsEgressPrivateLinkEndpointInput is an input type that accepts GetAccessPointAwsEgressPrivateLinkEndpointArgs and GetAccessPointAwsEgressPrivateLinkEndpointOutput values.
+// You can construct a concrete instance of `GetAccessPointAwsEgressPrivateLinkEndpointInput` via:
+//
+//	GetAccessPointAwsEgressPrivateLinkEndpointArgs{...}
+type GetAccessPointAwsEgressPrivateLinkEndpointInput interface {
+	pulumi.Input
+
+	ToGetAccessPointAwsEgressPrivateLinkEndpointOutput() GetAccessPointAwsEgressPrivateLinkEndpointOutput
+	ToGetAccessPointAwsEgressPrivateLinkEndpointOutputWithContext(context.Context) GetAccessPointAwsEgressPrivateLinkEndpointOutput
+}
+
+type GetAccessPointAwsEgressPrivateLinkEndpointArgs struct {
+	// (Required Boolean) Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+	EnableHighAvailability pulumi.BoolInput `pulumi:"enableHighAvailability"`
+	// (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+	VpcEndpointDnsName pulumi.StringInput `pulumi:"vpcEndpointDnsName"`
+	// (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
+	// (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+	VpcEndpointServiceName pulumi.StringInput `pulumi:"vpcEndpointServiceName"`
+}
+
+func (GetAccessPointAwsEgressPrivateLinkEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointAwsEgressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (i GetAccessPointAwsEgressPrivateLinkEndpointArgs) ToGetAccessPointAwsEgressPrivateLinkEndpointOutput() GetAccessPointAwsEgressPrivateLinkEndpointOutput {
+	return i.ToGetAccessPointAwsEgressPrivateLinkEndpointOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointAwsEgressPrivateLinkEndpointArgs) ToGetAccessPointAwsEgressPrivateLinkEndpointOutputWithContext(ctx context.Context) GetAccessPointAwsEgressPrivateLinkEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointAwsEgressPrivateLinkEndpointOutput)
+}
+
+// GetAccessPointAwsEgressPrivateLinkEndpointArrayInput is an input type that accepts GetAccessPointAwsEgressPrivateLinkEndpointArray and GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput values.
+// You can construct a concrete instance of `GetAccessPointAwsEgressPrivateLinkEndpointArrayInput` via:
+//
+//	GetAccessPointAwsEgressPrivateLinkEndpointArray{ GetAccessPointAwsEgressPrivateLinkEndpointArgs{...} }
+type GetAccessPointAwsEgressPrivateLinkEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetAccessPointAwsEgressPrivateLinkEndpointArrayOutput() GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput
+	ToGetAccessPointAwsEgressPrivateLinkEndpointArrayOutputWithContext(context.Context) GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput
+}
+
+type GetAccessPointAwsEgressPrivateLinkEndpointArray []GetAccessPointAwsEgressPrivateLinkEndpointInput
+
+func (GetAccessPointAwsEgressPrivateLinkEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointAwsEgressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (i GetAccessPointAwsEgressPrivateLinkEndpointArray) ToGetAccessPointAwsEgressPrivateLinkEndpointArrayOutput() GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput {
+	return i.ToGetAccessPointAwsEgressPrivateLinkEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointAwsEgressPrivateLinkEndpointArray) ToGetAccessPointAwsEgressPrivateLinkEndpointArrayOutputWithContext(ctx context.Context) GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput)
+}
+
+type GetAccessPointAwsEgressPrivateLinkEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointAwsEgressPrivateLinkEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointAwsEgressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (o GetAccessPointAwsEgressPrivateLinkEndpointOutput) ToGetAccessPointAwsEgressPrivateLinkEndpointOutput() GetAccessPointAwsEgressPrivateLinkEndpointOutput {
+	return o
+}
+
+func (o GetAccessPointAwsEgressPrivateLinkEndpointOutput) ToGetAccessPointAwsEgressPrivateLinkEndpointOutputWithContext(ctx context.Context) GetAccessPointAwsEgressPrivateLinkEndpointOutput {
+	return o
+}
+
+// (Required Boolean) Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+func (o GetAccessPointAwsEgressPrivateLinkEndpointOutput) EnableHighAvailability() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAccessPointAwsEgressPrivateLinkEndpoint) bool { return v.EnableHighAvailability }).(pulumi.BoolOutput)
+}
+
+// (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+func (o GetAccessPointAwsEgressPrivateLinkEndpointOutput) VpcEndpointDnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointAwsEgressPrivateLinkEndpoint) string { return v.VpcEndpointDnsName }).(pulumi.StringOutput)
+}
+
+// (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+func (o GetAccessPointAwsEgressPrivateLinkEndpointOutput) VpcEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointAwsEgressPrivateLinkEndpoint) string { return v.VpcEndpointId }).(pulumi.StringOutput)
+}
+
+// (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+func (o GetAccessPointAwsEgressPrivateLinkEndpointOutput) VpcEndpointServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointAwsEgressPrivateLinkEndpoint) string { return v.VpcEndpointServiceName }).(pulumi.StringOutput)
+}
+
+type GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointAwsEgressPrivateLinkEndpoint)(nil)).Elem()
+}
+
+func (o GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput) ToGetAccessPointAwsEgressPrivateLinkEndpointArrayOutput() GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput {
+	return o
+}
+
+func (o GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput) ToGetAccessPointAwsEgressPrivateLinkEndpointArrayOutputWithContext(ctx context.Context) GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput {
+	return o
+}
+
+func (o GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput) Index(i pulumi.IntInput) GetAccessPointAwsEgressPrivateLinkEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessPointAwsEgressPrivateLinkEndpoint {
+		return vs[0].([]GetAccessPointAwsEgressPrivateLinkEndpoint)[vs[1].(int)]
+	}).(GetAccessPointAwsEgressPrivateLinkEndpointOutput)
+}
+
+type GetAccessPointEnvironment struct {
+	// The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+	Id string `pulumi:"id"`
+}
+
+// GetAccessPointEnvironmentInput is an input type that accepts GetAccessPointEnvironmentArgs and GetAccessPointEnvironmentOutput values.
+// You can construct a concrete instance of `GetAccessPointEnvironmentInput` via:
+//
+//	GetAccessPointEnvironmentArgs{...}
+type GetAccessPointEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetAccessPointEnvironmentOutput() GetAccessPointEnvironmentOutput
+	ToGetAccessPointEnvironmentOutputWithContext(context.Context) GetAccessPointEnvironmentOutput
+}
+
+type GetAccessPointEnvironmentArgs struct {
+	// The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetAccessPointEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointEnvironment)(nil)).Elem()
+}
+
+func (i GetAccessPointEnvironmentArgs) ToGetAccessPointEnvironmentOutput() GetAccessPointEnvironmentOutput {
+	return i.ToGetAccessPointEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointEnvironmentArgs) ToGetAccessPointEnvironmentOutputWithContext(ctx context.Context) GetAccessPointEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointEnvironmentOutput)
+}
+
+type GetAccessPointEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointEnvironment)(nil)).Elem()
+}
+
+func (o GetAccessPointEnvironmentOutput) ToGetAccessPointEnvironmentOutput() GetAccessPointEnvironmentOutput {
+	return o
+}
+
+func (o GetAccessPointEnvironmentOutput) ToGetAccessPointEnvironmentOutputWithContext(ctx context.Context) GetAccessPointEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+func (o GetAccessPointEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetAccessPointGateway struct {
+	// The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+	Id string `pulumi:"id"`
+}
+
+// GetAccessPointGatewayInput is an input type that accepts GetAccessPointGatewayArgs and GetAccessPointGatewayOutput values.
+// You can construct a concrete instance of `GetAccessPointGatewayInput` via:
+//
+//	GetAccessPointGatewayArgs{...}
+type GetAccessPointGatewayInput interface {
+	pulumi.Input
+
+	ToGetAccessPointGatewayOutput() GetAccessPointGatewayOutput
+	ToGetAccessPointGatewayOutputWithContext(context.Context) GetAccessPointGatewayOutput
+}
+
+type GetAccessPointGatewayArgs struct {
+	// The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetAccessPointGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointGateway)(nil)).Elem()
+}
+
+func (i GetAccessPointGatewayArgs) ToGetAccessPointGatewayOutput() GetAccessPointGatewayOutput {
+	return i.ToGetAccessPointGatewayOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointGatewayArgs) ToGetAccessPointGatewayOutputWithContext(ctx context.Context) GetAccessPointGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointGatewayOutput)
+}
+
+// GetAccessPointGatewayArrayInput is an input type that accepts GetAccessPointGatewayArray and GetAccessPointGatewayArrayOutput values.
+// You can construct a concrete instance of `GetAccessPointGatewayArrayInput` via:
+//
+//	GetAccessPointGatewayArray{ GetAccessPointGatewayArgs{...} }
+type GetAccessPointGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetAccessPointGatewayArrayOutput() GetAccessPointGatewayArrayOutput
+	ToGetAccessPointGatewayArrayOutputWithContext(context.Context) GetAccessPointGatewayArrayOutput
+}
+
+type GetAccessPointGatewayArray []GetAccessPointGatewayInput
+
+func (GetAccessPointGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointGateway)(nil)).Elem()
+}
+
+func (i GetAccessPointGatewayArray) ToGetAccessPointGatewayArrayOutput() GetAccessPointGatewayArrayOutput {
+	return i.ToGetAccessPointGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointGatewayArray) ToGetAccessPointGatewayArrayOutputWithContext(ctx context.Context) GetAccessPointGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointGatewayArrayOutput)
+}
+
+type GetAccessPointGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointGateway)(nil)).Elem()
+}
+
+func (o GetAccessPointGatewayOutput) ToGetAccessPointGatewayOutput() GetAccessPointGatewayOutput {
+	return o
+}
+
+func (o GetAccessPointGatewayOutput) ToGetAccessPointGatewayOutputWithContext(ctx context.Context) GetAccessPointGatewayOutput {
+	return o
+}
+
+// The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+func (o GetAccessPointGatewayOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointGateway) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetAccessPointGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointGateway)(nil)).Elem()
+}
+
+func (o GetAccessPointGatewayArrayOutput) ToGetAccessPointGatewayArrayOutput() GetAccessPointGatewayArrayOutput {
+	return o
+}
+
+func (o GetAccessPointGatewayArrayOutput) ToGetAccessPointGatewayArrayOutputWithContext(ctx context.Context) GetAccessPointGatewayArrayOutput {
+	return o
+}
+
+func (o GetAccessPointGatewayArrayOutput) Index(i pulumi.IntInput) GetAccessPointGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessPointGateway {
+		return vs[0].([]GetAccessPointGateway)[vs[1].(int)]
+	}).(GetAccessPointGatewayOutput)
+}
+
 type GetBusinessMetadataAttributeDefinition struct {
 	// (Optional String) The default value of this attribute.
 	DefaultValue string `pulumi:"defaultValue"`
@@ -18847,6 +20007,252 @@ func (o GetByokKeyGcpArrayOutput) Index(i pulumi.IntInput) GetByokKeyGcpOutput {
 	}).(GetByokKeyGcpOutput)
 }
 
+type GetDnsRecordEnvironment struct {
+	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+	Id string `pulumi:"id"`
+}
+
+// GetDnsRecordEnvironmentInput is an input type that accepts GetDnsRecordEnvironmentArgs and GetDnsRecordEnvironmentOutput values.
+// You can construct a concrete instance of `GetDnsRecordEnvironmentInput` via:
+//
+//	GetDnsRecordEnvironmentArgs{...}
+type GetDnsRecordEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetDnsRecordEnvironmentOutput() GetDnsRecordEnvironmentOutput
+	ToGetDnsRecordEnvironmentOutputWithContext(context.Context) GetDnsRecordEnvironmentOutput
+}
+
+type GetDnsRecordEnvironmentArgs struct {
+	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetDnsRecordEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsRecordEnvironment)(nil)).Elem()
+}
+
+func (i GetDnsRecordEnvironmentArgs) ToGetDnsRecordEnvironmentOutput() GetDnsRecordEnvironmentOutput {
+	return i.ToGetDnsRecordEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetDnsRecordEnvironmentArgs) ToGetDnsRecordEnvironmentOutputWithContext(ctx context.Context) GetDnsRecordEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDnsRecordEnvironmentOutput)
+}
+
+type GetDnsRecordEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetDnsRecordEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsRecordEnvironment)(nil)).Elem()
+}
+
+func (o GetDnsRecordEnvironmentOutput) ToGetDnsRecordEnvironmentOutput() GetDnsRecordEnvironmentOutput {
+	return o
+}
+
+func (o GetDnsRecordEnvironmentOutput) ToGetDnsRecordEnvironmentOutputWithContext(ctx context.Context) GetDnsRecordEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+func (o GetDnsRecordEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDnsRecordEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetDnsRecordGateway struct {
+	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+	Id string `pulumi:"id"`
+}
+
+// GetDnsRecordGatewayInput is an input type that accepts GetDnsRecordGatewayArgs and GetDnsRecordGatewayOutput values.
+// You can construct a concrete instance of `GetDnsRecordGatewayInput` via:
+//
+//	GetDnsRecordGatewayArgs{...}
+type GetDnsRecordGatewayInput interface {
+	pulumi.Input
+
+	ToGetDnsRecordGatewayOutput() GetDnsRecordGatewayOutput
+	ToGetDnsRecordGatewayOutputWithContext(context.Context) GetDnsRecordGatewayOutput
+}
+
+type GetDnsRecordGatewayArgs struct {
+	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetDnsRecordGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsRecordGateway)(nil)).Elem()
+}
+
+func (i GetDnsRecordGatewayArgs) ToGetDnsRecordGatewayOutput() GetDnsRecordGatewayOutput {
+	return i.ToGetDnsRecordGatewayOutputWithContext(context.Background())
+}
+
+func (i GetDnsRecordGatewayArgs) ToGetDnsRecordGatewayOutputWithContext(ctx context.Context) GetDnsRecordGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDnsRecordGatewayOutput)
+}
+
+// GetDnsRecordGatewayArrayInput is an input type that accepts GetDnsRecordGatewayArray and GetDnsRecordGatewayArrayOutput values.
+// You can construct a concrete instance of `GetDnsRecordGatewayArrayInput` via:
+//
+//	GetDnsRecordGatewayArray{ GetDnsRecordGatewayArgs{...} }
+type GetDnsRecordGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetDnsRecordGatewayArrayOutput() GetDnsRecordGatewayArrayOutput
+	ToGetDnsRecordGatewayArrayOutputWithContext(context.Context) GetDnsRecordGatewayArrayOutput
+}
+
+type GetDnsRecordGatewayArray []GetDnsRecordGatewayInput
+
+func (GetDnsRecordGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDnsRecordGateway)(nil)).Elem()
+}
+
+func (i GetDnsRecordGatewayArray) ToGetDnsRecordGatewayArrayOutput() GetDnsRecordGatewayArrayOutput {
+	return i.ToGetDnsRecordGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetDnsRecordGatewayArray) ToGetDnsRecordGatewayArrayOutputWithContext(ctx context.Context) GetDnsRecordGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDnsRecordGatewayArrayOutput)
+}
+
+type GetDnsRecordGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetDnsRecordGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsRecordGateway)(nil)).Elem()
+}
+
+func (o GetDnsRecordGatewayOutput) ToGetDnsRecordGatewayOutput() GetDnsRecordGatewayOutput {
+	return o
+}
+
+func (o GetDnsRecordGatewayOutput) ToGetDnsRecordGatewayOutputWithContext(ctx context.Context) GetDnsRecordGatewayOutput {
+	return o
+}
+
+// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+func (o GetDnsRecordGatewayOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDnsRecordGateway) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetDnsRecordGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDnsRecordGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDnsRecordGateway)(nil)).Elem()
+}
+
+func (o GetDnsRecordGatewayArrayOutput) ToGetDnsRecordGatewayArrayOutput() GetDnsRecordGatewayArrayOutput {
+	return o
+}
+
+func (o GetDnsRecordGatewayArrayOutput) ToGetDnsRecordGatewayArrayOutputWithContext(ctx context.Context) GetDnsRecordGatewayArrayOutput {
+	return o
+}
+
+func (o GetDnsRecordGatewayArrayOutput) Index(i pulumi.IntInput) GetDnsRecordGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDnsRecordGateway {
+		return vs[0].([]GetDnsRecordGateway)[vs[1].(int)]
+	}).(GetDnsRecordGatewayOutput)
+}
+
+type GetDnsRecordPrivateLinkAccessPoint struct {
+	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+	Id string `pulumi:"id"`
+}
+
+// GetDnsRecordPrivateLinkAccessPointInput is an input type that accepts GetDnsRecordPrivateLinkAccessPointArgs and GetDnsRecordPrivateLinkAccessPointOutput values.
+// You can construct a concrete instance of `GetDnsRecordPrivateLinkAccessPointInput` via:
+//
+//	GetDnsRecordPrivateLinkAccessPointArgs{...}
+type GetDnsRecordPrivateLinkAccessPointInput interface {
+	pulumi.Input
+
+	ToGetDnsRecordPrivateLinkAccessPointOutput() GetDnsRecordPrivateLinkAccessPointOutput
+	ToGetDnsRecordPrivateLinkAccessPointOutputWithContext(context.Context) GetDnsRecordPrivateLinkAccessPointOutput
+}
+
+type GetDnsRecordPrivateLinkAccessPointArgs struct {
+	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetDnsRecordPrivateLinkAccessPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsRecordPrivateLinkAccessPoint)(nil)).Elem()
+}
+
+func (i GetDnsRecordPrivateLinkAccessPointArgs) ToGetDnsRecordPrivateLinkAccessPointOutput() GetDnsRecordPrivateLinkAccessPointOutput {
+	return i.ToGetDnsRecordPrivateLinkAccessPointOutputWithContext(context.Background())
+}
+
+func (i GetDnsRecordPrivateLinkAccessPointArgs) ToGetDnsRecordPrivateLinkAccessPointOutputWithContext(ctx context.Context) GetDnsRecordPrivateLinkAccessPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDnsRecordPrivateLinkAccessPointOutput)
+}
+
+// GetDnsRecordPrivateLinkAccessPointArrayInput is an input type that accepts GetDnsRecordPrivateLinkAccessPointArray and GetDnsRecordPrivateLinkAccessPointArrayOutput values.
+// You can construct a concrete instance of `GetDnsRecordPrivateLinkAccessPointArrayInput` via:
+//
+//	GetDnsRecordPrivateLinkAccessPointArray{ GetDnsRecordPrivateLinkAccessPointArgs{...} }
+type GetDnsRecordPrivateLinkAccessPointArrayInput interface {
+	pulumi.Input
+
+	ToGetDnsRecordPrivateLinkAccessPointArrayOutput() GetDnsRecordPrivateLinkAccessPointArrayOutput
+	ToGetDnsRecordPrivateLinkAccessPointArrayOutputWithContext(context.Context) GetDnsRecordPrivateLinkAccessPointArrayOutput
+}
+
+type GetDnsRecordPrivateLinkAccessPointArray []GetDnsRecordPrivateLinkAccessPointInput
+
+func (GetDnsRecordPrivateLinkAccessPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDnsRecordPrivateLinkAccessPoint)(nil)).Elem()
+}
+
+func (i GetDnsRecordPrivateLinkAccessPointArray) ToGetDnsRecordPrivateLinkAccessPointArrayOutput() GetDnsRecordPrivateLinkAccessPointArrayOutput {
+	return i.ToGetDnsRecordPrivateLinkAccessPointArrayOutputWithContext(context.Background())
+}
+
+func (i GetDnsRecordPrivateLinkAccessPointArray) ToGetDnsRecordPrivateLinkAccessPointArrayOutputWithContext(ctx context.Context) GetDnsRecordPrivateLinkAccessPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDnsRecordPrivateLinkAccessPointArrayOutput)
+}
+
+type GetDnsRecordPrivateLinkAccessPointOutput struct{ *pulumi.OutputState }
+
+func (GetDnsRecordPrivateLinkAccessPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsRecordPrivateLinkAccessPoint)(nil)).Elem()
+}
+
+func (o GetDnsRecordPrivateLinkAccessPointOutput) ToGetDnsRecordPrivateLinkAccessPointOutput() GetDnsRecordPrivateLinkAccessPointOutput {
+	return o
+}
+
+func (o GetDnsRecordPrivateLinkAccessPointOutput) ToGetDnsRecordPrivateLinkAccessPointOutputWithContext(ctx context.Context) GetDnsRecordPrivateLinkAccessPointOutput {
+	return o
+}
+
+// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+func (o GetDnsRecordPrivateLinkAccessPointOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDnsRecordPrivateLinkAccessPoint) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetDnsRecordPrivateLinkAccessPointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDnsRecordPrivateLinkAccessPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDnsRecordPrivateLinkAccessPoint)(nil)).Elem()
+}
+
+func (o GetDnsRecordPrivateLinkAccessPointArrayOutput) ToGetDnsRecordPrivateLinkAccessPointArrayOutput() GetDnsRecordPrivateLinkAccessPointArrayOutput {
+	return o
+}
+
+func (o GetDnsRecordPrivateLinkAccessPointArrayOutput) ToGetDnsRecordPrivateLinkAccessPointArrayOutputWithContext(ctx context.Context) GetDnsRecordPrivateLinkAccessPointArrayOutput {
+	return o
+}
+
+func (o GetDnsRecordPrivateLinkAccessPointArrayOutput) Index(i pulumi.IntInput) GetDnsRecordPrivateLinkAccessPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDnsRecordPrivateLinkAccessPoint {
+		return vs[0].([]GetDnsRecordPrivateLinkAccessPoint)[vs[1].(int)]
+	}).(GetDnsRecordPrivateLinkAccessPointOutput)
+}
+
 type GetEnvironmentStreamGovernance struct {
 	// Stream Governance Package. 'ESSENTIALS' or 'ADVANCED'
 	Package string `pulumi:"package"`
@@ -19040,6 +20446,261 @@ func (o GetFlinkComputePoolEnvironmentOutput) ToGetFlinkComputePoolEnvironmentOu
 // > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 func (o GetFlinkComputePoolEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFlinkComputePoolEnvironment) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetGatewayAwsEgressPrivateLinkGateway struct {
+	// (Required String) The principal ARN used by the AWS Egress Private Link Gateway.
+	PrincipalArn string `pulumi:"principalArn"`
+	// (Required String) AWS region of the Peering Gateway.
+	Region string `pulumi:"region"`
+}
+
+// GetGatewayAwsEgressPrivateLinkGatewayInput is an input type that accepts GetGatewayAwsEgressPrivateLinkGatewayArgs and GetGatewayAwsEgressPrivateLinkGatewayOutput values.
+// You can construct a concrete instance of `GetGatewayAwsEgressPrivateLinkGatewayInput` via:
+//
+//	GetGatewayAwsEgressPrivateLinkGatewayArgs{...}
+type GetGatewayAwsEgressPrivateLinkGatewayInput interface {
+	pulumi.Input
+
+	ToGetGatewayAwsEgressPrivateLinkGatewayOutput() GetGatewayAwsEgressPrivateLinkGatewayOutput
+	ToGetGatewayAwsEgressPrivateLinkGatewayOutputWithContext(context.Context) GetGatewayAwsEgressPrivateLinkGatewayOutput
+}
+
+type GetGatewayAwsEgressPrivateLinkGatewayArgs struct {
+	// (Required String) The principal ARN used by the AWS Egress Private Link Gateway.
+	PrincipalArn pulumi.StringInput `pulumi:"principalArn"`
+	// (Required String) AWS region of the Peering Gateway.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetGatewayAwsEgressPrivateLinkGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i GetGatewayAwsEgressPrivateLinkGatewayArgs) ToGetGatewayAwsEgressPrivateLinkGatewayOutput() GetGatewayAwsEgressPrivateLinkGatewayOutput {
+	return i.ToGetGatewayAwsEgressPrivateLinkGatewayOutputWithContext(context.Background())
+}
+
+func (i GetGatewayAwsEgressPrivateLinkGatewayArgs) ToGetGatewayAwsEgressPrivateLinkGatewayOutputWithContext(ctx context.Context) GetGatewayAwsEgressPrivateLinkGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayAwsEgressPrivateLinkGatewayOutput)
+}
+
+// GetGatewayAwsEgressPrivateLinkGatewayArrayInput is an input type that accepts GetGatewayAwsEgressPrivateLinkGatewayArray and GetGatewayAwsEgressPrivateLinkGatewayArrayOutput values.
+// You can construct a concrete instance of `GetGatewayAwsEgressPrivateLinkGatewayArrayInput` via:
+//
+//	GetGatewayAwsEgressPrivateLinkGatewayArray{ GetGatewayAwsEgressPrivateLinkGatewayArgs{...} }
+type GetGatewayAwsEgressPrivateLinkGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewayAwsEgressPrivateLinkGatewayArrayOutput() GetGatewayAwsEgressPrivateLinkGatewayArrayOutput
+	ToGetGatewayAwsEgressPrivateLinkGatewayArrayOutputWithContext(context.Context) GetGatewayAwsEgressPrivateLinkGatewayArrayOutput
+}
+
+type GetGatewayAwsEgressPrivateLinkGatewayArray []GetGatewayAwsEgressPrivateLinkGatewayInput
+
+func (GetGatewayAwsEgressPrivateLinkGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayAwsEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (i GetGatewayAwsEgressPrivateLinkGatewayArray) ToGetGatewayAwsEgressPrivateLinkGatewayArrayOutput() GetGatewayAwsEgressPrivateLinkGatewayArrayOutput {
+	return i.ToGetGatewayAwsEgressPrivateLinkGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewayAwsEgressPrivateLinkGatewayArray) ToGetGatewayAwsEgressPrivateLinkGatewayArrayOutputWithContext(ctx context.Context) GetGatewayAwsEgressPrivateLinkGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayAwsEgressPrivateLinkGatewayArrayOutput)
+}
+
+type GetGatewayAwsEgressPrivateLinkGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayAwsEgressPrivateLinkGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GetGatewayAwsEgressPrivateLinkGatewayOutput) ToGetGatewayAwsEgressPrivateLinkGatewayOutput() GetGatewayAwsEgressPrivateLinkGatewayOutput {
+	return o
+}
+
+func (o GetGatewayAwsEgressPrivateLinkGatewayOutput) ToGetGatewayAwsEgressPrivateLinkGatewayOutputWithContext(ctx context.Context) GetGatewayAwsEgressPrivateLinkGatewayOutput {
+	return o
+}
+
+// (Required String) The principal ARN used by the AWS Egress Private Link Gateway.
+func (o GetGatewayAwsEgressPrivateLinkGatewayOutput) PrincipalArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayAwsEgressPrivateLinkGateway) string { return v.PrincipalArn }).(pulumi.StringOutput)
+}
+
+// (Required String) AWS region of the Peering Gateway.
+func (o GetGatewayAwsEgressPrivateLinkGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayAwsEgressPrivateLinkGateway) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetGatewayAwsEgressPrivateLinkGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayAwsEgressPrivateLinkGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayAwsEgressPrivateLinkGateway)(nil)).Elem()
+}
+
+func (o GetGatewayAwsEgressPrivateLinkGatewayArrayOutput) ToGetGatewayAwsEgressPrivateLinkGatewayArrayOutput() GetGatewayAwsEgressPrivateLinkGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewayAwsEgressPrivateLinkGatewayArrayOutput) ToGetGatewayAwsEgressPrivateLinkGatewayArrayOutputWithContext(ctx context.Context) GetGatewayAwsEgressPrivateLinkGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewayAwsEgressPrivateLinkGatewayArrayOutput) Index(i pulumi.IntInput) GetGatewayAwsEgressPrivateLinkGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewayAwsEgressPrivateLinkGateway {
+		return vs[0].([]GetGatewayAwsEgressPrivateLinkGateway)[vs[1].(int)]
+	}).(GetGatewayAwsEgressPrivateLinkGatewayOutput)
+}
+
+type GetGatewayAwsPeeringGateway struct {
+	// (Required String) AWS region of the Peering Gateway.
+	Region string `pulumi:"region"`
+}
+
+// GetGatewayAwsPeeringGatewayInput is an input type that accepts GetGatewayAwsPeeringGatewayArgs and GetGatewayAwsPeeringGatewayOutput values.
+// You can construct a concrete instance of `GetGatewayAwsPeeringGatewayInput` via:
+//
+//	GetGatewayAwsPeeringGatewayArgs{...}
+type GetGatewayAwsPeeringGatewayInput interface {
+	pulumi.Input
+
+	ToGetGatewayAwsPeeringGatewayOutput() GetGatewayAwsPeeringGatewayOutput
+	ToGetGatewayAwsPeeringGatewayOutputWithContext(context.Context) GetGatewayAwsPeeringGatewayOutput
+}
+
+type GetGatewayAwsPeeringGatewayArgs struct {
+	// (Required String) AWS region of the Peering Gateway.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetGatewayAwsPeeringGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayAwsPeeringGateway)(nil)).Elem()
+}
+
+func (i GetGatewayAwsPeeringGatewayArgs) ToGetGatewayAwsPeeringGatewayOutput() GetGatewayAwsPeeringGatewayOutput {
+	return i.ToGetGatewayAwsPeeringGatewayOutputWithContext(context.Background())
+}
+
+func (i GetGatewayAwsPeeringGatewayArgs) ToGetGatewayAwsPeeringGatewayOutputWithContext(ctx context.Context) GetGatewayAwsPeeringGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayAwsPeeringGatewayOutput)
+}
+
+// GetGatewayAwsPeeringGatewayArrayInput is an input type that accepts GetGatewayAwsPeeringGatewayArray and GetGatewayAwsPeeringGatewayArrayOutput values.
+// You can construct a concrete instance of `GetGatewayAwsPeeringGatewayArrayInput` via:
+//
+//	GetGatewayAwsPeeringGatewayArray{ GetGatewayAwsPeeringGatewayArgs{...} }
+type GetGatewayAwsPeeringGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewayAwsPeeringGatewayArrayOutput() GetGatewayAwsPeeringGatewayArrayOutput
+	ToGetGatewayAwsPeeringGatewayArrayOutputWithContext(context.Context) GetGatewayAwsPeeringGatewayArrayOutput
+}
+
+type GetGatewayAwsPeeringGatewayArray []GetGatewayAwsPeeringGatewayInput
+
+func (GetGatewayAwsPeeringGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayAwsPeeringGateway)(nil)).Elem()
+}
+
+func (i GetGatewayAwsPeeringGatewayArray) ToGetGatewayAwsPeeringGatewayArrayOutput() GetGatewayAwsPeeringGatewayArrayOutput {
+	return i.ToGetGatewayAwsPeeringGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewayAwsPeeringGatewayArray) ToGetGatewayAwsPeeringGatewayArrayOutputWithContext(ctx context.Context) GetGatewayAwsPeeringGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayAwsPeeringGatewayArrayOutput)
+}
+
+type GetGatewayAwsPeeringGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayAwsPeeringGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayAwsPeeringGateway)(nil)).Elem()
+}
+
+func (o GetGatewayAwsPeeringGatewayOutput) ToGetGatewayAwsPeeringGatewayOutput() GetGatewayAwsPeeringGatewayOutput {
+	return o
+}
+
+func (o GetGatewayAwsPeeringGatewayOutput) ToGetGatewayAwsPeeringGatewayOutputWithContext(ctx context.Context) GetGatewayAwsPeeringGatewayOutput {
+	return o
+}
+
+// (Required String) AWS region of the Peering Gateway.
+func (o GetGatewayAwsPeeringGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayAwsPeeringGateway) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetGatewayAwsPeeringGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayAwsPeeringGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayAwsPeeringGateway)(nil)).Elem()
+}
+
+func (o GetGatewayAwsPeeringGatewayArrayOutput) ToGetGatewayAwsPeeringGatewayArrayOutput() GetGatewayAwsPeeringGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewayAwsPeeringGatewayArrayOutput) ToGetGatewayAwsPeeringGatewayArrayOutputWithContext(ctx context.Context) GetGatewayAwsPeeringGatewayArrayOutput {
+	return o
+}
+
+func (o GetGatewayAwsPeeringGatewayArrayOutput) Index(i pulumi.IntInput) GetGatewayAwsPeeringGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewayAwsPeeringGateway {
+		return vs[0].([]GetGatewayAwsPeeringGateway)[vs[1].(int)]
+	}).(GetGatewayAwsPeeringGatewayOutput)
+}
+
+type GetGatewayEnvironment struct {
+	// The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+	Id string `pulumi:"id"`
+}
+
+// GetGatewayEnvironmentInput is an input type that accepts GetGatewayEnvironmentArgs and GetGatewayEnvironmentOutput values.
+// You can construct a concrete instance of `GetGatewayEnvironmentInput` via:
+//
+//	GetGatewayEnvironmentArgs{...}
+type GetGatewayEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetGatewayEnvironmentOutput() GetGatewayEnvironmentOutput
+	ToGetGatewayEnvironmentOutputWithContext(context.Context) GetGatewayEnvironmentOutput
+}
+
+type GetGatewayEnvironmentArgs struct {
+	// The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetGatewayEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayEnvironment)(nil)).Elem()
+}
+
+func (i GetGatewayEnvironmentArgs) ToGetGatewayEnvironmentOutput() GetGatewayEnvironmentOutput {
+	return i.ToGetGatewayEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetGatewayEnvironmentArgs) ToGetGatewayEnvironmentOutputWithContext(ctx context.Context) GetGatewayEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayEnvironmentOutput)
+}
+
+type GetGatewayEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayEnvironment)(nil)).Elem()
+}
+
+func (o GetGatewayEnvironmentOutput) ToGetGatewayEnvironmentOutput() GetGatewayEnvironmentOutput {
+	return o
+}
+
+func (o GetGatewayEnvironmentOutput) ToGetGatewayEnvironmentOutputWithContext(ctx context.Context) GetGatewayEnvironmentOutput {
+	return o
+}
+
+// The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+func (o GetGatewayEnvironmentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
 
 type GetIdentityPoolIdentityProvider struct {
@@ -23526,7 +25187,7 @@ func (o GetPrivateLinkAttachmentAwArrayOutput) Index(i pulumi.IntInput) GetPriva
 type GetPrivateLinkAttachmentAzure struct {
 	// Azure PrivateLink service alias for the availability zone.
 	PrivateLinkServiceAlias string `pulumi:"privateLinkServiceAlias"`
-	// Azure PrivateLink service resource id for the availability zone.
+	// (Required String) Azure Private Link service resource id for the availability zone.
 	PrivateLinkServiceResourceId string `pulumi:"privateLinkServiceResourceId"`
 }
 
@@ -23544,7 +25205,7 @@ type GetPrivateLinkAttachmentAzureInput interface {
 type GetPrivateLinkAttachmentAzureArgs struct {
 	// Azure PrivateLink service alias for the availability zone.
 	PrivateLinkServiceAlias pulumi.StringInput `pulumi:"privateLinkServiceAlias"`
-	// Azure PrivateLink service resource id for the availability zone.
+	// (Required String) Azure Private Link service resource id for the availability zone.
 	PrivateLinkServiceResourceId pulumi.StringInput `pulumi:"privateLinkServiceResourceId"`
 }
 
@@ -23604,7 +25265,7 @@ func (o GetPrivateLinkAttachmentAzureOutput) PrivateLinkServiceAlias() pulumi.St
 	return o.ApplyT(func(v GetPrivateLinkAttachmentAzure) string { return v.PrivateLinkServiceAlias }).(pulumi.StringOutput)
 }
 
-// Azure PrivateLink service resource id for the availability zone.
+// (Required String) Azure Private Link service resource id for the availability zone.
 func (o GetPrivateLinkAttachmentAzureOutput) PrivateLinkServiceResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentAzure) string { return v.PrivateLinkServiceResourceId }).(pulumi.StringOutput)
 }
@@ -23727,7 +25388,7 @@ func (o GetPrivateLinkAttachmentConnectionAwArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetPrivateLinkAttachmentConnectionAzure struct {
-	// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+	// (Required String) Resource ID of the Private Endpoint that is connected to the Private Link service.
 	PrivateEndpointResourceId string `pulumi:"privateEndpointResourceId"`
 }
 
@@ -23743,7 +25404,7 @@ type GetPrivateLinkAttachmentConnectionAzureInput interface {
 }
 
 type GetPrivateLinkAttachmentConnectionAzureArgs struct {
-	// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+	// (Required String) Resource ID of the Private Endpoint that is connected to the Private Link service.
 	PrivateEndpointResourceId pulumi.StringInput `pulumi:"privateEndpointResourceId"`
 }
 
@@ -23798,7 +25459,7 @@ func (o GetPrivateLinkAttachmentConnectionAzureOutput) ToGetPrivateLinkAttachmen
 	return o
 }
 
-// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+// (Required String) Resource ID of the Private Endpoint that is connected to the Private Link service.
 func (o GetPrivateLinkAttachmentConnectionAzureOutput) PrivateEndpointResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentConnectionAzure) string { return v.PrivateEndpointResourceId }).(pulumi.StringOutput)
 }
@@ -29268,6 +30929,12 @@ func (o GetTransitGatewayAttachmentNetworkArrayOutput) Index(i pulumi.IntInput) 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointAwsEgressPrivateLinkEndpointInput)(nil)).Elem(), AccessPointAwsEgressPrivateLinkEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointAwsEgressPrivateLinkEndpointPtrInput)(nil)).Elem(), AccessPointAwsEgressPrivateLinkEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointEnvironmentInput)(nil)).Elem(), AccessPointEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointEnvironmentPtrInput)(nil)).Elem(), AccessPointEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointGatewayInput)(nil)).Elem(), AccessPointGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointGatewayPtrInput)(nil)).Elem(), AccessPointGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyManagedResourceInput)(nil)).Elem(), ApiKeyManagedResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyManagedResourcePtrInput)(nil)).Elem(), ApiKeyManagedResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyManagedResourceEnvironmentInput)(nil)).Elem(), ApiKeyManagedResourceEnvironmentArgs{})
@@ -29316,6 +30983,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsForwarderForwardViaIpPtrInput)(nil)).Elem(), DnsForwarderForwardViaIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsForwarderGatewayInput)(nil)).Elem(), DnsForwarderGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DnsForwarderGatewayPtrInput)(nil)).Elem(), DnsForwarderGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DnsRecordEnvironmentInput)(nil)).Elem(), DnsRecordEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DnsRecordEnvironmentPtrInput)(nil)).Elem(), DnsRecordEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DnsRecordGatewayInput)(nil)).Elem(), DnsRecordGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DnsRecordGatewayPtrInput)(nil)).Elem(), DnsRecordGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DnsRecordPrivateLinkAccessPointInput)(nil)).Elem(), DnsRecordPrivateLinkAccessPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DnsRecordPrivateLinkAccessPointPtrInput)(nil)).Elem(), DnsRecordPrivateLinkAccessPointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStreamGovernanceInput)(nil)).Elem(), EnvironmentStreamGovernanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStreamGovernancePtrInput)(nil)).Elem(), EnvironmentStreamGovernanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlinkComputePoolEnvironmentInput)(nil)).Elem(), FlinkComputePoolEnvironmentArgs{})
@@ -29512,6 +31185,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentEnvironmentPtrInput)(nil)).Elem(), TransitGatewayAttachmentEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNetworkInput)(nil)).Elem(), TransitGatewayAttachmentNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayAttachmentNetworkPtrInput)(nil)).Elem(), TransitGatewayAttachmentNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointAwsEgressPrivateLinkEndpointInput)(nil)).Elem(), GetAccessPointAwsEgressPrivateLinkEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointAwsEgressPrivateLinkEndpointArrayInput)(nil)).Elem(), GetAccessPointAwsEgressPrivateLinkEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointEnvironmentInput)(nil)).Elem(), GetAccessPointEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointGatewayInput)(nil)).Elem(), GetAccessPointGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointGatewayArrayInput)(nil)).Elem(), GetAccessPointGatewayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBusinessMetadataAttributeDefinitionInput)(nil)).Elem(), GetBusinessMetadataAttributeDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBusinessMetadataAttributeDefinitionArrayInput)(nil)).Elem(), GetBusinessMetadataAttributeDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBusinessMetadataBindingCredentialsInput)(nil)).Elem(), GetBusinessMetadataBindingCredentialsArgs{})
@@ -29528,9 +31206,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyAzureArrayInput)(nil)).Elem(), GetByokKeyAzureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyGcpInput)(nil)).Elem(), GetByokKeyGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetByokKeyGcpArrayInput)(nil)).Elem(), GetByokKeyGcpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordEnvironmentInput)(nil)).Elem(), GetDnsRecordEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordGatewayInput)(nil)).Elem(), GetDnsRecordGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordGatewayArrayInput)(nil)).Elem(), GetDnsRecordGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordPrivateLinkAccessPointInput)(nil)).Elem(), GetDnsRecordPrivateLinkAccessPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDnsRecordPrivateLinkAccessPointArrayInput)(nil)).Elem(), GetDnsRecordPrivateLinkAccessPointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentStreamGovernanceInput)(nil)).Elem(), GetEnvironmentStreamGovernanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEnvironmentStreamGovernancePtrInput)(nil)).Elem(), GetEnvironmentStreamGovernanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFlinkComputePoolEnvironmentInput)(nil)).Elem(), GetFlinkComputePoolEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGatewayInput)(nil)).Elem(), GetGatewayAwsEgressPrivateLinkGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsEgressPrivateLinkGatewayArrayInput)(nil)).Elem(), GetGatewayAwsEgressPrivateLinkGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsPeeringGatewayInput)(nil)).Elem(), GetGatewayAwsPeeringGatewayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayAwsPeeringGatewayArrayInput)(nil)).Elem(), GetGatewayAwsPeeringGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayEnvironmentInput)(nil)).Elem(), GetGatewayEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolIdentityProviderInput)(nil)).Elem(), GetIdentityPoolIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationCreatorInput)(nil)).Elem(), GetInvitationCreatorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInvitationCreatorArrayInput)(nil)).Elem(), GetInvitationCreatorArray{})
@@ -29696,6 +31384,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentEnvironmentInput)(nil)).Elem(), GetTransitGatewayAttachmentEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentNetworkInput)(nil)).Elem(), GetTransitGatewayAttachmentNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayAttachmentNetworkArrayInput)(nil)).Elem(), GetTransitGatewayAttachmentNetworkArray{})
+	pulumi.RegisterOutputType(AccessPointAwsEgressPrivateLinkEndpointOutput{})
+	pulumi.RegisterOutputType(AccessPointAwsEgressPrivateLinkEndpointPtrOutput{})
+	pulumi.RegisterOutputType(AccessPointEnvironmentOutput{})
+	pulumi.RegisterOutputType(AccessPointEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(AccessPointGatewayOutput{})
+	pulumi.RegisterOutputType(AccessPointGatewayPtrOutput{})
 	pulumi.RegisterOutputType(ApiKeyManagedResourceOutput{})
 	pulumi.RegisterOutputType(ApiKeyManagedResourcePtrOutput{})
 	pulumi.RegisterOutputType(ApiKeyManagedResourceEnvironmentOutput{})
@@ -29744,6 +31438,12 @@ func init() {
 	pulumi.RegisterOutputType(DnsForwarderForwardViaIpPtrOutput{})
 	pulumi.RegisterOutputType(DnsForwarderGatewayOutput{})
 	pulumi.RegisterOutputType(DnsForwarderGatewayPtrOutput{})
+	pulumi.RegisterOutputType(DnsRecordEnvironmentOutput{})
+	pulumi.RegisterOutputType(DnsRecordEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(DnsRecordGatewayOutput{})
+	pulumi.RegisterOutputType(DnsRecordGatewayPtrOutput{})
+	pulumi.RegisterOutputType(DnsRecordPrivateLinkAccessPointOutput{})
+	pulumi.RegisterOutputType(DnsRecordPrivateLinkAccessPointPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentStreamGovernanceOutput{})
 	pulumi.RegisterOutputType(EnvironmentStreamGovernancePtrOutput{})
 	pulumi.RegisterOutputType(FlinkComputePoolEnvironmentOutput{})
@@ -29940,6 +31640,11 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayAttachmentEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentNetworkOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentNetworkPtrOutput{})
+	pulumi.RegisterOutputType(GetAccessPointAwsEgressPrivateLinkEndpointOutput{})
+	pulumi.RegisterOutputType(GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetAccessPointEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetAccessPointGatewayOutput{})
+	pulumi.RegisterOutputType(GetAccessPointGatewayArrayOutput{})
 	pulumi.RegisterOutputType(GetBusinessMetadataAttributeDefinitionOutput{})
 	pulumi.RegisterOutputType(GetBusinessMetadataAttributeDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(GetBusinessMetadataBindingCredentialsOutput{})
@@ -29956,9 +31661,19 @@ func init() {
 	pulumi.RegisterOutputType(GetByokKeyAzureArrayOutput{})
 	pulumi.RegisterOutputType(GetByokKeyGcpOutput{})
 	pulumi.RegisterOutputType(GetByokKeyGcpArrayOutput{})
+	pulumi.RegisterOutputType(GetDnsRecordEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetDnsRecordGatewayOutput{})
+	pulumi.RegisterOutputType(GetDnsRecordGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetDnsRecordPrivateLinkAccessPointOutput{})
+	pulumi.RegisterOutputType(GetDnsRecordPrivateLinkAccessPointArrayOutput{})
 	pulumi.RegisterOutputType(GetEnvironmentStreamGovernanceOutput{})
 	pulumi.RegisterOutputType(GetEnvironmentStreamGovernancePtrOutput{})
 	pulumi.RegisterOutputType(GetFlinkComputePoolEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetGatewayAwsEgressPrivateLinkGatewayOutput{})
+	pulumi.RegisterOutputType(GetGatewayAwsEgressPrivateLinkGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewayAwsPeeringGatewayOutput{})
+	pulumi.RegisterOutputType(GetGatewayAwsPeeringGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewayEnvironmentOutput{})
 	pulumi.RegisterOutputType(GetIdentityPoolIdentityProviderOutput{})
 	pulumi.RegisterOutputType(GetInvitationCreatorOutput{})
 	pulumi.RegisterOutputType(GetInvitationCreatorArrayOutput{})

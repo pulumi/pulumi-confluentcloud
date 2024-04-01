@@ -16,7 +16,7 @@ public final class GetPrivateLinkAttachmentAzure {
      */
     private String privateLinkServiceAlias;
     /**
-     * @return Azure PrivateLink service resource id for the availability zone.
+     * @return (Required String) Azure Private Link service resource id for the availability zone.
      * 
      */
     private String privateLinkServiceResourceId;
@@ -30,7 +30,7 @@ public final class GetPrivateLinkAttachmentAzure {
         return this.privateLinkServiceAlias;
     }
     /**
-     * @return Azure PrivateLink service resource id for the availability zone.
+     * @return (Required String) Azure Private Link service resource id for the availability zone.
      * 
      */
     public String privateLinkServiceResourceId() {

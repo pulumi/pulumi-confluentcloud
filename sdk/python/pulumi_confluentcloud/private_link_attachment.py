@@ -97,6 +97,8 @@ class _PrivateLinkAttachmentState:
         """
         Input properties used for looking up and filtering PrivateLinkAttachment resources.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAwArgs']]] aws: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAzureArgs']]] azures: (Optional Configuration Block) supports the following:
+               - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
         :param pulumi.Input[str] cloud: The cloud service provider that hosts the resources to access with the Private Link Attachment.
         :param pulumi.Input[str] display_name: The name of the Private Link Attachment.
         :param pulumi.Input[str] dns_domain: (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
@@ -138,6 +140,10 @@ class _PrivateLinkAttachmentState:
     @property
     @pulumi.getter
     def azures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkAttachmentAzureArgs']]]]:
+        """
+        (Optional Configuration Block) supports the following:
+        - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
+        """
         return pulumi.get(self, "azures")
 
     @azures.setter
@@ -259,6 +265,11 @@ class PrivateLinkAttachment(pulumi.CustomResource):
         ```
         <!--End PulumiCodeChooser -->
 
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `PrivateLinkAttachment` resource:
+        * enterprise-privatelinkattachment-aws-kafka-acls
+
         ## Import
 
         You can import a Private Link Attachment by using Environment ID and Private Link Attachment ID, in the format `<Environment ID>/<Private Link Attachment ID>`. The following example shows how to import a Private Link Attachment:
@@ -308,6 +319,11 @@ class PrivateLinkAttachment(pulumi.CustomResource):
         pulumi.export("privateLinkAttachment", main)
         ```
         <!--End PulumiCodeChooser -->
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `PrivateLinkAttachment` resource:
+        * enterprise-privatelinkattachment-aws-kafka-acls
 
         ## Import
 
@@ -393,6 +409,8 @@ class PrivateLinkAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkAttachmentAwArgs']]]] aws: (Optional Configuration Block) supports the following:
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkAttachmentAzureArgs']]]] azures: (Optional Configuration Block) supports the following:
+               - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
         :param pulumi.Input[str] cloud: The cloud service provider that hosts the resources to access with the Private Link Attachment.
         :param pulumi.Input[str] display_name: The name of the Private Link Attachment.
         :param pulumi.Input[str] dns_domain: (Required String) The root DNS domain for the Private Link Attachment, for example, `pr123a.us-east-2.aws.confluent.
@@ -426,6 +444,10 @@ class PrivateLinkAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def azures(self) -> pulumi.Output[Sequence['outputs.PrivateLinkAttachmentAzure']]:
+        """
+        (Optional Configuration Block) supports the following:
+        - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
+        """
         return pulumi.get(self, "azures")
 
     @property

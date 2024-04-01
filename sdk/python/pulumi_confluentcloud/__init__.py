@@ -5,6 +5,7 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
+from .access_point import *
 from .api_key import *
 from .business_metadata import *
 from .business_metadata_binding import *
@@ -13,16 +14,20 @@ from .cluster_link import *
 from .connector import *
 from .custom_connector_plugin import *
 from .dns_forwarder import *
+from .dns_record import *
 from .environment import *
 from .flink_compute_pool import *
 from .flink_statement import *
+from .get_access_point import *
 from .get_business_metadata import *
 from .get_business_metadata_binding import *
 from .get_byok_key import *
+from .get_dns_record import *
 from .get_environment import *
 from .get_environments import *
 from .get_flink_compute_pool import *
 from .get_flink_region import *
+from .get_gateway import *
 from .get_group_mapping import *
 from .get_identity_pool import *
 from .get_identity_provider import *
@@ -107,6 +112,14 @@ _utilities.register(
 [
  {
   "pkg": "confluentcloud",
+  "mod": "index/accessPoint",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/accessPoint:AccessPoint": "AccessPoint"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
   "mod": "index/apiKey",
   "fqn": "pulumi_confluentcloud",
   "classes": {
@@ -167,6 +180,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/dnsForwarder:DnsForwarder": "DnsForwarder"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/dnsRecord",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/dnsRecord:DnsRecord": "DnsRecord"
   }
  },
  {

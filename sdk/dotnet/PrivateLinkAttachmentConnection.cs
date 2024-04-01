@@ -25,7 +25,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new ConfluentCloud.PrivateLinkAttachmentConnection("main", new()
+    ///     var aws = new ConfluentCloud.PrivateLinkAttachmentConnection("aws", new()
     ///     {
     ///         DisplayName = "my_endpoint",
     ///         Environment = new ConfluentCloud.Inputs.PrivateLinkAttachmentConnectionEnvironmentArgs
@@ -42,13 +42,35 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///     });
     /// 
+    ///     var azure = new ConfluentCloud.PrivateLinkAttachmentConnection("azure", new()
+    ///     {
+    ///         DisplayName = "prod-azure-central-us-az1-connection",
+    ///         Environment = new ConfluentCloud.Inputs.PrivateLinkAttachmentConnectionEnvironmentArgs
+    ///         {
+    ///             Id = "env-12345",
+    ///         },
+    ///         Azure = new ConfluentCloud.Inputs.PrivateLinkAttachmentConnectionAzureArgs
+    ///         {
+    ///             PrivateEndpointResourceId = "/subscriptions/123aaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/testvpc/providers/Microsoft.Network/privateEndpoints/pe-platt-abcdef-az1",
+    ///         },
+    ///         PrivateLinkAttachment = new ConfluentCloud.Inputs.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs
+    ///         {
+    ///             Id = "platt-abcdef",
+    ///         },
+    ///     });
+    /// 
     ///     return new Dictionary&lt;string, object?&gt;
     ///     {
-    ///         ["privateLinkAttachmentConnection"] = main,
+    ///         ["privateLinkAttachmentConnection"] = aws,
     ///     };
     /// });
     /// ```
     /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## Getting Started
+    /// 
+    /// The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` resource:
+    /// * enterprise-privatelinkattachment-aws-kafka-acls
     /// 
     /// ## Import
     /// 

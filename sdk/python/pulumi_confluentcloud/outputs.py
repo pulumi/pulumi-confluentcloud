@@ -11,6 +11,9 @@ from . import _utilities
 from . import outputs
 
 __all__ = [
+    'AccessPointAwsEgressPrivateLinkEndpoint',
+    'AccessPointEnvironment',
+    'AccessPointGateway',
     'ApiKeyManagedResource',
     'ApiKeyManagedResourceEnvironment',
     'ApiKeyOwner',
@@ -35,6 +38,9 @@ __all__ = [
     'DnsForwarderEnvironment',
     'DnsForwarderForwardViaIp',
     'DnsForwarderGateway',
+    'DnsRecordEnvironment',
+    'DnsRecordGateway',
+    'DnsRecordPrivateLinkAccessPoint',
     'EnvironmentStreamGovernance',
     'FlinkComputePoolEnvironment',
     'FlinkStatementComputePool',
@@ -133,6 +139,9 @@ __all__ = [
     'TransitGatewayAttachmentAws',
     'TransitGatewayAttachmentEnvironment',
     'TransitGatewayAttachmentNetwork',
+    'GetAccessPointAwsEgressPrivateLinkEndpointResult',
+    'GetAccessPointEnvironmentResult',
+    'GetAccessPointGatewayResult',
     'GetBusinessMetadataAttributeDefinitionResult',
     'GetBusinessMetadataBindingCredentialsResult',
     'GetBusinessMetadataBindingSchemaRegistryClusterResult',
@@ -141,8 +150,14 @@ __all__ = [
     'GetByokKeyAwResult',
     'GetByokKeyAzureResult',
     'GetByokKeyGcpResult',
+    'GetDnsRecordEnvironmentResult',
+    'GetDnsRecordGatewayResult',
+    'GetDnsRecordPrivateLinkAccessPointResult',
     'GetEnvironmentStreamGovernanceResult',
     'GetFlinkComputePoolEnvironmentResult',
+    'GetGatewayAwsEgressPrivateLinkGatewayResult',
+    'GetGatewayAwsPeeringGatewayResult',
+    'GetGatewayEnvironmentResult',
     'GetIdentityPoolIdentityProviderResult',
     'GetInvitationCreatorResult',
     'GetInvitationUserResult',
@@ -233,6 +248,119 @@ __all__ = [
     'GetTransitGatewayAttachmentEnvironmentResult',
     'GetTransitGatewayAttachmentNetworkResult',
 ]
+
+@pulumi.output_type
+class AccessPointAwsEgressPrivateLinkEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcEndpointServiceName":
+            suggest = "vpc_endpoint_service_name"
+        elif key == "enableHighAvailability":
+            suggest = "enable_high_availability"
+        elif key == "vpcEndpointDnsName":
+            suggest = "vpc_endpoint_dns_name"
+        elif key == "vpcEndpointId":
+            suggest = "vpc_endpoint_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointAwsEgressPrivateLinkEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointAwsEgressPrivateLinkEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointAwsEgressPrivateLinkEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vpc_endpoint_service_name: str,
+                 enable_high_availability: Optional[bool] = None,
+                 vpc_endpoint_dns_name: Optional[str] = None,
+                 vpc_endpoint_id: Optional[str] = None):
+        """
+        :param str vpc_endpoint_service_name: AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+        :param bool enable_high_availability: Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+        :param str vpc_endpoint_dns_name: (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+        :param str vpc_endpoint_id: (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+        """
+        pulumi.set(__self__, "vpc_endpoint_service_name", vpc_endpoint_service_name)
+        if enable_high_availability is not None:
+            pulumi.set(__self__, "enable_high_availability", enable_high_availability)
+        if vpc_endpoint_dns_name is not None:
+            pulumi.set(__self__, "vpc_endpoint_dns_name", vpc_endpoint_dns_name)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @property
+    @pulumi.getter(name="vpcEndpointServiceName")
+    def vpc_endpoint_service_name(self) -> str:
+        """
+        AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+        """
+        return pulumi.get(self, "vpc_endpoint_service_name")
+
+    @property
+    @pulumi.getter(name="enableHighAvailability")
+    def enable_high_availability(self) -> Optional[bool]:
+        """
+        Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_high_availability")
+
+    @property
+    @pulumi.getter(name="vpcEndpointDnsName")
+    def vpc_endpoint_dns_name(self) -> Optional[str]:
+        """
+        (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+        """
+        return pulumi.get(self, "vpc_endpoint_dns_name")
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[str]:
+        """
+        (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+
+@pulumi.output_type
+class AccessPointEnvironment(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class AccessPointGateway(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+        """
+        return pulumi.get(self, "id")
+
 
 @pulumi.output_type
 class ApiKeyManagedResource(dict):
@@ -1251,6 +1379,60 @@ class DnsForwarderGateway(dict):
     def id(self) -> str:
         """
         The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class DnsRecordEnvironment(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class DnsRecordGateway(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class DnsRecordPrivateLinkAccessPoint(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
         """
         return pulumi.get(self, "id")
 
@@ -2865,7 +3047,7 @@ class PrivateLinkAttachmentAzure(dict):
                  private_link_service_resource_id: Optional[str] = None):
         """
         :param str private_link_service_alias: Azure PrivateLink service alias for the availability zone.
-        :param str private_link_service_resource_id: Azure PrivateLink service resource id for the availability zone.
+        :param str private_link_service_resource_id: (Required String) Azure Private Link service resource id for the availability zone.
         """
         if private_link_service_alias is not None:
             pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
@@ -2884,7 +3066,7 @@ class PrivateLinkAttachmentAzure(dict):
     @pulumi.getter(name="privateLinkServiceResourceId")
     def private_link_service_resource_id(self) -> Optional[str]:
         """
-        Azure PrivateLink service resource id for the availability zone.
+        (Required String) Azure Private Link service resource id for the availability zone.
         """
         return pulumi.get(self, "private_link_service_resource_id")
 
@@ -2946,7 +3128,9 @@ class PrivateLinkAttachmentConnectionAzure(dict):
     def __init__(__self__, *,
                  private_endpoint_resource_id: str):
         """
-        :param str private_endpoint_resource_id: Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+        :param str private_endpoint_resource_id: Resource ID of the Private Endpoint that is connected to the Private Link service.
+               
+               > **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         pulumi.set(__self__, "private_endpoint_resource_id", private_endpoint_resource_id)
 
@@ -2954,7 +3138,9 @@ class PrivateLinkAttachmentConnectionAzure(dict):
     @pulumi.getter(name="privateEndpointResourceId")
     def private_endpoint_resource_id(self) -> str:
         """
-        Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+        Resource ID of the Private Endpoint that is connected to the Private Link service.
+
+        > **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         return pulumi.get(self, "private_endpoint_resource_id")
 
@@ -4270,6 +4456,93 @@ class TransitGatewayAttachmentNetwork(dict):
 
 
 @pulumi.output_type
+class GetAccessPointAwsEgressPrivateLinkEndpointResult(dict):
+    def __init__(__self__, *,
+                 enable_high_availability: bool,
+                 vpc_endpoint_dns_name: str,
+                 vpc_endpoint_id: str,
+                 vpc_endpoint_service_name: str):
+        """
+        :param bool enable_high_availability: (Required Boolean) Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+        :param str vpc_endpoint_dns_name: (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+        :param str vpc_endpoint_id: (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+        :param str vpc_endpoint_service_name: (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+        """
+        pulumi.set(__self__, "enable_high_availability", enable_high_availability)
+        pulumi.set(__self__, "vpc_endpoint_dns_name", vpc_endpoint_dns_name)
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+        pulumi.set(__self__, "vpc_endpoint_service_name", vpc_endpoint_service_name)
+
+    @property
+    @pulumi.getter(name="enableHighAvailability")
+    def enable_high_availability(self) -> bool:
+        """
+        (Required Boolean) Whether a resource should be provisioned with high availability. Endpoints deployed with high availability have network interfaces deployed in multiple AZs. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_high_availability")
+
+    @property
+    @pulumi.getter(name="vpcEndpointDnsName")
+    def vpc_endpoint_dns_name(self) -> str:
+        """
+        (Required String) The DNS name of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `*.vpce-00000000000000000-abcd1234.s3.us-west-2.vpce.amazonaws.com`.
+        """
+        return pulumi.get(self, "vpc_endpoint_dns_name")
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> str:
+        """
+        (Required String) The ID of a VPC Endpoint (if any) that is connected to the VPC Endpoint service, for example, `vpce-00000000000000000`.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @property
+    @pulumi.getter(name="vpcEndpointServiceName")
+    def vpc_endpoint_service_name(self) -> str:
+        """
+        (Required String) AWS VPC Endpoint Service that can be used to establish connections for all zones, for example `com.amazonaws.vpce.us-west-2.vpce-svc-0d3be37e21708ecd3`.
+        """
+        return pulumi.get(self, "vpc_endpoint_service_name")
+
+
+@pulumi.output_type
+class GetAccessPointEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetAccessPointGatewayResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class GetBusinessMetadataAttributeDefinitionResult(dict):
     def __init__(__self__, *,
                  default_value: str,
@@ -4554,6 +4827,60 @@ class GetByokKeyGcpResult(dict):
 
 
 @pulumi.output_type
+class GetDnsRecordEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetDnsRecordGatewayResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetDnsRecordPrivateLinkAccessPointResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class GetEnvironmentStreamGovernanceResult(dict):
     def __init__(__self__, *,
                  package: str):
@@ -4589,6 +4916,71 @@ class GetFlinkComputePoolEnvironmentResult(dict):
         The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
 
         > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetGatewayAwsEgressPrivateLinkGatewayResult(dict):
+    def __init__(__self__, *,
+                 principal_arn: str,
+                 region: str):
+        """
+        :param str principal_arn: (Required String) The principal ARN used by the AWS Egress Private Link Gateway.
+        :param str region: (Required String) AWS region of the Peering Gateway.
+        """
+        pulumi.set(__self__, "principal_arn", principal_arn)
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="principalArn")
+    def principal_arn(self) -> str:
+        """
+        (Required String) The principal ARN used by the AWS Egress Private Link Gateway.
+        """
+        return pulumi.get(self, "principal_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        (Required String) AWS region of the Peering Gateway.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetGatewayAwsPeeringGatewayResult(dict):
+    def __init__(__self__, *,
+                 region: str):
+        """
+        :param str region: (Required String) AWS region of the Peering Gateway.
+        """
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        (Required String) AWS region of the Peering Gateway.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetGatewayEnvironmentResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
         """
         return pulumi.get(self, "id")
 
@@ -5708,7 +6100,7 @@ class GetPrivateLinkAttachmentAzureResult(dict):
                  private_link_service_resource_id: str):
         """
         :param str private_link_service_alias: Azure PrivateLink service alias for the availability zone.
-        :param str private_link_service_resource_id: Azure PrivateLink service resource id for the availability zone.
+        :param str private_link_service_resource_id: (Required String) Azure Private Link service resource id for the availability zone.
         """
         pulumi.set(__self__, "private_link_service_alias", private_link_service_alias)
         pulumi.set(__self__, "private_link_service_resource_id", private_link_service_resource_id)
@@ -5725,7 +6117,7 @@ class GetPrivateLinkAttachmentAzureResult(dict):
     @pulumi.getter(name="privateLinkServiceResourceId")
     def private_link_service_resource_id(self) -> str:
         """
-        Azure PrivateLink service resource id for the availability zone.
+        (Required String) Azure Private Link service resource id for the availability zone.
         """
         return pulumi.get(self, "private_link_service_resource_id")
 
@@ -5753,7 +6145,7 @@ class GetPrivateLinkAttachmentConnectionAzureResult(dict):
     def __init__(__self__, *,
                  private_endpoint_resource_id: str):
         """
-        :param str private_endpoint_resource_id: Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+        :param str private_endpoint_resource_id: (Required String) Resource ID of the Private Endpoint that is connected to the Private Link service.
         """
         pulumi.set(__self__, "private_endpoint_resource_id", private_endpoint_resource_id)
 
@@ -5761,7 +6153,7 @@ class GetPrivateLinkAttachmentConnectionAzureResult(dict):
     @pulumi.getter(name="privateEndpointResourceId")
     def private_endpoint_resource_id(self) -> str:
         """
-        Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+        (Required String) Resource ID of the Private Endpoint that is connected to the Private Link service.
         """
         return pulumi.get(self, "private_endpoint_resource_id")
 

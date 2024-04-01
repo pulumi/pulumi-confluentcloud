@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
+export { AccessPointArgs, AccessPointState } from "./accessPoint";
+export type AccessPoint = import("./accessPoint").AccessPoint;
+export const AccessPoint: typeof import("./accessPoint").AccessPoint = null as any;
+utilities.lazyLoad(exports, ["AccessPoint"], () => require("./accessPoint"));
+
 export { ApiKeyArgs, ApiKeyState } from "./apiKey";
 export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
@@ -45,6 +50,11 @@ export type DnsForwarder = import("./dnsForwarder").DnsForwarder;
 export const DnsForwarder: typeof import("./dnsForwarder").DnsForwarder = null as any;
 utilities.lazyLoad(exports, ["DnsForwarder"], () => require("./dnsForwarder"));
 
+export { DnsRecordArgs, DnsRecordState } from "./dnsRecord";
+export type DnsRecord = import("./dnsRecord").DnsRecord;
+export const DnsRecord: typeof import("./dnsRecord").DnsRecord = null as any;
+utilities.lazyLoad(exports, ["DnsRecord"], () => require("./dnsRecord"));
+
 export { EnvironmentArgs, EnvironmentState } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
@@ -60,6 +70,11 @@ export type FlinkStatement = import("./flinkStatement").FlinkStatement;
 export const FlinkStatement: typeof import("./flinkStatement").FlinkStatement = null as any;
 utilities.lazyLoad(exports, ["FlinkStatement"], () => require("./flinkStatement"));
 
+export { GetAccessPointArgs, GetAccessPointResult, GetAccessPointOutputArgs } from "./getAccessPoint";
+export const getAccessPoint: typeof import("./getAccessPoint").getAccessPoint = null as any;
+export const getAccessPointOutput: typeof import("./getAccessPoint").getAccessPointOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPoint","getAccessPointOutput"], () => require("./getAccessPoint"));
+
 export { GetBusinessMetadataArgs, GetBusinessMetadataResult, GetBusinessMetadataOutputArgs } from "./getBusinessMetadata";
 export const getBusinessMetadata: typeof import("./getBusinessMetadata").getBusinessMetadata = null as any;
 export const getBusinessMetadataOutput: typeof import("./getBusinessMetadata").getBusinessMetadataOutput = null as any;
@@ -74,6 +89,11 @@ export { GetByokKeyArgs, GetByokKeyResult, GetByokKeyOutputArgs } from "./getByo
 export const getByokKey: typeof import("./getByokKey").getByokKey = null as any;
 export const getByokKeyOutput: typeof import("./getByokKey").getByokKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getByokKey","getByokKeyOutput"], () => require("./getByokKey"));
+
+export { GetDnsRecordArgs, GetDnsRecordResult, GetDnsRecordOutputArgs } from "./getDnsRecord";
+export const getDnsRecord: typeof import("./getDnsRecord").getDnsRecord = null as any;
+export const getDnsRecordOutput: typeof import("./getDnsRecord").getDnsRecordOutput = null as any;
+utilities.lazyLoad(exports, ["getDnsRecord","getDnsRecordOutput"], () => require("./getDnsRecord"));
 
 export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
 export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
@@ -94,6 +114,11 @@ export { GetFlinkRegionArgs, GetFlinkRegionResult, GetFlinkRegionOutputArgs } fr
 export const getFlinkRegion: typeof import("./getFlinkRegion").getFlinkRegion = null as any;
 export const getFlinkRegionOutput: typeof import("./getFlinkRegion").getFlinkRegionOutput = null as any;
 utilities.lazyLoad(exports, ["getFlinkRegion","getFlinkRegionOutput"], () => require("./getFlinkRegion"));
+
+export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
+export const getGateway: typeof import("./getGateway").getGateway = null as any;
+export const getGatewayOutput: typeof import("./getGateway").getGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getGateway","getGatewayOutput"], () => require("./getGateway"));
 
 export { GetGroupMappingArgs, GetGroupMappingResult, GetGroupMappingOutputArgs } from "./getGroupMapping";
 export const getGroupMapping: typeof import("./getGroupMapping").getGroupMapping = null as any;
@@ -454,6 +479,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "confluentcloud:index/accessPoint:AccessPoint":
+                return new AccessPoint(name, <any>undefined, { urn })
             case "confluentcloud:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
             case "confluentcloud:index/businessMetadata:BusinessMetadata":
@@ -470,6 +497,8 @@ const _module = {
                 return new CustomConnectorPlugin(name, <any>undefined, { urn })
             case "confluentcloud:index/dnsForwarder:DnsForwarder":
                 return new DnsForwarder(name, <any>undefined, { urn })
+            case "confluentcloud:index/dnsRecord:DnsRecord":
+                return new DnsRecord(name, <any>undefined, { urn })
             case "confluentcloud:index/environment:Environment":
                 return new Environment(name, <any>undefined, { urn })
             case "confluentcloud:index/flinkComputePool:FlinkComputePool":
@@ -547,6 +576,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("confluentcloud", "index/accessPoint", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/businessMetadata", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/businessMetadataBinding", _module)
@@ -555,6 +585,7 @@ pulumi.runtime.registerResourceModule("confluentcloud", "index/clusterLink", _mo
 pulumi.runtime.registerResourceModule("confluentcloud", "index/connector", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/customConnectorPlugin", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/dnsForwarder", _module)
+pulumi.runtime.registerResourceModule("confluentcloud", "index/dnsRecord", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/environment", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkComputePool", _module)
 pulumi.runtime.registerResourceModule("confluentcloud", "index/flinkStatement", _module)

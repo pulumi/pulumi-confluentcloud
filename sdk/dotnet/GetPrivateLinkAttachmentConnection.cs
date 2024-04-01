@@ -43,6 +43,12 @@ namespace Pulumi.ConfluentCloud
         /// });
         /// ```
         /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// 
+        /// ## Getting Started
+        /// 
+        /// The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
+        /// * enterprise-privatelinkattachment-aws-kafka-acls
         /// </summary>
         public static Task<GetPrivateLinkAttachmentConnectionResult> InvokeAsync(GetPrivateLinkAttachmentConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkAttachmentConnectionResult>("confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection", args ?? new GetPrivateLinkAttachmentConnectionArgs(), options.WithDefaults());
@@ -79,6 +85,12 @@ namespace Pulumi.ConfluentCloud
         /// });
         /// ```
         /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
+        /// 
+        /// ## Getting Started
+        /// 
+        /// The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
+        /// * enterprise-privatelinkattachment-aws-kafka-acls
         /// </summary>
         public static Output<GetPrivateLinkAttachmentConnectionResult> Invoke(GetPrivateLinkAttachmentConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkAttachmentConnectionResult>("confluentcloud:index/getPrivateLinkAttachmentConnection:getPrivateLinkAttachmentConnection", args ?? new GetPrivateLinkAttachmentConnectionInvokeArgs(), options.WithDefaults());
@@ -127,6 +139,9 @@ namespace Pulumi.ConfluentCloud
         /// (Optional Configuration Block) supports the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPrivateLinkAttachmentConnectionAwResult> Aws;
+        /// <summary>
+        /// (Optional Configuration Blocks) supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetPrivateLinkAttachmentConnectionAzureResult> Azures;
         /// <summary>
         /// (Optional String) The name of the Private Link Attachment Connection.

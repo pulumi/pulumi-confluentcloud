@@ -66,6 +66,10 @@ class GetPrivateLinkAttachmentResult:
     @property
     @pulumi.getter
     def azures(self) -> Sequence['outputs.GetPrivateLinkAttachmentAzureResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        - `private_link_service_alias ` - (Required String) Azure Private Link service alias for the availability zone.
+        """
         return pulumi.get(self, "azures")
 
     @property
@@ -165,6 +169,11 @@ def get_private_link_attachment(environment: Optional[pulumi.InputType['GetPriva
     ```
     <!--End PulumiCodeChooser -->
 
+    ## Getting Started
+
+    The following end-to-end examples might help to get started with `PrivateLinkAttachment` data source:
+    * enterprise-privatelinkattachment-aws-kafka-acls
+
 
     :param str id: The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
     """
@@ -210,6 +219,11 @@ def get_private_link_attachment_output(environment: Optional[pulumi.Input[pulumi
     pulumi.export("platt", main)
     ```
     <!--End PulumiCodeChooser -->
+
+    ## Getting Started
+
+    The following end-to-end examples might help to get started with `PrivateLinkAttachment` data source:
+    * enterprise-privatelinkattachment-aws-kafka-acls
 
 
     :param str id: The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.

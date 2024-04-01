@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetPrivateLinkAttachmentConnectionAzure {
     /**
-     * @return Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+     * @return (Required String) Resource ID of the Private Endpoint that is connected to the Private Link service.
      * 
      */
     private String privateEndpointResourceId;
 
     private GetPrivateLinkAttachmentConnectionAzure() {}
     /**
-     * @return Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+     * @return (Required String) Resource ID of the Private Endpoint that is connected to the Private Link service.
      * 
      */
     public String privateEndpointResourceId() {

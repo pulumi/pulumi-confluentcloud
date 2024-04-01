@@ -63,6 +63,11 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## Getting Started
+ * 
+ * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` resource:
+ * * enterprise-privatelinkattachment-aws-kafka-acls
+ * 
  * ## Import
  * 
  * You can import a Private Link Attachment by using Environment ID and Private Link Attachment ID, in the format `&lt;Environment ID&gt;/&lt;Private Link Attachment ID&gt;`. The following example shows how to import a Private Link Attachment:
@@ -94,9 +99,19 @@ public class PrivateLinkAttachment extends com.pulumi.resources.CustomResource {
     public Output<List<PrivateLinkAttachmentAw>> aws() {
         return this.aws;
     }
+    /**
+     * (Optional Configuration Block) supports the following:
+     * - ` private_link_service_alias  ` - (Required String) Azure Private Link service alias for the availability zone.
+     * 
+     */
     @Export(name="azures", refs={List.class,PrivateLinkAttachmentAzure.class}, tree="[0,1]")
     private Output<List<PrivateLinkAttachmentAzure>> azures;
 
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * - ` private_link_service_alias  ` - (Required String) Azure Private Link service alias for the availability zone.
+     * 
+     */
     public Output<List<PrivateLinkAttachmentAzure>> azures() {
         return this.azures;
     }

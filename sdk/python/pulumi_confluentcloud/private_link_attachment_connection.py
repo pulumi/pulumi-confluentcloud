@@ -235,7 +235,7 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        main = confluentcloud.PrivateLinkAttachmentConnection("main",
+        aws = confluentcloud.PrivateLinkAttachmentConnection("aws",
             display_name="my_endpoint",
             environment=confluentcloud.PrivateLinkAttachmentConnectionEnvironmentArgs(
                 id="env-8gv0v5",
@@ -246,9 +246,25 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
             private_link_attachment=confluentcloud.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs(
                 id="platt-plyvyl",
             ))
-        pulumi.export("privateLinkAttachmentConnection", main)
+        azure = confluentcloud.PrivateLinkAttachmentConnection("azure",
+            display_name="prod-azure-central-us-az1-connection",
+            environment=confluentcloud.PrivateLinkAttachmentConnectionEnvironmentArgs(
+                id="env-12345",
+            ),
+            azure=confluentcloud.PrivateLinkAttachmentConnectionAzureArgs(
+                private_endpoint_resource_id="/subscriptions/123aaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/testvpc/providers/Microsoft.Network/privateEndpoints/pe-platt-abcdef-az1",
+            ),
+            private_link_attachment=confluentcloud.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs(
+                id="platt-abcdef",
+            ))
+        pulumi.export("privateLinkAttachmentConnection", aws)
         ```
         <!--End PulumiCodeChooser -->
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `PrivateLinkAttachmentConnection` resource:
+        * enterprise-privatelinkattachment-aws-kafka-acls
 
         ## Import
 
@@ -288,7 +304,7 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        main = confluentcloud.PrivateLinkAttachmentConnection("main",
+        aws = confluentcloud.PrivateLinkAttachmentConnection("aws",
             display_name="my_endpoint",
             environment=confluentcloud.PrivateLinkAttachmentConnectionEnvironmentArgs(
                 id="env-8gv0v5",
@@ -299,9 +315,25 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
             private_link_attachment=confluentcloud.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs(
                 id="platt-plyvyl",
             ))
-        pulumi.export("privateLinkAttachmentConnection", main)
+        azure = confluentcloud.PrivateLinkAttachmentConnection("azure",
+            display_name="prod-azure-central-us-az1-connection",
+            environment=confluentcloud.PrivateLinkAttachmentConnectionEnvironmentArgs(
+                id="env-12345",
+            ),
+            azure=confluentcloud.PrivateLinkAttachmentConnectionAzureArgs(
+                private_endpoint_resource_id="/subscriptions/123aaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/testvpc/providers/Microsoft.Network/privateEndpoints/pe-platt-abcdef-az1",
+            ),
+            private_link_attachment=confluentcloud.PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs(
+                id="platt-abcdef",
+            ))
+        pulumi.export("privateLinkAttachmentConnection", aws)
         ```
         <!--End PulumiCodeChooser -->
+
+        ## Getting Started
+
+        The following end-to-end examples might help to get started with `PrivateLinkAttachmentConnection` resource:
+        * enterprise-privatelinkattachment-aws-kafka-acls
 
         ## Import
 

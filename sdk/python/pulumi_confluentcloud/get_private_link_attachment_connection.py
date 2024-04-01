@@ -60,6 +60,9 @@ class GetPrivateLinkAttachmentConnectionResult:
     @property
     @pulumi.getter
     def azures(self) -> Sequence['outputs.GetPrivateLinkAttachmentConnectionAzureResult']:
+        """
+        (Optional Configuration Blocks) supports the following:
+        """
         return pulumi.get(self, "azures")
 
     @property
@@ -144,6 +147,11 @@ def get_private_link_attachment_connection(environment: Optional[pulumi.InputTyp
     ```
     <!--End PulumiCodeChooser -->
 
+    ## Getting Started
+
+    The following end-to-end examples might help to get started with `PrivateLinkAttachmentConnection` data source:
+    * enterprise-privatelinkattachment-aws-kafka-acls
+
 
     :param str id: The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
     """
@@ -187,6 +195,11 @@ def get_private_link_attachment_connection_output(environment: Optional[pulumi.I
     pulumi.export("plattc", main)
     ```
     <!--End PulumiCodeChooser -->
+
+    ## Getting Started
+
+    The following end-to-end examples might help to get started with `PrivateLinkAttachmentConnection` data source:
+    * enterprise-privatelinkattachment-aws-kafka-acls
 
 
     :param str id: The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.

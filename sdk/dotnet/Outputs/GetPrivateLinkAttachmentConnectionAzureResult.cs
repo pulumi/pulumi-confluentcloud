@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetPrivateLinkAttachmentConnectionAzureResult
     {
         /// <summary>
-        /// Resource Id of the PrivateEndpoint that is connected to the PrivateLink service.
+        /// (Required String) Resource ID of the Private Endpoint that is connected to the Private Link service.
         /// </summary>
         public readonly string PrivateEndpointResourceId;
 

@@ -19,7 +19,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         public Input<string>? PrivateLinkServiceAlias { get; set; }
 
         /// <summary>
-        /// Azure PrivateLink service resource id for the availability zone.
+        /// (Required String) Azure Private Link service resource id for the availability zone.
         /// </summary>
         [Input("privateLinkServiceResourceId")]
         public Input<string>? PrivateLinkServiceResourceId { get; set; }
