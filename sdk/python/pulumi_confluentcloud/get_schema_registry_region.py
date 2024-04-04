@@ -76,7 +76,7 @@ def get_schema_registry_region(cloud: Optional[str] = None,
                                region: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryRegionResult:
     """
-    [![Deprecated](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Deprecated-yellow>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `get_schema_registry_region` describes a Schema Registry cluster data source.
 
@@ -125,7 +125,7 @@ def get_schema_registry_region_output(cloud: Optional[pulumi.Input[str]] = None,
                                       region: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryRegionResult]:
     """
-    [![Deprecated](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-Deprecated-yellow>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+    [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-yellow)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
     `get_schema_registry_region` describes a Schema Registry cluster data source.
 

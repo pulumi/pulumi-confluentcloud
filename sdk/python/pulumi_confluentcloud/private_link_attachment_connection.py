@@ -224,7 +224,7 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
                  private_link_attachment: Optional[pulumi.Input[pulumi.InputType['PrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs']]] = None,
                  __props__=None):
         """
-        [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
         `PrivateLinkAttachmentConnection` provides a Private Link Attachment Connection resource that enables creating, editing, and deleting Private Link Attachment Connections on Confluent Cloud.
 
@@ -293,7 +293,7 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
                  args: PrivateLinkAttachmentConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
         `PrivateLinkAttachmentConnection` provides a Private Link Attachment Connection resource that enables creating, editing, and deleting Private Link Attachment Connections on Confluent Cloud.
 
