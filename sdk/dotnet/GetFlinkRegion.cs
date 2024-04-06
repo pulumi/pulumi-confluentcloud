@@ -12,7 +12,7 @@ namespace Pulumi.ConfluentCloud
     public static class GetFlinkRegion
     {
         /// <summary>
-        /// [![General Availability](https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.getFlinkRegion` describes a Flink cluster data source.
         /// 
@@ -45,7 +45,7 @@ namespace Pulumi.ConfluentCloud
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlinkRegionResult>("confluentcloud:index/getFlinkRegion:getFlinkRegion", args ?? new GetFlinkRegionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// [![General Availability](https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        /// [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
         /// 
         /// `confluentcloud.getFlinkRegion` describes a Flink cluster data source.
         /// 
