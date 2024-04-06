@@ -311,7 +311,7 @@ class KsqlCluster(pulumi.CustomResource):
         """
         ## # KsqlCluster Resource
 
-        [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
         !> **Warning:**  It is strongly recommended that you provision a `SchemaRegistryCluster` resource before you provision a `KsqlCluster` resource in a given environment. If you're provisioning the `SchemaRegistryCluster` and the `KsqlCluster` resource in the same pulumi up command, reference the `SchemaRegistryCluster` from the `depends_on` argument inside the `KsqlCluster` resource. This ensures that the `SchemaRegistryCluster` resource is created before the `KsqlCluster` resource. If you provision a `KsqlCluster` resource without a `SchemaRegistryCluster` resource, and later, you want to add a `SchemaRegistryCluster` resource, you must destroy and re-create your `KsqlCluster` resource after provisioning a `SchemaRegistryCluster` resource.
 
@@ -347,7 +347,7 @@ class KsqlCluster(pulumi.CustomResource):
         """
         ## # KsqlCluster Resource
 
-        [![General Availability](<https://img.shields.io/badge/Lifecycle%!S(MISSING)tage-General%!A(MISSING)vailability-%!c(MISSING)6e8>)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
+        [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)
 
         !> **Warning:**  It is strongly recommended that you provision a `SchemaRegistryCluster` resource before you provision a `KsqlCluster` resource in a given environment. If you're provisioning the `SchemaRegistryCluster` and the `KsqlCluster` resource in the same pulumi up command, reference the `SchemaRegistryCluster` from the `depends_on` argument inside the `KsqlCluster` resource. This ensures that the `SchemaRegistryCluster` resource is created before the `KsqlCluster` resource. If you provision a `KsqlCluster` resource without a `SchemaRegistryCluster` resource, and later, you want to add a `SchemaRegistryCluster` resource, you must destroy and re-create your `KsqlCluster` resource after provisioning a `SchemaRegistryCluster` resource.
 
