@@ -22,8 +22,6 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
     /// 
-    /// $ export SCHEMA_CONTENT="&lt;schema_content&gt;" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
-    /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest
     /// ```
@@ -35,8 +33,6 @@ namespace Pulumi.ConfluentCloud
     /// $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="&lt;schema_registry_api_secret&gt;"
     /// 
     /// $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="&lt;schema_registry_rest_endpoint&gt;"
-    /// 
-    /// $ export SCHEMA_CONTENT="&lt;schema_content&gt;" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
     /// 
     /// ```sh
     /// $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003

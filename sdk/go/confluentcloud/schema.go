@@ -24,8 +24,6 @@ import (
 //
 // $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
 //
-// $ export SCHEMA_CONTENT="<schema_content>" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
-//
 // ```sh
 // $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest
 // ```
@@ -37,8 +35,6 @@ import (
 // $ export IMPORT_SCHEMA_REGISTRY_API_SECRET="<schema_registry_api_secret>"
 //
 // $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT="<schema_registry_rest_endpoint>"
-//
-// $ export SCHEMA_CONTENT="<schema_content>" # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
 //
 // ```sh
 // $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003
