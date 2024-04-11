@@ -35,8 +35,6 @@ import javax.annotation.Nullable;
  * 
  * $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
  * 
- * $ export SCHEMA_CONTENT=&#34;&lt;schema_content&gt;&#34; # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
- * 
  * ```sh
  * $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/latest
  * ```
@@ -48,8 +46,6 @@ import javax.annotation.Nullable;
  * $ export IMPORT_SCHEMA_REGISTRY_API_SECRET=&#34;&lt;schema_registry_api_secret&gt;&#34;
  * 
  * $ export IMPORT_SCHEMA_REGISTRY_REST_ENDPOINT=&#34;&lt;schema_registry_rest_endpoint&gt;&#34;
- * 
- * $ export SCHEMA_CONTENT=&#34;&lt;schema_content&gt;&#34; # for example, export SCHEMA_CONTENT=$(cat schemas/proto/purchase.proto)
  * 
  * ```sh
  * $ pulumi import confluentcloud:index/schema:Schema my_schema_1 lsrc-abc123/test-subject/100003
