@@ -3155,8 +3155,6 @@ class PrivateLinkAttachmentConnectionAzureArgs:
                  private_endpoint_resource_id: pulumi.Input[str]):
         """
         :param pulumi.Input[str] private_endpoint_resource_id: Resource ID of the Private Endpoint that is connected to the Private Link service.
-               
-               > **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         pulumi.set(__self__, "private_endpoint_resource_id", private_endpoint_resource_id)
 
@@ -3165,8 +3163,6 @@ class PrivateLinkAttachmentConnectionAzureArgs:
     def private_endpoint_resource_id(self) -> pulumi.Input[str]:
         """
         Resource ID of the Private Endpoint that is connected to the Private Link service.
-
-        > **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         """
         return pulumi.get(self, "private_endpoint_resource_id")
 

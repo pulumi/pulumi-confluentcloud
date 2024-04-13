@@ -48,7 +48,8 @@ namespace Pulumi.ConfluentCloud
         /// ## Getting Started
         /// 
         /// The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
-        /// * enterprise-privatelinkattachment-aws-kafka-acls
+        /// * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+        /// * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
         /// </summary>
         public static Task<GetPrivateLinkAttachmentResult> InvokeAsync(GetPrivateLinkAttachmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkAttachmentResult>("confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment", args ?? new GetPrivateLinkAttachmentArgs(), options.WithDefaults());
@@ -90,7 +91,8 @@ namespace Pulumi.ConfluentCloud
         /// ## Getting Started
         /// 
         /// The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
-        /// * enterprise-privatelinkattachment-aws-kafka-acls
+        /// * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+        /// * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
         /// </summary>
         public static Output<GetPrivateLinkAttachmentResult> Invoke(GetPrivateLinkAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkAttachmentResult>("confluentcloud:index/getPrivateLinkAttachment:getPrivateLinkAttachment", args ?? new GetPrivateLinkAttachmentInvokeArgs(), options.WithDefaults());
