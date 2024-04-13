@@ -5179,7 +5179,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
-     * * enterprise-privatelinkattachment-aws-kafka-acls
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static Output<GetPrivateLinkAttachmentResult> getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs args) {
@@ -5231,7 +5232,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
-     * * enterprise-privatelinkattachment-aws-kafka-acls
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static CompletableFuture<GetPrivateLinkAttachmentResult> getPrivateLinkAttachmentPlain(GetPrivateLinkAttachmentPlainArgs args) {
@@ -5283,7 +5285,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
-     * * enterprise-privatelinkattachment-aws-kafka-acls
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static Output<GetPrivateLinkAttachmentResult> getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs args, InvokeOptions options) {
@@ -5335,7 +5338,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachment` data source:
-     * * enterprise-privatelinkattachment-aws-kafka-acls
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static CompletableFuture<GetPrivateLinkAttachmentResult> getPrivateLinkAttachmentPlain(GetPrivateLinkAttachmentPlainArgs args, InvokeOptions options) {
@@ -5387,7 +5391,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
-     * * enterprise-privatelinkattachment-aws-kafka-acls
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static Output<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs args) {
@@ -5439,7 +5444,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
-     * * enterprise-privatelinkattachment-aws-kafka-acls
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static CompletableFuture<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnectionPlain(GetPrivateLinkAttachmentConnectionPlainArgs args) {
@@ -5491,7 +5497,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
-     * * enterprise-privatelinkattachment-aws-kafka-acls
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static Output<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs args, InvokeOptions options) {
@@ -5543,7 +5550,8 @@ public final class ConfluentcloudFunctions {
      * ## Getting Started
      * 
      * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
-     * * enterprise-privatelinkattachment-aws-kafka-acls
+     * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+     * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
      * 
      */
     public static CompletableFuture<GetPrivateLinkAttachmentConnectionResult> getPrivateLinkAttachmentConnectionPlain(GetPrivateLinkAttachmentConnectionPlainArgs args, InvokeOptions options) {

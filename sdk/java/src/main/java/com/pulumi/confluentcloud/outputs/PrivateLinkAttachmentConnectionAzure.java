@@ -13,16 +13,12 @@ public final class PrivateLinkAttachmentConnectionAzure {
     /**
      * @return Resource ID of the Private Endpoint that is connected to the Private Link service.
      * 
-     * &gt; **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
-     * 
      */
     private String privateEndpointResourceId;
 
     private PrivateLinkAttachmentConnectionAzure() {}
     /**
      * @return Resource ID of the Private Endpoint that is connected to the Private Link service.
-     * 
-     * &gt; **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      * 
      */
     public String privateEndpointResourceId() {

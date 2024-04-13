@@ -172,7 +172,8 @@ def get_private_link_attachment(environment: Optional[pulumi.InputType['GetPriva
     ## Getting Started
 
     The following end-to-end examples might help to get started with `PrivateLinkAttachment` data source:
-    * enterprise-privatelinkattachment-aws-kafka-acls
+    * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+    * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
 
 
     :param str id: The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
@@ -223,7 +224,8 @@ def get_private_link_attachment_output(environment: Optional[pulumi.Input[pulumi
     ## Getting Started
 
     The following end-to-end examples might help to get started with `PrivateLinkAttachment` data source:
-    * enterprise-privatelinkattachment-aws-kafka-acls
+    * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+    * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
 
 
     :param str id: The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.

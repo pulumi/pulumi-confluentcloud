@@ -12939,8 +12939,6 @@ func (o PrivateLinkAttachmentConnectionAwsPtrOutput) VpcEndpointId() pulumi.Stri
 
 type PrivateLinkAttachmentConnectionAzure struct {
 	// Resource ID of the Private Endpoint that is connected to the Private Link service.
-	//
-	// > **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	PrivateEndpointResourceId string `pulumi:"privateEndpointResourceId"`
 }
 
@@ -12957,8 +12955,6 @@ type PrivateLinkAttachmentConnectionAzureInput interface {
 
 type PrivateLinkAttachmentConnectionAzureArgs struct {
 	// Resource ID of the Private Endpoint that is connected to the Private Link service.
-	//
-	// > **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 	PrivateEndpointResourceId pulumi.StringInput `pulumi:"privateEndpointResourceId"`
 }
 
@@ -13040,8 +13036,6 @@ func (o PrivateLinkAttachmentConnectionAzureOutput) ToPrivateLinkAttachmentConne
 }
 
 // Resource ID of the Private Endpoint that is connected to the Private Link service.
-//
-// > **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o PrivateLinkAttachmentConnectionAzureOutput) PrivateEndpointResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentConnectionAzure) string { return v.PrivateEndpointResourceId }).(pulumi.StringOutput)
 }
@@ -13071,8 +13065,6 @@ func (o PrivateLinkAttachmentConnectionAzurePtrOutput) Elem() PrivateLinkAttachm
 }
 
 // Resource ID of the Private Endpoint that is connected to the Private Link service.
-//
-// > **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
 func (o PrivateLinkAttachmentConnectionAzurePtrOutput) PrivateEndpointResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionAzure) *string {
 		if v == nil {

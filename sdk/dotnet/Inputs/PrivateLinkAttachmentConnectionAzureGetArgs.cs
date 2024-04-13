@@ -14,8 +14,6 @@ namespace Pulumi.ConfluentCloud.Inputs
     {
         /// <summary>
         /// Resource ID of the Private Endpoint that is connected to the Private Link service.
-        /// 
-        /// &gt; **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
         /// </summary>
         [Input("privateEndpointResourceId", required: true)]
         public Input<string> PrivateEndpointResourceId { get; set; } = null!;

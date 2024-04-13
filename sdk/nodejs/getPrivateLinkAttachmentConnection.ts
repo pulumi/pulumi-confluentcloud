@@ -31,7 +31,8 @@ import * as utilities from "./utilities";
  * ## Getting Started
  *
  * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
- * * enterprise-privatelinkattachment-aws-kafka-acls
+ * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
  */
 export function getPrivateLinkAttachmentConnection(args: GetPrivateLinkAttachmentConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkAttachmentConnectionResult> {
 
@@ -109,7 +110,8 @@ export interface GetPrivateLinkAttachmentConnectionResult {
  * ## Getting Started
  *
  * The following end-to-end examples might help to get started with `confluentcloud.PrivateLinkAttachmentConnection` data source:
- * * enterprise-privatelinkattachment-aws-kafka-acls
+ * * `enterprise-privatelinkattachment-aws-kafka-acls`: _Enterprise_ Kafka cluster on AWS that is accessible via PrivateLink connections with authorization using ACLs
+ * * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
  */
 export function getPrivateLinkAttachmentConnectionOutput(args: GetPrivateLinkAttachmentConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAttachmentConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkAttachmentConnection(a, opts))

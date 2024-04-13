@@ -2132,8 +2132,6 @@ export interface PrivateLinkAttachmentConnectionAws {
 export interface PrivateLinkAttachmentConnectionAzure {
     /**
      * Resource ID of the Private Endpoint that is connected to the Private Link service.
-     *
-     * > **Note:** The `azure` configuration block is in a [Preview lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy).
      */
     privateEndpointResourceId: pulumi.Input<string>;
 }
