@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.EnvironmentArgs;
  * import com.pulumi.confluentcloud.DnsForwarder;
  * import com.pulumi.confluentcloud.DnsForwarderArgs;
  * import com.pulumi.confluentcloud.inputs.DnsForwarderEnvironmentArgs;
@@ -51,7 +52,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;);
+ *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
+ *             .displayName(&#34;Development&#34;)
+ *             .build());
  * 
  *         var main = new DnsForwarder(&#34;main&#34;, DnsForwarderArgs.builder()        
  *             .displayName(&#34;dns_forwarder&#34;)
@@ -62,7 +65,7 @@ import javax.annotation.Nullable;
  *                 &#34;example.com&#34;,
  *                 &#34;domainname.com&#34;)
  *             .gateway(DnsForwarderGatewayArgs.builder()
- *                 .id(confluent_network.main().gateway()[0].id())
+ *                 .id(mainConfluentNetwork.gateway()[0].id())
  *                 .build())
  *             .forwardViaIp(DnsForwarderForwardViaIpArgs.builder()
  *                 .dnsServerIps(                

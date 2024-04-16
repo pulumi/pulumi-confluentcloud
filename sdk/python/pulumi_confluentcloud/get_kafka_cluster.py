@@ -259,12 +259,14 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
         environment=confluentcloud.GetKafkaClusterEnvironmentArgs(
             id="env-xyz456",
         ))
-    test_sa = confluentcloud.ServiceAccount("test-sa", description=f"app_mgr for {example_using_id.display_name}")
-    example_using_name_kafka_cluster = confluentcloud.get_kafka_cluster(display_name="basic_kafka_cluster",
+    test_sa = confluentcloud.ServiceAccount("test-sa",
+        display_name="app_mgr",
+        description=f"app_mgr for {example_using_id.display_name}")
+    example_using_name = confluentcloud.get_kafka_cluster(display_name="basic_kafka_cluster",
         environment=confluentcloud.GetKafkaClusterEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingName", example_using_name_kafka_cluster)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -334,12 +336,14 @@ def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[pul
         environment=confluentcloud.GetKafkaClusterEnvironmentArgs(
             id="env-xyz456",
         ))
-    test_sa = confluentcloud.ServiceAccount("test-sa", description=f"app_mgr for {example_using_id.display_name}")
-    example_using_name_kafka_cluster = confluentcloud.get_kafka_cluster(display_name="basic_kafka_cluster",
+    test_sa = confluentcloud.ServiceAccount("test-sa",
+        display_name="app_mgr",
+        description=f"app_mgr for {example_using_id.display_name}")
+    example_using_name = confluentcloud.get_kafka_cluster(display_name="basic_kafka_cluster",
         environment=confluentcloud.GetKafkaClusterEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingName", example_using_name_kafka_cluster)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 

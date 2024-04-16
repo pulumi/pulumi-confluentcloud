@@ -54,13 +54,13 @@ import javax.annotation.Nullable;
  *                 .egressByteRate(&#34;200&#34;)
  *                 .build())
  *             .principals(            
- *                 confluent_service_account.app_manager().id(),
- *                 confluent_service_account.app_manager_2().id())
+ *                 appManager.id(),
+ *                 appManager2.id())
  *             .kafkaCluster(KafkaClientQuotaKafkaClusterArgs.builder()
- *                 .id(confluent_kafka_cluster.dedicated().id())
+ *                 .id(dedicated.id())
  *                 .build())
  *             .environment(KafkaClientQuotaEnvironmentArgs.builder()
- *                 .id(confluent_environment.development().id())
+ *                 .id(development.id())
  *                 .build())
  *             .build());
  * 

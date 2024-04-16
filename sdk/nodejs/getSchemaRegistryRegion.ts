@@ -20,12 +20,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleSchemaRegistryRegion = confluentcloud.getSchemaRegistryRegion({
- *     cloud: "AWS",
- *     region: "us-east-2",
- *     "package": "ESSENTIALS",
- * });
- * export const example = exampleSchemaRegistryRegion;
+ * export = async () => {
+ *     const example = await confluentcloud.getSchemaRegistryRegion({
+ *         cloud: "AWS",
+ *         region: "us-east-2",
+ *         "package": "ESSENTIALS",
+ *     });
+ *     return {
+ *         example: example,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -87,12 +91,16 @@ export interface GetSchemaRegistryRegionResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleSchemaRegistryRegion = confluentcloud.getSchemaRegistryRegion({
- *     cloud: "AWS",
- *     region: "us-east-2",
- *     "package": "ESSENTIALS",
- * });
- * export const example = exampleSchemaRegistryRegion;
+ * export = async () => {
+ *     const example = await confluentcloud.getSchemaRegistryRegion({
+ *         cloud: "AWS",
+ *         region: "us-east-2",
+ *         "package": "ESSENTIALS",
+ *     });
+ *     return {
+ *         example: example,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

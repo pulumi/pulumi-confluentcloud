@@ -23,6 +23,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -30,20 +32,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdServiceAccount, err := confluentcloud.LookupServiceAccount(ctx, &confluentcloud.LookupServiceAccountArgs{
+//			exampleUsingId, err := confluentcloud.LookupServiceAccount(ctx, &confluentcloud.LookupServiceAccountArgs{
 //				Id: pulumi.StringRef("sa-abc123"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingId", exampleUsingIdServiceAccount)
+//			ctx.Export("exampleUsingId", exampleUsingId)
 //			_, err = confluentcloud.LookupServiceAccount(ctx, &confluentcloud.LookupServiceAccountArgs{
 //				DisplayName: pulumi.StringRef("test_sa"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.NewEnvironment(ctx, "test-env", nil)
+//			_, err = confluentcloud.NewEnvironment(ctx, "test-env", &confluentcloud.EnvironmentArgs{
+//				DisplayName: pulumi.String(fmt.Sprintf("env_for_%v", exampleUsingId.DisplayName)),
+//			})
 //			if err != nil {
 //				return err
 //			}

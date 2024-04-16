@@ -193,7 +193,7 @@ class DnsRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         main = confluentcloud.DnsRecord("main",
             display_name="dns_record",
             environment=confluentcloud.DnsRecordEnvironmentArgs(
@@ -201,10 +201,10 @@ class DnsRecord(pulumi.CustomResource):
             ),
             domain="example.com",
             gateway=confluentcloud.DnsRecordGatewayArgs(
-                id=confluent_network["main"]["gateway"][0]["id"],
+                id=main_confluent_network["gateway"][0]["id"],
             ),
             private_link_access_point=confluentcloud.DnsRecordPrivateLinkAccessPointArgs(
-                id=confluent_access_point["main"]["id"],
+                id=main_confluent_access_point["id"],
             ))
         ```
         <!--End PulumiCodeChooser -->
@@ -247,7 +247,7 @@ class DnsRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         main = confluentcloud.DnsRecord("main",
             display_name="dns_record",
             environment=confluentcloud.DnsRecordEnvironmentArgs(
@@ -255,10 +255,10 @@ class DnsRecord(pulumi.CustomResource):
             ),
             domain="example.com",
             gateway=confluentcloud.DnsRecordGatewayArgs(
-                id=confluent_network["main"]["gateway"][0]["id"],
+                id=main_confluent_network["gateway"][0]["id"],
             ),
             private_link_access_point=confluentcloud.DnsRecordPrivateLinkAccessPointArgs(
-                id=confluent_access_point["main"]["id"],
+                id=main_confluent_access_point["id"],
             ))
         ```
         <!--End PulumiCodeChooser -->

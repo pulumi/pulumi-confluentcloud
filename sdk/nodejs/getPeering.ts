@@ -18,20 +18,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdPeering = confluentcloud.getPeering({
- *     id: "peer-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingId = exampleUsingIdPeering;
- * const exampleUsingNamePeering = confluentcloud.getPeering({
- *     displayName: "my_peering",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNamePeering;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getPeering({
+ *         id: "peer-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getPeering({
+ *         displayName: "my_peering",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -110,20 +114,24 @@ export interface GetPeeringResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdPeering = confluentcloud.getPeering({
- *     id: "peer-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingId = exampleUsingIdPeering;
- * const exampleUsingNamePeering = confluentcloud.getPeering({
- *     displayName: "my_peering",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNamePeering;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getPeering({
+ *         id: "peer-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getPeering({
+ *         displayName: "my_peering",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

@@ -23,7 +23,10 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development");
+    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     {
+    ///         DisplayName = "Development",
+    ///     });
     /// 
     ///     var aws_peering = new ConfluentCloud.Network("aws-peering", new()
     ///     {
@@ -79,7 +82,10 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development");
+    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     {
+    ///         DisplayName = "Development",
+    ///     });
     /// 
     ///     var azure_peering = new ConfluentCloud.Network("azure-peering", new()
     ///     {

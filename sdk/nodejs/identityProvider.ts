@@ -19,8 +19,8 @@ import * as utilities from "./utilities";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * const azure = new confluentcloud.IdentityProvider("azure", {
- *     description: "My description",
  *     displayName: "My OIDC Provider: Azure AD",
+ *     description: "My description",
  *     issuer: "https://login.microsoftonline.com/{tenant_id}/v2.0",
  *     jwksUri: "https://login.microsoftonline.com/common/discovery/v2.0/keys",
  * });
@@ -35,8 +35,8 @@ import * as utilities from "./utilities";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * const okta = new confluentcloud.IdentityProvider("okta", {
- *     description: "My description",
  *     displayName: "My OIDC Provider: Okta",
+ *     description: "My description",
  *     issuer: "https://mycompany.okta.com/oauth2/default",
  *     jwksUri: "https://mycompany.okta.com/oauth2/default/v1/keys",
  * });

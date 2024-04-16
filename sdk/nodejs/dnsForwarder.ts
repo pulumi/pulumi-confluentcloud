@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const main = new confluentcloud.DnsForwarder("main", {
  *     displayName: "dns_forwarder",
  *     environment: {
@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  *         "domainname.com",
  *     ],
  *     gateway: {
- *         id: confluent_network.main.gateway[0].id,
+ *         id: mainConfluentNetwork.gateway[0].id,
  *     },
  *     forwardViaIp: {
  *         dnsServerIps: [

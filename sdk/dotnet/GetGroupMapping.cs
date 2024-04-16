@@ -29,7 +29,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingIdGroupMapping = ConfluentCloud.GetGroupMapping.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.GetGroupMapping.Invoke(new()
         ///     {
         ///         Id = "group-abc123",
         ///     });
@@ -41,7 +41,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdGroupMapping,
+        ///         ["exampleUsingId"] = exampleUsingId,
         ///     };
         /// });
         /// ```
@@ -68,7 +68,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingIdGroupMapping = ConfluentCloud.GetGroupMapping.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.GetGroupMapping.Invoke(new()
         ///     {
         ///         Id = "group-abc123",
         ///     });
@@ -80,7 +80,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdGroupMapping,
+        ///         ["exampleUsingId"] = exampleUsingId,
         ///     };
         /// });
         /// ```

@@ -32,13 +32,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKafkaClientQuota, err := confluentcloud.LookupKafkaClientQuota(ctx, &confluentcloud.LookupKafkaClientQuotaArgs{
+//			example, err := confluentcloud.LookupKafkaClientQuota(ctx, &confluentcloud.LookupKafkaClientQuotaArgs{
 //				Id: "cq-abc123",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("example", exampleKafkaClientQuota)
+//			ctx.Export("example", example)
 //			return nil
 //		})
 //	}

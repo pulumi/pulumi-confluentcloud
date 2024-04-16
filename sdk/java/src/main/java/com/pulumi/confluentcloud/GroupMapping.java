@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *         var envadmin = new RoleBinding(&#34;envadmin&#34;, RoleBindingArgs.builder()        
  *             .principal(application_developers.id().applyValue(id -&gt; String.format(&#34;User:%s&#34;, id)))
  *             .roleName(&#34;EnvironmentAdmin&#34;)
- *             .crnPattern(data.confluent_environment().prod().resource_name())
+ *             .crnPattern(prod.resourceName())
  *             .build());
  * 
  *     }

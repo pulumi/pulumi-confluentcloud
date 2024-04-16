@@ -29,8 +29,8 @@ namespace Pulumi.ConfluentCloud
     /// {
     ///     var azure = new ConfluentCloud.IdentityProvider("azure", new()
     ///     {
-    ///         Description = "My description",
     ///         DisplayName = "My OIDC Provider: Azure AD",
+    ///         Description = "My description",
     ///         Issuer = "https://login.microsoftonline.com/{tenant_id}/v2.0",
     ///         JwksUri = "https://login.microsoftonline.com/common/discovery/v2.0/keys",
     ///     });
@@ -52,8 +52,8 @@ namespace Pulumi.ConfluentCloud
     /// {
     ///     var okta = new ConfluentCloud.IdentityProvider("okta", new()
     ///     {
-    ///         Description = "My description",
     ///         DisplayName = "My OIDC Provider: Okta",
+    ///         Description = "My description",
     ///         Issuer = "https://mycompany.okta.com/oauth2/default",
     ///         JwksUri = "https://mycompany.okta.com/oauth2/default/v1/keys",
     ///     });

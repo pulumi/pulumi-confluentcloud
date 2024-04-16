@@ -20,10 +20,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const azureKey = new confluentcloud.ByokKey("azureKey", {azure: {
- *     keyIdentifier: "https://test-vault.vault.azure.net/keys/test-key",
- *     keyVaultId: "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault",
+ * const azureKey = new confluentcloud.ByokKey("azure_key", {azure: {
  *     tenantId: "11111111-1111-1111-1111-111111111111",
+ *     keyVaultId: "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault",
+ *     keyIdentifier: "https://test-vault.vault.azure.net/keys/test-key",
  * }});
  * ```
  * <!--End PulumiCodeChooser -->
@@ -35,7 +35,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const gcpKey = new confluentcloud.ByokKey("gcpKey", {gcp: {
+ * const gcpKey = new confluentcloud.ByokKey("gcp_key", {gcp: {
  *     keyId: "projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test",
  * }});
  * ```

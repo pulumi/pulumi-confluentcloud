@@ -24,50 +24,52 @@ namespace Pulumi.ConfluentCloud
     ///     // https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode
     ///     var east_to_west = new ConfluentCloud.ClusterLink("east-to-west", new()
     ///     {
+    ///         Link = "bidirectional-link",
     ///         LinkMode = "BIDIRECTIONAL",
     ///         LocalKafkaCluster = new ConfluentCloud.Inputs.ClusterLinkLocalKafkaClusterArgs
     ///         {
-    ///             Id = data.Confluent_kafka_cluster.East.Id,
-    ///             RestEndpoint = data.Confluent_kafka_cluster.East.Rest_endpoint,
+    ///             Id = east.Id,
+    ///             RestEndpoint = east.RestEndpoint,
     ///             Credentials = new ConfluentCloud.Inputs.ClusterLinkLocalKafkaClusterCredentialsArgs
     ///             {
-    ///                 Key = confluent_api_key.App_manager_east_cluster_api_key.Id,
-    ///                 Secret = confluent_api_key.App_manager_east_cluster_api_key.Secret,
+    ///                 Key = app_manager_east_cluster_api_key.Id,
+    ///                 Secret = app_manager_east_cluster_api_key.Secret,
     ///             },
     ///         },
     ///         RemoteKafkaCluster = new ConfluentCloud.Inputs.ClusterLinkRemoteKafkaClusterArgs
     ///         {
-    ///             Id = data.Confluent_kafka_cluster.West.Id,
-    ///             BootstrapEndpoint = data.Confluent_kafka_cluster.West.Bootstrap_endpoint,
+    ///             Id = west.Id,
+    ///             BootstrapEndpoint = west.BootstrapEndpoint,
     ///             Credentials = new ConfluentCloud.Inputs.ClusterLinkRemoteKafkaClusterCredentialsArgs
     ///             {
-    ///                 Key = confluent_api_key.App_manager_west_cluster_api_key.Id,
-    ///                 Secret = confluent_api_key.App_manager_west_cluster_api_key.Secret,
+    ///                 Key = app_manager_west_cluster_api_key.Id,
+    ///                 Secret = app_manager_west_cluster_api_key.Secret,
     ///             },
     ///         },
     ///     });
     /// 
     ///     var west_to_east = new ConfluentCloud.ClusterLink("west-to-east", new()
     ///     {
+    ///         Link = "bidirectional-link",
     ///         LinkMode = "BIDIRECTIONAL",
     ///         LocalKafkaCluster = new ConfluentCloud.Inputs.ClusterLinkLocalKafkaClusterArgs
     ///         {
-    ///             Id = data.Confluent_kafka_cluster.West.Id,
-    ///             RestEndpoint = data.Confluent_kafka_cluster.West.Rest_endpoint,
+    ///             Id = west.Id,
+    ///             RestEndpoint = west.RestEndpoint,
     ///             Credentials = new ConfluentCloud.Inputs.ClusterLinkLocalKafkaClusterCredentialsArgs
     ///             {
-    ///                 Key = confluent_api_key.App_manager_west_cluster_api_key.Id,
-    ///                 Secret = confluent_api_key.App_manager_west_cluster_api_key.Secret,
+    ///                 Key = app_manager_west_cluster_api_key.Id,
+    ///                 Secret = app_manager_west_cluster_api_key.Secret,
     ///             },
     ///         },
     ///         RemoteKafkaCluster = new ConfluentCloud.Inputs.ClusterLinkRemoteKafkaClusterArgs
     ///         {
-    ///             Id = data.Confluent_kafka_cluster.East.Id,
-    ///             BootstrapEndpoint = data.Confluent_kafka_cluster.East.Bootstrap_endpoint,
+    ///             Id = east.Id,
+    ///             BootstrapEndpoint = east.BootstrapEndpoint,
     ///             Credentials = new ConfluentCloud.Inputs.ClusterLinkRemoteKafkaClusterCredentialsArgs
     ///             {
-    ///                 Key = confluent_api_key.App_manager_east_cluster_api_key.Id,
-    ///                 Secret = confluent_api_key.App_manager_east_cluster_api_key.Secret,
+    ///                 Key = app_manager_east_cluster_api_key.Id,
+    ///                 Secret = app_manager_east_cluster_api_key.Secret,
     ///             },
     ///         },
     ///     });

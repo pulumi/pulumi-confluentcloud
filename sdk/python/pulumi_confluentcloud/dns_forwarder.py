@@ -193,7 +193,7 @@ class DnsForwarder(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         main = confluentcloud.DnsForwarder("main",
             display_name="dns_forwarder",
             environment=confluentcloud.DnsForwarderEnvironmentArgs(
@@ -204,7 +204,7 @@ class DnsForwarder(pulumi.CustomResource):
                 "domainname.com",
             ],
             gateway=confluentcloud.DnsForwarderGatewayArgs(
-                id=confluent_network["main"]["gateway"][0]["id"],
+                id=main_confluent_network["gateway"][0]["id"],
             ),
             forward_via_ip=confluentcloud.DnsForwarderForwardViaIpArgs(
                 dns_server_ips=[
@@ -253,7 +253,7 @@ class DnsForwarder(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         main = confluentcloud.DnsForwarder("main",
             display_name="dns_forwarder",
             environment=confluentcloud.DnsForwarderEnvironmentArgs(
@@ -264,7 +264,7 @@ class DnsForwarder(pulumi.CustomResource):
                 "domainname.com",
             ],
             gateway=confluentcloud.DnsForwarderGatewayArgs(
-                id=confluent_network["main"]["gateway"][0]["id"],
+                id=main_confluent_network["gateway"][0]["id"],
             ),
             forward_via_ip=confluentcloud.DnsForwarderForwardViaIpArgs(
                 dns_server_ips=[

@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const main = new confluentcloud.DnsRecord("main", {
  *     displayName: "dns_record",
  *     environment: {
@@ -26,10 +26,10 @@ import * as utilities from "./utilities";
  *     },
  *     domain: "example.com",
  *     gateway: {
- *         id: confluent_network.main.gateway[0].id,
+ *         id: mainConfluentNetwork.gateway[0].id,
  *     },
  *     privateLinkAccessPoint: {
- *         id: confluent_access_point.main.id,
+ *         id: mainConfluentAccessPoint.id,
  *     },
  * });
  * ```

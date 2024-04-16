@@ -30,27 +30,27 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := confluentcloud.NewConnector(ctx, "source", &confluentcloud.ConnectorArgs{
 //				Environment: &confluentcloud.ConnectorEnvironmentArgs{
-//					Id: pulumi.Any(confluent_environment.Staging.Id),
+//					Id: pulumi.Any(staging.Id),
 //				},
 //				KafkaCluster: &confluentcloud.ConnectorKafkaClusterArgs{
-//					Id: pulumi.Any(confluent_kafka_cluster.Basic.Id),
+//					Id: pulumi.Any(basic.Id),
 //				},
 //				ConfigSensitive: nil,
 //				ConfigNonsensitive: pulumi.StringMap{
 //					"connector.class":          pulumi.String("DatagenSource"),
 //					"name":                     pulumi.String("DatagenSourceConnector_0"),
 //					"kafka.auth.mode":          pulumi.String("SERVICE_ACCOUNT"),
-//					"kafka.service.account.id": pulumi.Any(confluent_service_account.AppConnector.Id),
-//					"kafka.topic":              pulumi.Any(confluent_kafka_topic.Orders.Topic_name),
+//					"kafka.service.account.id": pulumi.Any(app_connector.Id),
+//					"kafka.topic":              pulumi.Any(orders.TopicName),
 //					"output.data.format":       pulumi.String("JSON"),
 //					"quickstart":               pulumi.String("ORDERS"),
 //					"tasks.max":                pulumi.String("1"),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				confluent_kafka_acl.AppConnectorDescribeOnCluster,
-//				confluent_kafka_acl.AppConnectorWriteOnTargetTopic,
-//				confluent_kafka_acl.AppConnectorCreateOnDataPreviewTopics,
-//				confluent_kafka_acl.AppConnectorWriteOnDataPreviewTopics,
+//				app_connector_describe_on_cluster,
+//				app_connector_write_on_target_topic,
+//				app_connector_create_on_data_preview_topics,
+//				app_connector_write_on_data_preview_topics,
 //			}))
 //			if err != nil {
 //				return err
@@ -78,22 +78,22 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := confluentcloud.NewConnector(ctx, "sink", &confluentcloud.ConnectorArgs{
 //				Environment: &confluentcloud.ConnectorEnvironmentArgs{
-//					Id: pulumi.Any(confluent_environment.Staging.Id),
+//					Id: pulumi.Any(staging.Id),
 //				},
 //				KafkaCluster: &confluentcloud.ConnectorKafkaClusterArgs{
-//					Id: pulumi.Any(confluent_kafka_cluster.Basic.Id),
+//					Id: pulumi.Any(basic.Id),
 //				},
 //				ConfigSensitive: pulumi.StringMap{
 //					"aws.access.key.id":     pulumi.String("***REDACTED***"),
 //					"aws.secret.access.key": pulumi.String("***REDACTED***"),
 //				},
 //				ConfigNonsensitive: pulumi.StringMap{
-//					"topics":                   pulumi.Any(confluent_kafka_topic.Orders.Topic_name),
+//					"topics":                   pulumi.Any(orders.TopicName),
 //					"input.data.format":        pulumi.String("JSON"),
 //					"connector.class":          pulumi.String("S3_SINK"),
 //					"name":                     pulumi.String("S3_SINKConnector_0"),
 //					"kafka.auth.mode":          pulumi.String("SERVICE_ACCOUNT"),
-//					"kafka.service.account.id": pulumi.Any(confluent_service_account.AppConnector.Id),
+//					"kafka.service.account.id": pulumi.Any(app_connector.Id),
 //					"s3.bucket.name":           pulumi.String("<s3-bucket-name>"),
 //					"output.data.format":       pulumi.String("JSON"),
 //					"time.interval":            pulumi.String("DAILY"),
@@ -101,15 +101,15 @@ import (
 //					"tasks.max":                pulumi.String("1"),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				confluent_kafka_acl.AppConnectorDescribeOnCluster,
-//				confluent_kafka_acl.AppConnectorReadOnTargetTopic,
-//				confluent_kafka_acl.AppConnectorCreateOnDlqLccTopics,
-//				confluent_kafka_acl.AppConnectorWriteOnDlqLccTopics,
-//				confluent_kafka_acl.AppConnectorCreateOnSuccessLccTopics,
-//				confluent_kafka_acl.AppConnectorWriteOnSuccessLccTopics,
-//				confluent_kafka_acl.AppConnectorCreateOnErrorLccTopics,
-//				confluent_kafka_acl.AppConnectorWriteOnErrorLccTopics,
-//				confluent_kafka_acl.AppConnectorReadOnConnectLccGroup,
+//				app_connector_describe_on_cluster,
+//				app_connector_read_on_target_topic,
+//				app_connector_create_on_dlq_lcc_topics,
+//				app_connector_write_on_dlq_lcc_topics,
+//				app_connector_create_on_success_lcc_topics,
+//				app_connector_write_on_success_lcc_topics,
+//				app_connector_create_on_error_lcc_topics,
+//				app_connector_write_on_error_lcc_topics,
+//				app_connector_read_on_connect_lcc_group,
 //			}))
 //			if err != nil {
 //				return err
@@ -137,36 +137,36 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := confluentcloud.NewConnector(ctx, "sink", &confluentcloud.ConnectorArgs{
 //				Environment: &confluentcloud.ConnectorEnvironmentArgs{
-//					Id: pulumi.Any(confluent_environment.Staging.Id),
+//					Id: pulumi.Any(staging.Id),
 //				},
 //				KafkaCluster: &confluentcloud.ConnectorKafkaClusterArgs{
-//					Id: pulumi.Any(confluent_kafka_cluster.Basic.Id),
+//					Id: pulumi.Any(basic.Id),
 //				},
 //				ConfigSensitive: pulumi.StringMap{
 //					"aws.access.key.id":     pulumi.String("***REDACTED***"),
 //					"aws.secret.access.key": pulumi.String("***REDACTED***"),
 //				},
 //				ConfigNonsensitive: pulumi.StringMap{
-//					"topics":                   pulumi.Any(confluent_kafka_topic.Orders.Topic_name),
+//					"topics":                   pulumi.Any(orders.TopicName),
 //					"input.data.format":        pulumi.String("JSON"),
 //					"connector.class":          pulumi.String("DynamoDbSink"),
 //					"name":                     pulumi.String("DynamoDbSinkConnector_0"),
 //					"kafka.auth.mode":          pulumi.String("SERVICE_ACCOUNT"),
-//					"kafka.service.account.id": pulumi.Any(confluent_service_account.AppConnector.Id),
+//					"kafka.service.account.id": pulumi.Any(app_connector.Id),
 //					"aws.dynamodb.pk.hash":     pulumi.String("value.userid"),
 //					"aws.dynamodb.pk.sort":     pulumi.String("value.pageid"),
 //					"tasks.max":                pulumi.String("1"),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				confluent_kafka_acl.AppConnectorDescribeOnCluster,
-//				confluent_kafka_acl.AppConnectorReadOnTargetTopic,
-//				confluent_kafka_acl.AppConnectorCreateOnDlqLccTopics,
-//				confluent_kafka_acl.AppConnectorWriteOnDlqLccTopics,
-//				confluent_kafka_acl.AppConnectorCreateOnSuccessLccTopics,
-//				confluent_kafka_acl.AppConnectorWriteOnSuccessLccTopics,
-//				confluent_kafka_acl.AppConnectorCreateOnErrorLccTopics,
-//				confluent_kafka_acl.AppConnectorWriteOnErrorLccTopics,
-//				confluent_kafka_acl.AppConnectorReadOnConnectLccGroup,
+//				app_connector_describe_on_cluster,
+//				app_connector_read_on_target_topic,
+//				app_connector_create_on_dlq_lcc_topics,
+//				app_connector_write_on_dlq_lcc_topics,
+//				app_connector_create_on_success_lcc_topics,
+//				app_connector_write_on_success_lcc_topics,
+//				app_connector_create_on_error_lcc_topics,
+//				app_connector_write_on_error_lcc_topics,
+//				app_connector_read_on_connect_lcc_group,
 //			}))
 //			if err != nil {
 //				return err
@@ -195,10 +195,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := confluentcloud.NewConnector(ctx, "source", &confluentcloud.ConnectorArgs{
 //				Environment: &confluentcloud.ConnectorEnvironmentArgs{
-//					Id: pulumi.Any(confluent_environment.Staging.Id),
+//					Id: pulumi.Any(staging.Id),
 //				},
 //				KafkaCluster: &confluentcloud.ConnectorKafkaClusterArgs{
-//					Id: pulumi.Any(confluent_kafka_cluster.Basic.Id),
+//					Id: pulumi.Any(basic.Id),
 //				},
 //				ConfigSensitive: pulumi.StringMap{
 //					"kafka.api.key":    pulumi.String("***REDACTED***"),
@@ -206,19 +206,19 @@ import (
 //				},
 //				ConfigNonsensitive: pulumi.StringMap{
 //					"confluent.connector.type":   pulumi.String("CUSTOM"),
-//					"connector.class":            pulumi.Any(confluent_custom_connector_plugin.Source.Connector_class),
+//					"connector.class":            pulumi.Any(sourceConfluentCustomConnectorPlugin.ConnectorClass),
 //					"name":                       pulumi.String("DatagenConnectorExampleName"),
 //					"kafka.auth.mode":            pulumi.String("KAFKA_API_KEY"),
-//					"kafka.topic":                pulumi.Any(confluent_kafka_topic.Orders.Topic_name),
+//					"kafka.topic":                pulumi.Any(orders.TopicName),
 //					"output.data.format":         pulumi.String("JSON"),
 //					"quickstart":                 pulumi.String("ORDERS"),
-//					"confluent.custom.plugin.id": pulumi.Any(confluent_custom_connector_plugin.Source.Id),
+//					"confluent.custom.plugin.id": pulumi.Any(sourceConfluentCustomConnectorPlugin.Id),
 //					"min.interval":               pulumi.String("1000"),
 //					"max.interval":               pulumi.String("2000"),
 //					"tasks.max":                  pulumi.String("1"),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				confluent_role_binding.AppManagerKafkaClusterAdmin,
+//				app_manager_kafka_cluster_admin,
 //			}))
 //			if err != nil {
 //				return err

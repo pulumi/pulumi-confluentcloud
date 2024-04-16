@@ -27,7 +27,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingIdServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.GetServiceAccount.Invoke(new()
         ///     {
         ///         Id = "sa-abc123",
         ///     });
@@ -37,11 +37,14 @@ namespace Pulumi.ConfluentCloud
         ///         DisplayName = "test_sa",
         ///     });
         /// 
-        ///     var test_env = new ConfluentCloud.Environment("test-env");
+        ///     var test_env = new ConfluentCloud.Environment("test-env", new()
+        ///     {
+        ///         DisplayName = $"env_for_{exampleUsingId.Apply(getServiceAccountResult =&gt; getServiceAccountResult.DisplayName)}",
+        ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdServiceAccount,
+        ///         ["exampleUsingId"] = exampleUsingId,
         ///     };
         /// });
         /// ```
@@ -66,7 +69,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingIdServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.GetServiceAccount.Invoke(new()
         ///     {
         ///         Id = "sa-abc123",
         ///     });
@@ -76,11 +79,14 @@ namespace Pulumi.ConfluentCloud
         ///         DisplayName = "test_sa",
         ///     });
         /// 
-        ///     var test_env = new ConfluentCloud.Environment("test-env");
+        ///     var test_env = new ConfluentCloud.Environment("test-env", new()
+        ///     {
+        ///         DisplayName = $"env_for_{exampleUsingId.Apply(getServiceAccountResult =&gt; getServiceAccountResult.DisplayName)}",
+        ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdServiceAccount,
+        ///         ["exampleUsingId"] = exampleUsingId,
         ///     };
         /// });
         /// ```

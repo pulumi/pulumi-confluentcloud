@@ -30,20 +30,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdIdentityProvider, err := confluentcloud.LookupIdentityProvider(ctx, &confluentcloud.LookupIdentityProviderArgs{
+//			exampleUsingId, err := confluentcloud.LookupIdentityProvider(ctx, &confluentcloud.LookupIdentityProviderArgs{
 //				Id: pulumi.StringRef("op-abc123"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingId", exampleUsingIdIdentityProvider)
-//			exampleUsingNameIdentityProvider, err := confluentcloud.LookupIdentityProvider(ctx, &confluentcloud.LookupIdentityProviderArgs{
+//			ctx.Export("exampleUsingId", exampleUsingId)
+//			exampleUsingName, err := confluentcloud.LookupIdentityProvider(ctx, &confluentcloud.LookupIdentityProviderArgs{
 //				DisplayName: pulumi.StringRef("My OIDC Provider: Azure AD"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingName", exampleUsingNameIdentityProvider)
+//			ctx.Export("exampleUsingName", exampleUsingName)
 //			return nil
 //		})
 //	}

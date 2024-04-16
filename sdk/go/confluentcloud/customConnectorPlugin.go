@@ -28,12 +28,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := confluentcloud.NewCustomConnectorPlugin(ctx, "source", &confluentcloud.CustomConnectorPluginArgs{
-//				ConnectorClass:            pulumi.String("io.confluent.kafka.connect.datagen.DatagenConnector"),
-//				ConnectorType:             pulumi.String("SOURCE"),
 //				DisplayName:               pulumi.String("Datagen Source Connector Plugin"),
 //				DocumentationLink:         pulumi.String("https://www.confluent.io/hub/confluentinc/kafka-connect-datagen"),
-//				Filename:                  pulumi.String("confluentinc-kafka-connect-datagen-0.6.2.zip"),
+//				ConnectorClass:            pulumi.String("io.confluent.kafka.connect.datagen.DatagenConnector"),
+//				ConnectorType:             pulumi.String("SOURCE"),
 //				SensitiveConfigProperties: pulumi.StringArray{},
+//				Filename:                  pulumi.String("confluentinc-kafka-connect-datagen-0.6.2.zip"),
 //			})
 //			if err != nil {
 //				return err

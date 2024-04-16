@@ -38,10 +38,11 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new()
         ///     {
+        ///         DisplayName = "app_mgr",
         ///         Description = $"app_mgr for {exampleUsingId.Apply(getKafkaClusterResult =&gt; getKafkaClusterResult.DisplayName)}",
         ///     });
         /// 
-        ///     var exampleUsingNameKafkaCluster = ConfluentCloud.GetKafkaCluster.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.GetKafkaCluster.Invoke(new()
         ///     {
         ///         DisplayName = "basic_kafka_cluster",
         ///         Environment = new ConfluentCloud.Inputs.GetKafkaClusterEnvironmentInputArgs
@@ -52,7 +53,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingName"] = exampleUsingNameKafkaCluster,
+        ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
         /// });
         /// ```
@@ -88,10 +89,11 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new()
         ///     {
+        ///         DisplayName = "app_mgr",
         ///         Description = $"app_mgr for {exampleUsingId.Apply(getKafkaClusterResult =&gt; getKafkaClusterResult.DisplayName)}",
         ///     });
         /// 
-        ///     var exampleUsingNameKafkaCluster = ConfluentCloud.GetKafkaCluster.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.GetKafkaCluster.Invoke(new()
         ///     {
         ///         DisplayName = "basic_kafka_cluster",
         ///         Environment = new ConfluentCloud.Inputs.GetKafkaClusterEnvironmentInputArgs
@@ -102,7 +104,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingName"] = exampleUsingNameKafkaCluster,
+        ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
         /// });
         /// ```

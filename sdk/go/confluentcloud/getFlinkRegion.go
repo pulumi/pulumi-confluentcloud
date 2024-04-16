@@ -30,14 +30,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleFlinkRegion, err := confluentcloud.GetFlinkRegion(ctx, &confluentcloud.GetFlinkRegionArgs{
+//			example, err := confluentcloud.GetFlinkRegion(ctx, &confluentcloud.GetFlinkRegionArgs{
 //				Cloud:  "AWS",
 //				Region: "us-east-1",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("example", exampleFlinkRegion)
+//			ctx.Export("example", example)
 //			return nil
 //		})
 //	}

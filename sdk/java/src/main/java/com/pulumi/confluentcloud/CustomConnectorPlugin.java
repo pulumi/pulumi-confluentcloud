@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var source = new CustomConnectorPlugin(&#34;source&#34;, CustomConnectorPluginArgs.builder()        
- *             .connectorClass(&#34;io.confluent.kafka.connect.datagen.DatagenConnector&#34;)
- *             .connectorType(&#34;SOURCE&#34;)
  *             .displayName(&#34;Datagen Source Connector Plugin&#34;)
  *             .documentationLink(&#34;https://www.confluent.io/hub/confluentinc/kafka-connect-datagen&#34;)
- *             .filename(&#34;confluentinc-kafka-connect-datagen-0.6.2.zip&#34;)
+ *             .connectorClass(&#34;io.confluent.kafka.connect.datagen.DatagenConnector&#34;)
+ *             .connectorType(&#34;SOURCE&#34;)
  *             .sensitiveConfigProperties()
+ *             .filename(&#34;confluentinc-kafka-connect-datagen-0.6.2.zip&#34;)
  *             .build());
  * 
  *     }

@@ -18,13 +18,17 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdGroupMapping = confluentcloud.getGroupMapping({
- *     id: "group-abc123",
- * });
- * export const exampleUsingId = exampleUsingIdGroupMapping;
- * const exampleUsingName = confluentcloud.getGroupMapping({
- *     displayName: "Default",
- * });
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getGroupMapping({
+ *         id: "group-abc123",
+ *     });
+ *     const exampleUsingName = await confluentcloud.getGroupMapping({
+ *         displayName: "Default",
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -89,13 +93,17 @@ export interface GetGroupMappingResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdGroupMapping = confluentcloud.getGroupMapping({
- *     id: "group-abc123",
- * });
- * export const exampleUsingId = exampleUsingIdGroupMapping;
- * const exampleUsingName = confluentcloud.getGroupMapping({
- *     displayName: "Default",
- * });
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getGroupMapping({
+ *         id: "group-abc123",
+ *     });
+ *     const exampleUsingName = await confluentcloud.getGroupMapping({
+ *         displayName: "Default",
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

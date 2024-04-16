@@ -18,20 +18,27 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingId = confluentcloud.getKafkaCluster({
- *     id: "lkc-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * const test_sa = new confluentcloud.ServiceAccount("test-sa", {description: exampleUsingId.then(exampleUsingId => `app_mgr for ${exampleUsingId.displayName}`)});
- * const exampleUsingNameKafkaCluster = confluentcloud.getKafkaCluster({
- *     displayName: "basic_kafka_cluster",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNameKafkaCluster;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getKafkaCluster({
+ *         id: "lkc-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const test_sa = new confluentcloud.ServiceAccount("test-sa", {
+ *         displayName: "app_mgr",
+ *         description: `app_mgr for ${exampleUsingId.displayName}`,
+ *     });
+ *     const exampleUsingName = await confluentcloud.getKafkaCluster({
+ *         displayName: "basic_kafka_cluster",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -164,20 +171,27 @@ export interface GetKafkaClusterResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingId = confluentcloud.getKafkaCluster({
- *     id: "lkc-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * const test_sa = new confluentcloud.ServiceAccount("test-sa", {description: exampleUsingId.then(exampleUsingId => `app_mgr for ${exampleUsingId.displayName}`)});
- * const exampleUsingNameKafkaCluster = confluentcloud.getKafkaCluster({
- *     displayName: "basic_kafka_cluster",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNameKafkaCluster;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getKafkaCluster({
+ *         id: "lkc-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const test_sa = new confluentcloud.ServiceAccount("test-sa", {
+ *         displayName: "app_mgr",
+ *         description: `app_mgr for ${exampleUsingId.displayName}`,
+ *     });
+ *     const exampleUsingName = await confluentcloud.getKafkaCluster({
+ *         displayName: "basic_kafka_cluster",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

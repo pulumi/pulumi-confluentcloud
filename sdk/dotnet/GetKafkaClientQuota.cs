@@ -29,14 +29,14 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleKafkaClientQuota = ConfluentCloud.GetKafkaClientQuota.Invoke(new()
+        ///     var example = ConfluentCloud.GetKafkaClientQuota.Invoke(new()
         ///     {
         ///         Id = "cq-abc123",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleKafkaClientQuota,
+        ///         ["example"] = example,
         ///     };
         /// });
         /// ```
@@ -63,14 +63,14 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleKafkaClientQuota = ConfluentCloud.GetKafkaClientQuota.Invoke(new()
+        ///     var example = ConfluentCloud.GetKafkaClientQuota.Invoke(new()
         ///     {
         ///         Id = "cq-abc123",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleKafkaClientQuota,
+        ///         ["example"] = example,
         ///     };
         /// });
         /// ```

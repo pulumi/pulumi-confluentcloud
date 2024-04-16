@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var azure = new IdentityProvider(&#34;azure&#34;, IdentityProviderArgs.builder()        
- *             .description(&#34;My description&#34;)
  *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
+ *             .description(&#34;My description&#34;)
  *             .issuer(&#34;https://login.microsoftonline.com/{tenant_id}/v2.0&#34;)
  *             .jwksUri(&#34;https://login.microsoftonline.com/common/discovery/v2.0/keys&#34;)
  *             .build());
@@ -81,8 +81,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var okta = new IdentityProvider(&#34;okta&#34;, IdentityProviderArgs.builder()        
- *             .description(&#34;My description&#34;)
  *             .displayName(&#34;My OIDC Provider: Okta&#34;)
+ *             .description(&#34;My description&#34;)
  *             .issuer(&#34;https://mycompany.okta.com/oauth2/default&#34;)
  *             .jwksUri(&#34;https://mycompany.okta.com/oauth2/default/v1/keys&#34;)
  *             .build());

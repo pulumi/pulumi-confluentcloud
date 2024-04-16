@@ -38,7 +38,7 @@ namespace Pulumi.ConfluentCloud
     ///     {
     ///         Principal = application_developers.Id.Apply(id =&gt; $"User:{id}"),
     ///         RoleName = "EnvironmentAdmin",
-    ///         CrnPattern = data.Confluent_environment.Prod.Resource_name,
+    ///         CrnPattern = prod.ResourceName,
     ///     });
     /// 
     /// });

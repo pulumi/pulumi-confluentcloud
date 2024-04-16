@@ -32,16 +32,16 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///         Principals = new[]
     ///         {
-    ///             confluent_service_account.App_manager.Id,
-    ///             confluent_service_account.App_manager_2.Id,
+    ///             appManager.Id,
+    ///             appManager2.Id,
     ///         },
     ///         KafkaCluster = new ConfluentCloud.Inputs.KafkaClientQuotaKafkaClusterArgs
     ///         {
-    ///             Id = confluent_kafka_cluster.Dedicated.Id,
+    ///             Id = dedicated.Id,
     ///         },
     ///         Environment = new ConfluentCloud.Inputs.KafkaClientQuotaEnvironmentArgs
     ///         {
-    ///             Id = confluent_environment.Development.Id,
+    ///             Id = development.Id,
     ///         },
     ///     });
     /// 

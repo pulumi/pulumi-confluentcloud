@@ -14,20 +14,27 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingId = confluentcloud.getNetwork({
- *     id: "n-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * const test_sa = new confluentcloud.ServiceAccount("test-sa", {description: exampleUsingId.then(exampleUsingId => `test_sa for ${exampleUsingId.displayName}`)});
- * const exampleUsingNameNetwork = confluentcloud.getNetwork({
- *     displayName: "my_network",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNameNetwork;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getNetwork({
+ *         id: "n-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const test_sa = new confluentcloud.ServiceAccount("test-sa", {
+ *         displayName: "test_sa",
+ *         description: `test_sa for ${exampleUsingId.displayName}`,
+ *     });
+ *     const exampleUsingName = await confluentcloud.getNetwork({
+ *         displayName: "my_network",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -159,20 +166,27 @@ export interface GetNetworkResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingId = confluentcloud.getNetwork({
- *     id: "n-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * const test_sa = new confluentcloud.ServiceAccount("test-sa", {description: exampleUsingId.then(exampleUsingId => `test_sa for ${exampleUsingId.displayName}`)});
- * const exampleUsingNameNetwork = confluentcloud.getNetwork({
- *     displayName: "my_network",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNameNetwork;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getNetwork({
+ *         id: "n-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const test_sa = new confluentcloud.ServiceAccount("test-sa", {
+ *         displayName: "test_sa",
+ *         description: `test_sa for ${exampleUsingId.displayName}`,
+ *     });
+ *     const exampleUsingName = await confluentcloud.getNetwork({
+ *         displayName: "my_network",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

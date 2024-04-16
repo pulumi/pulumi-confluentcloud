@@ -225,18 +225,19 @@ class ApiKey(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         app_manager_kafka_api_key = confluentcloud.ApiKey("app-manager-kafka-api-key",
+            display_name="app-manager-kafka-api-key",
             description="Kafka API Key that is owned by 'app-manager' service account",
             owner=confluentcloud.ApiKeyOwnerArgs(
-                id=confluent_service_account["app-manager"]["id"],
-                api_version=confluent_service_account["app-manager"]["api_version"],
-                kind=confluent_service_account["app-manager"]["kind"],
+                id=app_manager["id"],
+                api_version=app_manager["apiVersion"],
+                kind=app_manager["kind"],
             ),
             managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=confluent_kafka_cluster["basic"]["id"],
-                api_version=confluent_kafka_cluster["basic"]["api_version"],
-                kind=confluent_kafka_cluster["basic"]["kind"],
+                id=basic["id"],
+                api_version=basic["apiVersion"],
+                kind=basic["kind"],
                 environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=confluent_environment["staging"]["id"],
+                    id=staging["id"],
                 ),
             ))
         ```
@@ -249,18 +250,19 @@ class ApiKey(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         ksqldb_api_key = confluentcloud.ApiKey("ksqldb-api-key",
+            display_name="ksqldb-api-key",
             description="KsqlDB API Key that is owned by 'app-manager' service account",
             owner=confluentcloud.ApiKeyOwnerArgs(
-                id=confluent_service_account["app-manager"]["id"],
-                api_version=confluent_service_account["app-manager"]["api_version"],
-                kind=confluent_service_account["app-manager"]["kind"],
+                id=app_manager["id"],
+                api_version=app_manager["apiVersion"],
+                kind=app_manager["kind"],
             ),
             managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=confluent_ksql_cluster["main"]["id"],
-                api_version=confluent_ksql_cluster["main"]["api_version"],
-                kind=confluent_ksql_cluster["main"]["kind"],
+                id=main["id"],
+                api_version=main["apiVersion"],
+                kind=main["kind"],
                 environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=confluent_environment["staging"]["id"],
+                    id=staging["id"],
                 ),
             ))
         ```
@@ -273,18 +275,19 @@ class ApiKey(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         env_manager_schema_registry_api_key = confluentcloud.ApiKey("env-manager-schema-registry-api-key",
+            display_name="env-manager-schema-registry-api-key",
             description="Schema Registry API Key that is owned by 'env-manager' service account",
             owner=confluentcloud.ApiKeyOwnerArgs(
-                id=confluent_service_account["env-manager"]["id"],
-                api_version=confluent_service_account["env-manager"]["api_version"],
-                kind=confluent_service_account["env-manager"]["kind"],
+                id=env_manager["id"],
+                api_version=env_manager["apiVersion"],
+                kind=env_manager["kind"],
             ),
             managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=confluent_schema_registry_cluster["essentials"]["id"],
-                api_version=confluent_schema_registry_cluster["essentials"]["api_version"],
-                kind=confluent_schema_registry_cluster["essentials"]["kind"],
+                id=essentials["id"],
+                api_version=essentials["apiVersion"],
+                kind=essentials["kind"],
                 environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=confluent_environment["staging"]["id"],
+                    id=staging["id"],
                 ),
             ))
         ```
@@ -297,18 +300,19 @@ class ApiKey(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         env_manager_flink_api_key = confluentcloud.ApiKey("env-manager-flink-api-key",
+            display_name="env-manager-flink-api-key",
             description="Flink API Key that is owned by 'env-manager' service account",
             owner=confluentcloud.ApiKeyOwnerArgs(
-                id=confluent_service_account["env-manager"]["id"],
-                api_version=confluent_service_account["env-manager"]["api_version"],
-                kind=confluent_service_account["env-manager"]["kind"],
+                id=env_manager["id"],
+                api_version=env_manager["apiVersion"],
+                kind=env_manager["kind"],
             ),
             managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=data["confluent_flink_region"]["example"]["id"],
-                api_version=data["confluent_flink_region"]["example"]["api_version"],
-                kind=data["confluent_flink_region"]["example"]["kind"],
+                id=example["id"],
+                api_version=example["apiVersion"],
+                kind=example["kind"],
                 environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=confluent_environment["staging"]["id"],
+                    id=staging["id"],
                 ),
             ))
         ```
@@ -321,11 +325,12 @@ class ApiKey(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         env_manager_cloud_api_key = confluentcloud.ApiKey("env-manager-cloud-api-key",
+            display_name="env-manager-cloud-api-key",
             description="Cloud API Key that is owned by 'env-manager' service account",
             owner=confluentcloud.ApiKeyOwnerArgs(
-                id=confluent_service_account["env-manager"]["id"],
-                api_version=confluent_service_account["env-manager"]["api_version"],
-                kind=confluent_service_account["env-manager"]["kind"],
+                id=env_manager["id"],
+                api_version=env_manager["apiVersion"],
+                kind=env_manager["kind"],
             ))
         ```
         <!--End PulumiCodeChooser -->
@@ -411,18 +416,19 @@ class ApiKey(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         app_manager_kafka_api_key = confluentcloud.ApiKey("app-manager-kafka-api-key",
+            display_name="app-manager-kafka-api-key",
             description="Kafka API Key that is owned by 'app-manager' service account",
             owner=confluentcloud.ApiKeyOwnerArgs(
-                id=confluent_service_account["app-manager"]["id"],
-                api_version=confluent_service_account["app-manager"]["api_version"],
-                kind=confluent_service_account["app-manager"]["kind"],
+                id=app_manager["id"],
+                api_version=app_manager["apiVersion"],
+                kind=app_manager["kind"],
             ),
             managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=confluent_kafka_cluster["basic"]["id"],
-                api_version=confluent_kafka_cluster["basic"]["api_version"],
-                kind=confluent_kafka_cluster["basic"]["kind"],
+                id=basic["id"],
+                api_version=basic["apiVersion"],
+                kind=basic["kind"],
                 environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=confluent_environment["staging"]["id"],
+                    id=staging["id"],
                 ),
             ))
         ```
@@ -435,18 +441,19 @@ class ApiKey(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         ksqldb_api_key = confluentcloud.ApiKey("ksqldb-api-key",
+            display_name="ksqldb-api-key",
             description="KsqlDB API Key that is owned by 'app-manager' service account",
             owner=confluentcloud.ApiKeyOwnerArgs(
-                id=confluent_service_account["app-manager"]["id"],
-                api_version=confluent_service_account["app-manager"]["api_version"],
-                kind=confluent_service_account["app-manager"]["kind"],
+                id=app_manager["id"],
+                api_version=app_manager["apiVersion"],
+                kind=app_manager["kind"],
             ),
             managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=confluent_ksql_cluster["main"]["id"],
-                api_version=confluent_ksql_cluster["main"]["api_version"],
-                kind=confluent_ksql_cluster["main"]["kind"],
+                id=main["id"],
+                api_version=main["apiVersion"],
+                kind=main["kind"],
                 environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=confluent_environment["staging"]["id"],
+                    id=staging["id"],
                 ),
             ))
         ```
@@ -459,18 +466,19 @@ class ApiKey(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         env_manager_schema_registry_api_key = confluentcloud.ApiKey("env-manager-schema-registry-api-key",
+            display_name="env-manager-schema-registry-api-key",
             description="Schema Registry API Key that is owned by 'env-manager' service account",
             owner=confluentcloud.ApiKeyOwnerArgs(
-                id=confluent_service_account["env-manager"]["id"],
-                api_version=confluent_service_account["env-manager"]["api_version"],
-                kind=confluent_service_account["env-manager"]["kind"],
+                id=env_manager["id"],
+                api_version=env_manager["apiVersion"],
+                kind=env_manager["kind"],
             ),
             managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=confluent_schema_registry_cluster["essentials"]["id"],
-                api_version=confluent_schema_registry_cluster["essentials"]["api_version"],
-                kind=confluent_schema_registry_cluster["essentials"]["kind"],
+                id=essentials["id"],
+                api_version=essentials["apiVersion"],
+                kind=essentials["kind"],
                 environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=confluent_environment["staging"]["id"],
+                    id=staging["id"],
                 ),
             ))
         ```
@@ -483,18 +491,19 @@ class ApiKey(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         env_manager_flink_api_key = confluentcloud.ApiKey("env-manager-flink-api-key",
+            display_name="env-manager-flink-api-key",
             description="Flink API Key that is owned by 'env-manager' service account",
             owner=confluentcloud.ApiKeyOwnerArgs(
-                id=confluent_service_account["env-manager"]["id"],
-                api_version=confluent_service_account["env-manager"]["api_version"],
-                kind=confluent_service_account["env-manager"]["kind"],
+                id=env_manager["id"],
+                api_version=env_manager["apiVersion"],
+                kind=env_manager["kind"],
             ),
             managed_resource=confluentcloud.ApiKeyManagedResourceArgs(
-                id=data["confluent_flink_region"]["example"]["id"],
-                api_version=data["confluent_flink_region"]["example"]["api_version"],
-                kind=data["confluent_flink_region"]["example"]["kind"],
+                id=example["id"],
+                api_version=example["apiVersion"],
+                kind=example["kind"],
                 environment=confluentcloud.ApiKeyManagedResourceEnvironmentArgs(
-                    id=confluent_environment["staging"]["id"],
+                    id=staging["id"],
                 ),
             ))
         ```
@@ -507,11 +516,12 @@ class ApiKey(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         env_manager_cloud_api_key = confluentcloud.ApiKey("env-manager-cloud-api-key",
+            display_name="env-manager-cloud-api-key",
             description="Cloud API Key that is owned by 'env-manager' service account",
             owner=confluentcloud.ApiKeyOwnerArgs(
-                id=confluent_service_account["env-manager"]["id"],
-                api_version=confluent_service_account["env-manager"]["api_version"],
-                kind=confluent_service_account["env-manager"]["kind"],
+                id=env_manager["id"],
+                api_version=env_manager["apiVersion"],
+                kind=env_manager["kind"],
             ))
         ```
         <!--End PulumiCodeChooser -->

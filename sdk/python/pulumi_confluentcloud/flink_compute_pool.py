@@ -252,7 +252,7 @@ class FlinkComputePool(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         main = confluentcloud.FlinkComputePool("main",
             display_name="standard_compute_pool",
             cloud="AWS",
@@ -300,7 +300,7 @@ class FlinkComputePool(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         main = confluentcloud.FlinkComputePool("main",
             display_name="standard_compute_pool",
             cloud="AWS",

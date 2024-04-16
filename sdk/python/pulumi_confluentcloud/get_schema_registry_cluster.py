@@ -155,16 +155,16 @@ def get_schema_registry_cluster(display_name: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_schema_registry_cluster = confluentcloud.get_schema_registry_cluster(id="lsrc-abc123",
+    example_using_id = confluentcloud.get_schema_registry_cluster(id="lsrc-abc123",
         environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingId", example_using_id_schema_registry_cluster)
-    example_using_name_schema_registry_cluster = confluentcloud.get_schema_registry_cluster(display_name="Stream Governance Package",
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_schema_registry_cluster(display_name="Stream Governance Package",
         environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingName", example_using_name_schema_registry_cluster)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -210,16 +210,16 @@ def get_schema_registry_cluster_output(display_name: Optional[pulumi.Input[Optio
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_schema_registry_cluster = confluentcloud.get_schema_registry_cluster(id="lsrc-abc123",
+    example_using_id = confluentcloud.get_schema_registry_cluster(id="lsrc-abc123",
         environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingId", example_using_id_schema_registry_cluster)
-    example_using_name_schema_registry_cluster = confluentcloud.get_schema_registry_cluster(display_name="Stream Governance Package",
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_schema_registry_cluster(display_name="Stream Governance Package",
         environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingName", example_using_name_schema_registry_cluster)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 

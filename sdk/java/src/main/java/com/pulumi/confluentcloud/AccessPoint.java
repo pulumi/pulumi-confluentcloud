@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.EnvironmentArgs;
  * import com.pulumi.confluentcloud.AccessPoint;
  * import com.pulumi.confluentcloud.AccessPointArgs;
  * import com.pulumi.confluentcloud.inputs.AccessPointEnvironmentArgs;
@@ -50,7 +51,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;);
+ *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
+ *             .displayName(&#34;Development&#34;)
+ *             .build());
  * 
  *         var main = new AccessPoint(&#34;main&#34;, AccessPointArgs.builder()        
  *             .displayName(&#34;access_point&#34;)
@@ -58,7 +61,7 @@ import javax.annotation.Nullable;
  *                 .id(development.id())
  *                 .build())
  *             .gateway(AccessPointGatewayArgs.builder()
- *                 .id(confluent_network.main().gateway()[0].id())
+ *                 .id(mainConfluentNetwork.gateway()[0].id())
  *                 .build())
  *             .awsEgressPrivateLinkEndpoint(AccessPointAwsEgressPrivateLinkEndpointArgs.builder()
  *                 .vpcEndpointServiceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000&#34;)

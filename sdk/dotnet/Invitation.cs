@@ -32,8 +32,8 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     var main2 = new ConfluentCloud.Invitation("main2", new()
     ///     {
-    ///         AuthType = "AUTH_TYPE_LOCAL",
     ///         Email = "",
+    ///         AuthType = "AUTH_TYPE_LOCAL",
     ///     });
     /// 
     /// });

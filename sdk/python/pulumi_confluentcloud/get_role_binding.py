@@ -93,8 +93,8 @@ def get_role_binding(id: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_role_binding = confluentcloud.get_role_binding(id="rb-abc123")
-    pulumi.export("example", example_role_binding)
+    example = confluentcloud.get_role_binding(id="rb-abc123")
+    pulumi.export("example", example)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -130,8 +130,8 @@ def get_role_binding_output(id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_role_binding = confluentcloud.get_role_binding(id="rb-abc123")
-    pulumi.export("example", example_role_binding)
+    example = confluentcloud.get_role_binding(id="rb-abc123")
+    pulumi.export("example", example)
     ```
     <!--End PulumiCodeChooser -->
 

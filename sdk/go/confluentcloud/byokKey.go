@@ -32,11 +32,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.NewByokKey(ctx, "azureKey", &confluentcloud.ByokKeyArgs{
+//			_, err := confluentcloud.NewByokKey(ctx, "azure_key", &confluentcloud.ByokKeyArgs{
 //				Azure: &confluentcloud.ByokKeyAzureArgs{
-//					KeyIdentifier: pulumi.String("https://test-vault.vault.azure.net/keys/test-key"),
-//					KeyVaultId:    pulumi.String("/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault"),
 //					TenantId:      pulumi.String("11111111-1111-1111-1111-111111111111"),
+//					KeyVaultId:    pulumi.String("/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault"),
+//					KeyIdentifier: pulumi.String("https://test-vault.vault.azure.net/keys/test-key"),
 //				},
 //			})
 //			if err != nil {
@@ -64,7 +64,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := confluentcloud.NewByokKey(ctx, "gcpKey", &confluentcloud.ByokKeyArgs{
+//			_, err := confluentcloud.NewByokKey(ctx, "gcp_key", &confluentcloud.ByokKeyArgs{
 //				Gcp: &confluentcloud.ByokKeyGcpArgs{
 //					KeyId: pulumi.String("projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test"),
 //				},

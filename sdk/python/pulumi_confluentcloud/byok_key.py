@@ -148,10 +148,10 @@ class ByokKey(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        azure_key = confluentcloud.ByokKey("azureKey", azure=confluentcloud.ByokKeyAzureArgs(
-            key_identifier="https://test-vault.vault.azure.net/keys/test-key",
-            key_vault_id="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault",
+        azure_key = confluentcloud.ByokKey("azure_key", azure=confluentcloud.ByokKeyAzureArgs(
             tenant_id="11111111-1111-1111-1111-111111111111",
+            key_vault_id="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault",
+            key_identifier="https://test-vault.vault.azure.net/keys/test-key",
         ))
         ```
         <!--End PulumiCodeChooser -->
@@ -163,7 +163,7 @@ class ByokKey(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        gcp_key = confluentcloud.ByokKey("gcpKey", gcp=confluentcloud.ByokKeyGcpArgs(
+        gcp_key = confluentcloud.ByokKey("gcp_key", gcp=confluentcloud.ByokKeyGcpArgs(
             key_id="projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test",
         ))
         ```
@@ -217,10 +217,10 @@ class ByokKey(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        azure_key = confluentcloud.ByokKey("azureKey", azure=confluentcloud.ByokKeyAzureArgs(
-            key_identifier="https://test-vault.vault.azure.net/keys/test-key",
-            key_vault_id="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault",
+        azure_key = confluentcloud.ByokKey("azure_key", azure=confluentcloud.ByokKeyAzureArgs(
             tenant_id="11111111-1111-1111-1111-111111111111",
+            key_vault_id="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault",
+            key_identifier="https://test-vault.vault.azure.net/keys/test-key",
         ))
         ```
         <!--End PulumiCodeChooser -->
@@ -232,7 +232,7 @@ class ByokKey(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        gcp_key = confluentcloud.ByokKey("gcpKey", gcp=confluentcloud.ByokKeyGcpArgs(
+        gcp_key = confluentcloud.ByokKey("gcp_key", gcp=confluentcloud.ByokKeyGcpArgs(
             key_id="projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test",
         ))
         ```

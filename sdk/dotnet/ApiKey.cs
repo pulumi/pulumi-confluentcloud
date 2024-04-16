@@ -24,21 +24,22 @@ namespace Pulumi.ConfluentCloud
     /// {
     ///     var app_manager_kafka_api_key = new ConfluentCloud.ApiKey("app-manager-kafka-api-key", new()
     ///     {
+    ///         DisplayName = "app-manager-kafka-api-key",
     ///         Description = "Kafka API Key that is owned by 'app-manager' service account",
     ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
     ///         {
-    ///             Id = confluent_service_account.App_manager.Id,
-    ///             ApiVersion = confluent_service_account.App_manager.Api_version,
-    ///             Kind = confluent_service_account.App_manager.Kind,
+    ///             Id = app_manager.Id,
+    ///             ApiVersion = app_manager.ApiVersion,
+    ///             Kind = app_manager.Kind,
     ///         },
     ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
     ///         {
-    ///             Id = confluent_kafka_cluster.Basic.Id,
-    ///             ApiVersion = confluent_kafka_cluster.Basic.Api_version,
-    ///             Kind = confluent_kafka_cluster.Basic.Kind,
+    ///             Id = basic.Id,
+    ///             ApiVersion = basic.ApiVersion,
+    ///             Kind = basic.Kind,
     ///             Environment = new ConfluentCloud.Inputs.ApiKeyManagedResourceEnvironmentArgs
     ///             {
-    ///                 Id = confluent_environment.Staging.Id,
+    ///                 Id = staging.Id,
     ///             },
     ///         },
     ///     });
@@ -59,21 +60,22 @@ namespace Pulumi.ConfluentCloud
     /// {
     ///     var ksqldb_api_key = new ConfluentCloud.ApiKey("ksqldb-api-key", new()
     ///     {
+    ///         DisplayName = "ksqldb-api-key",
     ///         Description = "KsqlDB API Key that is owned by 'app-manager' service account",
     ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
     ///         {
-    ///             Id = confluent_service_account.App_manager.Id,
-    ///             ApiVersion = confluent_service_account.App_manager.Api_version,
-    ///             Kind = confluent_service_account.App_manager.Kind,
+    ///             Id = app_manager.Id,
+    ///             ApiVersion = app_manager.ApiVersion,
+    ///             Kind = app_manager.Kind,
     ///         },
     ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
     ///         {
-    ///             Id = confluent_ksql_cluster.Main.Id,
-    ///             ApiVersion = confluent_ksql_cluster.Main.Api_version,
-    ///             Kind = confluent_ksql_cluster.Main.Kind,
+    ///             Id = main.Id,
+    ///             ApiVersion = main.ApiVersion,
+    ///             Kind = main.Kind,
     ///             Environment = new ConfluentCloud.Inputs.ApiKeyManagedResourceEnvironmentArgs
     ///             {
-    ///                 Id = confluent_environment.Staging.Id,
+    ///                 Id = staging.Id,
     ///             },
     ///         },
     ///     });
@@ -94,21 +96,22 @@ namespace Pulumi.ConfluentCloud
     /// {
     ///     var env_manager_schema_registry_api_key = new ConfluentCloud.ApiKey("env-manager-schema-registry-api-key", new()
     ///     {
+    ///         DisplayName = "env-manager-schema-registry-api-key",
     ///         Description = "Schema Registry API Key that is owned by 'env-manager' service account",
     ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
     ///         {
-    ///             Id = confluent_service_account.Env_manager.Id,
-    ///             ApiVersion = confluent_service_account.Env_manager.Api_version,
-    ///             Kind = confluent_service_account.Env_manager.Kind,
+    ///             Id = env_manager.Id,
+    ///             ApiVersion = env_manager.ApiVersion,
+    ///             Kind = env_manager.Kind,
     ///         },
     ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
     ///         {
-    ///             Id = confluent_schema_registry_cluster.Essentials.Id,
-    ///             ApiVersion = confluent_schema_registry_cluster.Essentials.Api_version,
-    ///             Kind = confluent_schema_registry_cluster.Essentials.Kind,
+    ///             Id = essentials.Id,
+    ///             ApiVersion = essentials.ApiVersion,
+    ///             Kind = essentials.Kind,
     ///             Environment = new ConfluentCloud.Inputs.ApiKeyManagedResourceEnvironmentArgs
     ///             {
-    ///                 Id = confluent_environment.Staging.Id,
+    ///                 Id = staging.Id,
     ///             },
     ///         },
     ///     });
@@ -129,21 +132,22 @@ namespace Pulumi.ConfluentCloud
     /// {
     ///     var env_manager_flink_api_key = new ConfluentCloud.ApiKey("env-manager-flink-api-key", new()
     ///     {
+    ///         DisplayName = "env-manager-flink-api-key",
     ///         Description = "Flink API Key that is owned by 'env-manager' service account",
     ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
     ///         {
-    ///             Id = confluent_service_account.Env_manager.Id,
-    ///             ApiVersion = confluent_service_account.Env_manager.Api_version,
-    ///             Kind = confluent_service_account.Env_manager.Kind,
+    ///             Id = env_manager.Id,
+    ///             ApiVersion = env_manager.ApiVersion,
+    ///             Kind = env_manager.Kind,
     ///         },
     ///         ManagedResource = new ConfluentCloud.Inputs.ApiKeyManagedResourceArgs
     ///         {
-    ///             Id = data.Confluent_flink_region.Example.Id,
-    ///             ApiVersion = data.Confluent_flink_region.Example.Api_version,
-    ///             Kind = data.Confluent_flink_region.Example.Kind,
+    ///             Id = example.Id,
+    ///             ApiVersion = example.ApiVersion,
+    ///             Kind = example.Kind,
     ///             Environment = new ConfluentCloud.Inputs.ApiKeyManagedResourceEnvironmentArgs
     ///             {
-    ///                 Id = confluent_environment.Staging.Id,
+    ///                 Id = staging.Id,
     ///             },
     ///         },
     ///     });
@@ -164,12 +168,13 @@ namespace Pulumi.ConfluentCloud
     /// {
     ///     var env_manager_cloud_api_key = new ConfluentCloud.ApiKey("env-manager-cloud-api-key", new()
     ///     {
+    ///         DisplayName = "env-manager-cloud-api-key",
     ///         Description = "Cloud API Key that is owned by 'env-manager' service account",
     ///         Owner = new ConfluentCloud.Inputs.ApiKeyOwnerArgs
     ///         {
-    ///             Id = confluent_service_account.Env_manager.Id,
-    ///             ApiVersion = confluent_service_account.Env_manager.Api_version,
-    ///             Kind = confluent_service_account.Env_manager.Kind,
+    ///             Id = env_manager.Id,
+    ///             ApiVersion = env_manager.ApiVersion,
+    ///             Kind = env_manager.Kind,
     ///         },
     ///     });
     /// 

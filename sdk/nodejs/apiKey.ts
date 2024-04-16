@@ -16,18 +16,19 @@ import * as utilities from "./utilities";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * const app_manager_kafka_api_key = new confluentcloud.ApiKey("app-manager-kafka-api-key", {
+ *     displayName: "app-manager-kafka-api-key",
  *     description: "Kafka API Key that is owned by 'app-manager' service account",
  *     owner: {
- *         id: confluent_service_account["app-manager"].id,
- *         apiVersion: confluent_service_account["app-manager"].api_version,
- *         kind: confluent_service_account["app-manager"].kind,
+ *         id: app_manager.id,
+ *         apiVersion: app_manager.apiVersion,
+ *         kind: app_manager.kind,
  *     },
  *     managedResource: {
- *         id: confluent_kafka_cluster.basic.id,
- *         apiVersion: confluent_kafka_cluster.basic.api_version,
- *         kind: confluent_kafka_cluster.basic.kind,
+ *         id: basic.id,
+ *         apiVersion: basic.apiVersion,
+ *         kind: basic.kind,
  *         environment: {
- *             id: confluent_environment.staging.id,
+ *             id: staging.id,
  *         },
  *     },
  * });
@@ -41,18 +42,19 @@ import * as utilities from "./utilities";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * const ksqldb_api_key = new confluentcloud.ApiKey("ksqldb-api-key", {
+ *     displayName: "ksqldb-api-key",
  *     description: "KsqlDB API Key that is owned by 'app-manager' service account",
  *     owner: {
- *         id: confluent_service_account["app-manager"].id,
- *         apiVersion: confluent_service_account["app-manager"].api_version,
- *         kind: confluent_service_account["app-manager"].kind,
+ *         id: app_manager.id,
+ *         apiVersion: app_manager.apiVersion,
+ *         kind: app_manager.kind,
  *     },
  *     managedResource: {
- *         id: confluent_ksql_cluster.main.id,
- *         apiVersion: confluent_ksql_cluster.main.api_version,
- *         kind: confluent_ksql_cluster.main.kind,
+ *         id: main.id,
+ *         apiVersion: main.apiVersion,
+ *         kind: main.kind,
  *         environment: {
- *             id: confluent_environment.staging.id,
+ *             id: staging.id,
  *         },
  *     },
  * });
@@ -66,18 +68,19 @@ import * as utilities from "./utilities";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * const env_manager_schema_registry_api_key = new confluentcloud.ApiKey("env-manager-schema-registry-api-key", {
+ *     displayName: "env-manager-schema-registry-api-key",
  *     description: "Schema Registry API Key that is owned by 'env-manager' service account",
  *     owner: {
- *         id: confluent_service_account["env-manager"].id,
- *         apiVersion: confluent_service_account["env-manager"].api_version,
- *         kind: confluent_service_account["env-manager"].kind,
+ *         id: env_manager.id,
+ *         apiVersion: env_manager.apiVersion,
+ *         kind: env_manager.kind,
  *     },
  *     managedResource: {
- *         id: confluent_schema_registry_cluster.essentials.id,
- *         apiVersion: confluent_schema_registry_cluster.essentials.api_version,
- *         kind: confluent_schema_registry_cluster.essentials.kind,
+ *         id: essentials.id,
+ *         apiVersion: essentials.apiVersion,
+ *         kind: essentials.kind,
  *         environment: {
- *             id: confluent_environment.staging.id,
+ *             id: staging.id,
  *         },
  *     },
  * });
@@ -91,18 +94,19 @@ import * as utilities from "./utilities";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * const env_manager_flink_api_key = new confluentcloud.ApiKey("env-manager-flink-api-key", {
+ *     displayName: "env-manager-flink-api-key",
  *     description: "Flink API Key that is owned by 'env-manager' service account",
  *     owner: {
- *         id: confluent_service_account["env-manager"].id,
- *         apiVersion: confluent_service_account["env-manager"].api_version,
- *         kind: confluent_service_account["env-manager"].kind,
+ *         id: env_manager.id,
+ *         apiVersion: env_manager.apiVersion,
+ *         kind: env_manager.kind,
  *     },
  *     managedResource: {
- *         id: data.confluent_flink_region.example.id,
- *         apiVersion: data.confluent_flink_region.example.api_version,
- *         kind: data.confluent_flink_region.example.kind,
+ *         id: example.id,
+ *         apiVersion: example.apiVersion,
+ *         kind: example.kind,
  *         environment: {
- *             id: confluent_environment.staging.id,
+ *             id: staging.id,
  *         },
  *     },
  * });
@@ -116,11 +120,12 @@ import * as utilities from "./utilities";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * const env_manager_cloud_api_key = new confluentcloud.ApiKey("env-manager-cloud-api-key", {
+ *     displayName: "env-manager-cloud-api-key",
  *     description: "Cloud API Key that is owned by 'env-manager' service account",
  *     owner: {
- *         id: confluent_service_account["env-manager"].id,
- *         apiVersion: confluent_service_account["env-manager"].api_version,
- *         kind: confluent_service_account["env-manager"].kind,
+ *         id: env_manager.id,
+ *         apiVersion: env_manager.apiVersion,
+ *         kind: env_manager.kind,
  *     },
  * });
  * ```

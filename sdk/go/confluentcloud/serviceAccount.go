@@ -31,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := confluentcloud.NewServiceAccount(ctx, "example-sa", &confluentcloud.ServiceAccountArgs{
+//				DisplayName: pulumi.String("orders-app-sa"),
 //				Description: pulumi.String("Service Account for orders app"),
 //			})
 //			if err != nil {

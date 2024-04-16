@@ -34,8 +34,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := confluentcloud.NewIdentityProvider(ctx, "azure", &confluentcloud.IdentityProviderArgs{
-//				Description: pulumi.String("My description"),
 //				DisplayName: pulumi.String("My OIDC Provider: Azure AD"),
+//				Description: pulumi.String("My description"),
 //				Issuer:      pulumi.String("https://login.microsoftonline.com/{tenant_id}/v2.0"),
 //				JwksUri:     pulumi.String("https://login.microsoftonline.com/common/discovery/v2.0/keys"),
 //			})
@@ -65,8 +65,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := confluentcloud.NewIdentityProvider(ctx, "okta", &confluentcloud.IdentityProviderArgs{
-//				Description: pulumi.String("My description"),
 //				DisplayName: pulumi.String("My OIDC Provider: Okta"),
+//				Description: pulumi.String("My description"),
 //				Issuer:      pulumi.String("https://mycompany.okta.com/oauth2/default"),
 //				JwksUri:     pulumi.String("https://mycompany.okta.com/oauth2/default/v1/keys"),
 //			})

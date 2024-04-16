@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.EnvironmentArgs;
  * import com.pulumi.confluentcloud.Network;
  * import com.pulumi.confluentcloud.NetworkArgs;
  * import com.pulumi.confluentcloud.inputs.NetworkEnvironmentArgs;
@@ -50,7 +51,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;);
+ *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
+ *             .displayName(&#34;Development&#34;)
+ *             .build());
  * 
  *         var aws_private_link = new Network(&#34;aws-private-link&#34;, NetworkArgs.builder()        
  *             .displayName(&#34;AWS Private Link Network&#34;)

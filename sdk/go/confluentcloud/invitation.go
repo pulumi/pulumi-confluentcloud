@@ -38,8 +38,8 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewInvitation(ctx, "main2", &confluentcloud.InvitationArgs{
-//				AuthType: pulumi.String("AUTH_TYPE_LOCAL"),
 //				Email:    pulumi.String(""),
+//				AuthType: pulumi.String("AUTH_TYPE_LOCAL"),
 //			})
 //			if err != nil {
 //				return err

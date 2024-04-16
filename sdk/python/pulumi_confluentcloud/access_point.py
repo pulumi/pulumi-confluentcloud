@@ -161,14 +161,14 @@ class AccessPoint(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         main = confluentcloud.AccessPoint("main",
             display_name="access_point",
             environment=confluentcloud.AccessPointEnvironmentArgs(
                 id=development.id,
             ),
             gateway=confluentcloud.AccessPointGatewayArgs(
-                id=confluent_network["main"]["gateway"][0]["id"],
+                id=main_confluent_network["gateway"][0]["id"],
             ),
             aws_egress_private_link_endpoint=confluentcloud.AccessPointAwsEgressPrivateLinkEndpointArgs(
                 vpc_endpoint_service_name="com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000",
@@ -213,14 +213,14 @@ class AccessPoint(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         main = confluentcloud.AccessPoint("main",
             display_name="access_point",
             environment=confluentcloud.AccessPointEnvironmentArgs(
                 id=development.id,
             ),
             gateway=confluentcloud.AccessPointGatewayArgs(
-                id=confluent_network["main"]["gateway"][0]["id"],
+                id=main_confluent_network["gateway"][0]["id"],
             ),
             aws_egress_private_link_endpoint=confluentcloud.AccessPointAwsEgressPrivateLinkEndpointArgs(
                 vpc_endpoint_service_name="com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000",

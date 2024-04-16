@@ -211,7 +211,7 @@ class SchemaRegistryCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         example = confluentcloud.get_schema_registry_region(cloud="AWS",
             region="us-east-2",
             package="ESSENTIALS")
@@ -259,7 +259,7 @@ class SchemaRegistryCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         example = confluentcloud.get_schema_registry_region(cloud="AWS",
             region="us-east-2",
             package="ESSENTIALS")

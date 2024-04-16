@@ -32,24 +32,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdUser, err := confluentcloud.GetUser(ctx, &confluentcloud.GetUserArgs{
+//			exampleUsingId, err := confluentcloud.GetUser(ctx, &confluentcloud.GetUserArgs{
 //				Id: pulumi.StringRef("u-abc123"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingId", exampleUsingIdUser)
+//			ctx.Export("exampleUsingId", exampleUsingId)
 //			exampleUsingEmail, err := confluentcloud.GetUser(ctx, &confluentcloud.GetUserArgs{
 //				Email: pulumi.StringRef("test123@gmail.com"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.NewEnvironment(ctx, "test-env", nil)
+//			_, err = confluentcloud.NewEnvironment(ctx, "test-env", &confluentcloud.EnvironmentArgs{
+//				DisplayName: pulumi.String(fmt.Sprintf("env_for_%v", exampleUsingId.FullName)),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = confluentcloud.NewKafkaCluster(ctx, "standard-cluster-on-aws", &confluentcloud.KafkaClusterArgs{
+//				DisplayName:  pulumi.String("standard_kafka_cluster_on_aws"),
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("AWS"),
 //				Region:       pulumi.String("us-west-2"),

@@ -29,14 +29,14 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleRoleBinding = ConfluentCloud.GetRoleBinding.Invoke(new()
+        ///     var example = ConfluentCloud.GetRoleBinding.Invoke(new()
         ///     {
         ///         Id = "rb-abc123",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleRoleBinding,
+        ///         ["example"] = example,
         ///     };
         /// });
         /// ```
@@ -63,14 +63,14 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleRoleBinding = ConfluentCloud.GetRoleBinding.Invoke(new()
+        ///     var example = ConfluentCloud.GetRoleBinding.Invoke(new()
         ///     {
         ///         Id = "rb-abc123",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleRoleBinding,
+        ///         ["example"] = example,
         ///     };
         /// });
         /// ```

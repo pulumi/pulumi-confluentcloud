@@ -16,7 +16,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const example_sa = new confluentcloud.ServiceAccount("example-sa", {description: "Service Account for orders app"});
+ * const example_sa = new confluentcloud.ServiceAccount("example-sa", {
+ *     displayName: "orders-app-sa",
+ *     description: "Service Account for orders app",
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *

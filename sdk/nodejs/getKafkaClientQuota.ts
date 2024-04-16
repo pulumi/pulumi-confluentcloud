@@ -20,10 +20,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleKafkaClientQuota = confluentcloud.getKafkaClientQuota({
- *     id: "cq-abc123",
- * });
- * export const example = exampleKafkaClientQuota;
+ * export = async () => {
+ *     const example = await confluentcloud.getKafkaClientQuota({
+ *         id: "cq-abc123",
+ *     });
+ *     return {
+ *         example: example,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -92,10 +96,14 @@ export interface GetKafkaClientQuotaResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleKafkaClientQuota = confluentcloud.getKafkaClientQuota({
- *     id: "cq-abc123",
- * });
- * export const example = exampleKafkaClientQuota;
+ * export = async () => {
+ *     const example = await confluentcloud.getKafkaClientQuota({
+ *         id: "cq-abc123",
+ *     });
+ *     return {
+ *         example: example,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

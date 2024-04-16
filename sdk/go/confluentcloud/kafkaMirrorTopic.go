@@ -32,14 +32,14 @@ import (
 //					TopicName: pulumi.String("orders"),
 //				},
 //				ClusterLink: &confluentcloud.KafkaMirrorTopicClusterLinkArgs{
-//					LinkName: pulumi.Any(confluent_cluster_link.SourceOutbound.Link_name),
+//					LinkName: pulumi.Any(source_outbound.LinkName),
 //				},
 //				KafkaCluster: &confluentcloud.KafkaMirrorTopicKafkaClusterArgs{
-//					Id:           pulumi.Any(data.Confluent_kafka_cluster.Destination.Id),
-//					RestEndpoint: pulumi.Any(data.Confluent_kafka_cluster.Destination.Rest_endpoint),
+//					Id:           pulumi.Any(destination.Id),
+//					RestEndpoint: pulumi.Any(destination.RestEndpoint),
 //					Credentials: &confluentcloud.KafkaMirrorTopicKafkaClusterCredentialsArgs{
-//						Key:    pulumi.Any(confluent_api_key.AppManagerDestinationClusterApiKey.Id),
-//						Secret: pulumi.Any(confluent_api_key.AppManagerDestinationClusterApiKey.Secret),
+//						Key:    pulumi.Any(app_manager_destination_cluster_api_key.Id),
+//						Secret: pulumi.Any(app_manager_destination_cluster_api_key.Secret),
 //					},
 //				},
 //			})

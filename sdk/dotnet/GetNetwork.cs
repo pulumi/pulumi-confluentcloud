@@ -34,10 +34,11 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new()
         ///     {
+        ///         DisplayName = "test_sa",
         ///         Description = $"test_sa for {exampleUsingId.Apply(getNetworkResult =&gt; getNetworkResult.DisplayName)}",
         ///     });
         /// 
-        ///     var exampleUsingNameNetwork = ConfluentCloud.GetNetwork.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.GetNetwork.Invoke(new()
         ///     {
         ///         DisplayName = "my_network",
         ///         Environment = new ConfluentCloud.Inputs.GetNetworkEnvironmentInputArgs
@@ -48,7 +49,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingName"] = exampleUsingNameNetwork,
+        ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
         /// });
         /// ```
@@ -80,10 +81,11 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     var test_sa = new ConfluentCloud.ServiceAccount("test-sa", new()
         ///     {
+        ///         DisplayName = "test_sa",
         ///         Description = $"test_sa for {exampleUsingId.Apply(getNetworkResult =&gt; getNetworkResult.DisplayName)}",
         ///     });
         /// 
-        ///     var exampleUsingNameNetwork = ConfluentCloud.GetNetwork.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.GetNetwork.Invoke(new()
         ///     {
         ///         DisplayName = "my_network",
         ///         Environment = new ConfluentCloud.Inputs.GetNetworkEnvironmentInputArgs
@@ -94,7 +96,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingName"] = exampleUsingNameNetwork,
+        ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
         /// });
         /// ```

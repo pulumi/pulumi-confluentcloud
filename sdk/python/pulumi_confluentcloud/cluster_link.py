@@ -277,39 +277,41 @@ class ClusterLink(pulumi.CustomResource):
 
         # https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode
         east_to_west = confluentcloud.ClusterLink("east-to-west",
+            link="bidirectional-link",
             link_mode="BIDIRECTIONAL",
             local_kafka_cluster=confluentcloud.ClusterLinkLocalKafkaClusterArgs(
-                id=data["confluent_kafka_cluster"]["east"]["id"],
-                rest_endpoint=data["confluent_kafka_cluster"]["east"]["rest_endpoint"],
+                id=east["id"],
+                rest_endpoint=east["restEndpoint"],
                 credentials=confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs(
-                    key=confluent_api_key["app-manager-east-cluster-api-key"]["id"],
-                    secret=confluent_api_key["app-manager-east-cluster-api-key"]["secret"],
+                    key=app_manager_east_cluster_api_key["id"],
+                    secret=app_manager_east_cluster_api_key["secret"],
                 ),
             ),
             remote_kafka_cluster=confluentcloud.ClusterLinkRemoteKafkaClusterArgs(
-                id=data["confluent_kafka_cluster"]["west"]["id"],
-                bootstrap_endpoint=data["confluent_kafka_cluster"]["west"]["bootstrap_endpoint"],
+                id=west["id"],
+                bootstrap_endpoint=west["bootstrapEndpoint"],
                 credentials=confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs(
-                    key=confluent_api_key["app-manager-west-cluster-api-key"]["id"],
-                    secret=confluent_api_key["app-manager-west-cluster-api-key"]["secret"],
+                    key=app_manager_west_cluster_api_key["id"],
+                    secret=app_manager_west_cluster_api_key["secret"],
                 ),
             ))
         west_to_east = confluentcloud.ClusterLink("west-to-east",
+            link="bidirectional-link",
             link_mode="BIDIRECTIONAL",
             local_kafka_cluster=confluentcloud.ClusterLinkLocalKafkaClusterArgs(
-                id=data["confluent_kafka_cluster"]["west"]["id"],
-                rest_endpoint=data["confluent_kafka_cluster"]["west"]["rest_endpoint"],
+                id=west["id"],
+                rest_endpoint=west["restEndpoint"],
                 credentials=confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs(
-                    key=confluent_api_key["app-manager-west-cluster-api-key"]["id"],
-                    secret=confluent_api_key["app-manager-west-cluster-api-key"]["secret"],
+                    key=app_manager_west_cluster_api_key["id"],
+                    secret=app_manager_west_cluster_api_key["secret"],
                 ),
             ),
             remote_kafka_cluster=confluentcloud.ClusterLinkRemoteKafkaClusterArgs(
-                id=data["confluent_kafka_cluster"]["east"]["id"],
-                bootstrap_endpoint=data["confluent_kafka_cluster"]["east"]["bootstrap_endpoint"],
+                id=east["id"],
+                bootstrap_endpoint=east["bootstrapEndpoint"],
                 credentials=confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs(
-                    key=confluent_api_key["app-manager-east-cluster-api-key"]["id"],
-                    secret=confluent_api_key["app-manager-east-cluster-api-key"]["secret"],
+                    key=app_manager_east_cluster_api_key["id"],
+                    secret=app_manager_east_cluster_api_key["secret"],
                 ),
             ))
         ```
@@ -392,39 +394,41 @@ class ClusterLink(pulumi.CustomResource):
 
         # https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode
         east_to_west = confluentcloud.ClusterLink("east-to-west",
+            link="bidirectional-link",
             link_mode="BIDIRECTIONAL",
             local_kafka_cluster=confluentcloud.ClusterLinkLocalKafkaClusterArgs(
-                id=data["confluent_kafka_cluster"]["east"]["id"],
-                rest_endpoint=data["confluent_kafka_cluster"]["east"]["rest_endpoint"],
+                id=east["id"],
+                rest_endpoint=east["restEndpoint"],
                 credentials=confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs(
-                    key=confluent_api_key["app-manager-east-cluster-api-key"]["id"],
-                    secret=confluent_api_key["app-manager-east-cluster-api-key"]["secret"],
+                    key=app_manager_east_cluster_api_key["id"],
+                    secret=app_manager_east_cluster_api_key["secret"],
                 ),
             ),
             remote_kafka_cluster=confluentcloud.ClusterLinkRemoteKafkaClusterArgs(
-                id=data["confluent_kafka_cluster"]["west"]["id"],
-                bootstrap_endpoint=data["confluent_kafka_cluster"]["west"]["bootstrap_endpoint"],
+                id=west["id"],
+                bootstrap_endpoint=west["bootstrapEndpoint"],
                 credentials=confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs(
-                    key=confluent_api_key["app-manager-west-cluster-api-key"]["id"],
-                    secret=confluent_api_key["app-manager-west-cluster-api-key"]["secret"],
+                    key=app_manager_west_cluster_api_key["id"],
+                    secret=app_manager_west_cluster_api_key["secret"],
                 ),
             ))
         west_to_east = confluentcloud.ClusterLink("west-to-east",
+            link="bidirectional-link",
             link_mode="BIDIRECTIONAL",
             local_kafka_cluster=confluentcloud.ClusterLinkLocalKafkaClusterArgs(
-                id=data["confluent_kafka_cluster"]["west"]["id"],
-                rest_endpoint=data["confluent_kafka_cluster"]["west"]["rest_endpoint"],
+                id=west["id"],
+                rest_endpoint=west["restEndpoint"],
                 credentials=confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs(
-                    key=confluent_api_key["app-manager-west-cluster-api-key"]["id"],
-                    secret=confluent_api_key["app-manager-west-cluster-api-key"]["secret"],
+                    key=app_manager_west_cluster_api_key["id"],
+                    secret=app_manager_west_cluster_api_key["secret"],
                 ),
             ),
             remote_kafka_cluster=confluentcloud.ClusterLinkRemoteKafkaClusterArgs(
-                id=data["confluent_kafka_cluster"]["east"]["id"],
-                bootstrap_endpoint=data["confluent_kafka_cluster"]["east"]["bootstrap_endpoint"],
+                id=east["id"],
+                bootstrap_endpoint=east["bootstrapEndpoint"],
                 credentials=confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs(
-                    key=confluent_api_key["app-manager-east-cluster-api-key"]["id"],
-                    secret=confluent_api_key["app-manager-east-cluster-api-key"]["secret"],
+                    key=app_manager_east_cluster_api_key["id"],
+                    secret=app_manager_east_cluster_api_key["secret"],
                 ),
             ))
         ```

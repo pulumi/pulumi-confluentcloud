@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const main = new confluentcloud.FlinkComputePool("main", {
  *     displayName: "standard_compute_pool",
  *     cloud: "AWS",

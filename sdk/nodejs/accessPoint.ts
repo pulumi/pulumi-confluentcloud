@@ -18,14 +18,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const main = new confluentcloud.AccessPoint("main", {
  *     displayName: "access_point",
  *     environment: {
  *         id: development.id,
  *     },
  *     gateway: {
- *         id: confluent_network.main.gateway[0].id,
+ *         id: mainConfluentNetwork.gateway[0].id,
  *     },
  *     awsEgressPrivateLinkEndpoint: {
  *         vpcEndpointServiceName: "com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000",

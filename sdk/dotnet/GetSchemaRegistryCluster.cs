@@ -27,7 +27,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingIdSchemaRegistryCluster = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
         ///     {
         ///         Id = "lsrc-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs
@@ -36,7 +36,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingNameSchemaRegistryCluster = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
         ///     {
         ///         DisplayName = "Stream Governance Package",
         ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs
@@ -47,8 +47,8 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdSchemaRegistryCluster,
-        ///         ["exampleUsingName"] = exampleUsingNameSchemaRegistryCluster,
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
         /// });
         /// ```
@@ -73,7 +73,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingIdSchemaRegistryCluster = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
         ///     {
         ///         Id = "lsrc-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs
@@ -82,7 +82,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingNameSchemaRegistryCluster = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
         ///     {
         ///         DisplayName = "Stream Governance Package",
         ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs
@@ -93,8 +93,8 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdSchemaRegistryCluster,
-        ///         ["exampleUsingName"] = exampleUsingNameSchemaRegistryCluster,
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
         /// });
         /// ```

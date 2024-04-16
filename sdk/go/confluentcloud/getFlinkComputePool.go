@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdFlinkComputePool, err := confluentcloud.LookupFlinkComputePool(ctx, &confluentcloud.LookupFlinkComputePoolArgs{
+//			exampleUsingId, err := confluentcloud.LookupFlinkComputePool(ctx, &confluentcloud.LookupFlinkComputePoolArgs{
 //				Id: pulumi.StringRef("lfcp-abc123"),
 //				Environment: confluentcloud.GetFlinkComputePoolEnvironment{
 //					Id: "env-xyz456",
@@ -39,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingId", exampleUsingIdFlinkComputePool)
-//			exampleUsingNameFlinkComputePool, err := confluentcloud.LookupFlinkComputePool(ctx, &confluentcloud.LookupFlinkComputePoolArgs{
+//			ctx.Export("exampleUsingId", exampleUsingId)
+//			exampleUsingName, err := confluentcloud.LookupFlinkComputePool(ctx, &confluentcloud.LookupFlinkComputePoolArgs{
 //				DisplayName: pulumi.StringRef("my_compute_pool"),
 //				Environment: confluentcloud.GetFlinkComputePoolEnvironment{
 //					Id: "env-xyz456",
@@ -49,7 +49,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingName", exampleUsingNameFlinkComputePool)
+//			ctx.Export("exampleUsingName", exampleUsingName)
 //			return nil
 //		})
 //	}

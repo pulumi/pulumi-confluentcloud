@@ -48,28 +48,28 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var source = new Connector(&#34;source&#34;, ConnectorArgs.builder()        
  *             .environment(ConnectorEnvironmentArgs.builder()
- *                 .id(confluent_environment.staging().id())
+ *                 .id(staging.id())
  *                 .build())
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
- *                 .id(confluent_kafka_cluster.basic().id())
+ *                 .id(basic.id())
  *                 .build())
  *             .configSensitive()
  *             .configNonsensitive(Map.ofEntries(
  *                 Map.entry(&#34;connector.class&#34;, &#34;DatagenSource&#34;),
  *                 Map.entry(&#34;name&#34;, &#34;DatagenSourceConnector_0&#34;),
  *                 Map.entry(&#34;kafka.auth.mode&#34;, &#34;SERVICE_ACCOUNT&#34;),
- *                 Map.entry(&#34;kafka.service.account.id&#34;, confluent_service_account.app-connector().id()),
- *                 Map.entry(&#34;kafka.topic&#34;, confluent_kafka_topic.orders().topic_name()),
+ *                 Map.entry(&#34;kafka.service.account.id&#34;, app_connector.id()),
+ *                 Map.entry(&#34;kafka.topic&#34;, orders.topicName()),
  *                 Map.entry(&#34;output.data.format&#34;, &#34;JSON&#34;),
  *                 Map.entry(&#34;quickstart&#34;, &#34;ORDERS&#34;),
  *                 Map.entry(&#34;tasks.max&#34;, &#34;1&#34;)
  *             ))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
- *                     confluent_kafka_acl.app-connector-describe-on-cluster(),
- *                     confluent_kafka_acl.app-connector-write-on-target-topic(),
- *                     confluent_kafka_acl.app-connector-create-on-data-preview-topics(),
- *                     confluent_kafka_acl.app-connector-write-on-data-preview-topics())
+ *                     app_connector_describe_on_cluster,
+ *                     app_connector_write_on_target_topic,
+ *                     app_connector_create_on_data_preview_topics,
+ *                     app_connector_write_on_data_preview_topics)
  *                 .build());
  * 
  *     }
@@ -105,22 +105,22 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sink = new Connector(&#34;sink&#34;, ConnectorArgs.builder()        
  *             .environment(ConnectorEnvironmentArgs.builder()
- *                 .id(confluent_environment.staging().id())
+ *                 .id(staging.id())
  *                 .build())
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
- *                 .id(confluent_kafka_cluster.basic().id())
+ *                 .id(basic.id())
  *                 .build())
  *             .configSensitive(Map.ofEntries(
  *                 Map.entry(&#34;aws.access.key.id&#34;, &#34;***REDACTED***&#34;),
  *                 Map.entry(&#34;aws.secret.access.key&#34;, &#34;***REDACTED***&#34;)
  *             ))
  *             .configNonsensitive(Map.ofEntries(
- *                 Map.entry(&#34;topics&#34;, confluent_kafka_topic.orders().topic_name()),
+ *                 Map.entry(&#34;topics&#34;, orders.topicName()),
  *                 Map.entry(&#34;input.data.format&#34;, &#34;JSON&#34;),
  *                 Map.entry(&#34;connector.class&#34;, &#34;S3_SINK&#34;),
  *                 Map.entry(&#34;name&#34;, &#34;S3_SINKConnector_0&#34;),
  *                 Map.entry(&#34;kafka.auth.mode&#34;, &#34;SERVICE_ACCOUNT&#34;),
- *                 Map.entry(&#34;kafka.service.account.id&#34;, confluent_service_account.app-connector().id()),
+ *                 Map.entry(&#34;kafka.service.account.id&#34;, app_connector.id()),
  *                 Map.entry(&#34;s3.bucket.name&#34;, &#34;&lt;s3-bucket-name&gt;&#34;),
  *                 Map.entry(&#34;output.data.format&#34;, &#34;JSON&#34;),
  *                 Map.entry(&#34;time.interval&#34;, &#34;DAILY&#34;),
@@ -129,15 +129,15 @@ import javax.annotation.Nullable;
  *             ))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
- *                     confluent_kafka_acl.app-connector-describe-on-cluster(),
- *                     confluent_kafka_acl.app-connector-read-on-target-topic(),
- *                     confluent_kafka_acl.app-connector-create-on-dlq-lcc-topics(),
- *                     confluent_kafka_acl.app-connector-write-on-dlq-lcc-topics(),
- *                     confluent_kafka_acl.app-connector-create-on-success-lcc-topics(),
- *                     confluent_kafka_acl.app-connector-write-on-success-lcc-topics(),
- *                     confluent_kafka_acl.app-connector-create-on-error-lcc-topics(),
- *                     confluent_kafka_acl.app-connector-write-on-error-lcc-topics(),
- *                     confluent_kafka_acl.app-connector-read-on-connect-lcc-group())
+ *                     app_connector_describe_on_cluster,
+ *                     app_connector_read_on_target_topic,
+ *                     app_connector_create_on_dlq_lcc_topics,
+ *                     app_connector_write_on_dlq_lcc_topics,
+ *                     app_connector_create_on_success_lcc_topics,
+ *                     app_connector_write_on_success_lcc_topics,
+ *                     app_connector_create_on_error_lcc_topics,
+ *                     app_connector_write_on_error_lcc_topics,
+ *                     app_connector_read_on_connect_lcc_group)
  *                 .build());
  * 
  *     }
@@ -173,37 +173,37 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sink = new Connector(&#34;sink&#34;, ConnectorArgs.builder()        
  *             .environment(ConnectorEnvironmentArgs.builder()
- *                 .id(confluent_environment.staging().id())
+ *                 .id(staging.id())
  *                 .build())
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
- *                 .id(confluent_kafka_cluster.basic().id())
+ *                 .id(basic.id())
  *                 .build())
  *             .configSensitive(Map.ofEntries(
  *                 Map.entry(&#34;aws.access.key.id&#34;, &#34;***REDACTED***&#34;),
  *                 Map.entry(&#34;aws.secret.access.key&#34;, &#34;***REDACTED***&#34;)
  *             ))
  *             .configNonsensitive(Map.ofEntries(
- *                 Map.entry(&#34;topics&#34;, confluent_kafka_topic.orders().topic_name()),
+ *                 Map.entry(&#34;topics&#34;, orders.topicName()),
  *                 Map.entry(&#34;input.data.format&#34;, &#34;JSON&#34;),
  *                 Map.entry(&#34;connector.class&#34;, &#34;DynamoDbSink&#34;),
  *                 Map.entry(&#34;name&#34;, &#34;DynamoDbSinkConnector_0&#34;),
  *                 Map.entry(&#34;kafka.auth.mode&#34;, &#34;SERVICE_ACCOUNT&#34;),
- *                 Map.entry(&#34;kafka.service.account.id&#34;, confluent_service_account.app-connector().id()),
+ *                 Map.entry(&#34;kafka.service.account.id&#34;, app_connector.id()),
  *                 Map.entry(&#34;aws.dynamodb.pk.hash&#34;, &#34;value.userid&#34;),
  *                 Map.entry(&#34;aws.dynamodb.pk.sort&#34;, &#34;value.pageid&#34;),
  *                 Map.entry(&#34;tasks.max&#34;, &#34;1&#34;)
  *             ))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
- *                     confluent_kafka_acl.app-connector-describe-on-cluster(),
- *                     confluent_kafka_acl.app-connector-read-on-target-topic(),
- *                     confluent_kafka_acl.app-connector-create-on-dlq-lcc-topics(),
- *                     confluent_kafka_acl.app-connector-write-on-dlq-lcc-topics(),
- *                     confluent_kafka_acl.app-connector-create-on-success-lcc-topics(),
- *                     confluent_kafka_acl.app-connector-write-on-success-lcc-topics(),
- *                     confluent_kafka_acl.app-connector-create-on-error-lcc-topics(),
- *                     confluent_kafka_acl.app-connector-write-on-error-lcc-topics(),
- *                     confluent_kafka_acl.app-connector-read-on-connect-lcc-group())
+ *                     app_connector_describe_on_cluster,
+ *                     app_connector_read_on_target_topic,
+ *                     app_connector_create_on_dlq_lcc_topics,
+ *                     app_connector_write_on_dlq_lcc_topics,
+ *                     app_connector_create_on_success_lcc_topics,
+ *                     app_connector_write_on_success_lcc_topics,
+ *                     app_connector_create_on_error_lcc_topics,
+ *                     app_connector_write_on_error_lcc_topics,
+ *                     app_connector_read_on_connect_lcc_group)
  *                 .build());
  * 
  *     }
@@ -240,10 +240,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var source = new Connector(&#34;source&#34;, ConnectorArgs.builder()        
  *             .environment(ConnectorEnvironmentArgs.builder()
- *                 .id(confluent_environment.staging().id())
+ *                 .id(staging.id())
  *                 .build())
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
- *                 .id(confluent_kafka_cluster.basic().id())
+ *                 .id(basic.id())
  *                 .build())
  *             .configSensitive(Map.ofEntries(
  *                 Map.entry(&#34;kafka.api.key&#34;, &#34;***REDACTED***&#34;),
@@ -251,19 +251,19 @@ import javax.annotation.Nullable;
  *             ))
  *             .configNonsensitive(Map.ofEntries(
  *                 Map.entry(&#34;confluent.connector.type&#34;, &#34;CUSTOM&#34;),
- *                 Map.entry(&#34;connector.class&#34;, confluent_custom_connector_plugin.source().connector_class()),
+ *                 Map.entry(&#34;connector.class&#34;, sourceConfluentCustomConnectorPlugin.connectorClass()),
  *                 Map.entry(&#34;name&#34;, &#34;DatagenConnectorExampleName&#34;),
  *                 Map.entry(&#34;kafka.auth.mode&#34;, &#34;KAFKA_API_KEY&#34;),
- *                 Map.entry(&#34;kafka.topic&#34;, confluent_kafka_topic.orders().topic_name()),
+ *                 Map.entry(&#34;kafka.topic&#34;, orders.topicName()),
  *                 Map.entry(&#34;output.data.format&#34;, &#34;JSON&#34;),
  *                 Map.entry(&#34;quickstart&#34;, &#34;ORDERS&#34;),
- *                 Map.entry(&#34;confluent.custom.plugin.id&#34;, confluent_custom_connector_plugin.source().id()),
+ *                 Map.entry(&#34;confluent.custom.plugin.id&#34;, sourceConfluentCustomConnectorPlugin.id()),
  *                 Map.entry(&#34;min.interval&#34;, &#34;1000&#34;),
  *                 Map.entry(&#34;max.interval&#34;, &#34;2000&#34;),
  *                 Map.entry(&#34;tasks.max&#34;, &#34;1&#34;)
  *             ))
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(confluent_role_binding.app-manager-kafka-cluster-admin())
+ *                 .dependsOn(app_manager_kafka_cluster_admin)
  *                 .build());
  * 
  *     }

@@ -29,16 +29,16 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///         ClusterLink = new ConfluentCloud.Inputs.KafkaMirrorTopicClusterLinkArgs
     ///         {
-    ///             LinkName = confluent_cluster_link.Source_outbound.Link_name,
+    ///             LinkName = source_outbound.LinkName,
     ///         },
     ///         KafkaCluster = new ConfluentCloud.Inputs.KafkaMirrorTopicKafkaClusterArgs
     ///         {
-    ///             Id = data.Confluent_kafka_cluster.Destination.Id,
-    ///             RestEndpoint = data.Confluent_kafka_cluster.Destination.Rest_endpoint,
+    ///             Id = destination.Id,
+    ///             RestEndpoint = destination.RestEndpoint,
     ///             Credentials = new ConfluentCloud.Inputs.KafkaMirrorTopicKafkaClusterCredentialsArgs
     ///             {
-    ///                 Key = confluent_api_key.App_manager_destination_cluster_api_key.Id,
-    ///                 Secret = confluent_api_key.App_manager_destination_cluster_api_key.Secret,
+    ///                 Key = app_manager_destination_cluster_api_key.Id,
+    ///                 Secret = app_manager_destination_cluster_api_key.Secret,
     ///             },
     ///         },
     ///     });
