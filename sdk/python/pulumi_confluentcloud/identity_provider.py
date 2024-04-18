@@ -184,8 +184,8 @@ class IdentityProvider(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         azure = confluentcloud.IdentityProvider("azure",
-            description="My description",
             display_name="My OIDC Provider: Azure AD",
+            description="My description",
             issuer="https://login.microsoftonline.com/{tenant_id}/v2.0",
             jwks_uri="https://login.microsoftonline.com/common/discovery/v2.0/keys")
         ```
@@ -199,8 +199,8 @@ class IdentityProvider(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         okta = confluentcloud.IdentityProvider("okta",
-            description="My description",
             display_name="My OIDC Provider: Okta",
+            description="My description",
             issuer="https://mycompany.okta.com/oauth2/default",
             jwks_uri="https://mycompany.okta.com/oauth2/default/v1/keys")
         ```
@@ -254,8 +254,8 @@ class IdentityProvider(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         azure = confluentcloud.IdentityProvider("azure",
-            description="My description",
             display_name="My OIDC Provider: Azure AD",
+            description="My description",
             issuer="https://login.microsoftonline.com/{tenant_id}/v2.0",
             jwks_uri="https://login.microsoftonline.com/common/discovery/v2.0/keys")
         ```
@@ -269,8 +269,8 @@ class IdentityProvider(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         okta = confluentcloud.IdentityProvider("okta",
-            description="My description",
             display_name="My OIDC Provider: Okta",
+            description="My description",
             issuer="https://mycompany.okta.com/oauth2/default",
             jwks_uri="https://mycompany.okta.com/oauth2/default/v1/keys")
         ```

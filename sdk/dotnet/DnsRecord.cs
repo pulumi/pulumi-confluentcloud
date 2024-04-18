@@ -25,7 +25,10 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development");
+    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     {
+    ///         DisplayName = "Development",
+    ///     });
     /// 
     ///     var main = new ConfluentCloud.DnsRecord("main", new()
     ///     {
@@ -37,11 +40,11 @@ namespace Pulumi.ConfluentCloud
     ///         Domain = "example.com",
     ///         Gateway = new ConfluentCloud.Inputs.DnsRecordGatewayArgs
     ///         {
-    ///             Id = confluent_network.Main.Gateway[0].Id,
+    ///             Id = mainConfluentNetwork.Gateway[0].Id,
     ///         },
     ///         PrivateLinkAccessPoint = new ConfluentCloud.Inputs.DnsRecordPrivateLinkAccessPointArgs
     ///         {
-    ///             Id = confluent_access_point.Main.Id,
+    ///             Id = mainConfluentAccessPoint.Id,
     ///         },
     ///     });
     /// 

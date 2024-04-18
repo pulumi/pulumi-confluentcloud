@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdSchemaRegistryCluster, err := confluentcloud.LookupSchemaRegistryCluster(ctx, &confluentcloud.LookupSchemaRegistryClusterArgs{
+//			exampleUsingId, err := confluentcloud.LookupSchemaRegistryCluster(ctx, &confluentcloud.LookupSchemaRegistryClusterArgs{
 //				Id: pulumi.StringRef("lsrc-abc123"),
 //				Environment: confluentcloud.GetSchemaRegistryClusterEnvironment{
 //					Id: "env-xyz456",
@@ -39,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingId", exampleUsingIdSchemaRegistryCluster)
-//			exampleUsingNameSchemaRegistryCluster, err := confluentcloud.LookupSchemaRegistryCluster(ctx, &confluentcloud.LookupSchemaRegistryClusterArgs{
+//			ctx.Export("exampleUsingId", exampleUsingId)
+//			exampleUsingName, err := confluentcloud.LookupSchemaRegistryCluster(ctx, &confluentcloud.LookupSchemaRegistryClusterArgs{
 //				DisplayName: pulumi.StringRef("Stream Governance Package"),
 //				Environment: confluentcloud.GetSchemaRegistryClusterEnvironment{
 //					Id: "env-xyz456",
@@ -49,7 +49,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingName", exampleUsingNameSchemaRegistryCluster)
+//			ctx.Export("exampleUsingName", exampleUsingName)
 //			return nil
 //		})
 //	}

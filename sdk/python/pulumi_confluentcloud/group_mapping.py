@@ -151,7 +151,7 @@ class GroupMapping(pulumi.CustomResource):
         envadmin = confluentcloud.RoleBinding("envadmin",
             principal=application_developers.id.apply(lambda id: f"User:{id}"),
             role_name="EnvironmentAdmin",
-            crn_pattern=data["confluent_environment"]["prod"]["resource_name"])
+            crn_pattern=prod["resourceName"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -202,7 +202,7 @@ class GroupMapping(pulumi.CustomResource):
         envadmin = confluentcloud.RoleBinding("envadmin",
             principal=application_developers.id.apply(lambda id: f"User:{id}"),
             role_name="EnvironmentAdmin",
-            crn_pattern=data["confluent_environment"]["prod"]["resource_name"])
+            crn_pattern=prod["resourceName"])
         ```
         <!--End PulumiCodeChooser -->
 

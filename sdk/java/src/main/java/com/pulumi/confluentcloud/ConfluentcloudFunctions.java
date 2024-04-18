@@ -743,23 +743,23 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdEnvironment = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .id(&#34;env-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
-     *         final var exampleUsingNameEnvironment = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .displayName(&#34;stag&#34;)
      *             .build());
      * 
-     *         final var exampleUsingNameServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *         final var exampleUsingNameGetServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName(&#34;test_sa&#34;)
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
+     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
      *             .roleName(&#34;EnvironmentAdmin&#34;)
-     *             .crnPattern(exampleUsingNameEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
+     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
      *             .build());
      * 
      *     }
@@ -803,23 +803,23 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdEnvironment = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .id(&#34;env-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
-     *         final var exampleUsingNameEnvironment = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .displayName(&#34;stag&#34;)
      *             .build());
      * 
-     *         final var exampleUsingNameServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *         final var exampleUsingNameGetServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName(&#34;test_sa&#34;)
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
+     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
      *             .roleName(&#34;EnvironmentAdmin&#34;)
-     *             .crnPattern(exampleUsingNameEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
+     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
      *             .build());
      * 
      *     }
@@ -863,23 +863,23 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdEnvironment = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .id(&#34;env-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
-     *         final var exampleUsingNameEnvironment = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .displayName(&#34;stag&#34;)
      *             .build());
      * 
-     *         final var exampleUsingNameServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *         final var exampleUsingNameGetServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName(&#34;test_sa&#34;)
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
+     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
      *             .roleName(&#34;EnvironmentAdmin&#34;)
-     *             .crnPattern(exampleUsingNameEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
+     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
      *             .build());
      * 
      *     }
@@ -923,23 +923,23 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdEnvironment = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .id(&#34;env-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
-     *         final var exampleUsingNameEnvironment = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .displayName(&#34;stag&#34;)
      *             .build());
      * 
-     *         final var exampleUsingNameServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *         final var exampleUsingNameGetServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName(&#34;test_sa&#34;)
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
+     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
      *             .roleName(&#34;EnvironmentAdmin&#34;)
-     *             .crnPattern(exampleUsingNameEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
+     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
      *             .build());
      * 
      *     }
@@ -983,23 +983,23 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdEnvironment = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .id(&#34;env-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
-     *         final var exampleUsingNameEnvironment = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .displayName(&#34;stag&#34;)
      *             .build());
      * 
-     *         final var exampleUsingNameServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *         final var exampleUsingNameGetServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName(&#34;test_sa&#34;)
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
+     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
      *             .roleName(&#34;EnvironmentAdmin&#34;)
-     *             .crnPattern(exampleUsingNameEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
+     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
      *             .build());
      * 
      *     }
@@ -1043,23 +1043,23 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdEnvironment = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .id(&#34;env-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
-     *         final var exampleUsingNameEnvironment = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .displayName(&#34;stag&#34;)
      *             .build());
      * 
-     *         final var exampleUsingNameServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *         final var exampleUsingNameGetServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName(&#34;test_sa&#34;)
      *             .build());
      * 
      *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
+     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
      *             .roleName(&#34;EnvironmentAdmin&#34;)
-     *             .crnPattern(exampleUsingNameEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
+     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
      *             .build());
      * 
      *     }
@@ -1341,22 +1341,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
      *             .id(&#34;lfcp-abc123&#34;)
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
-     *         final var exampleUsingNameFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
      *             .displayName(&#34;my_compute_pool&#34;)
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
      *     }
      * }
      * ```
@@ -1396,22 +1396,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
      *             .id(&#34;lfcp-abc123&#34;)
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
-     *         final var exampleUsingNameFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
      *             .displayName(&#34;my_compute_pool&#34;)
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
      *     }
      * }
      * ```
@@ -1451,22 +1451,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
      *             .id(&#34;lfcp-abc123&#34;)
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
-     *         final var exampleUsingNameFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
      *             .displayName(&#34;my_compute_pool&#34;)
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
      *     }
      * }
      * ```
@@ -1506,22 +1506,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
      *             .id(&#34;lfcp-abc123&#34;)
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
-     *         final var exampleUsingNameFlinkComputePool = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
      *             .displayName(&#34;my_compute_pool&#34;)
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameFlinkComputePool.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
      *     }
      * }
      * ```
@@ -1560,12 +1560,12 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleFlinkRegion = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
      *             .cloud(&#34;AWS&#34;)
      *             .region(&#34;us-east-1&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleFlinkRegion.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
      *     }
      * }
      * ```
@@ -1604,12 +1604,12 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleFlinkRegion = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
      *             .cloud(&#34;AWS&#34;)
      *             .region(&#34;us-east-1&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleFlinkRegion.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
      *     }
      * }
      * ```
@@ -1648,12 +1648,12 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleFlinkRegion = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
      *             .cloud(&#34;AWS&#34;)
      *             .region(&#34;us-east-1&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleFlinkRegion.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
      *     }
      * }
      * ```
@@ -1692,12 +1692,12 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleFlinkRegion = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
      *             .cloud(&#34;AWS&#34;)
      *             .region(&#34;us-east-1&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleFlinkRegion.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
      *     }
      * }
      * ```
@@ -1926,11 +1926,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdGroupMapping = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .id(&#34;group-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdGroupMapping.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .displayName(&#34;Default&#34;)
      *             .build());
@@ -1975,11 +1975,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdGroupMapping = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .id(&#34;group-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdGroupMapping.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .displayName(&#34;Default&#34;)
      *             .build());
@@ -2024,11 +2024,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdGroupMapping = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .id(&#34;group-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdGroupMapping.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .displayName(&#34;Default&#34;)
      *             .build());
@@ -2073,11 +2073,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdGroupMapping = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .id(&#34;group-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdGroupMapping.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .displayName(&#34;Default&#34;)
      *             .build());
@@ -2122,11 +2122,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdGroupMapping = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .id(&#34;group-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdGroupMapping.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .displayName(&#34;Default&#34;)
      *             .build());
@@ -2171,11 +2171,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdGroupMapping = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .id(&#34;group-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdGroupMapping.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
      *             .displayName(&#34;Default&#34;)
      *             .build());
@@ -2219,22 +2219,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
      *             .id(&#34;pool-xyz456&#34;)
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
      *                 .id(&#34;op-abc123&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
-     *         final var exampleUsingNameIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
      *             .displayName(&#34;My Identity Pool&#34;)
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
      *                 .id(&#34;op-abc123&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
      *     }
      * }
      * ```
@@ -2274,22 +2274,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
      *             .id(&#34;pool-xyz456&#34;)
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
      *                 .id(&#34;op-abc123&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
-     *         final var exampleUsingNameIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
      *             .displayName(&#34;My Identity Pool&#34;)
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
      *                 .id(&#34;op-abc123&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
      *     }
      * }
      * ```
@@ -2329,22 +2329,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
      *             .id(&#34;pool-xyz456&#34;)
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
      *                 .id(&#34;op-abc123&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
-     *         final var exampleUsingNameIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
      *             .displayName(&#34;My Identity Pool&#34;)
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
      *                 .id(&#34;op-abc123&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
      *     }
      * }
      * ```
@@ -2384,22 +2384,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
      *             .id(&#34;pool-xyz456&#34;)
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
      *                 .id(&#34;op-abc123&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
-     *         final var exampleUsingNameIdentityPool = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
      *             .displayName(&#34;My Identity Pool&#34;)
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
      *                 .id(&#34;op-abc123&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityPool.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
      *     }
      * }
      * ```
@@ -2438,16 +2438,16 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .id(&#34;op-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
-     *         final var exampleUsingNameIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
      *     }
      * }
      * ```
@@ -2486,16 +2486,16 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .id(&#34;op-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
-     *         final var exampleUsingNameIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
      *     }
      * }
      * ```
@@ -2534,16 +2534,16 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .id(&#34;op-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
-     *         final var exampleUsingNameIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
      *     }
      * }
      * ```
@@ -2582,16 +2582,16 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .id(&#34;op-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
-     *         final var exampleUsingNameIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
      *     }
      * }
      * ```
@@ -2630,16 +2630,16 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .id(&#34;op-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
-     *         final var exampleUsingNameIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
      *     }
      * }
      * ```
@@ -2678,16 +2678,16 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .id(&#34;op-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
-     *         final var exampleUsingNameIdentityProvider = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
      *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameIdentityProvider.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
      *     }
      * }
      * ```
@@ -3224,11 +3224,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKafkaClientQuota = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
      *             .id(&#34;cq-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleKafkaClientQuota.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
      *     }
      * }
      * ```
@@ -3269,11 +3269,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKafkaClientQuota = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
      *             .id(&#34;cq-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleKafkaClientQuota.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
      *     }
      * }
      * ```
@@ -3314,11 +3314,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKafkaClientQuota = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
      *             .id(&#34;cq-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleKafkaClientQuota.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
      *     }
      * }
      * ```
@@ -3359,11 +3359,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKafkaClientQuota = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
      *             .id(&#34;cq-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleKafkaClientQuota.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
      *     }
      * }
      * ```
@@ -3413,17 +3413,18 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
+     *             .displayName(&#34;app_mgr&#34;)
      *             .description(String.format(&#34;app_mgr for %s&#34;, exampleUsingId.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult.displayName())))
      *             .build());
      * 
-     *         final var exampleUsingNameKafkaCluster = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
+     *         final var exampleUsingName = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
      *             .displayName(&#34;basic_kafka_cluster&#34;)
      *             .environment(GetKafkaClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameKafkaCluster.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult));
      *     }
      * }
      * ```
@@ -3473,17 +3474,18 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
+     *             .displayName(&#34;app_mgr&#34;)
      *             .description(String.format(&#34;app_mgr for %s&#34;, exampleUsingId.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult.displayName())))
      *             .build());
      * 
-     *         final var exampleUsingNameKafkaCluster = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
+     *         final var exampleUsingName = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
      *             .displayName(&#34;basic_kafka_cluster&#34;)
      *             .environment(GetKafkaClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameKafkaCluster.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult));
      *     }
      * }
      * ```
@@ -3533,17 +3535,18 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
+     *             .displayName(&#34;app_mgr&#34;)
      *             .description(String.format(&#34;app_mgr for %s&#34;, exampleUsingId.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult.displayName())))
      *             .build());
      * 
-     *         final var exampleUsingNameKafkaCluster = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
+     *         final var exampleUsingName = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
      *             .displayName(&#34;basic_kafka_cluster&#34;)
      *             .environment(GetKafkaClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameKafkaCluster.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult));
      *     }
      * }
      * ```
@@ -3593,17 +3596,18 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
+     *             .displayName(&#34;app_mgr&#34;)
      *             .description(String.format(&#34;app_mgr for %s&#34;, exampleUsingId.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult.displayName())))
      *             .build());
      * 
-     *         final var exampleUsingNameKafkaCluster = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
+     *         final var exampleUsingName = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
      *             .displayName(&#34;basic_kafka_cluster&#34;)
      *             .environment(GetKafkaClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameKafkaCluster.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult));
      *     }
      * }
      * ```
@@ -3657,22 +3661,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
      *             .id(&#34;lksqlc-abc123&#34;)
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
-     *         final var exampleUsingNameKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
      *             .displayName(&#34;ksqldb_cluster&#34;)
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
      *     }
      * }
      * ```
@@ -3714,22 +3718,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
      *             .id(&#34;lksqlc-abc123&#34;)
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
-     *         final var exampleUsingNameKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
      *             .displayName(&#34;ksqldb_cluster&#34;)
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
      *     }
      * }
      * ```
@@ -3771,22 +3775,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
      *             .id(&#34;lksqlc-abc123&#34;)
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
-     *         final var exampleUsingNameKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
      *             .displayName(&#34;ksqldb_cluster&#34;)
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
      *     }
      * }
      * ```
@@ -3828,22 +3832,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
      *             .id(&#34;lksqlc-abc123&#34;)
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
-     *         final var exampleUsingNameKsqlCluster = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
      *             .displayName(&#34;ksqldb_cluster&#34;)
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameKsqlCluster.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
      *     }
      * }
      * ```
@@ -3889,17 +3893,18 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
+     *             .displayName(&#34;test_sa&#34;)
      *             .description(String.format(&#34;test_sa for %s&#34;, exampleUsingId.applyValue(getNetworkResult -&gt; getNetworkResult.displayName())))
      *             .build());
      * 
-     *         final var exampleUsingNameNetwork = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *         final var exampleUsingName = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
      *             .displayName(&#34;my_network&#34;)
      *             .environment(GetNetworkEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameNetwork.applyValue(getNetworkResult -&gt; getNetworkResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getNetworkResult -&gt; getNetworkResult));
      *     }
      * }
      * ```
@@ -3945,17 +3950,18 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
+     *             .displayName(&#34;test_sa&#34;)
      *             .description(String.format(&#34;test_sa for %s&#34;, exampleUsingId.applyValue(getNetworkResult -&gt; getNetworkResult.displayName())))
      *             .build());
      * 
-     *         final var exampleUsingNameNetwork = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *         final var exampleUsingName = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
      *             .displayName(&#34;my_network&#34;)
      *             .environment(GetNetworkEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameNetwork.applyValue(getNetworkResult -&gt; getNetworkResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getNetworkResult -&gt; getNetworkResult));
      *     }
      * }
      * ```
@@ -4001,17 +4007,18 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
+     *             .displayName(&#34;test_sa&#34;)
      *             .description(String.format(&#34;test_sa for %s&#34;, exampleUsingId.applyValue(getNetworkResult -&gt; getNetworkResult.displayName())))
      *             .build());
      * 
-     *         final var exampleUsingNameNetwork = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *         final var exampleUsingName = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
      *             .displayName(&#34;my_network&#34;)
      *             .environment(GetNetworkEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameNetwork.applyValue(getNetworkResult -&gt; getNetworkResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getNetworkResult -&gt; getNetworkResult));
      *     }
      * }
      * ```
@@ -4057,17 +4064,18 @@ public final class ConfluentcloudFunctions {
      *             .build());
      * 
      *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
+     *             .displayName(&#34;test_sa&#34;)
      *             .description(String.format(&#34;test_sa for %s&#34;, exampleUsingId.applyValue(getNetworkResult -&gt; getNetworkResult.displayName())))
      *             .build());
      * 
-     *         final var exampleUsingNameNetwork = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
+     *         final var exampleUsingName = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
      *             .displayName(&#34;my_network&#34;)
      *             .environment(GetNetworkEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameNetwork.applyValue(getNetworkResult -&gt; getNetworkResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getNetworkResult -&gt; getNetworkResult));
      *     }
      * }
      * ```
@@ -4481,9 +4489,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleOrganization = ConfluentcloudFunctions.getOrganization();
+     *         final var example = ConfluentcloudFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;example&#34;, exampleOrganization.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult));
      *     }
      * }
      * ```
@@ -4521,9 +4529,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleOrganization = ConfluentcloudFunctions.getOrganization();
+     *         final var example = ConfluentcloudFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;example&#34;, exampleOrganization.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult));
      *     }
      * }
      * ```
@@ -4561,9 +4569,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleOrganization = ConfluentcloudFunctions.getOrganization();
+     *         final var example = ConfluentcloudFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;example&#34;, exampleOrganization.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult));
      *     }
      * }
      * ```
@@ -4601,9 +4609,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleOrganization = ConfluentcloudFunctions.getOrganization();
+     *         final var example = ConfluentcloudFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;example&#34;, exampleOrganization.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult));
      *     }
      * }
      * ```
@@ -4641,9 +4649,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleOrganization = ConfluentcloudFunctions.getOrganization();
+     *         final var example = ConfluentcloudFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;example&#34;, exampleOrganization.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult));
      *     }
      * }
      * ```
@@ -4681,9 +4689,9 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleOrganization = ConfluentcloudFunctions.getOrganization();
+     *         final var example = ConfluentcloudFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;example&#34;, exampleOrganization.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult));
      *     }
      * }
      * ```
@@ -4723,22 +4731,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdPeering = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
      *             .id(&#34;peer-abc123&#34;)
      *             .environment(GetPeeringEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdPeering.applyValue(getPeeringResult -&gt; getPeeringResult));
-     *         final var exampleUsingNamePeering = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
      *             .displayName(&#34;my_peering&#34;)
      *             .environment(GetPeeringEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNamePeering.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPeeringResult -&gt; getPeeringResult));
      *     }
      * }
      * ```
@@ -4778,22 +4786,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdPeering = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
      *             .id(&#34;peer-abc123&#34;)
      *             .environment(GetPeeringEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdPeering.applyValue(getPeeringResult -&gt; getPeeringResult));
-     *         final var exampleUsingNamePeering = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
      *             .displayName(&#34;my_peering&#34;)
      *             .environment(GetPeeringEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNamePeering.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPeeringResult -&gt; getPeeringResult));
      *     }
      * }
      * ```
@@ -4833,22 +4841,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdPeering = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
      *             .id(&#34;peer-abc123&#34;)
      *             .environment(GetPeeringEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdPeering.applyValue(getPeeringResult -&gt; getPeeringResult));
-     *         final var exampleUsingNamePeering = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
      *             .displayName(&#34;my_peering&#34;)
      *             .environment(GetPeeringEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNamePeering.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPeeringResult -&gt; getPeeringResult));
      *     }
      * }
      * ```
@@ -4888,22 +4896,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdPeering = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
      *             .id(&#34;peer-abc123&#34;)
      *             .environment(GetPeeringEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdPeering.applyValue(getPeeringResult -&gt; getPeeringResult));
-     *         final var exampleUsingNamePeering = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
      *             .displayName(&#34;my_peering&#34;)
      *             .environment(GetPeeringEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNamePeering.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPeeringResult -&gt; getPeeringResult));
      *     }
      * }
      * ```
@@ -4943,22 +4951,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdPrivateLinkAccess = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
      *             .id(&#34;pla-abc123&#34;)
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdPrivateLinkAccess.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
-     *         final var exampleUsingNamePrivateLinkAccess = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
      *             .displayName(&#34;my_pla&#34;)
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNamePrivateLinkAccess.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
      *     }
      * }
      * ```
@@ -4998,22 +5006,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdPrivateLinkAccess = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
      *             .id(&#34;pla-abc123&#34;)
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdPrivateLinkAccess.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
-     *         final var exampleUsingNamePrivateLinkAccess = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
      *             .displayName(&#34;my_pla&#34;)
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNamePrivateLinkAccess.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
      *     }
      * }
      * ```
@@ -5053,22 +5061,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdPrivateLinkAccess = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
      *             .id(&#34;pla-abc123&#34;)
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdPrivateLinkAccess.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
-     *         final var exampleUsingNamePrivateLinkAccess = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
      *             .displayName(&#34;my_pla&#34;)
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNamePrivateLinkAccess.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
      *     }
      * }
      * ```
@@ -5108,22 +5116,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdPrivateLinkAccess = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
      *             .id(&#34;pla-abc123&#34;)
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdPrivateLinkAccess.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
-     *         final var exampleUsingNamePrivateLinkAccess = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
      *             .displayName(&#34;my_pla&#34;)
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNamePrivateLinkAccess.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
      *     }
      * }
      * ```
@@ -5588,11 +5596,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleRoleBinding = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()
      *             .id(&#34;rb-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleRoleBinding.applyValue(getRoleBindingResult -&gt; getRoleBindingResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getRoleBindingResult -&gt; getRoleBindingResult));
      *     }
      * }
      * ```
@@ -5633,11 +5641,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleRoleBinding = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()
      *             .id(&#34;rb-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleRoleBinding.applyValue(getRoleBindingResult -&gt; getRoleBindingResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getRoleBindingResult -&gt; getRoleBindingResult));
      *     }
      * }
      * ```
@@ -5678,11 +5686,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleRoleBinding = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()
      *             .id(&#34;rb-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleRoleBinding.applyValue(getRoleBindingResult -&gt; getRoleBindingResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getRoleBindingResult -&gt; getRoleBindingResult));
      *     }
      * }
      * ```
@@ -5723,11 +5731,11 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleRoleBinding = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()
      *             .id(&#34;rb-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleRoleBinding.applyValue(getRoleBindingResult -&gt; getRoleBindingResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getRoleBindingResult -&gt; getRoleBindingResult));
      *     }
      * }
      * ```
@@ -5779,22 +5787,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdSchemaRegistryCluster = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .id(&#34;lsrc-abc123&#34;)
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdSchemaRegistryCluster.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
-     *         final var exampleUsingNameSchemaRegistryCluster = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .displayName(&#34;Stream Governance Package&#34;)
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameSchemaRegistryCluster.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
      *     }
      * }
      * ```
@@ -5834,22 +5842,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdSchemaRegistryCluster = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .id(&#34;lsrc-abc123&#34;)
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdSchemaRegistryCluster.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
-     *         final var exampleUsingNameSchemaRegistryCluster = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .displayName(&#34;Stream Governance Package&#34;)
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameSchemaRegistryCluster.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
      *     }
      * }
      * ```
@@ -5889,22 +5897,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdSchemaRegistryCluster = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .id(&#34;lsrc-abc123&#34;)
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdSchemaRegistryCluster.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
-     *         final var exampleUsingNameSchemaRegistryCluster = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .displayName(&#34;Stream Governance Package&#34;)
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameSchemaRegistryCluster.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
      *     }
      * }
      * ```
@@ -5944,22 +5952,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdSchemaRegistryCluster = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .id(&#34;lsrc-abc123&#34;)
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdSchemaRegistryCluster.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
-     *         final var exampleUsingNameSchemaRegistryCluster = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .displayName(&#34;Stream Governance Package&#34;)
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameSchemaRegistryCluster.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
      *     }
      * }
      * ```
@@ -6296,13 +6304,13 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleSchemaRegistryRegion = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
      *             .cloud(&#34;AWS&#34;)
      *             .region(&#34;us-east-2&#34;)
      *             .package_(&#34;ESSENTIALS&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleSchemaRegistryRegion.applyValue(getSchemaRegistryRegionResult -&gt; getSchemaRegistryRegionResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getSchemaRegistryRegionResult -&gt; getSchemaRegistryRegionResult));
      *     }
      * }
      * ```
@@ -6345,13 +6353,13 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleSchemaRegistryRegion = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
      *             .cloud(&#34;AWS&#34;)
      *             .region(&#34;us-east-2&#34;)
      *             .package_(&#34;ESSENTIALS&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleSchemaRegistryRegion.applyValue(getSchemaRegistryRegionResult -&gt; getSchemaRegistryRegionResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getSchemaRegistryRegionResult -&gt; getSchemaRegistryRegionResult));
      *     }
      * }
      * ```
@@ -6394,13 +6402,13 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleSchemaRegistryRegion = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
      *             .cloud(&#34;AWS&#34;)
      *             .region(&#34;us-east-2&#34;)
      *             .package_(&#34;ESSENTIALS&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleSchemaRegistryRegion.applyValue(getSchemaRegistryRegionResult -&gt; getSchemaRegistryRegionResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getSchemaRegistryRegionResult -&gt; getSchemaRegistryRegionResult));
      *     }
      * }
      * ```
@@ -6443,13 +6451,13 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleSchemaRegistryRegion = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
+     *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
      *             .cloud(&#34;AWS&#34;)
      *             .region(&#34;us-east-2&#34;)
      *             .package_(&#34;ESSENTIALS&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleSchemaRegistryRegion.applyValue(getSchemaRegistryRegionResult -&gt; getSchemaRegistryRegionResult));
+     *         ctx.export(&#34;example&#34;, example.applyValue(getSchemaRegistryRegionResult -&gt; getSchemaRegistryRegionResult));
      *     }
      * }
      * ```
@@ -6494,6 +6502,7 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6507,16 +6516,18 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .id(&#34;sa-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName(&#34;test_sa&#34;)
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;);
+     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
+     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.displayName())))
+     *             .build());
      * 
      *     }
      * }
@@ -6544,6 +6555,7 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6557,16 +6569,18 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .id(&#34;sa-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName(&#34;test_sa&#34;)
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;);
+     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
+     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.displayName())))
+     *             .build());
      * 
      *     }
      * }
@@ -6594,6 +6608,7 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6607,16 +6622,18 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .id(&#34;sa-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName(&#34;test_sa&#34;)
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;);
+     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
+     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.displayName())))
+     *             .build());
      * 
      *     }
      * }
@@ -6644,6 +6661,7 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6657,16 +6675,18 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .id(&#34;sa-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName(&#34;test_sa&#34;)
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;);
+     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
+     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.displayName())))
+     *             .build());
      * 
      *     }
      * }
@@ -6694,6 +6714,7 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6707,16 +6728,18 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .id(&#34;sa-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName(&#34;test_sa&#34;)
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;);
+     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
+     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.displayName())))
+     *             .build());
      * 
      *     }
      * }
@@ -6744,6 +6767,7 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetServiceAccountArgs;
      * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -6757,16 +6781,18 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .id(&#34;sa-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
      *             .displayName(&#34;test_sa&#34;)
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;);
+     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
+     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.displayName())))
+     *             .build());
      * 
      *     }
      * }
@@ -6855,22 +6881,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdTransitGatewayAttachment = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
      *             .id(&#34;tgwa-abc123&#34;)
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdTransitGatewayAttachment.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
-     *         final var exampleUsingNameTransitGatewayAttachment = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
      *             .displayName(&#34;my_tgwa&#34;)
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameTransitGatewayAttachment.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
      *     }
      * }
      * ```
@@ -6910,22 +6936,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdTransitGatewayAttachment = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
      *             .id(&#34;tgwa-abc123&#34;)
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdTransitGatewayAttachment.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
-     *         final var exampleUsingNameTransitGatewayAttachment = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
      *             .displayName(&#34;my_tgwa&#34;)
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameTransitGatewayAttachment.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
      *     }
      * }
      * ```
@@ -6965,22 +6991,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdTransitGatewayAttachment = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
      *             .id(&#34;tgwa-abc123&#34;)
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdTransitGatewayAttachment.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
-     *         final var exampleUsingNameTransitGatewayAttachment = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
      *             .displayName(&#34;my_tgwa&#34;)
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameTransitGatewayAttachment.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
      *     }
      * }
      * ```
@@ -7020,22 +7046,22 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdTransitGatewayAttachment = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
      *             .id(&#34;tgwa-abc123&#34;)
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdTransitGatewayAttachment.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
-     *         final var exampleUsingNameTransitGatewayAttachment = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         final var exampleUsingName = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
      *             .displayName(&#34;my_tgwa&#34;)
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
      *                 .id(&#34;env-xyz456&#34;)
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingNameTransitGatewayAttachment.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
      *     }
      * }
      * ```
@@ -7062,6 +7088,7 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetUserArgs;
      * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
      * import com.pulumi.confluentcloud.KafkaCluster;
      * import com.pulumi.confluentcloud.KafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
@@ -7081,18 +7108,21 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdUser = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .id(&#34;u-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdUser.applyValue(getUserResult -&gt; getUserResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .email(&#34;test123@gmail.com&#34;)
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;);
+     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
+     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult.fullName())))
+     *             .build());
      * 
      *         var standard_cluster_on_aws = new KafkaCluster(&#34;standard-cluster-on-aws&#34;, KafkaClusterArgs.builder()        
+     *             .displayName(&#34;standard_kafka_cluster_on_aws&#34;)
      *             .availability(&#34;SINGLE_ZONE&#34;)
      *             .cloud(&#34;AWS&#34;)
      *             .region(&#34;us-west-2&#34;)
@@ -7138,6 +7168,7 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetUserArgs;
      * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
      * import com.pulumi.confluentcloud.KafkaCluster;
      * import com.pulumi.confluentcloud.KafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
@@ -7157,18 +7188,21 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdUser = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .id(&#34;u-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdUser.applyValue(getUserResult -&gt; getUserResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .email(&#34;test123@gmail.com&#34;)
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;);
+     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
+     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult.fullName())))
+     *             .build());
      * 
      *         var standard_cluster_on_aws = new KafkaCluster(&#34;standard-cluster-on-aws&#34;, KafkaClusterArgs.builder()        
+     *             .displayName(&#34;standard_kafka_cluster_on_aws&#34;)
      *             .availability(&#34;SINGLE_ZONE&#34;)
      *             .cloud(&#34;AWS&#34;)
      *             .region(&#34;us-west-2&#34;)
@@ -7214,6 +7248,7 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetUserArgs;
      * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
      * import com.pulumi.confluentcloud.KafkaCluster;
      * import com.pulumi.confluentcloud.KafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
@@ -7233,18 +7268,21 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdUser = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .id(&#34;u-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdUser.applyValue(getUserResult -&gt; getUserResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .email(&#34;test123@gmail.com&#34;)
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;);
+     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
+     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult.fullName())))
+     *             .build());
      * 
      *         var standard_cluster_on_aws = new KafkaCluster(&#34;standard-cluster-on-aws&#34;, KafkaClusterArgs.builder()        
+     *             .displayName(&#34;standard_kafka_cluster_on_aws&#34;)
      *             .availability(&#34;SINGLE_ZONE&#34;)
      *             .cloud(&#34;AWS&#34;)
      *             .region(&#34;us-west-2&#34;)
@@ -7290,6 +7328,7 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetUserArgs;
      * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
      * import com.pulumi.confluentcloud.KafkaCluster;
      * import com.pulumi.confluentcloud.KafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
@@ -7309,18 +7348,21 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdUser = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .id(&#34;u-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdUser.applyValue(getUserResult -&gt; getUserResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .email(&#34;test123@gmail.com&#34;)
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;);
+     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
+     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult.fullName())))
+     *             .build());
      * 
      *         var standard_cluster_on_aws = new KafkaCluster(&#34;standard-cluster-on-aws&#34;, KafkaClusterArgs.builder()        
+     *             .displayName(&#34;standard_kafka_cluster_on_aws&#34;)
      *             .availability(&#34;SINGLE_ZONE&#34;)
      *             .cloud(&#34;AWS&#34;)
      *             .region(&#34;us-west-2&#34;)
@@ -7366,6 +7408,7 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetUserArgs;
      * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
      * import com.pulumi.confluentcloud.KafkaCluster;
      * import com.pulumi.confluentcloud.KafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
@@ -7385,18 +7428,21 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdUser = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .id(&#34;u-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdUser.applyValue(getUserResult -&gt; getUserResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .email(&#34;test123@gmail.com&#34;)
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;);
+     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
+     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult.fullName())))
+     *             .build());
      * 
      *         var standard_cluster_on_aws = new KafkaCluster(&#34;standard-cluster-on-aws&#34;, KafkaClusterArgs.builder()        
+     *             .displayName(&#34;standard_kafka_cluster_on_aws&#34;)
      *             .availability(&#34;SINGLE_ZONE&#34;)
      *             .cloud(&#34;AWS&#34;)
      *             .region(&#34;us-west-2&#34;)
@@ -7442,6 +7488,7 @@ public final class ConfluentcloudFunctions {
      * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
      * import com.pulumi.confluentcloud.inputs.GetUserArgs;
      * import com.pulumi.confluentcloud.Environment;
+     * import com.pulumi.confluentcloud.EnvironmentArgs;
      * import com.pulumi.confluentcloud.KafkaCluster;
      * import com.pulumi.confluentcloud.KafkaClusterArgs;
      * import com.pulumi.confluentcloud.inputs.KafkaClusterStandardArgs;
@@ -7461,18 +7508,21 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleUsingIdUser = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
+     *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .id(&#34;u-abc123&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingIdUser.applyValue(getUserResult -&gt; getUserResult));
+     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
      *             .email(&#34;test123@gmail.com&#34;)
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;);
+     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
+     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult.fullName())))
+     *             .build());
      * 
      *         var standard_cluster_on_aws = new KafkaCluster(&#34;standard-cluster-on-aws&#34;, KafkaClusterArgs.builder()        
+     *             .displayName(&#34;standard_kafka_cluster_on_aws&#34;)
      *             .availability(&#34;SINGLE_ZONE&#34;)
      *             .cloud(&#34;AWS&#34;)
      *             .region(&#34;us-west-2&#34;)

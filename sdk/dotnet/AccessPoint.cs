@@ -25,7 +25,10 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development");
+    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     {
+    ///         DisplayName = "Development",
+    ///     });
     /// 
     ///     var main = new ConfluentCloud.AccessPoint("main", new()
     ///     {
@@ -36,7 +39,7 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///         Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs
     ///         {
-    ///             Id = confluent_network.Main.Gateway[0].Id,
+    ///             Id = mainConfluentNetwork.Gateway[0].Id,
     ///         },
     ///         AwsEgressPrivateLinkEndpoint = new ConfluentCloud.Inputs.AccessPointAwsEgressPrivateLinkEndpointArgs
     ///         {

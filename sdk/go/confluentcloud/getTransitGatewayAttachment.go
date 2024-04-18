@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdTransitGatewayAttachment, err := confluentcloud.LookupTransitGatewayAttachment(ctx, &confluentcloud.LookupTransitGatewayAttachmentArgs{
+//			exampleUsingId, err := confluentcloud.LookupTransitGatewayAttachment(ctx, &confluentcloud.LookupTransitGatewayAttachmentArgs{
 //				Id: pulumi.StringRef("tgwa-abc123"),
 //				Environment: confluentcloud.GetTransitGatewayAttachmentEnvironment{
 //					Id: "env-xyz456",
@@ -39,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingId", exampleUsingIdTransitGatewayAttachment)
-//			exampleUsingNameTransitGatewayAttachment, err := confluentcloud.LookupTransitGatewayAttachment(ctx, &confluentcloud.LookupTransitGatewayAttachmentArgs{
+//			ctx.Export("exampleUsingId", exampleUsingId)
+//			exampleUsingName, err := confluentcloud.LookupTransitGatewayAttachment(ctx, &confluentcloud.LookupTransitGatewayAttachmentArgs{
 //				DisplayName: pulumi.StringRef("my_tgwa"),
 //				Environment: confluentcloud.GetTransitGatewayAttachmentEnvironment{
 //					Id: "env-xyz456",
@@ -49,7 +49,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingName", exampleUsingNameTransitGatewayAttachment)
+//			ctx.Export("exampleUsingName", exampleUsingName)
 //			return nil
 //		})
 //	}

@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.EnvironmentArgs;
  * import com.pulumi.confluentcloud.KafkaCluster;
  * import com.pulumi.confluentcloud.KafkaClusterArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterBasicArgs;
@@ -54,9 +55,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;);
+ *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
+ *             .displayName(&#34;Development&#34;)
+ *             .build());
  * 
  *         var basic = new KafkaCluster(&#34;basic&#34;, KafkaClusterArgs.builder()        
+ *             .displayName(&#34;basic_kafka_cluster&#34;)
  *             .availability(&#34;SINGLE_ZONE&#34;)
  *             .cloud(&#34;AWS&#34;)
  *             .region(&#34;us-east-2&#34;)
@@ -67,6 +71,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var standard = new KafkaCluster(&#34;standard&#34;, KafkaClusterArgs.builder()        
+ *             .displayName(&#34;standard_kafka_cluster&#34;)
  *             .availability(&#34;SINGLE_ZONE&#34;)
  *             .cloud(&#34;AWS&#34;)
  *             .region(&#34;us-east-2&#34;)
@@ -77,6 +82,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dedicated = new KafkaCluster(&#34;dedicated&#34;, KafkaClusterArgs.builder()        
+ *             .displayName(&#34;dedicated_kafka_cluster&#34;)
  *             .availability(&#34;MULTI_ZONE&#34;)
  *             .cloud(&#34;AWS&#34;)
  *             .region(&#34;us-east-2&#34;)
@@ -103,6 +109,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.EnvironmentArgs;
  * import com.pulumi.confluentcloud.KafkaCluster;
  * import com.pulumi.confluentcloud.KafkaClusterArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterBasicArgs;
@@ -122,9 +129,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;);
+ *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
+ *             .displayName(&#34;Development&#34;)
+ *             .build());
  * 
  *         var basic = new KafkaCluster(&#34;basic&#34;, KafkaClusterArgs.builder()        
+ *             .displayName(&#34;basic_kafka_cluster&#34;)
  *             .availability(&#34;SINGLE_ZONE&#34;)
  *             .cloud(&#34;AZURE&#34;)
  *             .region(&#34;centralus&#34;)
@@ -135,6 +145,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var standard = new KafkaCluster(&#34;standard&#34;, KafkaClusterArgs.builder()        
+ *             .displayName(&#34;standard_kafka_cluster&#34;)
  *             .availability(&#34;SINGLE_ZONE&#34;)
  *             .cloud(&#34;AZURE&#34;)
  *             .region(&#34;centralus&#34;)
@@ -145,6 +156,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dedicated = new KafkaCluster(&#34;dedicated&#34;, KafkaClusterArgs.builder()        
+ *             .displayName(&#34;dedicated_kafka_cluster&#34;)
  *             .availability(&#34;MULTI_ZONE&#34;)
  *             .cloud(&#34;AZURE&#34;)
  *             .region(&#34;centralus&#34;)
@@ -171,6 +183,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.EnvironmentArgs;
  * import com.pulumi.confluentcloud.KafkaCluster;
  * import com.pulumi.confluentcloud.KafkaClusterArgs;
  * import com.pulumi.confluentcloud.inputs.KafkaClusterBasicArgs;
@@ -190,9 +203,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;);
+ *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
+ *             .displayName(&#34;Development&#34;)
+ *             .build());
  * 
  *         var basic = new KafkaCluster(&#34;basic&#34;, KafkaClusterArgs.builder()        
+ *             .displayName(&#34;basic_kafka_cluster&#34;)
  *             .availability(&#34;SINGLE_ZONE&#34;)
  *             .cloud(&#34;GCP&#34;)
  *             .region(&#34;us-central1&#34;)
@@ -203,6 +219,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var standard = new KafkaCluster(&#34;standard&#34;, KafkaClusterArgs.builder()        
+ *             .displayName(&#34;standard_kafka_cluster&#34;)
  *             .availability(&#34;SINGLE_ZONE&#34;)
  *             .cloud(&#34;GCP&#34;)
  *             .region(&#34;us-central1&#34;)
@@ -213,6 +230,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dedicated = new KafkaCluster(&#34;dedicated&#34;, KafkaClusterArgs.builder()        
+ *             .displayName(&#34;dedicated_kafka_cluster&#34;)
  *             .availability(&#34;MULTI_ZONE&#34;)
  *             .cloud(&#34;GCP&#34;)
  *             .region(&#34;us-central1&#34;)

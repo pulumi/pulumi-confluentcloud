@@ -23,12 +23,12 @@ namespace Pulumi.ConfluentCloud
     /// {
     ///     var source = new ConfluentCloud.CustomConnectorPlugin("source", new()
     ///     {
-    ///         ConnectorClass = "io.confluent.kafka.connect.datagen.DatagenConnector",
-    ///         ConnectorType = "SOURCE",
     ///         DisplayName = "Datagen Source Connector Plugin",
     ///         DocumentationLink = "https://www.confluent.io/hub/confluentinc/kafka-connect-datagen",
-    ///         Filename = "confluentinc-kafka-connect-datagen-0.6.2.zip",
+    ///         ConnectorClass = "io.confluent.kafka.connect.datagen.DatagenConnector",
+    ///         ConnectorType = "SOURCE",
     ///         SensitiveConfigProperties = new[] {},
+    ///         Filename = "confluentinc-kafka-connect-datagen-0.6.2.zip",
     ///     });
     /// 
     /// });

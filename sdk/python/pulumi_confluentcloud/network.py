@@ -561,7 +561,7 @@ class Network(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         aws_private_link = confluentcloud.Network("aws-private-link",
             display_name="AWS Private Link Network",
             cloud="AWS",
@@ -584,7 +584,7 @@ class Network(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         azure_peering = confluentcloud.Network("azure-peering",
             display_name="Azure Peering Network",
             cloud="AZURE",
@@ -603,7 +603,7 @@ class Network(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         gcp_private_service_connect = confluentcloud.Network("gcp-private-service-connect",
             display_name="GCP Private Service Connect Network",
             cloud="GCP",
@@ -629,7 +629,7 @@ class Network(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         aws_transit_gateway_attachment = confluentcloud.Network("aws-transit-gateway-attachment",
             display_name="AWS Transit Gateway Attachment Network",
             cloud="AWS",
@@ -713,7 +713,7 @@ class Network(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         aws_private_link = confluentcloud.Network("aws-private-link",
             display_name="AWS Private Link Network",
             cloud="AWS",
@@ -736,7 +736,7 @@ class Network(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         azure_peering = confluentcloud.Network("azure-peering",
             display_name="Azure Peering Network",
             cloud="AZURE",
@@ -755,7 +755,7 @@ class Network(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         gcp_private_service_connect = confluentcloud.Network("gcp-private-service-connect",
             display_name="GCP Private Service Connect Network",
             cloud="GCP",
@@ -781,7 +781,7 @@ class Network(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         aws_transit_gateway_attachment = confluentcloud.Network("aws-transit-gateway-attachment",
             display_name="AWS Transit Gateway Attachment Network",
             cloud="AWS",

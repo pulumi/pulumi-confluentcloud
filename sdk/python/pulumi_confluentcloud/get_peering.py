@@ -134,16 +134,16 @@ def get_peering(display_name: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_peering = confluentcloud.get_peering(id="peer-abc123",
+    example_using_id = confluentcloud.get_peering(id="peer-abc123",
         environment=confluentcloud.GetPeeringEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingId", example_using_id_peering)
-    example_using_name_peering = confluentcloud.get_peering(display_name="my_peering",
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_peering(display_name="my_peering",
         environment=confluentcloud.GetPeeringEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingName", example_using_name_peering)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -188,16 +188,16 @@ def get_peering_output(display_name: Optional[pulumi.Input[Optional[str]]] = Non
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_peering = confluentcloud.get_peering(id="peer-abc123",
+    example_using_id = confluentcloud.get_peering(id="peer-abc123",
         environment=confluentcloud.GetPeeringEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingId", example_using_id_peering)
-    example_using_name_peering = confluentcloud.get_peering(display_name="my_peering",
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_peering(display_name="my_peering",
         environment=confluentcloud.GetPeeringEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingName", example_using_name_peering)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 

@@ -32,13 +32,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdGroupMapping, err := confluentcloud.LookupGroupMapping(ctx, &confluentcloud.LookupGroupMappingArgs{
+//			exampleUsingId, err := confluentcloud.LookupGroupMapping(ctx, &confluentcloud.LookupGroupMappingArgs{
 //				Id: pulumi.StringRef("group-abc123"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingId", exampleUsingIdGroupMapping)
+//			ctx.Export("exampleUsingId", exampleUsingId)
 //			_, err = confluentcloud.LookupGroupMapping(ctx, &confluentcloud.LookupGroupMappingArgs{
 //				DisplayName: pulumi.StringRef("Default"),
 //			}, nil)

@@ -31,7 +31,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", &confluentcloud.EnvironmentArgs{
+//				DisplayName: pulumi.String("Development"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -42,10 +44,10 @@ import (
 //				},
 //				Domain: pulumi.String("example.com"),
 //				Gateway: &confluentcloud.DnsRecordGatewayArgs{
-//					Id: pulumi.Any(confluent_network.Main.Gateway[0].Id),
+//					Id: pulumi.Any(mainConfluentNetwork.Gateway[0].Id),
 //				},
 //				PrivateLinkAccessPoint: &confluentcloud.DnsRecordPrivateLinkAccessPointArgs{
-//					Id: pulumi.Any(confluent_access_point.Main.Id),
+//					Id: pulumi.Any(mainConfluentAccessPoint.Id),
 //				},
 //			})
 //			if err != nil {

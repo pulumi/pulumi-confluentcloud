@@ -27,6 +27,7 @@ namespace Pulumi.ConfluentCloud
     /// {
     ///     var example_sa = new ConfluentCloud.ServiceAccount("example-sa", new()
     ///     {
+    ///         DisplayName = "orders-app-sa",
     ///         Description = "Service Account for orders app",
     ///     });
     /// 

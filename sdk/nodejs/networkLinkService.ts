@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const aws_private_link = new confluentcloud.Network("aws-private-link", {
  *     displayName: "AWS Private Link Network",
  *     cloud: "AWS",
@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  *         id: development.id,
  *     },
  * });
- * const awsNls = new confluentcloud.NetworkLinkService("awsNls", {
+ * const awsNls = new confluentcloud.NetworkLinkService("aws_nls", {
  *     displayName: "AWS Private Link network link service",
  *     environment: {
  *         id: development.id,

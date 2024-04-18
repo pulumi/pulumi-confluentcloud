@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example_sa = new ServiceAccount(&#34;example-sa&#34;, ServiceAccountArgs.builder()        
+ *             .displayName(&#34;orders-app-sa&#34;)
  *             .description(&#34;Service Account for orders app&#34;)
  *             .build());
  * 

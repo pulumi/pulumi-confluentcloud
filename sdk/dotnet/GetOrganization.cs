@@ -27,11 +27,11 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleOrganization = ConfluentCloud.GetOrganization.Invoke();
+        ///     var example = ConfluentCloud.GetOrganization.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleOrganization,
+        ///         ["example"] = example,
         ///     };
         /// });
         /// ```
@@ -56,11 +56,11 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleOrganization = ConfluentCloud.GetOrganization.Invoke();
+        ///     var example = ConfluentCloud.GetOrganization.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleOrganization,
+        ///         ["example"] = example,
         ///     };
         /// });
         /// ```

@@ -179,7 +179,7 @@ class TransitGatewayAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         aws_transit_gateway_attachment = confluentcloud.Network("aws-transit-gateway-attachment",
             display_name="AWS Transit Gateway Attachment Network",
             cloud="AWS",
@@ -254,7 +254,7 @@ class TransitGatewayAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         aws_transit_gateway_attachment = confluentcloud.Network("aws-transit-gateway-attachment",
             display_name="AWS Transit Gateway Attachment Network",
             cloud="AWS",

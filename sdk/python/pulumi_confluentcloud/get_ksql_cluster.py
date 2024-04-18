@@ -202,16 +202,16 @@ def get_ksql_cluster(display_name: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_ksql_cluster = confluentcloud.get_ksql_cluster(id="lksqlc-abc123",
+    example_using_id = confluentcloud.get_ksql_cluster(id="lksqlc-abc123",
         environment=confluentcloud.GetKsqlClusterEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingId", example_using_id_ksql_cluster)
-    example_using_name_ksql_cluster = confluentcloud.get_ksql_cluster(display_name="ksqldb_cluster",
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_ksql_cluster(display_name="ksqldb_cluster",
         environment=confluentcloud.GetKsqlClusterEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingName", example_using_name_ksql_cluster)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -263,16 +263,16 @@ def get_ksql_cluster_output(display_name: Optional[pulumi.Input[Optional[str]]] 
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_ksql_cluster = confluentcloud.get_ksql_cluster(id="lksqlc-abc123",
+    example_using_id = confluentcloud.get_ksql_cluster(id="lksqlc-abc123",
         environment=confluentcloud.GetKsqlClusterEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingId", example_using_id_ksql_cluster)
-    example_using_name_ksql_cluster = confluentcloud.get_ksql_cluster(display_name="ksqldb_cluster",
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_ksql_cluster(display_name="ksqldb_cluster",
         environment=confluentcloud.GetKsqlClusterEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingName", example_using_name_ksql_cluster)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 

@@ -107,10 +107,10 @@ def get_identity_provider(display_name: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_identity_provider = confluentcloud.get_identity_provider(id="op-abc123")
-    pulumi.export("exampleUsingId", example_using_id_identity_provider)
-    example_using_name_identity_provider = confluentcloud.get_identity_provider(display_name="My OIDC Provider: Azure AD")
-    pulumi.export("exampleUsingName", example_using_name_identity_provider)
+    example_using_id = confluentcloud.get_identity_provider(id="op-abc123")
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_identity_provider(display_name="My OIDC Provider: Azure AD")
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -150,10 +150,10 @@ def get_identity_provider_output(display_name: Optional[pulumi.Input[Optional[st
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_identity_provider = confluentcloud.get_identity_provider(id="op-abc123")
-    pulumi.export("exampleUsingId", example_using_id_identity_provider)
-    example_using_name_identity_provider = confluentcloud.get_identity_provider(display_name="My OIDC Provider: Azure AD")
-    pulumi.export("exampleUsingName", example_using_name_identity_provider)
+    example_using_id = confluentcloud.get_identity_provider(id="op-abc123")
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_identity_provider(display_name="My OIDC Provider: Azure AD")
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 

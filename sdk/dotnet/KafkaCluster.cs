@@ -23,10 +23,14 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development");
+    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     {
+    ///         DisplayName = "Development",
+    ///     });
     /// 
     ///     var basic = new ConfluentCloud.KafkaCluster("basic", new()
     ///     {
+    ///         DisplayName = "basic_kafka_cluster",
     ///         Availability = "SINGLE_ZONE",
     ///         Cloud = "AWS",
     ///         Region = "us-east-2",
@@ -39,6 +43,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     var standard = new ConfluentCloud.KafkaCluster("standard", new()
     ///     {
+    ///         DisplayName = "standard_kafka_cluster",
     ///         Availability = "SINGLE_ZONE",
     ///         Cloud = "AWS",
     ///         Region = "us-east-2",
@@ -51,6 +56,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     var dedicated = new ConfluentCloud.KafkaCluster("dedicated", new()
     ///     {
+    ///         DisplayName = "dedicated_kafka_cluster",
     ///         Availability = "MULTI_ZONE",
     ///         Cloud = "AWS",
     ///         Region = "us-east-2",
@@ -79,10 +85,14 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development");
+    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     {
+    ///         DisplayName = "Development",
+    ///     });
     /// 
     ///     var basic = new ConfluentCloud.KafkaCluster("basic", new()
     ///     {
+    ///         DisplayName = "basic_kafka_cluster",
     ///         Availability = "SINGLE_ZONE",
     ///         Cloud = "AZURE",
     ///         Region = "centralus",
@@ -95,6 +105,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     var standard = new ConfluentCloud.KafkaCluster("standard", new()
     ///     {
+    ///         DisplayName = "standard_kafka_cluster",
     ///         Availability = "SINGLE_ZONE",
     ///         Cloud = "AZURE",
     ///         Region = "centralus",
@@ -107,6 +118,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     var dedicated = new ConfluentCloud.KafkaCluster("dedicated", new()
     ///     {
+    ///         DisplayName = "dedicated_kafka_cluster",
     ///         Availability = "MULTI_ZONE",
     ///         Cloud = "AZURE",
     ///         Region = "centralus",
@@ -135,10 +147,14 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var development = new ConfluentCloud.Environment("development");
+    ///     var development = new ConfluentCloud.Environment("development", new()
+    ///     {
+    ///         DisplayName = "Development",
+    ///     });
     /// 
     ///     var basic = new ConfluentCloud.KafkaCluster("basic", new()
     ///     {
+    ///         DisplayName = "basic_kafka_cluster",
     ///         Availability = "SINGLE_ZONE",
     ///         Cloud = "GCP",
     ///         Region = "us-central1",
@@ -151,6 +167,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     var standard = new ConfluentCloud.KafkaCluster("standard", new()
     ///     {
+    ///         DisplayName = "standard_kafka_cluster",
     ///         Availability = "SINGLE_ZONE",
     ///         Cloud = "GCP",
     ///         Region = "us-central1",
@@ -163,6 +180,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     ///     var dedicated = new ConfluentCloud.KafkaCluster("dedicated", new()
     ///     {
+    ///         DisplayName = "dedicated_kafka_cluster",
     ///         Availability = "MULTI_ZONE",
     ///         Cloud = "GCP",
     ///         Region = "us-central1",

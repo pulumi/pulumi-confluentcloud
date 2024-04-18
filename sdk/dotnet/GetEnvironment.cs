@@ -27,31 +27,31 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingIdEnvironment = ConfluentCloud.GetEnvironment.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.GetEnvironment.Invoke(new()
         ///     {
         ///         Id = "env-abc123",
         ///     });
         /// 
-        ///     var exampleUsingNameEnvironment = ConfluentCloud.GetEnvironment.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.GetEnvironment.Invoke(new()
         ///     {
         ///         DisplayName = "stag",
         ///     });
         /// 
-        ///     var exampleUsingNameServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     var exampleUsingNameGetServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()
         ///     {
         ///         DisplayName = "test_sa",
         ///     });
         /// 
         ///     var test_role_binding = new ConfluentCloud.RoleBinding("test-role-binding", new()
         ///     {
-        ///         Principal = $"User:{exampleUsingNameServiceAccount.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Id)}",
+        ///         Principal = $"User:{exampleUsingNameGetServiceAccount.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Id)}",
         ///         RoleName = "EnvironmentAdmin",
-        ///         CrnPattern = exampleUsingNameEnvironment.Apply(getEnvironmentResult =&gt; getEnvironmentResult.ResourceName),
+        ///         CrnPattern = exampleUsingName.Apply(getEnvironmentResult =&gt; getEnvironmentResult.ResourceName),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdEnvironment,
+        ///         ["exampleUsingId"] = exampleUsingId,
         ///     };
         /// });
         /// ```
@@ -76,31 +76,31 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingIdEnvironment = ConfluentCloud.GetEnvironment.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.GetEnvironment.Invoke(new()
         ///     {
         ///         Id = "env-abc123",
         ///     });
         /// 
-        ///     var exampleUsingNameEnvironment = ConfluentCloud.GetEnvironment.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.GetEnvironment.Invoke(new()
         ///     {
         ///         DisplayName = "stag",
         ///     });
         /// 
-        ///     var exampleUsingNameServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()
+        ///     var exampleUsingNameGetServiceAccount = ConfluentCloud.GetServiceAccount.Invoke(new()
         ///     {
         ///         DisplayName = "test_sa",
         ///     });
         /// 
         ///     var test_role_binding = new ConfluentCloud.RoleBinding("test-role-binding", new()
         ///     {
-        ///         Principal = $"User:{exampleUsingNameServiceAccount.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Id)}",
+        ///         Principal = $"User:{exampleUsingNameGetServiceAccount.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Id)}",
         ///         RoleName = "EnvironmentAdmin",
-        ///         CrnPattern = exampleUsingNameEnvironment.Apply(getEnvironmentResult =&gt; getEnvironmentResult.ResourceName),
+        ///         CrnPattern = exampleUsingName.Apply(getEnvironmentResult =&gt; getEnvironmentResult.ResourceName),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdEnvironment,
+        ///         ["exampleUsingId"] = exampleUsingId,
         ///     };
         /// });
         /// ```

@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var prod = new Environment(&#34;prod&#34;, EnvironmentArgs.builder()        
- *             .lifecycle(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .displayName(&#34;Production&#34;)
  *             .streamGovernance(EnvironmentStreamGovernanceArgs.builder()
  *                 .package_(&#34;ESSENTIALS&#34;)
  *                 .build())

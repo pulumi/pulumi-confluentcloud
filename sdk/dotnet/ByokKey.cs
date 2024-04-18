@@ -27,13 +27,13 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var azureKey = new ConfluentCloud.ByokKey("azureKey", new()
+    ///     var azureKey = new ConfluentCloud.ByokKey("azure_key", new()
     ///     {
     ///         Azure = new ConfluentCloud.Inputs.ByokKeyAzureArgs
     ///         {
-    ///             KeyIdentifier = "https://test-vault.vault.azure.net/keys/test-key",
-    ///             KeyVaultId = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault",
     ///             TenantId = "11111111-1111-1111-1111-111111111111",
+    ///             KeyVaultId = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/test-vault/providers/Microsoft.KeyVault/vaults/test-vault",
+    ///             KeyIdentifier = "https://test-vault.vault.azure.net/keys/test-key",
     ///         },
     ///     });
     /// 
@@ -52,7 +52,7 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var gcpKey = new ConfluentCloud.ByokKey("gcpKey", new()
+    ///     var gcpKey = new ConfluentCloud.ByokKey("gcp_key", new()
     ///     {
     ///         Gcp = new ConfluentCloud.Inputs.ByokKeyGcpArgs
     ///         {

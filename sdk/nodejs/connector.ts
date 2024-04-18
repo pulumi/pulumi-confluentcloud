@@ -17,28 +17,28 @@ import * as utilities from "./utilities";
  *
  * const source = new confluentcloud.Connector("source", {
  *     environment: {
- *         id: confluent_environment.staging.id,
+ *         id: staging.id,
  *     },
  *     kafkaCluster: {
- *         id: confluent_kafka_cluster.basic.id,
+ *         id: basic.id,
  *     },
  *     configSensitive: {},
  *     configNonsensitive: {
  *         "connector.class": "DatagenSource",
  *         name: "DatagenSourceConnector_0",
  *         "kafka.auth.mode": "SERVICE_ACCOUNT",
- *         "kafka.service.account.id": confluent_service_account["app-connector"].id,
- *         "kafka.topic": confluent_kafka_topic.orders.topic_name,
+ *         "kafka.service.account.id": app_connector.id,
+ *         "kafka.topic": orders.topicName,
  *         "output.data.format": "JSON",
  *         quickstart: "ORDERS",
  *         "tasks.max": "1",
  *     },
  * }, {
  *     dependsOn: [
- *         confluent_kafka_acl["app-connector-describe-on-cluster"],
- *         confluent_kafka_acl["app-connector-write-on-target-topic"],
- *         confluent_kafka_acl["app-connector-create-on-data-preview-topics"],
- *         confluent_kafka_acl["app-connector-write-on-data-preview-topics"],
+ *         app_connector_describe_on_cluster,
+ *         app_connector_write_on_target_topic,
+ *         app_connector_create_on_data_preview_topics,
+ *         app_connector_write_on_data_preview_topics,
  *     ],
  * });
  * ```
@@ -52,22 +52,22 @@ import * as utilities from "./utilities";
  *
  * const sink = new confluentcloud.Connector("sink", {
  *     environment: {
- *         id: confluent_environment.staging.id,
+ *         id: staging.id,
  *     },
  *     kafkaCluster: {
- *         id: confluent_kafka_cluster.basic.id,
+ *         id: basic.id,
  *     },
  *     configSensitive: {
  *         "aws.access.key.id": "***REDACTED***",
  *         "aws.secret.access.key": "***REDACTED***",
  *     },
  *     configNonsensitive: {
- *         topics: confluent_kafka_topic.orders.topic_name,
+ *         topics: orders.topicName,
  *         "input.data.format": "JSON",
  *         "connector.class": "S3_SINK",
  *         name: "S3_SINKConnector_0",
  *         "kafka.auth.mode": "SERVICE_ACCOUNT",
- *         "kafka.service.account.id": confluent_service_account["app-connector"].id,
+ *         "kafka.service.account.id": app_connector.id,
  *         "s3.bucket.name": "<s3-bucket-name>",
  *         "output.data.format": "JSON",
  *         "time.interval": "DAILY",
@@ -76,15 +76,15 @@ import * as utilities from "./utilities";
  *     },
  * }, {
  *     dependsOn: [
- *         confluent_kafka_acl["app-connector-describe-on-cluster"],
- *         confluent_kafka_acl["app-connector-read-on-target-topic"],
- *         confluent_kafka_acl["app-connector-create-on-dlq-lcc-topics"],
- *         confluent_kafka_acl["app-connector-write-on-dlq-lcc-topics"],
- *         confluent_kafka_acl["app-connector-create-on-success-lcc-topics"],
- *         confluent_kafka_acl["app-connector-write-on-success-lcc-topics"],
- *         confluent_kafka_acl["app-connector-create-on-error-lcc-topics"],
- *         confluent_kafka_acl["app-connector-write-on-error-lcc-topics"],
- *         confluent_kafka_acl["app-connector-read-on-connect-lcc-group"],
+ *         app_connector_describe_on_cluster,
+ *         app_connector_read_on_target_topic,
+ *         app_connector_create_on_dlq_lcc_topics,
+ *         app_connector_write_on_dlq_lcc_topics,
+ *         app_connector_create_on_success_lcc_topics,
+ *         app_connector_write_on_success_lcc_topics,
+ *         app_connector_create_on_error_lcc_topics,
+ *         app_connector_write_on_error_lcc_topics,
+ *         app_connector_read_on_connect_lcc_group,
  *     ],
  * });
  * ```
@@ -98,37 +98,37 @@ import * as utilities from "./utilities";
  *
  * const sink = new confluentcloud.Connector("sink", {
  *     environment: {
- *         id: confluent_environment.staging.id,
+ *         id: staging.id,
  *     },
  *     kafkaCluster: {
- *         id: confluent_kafka_cluster.basic.id,
+ *         id: basic.id,
  *     },
  *     configSensitive: {
  *         "aws.access.key.id": "***REDACTED***",
  *         "aws.secret.access.key": "***REDACTED***",
  *     },
  *     configNonsensitive: {
- *         topics: confluent_kafka_topic.orders.topic_name,
+ *         topics: orders.topicName,
  *         "input.data.format": "JSON",
  *         "connector.class": "DynamoDbSink",
  *         name: "DynamoDbSinkConnector_0",
  *         "kafka.auth.mode": "SERVICE_ACCOUNT",
- *         "kafka.service.account.id": confluent_service_account["app-connector"].id,
+ *         "kafka.service.account.id": app_connector.id,
  *         "aws.dynamodb.pk.hash": "value.userid",
  *         "aws.dynamodb.pk.sort": "value.pageid",
  *         "tasks.max": "1",
  *     },
  * }, {
  *     dependsOn: [
- *         confluent_kafka_acl["app-connector-describe-on-cluster"],
- *         confluent_kafka_acl["app-connector-read-on-target-topic"],
- *         confluent_kafka_acl["app-connector-create-on-dlq-lcc-topics"],
- *         confluent_kafka_acl["app-connector-write-on-dlq-lcc-topics"],
- *         confluent_kafka_acl["app-connector-create-on-success-lcc-topics"],
- *         confluent_kafka_acl["app-connector-write-on-success-lcc-topics"],
- *         confluent_kafka_acl["app-connector-create-on-error-lcc-topics"],
- *         confluent_kafka_acl["app-connector-write-on-error-lcc-topics"],
- *         confluent_kafka_acl["app-connector-read-on-connect-lcc-group"],
+ *         app_connector_describe_on_cluster,
+ *         app_connector_read_on_target_topic,
+ *         app_connector_create_on_dlq_lcc_topics,
+ *         app_connector_write_on_dlq_lcc_topics,
+ *         app_connector_create_on_success_lcc_topics,
+ *         app_connector_write_on_success_lcc_topics,
+ *         app_connector_create_on_error_lcc_topics,
+ *         app_connector_write_on_error_lcc_topics,
+ *         app_connector_read_on_connect_lcc_group,
  *     ],
  * });
  * ```
@@ -143,10 +143,10 @@ import * as utilities from "./utilities";
  *
  * const source = new confluentcloud.Connector("source", {
  *     environment: {
- *         id: confluent_environment.staging.id,
+ *         id: staging.id,
  *     },
  *     kafkaCluster: {
- *         id: confluent_kafka_cluster.basic.id,
+ *         id: basic.id,
  *     },
  *     configSensitive: {
  *         "kafka.api.key": "***REDACTED***",
@@ -154,19 +154,19 @@ import * as utilities from "./utilities";
  *     },
  *     configNonsensitive: {
  *         "confluent.connector.type": "CUSTOM",
- *         "connector.class": confluent_custom_connector_plugin.source.connector_class,
+ *         "connector.class": sourceConfluentCustomConnectorPlugin.connectorClass,
  *         name: "DatagenConnectorExampleName",
  *         "kafka.auth.mode": "KAFKA_API_KEY",
- *         "kafka.topic": confluent_kafka_topic.orders.topic_name,
+ *         "kafka.topic": orders.topicName,
  *         "output.data.format": "JSON",
  *         quickstart: "ORDERS",
- *         "confluent.custom.plugin.id": confluent_custom_connector_plugin.source.id,
+ *         "confluent.custom.plugin.id": sourceConfluentCustomConnectorPlugin.id,
  *         "min.interval": "1000",
  *         "max.interval": "2000",
  *         "tasks.max": "1",
  *     },
  * }, {
- *     dependsOn: [confluent_role_binding["app-manager-kafka-cluster-admin"]],
+ *     dependsOn: [app_manager_kafka_cluster_admin],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

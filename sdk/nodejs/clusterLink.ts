@@ -16,40 +16,42 @@ import * as utilities from "./utilities";
  *
  * // https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode
  * const east_to_west = new confluentcloud.ClusterLink("east-to-west", {
+ *     link: "bidirectional-link",
  *     linkMode: "BIDIRECTIONAL",
  *     localKafkaCluster: {
- *         id: data.confluent_kafka_cluster.east.id,
- *         restEndpoint: data.confluent_kafka_cluster.east.rest_endpoint,
+ *         id: east.id,
+ *         restEndpoint: east.restEndpoint,
  *         credentials: {
- *             key: confluent_api_key["app-manager-east-cluster-api-key"].id,
- *             secret: confluent_api_key["app-manager-east-cluster-api-key"].secret,
+ *             key: app_manager_east_cluster_api_key.id,
+ *             secret: app_manager_east_cluster_api_key.secret,
  *         },
  *     },
  *     remoteKafkaCluster: {
- *         id: data.confluent_kafka_cluster.west.id,
- *         bootstrapEndpoint: data.confluent_kafka_cluster.west.bootstrap_endpoint,
+ *         id: west.id,
+ *         bootstrapEndpoint: west.bootstrapEndpoint,
  *         credentials: {
- *             key: confluent_api_key["app-manager-west-cluster-api-key"].id,
- *             secret: confluent_api_key["app-manager-west-cluster-api-key"].secret,
+ *             key: app_manager_west_cluster_api_key.id,
+ *             secret: app_manager_west_cluster_api_key.secret,
  *         },
  *     },
  * });
  * const west_to_east = new confluentcloud.ClusterLink("west-to-east", {
+ *     link: "bidirectional-link",
  *     linkMode: "BIDIRECTIONAL",
  *     localKafkaCluster: {
- *         id: data.confluent_kafka_cluster.west.id,
- *         restEndpoint: data.confluent_kafka_cluster.west.rest_endpoint,
+ *         id: west.id,
+ *         restEndpoint: west.restEndpoint,
  *         credentials: {
- *             key: confluent_api_key["app-manager-west-cluster-api-key"].id,
- *             secret: confluent_api_key["app-manager-west-cluster-api-key"].secret,
+ *             key: app_manager_west_cluster_api_key.id,
+ *             secret: app_manager_west_cluster_api_key.secret,
  *         },
  *     },
  *     remoteKafkaCluster: {
- *         id: data.confluent_kafka_cluster.east.id,
- *         bootstrapEndpoint: data.confluent_kafka_cluster.east.bootstrap_endpoint,
+ *         id: east.id,
+ *         bootstrapEndpoint: east.bootstrapEndpoint,
  *         credentials: {
- *             key: confluent_api_key["app-manager-east-cluster-api-key"].id,
- *             secret: confluent_api_key["app-manager-east-cluster-api-key"].secret,
+ *             key: app_manager_east_cluster_api_key.id,
+ *             secret: app_manager_east_cluster_api_key.secret,
  *         },
  *     },
  * });

@@ -29,11 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", &confluentcloud.EnvironmentArgs{
+//				DisplayName: pulumi.String("Development"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = confluentcloud.NewKafkaCluster(ctx, "basic", &confluentcloud.KafkaClusterArgs{
+//				DisplayName:  pulumi.String("basic_kafka_cluster"),
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("AWS"),
 //				Region:       pulumi.String("us-east-2"),
@@ -46,6 +49,7 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewKafkaCluster(ctx, "standard", &confluentcloud.KafkaClusterArgs{
+//				DisplayName:  pulumi.String("standard_kafka_cluster"),
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("AWS"),
 //				Region:       pulumi.String("us-east-2"),
@@ -58,6 +62,7 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewKafkaCluster(ctx, "dedicated", &confluentcloud.KafkaClusterArgs{
+//				DisplayName:  pulumi.String("dedicated_kafka_cluster"),
 //				Availability: pulumi.String("MULTI_ZONE"),
 //				Cloud:        pulumi.String("AWS"),
 //				Region:       pulumi.String("us-east-2"),
@@ -93,11 +98,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", &confluentcloud.EnvironmentArgs{
+//				DisplayName: pulumi.String("Development"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = confluentcloud.NewKafkaCluster(ctx, "basic", &confluentcloud.KafkaClusterArgs{
+//				DisplayName:  pulumi.String("basic_kafka_cluster"),
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("AZURE"),
 //				Region:       pulumi.String("centralus"),
@@ -110,6 +118,7 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewKafkaCluster(ctx, "standard", &confluentcloud.KafkaClusterArgs{
+//				DisplayName:  pulumi.String("standard_kafka_cluster"),
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("AZURE"),
 //				Region:       pulumi.String("centralus"),
@@ -122,6 +131,7 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewKafkaCluster(ctx, "dedicated", &confluentcloud.KafkaClusterArgs{
+//				DisplayName:  pulumi.String("dedicated_kafka_cluster"),
 //				Availability: pulumi.String("MULTI_ZONE"),
 //				Cloud:        pulumi.String("AZURE"),
 //				Region:       pulumi.String("centralus"),
@@ -157,11 +167,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", &confluentcloud.EnvironmentArgs{
+//				DisplayName: pulumi.String("Development"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = confluentcloud.NewKafkaCluster(ctx, "basic", &confluentcloud.KafkaClusterArgs{
+//				DisplayName:  pulumi.String("basic_kafka_cluster"),
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("GCP"),
 //				Region:       pulumi.String("us-central1"),
@@ -174,6 +187,7 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewKafkaCluster(ctx, "standard", &confluentcloud.KafkaClusterArgs{
+//				DisplayName:  pulumi.String("standard_kafka_cluster"),
 //				Availability: pulumi.String("SINGLE_ZONE"),
 //				Cloud:        pulumi.String("GCP"),
 //				Region:       pulumi.String("us-central1"),
@@ -186,6 +200,7 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewKafkaCluster(ctx, "dedicated", &confluentcloud.KafkaClusterArgs{
+//				DisplayName:  pulumi.String("dedicated_kafka_cluster"),
 //				Availability: pulumi.String("MULTI_ZONE"),
 //				Cloud:        pulumi.String("GCP"),
 //				Region:       pulumi.String("us-central1"),

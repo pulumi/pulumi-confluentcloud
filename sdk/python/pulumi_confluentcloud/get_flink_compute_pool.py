@@ -158,16 +158,16 @@ def get_flink_compute_pool(display_name: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_flink_compute_pool = confluentcloud.get_flink_compute_pool(id="lfcp-abc123",
+    example_using_id = confluentcloud.get_flink_compute_pool(id="lfcp-abc123",
         environment=confluentcloud.GetFlinkComputePoolEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingId", example_using_id_flink_compute_pool)
-    example_using_name_flink_compute_pool = confluentcloud.get_flink_compute_pool(display_name="my_compute_pool",
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_flink_compute_pool(display_name="my_compute_pool",
         environment=confluentcloud.GetFlinkComputePoolEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingName", example_using_name_flink_compute_pool)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -214,16 +214,16 @@ def get_flink_compute_pool_output(display_name: Optional[pulumi.Input[Optional[s
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_flink_compute_pool = confluentcloud.get_flink_compute_pool(id="lfcp-abc123",
+    example_using_id = confluentcloud.get_flink_compute_pool(id="lfcp-abc123",
         environment=confluentcloud.GetFlinkComputePoolEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingId", example_using_id_flink_compute_pool)
-    example_using_name_flink_compute_pool = confluentcloud.get_flink_compute_pool(display_name="my_compute_pool",
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_flink_compute_pool(display_name="my_compute_pool",
         environment=confluentcloud.GetFlinkComputePoolEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingName", example_using_name_flink_compute_pool)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 

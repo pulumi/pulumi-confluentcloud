@@ -221,7 +221,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         aws_private_link = confluentcloud.Network("aws-private-link",
             display_name="AWS Private Link Network",
             cloud="AWS",
@@ -256,7 +256,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         azure_private_link = confluentcloud.Network("azure-private-link",
             display_name="Azure Private Link Network",
             cloud="AZURE",
@@ -286,7 +286,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         gcp_private_service_connect = confluentcloud.Network("gcp-private-service-connect",
             display_name="GCP Private Service Connect Network",
             cloud="GCP",
@@ -361,7 +361,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         aws_private_link = confluentcloud.Network("aws-private-link",
             display_name="AWS Private Link Network",
             cloud="AWS",
@@ -396,7 +396,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         azure_private_link = confluentcloud.Network("azure-private-link",
             display_name="Azure Private Link Network",
             cloud="AZURE",
@@ -426,7 +426,7 @@ class PrivateLinkAccess(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         gcp_private_service_connect = confluentcloud.Network("gcp-private-service-connect",
             display_name="GCP Private Service Connect Network",
             cloud="GCP",

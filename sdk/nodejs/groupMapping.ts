@@ -26,7 +26,7 @@ import * as utilities from "./utilities";
  * const envadmin = new confluentcloud.RoleBinding("envadmin", {
  *     principal: pulumi.interpolate`User:${application_developers.id}`,
  *     roleName: "EnvironmentAdmin",
- *     crnPattern: data.confluent_environment.prod.resource_name,
+ *     crnPattern: prod.resourceName,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

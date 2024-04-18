@@ -220,7 +220,7 @@ class NetworkLinkService(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         aws_private_link = confluentcloud.Network("aws-private-link",
             display_name="AWS Private Link Network",
             cloud="AWS",
@@ -234,7 +234,7 @@ class NetworkLinkService(pulumi.CustomResource):
             environment=confluentcloud.NetworkEnvironmentArgs(
                 id=development.id,
             ))
-        aws_nls = confluentcloud.NetworkLinkService("awsNls",
+        aws_nls = confluentcloud.NetworkLinkService("aws_nls",
             display_name="AWS Private Link network link service",
             environment=confluentcloud.NetworkLinkServiceEnvironmentArgs(
                 id=development.id,
@@ -296,7 +296,7 @@ class NetworkLinkService(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         aws_private_link = confluentcloud.Network("aws-private-link",
             display_name="AWS Private Link Network",
             cloud="AWS",
@@ -310,7 +310,7 @@ class NetworkLinkService(pulumi.CustomResource):
             environment=confluentcloud.NetworkEnvironmentArgs(
                 id=development.id,
             ))
-        aws_nls = confluentcloud.NetworkLinkService("awsNls",
+        aws_nls = confluentcloud.NetworkLinkService("aws_nls",
             display_name="AWS Private Link network link service",
             environment=confluentcloud.NetworkLinkServiceEnvironmentArgs(
                 id=development.id,

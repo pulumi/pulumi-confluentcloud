@@ -38,12 +38,13 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewServiceAccount(ctx, "test-sa", &confluentcloud.ServiceAccountArgs{
+//				DisplayName: pulumi.String("test_sa"),
 //				Description: pulumi.String(fmt.Sprintf("test_sa for %v", exampleUsingId.DisplayName)),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUsingNameNetwork, err := confluentcloud.LookupNetwork(ctx, &confluentcloud.LookupNetworkArgs{
+//			exampleUsingName, err := confluentcloud.LookupNetwork(ctx, &confluentcloud.LookupNetworkArgs{
 //				DisplayName: pulumi.StringRef("my_network"),
 //				Environment: confluentcloud.GetNetworkEnvironment{
 //					Id: "env-xyz456",
@@ -52,7 +53,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingName", exampleUsingNameNetwork)
+//			ctx.Export("exampleUsingName", exampleUsingName)
 //			return nil
 //		})
 //	}

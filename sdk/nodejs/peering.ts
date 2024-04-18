@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const aws_peering = new confluentcloud.Network("aws-peering", {
  *     displayName: "AWS Peering Network",
  *     cloud: "AWS",
@@ -52,7 +52,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const azure_peering = new confluentcloud.Network("azure-peering", {
  *     displayName: "Azure Peering Network",
  *     cloud: "AZURE",

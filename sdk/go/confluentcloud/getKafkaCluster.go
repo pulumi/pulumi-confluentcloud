@@ -42,12 +42,13 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewServiceAccount(ctx, "test-sa", &confluentcloud.ServiceAccountArgs{
+//				DisplayName: pulumi.String("app_mgr"),
 //				Description: pulumi.String(fmt.Sprintf("app_mgr for %v", exampleUsingId.DisplayName)),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUsingNameKafkaCluster, err := confluentcloud.LookupKafkaCluster(ctx, &confluentcloud.LookupKafkaClusterArgs{
+//			exampleUsingName, err := confluentcloud.LookupKafkaCluster(ctx, &confluentcloud.LookupKafkaClusterArgs{
 //				DisplayName: pulumi.StringRef("basic_kafka_cluster"),
 //				Environment: confluentcloud.GetKafkaClusterEnvironment{
 //					Id: "env-xyz456",
@@ -56,7 +57,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingName", exampleUsingNameKafkaCluster)
+//			ctx.Export("exampleUsingName", exampleUsingName)
 //			return nil
 //		})
 //	}

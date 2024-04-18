@@ -91,10 +91,10 @@ def get_schema_registry_region(cloud: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_schema_registry_region = confluentcloud.get_schema_registry_region(cloud="AWS",
+    example = confluentcloud.get_schema_registry_region(cloud="AWS",
         region="us-east-2",
         package="ESSENTIALS")
-    pulumi.export("example", example_schema_registry_region)
+    pulumi.export("example", example)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -140,10 +140,10 @@ def get_schema_registry_region_output(cloud: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_schema_registry_region = confluentcloud.get_schema_registry_region(cloud="AWS",
+    example = confluentcloud.get_schema_registry_region(cloud="AWS",
         region="us-east-2",
         package="ESSENTIALS")
-    pulumi.export("example", example_schema_registry_region)
+    pulumi.export("example", example)
     ```
     <!--End PulumiCodeChooser -->
 

@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.EnvironmentArgs;
  * import com.pulumi.confluentcloud.ConfluentcloudFunctions;
  * import com.pulumi.confluentcloud.inputs.GetSchemaRegistryRegionArgs;
  * import com.pulumi.confluentcloud.SchemaRegistryCluster;
@@ -45,7 +46,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;);
+ *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
+ *             .displayName(&#34;Development&#34;)
+ *             .build());
  * 
  *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
  *             .cloud(&#34;AWS&#34;)

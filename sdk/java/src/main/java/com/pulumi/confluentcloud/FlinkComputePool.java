@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.confluentcloud.Environment;
+ * import com.pulumi.confluentcloud.EnvironmentArgs;
  * import com.pulumi.confluentcloud.FlinkComputePool;
  * import com.pulumi.confluentcloud.FlinkComputePoolArgs;
  * import com.pulumi.confluentcloud.inputs.FlinkComputePoolEnvironmentArgs;
@@ -42,7 +43,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;);
+ *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
+ *             .displayName(&#34;Development&#34;)
+ *             .build());
  * 
  *         var main = new FlinkComputePool(&#34;main&#34;, FlinkComputePoolArgs.builder()        
  *             .displayName(&#34;standard_compute_pool&#34;)

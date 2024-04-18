@@ -18,20 +18,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdPrivateLinkAccess = confluentcloud.getPrivateLinkAccess({
- *     id: "pla-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingId = exampleUsingIdPrivateLinkAccess;
- * const exampleUsingNamePrivateLinkAccess = confluentcloud.getPrivateLinkAccess({
- *     displayName: "my_pla",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNamePrivateLinkAccess;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getPrivateLinkAccess({
+ *         id: "pla-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getPrivateLinkAccess({
+ *         displayName: "my_pla",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -110,20 +114,24 @@ export interface GetPrivateLinkAccessResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdPrivateLinkAccess = confluentcloud.getPrivateLinkAccess({
- *     id: "pla-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingId = exampleUsingIdPrivateLinkAccess;
- * const exampleUsingNamePrivateLinkAccess = confluentcloud.getPrivateLinkAccess({
- *     displayName: "my_pla",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNamePrivateLinkAccess;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getPrivateLinkAccess({
+ *         id: "pla-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getPrivateLinkAccess({
+ *         displayName: "my_pla",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

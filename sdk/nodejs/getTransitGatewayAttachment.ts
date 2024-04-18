@@ -18,20 +18,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdTransitGatewayAttachment = confluentcloud.getTransitGatewayAttachment({
- *     id: "tgwa-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingId = exampleUsingIdTransitGatewayAttachment;
- * const exampleUsingNameTransitGatewayAttachment = confluentcloud.getTransitGatewayAttachment({
- *     displayName: "my_tgwa",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNameTransitGatewayAttachment;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getTransitGatewayAttachment({
+ *         id: "tgwa-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getTransitGatewayAttachment({
+ *         displayName: "my_tgwa",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -102,20 +106,24 @@ export interface GetTransitGatewayAttachmentResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdTransitGatewayAttachment = confluentcloud.getTransitGatewayAttachment({
- *     id: "tgwa-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingId = exampleUsingIdTransitGatewayAttachment;
- * const exampleUsingNameTransitGatewayAttachment = confluentcloud.getTransitGatewayAttachment({
- *     displayName: "my_tgwa",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNameTransitGatewayAttachment;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getTransitGatewayAttachment({
+ *         id: "tgwa-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getTransitGatewayAttachment({
+ *         displayName: "my_tgwa",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

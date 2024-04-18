@@ -27,7 +27,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingIdTransitGatewayAttachment = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
         ///     {
         ///         Id = "tgwa-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetTransitGatewayAttachmentEnvironmentInputArgs
@@ -36,7 +36,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingNameTransitGatewayAttachment = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
         ///     {
         ///         DisplayName = "my_tgwa",
         ///         Environment = new ConfluentCloud.Inputs.GetTransitGatewayAttachmentEnvironmentInputArgs
@@ -47,8 +47,8 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdTransitGatewayAttachment,
-        ///         ["exampleUsingName"] = exampleUsingNameTransitGatewayAttachment,
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
         /// });
         /// ```
@@ -73,7 +73,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingIdTransitGatewayAttachment = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
         ///     {
         ///         Id = "tgwa-abc123",
         ///         Environment = new ConfluentCloud.Inputs.GetTransitGatewayAttachmentEnvironmentInputArgs
@@ -82,7 +82,7 @@ namespace Pulumi.ConfluentCloud
         ///         },
         ///     });
         /// 
-        ///     var exampleUsingNameTransitGatewayAttachment = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.GetTransitGatewayAttachment.Invoke(new()
         ///     {
         ///         DisplayName = "my_tgwa",
         ///         Environment = new ConfluentCloud.Inputs.GetTransitGatewayAttachmentEnvironmentInputArgs
@@ -93,8 +93,8 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdTransitGatewayAttachment,
-        ///         ["exampleUsingName"] = exampleUsingNameTransitGatewayAttachment,
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
         /// });
         /// ```

@@ -480,8 +480,9 @@ class KafkaCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         basic = confluentcloud.KafkaCluster("basic",
+            display_name="basic_kafka_cluster",
             availability="SINGLE_ZONE",
             cloud="AWS",
             region="us-east-2",
@@ -490,6 +491,7 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         standard = confluentcloud.KafkaCluster("standard",
+            display_name="standard_kafka_cluster",
             availability="SINGLE_ZONE",
             cloud="AWS",
             region="us-east-2",
@@ -498,6 +500,7 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         dedicated = confluentcloud.KafkaCluster("dedicated",
+            display_name="dedicated_kafka_cluster",
             availability="MULTI_ZONE",
             cloud="AWS",
             region="us-east-2",
@@ -517,8 +520,9 @@ class KafkaCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         basic = confluentcloud.KafkaCluster("basic",
+            display_name="basic_kafka_cluster",
             availability="SINGLE_ZONE",
             cloud="AZURE",
             region="centralus",
@@ -527,6 +531,7 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         standard = confluentcloud.KafkaCluster("standard",
+            display_name="standard_kafka_cluster",
             availability="SINGLE_ZONE",
             cloud="AZURE",
             region="centralus",
@@ -535,6 +540,7 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         dedicated = confluentcloud.KafkaCluster("dedicated",
+            display_name="dedicated_kafka_cluster",
             availability="MULTI_ZONE",
             cloud="AZURE",
             region="centralus",
@@ -554,8 +560,9 @@ class KafkaCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         basic = confluentcloud.KafkaCluster("basic",
+            display_name="basic_kafka_cluster",
             availability="SINGLE_ZONE",
             cloud="GCP",
             region="us-central1",
@@ -564,6 +571,7 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         standard = confluentcloud.KafkaCluster("standard",
+            display_name="standard_kafka_cluster",
             availability="SINGLE_ZONE",
             cloud="GCP",
             region="us-central1",
@@ -572,6 +580,7 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         dedicated = confluentcloud.KafkaCluster("dedicated",
+            display_name="dedicated_kafka_cluster",
             availability="MULTI_ZONE",
             cloud="GCP",
             region="us-central1",
@@ -654,8 +663,9 @@ class KafkaCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         basic = confluentcloud.KafkaCluster("basic",
+            display_name="basic_kafka_cluster",
             availability="SINGLE_ZONE",
             cloud="AWS",
             region="us-east-2",
@@ -664,6 +674,7 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         standard = confluentcloud.KafkaCluster("standard",
+            display_name="standard_kafka_cluster",
             availability="SINGLE_ZONE",
             cloud="AWS",
             region="us-east-2",
@@ -672,6 +683,7 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         dedicated = confluentcloud.KafkaCluster("dedicated",
+            display_name="dedicated_kafka_cluster",
             availability="MULTI_ZONE",
             cloud="AWS",
             region="us-east-2",
@@ -691,8 +703,9 @@ class KafkaCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         basic = confluentcloud.KafkaCluster("basic",
+            display_name="basic_kafka_cluster",
             availability="SINGLE_ZONE",
             cloud="AZURE",
             region="centralus",
@@ -701,6 +714,7 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         standard = confluentcloud.KafkaCluster("standard",
+            display_name="standard_kafka_cluster",
             availability="SINGLE_ZONE",
             cloud="AZURE",
             region="centralus",
@@ -709,6 +723,7 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         dedicated = confluentcloud.KafkaCluster("dedicated",
+            display_name="dedicated_kafka_cluster",
             availability="MULTI_ZONE",
             cloud="AZURE",
             region="centralus",
@@ -728,8 +743,9 @@ class KafkaCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         basic = confluentcloud.KafkaCluster("basic",
+            display_name="basic_kafka_cluster",
             availability="SINGLE_ZONE",
             cloud="GCP",
             region="us-central1",
@@ -738,6 +754,7 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         standard = confluentcloud.KafkaCluster("standard",
+            display_name="standard_kafka_cluster",
             availability="SINGLE_ZONE",
             cloud="GCP",
             region="us-central1",
@@ -746,6 +763,7 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         dedicated = confluentcloud.KafkaCluster("dedicated",
+            display_name="dedicated_kafka_cluster",
             availability="MULTI_ZONE",
             cloud="GCP",
             region="us-central1",

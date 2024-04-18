@@ -16,11 +16,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleFlinkRegion = confluentcloud.getFlinkRegion({
- *     cloud: "AWS",
- *     region: "us-east-1",
- * });
- * export const example = exampleFlinkRegion;
+ * export = async () => {
+ *     const example = await confluentcloud.getFlinkRegion({
+ *         cloud: "AWS",
+ *         region: "us-east-1",
+ *     });
+ *     return {
+ *         example: example,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -82,11 +86,15 @@ export interface GetFlinkRegionResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleFlinkRegion = confluentcloud.getFlinkRegion({
- *     cloud: "AWS",
- *     region: "us-east-1",
- * });
- * export const example = exampleFlinkRegion;
+ * export = async () => {
+ *     const example = await confluentcloud.getFlinkRegion({
+ *         cloud: "AWS",
+ *         region: "us-east-1",
+ *     });
+ *     return {
+ *         example: example,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

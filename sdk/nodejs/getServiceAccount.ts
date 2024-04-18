@@ -16,14 +16,18 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdServiceAccount = confluentcloud.getServiceAccount({
- *     id: "sa-abc123",
- * });
- * export const exampleUsingId = exampleUsingIdServiceAccount;
- * const exampleUsingName = confluentcloud.getServiceAccount({
- *     displayName: "test_sa",
- * });
- * const test_env = new confluentcloud.Environment("test-env", {});
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getServiceAccount({
+ *         id: "sa-abc123",
+ *     });
+ *     const exampleUsingName = await confluentcloud.getServiceAccount({
+ *         displayName: "test_sa",
+ *     });
+ *     const test_env = new confluentcloud.Environment("test-env", {displayName: `env_for_${exampleUsingId.displayName}`});
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -90,14 +94,18 @@ export interface GetServiceAccountResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdServiceAccount = confluentcloud.getServiceAccount({
- *     id: "sa-abc123",
- * });
- * export const exampleUsingId = exampleUsingIdServiceAccount;
- * const exampleUsingName = confluentcloud.getServiceAccount({
- *     displayName: "test_sa",
- * });
- * const test_env = new confluentcloud.Environment("test-env", {});
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getServiceAccount({
+ *         id: "sa-abc123",
+ *     });
+ *     const exampleUsingName = await confluentcloud.getServiceAccount({
+ *         displayName: "test_sa",
+ *     });
+ *     const test_env = new confluentcloud.Environment("test-env", {displayName: `env_for_${exampleUsingId.displayName}`});
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

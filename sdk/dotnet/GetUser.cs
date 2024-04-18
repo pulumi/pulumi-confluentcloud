@@ -27,7 +27,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingIdUser = ConfluentCloud.GetUser.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.GetUser.Invoke(new()
         ///     {
         ///         Id = "u-abc123",
         ///     });
@@ -37,10 +37,14 @@ namespace Pulumi.ConfluentCloud
         ///         Email = "test123@gmail.com",
         ///     });
         /// 
-        ///     var test_env = new ConfluentCloud.Environment("test-env");
+        ///     var test_env = new ConfluentCloud.Environment("test-env", new()
+        ///     {
+        ///         DisplayName = $"env_for_{exampleUsingId.Apply(getUserResult =&gt; getUserResult.FullName)}",
+        ///     });
         /// 
         ///     var standard_cluster_on_aws = new ConfluentCloud.KafkaCluster("standard-cluster-on-aws", new()
         ///     {
+        ///         DisplayName = "standard_kafka_cluster_on_aws",
         ///         Availability = "SINGLE_ZONE",
         ///         Cloud = "AWS",
         ///         Region = "us-west-2",
@@ -65,7 +69,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdUser,
+        ///         ["exampleUsingId"] = exampleUsingId,
         ///     };
         /// });
         /// ```
@@ -90,7 +94,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingIdUser = ConfluentCloud.GetUser.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.GetUser.Invoke(new()
         ///     {
         ///         Id = "u-abc123",
         ///     });
@@ -100,10 +104,14 @@ namespace Pulumi.ConfluentCloud
         ///         Email = "test123@gmail.com",
         ///     });
         /// 
-        ///     var test_env = new ConfluentCloud.Environment("test-env");
+        ///     var test_env = new ConfluentCloud.Environment("test-env", new()
+        ///     {
+        ///         DisplayName = $"env_for_{exampleUsingId.Apply(getUserResult =&gt; getUserResult.FullName)}",
+        ///     });
         /// 
         ///     var standard_cluster_on_aws = new ConfluentCloud.KafkaCluster("standard-cluster-on-aws", new()
         ///     {
+        ///         DisplayName = "standard_kafka_cluster_on_aws",
         ///         Availability = "SINGLE_ZONE",
         ///         Cloud = "AWS",
         ///         Region = "us-west-2",
@@ -128,7 +136,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdUser,
+        ///         ["exampleUsingId"] = exampleUsingId,
         ///     };
         /// });
         /// ```

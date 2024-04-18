@@ -32,29 +32,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdEnvironment, err := confluentcloud.LookupEnvironment(ctx, &confluentcloud.LookupEnvironmentArgs{
+//			exampleUsingId, err := confluentcloud.LookupEnvironment(ctx, &confluentcloud.LookupEnvironmentArgs{
 //				Id: pulumi.StringRef("env-abc123"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingId", exampleUsingIdEnvironment)
-//			exampleUsingNameEnvironment, err := confluentcloud.LookupEnvironment(ctx, &confluentcloud.LookupEnvironmentArgs{
+//			ctx.Export("exampleUsingId", exampleUsingId)
+//			exampleUsingName, err := confluentcloud.LookupEnvironment(ctx, &confluentcloud.LookupEnvironmentArgs{
 //				DisplayName: pulumi.StringRef("stag"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleUsingNameServiceAccount, err := confluentcloud.LookupServiceAccount(ctx, &confluentcloud.LookupServiceAccountArgs{
+//			exampleUsingNameGetServiceAccount, err := confluentcloud.LookupServiceAccount(ctx, &confluentcloud.LookupServiceAccountArgs{
 //				DisplayName: pulumi.StringRef("test_sa"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = confluentcloud.NewRoleBinding(ctx, "test-role-binding", &confluentcloud.RoleBindingArgs{
-//				Principal:  pulumi.String(fmt.Sprintf("User:%v", exampleUsingNameServiceAccount.Id)),
+//				Principal:  pulumi.String(fmt.Sprintf("User:%v", exampleUsingNameGetServiceAccount.Id)),
 //				RoleName:   pulumi.String("EnvironmentAdmin"),
-//				CrnPattern: pulumi.String(exampleUsingNameEnvironment.ResourceName),
+//				CrnPattern: pulumi.String(exampleUsingName.ResourceName),
 //			})
 //			if err != nil {
 //				return err

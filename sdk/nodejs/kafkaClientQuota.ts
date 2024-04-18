@@ -22,14 +22,14 @@ import * as utilities from "./utilities";
  *         egressByteRate: "200",
  *     },
  *     principals: [
- *         confluent_service_account.app_manager.id,
- *         confluent_service_account.app_manager_2.id,
+ *         appManager.id,
+ *         appManager2.id,
  *     ],
  *     kafkaCluster: {
- *         id: confluent_kafka_cluster.dedicated.id,
+ *         id: dedicated.id,
  *     },
  *     environment: {
- *         id: confluent_environment.development.id,
+ *         id: development.id,
  *     },
  * });
  * ```

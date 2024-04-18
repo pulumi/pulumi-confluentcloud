@@ -26,11 +26,11 @@ namespace Pulumi.ConfluentCloud
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
     ///         {
-    ///             Id = confluent_environment.Staging.Id,
+    ///             Id = staging.Id,
     ///         },
     ///         KafkaCluster = new ConfluentCloud.Inputs.ConnectorKafkaClusterArgs
     ///         {
-    ///             Id = confluent_kafka_cluster.Basic.Id,
+    ///             Id = basic.Id,
     ///         },
     ///         ConfigSensitive = null,
     ///         ConfigNonsensitive = 
@@ -38,8 +38,8 @@ namespace Pulumi.ConfluentCloud
     ///             { "connector.class", "DatagenSource" },
     ///             { "name", "DatagenSourceConnector_0" },
     ///             { "kafka.auth.mode", "SERVICE_ACCOUNT" },
-    ///             { "kafka.service.account.id", confluent_service_account.App_connector.Id },
-    ///             { "kafka.topic", confluent_kafka_topic.Orders.Topic_name },
+    ///             { "kafka.service.account.id", app_connector.Id },
+    ///             { "kafka.topic", orders.TopicName },
     ///             { "output.data.format", "JSON" },
     ///             { "quickstart", "ORDERS" },
     ///             { "tasks.max", "1" },
@@ -48,10 +48,10 @@ namespace Pulumi.ConfluentCloud
     ///     {
     ///         DependsOn =
     ///         {
-    ///             confluent_kafka_acl.App_connector_describe_on_cluster, 
-    ///             confluent_kafka_acl.App_connector_write_on_target_topic, 
-    ///             confluent_kafka_acl.App_connector_create_on_data_preview_topics, 
-    ///             confluent_kafka_acl.App_connector_write_on_data_preview_topics, 
+    ///             app_connector_describe_on_cluster, 
+    ///             app_connector_write_on_target_topic, 
+    ///             app_connector_create_on_data_preview_topics, 
+    ///             app_connector_write_on_data_preview_topics, 
     ///         },
     ///     });
     /// 
@@ -73,11 +73,11 @@ namespace Pulumi.ConfluentCloud
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
     ///         {
-    ///             Id = confluent_environment.Staging.Id,
+    ///             Id = staging.Id,
     ///         },
     ///         KafkaCluster = new ConfluentCloud.Inputs.ConnectorKafkaClusterArgs
     ///         {
-    ///             Id = confluent_kafka_cluster.Basic.Id,
+    ///             Id = basic.Id,
     ///         },
     ///         ConfigSensitive = 
     ///         {
@@ -86,12 +86,12 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///         ConfigNonsensitive = 
     ///         {
-    ///             { "topics", confluent_kafka_topic.Orders.Topic_name },
+    ///             { "topics", orders.TopicName },
     ///             { "input.data.format", "JSON" },
     ///             { "connector.class", "S3_SINK" },
     ///             { "name", "S3_SINKConnector_0" },
     ///             { "kafka.auth.mode", "SERVICE_ACCOUNT" },
-    ///             { "kafka.service.account.id", confluent_service_account.App_connector.Id },
+    ///             { "kafka.service.account.id", app_connector.Id },
     ///             { "s3.bucket.name", "&lt;s3-bucket-name&gt;" },
     ///             { "output.data.format", "JSON" },
     ///             { "time.interval", "DAILY" },
@@ -102,15 +102,15 @@ namespace Pulumi.ConfluentCloud
     ///     {
     ///         DependsOn =
     ///         {
-    ///             confluent_kafka_acl.App_connector_describe_on_cluster, 
-    ///             confluent_kafka_acl.App_connector_read_on_target_topic, 
-    ///             confluent_kafka_acl.App_connector_create_on_dlq_lcc_topics, 
-    ///             confluent_kafka_acl.App_connector_write_on_dlq_lcc_topics, 
-    ///             confluent_kafka_acl.App_connector_create_on_success_lcc_topics, 
-    ///             confluent_kafka_acl.App_connector_write_on_success_lcc_topics, 
-    ///             confluent_kafka_acl.App_connector_create_on_error_lcc_topics, 
-    ///             confluent_kafka_acl.App_connector_write_on_error_lcc_topics, 
-    ///             confluent_kafka_acl.App_connector_read_on_connect_lcc_group, 
+    ///             app_connector_describe_on_cluster, 
+    ///             app_connector_read_on_target_topic, 
+    ///             app_connector_create_on_dlq_lcc_topics, 
+    ///             app_connector_write_on_dlq_lcc_topics, 
+    ///             app_connector_create_on_success_lcc_topics, 
+    ///             app_connector_write_on_success_lcc_topics, 
+    ///             app_connector_create_on_error_lcc_topics, 
+    ///             app_connector_write_on_error_lcc_topics, 
+    ///             app_connector_read_on_connect_lcc_group, 
     ///         },
     ///     });
     /// 
@@ -132,11 +132,11 @@ namespace Pulumi.ConfluentCloud
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
     ///         {
-    ///             Id = confluent_environment.Staging.Id,
+    ///             Id = staging.Id,
     ///         },
     ///         KafkaCluster = new ConfluentCloud.Inputs.ConnectorKafkaClusterArgs
     ///         {
-    ///             Id = confluent_kafka_cluster.Basic.Id,
+    ///             Id = basic.Id,
     ///         },
     ///         ConfigSensitive = 
     ///         {
@@ -145,12 +145,12 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///         ConfigNonsensitive = 
     ///         {
-    ///             { "topics", confluent_kafka_topic.Orders.Topic_name },
+    ///             { "topics", orders.TopicName },
     ///             { "input.data.format", "JSON" },
     ///             { "connector.class", "DynamoDbSink" },
     ///             { "name", "DynamoDbSinkConnector_0" },
     ///             { "kafka.auth.mode", "SERVICE_ACCOUNT" },
-    ///             { "kafka.service.account.id", confluent_service_account.App_connector.Id },
+    ///             { "kafka.service.account.id", app_connector.Id },
     ///             { "aws.dynamodb.pk.hash", "value.userid" },
     ///             { "aws.dynamodb.pk.sort", "value.pageid" },
     ///             { "tasks.max", "1" },
@@ -159,15 +159,15 @@ namespace Pulumi.ConfluentCloud
     ///     {
     ///         DependsOn =
     ///         {
-    ///             confluent_kafka_acl.App_connector_describe_on_cluster, 
-    ///             confluent_kafka_acl.App_connector_read_on_target_topic, 
-    ///             confluent_kafka_acl.App_connector_create_on_dlq_lcc_topics, 
-    ///             confluent_kafka_acl.App_connector_write_on_dlq_lcc_topics, 
-    ///             confluent_kafka_acl.App_connector_create_on_success_lcc_topics, 
-    ///             confluent_kafka_acl.App_connector_write_on_success_lcc_topics, 
-    ///             confluent_kafka_acl.App_connector_create_on_error_lcc_topics, 
-    ///             confluent_kafka_acl.App_connector_write_on_error_lcc_topics, 
-    ///             confluent_kafka_acl.App_connector_read_on_connect_lcc_group, 
+    ///             app_connector_describe_on_cluster, 
+    ///             app_connector_read_on_target_topic, 
+    ///             app_connector_create_on_dlq_lcc_topics, 
+    ///             app_connector_write_on_dlq_lcc_topics, 
+    ///             app_connector_create_on_success_lcc_topics, 
+    ///             app_connector_write_on_success_lcc_topics, 
+    ///             app_connector_create_on_error_lcc_topics, 
+    ///             app_connector_write_on_error_lcc_topics, 
+    ///             app_connector_read_on_connect_lcc_group, 
     ///         },
     ///     });
     /// 
@@ -190,11 +190,11 @@ namespace Pulumi.ConfluentCloud
     ///     {
     ///         Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs
     ///         {
-    ///             Id = confluent_environment.Staging.Id,
+    ///             Id = staging.Id,
     ///         },
     ///         KafkaCluster = new ConfluentCloud.Inputs.ConnectorKafkaClusterArgs
     ///         {
-    ///             Id = confluent_kafka_cluster.Basic.Id,
+    ///             Id = basic.Id,
     ///         },
     ///         ConfigSensitive = 
     ///         {
@@ -204,13 +204,13 @@ namespace Pulumi.ConfluentCloud
     ///         ConfigNonsensitive = 
     ///         {
     ///             { "confluent.connector.type", "CUSTOM" },
-    ///             { "connector.class", confluent_custom_connector_plugin.Source.Connector_class },
+    ///             { "connector.class", sourceConfluentCustomConnectorPlugin.ConnectorClass },
     ///             { "name", "DatagenConnectorExampleName" },
     ///             { "kafka.auth.mode", "KAFKA_API_KEY" },
-    ///             { "kafka.topic", confluent_kafka_topic.Orders.Topic_name },
+    ///             { "kafka.topic", orders.TopicName },
     ///             { "output.data.format", "JSON" },
     ///             { "quickstart", "ORDERS" },
-    ///             { "confluent.custom.plugin.id", confluent_custom_connector_plugin.Source.Id },
+    ///             { "confluent.custom.plugin.id", sourceConfluentCustomConnectorPlugin.Id },
     ///             { "min.interval", "1000" },
     ///             { "max.interval", "2000" },
     ///             { "tasks.max", "1" },
@@ -219,7 +219,7 @@ namespace Pulumi.ConfluentCloud
     ///     {
     ///         DependsOn =
     ///         {
-    ///             confluent_role_binding.App_manager_kafka_cluster_admin, 
+    ///             app_manager_kafka_cluster_admin, 
     ///         },
     ///     });
     /// 

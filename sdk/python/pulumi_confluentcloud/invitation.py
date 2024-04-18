@@ -194,8 +194,8 @@ class Invitation(pulumi.CustomResource):
 
         main = confluentcloud.Invitation("main", email="")
         main2 = confluentcloud.Invitation("main2",
-            auth_type="AUTH_TYPE_LOCAL",
-            email="")
+            email="",
+            auth_type="AUTH_TYPE_LOCAL")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -238,8 +238,8 @@ class Invitation(pulumi.CustomResource):
 
         main = confluentcloud.Invitation("main", email="")
         main2 = confluentcloud.Invitation("main2",
-            auth_type="AUTH_TYPE_LOCAL",
-            email="")
+            email="",
+            auth_type="AUTH_TYPE_LOCAL")
         ```
         <!--End PulumiCodeChooser -->
 

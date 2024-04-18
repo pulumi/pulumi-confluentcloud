@@ -30,11 +30,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := confluentcloud.GetOrganization(ctx, nil, nil)
+//			example, err := confluentcloud.GetOrganization(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("example", exampleOrganization)
+//			ctx.Export("example", example)
 //			return nil
 //		})
 //	}

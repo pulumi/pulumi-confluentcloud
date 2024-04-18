@@ -19,14 +19,14 @@ import * as utilities from "./utilities";
  *         topicName: "orders",
  *     },
  *     clusterLink: {
- *         linkName: confluent_cluster_link["source-outbound"].link_name,
+ *         linkName: source_outbound.linkName,
  *     },
  *     kafkaCluster: {
- *         id: data.confluent_kafka_cluster.destination.id,
- *         restEndpoint: data.confluent_kafka_cluster.destination.rest_endpoint,
+ *         id: destination.id,
+ *         restEndpoint: destination.restEndpoint,
  *         credentials: {
- *             key: confluent_api_key["app-manager-destination-cluster-api-key"].id,
- *             secret: confluent_api_key["app-manager-destination-cluster-api-key"].secret,
+ *             key: app_manager_destination_cluster_api_key.id,
+ *             secret: app_manager_destination_cluster_api_key.secret,
  *         },
  *     },
  * });

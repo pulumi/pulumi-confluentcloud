@@ -122,16 +122,16 @@ def get_identity_pool(display_name: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_identity_pool = confluentcloud.get_identity_pool(id="pool-xyz456",
+    example_using_id = confluentcloud.get_identity_pool(id="pool-xyz456",
         identity_provider=confluentcloud.GetIdentityPoolIdentityProviderArgs(
             id="op-abc123",
         ))
-    pulumi.export("exampleUsingId", example_using_id_identity_pool)
-    example_using_name_identity_pool = confluentcloud.get_identity_pool(display_name="My Identity Pool",
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_identity_pool(display_name="My Identity Pool",
         identity_provider=confluentcloud.GetIdentityPoolIdentityProviderArgs(
             id="op-abc123",
         ))
-    pulumi.export("exampleUsingName", example_using_name_identity_pool)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -175,16 +175,16 @@ def get_identity_pool_output(display_name: Optional[pulumi.Input[Optional[str]]]
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_identity_pool = confluentcloud.get_identity_pool(id="pool-xyz456",
+    example_using_id = confluentcloud.get_identity_pool(id="pool-xyz456",
         identity_provider=confluentcloud.GetIdentityPoolIdentityProviderArgs(
             id="op-abc123",
         ))
-    pulumi.export("exampleUsingId", example_using_id_identity_pool)
-    example_using_name_identity_pool = confluentcloud.get_identity_pool(display_name="My Identity Pool",
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_identity_pool(display_name="My Identity Pool",
         identity_provider=confluentcloud.GetIdentityPoolIdentityProviderArgs(
             id="op-abc123",
         ))
-    pulumi.export("exampleUsingName", example_using_name_identity_pool)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 

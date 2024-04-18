@@ -133,8 +133,8 @@ def get_kafka_client_quota(id: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_kafka_client_quota = confluentcloud.get_kafka_client_quota(id="cq-abc123")
-    pulumi.export("example", example_kafka_client_quota)
+    example = confluentcloud.get_kafka_client_quota(id="cq-abc123")
+    pulumi.export("example", example)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -173,8 +173,8 @@ def get_kafka_client_quota_output(id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_kafka_client_quota = confluentcloud.get_kafka_client_quota(id="cq-abc123")
-    pulumi.export("example", example_kafka_client_quota)
+    example = confluentcloud.get_kafka_client_quota(id="cq-abc123")
+    pulumi.export("example", example)
     ```
     <!--End PulumiCodeChooser -->
 

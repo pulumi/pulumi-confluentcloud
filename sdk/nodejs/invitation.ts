@@ -20,8 +20,8 @@ import * as utilities from "./utilities";
  *
  * const main = new confluentcloud.Invitation("main", {email: ""});
  * const main2 = new confluentcloud.Invitation("main2", {
- *     authType: "AUTH_TYPE_LOCAL",
  *     email: "",
+ *     authType: "AUTH_TYPE_LOCAL",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

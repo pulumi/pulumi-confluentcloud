@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const aws_private_link = new confluentcloud.Network("aws-private-link", {
  *     displayName: "AWS Private Link Network",
  *     cloud: "AWS",
@@ -39,7 +39,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const azure_peering = new confluentcloud.Network("azure-peering", {
  *     displayName: "Azure Peering Network",
  *     cloud: "AZURE",
@@ -59,7 +59,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const gcp_private_service_connect = new confluentcloud.Network("gcp-private-service-connect", {
  *     displayName: "GCP Private Service Connect Network",
  *     cloud: "GCP",
@@ -86,7 +86,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const aws_transit_gateway_attachment = new confluentcloud.Network("aws-transit-gateway-attachment", {
  *     displayName: "AWS Transit Gateway Attachment Network",
  *     cloud: "AWS",

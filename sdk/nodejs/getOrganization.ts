@@ -16,8 +16,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleOrganization = confluentcloud.getOrganization({});
- * export const example = exampleOrganization;
+ * export = async () => {
+ *     const example = await confluentcloud.getOrganization({});
+ *     return {
+ *         example: example,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -53,8 +57,12 @@ export interface GetOrganizationResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleOrganization = confluentcloud.getOrganization({});
- * export const example = exampleOrganization;
+ * export = async () => {
+ *     const example = await confluentcloud.getOrganization({});
+ *     return {
+ *         example: example,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

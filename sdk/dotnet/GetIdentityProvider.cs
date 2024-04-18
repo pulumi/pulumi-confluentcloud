@@ -27,20 +27,20 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingIdIdentityProvider = ConfluentCloud.GetIdentityProvider.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.GetIdentityProvider.Invoke(new()
         ///     {
         ///         Id = "op-abc123",
         ///     });
         /// 
-        ///     var exampleUsingNameIdentityProvider = ConfluentCloud.GetIdentityProvider.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.GetIdentityProvider.Invoke(new()
         ///     {
         ///         DisplayName = "My OIDC Provider: Azure AD",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdIdentityProvider,
-        ///         ["exampleUsingName"] = exampleUsingNameIdentityProvider,
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
         /// });
         /// ```
@@ -65,20 +65,20 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleUsingIdIdentityProvider = ConfluentCloud.GetIdentityProvider.Invoke(new()
+        ///     var exampleUsingId = ConfluentCloud.GetIdentityProvider.Invoke(new()
         ///     {
         ///         Id = "op-abc123",
         ///     });
         /// 
-        ///     var exampleUsingNameIdentityProvider = ConfluentCloud.GetIdentityProvider.Invoke(new()
+        ///     var exampleUsingName = ConfluentCloud.GetIdentityProvider.Invoke(new()
         ///     {
         ///         DisplayName = "My OIDC Provider: Azure AD",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["exampleUsingId"] = exampleUsingIdIdentityProvider,
-        ///         ["exampleUsingName"] = exampleUsingNameIdentityProvider,
+        ///         ["exampleUsingId"] = exampleUsingId,
+        ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
         /// });
         /// ```

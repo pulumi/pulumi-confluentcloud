@@ -18,20 +18,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdSchemaRegistryCluster = confluentcloud.getSchemaRegistryCluster({
- *     id: "lsrc-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingId = exampleUsingIdSchemaRegistryCluster;
- * const exampleUsingNameSchemaRegistryCluster = confluentcloud.getSchemaRegistryCluster({
- *     displayName: "Stream Governance Package",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNameSchemaRegistryCluster;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getSchemaRegistryCluster({
+ *         id: "lsrc-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getSchemaRegistryCluster({
+ *         displayName: "Stream Governance Package",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -112,20 +116,24 @@ export interface GetSchemaRegistryClusterResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdSchemaRegistryCluster = confluentcloud.getSchemaRegistryCluster({
- *     id: "lsrc-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingId = exampleUsingIdSchemaRegistryCluster;
- * const exampleUsingNameSchemaRegistryCluster = confluentcloud.getSchemaRegistryCluster({
- *     displayName: "Stream Governance Package",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNameSchemaRegistryCluster;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getSchemaRegistryCluster({
+ *         id: "lsrc-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getSchemaRegistryCluster({
+ *         displayName: "Stream Governance Package",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

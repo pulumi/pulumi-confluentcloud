@@ -16,31 +16,36 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdUser = confluentcloud.getUser({
- *     id: "u-abc123",
- * });
- * export const exampleUsingId = exampleUsingIdUser;
- * const exampleUsingEmail = confluentcloud.getUser({
- *     email: "test123@gmail.com",
- * });
- * const test_env = new confluentcloud.Environment("test-env", {});
- * const standard_cluster_on_aws = new confluentcloud.KafkaCluster("standard-cluster-on-aws", {
- *     availability: "SINGLE_ZONE",
- *     cloud: "AWS",
- *     region: "us-west-2",
- *     standard: {},
- *     environment: {
- *         id: test_env.id,
- *     },
- * });
- * const test_role_binding = new confluentcloud.RoleBinding("test-role-binding", {
- *     principal: exampleUsingEmail.then(exampleUsingEmail => `User:${exampleUsingEmail.id}`),
- *     roleName: "CloudClusterAdmin",
- *     crnPattern: standard_cluster_on_aws.rbacCrn,
- * });
- * const exampleUsingFullName = confluentcloud.getUser({
- *     fullName: "John Doe",
- * });
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getUser({
+ *         id: "u-abc123",
+ *     });
+ *     const exampleUsingEmail = await confluentcloud.getUser({
+ *         email: "test123@gmail.com",
+ *     });
+ *     const test_env = new confluentcloud.Environment("test-env", {displayName: `env_for_${exampleUsingId.fullName}`});
+ *     const standard_cluster_on_aws = new confluentcloud.KafkaCluster("standard-cluster-on-aws", {
+ *         displayName: "standard_kafka_cluster_on_aws",
+ *         availability: "SINGLE_ZONE",
+ *         cloud: "AWS",
+ *         region: "us-west-2",
+ *         standard: {},
+ *         environment: {
+ *             id: test_env.id,
+ *         },
+ *     });
+ *     const test_role_binding = new confluentcloud.RoleBinding("test-role-binding", {
+ *         principal: `User:${exampleUsingEmail.id}`,
+ *         roleName: "CloudClusterAdmin",
+ *         crnPattern: standard_cluster_on_aws.rbacCrn,
+ *     });
+ *     const exampleUsingFullName = await confluentcloud.getUser({
+ *         fullName: "John Doe",
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -112,31 +117,36 @@ export interface GetUserResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdUser = confluentcloud.getUser({
- *     id: "u-abc123",
- * });
- * export const exampleUsingId = exampleUsingIdUser;
- * const exampleUsingEmail = confluentcloud.getUser({
- *     email: "test123@gmail.com",
- * });
- * const test_env = new confluentcloud.Environment("test-env", {});
- * const standard_cluster_on_aws = new confluentcloud.KafkaCluster("standard-cluster-on-aws", {
- *     availability: "SINGLE_ZONE",
- *     cloud: "AWS",
- *     region: "us-west-2",
- *     standard: {},
- *     environment: {
- *         id: test_env.id,
- *     },
- * });
- * const test_role_binding = new confluentcloud.RoleBinding("test-role-binding", {
- *     principal: exampleUsingEmail.then(exampleUsingEmail => `User:${exampleUsingEmail.id}`),
- *     roleName: "CloudClusterAdmin",
- *     crnPattern: standard_cluster_on_aws.rbacCrn,
- * });
- * const exampleUsingFullName = confluentcloud.getUser({
- *     fullName: "John Doe",
- * });
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getUser({
+ *         id: "u-abc123",
+ *     });
+ *     const exampleUsingEmail = await confluentcloud.getUser({
+ *         email: "test123@gmail.com",
+ *     });
+ *     const test_env = new confluentcloud.Environment("test-env", {displayName: `env_for_${exampleUsingId.fullName}`});
+ *     const standard_cluster_on_aws = new confluentcloud.KafkaCluster("standard-cluster-on-aws", {
+ *         displayName: "standard_kafka_cluster_on_aws",
+ *         availability: "SINGLE_ZONE",
+ *         cloud: "AWS",
+ *         region: "us-west-2",
+ *         standard: {},
+ *         environment: {
+ *             id: test_env.id,
+ *         },
+ *     });
+ *     const test_role_binding = new confluentcloud.RoleBinding("test-role-binding", {
+ *         principal: `User:${exampleUsingEmail.id}`,
+ *         roleName: "CloudClusterAdmin",
+ *         crnPattern: standard_cluster_on_aws.rbacCrn,
+ *     });
+ *     const exampleUsingFullName = await confluentcloud.getUser({
+ *         fullName: "John Doe",
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

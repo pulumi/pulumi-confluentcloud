@@ -108,11 +108,12 @@ def get_user(email: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_user = confluentcloud.get_user(id="u-abc123")
-    pulumi.export("exampleUsingId", example_using_id_user)
+    example_using_id = confluentcloud.get_user(id="u-abc123")
+    pulumi.export("exampleUsingId", example_using_id)
     example_using_email = confluentcloud.get_user(email="test123@gmail.com")
-    test_env = confluentcloud.Environment("test-env")
+    test_env = confluentcloud.Environment("test-env", display_name=f"env_for_{example_using_id.full_name}")
     standard_cluster_on_aws = confluentcloud.KafkaCluster("standard-cluster-on-aws",
+        display_name="standard_kafka_cluster_on_aws",
         availability="SINGLE_ZONE",
         cloud="AWS",
         region="us-west-2",
@@ -167,11 +168,12 @@ def get_user_output(email: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_user = confluentcloud.get_user(id="u-abc123")
-    pulumi.export("exampleUsingId", example_using_id_user)
+    example_using_id = confluentcloud.get_user(id="u-abc123")
+    pulumi.export("exampleUsingId", example_using_id)
     example_using_email = confluentcloud.get_user(email="test123@gmail.com")
-    test_env = confluentcloud.Environment("test-env")
+    test_env = confluentcloud.Environment("test-env", display_name=f"env_for_{example_using_id.full_name}")
     standard_cluster_on_aws = confluentcloud.KafkaCluster("standard-cluster-on-aws",
+        display_name="standard_kafka_cluster_on_aws",
         availability="SINGLE_ZONE",
         cloud="AWS",
         region="us-west-2",

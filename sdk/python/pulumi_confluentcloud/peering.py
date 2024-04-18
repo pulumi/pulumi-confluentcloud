@@ -221,7 +221,7 @@ class Peering(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         aws_peering = confluentcloud.Network("aws-peering",
             display_name="AWS Peering Network",
             cloud="AWS",
@@ -255,7 +255,7 @@ class Peering(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         azure_peering = confluentcloud.Network("azure-peering",
             display_name="Azure Peering Network",
             cloud="AZURE",
@@ -318,7 +318,7 @@ class Peering(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         aws_peering = confluentcloud.Network("aws-peering",
             display_name="AWS Peering Network",
             cloud="AWS",
@@ -352,7 +352,7 @@ class Peering(pulumi.CustomResource):
         import pulumi
         import pulumi_confluentcloud as confluentcloud
 
-        development = confluentcloud.Environment("development")
+        development = confluentcloud.Environment("development", display_name="Development")
         azure_peering = confluentcloud.Network("azure-peering",
             display_name="Azure Peering Network",
             cloud="AZURE",

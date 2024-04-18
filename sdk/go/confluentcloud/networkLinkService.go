@@ -29,7 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", &confluentcloud.EnvironmentArgs{
+//				DisplayName: pulumi.String("Development"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -52,7 +54,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = confluentcloud.NewNetworkLinkService(ctx, "awsNls", &confluentcloud.NetworkLinkServiceArgs{
+//			_, err = confluentcloud.NewNetworkLinkService(ctx, "aws_nls", &confluentcloud.NetworkLinkServiceArgs{
 //				DisplayName: pulumi.String("AWS Private Link network link service"),
 //				Environment: &confluentcloud.NetworkLinkServiceEnvironmentArgs{
 //					Id: development.ID(),

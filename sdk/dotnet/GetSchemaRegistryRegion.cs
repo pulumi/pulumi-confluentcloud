@@ -31,7 +31,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleSchemaRegistryRegion = ConfluentCloud.GetSchemaRegistryRegion.Invoke(new()
+        ///     var example = ConfluentCloud.GetSchemaRegistryRegion.Invoke(new()
         ///     {
         ///         Cloud = "AWS",
         ///         Region = "us-east-2",
@@ -40,7 +40,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleSchemaRegistryRegion,
+        ///         ["example"] = example,
         ///     };
         /// });
         /// ```
@@ -69,7 +69,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleSchemaRegistryRegion = ConfluentCloud.GetSchemaRegistryRegion.Invoke(new()
+        ///     var example = ConfluentCloud.GetSchemaRegistryRegion.Invoke(new()
         ///     {
         ///         Cloud = "AWS",
         ///         Region = "us-east-2",
@@ -78,7 +78,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["example"] = exampleSchemaRegistryRegion,
+        ///         ["example"] = example,
         ///     };
         /// });
         /// ```

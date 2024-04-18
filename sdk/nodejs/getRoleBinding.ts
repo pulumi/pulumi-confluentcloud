@@ -18,10 +18,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleRoleBinding = confluentcloud.getRoleBinding({
- *     id: "rb-abc123",
- * });
- * export const example = exampleRoleBinding;
+ * export = async () => {
+ *     const example = await confluentcloud.getRoleBinding({
+ *         id: "rb-abc123",
+ *     });
+ *     return {
+ *         example: example,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -75,10 +79,14 @@ export interface GetRoleBindingResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleRoleBinding = confluentcloud.getRoleBinding({
- *     id: "rb-abc123",
- * });
- * export const example = exampleRoleBinding;
+ * export = async () => {
+ *     const example = await confluentcloud.getRoleBinding({
+ *         id: "rb-abc123",
+ *     });
+ *     return {
+ *         example: example,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

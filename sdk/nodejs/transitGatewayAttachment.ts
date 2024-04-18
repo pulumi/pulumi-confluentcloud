@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const aws_transit_gateway_attachment = new confluentcloud.Network("aws-transit-gateway-attachment", {
  *     displayName: "AWS Transit Gateway Attachment Network",
  *     cloud: "AWS",

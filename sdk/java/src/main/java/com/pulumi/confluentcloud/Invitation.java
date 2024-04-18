@@ -50,8 +50,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var main2 = new Invitation(&#34;main2&#34;, InvitationArgs.builder()        
- *             .authType(&#34;AUTH_TYPE_LOCAL&#34;)
  *             .email(&#34;&#34;)
+ *             .authType(&#34;AUTH_TYPE_LOCAL&#34;)
  *             .build());
  * 
  *     }

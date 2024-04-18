@@ -16,14 +16,18 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdIdentityProvider = confluentcloud.getIdentityProvider({
- *     id: "op-abc123",
- * });
- * export const exampleUsingId = exampleUsingIdIdentityProvider;
- * const exampleUsingNameIdentityProvider = confluentcloud.getIdentityProvider({
- *     displayName: "My OIDC Provider: Azure AD",
- * });
- * export const exampleUsingName = exampleUsingNameIdentityProvider;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getIdentityProvider({
+ *         id: "op-abc123",
+ *     });
+ *     const exampleUsingName = await confluentcloud.getIdentityProvider({
+ *         displayName: "My OIDC Provider: Azure AD",
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -90,14 +94,18 @@ export interface GetIdentityProviderResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdIdentityProvider = confluentcloud.getIdentityProvider({
- *     id: "op-abc123",
- * });
- * export const exampleUsingId = exampleUsingIdIdentityProvider;
- * const exampleUsingNameIdentityProvider = confluentcloud.getIdentityProvider({
- *     displayName: "My OIDC Provider: Azure AD",
- * });
- * export const exampleUsingName = exampleUsingNameIdentityProvider;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getIdentityProvider({
+ *         id: "op-abc123",
+ *     });
+ *     const exampleUsingName = await confluentcloud.getIdentityProvider({
+ *         displayName: "My OIDC Provider: Azure AD",
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

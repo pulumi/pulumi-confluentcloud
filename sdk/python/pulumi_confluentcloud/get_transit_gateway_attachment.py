@@ -110,16 +110,16 @@ def get_transit_gateway_attachment(display_name: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_transit_gateway_attachment = confluentcloud.get_transit_gateway_attachment(id="tgwa-abc123",
+    example_using_id = confluentcloud.get_transit_gateway_attachment(id="tgwa-abc123",
         environment=confluentcloud.GetTransitGatewayAttachmentEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingId", example_using_id_transit_gateway_attachment)
-    example_using_name_transit_gateway_attachment = confluentcloud.get_transit_gateway_attachment(display_name="my_tgwa",
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_transit_gateway_attachment(display_name="my_tgwa",
         environment=confluentcloud.GetTransitGatewayAttachmentEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingName", example_using_name_transit_gateway_attachment)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -162,16 +162,16 @@ def get_transit_gateway_attachment_output(display_name: Optional[pulumi.Input[Op
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_transit_gateway_attachment = confluentcloud.get_transit_gateway_attachment(id="tgwa-abc123",
+    example_using_id = confluentcloud.get_transit_gateway_attachment(id="tgwa-abc123",
         environment=confluentcloud.GetTransitGatewayAttachmentEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingId", example_using_id_transit_gateway_attachment)
-    example_using_name_transit_gateway_attachment = confluentcloud.get_transit_gateway_attachment(display_name="my_tgwa",
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_transit_gateway_attachment(display_name="my_tgwa",
         environment=confluentcloud.GetTransitGatewayAttachmentEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingName", example_using_name_transit_gateway_attachment)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 

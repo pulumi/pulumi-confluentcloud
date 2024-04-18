@@ -269,12 +269,12 @@ class CustomConnectorPlugin(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         source = confluentcloud.CustomConnectorPlugin("source",
-            connector_class="io.confluent.kafka.connect.datagen.DatagenConnector",
-            connector_type="SOURCE",
             display_name="Datagen Source Connector Plugin",
             documentation_link="https://www.confluent.io/hub/confluentinc/kafka-connect-datagen",
-            filename="confluentinc-kafka-connect-datagen-0.6.2.zip",
-            sensitive_config_properties=[])
+            connector_class="io.confluent.kafka.connect.datagen.DatagenConnector",
+            connector_type="SOURCE",
+            sensitive_config_properties=[],
+            filename="confluentinc-kafka-connect-datagen-0.6.2.zip")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -317,12 +317,12 @@ class CustomConnectorPlugin(pulumi.CustomResource):
         import pulumi_confluentcloud as confluentcloud
 
         source = confluentcloud.CustomConnectorPlugin("source",
-            connector_class="io.confluent.kafka.connect.datagen.DatagenConnector",
-            connector_type="SOURCE",
             display_name="Datagen Source Connector Plugin",
             documentation_link="https://www.confluent.io/hub/confluentinc/kafka-connect-datagen",
-            filename="confluentinc-kafka-connect-datagen-0.6.2.zip",
-            sensitive_config_properties=[])
+            connector_class="io.confluent.kafka.connect.datagen.DatagenConnector",
+            connector_type="SOURCE",
+            sensitive_config_properties=[],
+            filename="confluentinc-kafka-connect-datagen-0.6.2.zip")
         ```
         <!--End PulumiCodeChooser -->
 

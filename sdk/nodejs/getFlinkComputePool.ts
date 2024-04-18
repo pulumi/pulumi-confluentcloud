@@ -18,20 +18,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdFlinkComputePool = confluentcloud.getFlinkComputePool({
- *     id: "lfcp-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingId = exampleUsingIdFlinkComputePool;
- * const exampleUsingNameFlinkComputePool = confluentcloud.getFlinkComputePool({
- *     displayName: "my_compute_pool",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNameFlinkComputePool;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getFlinkComputePool({
+ *         id: "lfcp-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getFlinkComputePool({
+ *         displayName: "my_compute_pool",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -118,20 +122,24 @@ export interface GetFlinkComputePoolResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdFlinkComputePool = confluentcloud.getFlinkComputePool({
- *     id: "lfcp-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingId = exampleUsingIdFlinkComputePool;
- * const exampleUsingNameFlinkComputePool = confluentcloud.getFlinkComputePool({
- *     displayName: "my_compute_pool",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNameFlinkComputePool;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getFlinkComputePool({
+ *         id: "lfcp-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getFlinkComputePool({
+ *         displayName: "my_compute_pool",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

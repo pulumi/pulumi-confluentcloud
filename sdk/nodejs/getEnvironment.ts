@@ -18,21 +18,25 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdEnvironment = confluentcloud.getEnvironment({
- *     id: "env-abc123",
- * });
- * export const exampleUsingId = exampleUsingIdEnvironment;
- * const exampleUsingNameEnvironment = confluentcloud.getEnvironment({
- *     displayName: "stag",
- * });
- * const exampleUsingNameServiceAccount = confluentcloud.getServiceAccount({
- *     displayName: "test_sa",
- * });
- * const test_role_binding = new confluentcloud.RoleBinding("test-role-binding", {
- *     principal: exampleUsingNameServiceAccount.then(exampleUsingNameServiceAccount => `User:${exampleUsingNameServiceAccount.id}`),
- *     roleName: "EnvironmentAdmin",
- *     crnPattern: exampleUsingNameEnvironment.then(exampleUsingNameEnvironment => exampleUsingNameEnvironment.resourceName),
- * });
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getEnvironment({
+ *         id: "env-abc123",
+ *     });
+ *     const exampleUsingName = await confluentcloud.getEnvironment({
+ *         displayName: "stag",
+ *     });
+ *     const exampleUsingNameGetServiceAccount = await confluentcloud.getServiceAccount({
+ *         displayName: "test_sa",
+ *     });
+ *     const test_role_binding = new confluentcloud.RoleBinding("test-role-binding", {
+ *         principal: `User:${exampleUsingNameGetServiceAccount.id}`,
+ *         roleName: "EnvironmentAdmin",
+ *         crnPattern: exampleUsingName.resourceName,
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -94,21 +98,25 @@ export interface GetEnvironmentResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdEnvironment = confluentcloud.getEnvironment({
- *     id: "env-abc123",
- * });
- * export const exampleUsingId = exampleUsingIdEnvironment;
- * const exampleUsingNameEnvironment = confluentcloud.getEnvironment({
- *     displayName: "stag",
- * });
- * const exampleUsingNameServiceAccount = confluentcloud.getServiceAccount({
- *     displayName: "test_sa",
- * });
- * const test_role_binding = new confluentcloud.RoleBinding("test-role-binding", {
- *     principal: exampleUsingNameServiceAccount.then(exampleUsingNameServiceAccount => `User:${exampleUsingNameServiceAccount.id}`),
- *     roleName: "EnvironmentAdmin",
- *     crnPattern: exampleUsingNameEnvironment.then(exampleUsingNameEnvironment => exampleUsingNameEnvironment.resourceName),
- * });
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getEnvironment({
+ *         id: "env-abc123",
+ *     });
+ *     const exampleUsingName = await confluentcloud.getEnvironment({
+ *         displayName: "stag",
+ *     });
+ *     const exampleUsingNameGetServiceAccount = await confluentcloud.getServiceAccount({
+ *         displayName: "test_sa",
+ *     });
+ *     const test_role_binding = new confluentcloud.RoleBinding("test-role-binding", {
+ *         principal: `User:${exampleUsingNameGetServiceAccount.id}`,
+ *         roleName: "EnvironmentAdmin",
+ *         crnPattern: exampleUsingName.resourceName,
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

@@ -236,14 +236,14 @@ class KafkaClientQuota(pulumi.CustomResource):
                 egress_byte_rate="200",
             ),
             principals=[
-                confluent_service_account["app_manager"]["id"],
-                confluent_service_account["app_manager_2"]["id"],
+                app_manager["id"],
+                app_manager2["id"],
             ],
             kafka_cluster=confluentcloud.KafkaClientQuotaKafkaClusterArgs(
-                id=confluent_kafka_cluster["dedicated"]["id"],
+                id=dedicated["id"],
             ),
             environment=confluentcloud.KafkaClientQuotaEnvironmentArgs(
-                id=confluent_environment["development"]["id"],
+                id=development["id"],
             ))
         ```
         <!--End PulumiCodeChooser -->
@@ -292,14 +292,14 @@ class KafkaClientQuota(pulumi.CustomResource):
                 egress_byte_rate="200",
             ),
             principals=[
-                confluent_service_account["app_manager"]["id"],
-                confluent_service_account["app_manager_2"]["id"],
+                app_manager["id"],
+                app_manager2["id"],
             ],
             kafka_cluster=confluentcloud.KafkaClientQuotaKafkaClusterArgs(
-                id=confluent_kafka_cluster["dedicated"]["id"],
+                id=dedicated["id"],
             ),
             environment=confluentcloud.KafkaClientQuotaEnvironmentArgs(
-                id=confluent_environment["development"]["id"],
+                id=development["id"],
             ))
         ```
         <!--End PulumiCodeChooser -->

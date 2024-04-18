@@ -28,21 +28,22 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode
 //			_, err := confluentcloud.NewClusterLink(ctx, "east-to-west", &confluentcloud.ClusterLinkArgs{
+//				Link:     pulumi.String("bidirectional-link"),
 //				LinkMode: pulumi.String("BIDIRECTIONAL"),
 //				LocalKafkaCluster: &confluentcloud.ClusterLinkLocalKafkaClusterArgs{
-//					Id:           pulumi.Any(data.Confluent_kafka_cluster.East.Id),
-//					RestEndpoint: pulumi.Any(data.Confluent_kafka_cluster.East.Rest_endpoint),
+//					Id:           pulumi.Any(east.Id),
+//					RestEndpoint: pulumi.Any(east.RestEndpoint),
 //					Credentials: &confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs{
-//						Key:    pulumi.Any(confluent_api_key.AppManagerEastClusterApiKey.Id),
-//						Secret: pulumi.Any(confluent_api_key.AppManagerEastClusterApiKey.Secret),
+//						Key:    pulumi.Any(app_manager_east_cluster_api_key.Id),
+//						Secret: pulumi.Any(app_manager_east_cluster_api_key.Secret),
 //					},
 //				},
 //				RemoteKafkaCluster: &confluentcloud.ClusterLinkRemoteKafkaClusterArgs{
-//					Id:                pulumi.Any(data.Confluent_kafka_cluster.West.Id),
-//					BootstrapEndpoint: pulumi.Any(data.Confluent_kafka_cluster.West.Bootstrap_endpoint),
+//					Id:                pulumi.Any(west.Id),
+//					BootstrapEndpoint: pulumi.Any(west.BootstrapEndpoint),
 //					Credentials: &confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs{
-//						Key:    pulumi.Any(confluent_api_key.AppManagerWestClusterApiKey.Id),
-//						Secret: pulumi.Any(confluent_api_key.AppManagerWestClusterApiKey.Secret),
+//						Key:    pulumi.Any(app_manager_west_cluster_api_key.Id),
+//						Secret: pulumi.Any(app_manager_west_cluster_api_key.Secret),
 //					},
 //				},
 //			})
@@ -50,21 +51,22 @@ import (
 //				return err
 //			}
 //			_, err = confluentcloud.NewClusterLink(ctx, "west-to-east", &confluentcloud.ClusterLinkArgs{
+//				Link:     pulumi.String("bidirectional-link"),
 //				LinkMode: pulumi.String("BIDIRECTIONAL"),
 //				LocalKafkaCluster: &confluentcloud.ClusterLinkLocalKafkaClusterArgs{
-//					Id:           pulumi.Any(data.Confluent_kafka_cluster.West.Id),
-//					RestEndpoint: pulumi.Any(data.Confluent_kafka_cluster.West.Rest_endpoint),
+//					Id:           pulumi.Any(west.Id),
+//					RestEndpoint: pulumi.Any(west.RestEndpoint),
 //					Credentials: &confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs{
-//						Key:    pulumi.Any(confluent_api_key.AppManagerWestClusterApiKey.Id),
-//						Secret: pulumi.Any(confluent_api_key.AppManagerWestClusterApiKey.Secret),
+//						Key:    pulumi.Any(app_manager_west_cluster_api_key.Id),
+//						Secret: pulumi.Any(app_manager_west_cluster_api_key.Secret),
 //					},
 //				},
 //				RemoteKafkaCluster: &confluentcloud.ClusterLinkRemoteKafkaClusterArgs{
-//					Id:                pulumi.Any(data.Confluent_kafka_cluster.East.Id),
-//					BootstrapEndpoint: pulumi.Any(data.Confluent_kafka_cluster.East.Bootstrap_endpoint),
+//					Id:                pulumi.Any(east.Id),
+//					BootstrapEndpoint: pulumi.Any(east.BootstrapEndpoint),
 //					Credentials: &confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs{
-//						Key:    pulumi.Any(confluent_api_key.AppManagerEastClusterApiKey.Id),
-//						Secret: pulumi.Any(confluent_api_key.AppManagerEastClusterApiKey.Secret),
+//						Key:    pulumi.Any(app_manager_east_cluster_api_key.Id),
+//						Secret: pulumi.Any(app_manager_east_cluster_api_key.Secret),
 //					},
 //				},
 //			})

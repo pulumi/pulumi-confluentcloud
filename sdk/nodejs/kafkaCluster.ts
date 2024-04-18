@@ -16,8 +16,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const basic = new confluentcloud.KafkaCluster("basic", {
+ *     displayName: "basic_kafka_cluster",
  *     availability: "SINGLE_ZONE",
  *     cloud: "AWS",
  *     region: "us-east-2",
@@ -27,6 +28,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * const standard = new confluentcloud.KafkaCluster("standard", {
+ *     displayName: "standard_kafka_cluster",
  *     availability: "SINGLE_ZONE",
  *     cloud: "AWS",
  *     region: "us-east-2",
@@ -36,6 +38,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * const dedicated = new confluentcloud.KafkaCluster("dedicated", {
+ *     displayName: "dedicated_kafka_cluster",
  *     availability: "MULTI_ZONE",
  *     cloud: "AWS",
  *     region: "us-east-2",
@@ -56,8 +59,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const basic = new confluentcloud.KafkaCluster("basic", {
+ *     displayName: "basic_kafka_cluster",
  *     availability: "SINGLE_ZONE",
  *     cloud: "AZURE",
  *     region: "centralus",
@@ -67,6 +71,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * const standard = new confluentcloud.KafkaCluster("standard", {
+ *     displayName: "standard_kafka_cluster",
  *     availability: "SINGLE_ZONE",
  *     cloud: "AZURE",
  *     region: "centralus",
@@ -76,6 +81,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * const dedicated = new confluentcloud.KafkaCluster("dedicated", {
+ *     displayName: "dedicated_kafka_cluster",
  *     availability: "MULTI_ZONE",
  *     cloud: "AZURE",
  *     region: "centralus",
@@ -96,8 +102,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const development = new confluentcloud.Environment("development", {});
+ * const development = new confluentcloud.Environment("development", {displayName: "Development"});
  * const basic = new confluentcloud.KafkaCluster("basic", {
+ *     displayName: "basic_kafka_cluster",
  *     availability: "SINGLE_ZONE",
  *     cloud: "GCP",
  *     region: "us-central1",
@@ -107,6 +114,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * const standard = new confluentcloud.KafkaCluster("standard", {
+ *     displayName: "standard_kafka_cluster",
  *     availability: "SINGLE_ZONE",
  *     cloud: "GCP",
  *     region: "us-central1",
@@ -116,6 +124,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * const dedicated = new confluentcloud.KafkaCluster("dedicated", {
+ *     displayName: "dedicated_kafka_cluster",
  *     availability: "MULTI_ZONE",
  *     cloud: "GCP",
  *     region: "us-central1",

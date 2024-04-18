@@ -97,8 +97,8 @@ def get_group_mapping(display_name: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_group_mapping = confluentcloud.get_group_mapping(id="group-abc123")
-    pulumi.export("exampleUsingId", example_using_id_group_mapping)
+    example_using_id = confluentcloud.get_group_mapping(id="group-abc123")
+    pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_group_mapping(display_name="Default")
     ```
     <!--End PulumiCodeChooser -->
@@ -140,8 +140,8 @@ def get_group_mapping_output(display_name: Optional[pulumi.Input[Optional[str]]]
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_group_mapping = confluentcloud.get_group_mapping(id="group-abc123")
-    pulumi.export("exampleUsingId", example_using_id_group_mapping)
+    example_using_id = confluentcloud.get_group_mapping(id="group-abc123")
+    pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_group_mapping(display_name="Default")
     ```
     <!--End PulumiCodeChooser -->

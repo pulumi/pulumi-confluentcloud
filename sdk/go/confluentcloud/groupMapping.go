@@ -48,7 +48,7 @@ import (
 //					return fmt.Sprintf("User:%v", id), nil
 //				}).(pulumi.StringOutput),
 //				RoleName:   pulumi.String("EnvironmentAdmin"),
-//				CrnPattern: pulumi.Any(data.Confluent_environment.Prod.Resource_name),
+//				CrnPattern: pulumi.Any(prod.ResourceName),
 //			})
 //			if err != nil {
 //				return err

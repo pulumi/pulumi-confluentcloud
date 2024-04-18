@@ -13,12 +13,12 @@ import * as utilities from "./utilities";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * const source = new confluentcloud.CustomConnectorPlugin("source", {
- *     connectorClass: "io.confluent.kafka.connect.datagen.DatagenConnector",
- *     connectorType: "SOURCE",
  *     displayName: "Datagen Source Connector Plugin",
  *     documentationLink: "https://www.confluent.io/hub/confluentinc/kafka-connect-datagen",
- *     filename: "confluentinc-kafka-connect-datagen-0.6.2.zip",
+ *     connectorClass: "io.confluent.kafka.connect.datagen.DatagenConnector",
+ *     connectorType: "SOURCE",
  *     sensitiveConfigProperties: [],
+ *     filename: "confluentinc-kafka-connect-datagen-0.6.2.zip",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

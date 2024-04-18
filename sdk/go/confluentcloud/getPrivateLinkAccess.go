@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUsingIdPrivateLinkAccess, err := confluentcloud.LookupPrivateLinkAccess(ctx, &confluentcloud.LookupPrivateLinkAccessArgs{
+//			exampleUsingId, err := confluentcloud.LookupPrivateLinkAccess(ctx, &confluentcloud.LookupPrivateLinkAccessArgs{
 //				Id: pulumi.StringRef("pla-abc123"),
 //				Environment: confluentcloud.GetPrivateLinkAccessEnvironment{
 //					Id: "env-xyz456",
@@ -39,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingId", exampleUsingIdPrivateLinkAccess)
-//			exampleUsingNamePrivateLinkAccess, err := confluentcloud.LookupPrivateLinkAccess(ctx, &confluentcloud.LookupPrivateLinkAccessArgs{
+//			ctx.Export("exampleUsingId", exampleUsingId)
+//			exampleUsingName, err := confluentcloud.LookupPrivateLinkAccess(ctx, &confluentcloud.LookupPrivateLinkAccessArgs{
 //				DisplayName: pulumi.StringRef("my_pla"),
 //				Environment: confluentcloud.GetPrivateLinkAccessEnvironment{
 //					Id: "env-xyz456",
@@ -49,7 +49,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("exampleUsingName", exampleUsingNamePrivateLinkAccess)
+//			ctx.Export("exampleUsingName", exampleUsingName)
 //			return nil
 //		})
 //	}

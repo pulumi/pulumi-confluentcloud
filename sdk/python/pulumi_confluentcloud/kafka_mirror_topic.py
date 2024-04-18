@@ -178,14 +178,14 @@ class KafkaMirrorTopic(pulumi.CustomResource):
                 topic_name="orders",
             ),
             cluster_link=confluentcloud.KafkaMirrorTopicClusterLinkArgs(
-                link_name=confluent_cluster_link["source-outbound"]["link_name"],
+                link_name=source_outbound["linkName"],
             ),
             kafka_cluster=confluentcloud.KafkaMirrorTopicKafkaClusterArgs(
-                id=data["confluent_kafka_cluster"]["destination"]["id"],
-                rest_endpoint=data["confluent_kafka_cluster"]["destination"]["rest_endpoint"],
+                id=destination["id"],
+                rest_endpoint=destination["restEndpoint"],
                 credentials=confluentcloud.KafkaMirrorTopicKafkaClusterCredentialsArgs(
-                    key=confluent_api_key["app-manager-destination-cluster-api-key"]["id"],
-                    secret=confluent_api_key["app-manager-destination-cluster-api-key"]["secret"],
+                    key=app_manager_destination_cluster_api_key["id"],
+                    secret=app_manager_destination_cluster_api_key["secret"],
                 ),
             ))
         ```
@@ -238,14 +238,14 @@ class KafkaMirrorTopic(pulumi.CustomResource):
                 topic_name="orders",
             ),
             cluster_link=confluentcloud.KafkaMirrorTopicClusterLinkArgs(
-                link_name=confluent_cluster_link["source-outbound"]["link_name"],
+                link_name=source_outbound["linkName"],
             ),
             kafka_cluster=confluentcloud.KafkaMirrorTopicKafkaClusterArgs(
-                id=data["confluent_kafka_cluster"]["destination"]["id"],
-                rest_endpoint=data["confluent_kafka_cluster"]["destination"]["rest_endpoint"],
+                id=destination["id"],
+                rest_endpoint=destination["restEndpoint"],
                 credentials=confluentcloud.KafkaMirrorTopicKafkaClusterCredentialsArgs(
-                    key=confluent_api_key["app-manager-destination-cluster-api-key"]["id"],
-                    secret=confluent_api_key["app-manager-destination-cluster-api-key"]["secret"],
+                    key=app_manager_destination_cluster_api_key["id"],
+                    secret=app_manager_destination_cluster_api_key["secret"],
                 ),
             ))
         ```

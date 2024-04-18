@@ -35,14 +35,14 @@ import (
 //					EgressByteRate:  pulumi.String("200"),
 //				},
 //				Principals: pulumi.StringArray{
-//					confluent_service_account.App_manager.Id,
-//					confluent_service_account.App_manager_2.Id,
+//					appManager.Id,
+//					appManager2.Id,
 //				},
 //				KafkaCluster: &confluentcloud.KafkaClientQuotaKafkaClusterArgs{
-//					Id: pulumi.Any(confluent_kafka_cluster.Dedicated.Id),
+//					Id: pulumi.Any(dedicated.Id),
 //				},
 //				Environment: &confluentcloud.KafkaClientQuotaEnvironmentArgs{
-//					Id: pulumi.Any(confluent_environment.Development.Id),
+//					Id: pulumi.Any(development.Id),
 //				},
 //			})
 //			if err != nil {

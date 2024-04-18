@@ -31,7 +31,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			development, err := confluentcloud.NewEnvironment(ctx, "development", nil)
+//			development, err := confluentcloud.NewEnvironment(ctx, "development", &confluentcloud.EnvironmentArgs{
+//				DisplayName: pulumi.String("Development"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -41,7 +43,7 @@ import (
 //					Id: development.ID(),
 //				},
 //				Gateway: &confluentcloud.AccessPointGatewayArgs{
-//					Id: pulumi.Any(confluent_network.Main.Gateway[0].Id),
+//					Id: pulumi.Any(mainConfluentNetwork.Gateway[0].Id),
 //				},
 //				AwsEgressPrivateLinkEndpoint: &confluentcloud.AccessPointAwsEgressPrivateLinkEndpointArgs{
 //					VpcEndpointServiceName: pulumi.String("com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000"),

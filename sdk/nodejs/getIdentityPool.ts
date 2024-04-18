@@ -18,20 +18,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdIdentityPool = confluentcloud.getIdentityPool({
- *     id: "pool-xyz456",
- *     identityProvider: {
- *         id: "op-abc123",
- *     },
- * });
- * export const exampleUsingId = exampleUsingIdIdentityPool;
- * const exampleUsingNameIdentityPool = confluentcloud.getIdentityPool({
- *     displayName: "My Identity Pool",
- *     identityProvider: {
- *         id: "op-abc123",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNameIdentityPool;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getIdentityPool({
+ *         id: "pool-xyz456",
+ *         identityProvider: {
+ *             id: "op-abc123",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getIdentityPool({
+ *         displayName: "My Identity Pool",
+ *         identityProvider: {
+ *             id: "op-abc123",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -106,20 +110,24 @@ export interface GetIdentityPoolResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdIdentityPool = confluentcloud.getIdentityPool({
- *     id: "pool-xyz456",
- *     identityProvider: {
- *         id: "op-abc123",
- *     },
- * });
- * export const exampleUsingId = exampleUsingIdIdentityPool;
- * const exampleUsingNameIdentityPool = confluentcloud.getIdentityPool({
- *     displayName: "My Identity Pool",
- *     identityProvider: {
- *         id: "op-abc123",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNameIdentityPool;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getIdentityPool({
+ *         id: "pool-xyz456",
+ *         identityProvider: {
+ *             id: "op-abc123",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getIdentityPool({
+ *         displayName: "My Identity Pool",
+ *         identityProvider: {
+ *             id: "op-abc123",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

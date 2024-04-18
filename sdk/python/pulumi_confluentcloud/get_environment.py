@@ -95,14 +95,14 @@ def get_environment(display_name: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_environment = confluentcloud.get_environment(id="env-abc123")
-    pulumi.export("exampleUsingId", example_using_id_environment)
-    example_using_name_environment = confluentcloud.get_environment(display_name="stag")
-    example_using_name_service_account = confluentcloud.get_service_account(display_name="test_sa")
+    example_using_id = confluentcloud.get_environment(id="env-abc123")
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_environment(display_name="stag")
+    example_using_name_get_service_account = confluentcloud.get_service_account(display_name="test_sa")
     test_role_binding = confluentcloud.RoleBinding("test-role-binding",
-        principal=f"User:{example_using_name_service_account.id}",
+        principal=f"User:{example_using_name_get_service_account.id}",
         role_name="EnvironmentAdmin",
-        crn_pattern=example_using_name_environment.resource_name)
+        crn_pattern=example_using_name.resource_name)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -143,14 +143,14 @@ def get_environment_output(display_name: Optional[pulumi.Input[Optional[str]]] =
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_environment = confluentcloud.get_environment(id="env-abc123")
-    pulumi.export("exampleUsingId", example_using_id_environment)
-    example_using_name_environment = confluentcloud.get_environment(display_name="stag")
-    example_using_name_service_account = confluentcloud.get_service_account(display_name="test_sa")
+    example_using_id = confluentcloud.get_environment(id="env-abc123")
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_environment(display_name="stag")
+    example_using_name_get_service_account = confluentcloud.get_service_account(display_name="test_sa")
     test_role_binding = confluentcloud.RoleBinding("test-role-binding",
-        principal=f"User:{example_using_name_service_account.id}",
+        principal=f"User:{example_using_name_get_service_account.id}",
         role_name="EnvironmentAdmin",
-        crn_pattern=example_using_name_environment.resource_name)
+        crn_pattern=example_using_name.resource_name)
     ```
     <!--End PulumiCodeChooser -->
 

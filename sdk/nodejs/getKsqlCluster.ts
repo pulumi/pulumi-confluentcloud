@@ -20,20 +20,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdKsqlCluster = confluentcloud.getKsqlCluster({
- *     id: "lksqlc-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingId = exampleUsingIdKsqlCluster;
- * const exampleUsingNameKsqlCluster = confluentcloud.getKsqlCluster({
- *     displayName: "ksqldb_cluster",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNameKsqlCluster;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getKsqlCluster({
+ *         id: "lksqlc-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getKsqlCluster({
+ *         displayName: "ksqldb_cluster",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */
@@ -129,20 +133,24 @@ export interface GetKsqlClusterResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
- * const exampleUsingIdKsqlCluster = confluentcloud.getKsqlCluster({
- *     id: "lksqlc-abc123",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingId = exampleUsingIdKsqlCluster;
- * const exampleUsingNameKsqlCluster = confluentcloud.getKsqlCluster({
- *     displayName: "ksqldb_cluster",
- *     environment: {
- *         id: "env-xyz456",
- *     },
- * });
- * export const exampleUsingName = exampleUsingNameKsqlCluster;
+ * export = async () => {
+ *     const exampleUsingId = await confluentcloud.getKsqlCluster({
+ *         id: "lksqlc-abc123",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     const exampleUsingName = await confluentcloud.getKsqlCluster({
+ *         displayName: "ksqldb_cluster",
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
+ *     return {
+ *         exampleUsingId: exampleUsingId,
+ *         exampleUsingName: exampleUsingName,
+ *     };
+ * }
  * ```
  * <!--End PulumiCodeChooser -->
  */

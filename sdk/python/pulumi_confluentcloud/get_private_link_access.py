@@ -134,16 +134,16 @@ def get_private_link_access(display_name: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_private_link_access = confluentcloud.get_private_link_access(id="pla-abc123",
+    example_using_id = confluentcloud.get_private_link_access(id="pla-abc123",
         environment=confluentcloud.GetPrivateLinkAccessEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingId", example_using_id_private_link_access)
-    example_using_name_private_link_access = confluentcloud.get_private_link_access(display_name="my_pla",
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_private_link_access(display_name="my_pla",
         environment=confluentcloud.GetPrivateLinkAccessEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingName", example_using_name_private_link_access)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -188,16 +188,16 @@ def get_private_link_access_output(display_name: Optional[pulumi.Input[Optional[
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
-    example_using_id_private_link_access = confluentcloud.get_private_link_access(id="pla-abc123",
+    example_using_id = confluentcloud.get_private_link_access(id="pla-abc123",
         environment=confluentcloud.GetPrivateLinkAccessEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingId", example_using_id_private_link_access)
-    example_using_name_private_link_access = confluentcloud.get_private_link_access(display_name="my_pla",
+    pulumi.export("exampleUsingId", example_using_id)
+    example_using_name = confluentcloud.get_private_link_access(display_name="my_pla",
         environment=confluentcloud.GetPrivateLinkAccessEnvironmentArgs(
             id="env-xyz456",
         ))
-    pulumi.export("exampleUsingName", example_using_name_private_link_access)
+    pulumi.export("exampleUsingName", example_using_name)
     ```
     <!--End PulumiCodeChooser -->
 
