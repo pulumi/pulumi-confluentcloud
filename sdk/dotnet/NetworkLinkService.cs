@@ -14,7 +14,6 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ### Example Network Link Service on AWS
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,7 +76,6 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Getting Started
     /// 

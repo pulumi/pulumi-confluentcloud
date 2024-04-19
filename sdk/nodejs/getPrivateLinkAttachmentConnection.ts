@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -26,7 +25,6 @@ import * as utilities from "./utilities";
  * });
  * export const plattc = main;
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Getting Started
  *
@@ -92,7 +90,6 @@ export interface GetPrivateLinkAttachmentConnectionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -105,7 +102,6 @@ export interface GetPrivateLinkAttachmentConnectionResult {
  * });
  * export const plattc = main;
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Getting Started
  *

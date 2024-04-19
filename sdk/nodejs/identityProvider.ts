@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ### Example Identity Provider: Azure AD
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -25,11 +24,9 @@ import * as utilities from "./utilities";
  *     jwksUri: "https://login.microsoftonline.com/common/discovery/v2.0/keys",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example Identity Provider: Okta
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -41,7 +38,6 @@ import * as utilities from "./utilities";
  *     jwksUri: "https://mycompany.okta.com/oauth2/default/v1/keys",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## External Documentation
  *

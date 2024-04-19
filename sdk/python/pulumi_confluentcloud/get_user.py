@@ -103,7 +103,6 @@ def get_user(email: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -127,7 +126,6 @@ def get_user(email: Optional[str] = None,
         crn_pattern=standard_cluster_on_aws.rbac_crn)
     example_using_full_name = confluentcloud.get_user(full_name="John Doe")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str email: The email address of the User.
@@ -163,7 +161,6 @@ def get_user_output(email: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -187,7 +184,6 @@ def get_user_output(email: Optional[pulumi.Input[Optional[str]]] = None,
         crn_pattern=standard_cluster_on_aws.rbac_crn)
     example_using_full_name = confluentcloud.get_user(full_name="John Doe")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str email: The email address of the User.

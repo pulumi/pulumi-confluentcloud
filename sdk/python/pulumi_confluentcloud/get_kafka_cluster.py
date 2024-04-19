@@ -250,7 +250,6 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -268,7 +267,6 @@ def get_kafka_cluster(basics: Optional[Sequence[pulumi.InputType['GetKafkaCluste
         ))
     pulumi.export("exampleUsingName", example_using_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetKafkaClusterBasicArgs']] basics: (Optional Configuration Block) The configuration of the Basic Kafka cluster.
@@ -327,7 +325,6 @@ def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[pul
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -345,7 +342,6 @@ def get_kafka_cluster_output(basics: Optional[pulumi.Input[Optional[Sequence[pul
         ))
     pulumi.export("exampleUsingName", example_using_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetKafkaClusterBasicArgs']] basics: (Optional Configuration Block) The configuration of the Basic Kafka cluster.

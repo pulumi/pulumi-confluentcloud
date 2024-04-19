@@ -138,7 +138,6 @@ class ServiceAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -147,7 +146,6 @@ class ServiceAccount(pulumi.CustomResource):
             display_name="orders-app-sa",
             description="Service Account for orders app")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 
@@ -206,7 +204,6 @@ class ServiceAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -215,7 +212,6 @@ class ServiceAccount(pulumi.CustomResource):
             display_name="orders-app-sa",
             description="Service Account for orders app")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 

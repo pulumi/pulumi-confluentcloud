@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,7 +42,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetFlinkRegion(ctx *pulumi.Context, args *GetFlinkRegionArgs, opts ...pulumi.InvokeOption) (*GetFlinkRegionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFlinkRegionResult

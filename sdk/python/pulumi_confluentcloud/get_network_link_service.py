@@ -126,7 +126,6 @@ def get_network_link_service(accept: Optional[pulumi.InputType['GetNetworkLinkSe
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -137,7 +136,6 @@ def get_network_link_service(accept: Optional[pulumi.InputType['GetNetworkLinkSe
         ))
     pulumi.export("networkLinkService", nls)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetNetworkLinkServiceAcceptArgs'] accept: (Optional Configuration Block) supports the following:
@@ -172,7 +170,6 @@ def get_network_link_service_output(accept: Optional[pulumi.Input[Optional[pulum
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -183,7 +180,6 @@ def get_network_link_service_output(accept: Optional[pulumi.Input[Optional[pulum
         ))
     pulumi.export("networkLinkService", nls)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetNetworkLinkServiceAcceptArgs'] accept: (Optional Configuration Block) supports the following:

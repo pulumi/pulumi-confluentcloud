@@ -134,7 +134,6 @@ def get_private_link_attachment_connection(environment: Optional[pulumi.InputTyp
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -145,7 +144,6 @@ def get_private_link_attachment_connection(environment: Optional[pulumi.InputTyp
         ))
     pulumi.export("plattc", main)
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Getting Started
 
@@ -184,7 +182,6 @@ def get_private_link_attachment_connection_output(environment: Optional[pulumi.I
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -195,7 +192,6 @@ def get_private_link_attachment_connection_output(environment: Optional[pulumi.I
         ))
     pulumi.export("plattc", main)
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Getting Started
 

@@ -21,7 +21,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,7 +47,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetSchemaRegistryRegion(ctx *pulumi.Context, args *GetSchemaRegistryRegionArgs, opts ...pulumi.InvokeOption) (*GetSchemaRegistryRegionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSchemaRegistryRegionResult

@@ -216,7 +216,6 @@ class Peering(pulumi.CustomResource):
 
         ### Example Peering on AWS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -246,11 +245,9 @@ class Peering(pulumi.CustomResource):
                 id=aws_peering.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Peering on Azure
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -279,7 +276,6 @@ class Peering(pulumi.CustomResource):
                 id=azure_peering.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -313,7 +309,6 @@ class Peering(pulumi.CustomResource):
 
         ### Example Peering on AWS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -343,11 +338,9 @@ class Peering(pulumi.CustomResource):
                 id=aws_peering.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Peering on Azure
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -376,7 +369,6 @@ class Peering(pulumi.CustomResource):
                 id=azure_peering.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

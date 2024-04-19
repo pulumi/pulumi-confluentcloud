@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -26,7 +25,6 @@ import * as utilities from "./utilities";
  * });
  * export const networkLinkService = nls;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkLinkService(args: GetNetworkLinkServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkLinkServiceResult> {
 
@@ -90,7 +88,6 @@ export interface GetNetworkLinkServiceResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -103,7 +100,6 @@ export interface GetNetworkLinkServiceResult {
  * });
  * export const networkLinkService = nls;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkLinkServiceOutput(args: GetNetworkLinkServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkLinkServiceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkLinkService(a, opts))

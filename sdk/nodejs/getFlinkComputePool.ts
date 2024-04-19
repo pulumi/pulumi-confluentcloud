@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -37,7 +36,6 @@ import * as utilities from "./utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFlinkComputePool(args: GetFlinkComputePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetFlinkComputePoolResult> {
 
@@ -117,7 +115,6 @@ export interface GetFlinkComputePoolResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -141,7 +138,6 @@ export interface GetFlinkComputePoolResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFlinkComputePoolOutput(args: GetFlinkComputePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlinkComputePoolResult> {
     return pulumi.output(args).apply((a: any) => getFlinkComputePool(a, opts))

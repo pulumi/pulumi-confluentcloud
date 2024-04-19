@@ -475,7 +475,6 @@ class KafkaCluster(pulumi.CustomResource):
 
         ### Example Kafka clusters on AWS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -511,11 +510,9 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Kafka clusters on Azure
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -551,11 +548,9 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Kafka clusters on GCP
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -591,7 +586,6 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 
@@ -658,7 +652,6 @@ class KafkaCluster(pulumi.CustomResource):
 
         ### Example Kafka clusters on AWS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -694,11 +687,9 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Kafka clusters on Azure
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -734,11 +725,9 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Kafka clusters on GCP
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -774,7 +763,6 @@ class KafkaCluster(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 

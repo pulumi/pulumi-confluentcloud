@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -26,7 +25,6 @@ import * as utilities from "./utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFlinkRegion(args: GetFlinkRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetFlinkRegionResult> {
 
@@ -81,7 +79,6 @@ export interface GetFlinkRegionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -96,7 +93,6 @@ export interface GetFlinkRegionResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFlinkRegionOutput(args: GetFlinkRegionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlinkRegionResult> {
     return pulumi.output(args).apply((a: any) => getFlinkRegion(a, opts))

@@ -153,7 +153,6 @@ def get_flink_compute_pool(display_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -169,7 +168,6 @@ def get_flink_compute_pool(display_name: Optional[str] = None,
         ))
     pulumi.export("exampleUsingName", example_using_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: A human-readable name for the Flink Compute Pool.
@@ -209,7 +207,6 @@ def get_flink_compute_pool_output(display_name: Optional[pulumi.Input[Optional[s
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -225,7 +222,6 @@ def get_flink_compute_pool_output(display_name: Optional[pulumi.Input[Optional[s
         ))
     pulumi.export("exampleUsingName", example_using_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: A human-readable name for the Flink Compute Pool.

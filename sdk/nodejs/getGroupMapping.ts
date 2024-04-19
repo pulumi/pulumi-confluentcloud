@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -30,7 +29,6 @@ import * as utilities from "./utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGroupMapping(args?: GetGroupMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupMappingResult> {
     args = args || {};
@@ -88,7 +86,6 @@ export interface GetGroupMappingResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -105,7 +102,6 @@ export interface GetGroupMappingResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGroupMappingOutput(args?: GetGroupMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupMappingResult> {
     return pulumi.output(args).apply((a: any) => getGroupMapping(a, opts))

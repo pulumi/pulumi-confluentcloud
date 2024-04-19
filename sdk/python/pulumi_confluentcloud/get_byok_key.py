@@ -90,7 +90,6 @@ def get_byok_key(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -98,7 +97,6 @@ def get_byok_key(id: Optional[str] = None,
     azure_key = confluentcloud.get_byok_key(id="cck-abcde")
     pulumi.export("byok", azure_key)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the BYOK key, for example, `cck-abcde`.
@@ -125,7 +123,6 @@ def get_byok_key_output(id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -133,7 +130,6 @@ def get_byok_key_output(id: Optional[pulumi.Input[str]] = None,
     azure_key = confluentcloud.get_byok_key(id="cck-abcde")
     pulumi.export("byok", azure_key)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the BYOK key, for example, `cck-abcde`.

@@ -138,7 +138,6 @@ def get_invitation(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -146,7 +145,6 @@ def get_invitation(id: Optional[str] = None,
     main = confluentcloud.get_invitation(id="i-gxxn1")
     pulumi.export("invitation", main)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Invitation, for example, `i-zyw30`.
@@ -177,7 +175,6 @@ def get_invitation_output(id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -185,7 +182,6 @@ def get_invitation_output(id: Optional[pulumi.Input[str]] = None,
     main = confluentcloud.get_invitation(id="i-gxxn1")
     pulumi.export("invitation", main)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Invitation, for example, `i-zyw30`.

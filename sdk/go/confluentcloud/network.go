@@ -15,7 +15,6 @@ import (
 // ## Example Usage
 //
 // ### Example Network that supports Private Link Connections
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,10 +57,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Network that supports Peering Connections
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -100,10 +97,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Network that supports Private Service Connect Connections
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -149,10 +144,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Network that supports Transit Gateway Endpoints
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -191,7 +184,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Getting Started
 //

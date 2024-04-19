@@ -102,7 +102,6 @@ def get_identity_provider(display_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -112,7 +111,6 @@ def get_identity_provider(display_name: Optional[str] = None,
     example_using_name = confluentcloud.get_identity_provider(display_name="My OIDC Provider: Azure AD")
     pulumi.export("exampleUsingName", example_using_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: A human-readable name for the Identity Provider.
@@ -145,7 +143,6 @@ def get_identity_provider_output(display_name: Optional[pulumi.Input[Optional[st
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -155,7 +152,6 @@ def get_identity_provider_output(display_name: Optional[pulumi.Input[Optional[st
     example_using_name = confluentcloud.get_identity_provider(display_name="My OIDC Provider: Azure AD")
     pulumi.export("exampleUsingName", example_using_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: A human-readable name for the Identity Provider.

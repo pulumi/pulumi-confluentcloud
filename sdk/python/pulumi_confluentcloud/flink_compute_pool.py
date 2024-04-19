@@ -247,7 +247,6 @@ class FlinkComputePool(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -262,7 +261,6 @@ class FlinkComputePool(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -295,7 +293,6 @@ class FlinkComputePool(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -310,7 +307,6 @@ class FlinkComputePool(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

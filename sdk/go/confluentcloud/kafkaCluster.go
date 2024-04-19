@@ -16,7 +16,6 @@ import (
 //
 // ### Example Kafka clusters on AWS
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,11 +80,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Kafka clusters on Azure
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -150,11 +147,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Kafka clusters on GCP
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -219,7 +214,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Getting Started
 //

@@ -64,7 +64,6 @@ def get_environments(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -72,7 +71,6 @@ def get_environments(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     main = confluentcloud.get_environments()
     pulumi.export("environments", main.ids)
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -92,7 +90,6 @@ def get_environments_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -100,6 +97,5 @@ def get_environments_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
     main = confluentcloud.get_environments()
     pulumi.export("environments", main.ids)
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

@@ -257,7 +257,6 @@ def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = 
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -275,7 +274,6 @@ def get_network(aws: Optional[Sequence[pulumi.InputType['GetNetworkAwArgs']]] = 
         ))
     pulumi.export("exampleUsingName", example_using_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetNetworkAwArgs']] aws: (Optional Configuration Block) The AWS-specific network details if available. It supports the following:
@@ -331,7 +329,6 @@ def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[pulumi.Input
     """
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -349,7 +346,6 @@ def get_network_output(aws: Optional[pulumi.Input[Optional[Sequence[pulumi.Input
         ))
     pulumi.export("exampleUsingName", example_using_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetNetworkAwArgs']] aws: (Optional Configuration Block) The AWS-specific network details if available. It supports the following:

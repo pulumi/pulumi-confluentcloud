@@ -216,7 +216,6 @@ class PrivateLinkAccess(pulumi.CustomResource):
 
         ### Example Private Link Access on AWS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -247,11 +246,9 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 id=aws_private_link.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Private Link Access on Azure
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -277,11 +274,9 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 id=azure_private_link.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Private Service Connect on GCP
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -312,7 +307,6 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 id=gcp_private_service_connect.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 
@@ -356,7 +350,6 @@ class PrivateLinkAccess(pulumi.CustomResource):
 
         ### Example Private Link Access on AWS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -387,11 +380,9 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 id=aws_private_link.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Private Link Access on Azure
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -417,11 +408,9 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 id=azure_private_link.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Private Service Connect on GCP
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -452,7 +441,6 @@ class PrivateLinkAccess(pulumi.CustomResource):
                 id=gcp_private_service_connect.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 

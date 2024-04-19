@@ -156,7 +156,6 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -174,7 +173,6 @@ class AccessPoint(pulumi.CustomResource):
                 vpc_endpoint_service_name="com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -208,7 +206,6 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -226,7 +223,6 @@ class AccessPoint(pulumi.CustomResource):
                 vpc_endpoint_service_name="com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

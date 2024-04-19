@@ -16,7 +16,6 @@ import (
 //
 // ### Example Transit Gateway Attachment on AWS
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,7 +76,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Getting Started
 //

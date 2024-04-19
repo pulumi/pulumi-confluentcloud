@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -40,7 +39,6 @@ import * as utilities from "./utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getKafkaCluster(args: GetKafkaClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaClusterResult> {
 
@@ -166,7 +164,6 @@ export interface GetKafkaClusterResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -193,7 +190,6 @@ export interface GetKafkaClusterResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getKafkaClusterOutput(args: GetKafkaClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaClusterResult> {
     return pulumi.output(args).apply((a: any) => getKafkaCluster(a, opts))

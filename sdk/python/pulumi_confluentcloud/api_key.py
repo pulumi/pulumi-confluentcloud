@@ -219,7 +219,6 @@ class ApiKey(pulumi.CustomResource):
         ## Example Usage
 
         ### Example Kafka API Key
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -241,10 +240,8 @@ class ApiKey(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example ksqlDB API Key
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -266,10 +263,8 @@ class ApiKey(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Schema Registry API Key
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -291,10 +286,8 @@ class ApiKey(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Flink API Key
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -316,10 +309,8 @@ class ApiKey(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Cloud API Key
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -333,7 +324,6 @@ class ApiKey(pulumi.CustomResource):
                 kind=env_manager["kind"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 
@@ -410,7 +400,6 @@ class ApiKey(pulumi.CustomResource):
         ## Example Usage
 
         ### Example Kafka API Key
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -432,10 +421,8 @@ class ApiKey(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example ksqlDB API Key
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -457,10 +444,8 @@ class ApiKey(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Schema Registry API Key
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -482,10 +467,8 @@ class ApiKey(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Flink API Key
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -507,10 +490,8 @@ class ApiKey(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Cloud API Key
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -524,7 +505,6 @@ class ApiKey(pulumi.CustomResource):
                 kind=env_manager["kind"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 

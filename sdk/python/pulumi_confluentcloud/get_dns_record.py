@@ -113,7 +113,6 @@ def get_dns_record(environment: Optional[pulumi.InputType['GetDnsRecordEnvironme
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -124,7 +123,6 @@ def get_dns_record(environment: Optional[pulumi.InputType['GetDnsRecordEnvironme
         ))
     pulumi.export("dnsRecord", main)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
@@ -155,7 +153,6 @@ def get_dns_record_output(environment: Optional[pulumi.Input[pulumi.InputType['G
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -166,7 +163,6 @@ def get_dns_record_output(environment: Optional[pulumi.Input[pulumi.InputType['G
         ))
     pulumi.export("dnsRecord", main)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.

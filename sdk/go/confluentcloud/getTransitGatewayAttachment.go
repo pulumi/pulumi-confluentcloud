@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,7 +54,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupTransitGatewayAttachment(ctx *pulumi.Context, args *LookupTransitGatewayAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupTransitGatewayAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTransitGatewayAttachmentResult

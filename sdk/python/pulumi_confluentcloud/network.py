@@ -556,7 +556,6 @@ class Network(pulumi.CustomResource):
         ## Example Usage
 
         ### Example Network that supports Private Link Connections
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -576,10 +575,8 @@ class Network(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Network that supports Peering Connections
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -595,10 +592,8 @@ class Network(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Network that supports Private Service Connect Connections
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -621,10 +616,8 @@ class Network(pulumi.CustomResource):
                 resolution="PRIVATE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Network that supports Transit Gateway Endpoints
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -640,7 +633,6 @@ class Network(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 
@@ -708,7 +700,6 @@ class Network(pulumi.CustomResource):
         ## Example Usage
 
         ### Example Network that supports Private Link Connections
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -728,10 +719,8 @@ class Network(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Network that supports Peering Connections
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -747,10 +736,8 @@ class Network(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Network that supports Private Service Connect Connections
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -773,10 +760,8 @@ class Network(pulumi.CustomResource):
                 resolution="PRIVATE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Network that supports Transit Gateway Endpoints
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -792,7 +777,6 @@ class Network(pulumi.CustomResource):
                 id=development.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 
