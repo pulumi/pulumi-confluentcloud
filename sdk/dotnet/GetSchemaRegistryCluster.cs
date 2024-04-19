@@ -27,6 +27,15 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Loads the only Schema Registry cluster in the target environment
+        ///     var exampleUsingEnvId = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
+        ///     {
+        ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
         ///     var exampleUsingId = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
         ///     {
         ///         Id = "lsrc-abc123",
@@ -47,6 +56,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
+        ///         ["exampleUsingEnvId"] = exampleUsingEnvId,
         ///         ["exampleUsingId"] = exampleUsingId,
         ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
@@ -73,6 +83,15 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Loads the only Schema Registry cluster in the target environment
+        ///     var exampleUsingEnvId = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
+        ///     {
+        ///         Environment = new ConfluentCloud.Inputs.GetSchemaRegistryClusterEnvironmentInputArgs
+        ///         {
+        ///             Id = "env-xyz456",
+        ///         },
+        ///     });
+        /// 
         ///     var exampleUsingId = ConfluentCloud.GetSchemaRegistryCluster.Invoke(new()
         ///     {
         ///         Id = "lsrc-abc123",
@@ -93,6 +112,7 @@ namespace Pulumi.ConfluentCloud
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
+        ///         ["exampleUsingEnvId"] = exampleUsingEnvId,
         ///         ["exampleUsingId"] = exampleUsingId,
         ///         ["exampleUsingName"] = exampleUsingName,
         ///     };
@@ -118,8 +138,6 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-        /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -143,8 +161,6 @@ namespace Pulumi.ConfluentCloud
 
         /// <summary>
         /// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-        /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

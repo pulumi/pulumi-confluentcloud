@@ -155,6 +155,11 @@ def get_schema_registry_cluster(display_name: Optional[str] = None,
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
+    # Loads the only Schema Registry cluster in the target environment
+    example_using_env_id = confluentcloud.get_schema_registry_cluster(environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(
+        id="env-xyz456",
+    ))
+    pulumi.export("exampleUsingEnvId", example_using_env_id)
     example_using_id = confluentcloud.get_schema_registry_cluster(id="lsrc-abc123",
         environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(
             id="env-xyz456",
@@ -171,8 +176,6 @@ def get_schema_registry_cluster(display_name: Optional[str] = None,
 
     :param str display_name: The name for the Schema Registry cluster.
     :param str id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-           
-           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     """
     __args__ = dict()
     __args__['displayName'] = display_name
@@ -210,6 +213,11 @@ def get_schema_registry_cluster_output(display_name: Optional[pulumi.Input[Optio
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
+    # Loads the only Schema Registry cluster in the target environment
+    example_using_env_id = confluentcloud.get_schema_registry_cluster(environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(
+        id="env-xyz456",
+    ))
+    pulumi.export("exampleUsingEnvId", example_using_env_id)
     example_using_id = confluentcloud.get_schema_registry_cluster(id="lsrc-abc123",
         environment=confluentcloud.GetSchemaRegistryClusterEnvironmentArgs(
             id="env-xyz456",
@@ -226,7 +234,5 @@ def get_schema_registry_cluster_output(display_name: Optional[pulumi.Input[Optio
 
     :param str display_name: The name for the Schema Registry cluster.
     :param str id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-           
-           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
     """
     ...

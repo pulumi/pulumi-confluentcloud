@@ -6406,8 +6406,6 @@ class GetSchemaRegistryClusterEnvironmentResult(dict):
                  id: str):
         """
         :param str id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-               
-               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         pulumi.set(__self__, "id", id)
 
@@ -6416,8 +6414,6 @@ class GetSchemaRegistryClusterEnvironmentResult(dict):
     def id(self) -> str:
         """
         The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-
-        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
 
@@ -6479,8 +6475,6 @@ class GetSchemaRegistryClusterRegionResult(dict):
                  id: str):
         """
         :param str id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-               
-               > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         pulumi.set(__self__, "id", id)
 
@@ -6489,8 +6483,6 @@ class GetSchemaRegistryClusterRegionResult(dict):
     def id(self) -> str:
         """
         The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-
-        > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
         """
         return pulumi.get(self, "id")
 

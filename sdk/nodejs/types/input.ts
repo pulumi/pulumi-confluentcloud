@@ -1085,8 +1085,6 @@ export interface GetSchemaRegistryClusterConfigSchemaRegistryClusterArgs {
 export interface GetSchemaRegistryClusterEnvironment {
     /**
      * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: string;
 }
@@ -1094,8 +1092,6 @@ export interface GetSchemaRegistryClusterEnvironment {
 export interface GetSchemaRegistryClusterEnvironmentArgs {
     /**
      * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id: pulumi.Input<string>;
 }
