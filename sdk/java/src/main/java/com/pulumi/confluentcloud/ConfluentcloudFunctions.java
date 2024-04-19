@@ -5787,6 +5787,14 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Loads the only Schema Registry cluster in the target environment
+     *         final var exampleUsingEnvId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingEnvId&#34;, exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
      *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .id(&#34;lsrc-abc123&#34;)
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
@@ -5842,6 +5850,14 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Loads the only Schema Registry cluster in the target environment
+     *         final var exampleUsingEnvId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingEnvId&#34;, exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
      *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .id(&#34;lsrc-abc123&#34;)
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
@@ -5897,6 +5913,14 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Loads the only Schema Registry cluster in the target environment
+     *         final var exampleUsingEnvId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingEnvId&#34;, exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
      *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .id(&#34;lsrc-abc123&#34;)
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
@@ -5952,6 +5976,14 @@ public final class ConfluentcloudFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Loads the only Schema Registry cluster in the target environment
+     *         final var exampleUsingEnvId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
+     *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
+     *                 .id(&#34;env-xyz456&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;exampleUsingEnvId&#34;, exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
      *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .id(&#34;lsrc-abc123&#34;)
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()

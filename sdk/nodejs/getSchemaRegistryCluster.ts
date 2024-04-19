@@ -19,6 +19,12 @@ import * as utilities from "./utilities";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * export = async () => {
+ *     // Loads the only Schema Registry cluster in the target environment
+ *     const exampleUsingEnvId = await confluentcloud.getSchemaRegistryCluster({
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
  *     const exampleUsingId = await confluentcloud.getSchemaRegistryCluster({
  *         id: "lsrc-abc123",
  *         environment: {
@@ -32,6 +38,7 @@ import * as utilities from "./utilities";
  *         },
  *     });
  *     return {
+ *         exampleUsingEnvId: exampleUsingEnvId,
  *         exampleUsingId: exampleUsingId,
  *         exampleUsingName: exampleUsingName,
  *     };
@@ -60,8 +67,6 @@ export interface GetSchemaRegistryClusterArgs {
     environment: inputs.GetSchemaRegistryClusterEnvironment;
     /**
      * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id?: string;
 }
@@ -117,6 +122,12 @@ export interface GetSchemaRegistryClusterResult {
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * export = async () => {
+ *     // Loads the only Schema Registry cluster in the target environment
+ *     const exampleUsingEnvId = await confluentcloud.getSchemaRegistryCluster({
+ *         environment: {
+ *             id: "env-xyz456",
+ *         },
+ *     });
  *     const exampleUsingId = await confluentcloud.getSchemaRegistryCluster({
  *         id: "lsrc-abc123",
  *         environment: {
@@ -130,6 +141,7 @@ export interface GetSchemaRegistryClusterResult {
  *         },
  *     });
  *     return {
+ *         exampleUsingEnvId: exampleUsingEnvId,
  *         exampleUsingId: exampleUsingId,
  *         exampleUsingName: exampleUsingName,
  *     };
@@ -152,8 +164,6 @@ export interface GetSchemaRegistryClusterOutputArgs {
     environment: pulumi.Input<inputs.GetSchemaRegistryClusterEnvironmentArgs>;
     /**
      * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
      */
     id?: pulumi.Input<string>;
 }

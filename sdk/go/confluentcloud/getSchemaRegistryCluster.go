@@ -30,6 +30,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Loads the only Schema Registry cluster in the target environment
+//			exampleUsingEnvId, err := confluentcloud.LookupSchemaRegistryCluster(ctx, &confluentcloud.LookupSchemaRegistryClusterArgs{
+//				Environment: confluentcloud.GetSchemaRegistryClusterEnvironment{
+//					Id: "env-xyz456",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("exampleUsingEnvId", exampleUsingEnvId)
 //			exampleUsingId, err := confluentcloud.LookupSchemaRegistryCluster(ctx, &confluentcloud.LookupSchemaRegistryClusterArgs{
 //				Id: pulumi.StringRef("lsrc-abc123"),
 //				Environment: confluentcloud.GetSchemaRegistryClusterEnvironment{
@@ -72,8 +82,6 @@ type LookupSchemaRegistryClusterArgs struct {
 	DisplayName *string                             `pulumi:"displayName"`
 	Environment GetSchemaRegistryClusterEnvironment `pulumi:"environment"`
 	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id *string `pulumi:"id"`
 }
 
@@ -117,8 +125,6 @@ type LookupSchemaRegistryClusterOutputArgs struct {
 	DisplayName pulumi.StringPtrInput                    `pulumi:"displayName"`
 	Environment GetSchemaRegistryClusterEnvironmentInput `pulumi:"environment"`
 	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 

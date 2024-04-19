@@ -26612,8 +26612,6 @@ func (o GetSchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) Id() pulum
 
 type GetSchemaRegistryClusterEnvironment struct {
 	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id string `pulumi:"id"`
 }
 
@@ -26630,8 +26628,6 @@ type GetSchemaRegistryClusterEnvironmentInput interface {
 
 type GetSchemaRegistryClusterEnvironmentArgs struct {
 	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -26662,8 +26658,6 @@ func (o GetSchemaRegistryClusterEnvironmentOutput) ToGetSchemaRegistryClusterEnv
 }
 
 // The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-//
-// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 func (o GetSchemaRegistryClusterEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -26971,8 +26965,6 @@ func (o GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) Id() pulumi.
 
 type GetSchemaRegistryClusterRegion struct {
 	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id string `pulumi:"id"`
 }
 
@@ -26989,8 +26981,6 @@ type GetSchemaRegistryClusterRegionInput interface {
 
 type GetSchemaRegistryClusterRegionArgs struct {
 	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -27046,8 +27036,6 @@ func (o GetSchemaRegistryClusterRegionOutput) ToGetSchemaRegistryClusterRegionOu
 }
 
 // The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-//
-// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
 func (o GetSchemaRegistryClusterRegionOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClusterRegion) string { return v.Id }).(pulumi.StringOutput)
 }

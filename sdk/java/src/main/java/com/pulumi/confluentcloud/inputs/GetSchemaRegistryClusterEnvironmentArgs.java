@@ -17,16 +17,12 @@ public final class GetSchemaRegistryClusterEnvironmentArgs extends com.pulumi.re
     /**
      * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
      * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
-     * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
      * @return The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
      * 
      */
     public Output<String> id() {
@@ -60,8 +56,6 @@ public final class GetSchemaRegistryClusterEnvironmentArgs extends com.pulumi.re
         /**
          * @param id The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
          * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
-         * 
          * @return builder
          * 
          */
@@ -72,8 +66,6 @@ public final class GetSchemaRegistryClusterEnvironmentArgs extends com.pulumi.re
 
         /**
          * @param id The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
-         * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
          * 
          * @return builder
          * 
