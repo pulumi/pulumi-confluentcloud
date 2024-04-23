@@ -18,7 +18,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -52,7 +51,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFlinkComputePoolResult> InvokeAsync(GetFlinkComputePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlinkComputePoolResult>("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", args ?? new GetFlinkComputePoolArgs(), options.WithDefaults());
@@ -64,7 +62,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -98,7 +95,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFlinkComputePoolResult> Invoke(GetFlinkComputePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlinkComputePoolResult>("confluentcloud:index/getFlinkComputePool:getFlinkComputePool", args ?? new GetFlinkComputePoolInvokeArgs(), options.WithDefaults());
@@ -120,9 +116,7 @@ namespace Pulumi.ConfluentCloud
         public Inputs.GetFlinkComputePoolEnvironmentArgs Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
-        /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -148,9 +142,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.GetFlinkComputePoolEnvironmentInputArgs> Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
-        /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

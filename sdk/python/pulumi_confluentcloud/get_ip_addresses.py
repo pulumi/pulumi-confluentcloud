@@ -79,7 +79,6 @@ def get_ip_addresses(filter: Optional[pulumi.InputType['GetIpAddressesFilterArgs
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -95,7 +94,6 @@ def get_ip_addresses(filter: Optional[pulumi.InputType['GetIpAddressesFilterArgs
     ))
     pulumi.export("ipAddresses", main.ip_addresses)
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     __args__['filter'] = filter
@@ -121,7 +119,6 @@ def get_ip_addresses_output(filter: Optional[pulumi.Input[Optional[pulumi.InputT
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -137,6 +134,5 @@ def get_ip_addresses_output(filter: Optional[pulumi.Input[Optional[pulumi.InputT
     ))
     pulumi.export("ipAddresses", main.ip_addresses)
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

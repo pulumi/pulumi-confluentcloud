@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupNetworkLinkService(ctx *pulumi.Context, args *LookupNetworkLinkServiceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkLinkServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkLinkServiceResult
@@ -61,7 +59,7 @@ type LookupNetworkLinkServiceArgs struct {
 	// (Optional Configuration Block) supports the following:
 	Accept      *GetNetworkLinkServiceAccept     `pulumi:"accept"`
 	Environment GetNetworkLinkServiceEnvironment `pulumi:"environment"`
-	// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+	// The ID of the Network Link Service, for example, `nls-zyw30`.
 	Id string `pulumi:"id"`
 }
 
@@ -100,7 +98,7 @@ type LookupNetworkLinkServiceOutputArgs struct {
 	// (Optional Configuration Block) supports the following:
 	Accept      GetNetworkLinkServiceAcceptPtrInput   `pulumi:"accept"`
 	Environment GetNetworkLinkServiceEnvironmentInput `pulumi:"environment"`
-	// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+	// The ID of the Network Link Service, for example, `nls-zyw30`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 

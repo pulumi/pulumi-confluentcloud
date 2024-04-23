@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetGateway(ctx *pulumi.Context, args *GetGatewayArgs, opts ...pulumi.InvokeOption) (*GetGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGatewayResult
@@ -59,7 +57,7 @@ func GetGateway(ctx *pulumi.Context, args *GetGatewayArgs, opts ...pulumi.Invoke
 // A collection of arguments for invoking getGateway.
 type GetGatewayArgs struct {
 	Environment GetGatewayEnvironment `pulumi:"environment"`
-	// The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+	// The ID of the Gateway, for example, `gw-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -91,7 +89,7 @@ func GetGatewayOutput(ctx *pulumi.Context, args GetGatewayOutputArgs, opts ...pu
 // A collection of arguments for invoking getGateway.
 type GetGatewayOutputArgs struct {
 	Environment GetGatewayEnvironmentInput `pulumi:"environment"`
-	// The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+	// The ID of the Gateway, for example, `gw-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 

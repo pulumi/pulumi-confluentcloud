@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class FlinkStatementComputePool
     {
         /// <summary>
-        /// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        /// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
         /// </summary>
         public readonly string Id;
 

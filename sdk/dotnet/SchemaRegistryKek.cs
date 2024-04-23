@@ -64,7 +64,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> KmsType { get; private set; } = null!;
 
         /// <summary>
-        /// The custom property name (for example, `KeyUsage`).
+        /// The name for the KEK.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string> KmsType { get; set; } = null!;
 
         /// <summary>
-        /// The custom property name (for example, `KeyUsage`).
+        /// The name for the KEK.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -270,7 +270,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? KmsType { get; set; }
 
         /// <summary>
-        /// The custom property name (for example, `KeyUsage`).
+        /// The name for the KEK.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Getting Started
 //
@@ -65,7 +63,7 @@ func LookupPrivateLinkAttachment(ctx *pulumi.Context, args *LookupPrivateLinkAtt
 // A collection of arguments for invoking getPrivateLinkAttachment.
 type LookupPrivateLinkAttachmentArgs struct {
 	Environment GetPrivateLinkAttachmentEnvironment `pulumi:"environment"`
-	// The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+	// The ID of the Private Link Attachment, for example, `platt-61ovvd`.
 	Id string `pulumi:"id"`
 }
 
@@ -107,7 +105,7 @@ func LookupPrivateLinkAttachmentOutput(ctx *pulumi.Context, args LookupPrivateLi
 // A collection of arguments for invoking getPrivateLinkAttachment.
 type LookupPrivateLinkAttachmentOutputArgs struct {
 	Environment GetPrivateLinkAttachmentEnvironmentInput `pulumi:"environment"`
-	// The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+	// The ID of the Private Link Attachment, for example, `platt-61ovvd`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 

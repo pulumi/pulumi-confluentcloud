@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  * const main = confluentcloud.getUsers({});
  * export const users = main.then(main => main.ids);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUsers(opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
 
@@ -48,7 +46,6 @@ export interface GetUsersResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -56,7 +53,6 @@ export interface GetUsersResult {
  * const main = confluentcloud.getUsers({});
  * export const users = main.then(main => main.ids);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUsersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
     return pulumi.output(getUsers(opts))

@@ -11,38 +11,38 @@ import java.util.Objects;
 @CustomType
 public final class ApiKeyOwner {
     /**
-     * @return The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+     * @return The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
      * 
      */
     private String apiVersion;
     /**
-     * @return The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * @return The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
      * 
      */
     private String id;
     /**
-     * @return The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+     * @return The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
      * 
      */
     private String kind;
 
     private ApiKeyOwner() {}
     /**
-     * @return The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+     * @return The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
      * 
      */
     public String apiVersion() {
         return this.apiVersion;
     }
     /**
-     * @return The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * @return The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+     * @return The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
      * 
      */
     public String kind() {

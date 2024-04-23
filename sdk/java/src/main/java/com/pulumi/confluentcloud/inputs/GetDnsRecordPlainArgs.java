@@ -22,14 +22,14 @@ public final class GetDnsRecordPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+     * The ID of the DNS Record, for example, `dnsrec-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
-     * @return The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+     * @return The ID of the DNS Record, for example, `dnsrec-abc123`.
      * 
      */
     public String id() {
@@ -67,7 +67,7 @@ public final class GetDnsRecordPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param id The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+         * @param id The ID of the DNS Record, for example, `dnsrec-abc123`.
          * 
          * @return builder
          * 

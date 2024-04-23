@@ -134,7 +134,6 @@ def get_private_link_attachment_connection(environment: Optional[pulumi.InputTyp
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -145,7 +144,6 @@ def get_private_link_attachment_connection(environment: Optional[pulumi.InputTyp
         ))
     pulumi.export("plattc", main)
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Getting Started
 
@@ -154,7 +152,7 @@ def get_private_link_attachment_connection(environment: Optional[pulumi.InputTyp
     * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
 
 
-    :param str id: The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+    :param str id: The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
     """
     __args__ = dict()
     __args__['environment'] = environment
@@ -184,7 +182,6 @@ def get_private_link_attachment_connection_output(environment: Optional[pulumi.I
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -195,7 +192,6 @@ def get_private_link_attachment_connection_output(environment: Optional[pulumi.I
         ))
     pulumi.export("plattc", main)
     ```
-    <!--End PulumiCodeChooser -->
 
     ## Getting Started
 
@@ -204,6 +200,6 @@ def get_private_link_attachment_connection_output(environment: Optional[pulumi.I
     * `enterprise-privatelinkattachment-azure-kafka-acls`: _Enterprise_ Kafka cluster on Azure that is accessible via PrivateLink connections with authorization using ACLs
 
 
-    :param str id: The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+    :param str id: The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
     """
     ...

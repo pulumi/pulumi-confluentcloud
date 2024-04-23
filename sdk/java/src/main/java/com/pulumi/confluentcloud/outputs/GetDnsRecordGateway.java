@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetDnsRecordGateway {
     /**
-     * @return The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+     * @return The ID of the DNS Record, for example, `dnsrec-abc123`.
      * 
      */
     private String id;
 
     private GetDnsRecordGateway() {}
     /**
-     * @return The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+     * @return The ID of the DNS Record, for example, `dnsrec-abc123`.
      * 
      */
     public String id() {

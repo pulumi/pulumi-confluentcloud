@@ -18,7 +18,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDnsRecordResult> InvokeAsync(GetDnsRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDnsRecordResult>("confluentcloud:index/getDnsRecord:getDnsRecord", args ?? new GetDnsRecordArgs(), options.WithDefaults());
@@ -54,7 +52,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -78,7 +75,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDnsRecordResult> Invoke(GetDnsRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsRecordResult>("confluentcloud:index/getDnsRecord:getDnsRecord", args ?? new GetDnsRecordInvokeArgs(), options.WithDefaults());
@@ -91,7 +87,7 @@ namespace Pulumi.ConfluentCloud
         public Inputs.GetDnsRecordEnvironmentArgs Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+        /// The ID of the DNS Record, for example, `dnsrec-abc123`.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -108,7 +104,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.GetDnsRecordEnvironmentInputArgs> Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+        /// The ID of the DNS Record, for example, `dnsrec-abc123`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

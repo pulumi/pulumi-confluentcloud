@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetSchemaRegistryClusterRegionResult
     {
         /// <summary>
-        /// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        /// The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
         /// </summary>
         public readonly string Id;
 

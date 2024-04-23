@@ -27,7 +27,7 @@ class BusinessMetadataArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BusinessMetadataAttributeDefinitionArgs']]] attribute_definitions: The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
         :param pulumi.Input['BusinessMetadataCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] description: The description of the Business Metadata.
-        :param pulumi.Input[str] name: The name of the attribute.
+        :param pulumi.Input[str] name: The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         if attribute_definitions is not None:
@@ -83,7 +83,7 @@ class BusinessMetadataArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the attribute.
+        The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         return pulumi.get(self, "name")
 
@@ -128,7 +128,7 @@ class _BusinessMetadataState:
         :param pulumi.Input[Sequence[pulumi.Input['BusinessMetadataAttributeDefinitionArgs']]] attribute_definitions: The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
         :param pulumi.Input['BusinessMetadataCredentialsArgs'] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] description: The description of the Business Metadata.
-        :param pulumi.Input[str] name: The name of the attribute.
+        :param pulumi.Input[str] name: The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[int] version: (Required Integer) The version of the Business Metadata, for example, `1`.
         """
@@ -187,7 +187,7 @@ class _BusinessMetadataState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the attribute.
+        The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         return pulumi.get(self, "name")
 
@@ -263,7 +263,7 @@ class BusinessMetadata(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BusinessMetadataAttributeDefinitionArgs']]]] attribute_definitions: The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
         :param pulumi.Input[pulumi.InputType['BusinessMetadataCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] description: The description of the Business Metadata.
-        :param pulumi.Input[str] name: The name of the attribute.
+        :param pulumi.Input[str] name: The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         ...
@@ -355,7 +355,7 @@ class BusinessMetadata(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BusinessMetadataAttributeDefinitionArgs']]]] attribute_definitions: The list of attribute definitions (see [Business Metadata](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog.html#business-metadata-for-schemas) for more details):
         :param pulumi.Input[pulumi.InputType['BusinessMetadataCredentialsArgs']] credentials: The Cluster API Credentials.
         :param pulumi.Input[str] description: The description of the Business Metadata.
-        :param pulumi.Input[str] name: The name of the attribute.
+        :param pulumi.Input[str] name: The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[int] version: (Required Integer) The version of the Business Metadata, for example, `1`.
         """
@@ -400,7 +400,7 @@ class BusinessMetadata(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the attribute.
+        The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
         """
         return pulumi.get(self, "name")
 

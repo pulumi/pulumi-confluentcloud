@@ -103,14 +103,14 @@ public class SchemaExporter extends com.pulumi.resources.CustomResource {
         return this.destinationSchemaRegistryCluster;
     }
     /**
-     * The configuration setting name.
+     * Name of the Schema Exporter.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The configuration setting name.
+     * @return Name of the Schema Exporter.
      * 
      */
     public Output<String> name() {
@@ -131,14 +131,14 @@ public class SchemaExporter extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resetOnUpdate);
     }
     /**
-     * The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
     @Export(name="restEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * @return The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
     public Output<Optional<String>> restEndpoint() {

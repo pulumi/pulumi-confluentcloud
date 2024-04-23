@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -26,7 +25,6 @@ import * as utilities from "./utilities";
  * });
  * export const networkLinkEndpoint = nle;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkLinkEndpoint(args: GetNetworkLinkEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkLinkEndpointResult> {
 
@@ -43,7 +41,7 @@ export function getNetworkLinkEndpoint(args: GetNetworkLinkEndpointArgs, opts?: 
 export interface GetNetworkLinkEndpointArgs {
     environment: inputs.GetNetworkLinkEndpointEnvironment;
     /**
-     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     * The ID of the Network Link Endpoint, for example, `nle-zyw30`.
      */
     id: string;
 }
@@ -85,7 +83,6 @@ export interface GetNetworkLinkEndpointResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -98,7 +95,6 @@ export interface GetNetworkLinkEndpointResult {
  * });
  * export const networkLinkEndpoint = nle;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkLinkEndpointOutput(args: GetNetworkLinkEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkLinkEndpointResult> {
     return pulumi.output(args).apply((a: any) => getNetworkLinkEndpoint(a, opts))
@@ -110,7 +106,7 @@ export function getNetworkLinkEndpointOutput(args: GetNetworkLinkEndpointOutputA
 export interface GetNetworkLinkEndpointOutputArgs {
     environment: pulumi.Input<inputs.GetNetworkLinkEndpointEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     * The ID of the Network Link Endpoint, for example, `nle-zyw30`.
      */
     id: pulumi.Input<string>;
 }

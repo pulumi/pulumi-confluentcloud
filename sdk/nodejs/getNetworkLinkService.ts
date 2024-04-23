@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -26,7 +25,6 @@ import * as utilities from "./utilities";
  * });
  * export const networkLinkService = nls;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkLinkService(args: GetNetworkLinkServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkLinkServiceResult> {
 
@@ -48,7 +46,7 @@ export interface GetNetworkLinkServiceArgs {
     accept?: inputs.GetNetworkLinkServiceAccept;
     environment: inputs.GetNetworkLinkServiceEnvironment;
     /**
-     * The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+     * The ID of the Network Link Service, for example, `nls-zyw30`.
      */
     id: string;
 }
@@ -90,7 +88,6 @@ export interface GetNetworkLinkServiceResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -103,7 +100,6 @@ export interface GetNetworkLinkServiceResult {
  * });
  * export const networkLinkService = nls;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkLinkServiceOutput(args: GetNetworkLinkServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkLinkServiceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkLinkService(a, opts))
@@ -119,7 +115,7 @@ export interface GetNetworkLinkServiceOutputArgs {
     accept?: pulumi.Input<inputs.GetNetworkLinkServiceAcceptArgs>;
     environment: pulumi.Input<inputs.GetNetworkLinkServiceEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+     * The ID of the Network Link Service, for example, `nls-zyw30`.
      */
     id: pulumi.Input<string>;
 }

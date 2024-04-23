@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class KafkaClusterNetworkGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        /// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

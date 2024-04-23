@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class KsqlClusterKafkaCluster
     {
         /// <summary>
-        /// The ID of the associated service or user account, for example, `sa-abc123`.
+        /// The ID of the associated Kafka cluster, for example, `lkc-abc123`.
         /// </summary>
         public readonly string Id;
 

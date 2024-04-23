@@ -65,9 +65,9 @@ type Schema struct {
 	// The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
 	SchemaReferences      SchemaSchemaReferenceArrayOutput     `pulumi:"schemaReferences"`
 	SchemaRegistryCluster SchemaSchemaRegistryClusterPtrOutput `pulumi:"schemaRegistryCluster"`
-	// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName pulumi.StringOutput `pulumi:"subjectName"`
-	// The version, representing the exact version of the schema under the registered subject.
+	// (Required Integer) The version of the Schema, for example, `4`.
 	Version pulumi.IntOutput `pulumi:"version"`
 }
 
@@ -135,9 +135,9 @@ type schemaState struct {
 	// The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
 	SchemaReferences      []SchemaSchemaReference      `pulumi:"schemaReferences"`
 	SchemaRegistryCluster *SchemaSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
-	// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName *string `pulumi:"subjectName"`
-	// The version, representing the exact version of the schema under the registered subject.
+	// (Required Integer) The version of the Schema, for example, `4`.
 	Version *int `pulumi:"version"`
 }
 
@@ -163,9 +163,9 @@ type SchemaState struct {
 	// The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
 	SchemaReferences      SchemaSchemaReferenceArrayInput
 	SchemaRegistryCluster SchemaSchemaRegistryClusterPtrInput
-	// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName pulumi.StringPtrInput
-	// The version, representing the exact version of the schema under the registered subject.
+	// (Required Integer) The version of the Schema, for example, `4`.
 	Version pulumi.IntPtrInput
 }
 
@@ -193,7 +193,7 @@ type schemaArgs struct {
 	// The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
 	SchemaReferences      []SchemaSchemaReference      `pulumi:"schemaReferences"`
 	SchemaRegistryCluster *SchemaSchemaRegistryCluster `pulumi:"schemaRegistryCluster"`
-	// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName string `pulumi:"subjectName"`
 }
 
@@ -218,7 +218,7 @@ type SchemaArgs struct {
 	// The list of referenced schemas (see [Schema References](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#schema-references) for more details):
 	SchemaReferences      SchemaSchemaReferenceArrayInput
 	SchemaRegistryCluster SchemaSchemaRegistryClusterPtrInput
-	// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+	// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 	SubjectName pulumi.StringInput
 }
 
@@ -363,12 +363,12 @@ func (o SchemaOutput) SchemaRegistryCluster() SchemaSchemaRegistryClusterPtrOutp
 	return o.ApplyT(func(v *Schema) SchemaSchemaRegistryClusterPtrOutput { return v.SchemaRegistryCluster }).(SchemaSchemaRegistryClusterPtrOutput)
 }
 
-// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+// The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
 func (o SchemaOutput) SubjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.SubjectName }).(pulumi.StringOutput)
 }
 
-// The version, representing the exact version of the schema under the registered subject.
+// (Required Integer) The version of the Schema, for example, `4`.
 func (o SchemaOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v *Schema) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
 }

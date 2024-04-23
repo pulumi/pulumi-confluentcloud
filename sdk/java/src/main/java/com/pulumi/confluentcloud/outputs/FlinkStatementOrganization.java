@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class FlinkStatementOrganization {
     /**
-     * @return The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     * @return The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
      * 
      */
     private String id;
 
     private FlinkStatementOrganization() {}
     /**
-     * @return The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     * @return The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
      * 
      */
     public String id() {

@@ -128,7 +128,6 @@ def get_kafka_client_quota(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -136,7 +135,6 @@ def get_kafka_client_quota(id: Optional[str] = None,
     example = confluentcloud.get_kafka_client_quota(id="cq-abc123")
     pulumi.export("example", example)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Kafka Client Quota (for example, `cq-abc123`).
@@ -168,7 +166,6 @@ def get_kafka_client_quota_output(id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -176,7 +173,6 @@ def get_kafka_client_quota_output(id: Optional[pulumi.Input[str]] = None,
     example = confluentcloud.get_kafka_client_quota(id="cq-abc123")
     pulumi.export("example", example)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The ID of the Kafka Client Quota (for example, `cq-abc123`).

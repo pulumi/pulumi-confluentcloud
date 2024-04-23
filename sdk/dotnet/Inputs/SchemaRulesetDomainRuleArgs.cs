@@ -12,59 +12,29 @@ namespace Pulumi.ConfluentCloud.Inputs
 
     public sealed class SchemaRulesetDomainRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An optional description of the rule.
-        /// </summary>
         [Input("doc")]
         public Input<string>? Doc { get; set; }
 
-        /// <summary>
-        /// The body of the rule, which is optional.
-        /// </summary>
         [Input("expr")]
         public Input<string>? Expr { get; set; }
 
-        /// <summary>
-        /// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-        /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
-        /// <summary>
-        /// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-        /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
-        /// <summary>
-        /// A user-defined name that can be used to reference the rule.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-        /// </summary>
         [Input("onFailure")]
         public Input<string>? OnFailure { get; set; }
 
-        /// <summary>
-        /// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
-        /// </summary>
         [Input("onSuccess")]
         public Input<string>? OnSuccess { get; set; }
 
         [Input("params")]
         private InputMap<string>? _params;
-
-        /// <summary>
-        /// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-        /// 
-        /// &gt; **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-        /// 
-        /// &gt; **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-        /// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-        /// </summary>
         public InputMap<string> Params
         {
             get => _params ?? (_params = new InputMap<string>());
@@ -73,19 +43,12 @@ namespace Pulumi.ConfluentCloud.Inputs
 
         [Input("tags")]
         private InputList<string>? _tags;
-
-        /// <summary>
-        /// The tags to which the rule applies, if any.
-        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

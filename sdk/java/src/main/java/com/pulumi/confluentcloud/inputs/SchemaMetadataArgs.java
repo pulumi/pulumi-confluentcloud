@@ -48,17 +48,9 @@ public final class SchemaMetadataArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.sensitives);
     }
 
-    /**
-     * The tags to which the rule applies, if any.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<List<SchemaMetadataTagArgs>> tags;
 
-    /**
-     * @return The tags to which the rule applies, if any.
-     * 
-     */
     public Optional<Output<List<SchemaMetadataTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -141,33 +133,15 @@ public final class SchemaMetadataArgs extends com.pulumi.resources.ResourceArgs 
             return sensitives(List.of(sensitives));
         }
 
-        /**
-         * @param tags The tags to which the rule applies, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<List<SchemaMetadataTagArgs>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags The tags to which the rule applies, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(List<SchemaMetadataTagArgs> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tags The tags to which the rule applies, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(SchemaMetadataTagArgs... tags) {
             return tags(List.of(tags));
         }

@@ -19,7 +19,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,7 +56,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupKsqlCluster(ctx *pulumi.Context, args *LookupKsqlClusterArgs, opts ...pulumi.InvokeOption) (*LookupKsqlClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKsqlClusterResult
@@ -73,9 +71,7 @@ type LookupKsqlClusterArgs struct {
 	// The name of the ksqlDB cluster.
 	DisplayName *string                   `pulumi:"displayName"`
 	Environment GetKsqlClusterEnvironment `pulumi:"environment"`
-	// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
 	Id *string `pulumi:"id"`
 }
 
@@ -125,9 +121,7 @@ type LookupKsqlClusterOutputArgs struct {
 	// The name of the ksqlDB cluster.
 	DisplayName pulumi.StringPtrInput          `pulumi:"displayName"`
 	Environment GetKsqlClusterEnvironmentInput `pulumi:"environment"`
-	// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 

@@ -263,7 +263,6 @@ class CustomConnectorPlugin(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -276,7 +275,6 @@ class CustomConnectorPlugin(pulumi.CustomResource):
             sensitive_config_properties=[],
             filename="confluentinc-kafka-connect-datagen-0.6.2.zip")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -311,7 +309,6 @@ class CustomConnectorPlugin(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -324,7 +321,6 @@ class CustomConnectorPlugin(pulumi.CustomResource):
             sensitive_config_properties=[],
             filename="confluentinc-kafka-connect-datagen-0.6.2.zip")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

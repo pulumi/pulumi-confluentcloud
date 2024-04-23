@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class DnsForwarderEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+        /// The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

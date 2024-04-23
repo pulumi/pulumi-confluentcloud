@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class KafkaClusterEnvironment {
     /**
-     * @return The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     * @return The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
      * 
      */
     private String id;
 
     private KafkaClusterEnvironment() {}
     /**
-     * @return The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     * @return The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
      * 
      */
     public String id() {

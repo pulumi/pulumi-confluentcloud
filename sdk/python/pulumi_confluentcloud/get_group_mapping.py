@@ -92,7 +92,6 @@ def get_group_mapping(display_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -101,7 +100,6 @@ def get_group_mapping(display_name: Optional[str] = None,
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_group_mapping(display_name="Default")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: The name of the Group Mapping.
@@ -135,7 +133,6 @@ def get_group_mapping_output(display_name: Optional[pulumi.Input[Optional[str]]]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -144,7 +141,6 @@ def get_group_mapping_output(display_name: Optional[pulumi.Input[Optional[str]]]
     pulumi.export("exampleUsingId", example_using_id)
     example_using_name = confluentcloud.get_group_mapping(display_name="Default")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: The name of the Group Mapping.

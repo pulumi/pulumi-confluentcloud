@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -39,7 +38,6 @@ import * as utilities from "./utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getKsqlCluster(args: GetKsqlClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKsqlClusterResult> {
 
@@ -61,9 +59,7 @@ export interface GetKsqlClusterArgs {
     displayName?: string;
     environment: inputs.GetKsqlClusterEnvironment;
     /**
-     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
      */
     id?: string;
 }
@@ -128,7 +124,6 @@ export interface GetKsqlClusterResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -152,7 +147,6 @@ export interface GetKsqlClusterResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getKsqlClusterOutput(args: GetKsqlClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKsqlClusterResult> {
     return pulumi.output(args).apply((a: any) => getKsqlCluster(a, opts))
@@ -168,9 +162,7 @@ export interface GetKsqlClusterOutputArgs {
     displayName?: pulumi.Input<string>;
     environment: pulumi.Input<inputs.GetKsqlClusterEnvironmentArgs>;
     /**
-     * The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
      */
     id?: pulumi.Input<string>;
 }

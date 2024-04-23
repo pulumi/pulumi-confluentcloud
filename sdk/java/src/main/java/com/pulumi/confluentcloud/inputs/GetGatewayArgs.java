@@ -23,14 +23,14 @@ public final class GetGatewayArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+     * The ID of the Gateway, for example, `gw-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+     * @return The ID of the Gateway, for example, `gw-abc123`.
      * 
      */
     public Output<String> id() {
@@ -72,7 +72,7 @@ public final class GetGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+         * @param id The ID of the Gateway, for example, `gw-abc123`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetGatewayArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+         * @param id The ID of the Gateway, for example, `gw-abc123`.
          * 
          * @return builder
          * 

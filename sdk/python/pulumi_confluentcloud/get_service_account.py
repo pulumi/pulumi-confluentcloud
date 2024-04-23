@@ -102,7 +102,6 @@ def get_service_account(display_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -112,7 +111,6 @@ def get_service_account(display_name: Optional[str] = None,
     example_using_name = confluentcloud.get_service_account(display_name="test_sa")
     test_env = confluentcloud.Environment("test-env", display_name=f"env_for_{example_using_id.display_name}")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: A human-readable name for the Service Account.
@@ -145,7 +143,6 @@ def get_service_account_output(display_name: Optional[pulumi.Input[Optional[str]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -155,7 +152,6 @@ def get_service_account_output(display_name: Optional[pulumi.Input[Optional[str]
     example_using_name = confluentcloud.get_service_account(display_name="test_sa")
     test_env = confluentcloud.Environment("test-env", display_name=f"env_for_{example_using_id.display_name}")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: A human-readable name for the Service Account.

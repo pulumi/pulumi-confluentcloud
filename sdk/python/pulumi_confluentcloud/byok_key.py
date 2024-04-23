@@ -143,7 +143,6 @@ class ByokKey(pulumi.CustomResource):
 
         ### Example BYOK Key on Azure
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -154,11 +153,9 @@ class ByokKey(pulumi.CustomResource):
             key_identifier="https://test-vault.vault.azure.net/keys/test-key",
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example BYOK Key on GCP
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -167,7 +164,6 @@ class ByokKey(pulumi.CustomResource):
             key_id="projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test",
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 
@@ -212,7 +208,6 @@ class ByokKey(pulumi.CustomResource):
 
         ### Example BYOK Key on Azure
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -223,11 +218,9 @@ class ByokKey(pulumi.CustomResource):
             key_identifier="https://test-vault.vault.azure.net/keys/test-key",
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example BYOK Key on GCP
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -236,7 +229,6 @@ class ByokKey(pulumi.CustomResource):
             key_id="projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test",
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 

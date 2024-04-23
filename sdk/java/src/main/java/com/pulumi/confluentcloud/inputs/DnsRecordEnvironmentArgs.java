@@ -15,14 +15,14 @@ public final class DnsRecordEnvironmentArgs extends com.pulumi.resources.Resourc
     public static final DnsRecordEnvironmentArgs Empty = new DnsRecordEnvironmentArgs();
 
     /**
-     * The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+     * The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+     * @return The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
      * 
      */
     public Output<String> id() {
@@ -54,7 +54,7 @@ public final class DnsRecordEnvironmentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param id The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+         * @param id The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DnsRecordEnvironmentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param id The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+         * @param id The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 

@@ -125,7 +125,6 @@ def get_network_link_endpoint(environment: Optional[pulumi.InputType['GetNetwork
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -136,10 +135,9 @@ def get_network_link_endpoint(environment: Optional[pulumi.InputType['GetNetwork
         ))
     pulumi.export("networkLinkEndpoint", nle)
     ```
-    <!--End PulumiCodeChooser -->
 
 
-    :param str id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+    :param str id: The ID of the Network Link Endpoint, for example, `nle-zyw30`.
     """
     __args__ = dict()
     __args__['environment'] = environment
@@ -168,7 +166,6 @@ def get_network_link_endpoint_output(environment: Optional[pulumi.Input[pulumi.I
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -179,9 +176,8 @@ def get_network_link_endpoint_output(environment: Optional[pulumi.Input[pulumi.I
         ))
     pulumi.export("networkLinkEndpoint", nle)
     ```
-    <!--End PulumiCodeChooser -->
 
 
-    :param str id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+    :param str id: The ID of the Network Link Endpoint, for example, `nle-zyw30`.
     """
     ...

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ApiKeyManagedResourceEnvironment {
     /**
-     * @return The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * @return (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
      * 
      */
     private String id;
 
     private ApiKeyManagedResourceEnvironment() {}
     /**
-     * @return The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * @return (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
      * 
      */
     public String id() {

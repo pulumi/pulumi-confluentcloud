@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,7 +54,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupTransitGatewayAttachment(ctx *pulumi.Context, args *LookupTransitGatewayAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupTransitGatewayAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTransitGatewayAttachmentResult
@@ -72,9 +70,7 @@ type LookupTransitGatewayAttachmentArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// (Required Configuration Block) supports the following:
 	Environment GetTransitGatewayAttachmentEnvironment `pulumi:"environment"`
-	// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Peering, for example, `tgwa-abc123`.
 	Id *string `pulumi:"id"`
 }
 
@@ -111,9 +107,7 @@ type LookupTransitGatewayAttachmentOutputArgs struct {
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// (Required Configuration Block) supports the following:
 	Environment GetTransitGatewayAttachmentEnvironmentInput `pulumi:"environment"`
-	// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Peering, for example, `tgwa-abc123`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 

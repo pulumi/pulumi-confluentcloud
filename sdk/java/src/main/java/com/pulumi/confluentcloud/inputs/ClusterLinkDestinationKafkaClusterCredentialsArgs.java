@@ -15,14 +15,14 @@ public final class ClusterLinkDestinationKafkaClusterCredentialsArgs extends com
     public static final ClusterLinkDestinationKafkaClusterCredentialsArgs Empty = new ClusterLinkDestinationKafkaClusterCredentialsArgs();
 
     /**
-     * The Kafka API Key.
+     * The Kafka API Key for your Confluent Cloud cluster.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The Kafka API Key.
+     * @return The Kafka API Key for your Confluent Cloud cluster.
      * 
      */
     public Output<String> key() {
@@ -30,14 +30,14 @@ public final class ClusterLinkDestinationKafkaClusterCredentialsArgs extends com
     }
 
     /**
-     * The Kafka API Secret.
+     * The Kafka API Secret for your Confluent Cloud cluster.
      * 
      */
     @Import(name="secret", required=true)
     private Output<String> secret;
 
     /**
-     * @return The Kafka API Secret.
+     * @return The Kafka API Secret for your Confluent Cloud cluster.
      * 
      */
     public Output<String> secret() {
@@ -70,7 +70,7 @@ public final class ClusterLinkDestinationKafkaClusterCredentialsArgs extends com
         }
 
         /**
-         * @param key The Kafka API Key.
+         * @param key The Kafka API Key for your Confluent Cloud cluster.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ClusterLinkDestinationKafkaClusterCredentialsArgs extends com
         }
 
         /**
-         * @param key The Kafka API Key.
+         * @param key The Kafka API Key for your Confluent Cloud cluster.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ClusterLinkDestinationKafkaClusterCredentialsArgs extends com
         }
 
         /**
-         * @param secret The Kafka API Secret.
+         * @param secret The Kafka API Secret for your Confluent Cloud cluster.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ClusterLinkDestinationKafkaClusterCredentialsArgs extends com
         }
 
         /**
-         * @param secret The Kafka API Secret.
+         * @param secret The Kafka API Secret for your Confluent Cloud cluster.
          * 
          * @return builder
          * 

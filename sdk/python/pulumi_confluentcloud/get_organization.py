@@ -64,7 +64,6 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -72,7 +71,6 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     example = confluentcloud.get_organization()
     pulumi.export("example", example)
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -92,7 +90,6 @@ def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -100,6 +97,5 @@ def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
     example = confluentcloud.get_organization()
     pulumi.export("example", example)
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

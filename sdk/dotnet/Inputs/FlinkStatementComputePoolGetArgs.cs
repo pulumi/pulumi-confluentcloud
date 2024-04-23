@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class FlinkStatementComputePoolGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        /// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

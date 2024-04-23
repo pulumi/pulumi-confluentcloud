@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class ClusterLinkLocalKafkaCluster
     {
         /// <summary>
-        /// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        /// The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         /// </summary>
         public readonly string? BootstrapEndpoint;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly Outputs.ClusterLinkLocalKafkaClusterCredentials? Credentials;
         /// <summary>
-        /// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+        /// The ID of the local Kafka cluster, for example, `lkc-abc123`.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         public readonly string? RestEndpoint;
 

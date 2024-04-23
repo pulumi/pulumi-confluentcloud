@@ -274,7 +274,7 @@ class AccessPointEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+        :param pulumi.Input[str] id: The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -282,7 +282,7 @@ class AccessPointEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+        The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -385,7 +385,7 @@ class ApiKeyManagedResourceEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+        :param pulumi.Input[str] id: (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -393,7 +393,7 @@ class ApiKeyManagedResourceEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+        (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
         """
         return pulumi.get(self, "id")
 
@@ -409,9 +409,9 @@ class ApiKeyOwnerArgs:
                  id: pulumi.Input[str],
                  kind: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] api_version: The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
-        :param pulumi.Input[str] id: The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
-        :param pulumi.Input[str] kind: The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+        :param pulumi.Input[str] api_version: The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
+        :param pulumi.Input[str] id: The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
+        :param pulumi.Input[str] kind: The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
         """
         pulumi.set(__self__, "api_version", api_version)
         pulumi.set(__self__, "id", id)
@@ -421,7 +421,7 @@ class ApiKeyOwnerArgs:
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Input[str]:
         """
-        The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+        The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
         """
         return pulumi.get(self, "api_version")
 
@@ -433,7 +433,7 @@ class ApiKeyOwnerArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+        The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -445,7 +445,7 @@ class ApiKeyOwnerArgs:
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
         """
-        The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+        The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
         """
         return pulumi.get(self, "kind")
 
@@ -466,7 +466,7 @@ class BusinessMetadataAttributeDefinitionArgs:
         """
         :param pulumi.Input[str] name: The name of the attribute.
         :param pulumi.Input[str] default_value: The default value of this attribute.
-        :param pulumi.Input[str] description: The description of the Business Metadata.
+        :param pulumi.Input[str] description: The description of this attribute.
         :param pulumi.Input[bool] is_optional: An optional flag to control whether the attribute should be optional or required. The default value is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: (Optional Map) Block for the attribute options:
         :param pulumi.Input[str] type: (Required String) The type of the attribute, it always returns `string`.
@@ -511,7 +511,7 @@ class BusinessMetadataAttributeDefinitionArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the Business Metadata.
+        The description of this attribute.
         """
         return pulumi.get(self, "description")
 
@@ -826,10 +826,10 @@ class ClusterLinkDestinationKafkaClusterArgs:
                  credentials: Optional[pulumi.Input['ClusterLinkDestinationKafkaClusterCredentialsArgs']] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: The ID of the remote Kafka cluster, for example, `lkc-abc123`.
-        :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param pulumi.Input[str] id: The ID of the destination Kafka cluster, for example, `lkc-abc123`.
+        :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input['ClusterLinkDestinationKafkaClusterCredentialsArgs'] credentials: The Kafka API Credentials.
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "id", id)
         if bootstrap_endpoint is not None:
@@ -843,7 +843,7 @@ class ClusterLinkDestinationKafkaClusterArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+        The ID of the destination Kafka cluster, for example, `lkc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -855,7 +855,7 @@ class ClusterLinkDestinationKafkaClusterArgs:
     @pulumi.getter(name="bootstrapEndpoint")
     def bootstrap_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
@@ -879,7 +879,7 @@ class ClusterLinkDestinationKafkaClusterArgs:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -894,8 +894,8 @@ class ClusterLinkDestinationKafkaClusterCredentialsArgs:
                  key: pulumi.Input[str],
                  secret: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The Kafka API Key.
-        :param pulumi.Input[str] secret: The Kafka API Secret.
+        :param pulumi.Input[str] key: The Kafka API Key for your Confluent Cloud cluster.
+        :param pulumi.Input[str] secret: The Kafka API Secret for your Confluent Cloud cluster.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -904,7 +904,7 @@ class ClusterLinkDestinationKafkaClusterCredentialsArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The Kafka API Key.
+        The Kafka API Key for your Confluent Cloud cluster.
         """
         return pulumi.get(self, "key")
 
@@ -916,7 +916,7 @@ class ClusterLinkDestinationKafkaClusterCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[str]:
         """
-        The Kafka API Secret.
+        The Kafka API Secret for your Confluent Cloud cluster.
         """
         return pulumi.get(self, "secret")
 
@@ -933,10 +933,10 @@ class ClusterLinkLocalKafkaClusterArgs:
                  credentials: Optional[pulumi.Input['ClusterLinkLocalKafkaClusterCredentialsArgs']] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: The ID of the remote Kafka cluster, for example, `lkc-abc123`.
-        :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param pulumi.Input[str] id: The ID of the local Kafka cluster, for example, `lkc-abc123`.
+        :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input['ClusterLinkLocalKafkaClusterCredentialsArgs'] credentials: The Kafka API Credentials.
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "id", id)
         if bootstrap_endpoint is not None:
@@ -950,7 +950,7 @@ class ClusterLinkLocalKafkaClusterArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+        The ID of the local Kafka cluster, for example, `lkc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -962,7 +962,7 @@ class ClusterLinkLocalKafkaClusterArgs:
     @pulumi.getter(name="bootstrapEndpoint")
     def bootstrap_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
@@ -986,7 +986,7 @@ class ClusterLinkLocalKafkaClusterArgs:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -1001,8 +1001,8 @@ class ClusterLinkLocalKafkaClusterCredentialsArgs:
                  key: pulumi.Input[str],
                  secret: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The Kafka API Key.
-        :param pulumi.Input[str] secret: The Kafka API Secret.
+        :param pulumi.Input[str] key: The Kafka API Key for your Confluent Cloud cluster.
+        :param pulumi.Input[str] secret: The Kafka API Secret for your Confluent Cloud cluster.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -1011,7 +1011,7 @@ class ClusterLinkLocalKafkaClusterCredentialsArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The Kafka API Key.
+        The Kafka API Key for your Confluent Cloud cluster.
         """
         return pulumi.get(self, "key")
 
@@ -1023,7 +1023,7 @@ class ClusterLinkLocalKafkaClusterCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[str]:
         """
-        The Kafka API Secret.
+        The Kafka API Secret for your Confluent Cloud cluster.
         """
         return pulumi.get(self, "secret")
 
@@ -1108,8 +1108,8 @@ class ClusterLinkRemoteKafkaClusterCredentialsArgs:
                  key: pulumi.Input[str],
                  secret: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The Kafka API Key.
-        :param pulumi.Input[str] secret: The Kafka API Secret.
+        :param pulumi.Input[str] key: The Kafka API Key for your Confluent Cloud cluster.
+        :param pulumi.Input[str] secret: The Kafka API Secret for your Confluent Cloud cluster.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -1118,7 +1118,7 @@ class ClusterLinkRemoteKafkaClusterCredentialsArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The Kafka API Key.
+        The Kafka API Key for your Confluent Cloud cluster.
         """
         return pulumi.get(self, "key")
 
@@ -1130,7 +1130,7 @@ class ClusterLinkRemoteKafkaClusterCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[str]:
         """
-        The Kafka API Secret.
+        The Kafka API Secret for your Confluent Cloud cluster.
         """
         return pulumi.get(self, "secret")
 
@@ -1147,10 +1147,10 @@ class ClusterLinkSourceKafkaClusterArgs:
                  credentials: Optional[pulumi.Input['ClusterLinkSourceKafkaClusterCredentialsArgs']] = None,
                  rest_endpoint: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: The ID of the remote Kafka cluster, for example, `lkc-abc123`.
-        :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        :param pulumi.Input[str] id: The ID of the source Kafka cluster, for example, `lkc-abc123`.
+        :param pulumi.Input[str] bootstrap_endpoint: The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         :param pulumi.Input['ClusterLinkSourceKafkaClusterCredentialsArgs'] credentials: The Kafka API Credentials.
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         pulumi.set(__self__, "id", id)
         if bootstrap_endpoint is not None:
@@ -1164,7 +1164,7 @@ class ClusterLinkSourceKafkaClusterArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+        The ID of the source Kafka cluster, for example, `lkc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -1176,7 +1176,7 @@ class ClusterLinkSourceKafkaClusterArgs:
     @pulumi.getter(name="bootstrapEndpoint")
     def bootstrap_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         """
         return pulumi.get(self, "bootstrap_endpoint")
 
@@ -1200,7 +1200,7 @@ class ClusterLinkSourceKafkaClusterArgs:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -1215,8 +1215,8 @@ class ClusterLinkSourceKafkaClusterCredentialsArgs:
                  key: pulumi.Input[str],
                  secret: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The Kafka API Key.
-        :param pulumi.Input[str] secret: The Kafka API Secret.
+        :param pulumi.Input[str] key: The Kafka API Key for your Confluent Cloud cluster.
+        :param pulumi.Input[str] secret: The Kafka API Secret for your Confluent Cloud cluster.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -1225,7 +1225,7 @@ class ClusterLinkSourceKafkaClusterCredentialsArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The Kafka API Key.
+        The Kafka API Key for your Confluent Cloud cluster.
         """
         return pulumi.get(self, "key")
 
@@ -1237,7 +1237,7 @@ class ClusterLinkSourceKafkaClusterCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[str]:
         """
-        The Kafka API Secret.
+        The Kafka API Secret for your Confluent Cloud cluster.
         """
         return pulumi.get(self, "secret")
 
@@ -1251,7 +1251,7 @@ class ConnectorEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+        :param pulumi.Input[str] id: The ID of the Environment that the connector belongs to, for example, `env-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -1259,7 +1259,7 @@ class ConnectorEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+        The ID of the Environment that the connector belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -1295,7 +1295,7 @@ class DnsForwarderEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+        :param pulumi.Input[str] id: The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -1303,7 +1303,7 @@ class DnsForwarderEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+        The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -1362,7 +1362,7 @@ class DnsRecordEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+        :param pulumi.Input[str] id: The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -1370,7 +1370,7 @@ class DnsRecordEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+        The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -1384,7 +1384,7 @@ class DnsRecordGatewayArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+        :param pulumi.Input[str] id: The ID of the gateway to which the DNS Record belongs, for example, `gw-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -1392,7 +1392,7 @@ class DnsRecordGatewayArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+        The ID of the gateway to which the DNS Record belongs, for example, `gw-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -1472,7 +1472,7 @@ class FlinkStatementComputePoolArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        :param pulumi.Input[str] id: The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -1480,7 +1480,7 @@ class FlinkStatementComputePoolArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -1539,7 +1539,7 @@ class FlinkStatementEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        :param pulumi.Input[str] id: The ID of the Environment, for example, `env-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -1547,7 +1547,7 @@ class FlinkStatementEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        The ID of the Environment, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -1561,7 +1561,7 @@ class FlinkStatementOrganizationArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        :param pulumi.Input[str] id: The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -1569,7 +1569,7 @@ class FlinkStatementOrganizationArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
         """
         return pulumi.get(self, "id")
 
@@ -1762,11 +1762,7 @@ class KafkaClientQuotaKafkaClusterArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
-               
-               > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
-               
-               > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
+        :param pulumi.Input[str] id: The ID of the Kafka Cluster where the Kafka Client Quota is applied, for example, `lkc-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -1774,11 +1770,7 @@ class KafkaClientQuotaKafkaClusterArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
-
-        > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
-
-        > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
+        The ID of the Kafka Cluster where the Kafka Client Quota is applied, for example, `lkc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -2002,7 +1994,7 @@ class KafkaClusterEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        :param pulumi.Input[str] id: The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -2010,7 +2002,7 @@ class KafkaClusterEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -2024,7 +2016,7 @@ class KafkaClusterNetworkArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        :param pulumi.Input[str] id: The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -2032,7 +2024,7 @@ class KafkaClusterNetworkArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -2129,8 +2121,8 @@ class KafkaMirrorTopicKafkaClusterCredentialsArgs:
                  key: pulumi.Input[str],
                  secret: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The Kafka API Key.
-        :param pulumi.Input[str] secret: The Kafka API Secret.
+        :param pulumi.Input[str] key: The Kafka API Key for your Confluent Cloud cluster.
+        :param pulumi.Input[str] secret: The Kafka API Secret for your Confluent Cloud cluster.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "secret", secret)
@@ -2139,7 +2131,7 @@ class KafkaMirrorTopicKafkaClusterCredentialsArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The Kafka API Key.
+        The Kafka API Key for your Confluent Cloud cluster.
         """
         return pulumi.get(self, "key")
 
@@ -2151,7 +2143,7 @@ class KafkaMirrorTopicKafkaClusterCredentialsArgs:
     @pulumi.getter
     def secret(self) -> pulumi.Input[str]:
         """
-        The Kafka API Secret.
+        The Kafka API Secret for your Confluent Cloud cluster.
         """
         return pulumi.get(self, "secret")
 
@@ -2276,7 +2268,7 @@ class KsqlClusterEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the associated service or user account, for example, `sa-abc123`.
+        :param pulumi.Input[str] id: The ID of the associated Environment, for example, `env-xyz456`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -2284,7 +2276,7 @@ class KsqlClusterEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the associated service or user account, for example, `sa-abc123`.
+        The ID of the associated Environment, for example, `env-xyz456`.
         """
         return pulumi.get(self, "id")
 
@@ -2298,7 +2290,7 @@ class KsqlClusterKafkaClusterArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the associated service or user account, for example, `sa-abc123`.
+        :param pulumi.Input[str] id: The ID of the associated Kafka cluster, for example, `lkc-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -2306,7 +2298,7 @@ class KsqlClusterKafkaClusterArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the associated service or user account, for example, `sa-abc123`.
+        The ID of the associated Kafka cluster, for example, `lkc-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -2446,7 +2438,7 @@ class NetworkGatewayArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+        :param pulumi.Input[str] id: (Optional String) The ID of the Gateway, for example, `gw-abc123`.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -2455,7 +2447,7 @@ class NetworkGatewayArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+        (Optional String) The ID of the Gateway, for example, `gw-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -2546,7 +2538,7 @@ class NetworkLinkEndpointNetworkArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        :param pulumi.Input[str] id: The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -2554,7 +2546,7 @@ class NetworkLinkEndpointNetworkArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -2568,7 +2560,7 @@ class NetworkLinkEndpointNetworkLinkServiceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        :param pulumi.Input[str] id: The ID of the Network Link Service, for example, `nls-g3e1ox`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -2576,7 +2568,7 @@ class NetworkLinkEndpointNetworkLinkServiceArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        The ID of the Network Link Service, for example, `nls-g3e1ox`.
         """
         return pulumi.get(self, "id")
 
@@ -2629,7 +2621,7 @@ class NetworkLinkServiceEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+        :param pulumi.Input[str] id: The ID of the Environment that the Network Link Service belongs to, for example, `env-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -2637,7 +2629,7 @@ class NetworkLinkServiceEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+        The ID of the Environment that the Network Link Service belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -2720,7 +2712,7 @@ class PeeringAwsArgs:
                  vpc: pulumi.Input[str]):
         """
         :param pulumi.Input[str] account: The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
-        :param pulumi.Input[str] customer_region: The region of the Azure peer VNet.
+        :param pulumi.Input[str] customer_region: The region of the AWS peer VPC.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] routes: The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs > Target VPC > Details** section of the AWS Management Console.
         :param pulumi.Input[str] vpc: The AWS VPC ID of the peer VPC that you're peering with Confluent Cloud. You can find your AWS VPC ID [here](https://console.aws.amazon.com/vpc/) under **Your VPCs** section of the AWS Management Console. Must start with `vpc-`.
         """
@@ -2745,7 +2737,7 @@ class PeeringAwsArgs:
     @pulumi.getter(name="customerRegion")
     def customer_region(self) -> pulumi.Input[str]:
         """
-        The region of the Azure peer VNet.
+        The region of the AWS peer VPC.
         """
         return pulumi.get(self, "customer_region")
 
@@ -2835,7 +2827,7 @@ class PeeringEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+        :param pulumi.Input[str] id: The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -2843,7 +2835,7 @@ class PeeringEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+        The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -2992,7 +2984,7 @@ class PrivateLinkAccessEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+        :param pulumi.Input[str] id: The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -3000,7 +2992,7 @@ class PrivateLinkAccessEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+        The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -3176,7 +3168,7 @@ class PrivateLinkAttachmentConnectionEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The unique identifier for the private link attachment.
+        :param pulumi.Input[str] id: The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -3184,7 +3176,7 @@ class PrivateLinkAttachmentConnectionEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The unique identifier for the private link attachment.
+        The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
         """
         return pulumi.get(self, "id")
 
@@ -3304,7 +3296,7 @@ class SchemaCredentialsArgs:
                  key: pulumi.Input[str],
                  secret: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: The setting name.
+        :param pulumi.Input[str] key: The Schema Registry API Key.
         :param pulumi.Input[str] secret: The Cluster API Secret for your Confluent Cloud cluster.
         """
         pulumi.set(__self__, "key", key)
@@ -3314,7 +3306,7 @@ class SchemaCredentialsArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The setting name.
+        The Schema Registry API Key.
         """
         return pulumi.get(self, "key")
 
@@ -3473,7 +3465,6 @@ class SchemaMetadataArgs:
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom properties to set:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sensitives: A list of metadata properties to be encrypted.
-        :param pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgs']]] tags: The tags to which the rule applies, if any.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -3509,9 +3500,6 @@ class SchemaMetadataArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMetadataTagArgs']]]]:
-        """
-        The tags to which the rule applies, if any.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -3524,10 +3512,6 @@ class SchemaMetadataTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[str] key: The setting name.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The list of tags.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if values is not None:
@@ -3536,9 +3520,6 @@ class SchemaMetadataTagArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The setting name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -3548,9 +3529,6 @@ class SchemaMetadataTagArgs:
     @property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of tags.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -3622,7 +3600,7 @@ class SchemaRegistryClusterEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+        :param pulumi.Input[str] id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -3630,7 +3608,7 @@ class SchemaRegistryClusterEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+        The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -3880,23 +3858,6 @@ class SchemaRulesetDomainRuleArgs:
                  params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] doc: An optional description of the rule.
-        :param pulumi.Input[str] expr: The body of the rule, which is optional.
-        :param pulumi.Input[str] kind: The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-        :param pulumi.Input[str] mode: The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-        :param pulumi.Input[str] name: A user-defined name that can be used to reference the rule.
-        :param pulumi.Input[str] on_failure: An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-        :param pulumi.Input[str] on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] params: A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-               
-               > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-               
-               > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-               **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The tags to which the rule applies, if any.
-        :param pulumi.Input[str] type: The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-        """
         if doc is not None:
             pulumi.set(__self__, "doc", doc)
         if expr is not None:
@@ -3921,9 +3882,6 @@ class SchemaRulesetDomainRuleArgs:
     @property
     @pulumi.getter
     def doc(self) -> Optional[pulumi.Input[str]]:
-        """
-        An optional description of the rule.
-        """
         return pulumi.get(self, "doc")
 
     @doc.setter
@@ -3933,9 +3891,6 @@ class SchemaRulesetDomainRuleArgs:
     @property
     @pulumi.getter
     def expr(self) -> Optional[pulumi.Input[str]]:
-        """
-        The body of the rule, which is optional.
-        """
         return pulumi.get(self, "expr")
 
     @expr.setter
@@ -3945,9 +3900,6 @@ class SchemaRulesetDomainRuleArgs:
     @property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
-        """
-        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-        """
         return pulumi.get(self, "kind")
 
     @kind.setter
@@ -3957,9 +3909,6 @@ class SchemaRulesetDomainRuleArgs:
     @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -3969,9 +3918,6 @@ class SchemaRulesetDomainRuleArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A user-defined name that can be used to reference the rule.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -3981,9 +3927,6 @@ class SchemaRulesetDomainRuleArgs:
     @property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[pulumi.Input[str]]:
-        """
-        An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-        """
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
@@ -3993,9 +3936,6 @@ class SchemaRulesetDomainRuleArgs:
     @property
     @pulumi.getter(name="onSuccess")
     def on_success(self) -> Optional[pulumi.Input[str]]:
-        """
-        An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
-        """
         return pulumi.get(self, "on_success")
 
     @on_success.setter
@@ -4005,14 +3945,6 @@ class SchemaRulesetDomainRuleArgs:
     @property
     @pulumi.getter
     def params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-
-        > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-
-        > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-        """
         return pulumi.get(self, "params")
 
     @params.setter
@@ -4022,9 +3954,6 @@ class SchemaRulesetDomainRuleArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The tags to which the rule applies, if any.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -4034,9 +3963,6 @@ class SchemaRulesetDomainRuleArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -4057,23 +3983,6 @@ class SchemaRulesetMigrationRuleArgs:
                  params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] doc: An optional description of the rule.
-        :param pulumi.Input[str] expr: The body of the rule, which is optional.
-        :param pulumi.Input[str] kind: The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-        :param pulumi.Input[str] mode: The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-        :param pulumi.Input[str] name: A user-defined name that can be used to reference the rule.
-        :param pulumi.Input[str] on_failure: An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-        :param pulumi.Input[str] on_success: An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] params: A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-               
-               > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-               
-               > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-               **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The tags to which the rule applies, if any.
-        :param pulumi.Input[str] type: The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-        """
         if doc is not None:
             pulumi.set(__self__, "doc", doc)
         if expr is not None:
@@ -4098,9 +4007,6 @@ class SchemaRulesetMigrationRuleArgs:
     @property
     @pulumi.getter
     def doc(self) -> Optional[pulumi.Input[str]]:
-        """
-        An optional description of the rule.
-        """
         return pulumi.get(self, "doc")
 
     @doc.setter
@@ -4110,9 +4016,6 @@ class SchemaRulesetMigrationRuleArgs:
     @property
     @pulumi.getter
     def expr(self) -> Optional[pulumi.Input[str]]:
-        """
-        The body of the rule, which is optional.
-        """
         return pulumi.get(self, "expr")
 
     @expr.setter
@@ -4122,9 +4025,6 @@ class SchemaRulesetMigrationRuleArgs:
     @property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
-        """
-        The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-        """
         return pulumi.get(self, "kind")
 
     @kind.setter
@@ -4134,9 +4034,6 @@ class SchemaRulesetMigrationRuleArgs:
     @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -4146,9 +4043,6 @@ class SchemaRulesetMigrationRuleArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A user-defined name that can be used to reference the rule.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -4158,9 +4052,6 @@ class SchemaRulesetMigrationRuleArgs:
     @property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[pulumi.Input[str]]:
-        """
-        An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-        """
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
@@ -4170,9 +4061,6 @@ class SchemaRulesetMigrationRuleArgs:
     @property
     @pulumi.getter(name="onSuccess")
     def on_success(self) -> Optional[pulumi.Input[str]]:
-        """
-        An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
-        """
         return pulumi.get(self, "on_success")
 
     @on_success.setter
@@ -4182,14 +4070,6 @@ class SchemaRulesetMigrationRuleArgs:
     @property
     @pulumi.getter
     def params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-
-        > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-
-        > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-        **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-        """
         return pulumi.get(self, "params")
 
     @params.setter
@@ -4199,9 +4079,6 @@ class SchemaRulesetMigrationRuleArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The tags to which the rule applies, if any.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -4211,9 +4088,6 @@ class SchemaRulesetMigrationRuleArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -4228,7 +4102,7 @@ class SchemaSchemaReferenceArgs:
                  subject_name: pulumi.Input[str],
                  version: pulumi.Input[int]):
         """
-        :param pulumi.Input[str] name: A user-defined name that can be used to reference the rule.
+        :param pulumi.Input[str] name: The name of the subject, representing the subject under which the referenced schema is registered.
         :param pulumi.Input[str] subject_name: The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
         :param pulumi.Input[int] version: The version, representing the exact version of the schema under the registered subject.
         """
@@ -4240,7 +4114,7 @@ class SchemaSchemaReferenceArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        A user-defined name that can be used to reference the rule.
+        The name of the subject, representing the subject under which the referenced schema is registered.
         """
         return pulumi.get(self, "name")
 
@@ -4608,7 +4482,7 @@ class TransitGatewayAttachmentEnvironmentArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] id: The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+        :param pulumi.Input[str] id: The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
         """
         pulumi.set(__self__, "id", id)
 
@@ -4616,7 +4490,7 @@ class TransitGatewayAttachmentEnvironmentArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+        The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
         """
         return pulumi.get(self, "id")
 
@@ -5617,7 +5491,7 @@ class GetSchemaMetadataTagArgs:
                  key: str,
                  values: Sequence[str]):
         """
-        :param str key: The Schema Registry API Key.
+        :param str key: (Required String) The setting name.
         :param Sequence[str] values: (Required List of Strings) The list of tags.
         """
         pulumi.set(__self__, "key", key)
@@ -5627,7 +5501,7 @@ class GetSchemaMetadataTagArgs:
     @pulumi.getter
     def key(self) -> str:
         """
-        The Schema Registry API Key.
+        (Required String) The setting name.
         """
         return pulumi.get(self, "key")
 

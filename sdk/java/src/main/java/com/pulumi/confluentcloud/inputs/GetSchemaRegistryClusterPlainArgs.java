@@ -39,14 +39,14 @@ public final class GetSchemaRegistryClusterPlainArgs extends com.pulumi.resource
     }
 
     /**
-     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     * The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     * @return The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
      * 
      */
     public Optional<String> id() {
@@ -96,7 +96,7 @@ public final class GetSchemaRegistryClusterPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param id The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+         * @param id The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
          * 
          * @return builder
          * 

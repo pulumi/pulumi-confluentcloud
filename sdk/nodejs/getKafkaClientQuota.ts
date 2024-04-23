@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -29,7 +28,6 @@ import * as utilities from "./utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getKafkaClientQuota(args: GetKafkaClientQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaClientQuotaResult> {
 
@@ -91,7 +89,6 @@ export interface GetKafkaClientQuotaResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -105,7 +102,6 @@ export interface GetKafkaClientQuotaResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getKafkaClientQuotaOutput(args: GetKafkaClientQuotaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaClientQuotaResult> {
     return pulumi.output(args).apply((a: any) => getKafkaClientQuota(a, opts))

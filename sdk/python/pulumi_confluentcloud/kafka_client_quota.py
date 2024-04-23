@@ -223,7 +223,6 @@ class KafkaClientQuota(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -246,7 +245,6 @@ class KafkaClientQuota(pulumi.CustomResource):
                 id=development["id"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -279,7 +277,6 @@ class KafkaClientQuota(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -302,7 +299,6 @@ class KafkaClientQuota(pulumi.CustomResource):
                 id=development["id"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

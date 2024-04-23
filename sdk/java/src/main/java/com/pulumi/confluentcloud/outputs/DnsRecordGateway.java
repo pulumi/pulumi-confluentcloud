@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class DnsRecordGateway {
     /**
-     * @return The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+     * @return The ID of the gateway to which the DNS Record belongs, for example, `gw-abc123`.
      * 
      */
     private String id;
 
     private DnsRecordGateway() {}
     /**
-     * @return The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+     * @return The ID of the gateway to which the DNS Record belongs, for example, `gw-abc123`.
      * 
      */
     public String id() {

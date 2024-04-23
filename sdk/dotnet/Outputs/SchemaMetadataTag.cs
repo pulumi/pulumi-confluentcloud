@@ -13,13 +13,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     [OutputType]
     public sealed class SchemaMetadataTag
     {
-        /// <summary>
-        /// The setting name.
-        /// </summary>
         public readonly string? Key;
-        /// <summary>
-        /// The list of tags.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

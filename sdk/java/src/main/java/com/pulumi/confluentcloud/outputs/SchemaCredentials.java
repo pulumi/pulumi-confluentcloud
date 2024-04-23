@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class SchemaCredentials {
     /**
-     * @return The setting name.
+     * @return The Schema Registry API Key.
      * 
      */
     private String key;
@@ -23,7 +23,7 @@ public final class SchemaCredentials {
 
     private SchemaCredentials() {}
     /**
-     * @return The setting name.
+     * @return The Schema Registry API Key.
      * 
      */
     public String key() {

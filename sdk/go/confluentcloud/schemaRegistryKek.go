@@ -44,7 +44,7 @@ type SchemaRegistryKek struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
 	KmsType pulumi.StringOutput `pulumi:"kmsType"`
-	// The custom property name (for example, `KeyUsage`).
+	// The name for the KEK.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
@@ -112,7 +112,7 @@ type schemaRegistryKekState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
 	KmsType *string `pulumi:"kmsType"`
-	// The custom property name (for example, `KeyUsage`).
+	// The name for the KEK.
 	Name *string `pulumi:"name"`
 	// The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
 	Properties map[string]string `pulumi:"properties"`
@@ -138,7 +138,7 @@ type SchemaRegistryKekState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
 	KmsType pulumi.StringPtrInput
-	// The custom property name (for example, `KeyUsage`).
+	// The name for the KEK.
 	Name pulumi.StringPtrInput
 	// The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
 	Properties pulumi.StringMapInput
@@ -168,7 +168,7 @@ type schemaRegistryKekArgs struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
 	KmsType string `pulumi:"kmsType"`
-	// The custom property name (for example, `KeyUsage`).
+	// The name for the KEK.
 	Name *string `pulumi:"name"`
 	// The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
 	Properties map[string]string `pulumi:"properties"`
@@ -195,7 +195,7 @@ type SchemaRegistryKekArgs struct {
 	KmsKeyId pulumi.StringInput
 	// The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
 	KmsType pulumi.StringInput
-	// The custom property name (for example, `KeyUsage`).
+	// The name for the KEK.
 	Name pulumi.StringPtrInput
 	// The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
 	Properties pulumi.StringMapInput
@@ -322,7 +322,7 @@ func (o SchemaRegistryKekOutput) KmsType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchemaRegistryKek) pulumi.StringOutput { return v.KmsType }).(pulumi.StringOutput)
 }
 
-// The custom property name (for example, `KeyUsage`).
+// The name for the KEK.
 func (o SchemaRegistryKekOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchemaRegistryKek) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

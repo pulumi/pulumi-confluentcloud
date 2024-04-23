@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class DnsForwarderEnvironment {
     /**
-     * @return The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+     * @return The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
      * 
      */
     private String id;
 
     private DnsForwarderEnvironment() {}
     /**
-     * @return The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+     * @return The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
      * 
      */
     public String id() {

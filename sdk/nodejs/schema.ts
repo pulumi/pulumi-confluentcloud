@@ -107,11 +107,11 @@ export class Schema extends pulumi.CustomResource {
     public readonly schemaReferences!: pulumi.Output<outputs.SchemaSchemaReference[] | undefined>;
     public readonly schemaRegistryCluster!: pulumi.Output<outputs.SchemaSchemaRegistryCluster | undefined>;
     /**
-     * The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      */
     public readonly subjectName!: pulumi.Output<string>;
     /**
-     * The version, representing the exact version of the schema under the registered subject.
+     * (Required Integer) The version of the Schema, for example, `4`.
      */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
@@ -216,11 +216,11 @@ export interface SchemaState {
     schemaReferences?: pulumi.Input<pulumi.Input<inputs.SchemaSchemaReference>[]>;
     schemaRegistryCluster?: pulumi.Input<inputs.SchemaSchemaRegistryCluster>;
     /**
-     * The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      */
     subjectName?: pulumi.Input<string>;
     /**
-     * The version, representing the exact version of the schema under the registered subject.
+     * (Required Integer) The version of the Schema, for example, `4`.
      */
     version?: pulumi.Input<number>;
 }
@@ -267,7 +267,7 @@ export interface SchemaArgs {
     schemaReferences?: pulumi.Input<pulumi.Input<inputs.SchemaSchemaReference>[]>;
     schemaRegistryCluster?: pulumi.Input<inputs.SchemaSchemaRegistryCluster>;
     /**
-     * The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      */
     subjectName: pulumi.Input<string>;
 }

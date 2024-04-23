@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,7 +64,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupSchemaRegistryCluster(ctx *pulumi.Context, args *LookupSchemaRegistryClusterArgs, opts ...pulumi.InvokeOption) (*LookupSchemaRegistryClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSchemaRegistryClusterResult
@@ -81,7 +79,7 @@ type LookupSchemaRegistryClusterArgs struct {
 	// The name for the Schema Registry cluster.
 	DisplayName *string                             `pulumi:"displayName"`
 	Environment GetSchemaRegistryClusterEnvironment `pulumi:"environment"`
-	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+	// The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
 	Id *string `pulumi:"id"`
 }
 
@@ -124,7 +122,7 @@ type LookupSchemaRegistryClusterOutputArgs struct {
 	// The name for the Schema Registry cluster.
 	DisplayName pulumi.StringPtrInput                    `pulumi:"displayName"`
 	Environment GetSchemaRegistryClusterEnvironmentInput `pulumi:"environment"`
-	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+	// The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 

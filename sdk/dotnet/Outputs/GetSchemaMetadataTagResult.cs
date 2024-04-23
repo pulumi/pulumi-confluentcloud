@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetSchemaMetadataTagResult
     {
         /// <summary>
-        /// The Schema Registry API Key.
+        /// (Required String) The setting name.
         /// </summary>
         public readonly string Key;
         /// <summary>

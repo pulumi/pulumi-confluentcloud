@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class NetworkGateway
     {
         /// <summary>
-        /// The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+        /// (Optional String) The ID of the Gateway, for example, `gw-abc123`.
         /// </summary>
         public readonly string? Id;
 

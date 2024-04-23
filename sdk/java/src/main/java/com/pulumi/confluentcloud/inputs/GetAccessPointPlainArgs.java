@@ -22,14 +22,14 @@ public final class GetAccessPointPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+     * The ID of the Access Point, for example, `ap-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
-     * @return The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+     * @return The ID of the Access Point, for example, `ap-abc123`.
      * 
      */
     public String id() {
@@ -67,7 +67,7 @@ public final class GetAccessPointPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param id The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+         * @param id The ID of the Access Point, for example, `ap-abc123`.
          * 
          * @return builder
          * 
