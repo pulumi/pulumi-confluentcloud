@@ -18,7 +18,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string? DefaultValue;
         /// <summary>
-        /// The description of the Business Metadata.
+        /// The description of this attribute.
         /// </summary>
         public readonly string? Description;
         /// <summary>

@@ -104,14 +104,14 @@ public final class SchemaRegistryKekArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The custom property name (for example, `KeyUsage`).
+     * The name for the KEK.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The custom property name (for example, `KeyUsage`).
+     * @return The name for the KEK.
      * 
      */
     public Optional<Output<String>> name() {
@@ -317,7 +317,7 @@ public final class SchemaRegistryKekArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The custom property name (for example, `KeyUsage`).
+         * @param name The name for the KEK.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class SchemaRegistryKekArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The custom property name (for example, `KeyUsage`).
+         * @param name The name for the KEK.
          * 
          * @return builder
          * 

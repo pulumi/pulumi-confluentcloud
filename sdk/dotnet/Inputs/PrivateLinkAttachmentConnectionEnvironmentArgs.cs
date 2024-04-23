@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class PrivateLinkAttachmentConnectionEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique identifier for the private link attachment.
+        /// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

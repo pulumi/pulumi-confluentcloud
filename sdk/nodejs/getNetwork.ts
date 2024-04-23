@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -36,7 +35,6 @@ import * as utilities from "./utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetwork(args: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
 
@@ -78,9 +76,7 @@ export interface GetNetworkArgs {
      */
     gcps?: inputs.GetNetworkGcp[];
     /**
-     * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Network, for example, `n-abc123`.
      */
     id?: string;
 }
@@ -161,7 +157,6 @@ export interface GetNetworkResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -188,7 +183,6 @@ export interface GetNetworkResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {
     return pulumi.output(args).apply((a: any) => getNetwork(a, opts))
@@ -220,9 +214,7 @@ export interface GetNetworkOutputArgs {
      */
     gcps?: pulumi.Input<pulumi.Input<inputs.GetNetworkGcpArgs>[]>;
     /**
-     * The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Network, for example, `n-abc123`.
      */
     id?: pulumi.Input<string>;
 }

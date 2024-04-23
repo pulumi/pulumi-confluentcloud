@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -37,7 +36,6 @@ import * as utilities from "./utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTransitGatewayAttachment(args: GetTransitGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayAttachmentResult> {
 
@@ -62,9 +60,7 @@ export interface GetTransitGatewayAttachmentArgs {
      */
     environment: inputs.GetTransitGatewayAttachmentEnvironment;
     /**
-     * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Peering, for example, `tgwa-abc123`.
      */
     id?: string;
 }
@@ -101,7 +97,6 @@ export interface GetTransitGatewayAttachmentResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -125,7 +120,6 @@ export interface GetTransitGatewayAttachmentResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTransitGatewayAttachmentOutput(args: GetTransitGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getTransitGatewayAttachment(a, opts))
@@ -144,9 +138,7 @@ export interface GetTransitGatewayAttachmentOutputArgs {
      */
     environment: pulumi.Input<inputs.GetTransitGatewayAttachmentEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Peering, for example, `tgwa-abc123`.
      */
     id?: pulumi.Input<string>;
 }

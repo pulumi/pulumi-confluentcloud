@@ -20,7 +20,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,7 +58,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetIpAddresses(ctx *pulumi.Context, args *GetIpAddressesArgs, opts ...pulumi.InvokeOption) (*GetIpAddressesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpAddressesResult

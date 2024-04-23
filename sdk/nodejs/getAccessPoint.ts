@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -26,7 +25,6 @@ import * as utilities from "./utilities";
  * });
  * export const accessPoint = main;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
 
@@ -43,7 +41,7 @@ export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOpt
 export interface GetAccessPointArgs {
     environment: inputs.GetAccessPointEnvironment;
     /**
-     * The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+     * The ID of the Access Point, for example, `ap-abc123`.
      */
     id: string;
 }
@@ -77,7 +75,6 @@ export interface GetAccessPointResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -90,7 +87,6 @@ export interface GetAccessPointResult {
  * });
  * export const accessPoint = main;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
     return pulumi.output(args).apply((a: any) => getAccessPoint(a, opts))
@@ -102,7 +98,7 @@ export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulu
 export interface GetAccessPointOutputArgs {
     environment: pulumi.Input<inputs.GetAccessPointEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+     * The ID of the Access Point, for example, `ap-abc123`.
      */
     id: pulumi.Input<string>;
 }

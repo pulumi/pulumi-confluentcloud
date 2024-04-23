@@ -215,7 +215,6 @@ class NetworkLinkService(pulumi.CustomResource):
 
         ### Example Network Link Service on AWS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -251,7 +250,6 @@ class NetworkLinkService(pulumi.CustomResource):
                 networks=["n-1234"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 
@@ -291,7 +289,6 @@ class NetworkLinkService(pulumi.CustomResource):
 
         ### Example Network Link Service on AWS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -327,7 +324,6 @@ class NetworkLinkService(pulumi.CustomResource):
                 networks=["n-1234"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 

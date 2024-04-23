@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class GetSchemaMetadataTagArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Schema Registry API Key.
+        /// (Required String) The setting name.
         /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;

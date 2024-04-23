@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AccessPointEnvironment {
     /**
-     * @return The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+     * @return The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
      * 
      */
     private String id;
 
     private AccessPointEnvironment() {}
     /**
-     * @return The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+     * @return The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
      * 
      */
     public String id() {

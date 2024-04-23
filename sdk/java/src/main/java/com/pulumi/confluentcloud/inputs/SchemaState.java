@@ -181,14 +181,14 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      * 
      */
     @Import(name="subjectName")
     private @Nullable Output<String> subjectName;
 
     /**
-     * @return The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+     * @return The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
      * 
      */
     public Optional<Output<String>> subjectName() {
@@ -196,14 +196,14 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version, representing the exact version of the schema under the registered subject.
+     * (Required Integer) The version of the Schema, for example, `4`.
      * 
      */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
     /**
-     * @return The version, representing the exact version of the schema under the registered subject.
+     * @return (Required Integer) The version of the Schema, for example, `4`.
      * 
      */
     public Optional<Output<Integer>> version() {
@@ -476,7 +476,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectName The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+         * @param subjectName The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subjectName The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
+         * @param subjectName The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version, representing the exact version of the schema under the registered subject.
+         * @param version (Required Integer) The version of the Schema, for example, `4`.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version, representing the exact version of the schema under the registered subject.
+         * @param version (Required Integer) The version of the Schema, for example, `4`.
          * 
          * @return builder
          * 

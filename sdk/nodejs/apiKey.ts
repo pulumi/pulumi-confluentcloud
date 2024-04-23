@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  * ## Example Usage
  *
  * ### Example Kafka API Key
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -33,10 +32,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example ksqlDB API Key
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -59,10 +56,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example Schema Registry API Key
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -85,10 +80,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example Flink API Key
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -111,10 +104,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example Cloud API Key
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -129,7 +120,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Getting Started
  *

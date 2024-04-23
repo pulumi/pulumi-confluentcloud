@@ -18,7 +18,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +61,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSchemaRegistryClusterResult> InvokeAsync(GetSchemaRegistryClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemaRegistryClusterResult>("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", args ?? new GetSchemaRegistryClusterArgs(), options.WithDefaults());
@@ -74,7 +72,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -118,7 +115,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSchemaRegistryClusterResult> Invoke(GetSchemaRegistryClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryClusterResult>("confluentcloud:index/getSchemaRegistryCluster:getSchemaRegistryCluster", args ?? new GetSchemaRegistryClusterInvokeArgs(), options.WithDefaults());
@@ -137,7 +133,7 @@ namespace Pulumi.ConfluentCloud
         public Inputs.GetSchemaRegistryClusterEnvironmentArgs Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        /// The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -160,7 +156,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.GetSchemaRegistryClusterEnvironmentInputArgs> Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+        /// The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

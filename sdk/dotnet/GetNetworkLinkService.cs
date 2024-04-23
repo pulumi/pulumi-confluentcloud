@@ -18,7 +18,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNetworkLinkServiceResult> InvokeAsync(GetNetworkLinkServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkLinkServiceResult>("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", args ?? new GetNetworkLinkServiceArgs(), options.WithDefaults());
@@ -54,7 +52,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -78,7 +75,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNetworkLinkServiceResult> Invoke(GetNetworkLinkServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkLinkServiceResult>("confluentcloud:index/getNetworkLinkService:getNetworkLinkService", args ?? new GetNetworkLinkServiceInvokeArgs(), options.WithDefaults());
@@ -97,7 +93,7 @@ namespace Pulumi.ConfluentCloud
         public Inputs.GetNetworkLinkServiceEnvironmentArgs Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+        /// The ID of the Network Link Service, for example, `nls-zyw30`.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -120,7 +116,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.GetNetworkLinkServiceEnvironmentInputArgs> Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+        /// The ID of the Network Link Service, for example, `nls-zyw30`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

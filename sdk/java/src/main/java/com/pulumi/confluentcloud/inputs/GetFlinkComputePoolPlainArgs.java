@@ -47,18 +47,14 @@ public final class GetFlinkComputePoolPlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * @return The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
      * 
      */
     public Optional<String> id() {
@@ -114,9 +110,7 @@ public final class GetFlinkComputePoolPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param id The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
-         * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * @param id The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
          * 
          * @return builder
          * 

@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     filename: "confluentinc-kafka-connect-datagen-0.6.2.zip",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

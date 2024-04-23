@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,7 +54,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupPeering(ctx *pulumi.Context, args *LookupPeeringArgs, opts ...pulumi.InvokeOption) (*LookupPeeringResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPeeringResult
@@ -72,9 +70,7 @@ type LookupPeeringArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// (Required Configuration Block) supports the following:
 	Environment GetPeeringEnvironment `pulumi:"environment"`
-	// The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Peering, for example, `peer-abc123`.
 	Id *string `pulumi:"id"`
 }
 
@@ -115,9 +111,7 @@ type LookupPeeringOutputArgs struct {
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// (Required Configuration Block) supports the following:
 	Environment GetPeeringEnvironmentInput `pulumi:"environment"`
-	// The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Peering, for example, `peer-abc123`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 

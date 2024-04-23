@@ -18,7 +18,6 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// ### Example Identity Pool to be used with Azure AD
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,11 +48,9 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Example Identity Pool to be used with Okta
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -84,7 +81,6 @@ namespace Pulumi.ConfluentCloud
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## External Documentation
     /// 

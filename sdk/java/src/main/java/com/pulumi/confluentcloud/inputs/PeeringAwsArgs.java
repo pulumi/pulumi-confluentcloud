@@ -31,14 +31,14 @@ public final class PeeringAwsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The region of the Azure peer VNet.
+     * The region of the AWS peer VPC.
      * 
      */
     @Import(name="customerRegion", required=true)
     private Output<String> customerRegion;
 
     /**
-     * @return The region of the Azure peer VNet.
+     * @return The region of the AWS peer VPC.
      * 
      */
     public Output<String> customerRegion() {
@@ -124,7 +124,7 @@ public final class PeeringAwsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerRegion The region of the Azure peer VNet.
+         * @param customerRegion The region of the AWS peer VPC.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class PeeringAwsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerRegion The region of the Azure peer VNet.
+         * @param customerRegion The region of the AWS peer VPC.
          * 
          * @return builder
          * 

@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -26,7 +25,6 @@ import * as utilities from "./utilities";
  * });
  * export const gateway = main;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
 
@@ -43,7 +41,7 @@ export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): P
 export interface GetGatewayArgs {
     environment: inputs.GetGatewayEnvironment;
     /**
-     * The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+     * The ID of the Gateway, for example, `gw-abc123`.
      */
     id: string;
 }
@@ -74,7 +72,6 @@ export interface GetGatewayResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -87,7 +84,6 @@ export interface GetGatewayResult {
  * });
  * export const gateway = main;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
     return pulumi.output(args).apply((a: any) => getGateway(a, opts))
@@ -99,7 +95,7 @@ export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.Invok
 export interface GetGatewayOutputArgs {
     environment: pulumi.Input<inputs.GetGatewayEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+     * The ID of the Gateway, for example, `gw-abc123`.
      */
     id: pulumi.Input<string>;
 }

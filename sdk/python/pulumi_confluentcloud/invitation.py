@@ -187,7 +187,6 @@ class Invitation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -197,7 +196,6 @@ class Invitation(pulumi.CustomResource):
             email="",
             auth_type="AUTH_TYPE_LOCAL")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -231,7 +229,6 @@ class Invitation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -241,7 +238,6 @@ class Invitation(pulumi.CustomResource):
             email="",
             auth_type="AUTH_TYPE_LOCAL")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

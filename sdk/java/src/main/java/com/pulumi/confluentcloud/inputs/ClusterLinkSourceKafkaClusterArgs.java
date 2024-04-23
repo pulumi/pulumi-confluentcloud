@@ -18,14 +18,14 @@ public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resource
     public static final ClusterLinkSourceKafkaClusterArgs Empty = new ClusterLinkSourceKafkaClusterArgs();
 
     /**
-     * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      * 
      */
     @Import(name="bootstrapEndpoint")
     private @Nullable Output<String> bootstrapEndpoint;
 
     /**
-     * @return The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * @return The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      * 
      */
     public Optional<Output<String>> bootstrapEndpoint() {
@@ -48,14 +48,14 @@ public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resource
     }
 
     /**
-     * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+     * The ID of the source Kafka cluster, for example, `lkc-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+     * @return The ID of the source Kafka cluster, for example, `lkc-abc123`.
      * 
      */
     public Output<String> id() {
@@ -63,14 +63,14 @@ public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resource
     }
 
     /**
-     * The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
     @Import(name="restEndpoint")
     private @Nullable Output<String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * @return The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
     public Optional<Output<String>> restEndpoint() {
@@ -105,7 +105,7 @@ public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param bootstrapEndpoint The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+         * @param bootstrapEndpoint The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param bootstrapEndpoint The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+         * @param bootstrapEndpoint The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param id The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+         * @param id The ID of the source Kafka cluster, for example, `lkc-abc123`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param id The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+         * @param id The ID of the source Kafka cluster, for example, `lkc-abc123`.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+         * @param restEndpoint The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ClusterLinkSourceKafkaClusterArgs extends com.pulumi.resource
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+         * @param restEndpoint The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
          * 
          * @return builder
          * 

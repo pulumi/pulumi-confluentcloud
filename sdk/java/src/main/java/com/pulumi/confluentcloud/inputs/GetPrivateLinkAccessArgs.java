@@ -48,18 +48,14 @@ public final class GetPrivateLinkAccessArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * The ID of the Private Link Access, for example, `pla-abc123`.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * @return The ID of the Private Link Access, for example, `pla-abc123`.
      * 
      */
     public Optional<Output<String>> id() {
@@ -135,9 +131,7 @@ public final class GetPrivateLinkAccessArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param id The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-         * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * @param id The ID of the Private Link Access, for example, `pla-abc123`.
          * 
          * @return builder
          * 
@@ -148,9 +142,7 @@ public final class GetPrivateLinkAccessArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param id The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-         * 
-         * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+         * @param id The ID of the Private Link Access, for example, `pla-abc123`.
          * 
          * @return builder
          * 

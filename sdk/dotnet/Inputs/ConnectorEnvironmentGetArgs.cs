@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class ConnectorEnvironmentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+        /// The ID of the Environment that the connector belongs to, for example, `env-abc123`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

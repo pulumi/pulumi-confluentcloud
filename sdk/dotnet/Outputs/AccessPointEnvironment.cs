@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class AccessPointEnvironment
     {
         /// <summary>
-        /// The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+        /// The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
         /// </summary>
         public readonly string Id;
 

@@ -34,9 +34,9 @@ class SchemaExporterArgs:
         :param pulumi.Input[str] context: Customized context of the exporter if `context_type` is set to `CUSTOM`.
         :param pulumi.Input[str] context_type: Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.
         :param pulumi.Input['SchemaExporterCredentialsArgs'] credentials: The Cluster API Credentials.
-        :param pulumi.Input[str] name: The configuration setting name.
+        :param pulumi.Input[str] name: Name of the Schema Exporter.
         :param pulumi.Input[bool] reset_on_update: The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] status: The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
         :param pulumi.Input[str] subject_rename_format: Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subjects: Name of each exporter subject.
@@ -126,7 +126,7 @@ class SchemaExporterArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The configuration setting name.
+        Name of the Schema Exporter.
         """
         return pulumi.get(self, "name")
 
@@ -150,7 +150,7 @@ class SchemaExporterArgs:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -225,9 +225,9 @@ class _SchemaExporterState:
         :param pulumi.Input[str] context: Customized context of the exporter if `context_type` is set to `CUSTOM`.
         :param pulumi.Input[str] context_type: Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.
         :param pulumi.Input['SchemaExporterCredentialsArgs'] credentials: The Cluster API Credentials.
-        :param pulumi.Input[str] name: The configuration setting name.
+        :param pulumi.Input[str] name: Name of the Schema Exporter.
         :param pulumi.Input[bool] reset_on_update: The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] status: The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
         :param pulumi.Input[str] subject_rename_format: Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subjects: Name of each exporter subject.
@@ -318,7 +318,7 @@ class _SchemaExporterState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The configuration setting name.
+        Name of the Schema Exporter.
         """
         return pulumi.get(self, "name")
 
@@ -342,7 +342,7 @@ class _SchemaExporterState:
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 
@@ -437,9 +437,9 @@ class SchemaExporter(pulumi.CustomResource):
         :param pulumi.Input[str] context: Customized context of the exporter if `context_type` is set to `CUSTOM`.
         :param pulumi.Input[str] context_type: Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.
         :param pulumi.Input[pulumi.InputType['SchemaExporterCredentialsArgs']] credentials: The Cluster API Credentials.
-        :param pulumi.Input[str] name: The configuration setting name.
+        :param pulumi.Input[str] name: Name of the Schema Exporter.
         :param pulumi.Input[bool] reset_on_update: The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] status: The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
         :param pulumi.Input[str] subject_rename_format: Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subjects: Name of each exporter subject.
@@ -552,9 +552,9 @@ class SchemaExporter(pulumi.CustomResource):
         :param pulumi.Input[str] context: Customized context of the exporter if `context_type` is set to `CUSTOM`.
         :param pulumi.Input[str] context_type: Context type of the exporter. Accepted values are: `CUSTOM`, `NONE` or `AUTO`. Defaults to `AUTO`.
         :param pulumi.Input[pulumi.InputType['SchemaExporterCredentialsArgs']] credentials: The Cluster API Credentials.
-        :param pulumi.Input[str] name: The configuration setting name.
+        :param pulumi.Input[str] name: Name of the Schema Exporter.
         :param pulumi.Input[bool] reset_on_update: The flag to control whether to reset the exporter when updating configs. Defaults to `false`.
-        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[str] status: The status of the schema exporter. Accepted values are: `RUNNING` and `PAUSED`.
         :param pulumi.Input[str] subject_rename_format: Format string for the subject name in the destination cluster, which may contain `${subject}` as a placeholder for the originating subject name. For example, `dc_${subject}` for the subject orders will map to the destination subject name `dc_orders`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subjects: Name of each exporter subject.
@@ -618,7 +618,7 @@ class SchemaExporter(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The configuration setting name.
+        Name of the Schema Exporter.
         """
         return pulumi.get(self, "name")
 
@@ -634,7 +634,7 @@ class SchemaExporter(pulumi.CustomResource):
     @pulumi.getter(name="restEndpoint")
     def rest_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
-        The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         """
         return pulumi.get(self, "rest_endpoint")
 

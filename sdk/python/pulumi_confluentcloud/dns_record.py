@@ -188,7 +188,6 @@ class DnsRecord(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -207,7 +206,6 @@ class DnsRecord(pulumi.CustomResource):
                 id=main_confluent_access_point["id"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -242,7 +240,6 @@ class DnsRecord(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -261,7 +258,6 @@ class DnsRecord(pulumi.CustomResource):
                 id=main_confluent_access_point["id"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

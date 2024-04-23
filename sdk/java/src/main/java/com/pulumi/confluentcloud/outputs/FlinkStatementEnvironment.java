@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class FlinkStatementEnvironment {
     /**
-     * @return The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     * @return The ID of the Environment, for example, `env-abc123`.
      * 
      */
     private String id;
 
     private FlinkStatementEnvironment() {}
     /**
-     * @return The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     * @return The ID of the Environment, for example, `env-abc123`.
      * 
      */
     public String id() {

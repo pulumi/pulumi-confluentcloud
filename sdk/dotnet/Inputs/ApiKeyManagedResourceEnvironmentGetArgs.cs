@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class ApiKeyManagedResourceEnvironmentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+        /// (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

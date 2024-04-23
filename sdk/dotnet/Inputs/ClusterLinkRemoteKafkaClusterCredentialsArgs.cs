@@ -16,7 +16,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         private Input<string>? _key;
 
         /// <summary>
-        /// The Kafka API Key.
+        /// The Kafka API Key for your Confluent Cloud cluster.
         /// </summary>
         public Input<string>? Key
         {
@@ -32,7 +32,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         private Input<string>? _secret;
 
         /// <summary>
-        /// The Kafka API Secret.
+        /// The Kafka API Secret for your Confluent Cloud cluster.
         /// </summary>
         public Input<string>? Secret
         {

@@ -206,7 +206,6 @@ class SchemaRegistryCluster(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -224,7 +223,6 @@ class SchemaRegistryCluster(pulumi.CustomResource):
                 id=example.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -254,7 +252,6 @@ class SchemaRegistryCluster(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -272,7 +269,6 @@ class SchemaRegistryCluster(pulumi.CustomResource):
                 id=example.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

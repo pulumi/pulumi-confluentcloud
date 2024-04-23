@@ -15,14 +15,14 @@ public final class AccessPointEnvironmentArgs extends com.pulumi.resources.Resou
     public static final AccessPointEnvironmentArgs Empty = new AccessPointEnvironmentArgs();
 
     /**
-     * The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+     * The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+     * @return The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
      * 
      */
     public Output<String> id() {
@@ -54,7 +54,7 @@ public final class AccessPointEnvironmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param id The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+         * @param id The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AccessPointEnvironmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param id The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+         * @param id The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 

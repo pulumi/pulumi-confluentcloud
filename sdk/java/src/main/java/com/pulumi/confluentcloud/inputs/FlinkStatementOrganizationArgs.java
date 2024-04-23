@@ -15,14 +15,14 @@ public final class FlinkStatementOrganizationArgs extends com.pulumi.resources.R
     public static final FlinkStatementOrganizationArgs Empty = new FlinkStatementOrganizationArgs();
 
     /**
-     * The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     * The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     * @return The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
      * 
      */
     public Output<String> id() {
@@ -54,7 +54,7 @@ public final class FlinkStatementOrganizationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param id The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+         * @param id The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class FlinkStatementOrganizationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param id The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+         * @param id The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
          * 
          * @return builder
          * 

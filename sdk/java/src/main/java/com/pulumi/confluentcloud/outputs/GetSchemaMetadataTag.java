@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetSchemaMetadataTag {
     /**
-     * @return The Schema Registry API Key.
+     * @return (Required String) The setting name.
      * 
      */
     private String key;
@@ -24,7 +24,7 @@ public final class GetSchemaMetadataTag {
 
     private GetSchemaMetadataTag() {}
     /**
-     * @return The Schema Registry API Key.
+     * @return (Required String) The setting name.
      * 
      */
     public String key() {

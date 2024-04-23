@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -26,7 +25,6 @@ import * as utilities from "./utilities";
  * });
  * export const plattc = main;
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Getting Started
  *
@@ -49,7 +47,7 @@ export function getPrivateLinkAttachmentConnection(args: GetPrivateLinkAttachmen
 export interface GetPrivateLinkAttachmentConnectionArgs {
     environment: inputs.GetPrivateLinkAttachmentConnectionEnvironment;
     /**
-     * The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     * The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
      */
     id: string;
 }
@@ -92,7 +90,6 @@ export interface GetPrivateLinkAttachmentConnectionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -105,7 +102,6 @@ export interface GetPrivateLinkAttachmentConnectionResult {
  * });
  * export const plattc = main;
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Getting Started
  *
@@ -123,7 +119,7 @@ export function getPrivateLinkAttachmentConnectionOutput(args: GetPrivateLinkAtt
 export interface GetPrivateLinkAttachmentConnectionOutputArgs {
     environment: pulumi.Input<inputs.GetPrivateLinkAttachmentConnectionEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+     * The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
      */
     id: pulumi.Input<string>;
 }

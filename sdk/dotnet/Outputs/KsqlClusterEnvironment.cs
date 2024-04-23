@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class KsqlClusterEnvironment
     {
         /// <summary>
-        /// The ID of the associated service or user account, for example, `sa-abc123`.
+        /// The ID of the associated Environment, for example, `env-xyz456`.
         /// </summary>
         public readonly string Id;
 

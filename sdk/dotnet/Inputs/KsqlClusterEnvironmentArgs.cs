@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class KsqlClusterEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the associated service or user account, for example, `sa-abc123`.
+        /// The ID of the associated Environment, for example, `env-xyz456`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class PrivateLinkAccessEnvironment {
     /**
-     * @return The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+     * @return The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
      * 
      */
     private String id;
 
     private PrivateLinkAccessEnvironment() {}
     /**
-     * @return The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+     * @return The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
      * 
      */
     public String id() {

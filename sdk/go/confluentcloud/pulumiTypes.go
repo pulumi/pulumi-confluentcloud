@@ -208,7 +208,7 @@ func (o AccessPointAwsEgressPrivateLinkEndpointPtrOutput) VpcEndpointServiceName
 }
 
 type AccessPointEnvironment struct {
-	// The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+	// The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -224,7 +224,7 @@ type AccessPointEnvironmentInput interface {
 }
 
 type AccessPointEnvironmentArgs struct {
-	// The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+	// The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -305,7 +305,7 @@ func (o AccessPointEnvironmentOutput) ToAccessPointEnvironmentPtrOutputWithConte
 	}).(AccessPointEnvironmentPtrOutput)
 }
 
-// The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+// The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
 func (o AccessPointEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -334,7 +334,7 @@ func (o AccessPointEnvironmentPtrOutput) Elem() AccessPointEnvironmentOutput {
 	}).(AccessPointEnvironmentOutput)
 }
 
-// The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+// The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
 func (o AccessPointEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointEnvironment) *string {
 		if v == nil {
@@ -676,7 +676,7 @@ func (o ApiKeyManagedResourcePtrOutput) Kind() pulumi.StringPtrOutput {
 }
 
 type ApiKeyManagedResourceEnvironment struct {
-	// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+	// (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
 	Id string `pulumi:"id"`
 }
 
@@ -692,7 +692,7 @@ type ApiKeyManagedResourceEnvironmentInput interface {
 }
 
 type ApiKeyManagedResourceEnvironmentArgs struct {
-	// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+	// (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -773,7 +773,7 @@ func (o ApiKeyManagedResourceEnvironmentOutput) ToApiKeyManagedResourceEnvironme
 	}).(ApiKeyManagedResourceEnvironmentPtrOutput)
 }
 
-// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+// (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
 func (o ApiKeyManagedResourceEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyManagedResourceEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -802,7 +802,7 @@ func (o ApiKeyManagedResourceEnvironmentPtrOutput) Elem() ApiKeyManagedResourceE
 	}).(ApiKeyManagedResourceEnvironmentOutput)
 }
 
-// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+// (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
 func (o ApiKeyManagedResourceEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiKeyManagedResourceEnvironment) *string {
 		if v == nil {
@@ -813,11 +813,11 @@ func (o ApiKeyManagedResourceEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type ApiKeyOwner struct {
-	// The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+	// The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
 	ApiVersion string `pulumi:"apiVersion"`
-	// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+	// The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
 	Id string `pulumi:"id"`
-	// The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+	// The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
 	Kind string `pulumi:"kind"`
 }
 
@@ -833,11 +833,11 @@ type ApiKeyOwnerInput interface {
 }
 
 type ApiKeyOwnerArgs struct {
-	// The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+	// The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
 	ApiVersion pulumi.StringInput `pulumi:"apiVersion"`
-	// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+	// The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+	// The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
 	Kind pulumi.StringInput `pulumi:"kind"`
 }
 
@@ -918,17 +918,17 @@ func (o ApiKeyOwnerOutput) ToApiKeyOwnerPtrOutputWithContext(ctx context.Context
 	}).(ApiKeyOwnerPtrOutput)
 }
 
-// The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+// The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
 func (o ApiKeyOwnerOutput) ApiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyOwner) string { return v.ApiVersion }).(pulumi.StringOutput)
 }
 
-// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+// The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
 func (o ApiKeyOwnerOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyOwner) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+// The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
 func (o ApiKeyOwnerOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiKeyOwner) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -957,7 +957,7 @@ func (o ApiKeyOwnerPtrOutput) Elem() ApiKeyOwnerOutput {
 	}).(ApiKeyOwnerOutput)
 }
 
-// The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+// The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
 func (o ApiKeyOwnerPtrOutput) ApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiKeyOwner) *string {
 		if v == nil {
@@ -967,7 +967,7 @@ func (o ApiKeyOwnerPtrOutput) ApiVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+// The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
 func (o ApiKeyOwnerPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiKeyOwner) *string {
 		if v == nil {
@@ -977,7 +977,7 @@ func (o ApiKeyOwnerPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+// The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
 func (o ApiKeyOwnerPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiKeyOwner) *string {
 		if v == nil {
@@ -990,7 +990,7 @@ func (o ApiKeyOwnerPtrOutput) Kind() pulumi.StringPtrOutput {
 type BusinessMetadataAttributeDefinition struct {
 	// The default value of this attribute.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// The description of the Business Metadata.
+	// The description of this attribute.
 	Description *string `pulumi:"description"`
 	// An optional flag to control whether the attribute should be optional or required. The default value is `false`.
 	IsOptional *bool `pulumi:"isOptional"`
@@ -1016,7 +1016,7 @@ type BusinessMetadataAttributeDefinitionInput interface {
 type BusinessMetadataAttributeDefinitionArgs struct {
 	// The default value of this attribute.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// The description of the Business Metadata.
+	// The description of this attribute.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// An optional flag to control whether the attribute should be optional or required. The default value is `false`.
 	IsOptional pulumi.BoolPtrInput `pulumi:"isOptional"`
@@ -1084,7 +1084,7 @@ func (o BusinessMetadataAttributeDefinitionOutput) DefaultValue() pulumi.StringP
 	return o.ApplyT(func(v BusinessMetadataAttributeDefinition) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// The description of the Business Metadata.
+// The description of this attribute.
 func (o BusinessMetadataAttributeDefinitionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BusinessMetadataAttributeDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -2222,13 +2222,13 @@ func (o ByokKeyGcpPtrOutput) SecurityGroup() pulumi.StringPtrOutput {
 }
 
 type ClusterLinkDestinationKafkaCluster struct {
-	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint *string `pulumi:"bootstrapEndpoint"`
 	// The Kafka API Credentials.
 	Credentials *ClusterLinkDestinationKafkaClusterCredentials `pulumi:"credentials"`
-	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
-	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 }
 
@@ -2244,13 +2244,13 @@ type ClusterLinkDestinationKafkaClusterInput interface {
 }
 
 type ClusterLinkDestinationKafkaClusterArgs struct {
-	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringPtrInput `pulumi:"bootstrapEndpoint"`
 	// The Kafka API Credentials.
 	Credentials ClusterLinkDestinationKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
-	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+	// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint pulumi.StringPtrInput `pulumi:"restEndpoint"`
 }
 
@@ -2331,7 +2331,7 @@ func (o ClusterLinkDestinationKafkaClusterOutput) ToClusterLinkDestinationKafkaC
 	}).(ClusterLinkDestinationKafkaClusterPtrOutput)
 }
 
-// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o ClusterLinkDestinationKafkaClusterOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -2343,12 +2343,12 @@ func (o ClusterLinkDestinationKafkaClusterOutput) Credentials() ClusterLinkDesti
 	}).(ClusterLinkDestinationKafkaClusterCredentialsPtrOutput)
 }
 
-// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
 func (o ClusterLinkDestinationKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 func (o ClusterLinkDestinationKafkaClusterOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaCluster) *string { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -2377,7 +2377,7 @@ func (o ClusterLinkDestinationKafkaClusterPtrOutput) Elem() ClusterLinkDestinati
 	}).(ClusterLinkDestinationKafkaClusterOutput)
 }
 
-// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o ClusterLinkDestinationKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkDestinationKafkaCluster) *string {
 		if v == nil {
@@ -2397,7 +2397,7 @@ func (o ClusterLinkDestinationKafkaClusterPtrOutput) Credentials() ClusterLinkDe
 	}).(ClusterLinkDestinationKafkaClusterCredentialsPtrOutput)
 }
 
-// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
 func (o ClusterLinkDestinationKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkDestinationKafkaCluster) *string {
 		if v == nil {
@@ -2407,7 +2407,7 @@ func (o ClusterLinkDestinationKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 func (o ClusterLinkDestinationKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkDestinationKafkaCluster) *string {
 		if v == nil {
@@ -2418,9 +2418,9 @@ func (o ClusterLinkDestinationKafkaClusterPtrOutput) RestEndpoint() pulumi.Strin
 }
 
 type ClusterLinkDestinationKafkaClusterCredentials struct {
-	// The Kafka API Key.
+	// The Kafka API Key for your Confluent Cloud cluster.
 	Key string `pulumi:"key"`
-	// The Kafka API Secret.
+	// The Kafka API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -2436,9 +2436,9 @@ type ClusterLinkDestinationKafkaClusterCredentialsInput interface {
 }
 
 type ClusterLinkDestinationKafkaClusterCredentialsArgs struct {
-	// The Kafka API Key.
+	// The Kafka API Key for your Confluent Cloud cluster.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Kafka API Secret.
+	// The Kafka API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -2519,12 +2519,12 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) ToClusterLinkDestin
 	}).(ClusterLinkDestinationKafkaClusterCredentialsPtrOutput)
 }
 
-// The Kafka API Key.
+// The Kafka API Key for your Confluent Cloud cluster.
 func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Kafka API Secret.
+// The Kafka API Secret for your Confluent Cloud cluster.
 func (o ClusterLinkDestinationKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkDestinationKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -2553,7 +2553,7 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Elem() ClusterLi
 	}).(ClusterLinkDestinationKafkaClusterCredentialsOutput)
 }
 
-// The Kafka API Key.
+// The Kafka API Key for your Confluent Cloud cluster.
 func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkDestinationKafkaClusterCredentials) *string {
 		if v == nil {
@@ -2563,7 +2563,7 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Key() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Kafka API Secret.
+// The Kafka API Secret for your Confluent Cloud cluster.
 func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkDestinationKafkaClusterCredentials) *string {
 		if v == nil {
@@ -2574,13 +2574,13 @@ func (o ClusterLinkDestinationKafkaClusterCredentialsPtrOutput) Secret() pulumi.
 }
 
 type ClusterLinkLocalKafkaCluster struct {
-	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint *string `pulumi:"bootstrapEndpoint"`
 	// The Kafka API Credentials.
 	Credentials *ClusterLinkLocalKafkaClusterCredentials `pulumi:"credentials"`
-	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+	// The ID of the local Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
-	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 }
 
@@ -2596,13 +2596,13 @@ type ClusterLinkLocalKafkaClusterInput interface {
 }
 
 type ClusterLinkLocalKafkaClusterArgs struct {
-	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringPtrInput `pulumi:"bootstrapEndpoint"`
 	// The Kafka API Credentials.
 	Credentials ClusterLinkLocalKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
-	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+	// The ID of the local Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint pulumi.StringPtrInput `pulumi:"restEndpoint"`
 }
 
@@ -2683,7 +2683,7 @@ func (o ClusterLinkLocalKafkaClusterOutput) ToClusterLinkLocalKafkaClusterPtrOut
 	}).(ClusterLinkLocalKafkaClusterPtrOutput)
 }
 
-// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o ClusterLinkLocalKafkaClusterOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLinkLocalKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -2693,12 +2693,12 @@ func (o ClusterLinkLocalKafkaClusterOutput) Credentials() ClusterLinkLocalKafkaC
 	return o.ApplyT(func(v ClusterLinkLocalKafkaCluster) *ClusterLinkLocalKafkaClusterCredentials { return v.Credentials }).(ClusterLinkLocalKafkaClusterCredentialsPtrOutput)
 }
 
-// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+// The ID of the local Kafka cluster, for example, `lkc-abc123`.
 func (o ClusterLinkLocalKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkLocalKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+// The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 func (o ClusterLinkLocalKafkaClusterOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLinkLocalKafkaCluster) *string { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -2727,7 +2727,7 @@ func (o ClusterLinkLocalKafkaClusterPtrOutput) Elem() ClusterLinkLocalKafkaClust
 	}).(ClusterLinkLocalKafkaClusterOutput)
 }
 
-// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o ClusterLinkLocalKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkLocalKafkaCluster) *string {
 		if v == nil {
@@ -2747,7 +2747,7 @@ func (o ClusterLinkLocalKafkaClusterPtrOutput) Credentials() ClusterLinkLocalKaf
 	}).(ClusterLinkLocalKafkaClusterCredentialsPtrOutput)
 }
 
-// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+// The ID of the local Kafka cluster, for example, `lkc-abc123`.
 func (o ClusterLinkLocalKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkLocalKafkaCluster) *string {
 		if v == nil {
@@ -2757,7 +2757,7 @@ func (o ClusterLinkLocalKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+// The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 func (o ClusterLinkLocalKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkLocalKafkaCluster) *string {
 		if v == nil {
@@ -2768,9 +2768,9 @@ func (o ClusterLinkLocalKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrOu
 }
 
 type ClusterLinkLocalKafkaClusterCredentials struct {
-	// The Kafka API Key.
+	// The Kafka API Key for your Confluent Cloud cluster.
 	Key string `pulumi:"key"`
-	// The Kafka API Secret.
+	// The Kafka API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -2786,9 +2786,9 @@ type ClusterLinkLocalKafkaClusterCredentialsInput interface {
 }
 
 type ClusterLinkLocalKafkaClusterCredentialsArgs struct {
-	// The Kafka API Key.
+	// The Kafka API Key for your Confluent Cloud cluster.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Kafka API Secret.
+	// The Kafka API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -2869,12 +2869,12 @@ func (o ClusterLinkLocalKafkaClusterCredentialsOutput) ToClusterLinkLocalKafkaCl
 	}).(ClusterLinkLocalKafkaClusterCredentialsPtrOutput)
 }
 
-// The Kafka API Key.
+// The Kafka API Key for your Confluent Cloud cluster.
 func (o ClusterLinkLocalKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkLocalKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Kafka API Secret.
+// The Kafka API Secret for your Confluent Cloud cluster.
 func (o ClusterLinkLocalKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkLocalKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -2903,7 +2903,7 @@ func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Elem() ClusterLinkLoca
 	}).(ClusterLinkLocalKafkaClusterCredentialsOutput)
 }
 
-// The Kafka API Key.
+// The Kafka API Key for your Confluent Cloud cluster.
 func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkLocalKafkaClusterCredentials) *string {
 		if v == nil {
@@ -2913,7 +2913,7 @@ func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Kafka API Secret.
+// The Kafka API Secret for your Confluent Cloud cluster.
 func (o ClusterLinkLocalKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkLocalKafkaClusterCredentials) *string {
 		if v == nil {
@@ -3118,9 +3118,9 @@ func (o ClusterLinkRemoteKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrO
 }
 
 type ClusterLinkRemoteKafkaClusterCredentials struct {
-	// The Kafka API Key.
+	// The Kafka API Key for your Confluent Cloud cluster.
 	Key string `pulumi:"key"`
-	// The Kafka API Secret.
+	// The Kafka API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -3136,9 +3136,9 @@ type ClusterLinkRemoteKafkaClusterCredentialsInput interface {
 }
 
 type ClusterLinkRemoteKafkaClusterCredentialsArgs struct {
-	// The Kafka API Key.
+	// The Kafka API Key for your Confluent Cloud cluster.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Kafka API Secret.
+	// The Kafka API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -3219,12 +3219,12 @@ func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) ToClusterLinkRemoteKafka
 	}).(ClusterLinkRemoteKafkaClusterCredentialsPtrOutput)
 }
 
-// The Kafka API Key.
+// The Kafka API Key for your Confluent Cloud cluster.
 func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkRemoteKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Kafka API Secret.
+// The Kafka API Secret for your Confluent Cloud cluster.
 func (o ClusterLinkRemoteKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkRemoteKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -3253,7 +3253,7 @@ func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Elem() ClusterLinkRem
 	}).(ClusterLinkRemoteKafkaClusterCredentialsOutput)
 }
 
-// The Kafka API Key.
+// The Kafka API Key for your Confluent Cloud cluster.
 func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkRemoteKafkaClusterCredentials) *string {
 		if v == nil {
@@ -3263,7 +3263,7 @@ func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Kafka API Secret.
+// The Kafka API Secret for your Confluent Cloud cluster.
 func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkRemoteKafkaClusterCredentials) *string {
 		if v == nil {
@@ -3274,13 +3274,13 @@ func (o ClusterLinkRemoteKafkaClusterCredentialsPtrOutput) Secret() pulumi.Strin
 }
 
 type ClusterLinkSourceKafkaCluster struct {
-	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint *string `pulumi:"bootstrapEndpoint"`
 	// The Kafka API Credentials.
 	Credentials *ClusterLinkSourceKafkaClusterCredentials `pulumi:"credentials"`
-	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+	// The ID of the source Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
-	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint *string `pulumi:"restEndpoint"`
 }
 
@@ -3296,13 +3296,13 @@ type ClusterLinkSourceKafkaClusterInput interface {
 }
 
 type ClusterLinkSourceKafkaClusterArgs struct {
-	// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+	// The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint pulumi.StringPtrInput `pulumi:"bootstrapEndpoint"`
 	// The Kafka API Credentials.
 	Credentials ClusterLinkSourceKafkaClusterCredentialsPtrInput `pulumi:"credentials"`
-	// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+	// The ID of the source Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+	// The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 	RestEndpoint pulumi.StringPtrInput `pulumi:"restEndpoint"`
 }
 
@@ -3383,7 +3383,7 @@ func (o ClusterLinkSourceKafkaClusterOutput) ToClusterLinkSourceKafkaClusterPtrO
 	}).(ClusterLinkSourceKafkaClusterPtrOutput)
 }
 
-// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o ClusterLinkSourceKafkaClusterOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) *string { return v.BootstrapEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -3393,12 +3393,12 @@ func (o ClusterLinkSourceKafkaClusterOutput) Credentials() ClusterLinkSourceKafk
 	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) *ClusterLinkSourceKafkaClusterCredentials { return v.Credentials }).(ClusterLinkSourceKafkaClusterCredentialsPtrOutput)
 }
 
-// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+// The ID of the source Kafka cluster, for example, `lkc-abc123`.
 func (o ClusterLinkSourceKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+// The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 func (o ClusterLinkSourceKafkaClusterOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLinkSourceKafkaCluster) *string { return v.RestEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -3427,7 +3427,7 @@ func (o ClusterLinkSourceKafkaClusterPtrOutput) Elem() ClusterLinkSourceKafkaClu
 	}).(ClusterLinkSourceKafkaClusterOutput)
 }
 
-// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+// The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 func (o ClusterLinkSourceKafkaClusterPtrOutput) BootstrapEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkSourceKafkaCluster) *string {
 		if v == nil {
@@ -3447,7 +3447,7 @@ func (o ClusterLinkSourceKafkaClusterPtrOutput) Credentials() ClusterLinkSourceK
 	}).(ClusterLinkSourceKafkaClusterCredentialsPtrOutput)
 }
 
-// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+// The ID of the source Kafka cluster, for example, `lkc-abc123`.
 func (o ClusterLinkSourceKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkSourceKafkaCluster) *string {
 		if v == nil {
@@ -3457,7 +3457,7 @@ func (o ClusterLinkSourceKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+// The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
 func (o ClusterLinkSourceKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkSourceKafkaCluster) *string {
 		if v == nil {
@@ -3468,9 +3468,9 @@ func (o ClusterLinkSourceKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrO
 }
 
 type ClusterLinkSourceKafkaClusterCredentials struct {
-	// The Kafka API Key.
+	// The Kafka API Key for your Confluent Cloud cluster.
 	Key string `pulumi:"key"`
-	// The Kafka API Secret.
+	// The Kafka API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -3486,9 +3486,9 @@ type ClusterLinkSourceKafkaClusterCredentialsInput interface {
 }
 
 type ClusterLinkSourceKafkaClusterCredentialsArgs struct {
-	// The Kafka API Key.
+	// The Kafka API Key for your Confluent Cloud cluster.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Kafka API Secret.
+	// The Kafka API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -3569,12 +3569,12 @@ func (o ClusterLinkSourceKafkaClusterCredentialsOutput) ToClusterLinkSourceKafka
 	}).(ClusterLinkSourceKafkaClusterCredentialsPtrOutput)
 }
 
-// The Kafka API Key.
+// The Kafka API Key for your Confluent Cloud cluster.
 func (o ClusterLinkSourceKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkSourceKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Kafka API Secret.
+// The Kafka API Secret for your Confluent Cloud cluster.
 func (o ClusterLinkSourceKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLinkSourceKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -3603,7 +3603,7 @@ func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Elem() ClusterLinkSou
 	}).(ClusterLinkSourceKafkaClusterCredentialsOutput)
 }
 
-// The Kafka API Key.
+// The Kafka API Key for your Confluent Cloud cluster.
 func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkSourceKafkaClusterCredentials) *string {
 		if v == nil {
@@ -3613,7 +3613,7 @@ func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Kafka API Secret.
+// The Kafka API Secret for your Confluent Cloud cluster.
 func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLinkSourceKafkaClusterCredentials) *string {
 		if v == nil {
@@ -3624,7 +3624,7 @@ func (o ClusterLinkSourceKafkaClusterCredentialsPtrOutput) Secret() pulumi.Strin
 }
 
 type ConnectorEnvironment struct {
-	// The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+	// The ID of the Environment that the connector belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -3640,7 +3640,7 @@ type ConnectorEnvironmentInput interface {
 }
 
 type ConnectorEnvironmentArgs struct {
-	// The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+	// The ID of the Environment that the connector belongs to, for example, `env-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -3721,7 +3721,7 @@ func (o ConnectorEnvironmentOutput) ToConnectorEnvironmentPtrOutputWithContext(c
 	}).(ConnectorEnvironmentPtrOutput)
 }
 
-// The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+// The ID of the Environment that the connector belongs to, for example, `env-abc123`.
 func (o ConnectorEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -3750,7 +3750,7 @@ func (o ConnectorEnvironmentPtrOutput) Elem() ConnectorEnvironmentOutput {
 	}).(ConnectorEnvironmentOutput)
 }
 
-// The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+// The ID of the Environment that the connector belongs to, for example, `env-abc123`.
 func (o ConnectorEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorEnvironment) *string {
 		if v == nil {
@@ -3898,7 +3898,7 @@ func (o ConnectorKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type DnsForwarderEnvironment struct {
-	// The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+	// The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -3914,7 +3914,7 @@ type DnsForwarderEnvironmentInput interface {
 }
 
 type DnsForwarderEnvironmentArgs struct {
-	// The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+	// The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -3995,7 +3995,7 @@ func (o DnsForwarderEnvironmentOutput) ToDnsForwarderEnvironmentPtrOutputWithCon
 	}).(DnsForwarderEnvironmentPtrOutput)
 }
 
-// The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+// The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
 func (o DnsForwarderEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DnsForwarderEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -4024,7 +4024,7 @@ func (o DnsForwarderEnvironmentPtrOutput) Elem() DnsForwarderEnvironmentOutput {
 	}).(DnsForwarderEnvironmentOutput)
 }
 
-// The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+// The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
 func (o DnsForwarderEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DnsForwarderEnvironment) *string {
 		if v == nil {
@@ -4309,7 +4309,7 @@ func (o DnsForwarderGatewayPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type DnsRecordEnvironment struct {
-	// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+	// The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -4325,7 +4325,7 @@ type DnsRecordEnvironmentInput interface {
 }
 
 type DnsRecordEnvironmentArgs struct {
-	// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+	// The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -4406,7 +4406,7 @@ func (o DnsRecordEnvironmentOutput) ToDnsRecordEnvironmentPtrOutputWithContext(c
 	}).(DnsRecordEnvironmentPtrOutput)
 }
 
-// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+// The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
 func (o DnsRecordEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DnsRecordEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -4435,7 +4435,7 @@ func (o DnsRecordEnvironmentPtrOutput) Elem() DnsRecordEnvironmentOutput {
 	}).(DnsRecordEnvironmentOutput)
 }
 
-// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+// The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
 func (o DnsRecordEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DnsRecordEnvironment) *string {
 		if v == nil {
@@ -4446,7 +4446,7 @@ func (o DnsRecordEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type DnsRecordGateway struct {
-	// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+	// The ID of the gateway to which the DNS Record belongs, for example, `gw-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -4462,7 +4462,7 @@ type DnsRecordGatewayInput interface {
 }
 
 type DnsRecordGatewayArgs struct {
-	// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+	// The ID of the gateway to which the DNS Record belongs, for example, `gw-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -4543,7 +4543,7 @@ func (o DnsRecordGatewayOutput) ToDnsRecordGatewayPtrOutputWithContext(ctx conte
 	}).(DnsRecordGatewayPtrOutput)
 }
 
-// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+// The ID of the gateway to which the DNS Record belongs, for example, `gw-abc123`.
 func (o DnsRecordGatewayOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DnsRecordGateway) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -4572,7 +4572,7 @@ func (o DnsRecordGatewayPtrOutput) Elem() DnsRecordGatewayOutput {
 	}).(DnsRecordGatewayOutput)
 }
 
-// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+// The ID of the gateway to which the DNS Record belongs, for example, `gw-abc123`.
 func (o DnsRecordGatewayPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DnsRecordGateway) *string {
 		if v == nil {
@@ -4994,7 +4994,7 @@ func (o FlinkComputePoolEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type FlinkStatementComputePool struct {
-	// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+	// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -5010,7 +5010,7 @@ type FlinkStatementComputePoolInput interface {
 }
 
 type FlinkStatementComputePoolArgs struct {
-	// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+	// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -5091,7 +5091,7 @@ func (o FlinkStatementComputePoolOutput) ToFlinkStatementComputePoolPtrOutputWit
 	}).(FlinkStatementComputePoolPtrOutput)
 }
 
-// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
 func (o FlinkStatementComputePoolOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v FlinkStatementComputePool) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -5120,7 +5120,7 @@ func (o FlinkStatementComputePoolPtrOutput) Elem() FlinkStatementComputePoolOutp
 	}).(FlinkStatementComputePoolOutput)
 }
 
-// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+// The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
 func (o FlinkStatementComputePoolPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlinkStatementComputePool) *string {
 		if v == nil {
@@ -5303,7 +5303,7 @@ func (o FlinkStatementCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 }
 
 type FlinkStatementEnvironment struct {
-	// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+	// The ID of the Environment, for example, `env-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -5319,7 +5319,7 @@ type FlinkStatementEnvironmentInput interface {
 }
 
 type FlinkStatementEnvironmentArgs struct {
-	// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+	// The ID of the Environment, for example, `env-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -5400,7 +5400,7 @@ func (o FlinkStatementEnvironmentOutput) ToFlinkStatementEnvironmentPtrOutputWit
 	}).(FlinkStatementEnvironmentPtrOutput)
 }
 
-// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+// The ID of the Environment, for example, `env-abc123`.
 func (o FlinkStatementEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v FlinkStatementEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -5429,7 +5429,7 @@ func (o FlinkStatementEnvironmentPtrOutput) Elem() FlinkStatementEnvironmentOutp
 	}).(FlinkStatementEnvironmentOutput)
 }
 
-// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+// The ID of the Environment, for example, `env-abc123`.
 func (o FlinkStatementEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlinkStatementEnvironment) *string {
 		if v == nil {
@@ -5440,7 +5440,7 @@ func (o FlinkStatementEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type FlinkStatementOrganization struct {
-	// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+	// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
 	Id string `pulumi:"id"`
 }
 
@@ -5456,7 +5456,7 @@ type FlinkStatementOrganizationInput interface {
 }
 
 type FlinkStatementOrganizationArgs struct {
-	// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+	// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -5537,7 +5537,7 @@ func (o FlinkStatementOrganizationOutput) ToFlinkStatementOrganizationPtrOutputW
 	}).(FlinkStatementOrganizationPtrOutput)
 }
 
-// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
 func (o FlinkStatementOrganizationOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v FlinkStatementOrganization) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -5566,7 +5566,7 @@ func (o FlinkStatementOrganizationPtrOutput) Elem() FlinkStatementOrganizationOu
 	}).(FlinkStatementOrganizationOutput)
 }
 
-// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
 func (o FlinkStatementOrganizationPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlinkStatementOrganization) *string {
 		if v == nil {
@@ -6491,11 +6491,7 @@ func (o KafkaClientQuotaEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type KafkaClientQuotaKafkaCluster struct {
-	// The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
-	//
-	// > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
-	//
-	// > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
+	// The ID of the Kafka Cluster where the Kafka Client Quota is applied, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -6511,11 +6507,7 @@ type KafkaClientQuotaKafkaClusterInput interface {
 }
 
 type KafkaClientQuotaKafkaClusterArgs struct {
-	// The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
-	//
-	// > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
-	//
-	// > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
+	// The ID of the Kafka Cluster where the Kafka Client Quota is applied, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -6596,11 +6588,7 @@ func (o KafkaClientQuotaKafkaClusterOutput) ToKafkaClientQuotaKafkaClusterPtrOut
 	}).(KafkaClientQuotaKafkaClusterPtrOutput)
 }
 
-// The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
-//
-// > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
-//
-// > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
+// The ID of the Kafka Cluster where the Kafka Client Quota is applied, for example, `lkc-abc123`.
 func (o KafkaClientQuotaKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClientQuotaKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -6629,11 +6617,7 @@ func (o KafkaClientQuotaKafkaClusterPtrOutput) Elem() KafkaClientQuotaKafkaClust
 	}).(KafkaClientQuotaKafkaClusterOutput)
 }
 
-// The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
-//
-// > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
-//
-// > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
+// The ID of the Kafka Cluster where the Kafka Client Quota is applied, for example, `lkc-abc123`.
 func (o KafkaClientQuotaKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClientQuotaKafkaCluster) *string {
 		if v == nil {
@@ -7663,7 +7647,7 @@ func (o KafkaClusterEnterpriseArrayOutput) Index(i pulumi.IntInput) KafkaCluster
 }
 
 type KafkaClusterEnvironment struct {
-	// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+	// The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -7679,7 +7663,7 @@ type KafkaClusterEnvironmentInput interface {
 }
 
 type KafkaClusterEnvironmentArgs struct {
-	// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+	// The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -7760,7 +7744,7 @@ func (o KafkaClusterEnvironmentOutput) ToKafkaClusterEnvironmentPtrOutputWithCon
 	}).(KafkaClusterEnvironmentPtrOutput)
 }
 
-// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+// The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
 func (o KafkaClusterEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -7789,7 +7773,7 @@ func (o KafkaClusterEnvironmentPtrOutput) Elem() KafkaClusterEnvironmentOutput {
 	}).(KafkaClusterEnvironmentOutput)
 }
 
-// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+// The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
 func (o KafkaClusterEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterEnvironment) *string {
 		if v == nil {
@@ -7800,7 +7784,7 @@ func (o KafkaClusterEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type KafkaClusterNetwork struct {
-	// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+	// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -7816,7 +7800,7 @@ type KafkaClusterNetworkInput interface {
 }
 
 type KafkaClusterNetworkArgs struct {
-	// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+	// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -7897,7 +7881,7 @@ func (o KafkaClusterNetworkOutput) ToKafkaClusterNetworkPtrOutputWithContext(ctx
 	}).(KafkaClusterNetworkPtrOutput)
 }
 
-// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
 func (o KafkaClusterNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterNetwork) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -7926,7 +7910,7 @@ func (o KafkaClusterNetworkPtrOutput) Elem() KafkaClusterNetworkOutput {
 	}).(KafkaClusterNetworkOutput)
 }
 
-// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
 func (o KafkaClusterNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterNetwork) *string {
 		if v == nil {
@@ -8367,9 +8351,9 @@ func (o KafkaMirrorTopicKafkaClusterPtrOutput) RestEndpoint() pulumi.StringPtrOu
 }
 
 type KafkaMirrorTopicKafkaClusterCredentials struct {
-	// The Kafka API Key.
+	// The Kafka API Key for your Confluent Cloud cluster.
 	Key string `pulumi:"key"`
-	// The Kafka API Secret.
+	// The Kafka API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
 }
 
@@ -8385,9 +8369,9 @@ type KafkaMirrorTopicKafkaClusterCredentialsInput interface {
 }
 
 type KafkaMirrorTopicKafkaClusterCredentialsArgs struct {
-	// The Kafka API Key.
+	// The Kafka API Key for your Confluent Cloud cluster.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The Kafka API Secret.
+	// The Kafka API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
 }
 
@@ -8468,12 +8452,12 @@ func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) ToKafkaMirrorTopicKafkaCl
 	}).(KafkaMirrorTopicKafkaClusterCredentialsPtrOutput)
 }
 
-// The Kafka API Key.
+// The Kafka API Key for your Confluent Cloud cluster.
 func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaMirrorTopicKafkaClusterCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The Kafka API Secret.
+// The Kafka API Secret for your Confluent Cloud cluster.
 func (o KafkaMirrorTopicKafkaClusterCredentialsOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaMirrorTopicKafkaClusterCredentials) string { return v.Secret }).(pulumi.StringOutput)
 }
@@ -8502,7 +8486,7 @@ func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) Elem() KafkaMirrorTopi
 	}).(KafkaMirrorTopicKafkaClusterCredentialsOutput)
 }
 
-// The Kafka API Key.
+// The Kafka API Key for your Confluent Cloud cluster.
 func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaMirrorTopicKafkaClusterCredentials) *string {
 		if v == nil {
@@ -8512,7 +8496,7 @@ func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) Key() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Kafka API Secret.
+// The Kafka API Secret for your Confluent Cloud cluster.
 func (o KafkaMirrorTopicKafkaClusterCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaMirrorTopicKafkaClusterCredentials) *string {
 		if v == nil {
@@ -9106,7 +9090,7 @@ func (o KsqlClusterCredentialIdentityPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type KsqlClusterEnvironment struct {
-	// The ID of the associated service or user account, for example, `sa-abc123`.
+	// The ID of the associated Environment, for example, `env-xyz456`.
 	Id string `pulumi:"id"`
 }
 
@@ -9122,7 +9106,7 @@ type KsqlClusterEnvironmentInput interface {
 }
 
 type KsqlClusterEnvironmentArgs struct {
-	// The ID of the associated service or user account, for example, `sa-abc123`.
+	// The ID of the associated Environment, for example, `env-xyz456`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -9203,7 +9187,7 @@ func (o KsqlClusterEnvironmentOutput) ToKsqlClusterEnvironmentPtrOutputWithConte
 	}).(KsqlClusterEnvironmentPtrOutput)
 }
 
-// The ID of the associated service or user account, for example, `sa-abc123`.
+// The ID of the associated Environment, for example, `env-xyz456`.
 func (o KsqlClusterEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KsqlClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -9232,7 +9216,7 @@ func (o KsqlClusterEnvironmentPtrOutput) Elem() KsqlClusterEnvironmentOutput {
 	}).(KsqlClusterEnvironmentOutput)
 }
 
-// The ID of the associated service or user account, for example, `sa-abc123`.
+// The ID of the associated Environment, for example, `env-xyz456`.
 func (o KsqlClusterEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KsqlClusterEnvironment) *string {
 		if v == nil {
@@ -9243,7 +9227,7 @@ func (o KsqlClusterEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type KsqlClusterKafkaCluster struct {
-	// The ID of the associated service or user account, for example, `sa-abc123`.
+	// The ID of the associated Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -9259,7 +9243,7 @@ type KsqlClusterKafkaClusterInput interface {
 }
 
 type KsqlClusterKafkaClusterArgs struct {
-	// The ID of the associated service or user account, for example, `sa-abc123`.
+	// The ID of the associated Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -9340,7 +9324,7 @@ func (o KsqlClusterKafkaClusterOutput) ToKsqlClusterKafkaClusterPtrOutputWithCon
 	}).(KsqlClusterKafkaClusterPtrOutput)
 }
 
-// The ID of the associated service or user account, for example, `sa-abc123`.
+// The ID of the associated Kafka cluster, for example, `lkc-abc123`.
 func (o KsqlClusterKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KsqlClusterKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -9369,7 +9353,7 @@ func (o KsqlClusterKafkaClusterPtrOutput) Elem() KsqlClusterKafkaClusterOutput {
 	}).(KsqlClusterKafkaClusterOutput)
 }
 
-// The ID of the associated service or user account, for example, `sa-abc123`.
+// The ID of the associated Kafka cluster, for example, `lkc-abc123`.
 func (o KsqlClusterKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KsqlClusterKafkaCluster) *string {
 		if v == nil {
@@ -9874,7 +9858,7 @@ func (o NetworkEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type NetworkGateway struct {
-	// The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+	// (Optional String) The ID of the Gateway, for example, `gw-abc123`.
 	Id *string `pulumi:"id"`
 }
 
@@ -9890,7 +9874,7 @@ type NetworkGatewayInput interface {
 }
 
 type NetworkGatewayArgs struct {
-	// The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+	// (Optional String) The ID of the Gateway, for example, `gw-abc123`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -9945,7 +9929,7 @@ func (o NetworkGatewayOutput) ToNetworkGatewayOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+// (Optional String) The ID of the Gateway, for example, `gw-abc123`.
 func (o NetworkGatewayOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkGateway) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -10223,7 +10207,7 @@ func (o NetworkLinkEndpointEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type NetworkLinkEndpointNetwork struct {
-	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	// The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -10239,7 +10223,7 @@ type NetworkLinkEndpointNetworkInput interface {
 }
 
 type NetworkLinkEndpointNetworkArgs struct {
-	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	// The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -10320,7 +10304,7 @@ func (o NetworkLinkEndpointNetworkOutput) ToNetworkLinkEndpointNetworkPtrOutputW
 	}).(NetworkLinkEndpointNetworkPtrOutput)
 }
 
-// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+// The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
 func (o NetworkLinkEndpointNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkLinkEndpointNetwork) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -10349,7 +10333,7 @@ func (o NetworkLinkEndpointNetworkPtrOutput) Elem() NetworkLinkEndpointNetworkOu
 	}).(NetworkLinkEndpointNetworkOutput)
 }
 
-// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+// The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
 func (o NetworkLinkEndpointNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkLinkEndpointNetwork) *string {
 		if v == nil {
@@ -10360,7 +10344,7 @@ func (o NetworkLinkEndpointNetworkPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type NetworkLinkEndpointNetworkLinkService struct {
-	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	// The ID of the Network Link Service, for example, `nls-g3e1ox`.
 	Id string `pulumi:"id"`
 }
 
@@ -10376,7 +10360,7 @@ type NetworkLinkEndpointNetworkLinkServiceInput interface {
 }
 
 type NetworkLinkEndpointNetworkLinkServiceArgs struct {
-	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	// The ID of the Network Link Service, for example, `nls-g3e1ox`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -10457,7 +10441,7 @@ func (o NetworkLinkEndpointNetworkLinkServiceOutput) ToNetworkLinkEndpointNetwor
 	}).(NetworkLinkEndpointNetworkLinkServicePtrOutput)
 }
 
-// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+// The ID of the Network Link Service, for example, `nls-g3e1ox`.
 func (o NetworkLinkEndpointNetworkLinkServiceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkLinkEndpointNetworkLinkService) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -10486,7 +10470,7 @@ func (o NetworkLinkEndpointNetworkLinkServicePtrOutput) Elem() NetworkLinkEndpoi
 	}).(NetworkLinkEndpointNetworkLinkServiceOutput)
 }
 
-// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+// The ID of the Network Link Service, for example, `nls-g3e1ox`.
 func (o NetworkLinkEndpointNetworkLinkServicePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkLinkEndpointNetworkLinkService) *string {
 		if v == nil {
@@ -10653,7 +10637,7 @@ func (o NetworkLinkServiceAcceptPtrOutput) Networks() pulumi.StringArrayOutput {
 }
 
 type NetworkLinkServiceEnvironment struct {
-	// The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+	// The ID of the Environment that the Network Link Service belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -10669,7 +10653,7 @@ type NetworkLinkServiceEnvironmentInput interface {
 }
 
 type NetworkLinkServiceEnvironmentArgs struct {
-	// The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+	// The ID of the Environment that the Network Link Service belongs to, for example, `env-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -10750,7 +10734,7 @@ func (o NetworkLinkServiceEnvironmentOutput) ToNetworkLinkServiceEnvironmentPtrO
 	}).(NetworkLinkServiceEnvironmentPtrOutput)
 }
 
-// The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+// The ID of the Environment that the Network Link Service belongs to, for example, `env-abc123`.
 func (o NetworkLinkServiceEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkLinkServiceEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -10779,7 +10763,7 @@ func (o NetworkLinkServiceEnvironmentPtrOutput) Elem() NetworkLinkServiceEnviron
 	}).(NetworkLinkServiceEnvironmentOutput)
 }
 
-// The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+// The ID of the Environment that the Network Link Service belongs to, for example, `env-abc123`.
 func (o NetworkLinkServiceEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkLinkServiceEnvironment) *string {
 		if v == nil {
@@ -11041,7 +11025,7 @@ func (o NetworkZoneInfoArrayOutput) Index(i pulumi.IntInput) NetworkZoneInfoOutp
 type PeeringAws struct {
 	// The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
 	Account string `pulumi:"account"`
-	// The region of the Azure peer VNet.
+	// The region of the AWS peer VPC.
 	CustomerRegion string `pulumi:"customerRegion"`
 	// The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs > Target VPC > Details** section of the AWS Management Console.
 	Routes []string `pulumi:"routes"`
@@ -11063,7 +11047,7 @@ type PeeringAwsInput interface {
 type PeeringAwsArgs struct {
 	// The AWS Account ID of the peer VPC owner. You can find your AWS Account ID [here](https://console.aws.amazon.com/billing/home?#/account) under **My Account** section of the AWS Management Console. Must be a **12 character string**.
 	Account pulumi.StringInput `pulumi:"account"`
-	// The region of the Azure peer VNet.
+	// The region of the AWS peer VPC.
 	CustomerRegion pulumi.StringInput `pulumi:"customerRegion"`
 	// The AWS VPC CIDR blocks or subsets. This must be from the supported CIDR blocks and must not overlap with your Confluent Cloud CIDR block or any other network peering connection VPC CIDR (learn more about the requirements [here](https://docs.confluent.io/cloud/current/networking/peering/aws-peering.html#vpc-peering-on-aws)). You can find AWS VPC CIDR [here](https://console.aws.amazon.com/vpc/) under **Your VPCs > Target VPC > Details** section of the AWS Management Console.
 	Routes pulumi.StringArrayInput `pulumi:"routes"`
@@ -11153,7 +11137,7 @@ func (o PeeringAwsOutput) Account() pulumi.StringOutput {
 	return o.ApplyT(func(v PeeringAws) string { return v.Account }).(pulumi.StringOutput)
 }
 
-// The region of the Azure peer VNet.
+// The region of the AWS peer VPC.
 func (o PeeringAwsOutput) CustomerRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v PeeringAws) string { return v.CustomerRegion }).(pulumi.StringOutput)
 }
@@ -11202,7 +11186,7 @@ func (o PeeringAwsPtrOutput) Account() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The region of the Azure peer VNet.
+// The region of the AWS peer VPC.
 func (o PeeringAwsPtrOutput) CustomerRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringAws) *string {
 		if v == nil {
@@ -11408,7 +11392,7 @@ func (o PeeringAzurePtrOutput) Vnet() pulumi.StringPtrOutput {
 }
 
 type PeeringEnvironment struct {
-	// The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+	// The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -11424,7 +11408,7 @@ type PeeringEnvironmentInput interface {
 }
 
 type PeeringEnvironmentArgs struct {
-	// The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+	// The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -11505,7 +11489,7 @@ func (o PeeringEnvironmentOutput) ToPeeringEnvironmentPtrOutputWithContext(ctx c
 	}).(PeeringEnvironmentPtrOutput)
 }
 
-// The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+// The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
 func (o PeeringEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PeeringEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -11534,7 +11518,7 @@ func (o PeeringEnvironmentPtrOutput) Elem() PeeringEnvironmentOutput {
 	}).(PeeringEnvironmentOutput)
 }
 
-// The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+// The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
 func (o PeeringEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeeringEnvironment) *string {
 		if v == nil {
@@ -12163,7 +12147,7 @@ func (o PrivateLinkAccessAzurePtrOutput) Subscription() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkAccessEnvironment struct {
-	// The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+	// The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -12179,7 +12163,7 @@ type PrivateLinkAccessEnvironmentInput interface {
 }
 
 type PrivateLinkAccessEnvironmentArgs struct {
-	// The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+	// The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -12260,7 +12244,7 @@ func (o PrivateLinkAccessEnvironmentOutput) ToPrivateLinkAccessEnvironmentPtrOut
 	}).(PrivateLinkAccessEnvironmentPtrOutput)
 }
 
-// The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+// The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
 func (o PrivateLinkAccessEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAccessEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -12289,7 +12273,7 @@ func (o PrivateLinkAccessEnvironmentPtrOutput) Elem() PrivateLinkAccessEnvironme
 	}).(PrivateLinkAccessEnvironmentOutput)
 }
 
-// The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+// The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
 func (o PrivateLinkAccessEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkAccessEnvironment) *string {
 		if v == nil {
@@ -13075,7 +13059,7 @@ func (o PrivateLinkAttachmentConnectionAzurePtrOutput) PrivateEndpointResourceId
 }
 
 type PrivateLinkAttachmentConnectionEnvironment struct {
-	// The unique identifier for the private link attachment.
+	// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
 	Id string `pulumi:"id"`
 }
 
@@ -13091,7 +13075,7 @@ type PrivateLinkAttachmentConnectionEnvironmentInput interface {
 }
 
 type PrivateLinkAttachmentConnectionEnvironmentArgs struct {
-	// The unique identifier for the private link attachment.
+	// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -13172,7 +13156,7 @@ func (o PrivateLinkAttachmentConnectionEnvironmentOutput) ToPrivateLinkAttachmen
 	}).(PrivateLinkAttachmentConnectionEnvironmentPtrOutput)
 }
 
-// The unique identifier for the private link attachment.
+// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
 func (o PrivateLinkAttachmentConnectionEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkAttachmentConnectionEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -13201,7 +13185,7 @@ func (o PrivateLinkAttachmentConnectionEnvironmentPtrOutput) Elem() PrivateLinkA
 	}).(PrivateLinkAttachmentConnectionEnvironmentOutput)
 }
 
-// The unique identifier for the private link attachment.
+// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
 func (o PrivateLinkAttachmentConnectionEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkAttachmentConnectionEnvironment) *string {
 		if v == nil {
@@ -13729,7 +13713,7 @@ func (o PrivateLinkAttachmentGcpArrayOutput) Index(i pulumi.IntInput) PrivateLin
 }
 
 type SchemaCredentials struct {
-	// The setting name.
+	// The Schema Registry API Key.
 	Key string `pulumi:"key"`
 	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret string `pulumi:"secret"`
@@ -13747,7 +13731,7 @@ type SchemaCredentialsInput interface {
 }
 
 type SchemaCredentialsArgs struct {
-	// The setting name.
+	// The Schema Registry API Key.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The Cluster API Secret for your Confluent Cloud cluster.
 	Secret pulumi.StringInput `pulumi:"secret"`
@@ -13830,7 +13814,7 @@ func (o SchemaCredentialsOutput) ToSchemaCredentialsPtrOutputWithContext(ctx con
 	}).(SchemaCredentialsPtrOutput)
 }
 
-// The setting name.
+// The Schema Registry API Key.
 func (o SchemaCredentialsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaCredentials) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -13864,7 +13848,7 @@ func (o SchemaCredentialsPtrOutput) Elem() SchemaCredentialsOutput {
 	}).(SchemaCredentialsOutput)
 }
 
-// The setting name.
+// The Schema Registry API Key.
 func (o SchemaCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaCredentials) *string {
 		if v == nil {
@@ -14491,9 +14475,8 @@ type SchemaMetadata struct {
 	// The custom properties to set:
 	Properties map[string]string `pulumi:"properties"`
 	// A list of metadata properties to be encrypted.
-	Sensitives []string `pulumi:"sensitives"`
-	// The tags to which the rule applies, if any.
-	Tags []SchemaMetadataTag `pulumi:"tags"`
+	Sensitives []string            `pulumi:"sensitives"`
+	Tags       []SchemaMetadataTag `pulumi:"tags"`
 }
 
 // SchemaMetadataInput is an input type that accepts SchemaMetadataArgs and SchemaMetadataOutput values.
@@ -14511,9 +14494,8 @@ type SchemaMetadataArgs struct {
 	// The custom properties to set:
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// A list of metadata properties to be encrypted.
-	Sensitives pulumi.StringArrayInput `pulumi:"sensitives"`
-	// The tags to which the rule applies, if any.
-	Tags SchemaMetadataTagArrayInput `pulumi:"tags"`
+	Sensitives pulumi.StringArrayInput     `pulumi:"sensitives"`
+	Tags       SchemaMetadataTagArrayInput `pulumi:"tags"`
 }
 
 func (SchemaMetadataArgs) ElementType() reflect.Type {
@@ -14603,7 +14585,6 @@ func (o SchemaMetadataOutput) Sensitives() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaMetadata) []string { return v.Sensitives }).(pulumi.StringArrayOutput)
 }
 
-// The tags to which the rule applies, if any.
 func (o SchemaMetadataOutput) Tags() SchemaMetadataTagArrayOutput {
 	return o.ApplyT(func(v SchemaMetadata) []SchemaMetadataTag { return v.Tags }).(SchemaMetadataTagArrayOutput)
 }
@@ -14652,7 +14633,6 @@ func (o SchemaMetadataPtrOutput) Sensitives() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The tags to which the rule applies, if any.
 func (o SchemaMetadataPtrOutput) Tags() SchemaMetadataTagArrayOutput {
 	return o.ApplyT(func(v *SchemaMetadata) []SchemaMetadataTag {
 		if v == nil {
@@ -14663,9 +14643,7 @@ func (o SchemaMetadataPtrOutput) Tags() SchemaMetadataTagArrayOutput {
 }
 
 type SchemaMetadataTag struct {
-	// The setting name.
-	Key *string `pulumi:"key"`
-	// The list of tags.
+	Key    *string  `pulumi:"key"`
 	Values []string `pulumi:"values"`
 }
 
@@ -14681,9 +14659,7 @@ type SchemaMetadataTagInput interface {
 }
 
 type SchemaMetadataTagArgs struct {
-	// The setting name.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The list of tags.
+	Key    pulumi.StringPtrInput   `pulumi:"key"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -14738,12 +14714,10 @@ func (o SchemaMetadataTagOutput) ToSchemaMetadataTagOutputWithContext(ctx contex
 	return o
 }
 
-// The setting name.
 func (o SchemaMetadataTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaMetadataTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The list of tags.
 func (o SchemaMetadataTagOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaMetadataTag) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -15062,7 +15036,7 @@ func (o SchemaRegistryClusterConfigSchemaRegistryClusterPtrOutput) Id() pulumi.S
 }
 
 type SchemaRegistryClusterEnvironment struct {
-	// The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -15078,7 +15052,7 @@ type SchemaRegistryClusterEnvironmentInput interface {
 }
 
 type SchemaRegistryClusterEnvironmentArgs struct {
-	// The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -15159,7 +15133,7 @@ func (o SchemaRegistryClusterEnvironmentOutput) ToSchemaRegistryClusterEnvironme
 	}).(SchemaRegistryClusterEnvironmentPtrOutput)
 }
 
-// The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
 func (o SchemaRegistryClusterEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaRegistryClusterEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -15188,7 +15162,7 @@ func (o SchemaRegistryClusterEnvironmentPtrOutput) Elem() SchemaRegistryClusterE
 	}).(SchemaRegistryClusterEnvironmentOutput)
 }
 
-// The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
 func (o SchemaRegistryClusterEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaRegistryClusterEnvironment) *string {
 		if v == nil {
@@ -16363,31 +16337,16 @@ func (o SchemaRulesetPtrOutput) MigrationRules() SchemaRulesetMigrationRuleArray
 }
 
 type SchemaRulesetDomainRule struct {
-	// An optional description of the rule.
-	Doc *string `pulumi:"doc"`
-	// The body of the rule, which is optional.
-	Expr *string `pulumi:"expr"`
-	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-	Kind *string `pulumi:"kind"`
-	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-	Mode *string `pulumi:"mode"`
-	// A user-defined name that can be used to reference the rule.
-	Name *string `pulumi:"name"`
-	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-	OnFailure *string `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
-	OnSuccess *string `pulumi:"onSuccess"`
-	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-	//
-	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-	//
-	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-	Params map[string]string `pulumi:"params"`
-	// The tags to which the rule applies, if any.
-	Tags []string `pulumi:"tags"`
-	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-	Type *string `pulumi:"type"`
+	Doc       *string           `pulumi:"doc"`
+	Expr      *string           `pulumi:"expr"`
+	Kind      *string           `pulumi:"kind"`
+	Mode      *string           `pulumi:"mode"`
+	Name      *string           `pulumi:"name"`
+	OnFailure *string           `pulumi:"onFailure"`
+	OnSuccess *string           `pulumi:"onSuccess"`
+	Params    map[string]string `pulumi:"params"`
+	Tags      []string          `pulumi:"tags"`
+	Type      *string           `pulumi:"type"`
 }
 
 // SchemaRulesetDomainRuleInput is an input type that accepts SchemaRulesetDomainRuleArgs and SchemaRulesetDomainRuleOutput values.
@@ -16402,31 +16361,16 @@ type SchemaRulesetDomainRuleInput interface {
 }
 
 type SchemaRulesetDomainRuleArgs struct {
-	// An optional description of the rule.
-	Doc pulumi.StringPtrInput `pulumi:"doc"`
-	// The body of the rule, which is optional.
-	Expr pulumi.StringPtrInput `pulumi:"expr"`
-	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// A user-defined name that can be used to reference the rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
-	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
-	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-	//
-	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-	//
-	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-	Params pulumi.StringMapInput `pulumi:"params"`
-	// The tags to which the rule applies, if any.
-	Tags pulumi.StringArrayInput `pulumi:"tags"`
-	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Doc       pulumi.StringPtrInput   `pulumi:"doc"`
+	Expr      pulumi.StringPtrInput   `pulumi:"expr"`
+	Kind      pulumi.StringPtrInput   `pulumi:"kind"`
+	Mode      pulumi.StringPtrInput   `pulumi:"mode"`
+	Name      pulumi.StringPtrInput   `pulumi:"name"`
+	OnFailure pulumi.StringPtrInput   `pulumi:"onFailure"`
+	OnSuccess pulumi.StringPtrInput   `pulumi:"onSuccess"`
+	Params    pulumi.StringMapInput   `pulumi:"params"`
+	Tags      pulumi.StringArrayInput `pulumi:"tags"`
+	Type      pulumi.StringPtrInput   `pulumi:"type"`
 }
 
 func (SchemaRulesetDomainRuleArgs) ElementType() reflect.Type {
@@ -16480,57 +16424,42 @@ func (o SchemaRulesetDomainRuleOutput) ToSchemaRulesetDomainRuleOutputWithContex
 	return o
 }
 
-// An optional description of the rule.
 func (o SchemaRulesetDomainRuleOutput) Doc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Doc }).(pulumi.StringPtrOutput)
 }
 
-// The body of the rule, which is optional.
 func (o SchemaRulesetDomainRuleOutput) Expr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Expr }).(pulumi.StringPtrOutput)
 }
 
-// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
 func (o SchemaRulesetDomainRuleOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
 func (o SchemaRulesetDomainRuleOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// A user-defined name that can be used to reference the rule.
 func (o SchemaRulesetDomainRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
 func (o SchemaRulesetDomainRuleOutput) OnFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
 }
 
-// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
 func (o SchemaRulesetDomainRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
 
-// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-//
-// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-//
-// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 func (o SchemaRulesetDomainRuleOutput) Params() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
 }
 
-// The tags to which the rule applies, if any.
 func (o SchemaRulesetDomainRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
 func (o SchemaRulesetDomainRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetDomainRule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -16556,31 +16485,16 @@ func (o SchemaRulesetDomainRuleArrayOutput) Index(i pulumi.IntInput) SchemaRules
 }
 
 type SchemaRulesetMigrationRule struct {
-	// An optional description of the rule.
-	Doc *string `pulumi:"doc"`
-	// The body of the rule, which is optional.
-	Expr *string `pulumi:"expr"`
-	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-	Kind *string `pulumi:"kind"`
-	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-	Mode *string `pulumi:"mode"`
-	// A user-defined name that can be used to reference the rule.
-	Name *string `pulumi:"name"`
-	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-	OnFailure *string `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
-	OnSuccess *string `pulumi:"onSuccess"`
-	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-	//
-	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-	//
-	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-	Params map[string]string `pulumi:"params"`
-	// The tags to which the rule applies, if any.
-	Tags []string `pulumi:"tags"`
-	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-	Type *string `pulumi:"type"`
+	Doc       *string           `pulumi:"doc"`
+	Expr      *string           `pulumi:"expr"`
+	Kind      *string           `pulumi:"kind"`
+	Mode      *string           `pulumi:"mode"`
+	Name      *string           `pulumi:"name"`
+	OnFailure *string           `pulumi:"onFailure"`
+	OnSuccess *string           `pulumi:"onSuccess"`
+	Params    map[string]string `pulumi:"params"`
+	Tags      []string          `pulumi:"tags"`
+	Type      *string           `pulumi:"type"`
 }
 
 // SchemaRulesetMigrationRuleInput is an input type that accepts SchemaRulesetMigrationRuleArgs and SchemaRulesetMigrationRuleOutput values.
@@ -16595,31 +16509,16 @@ type SchemaRulesetMigrationRuleInput interface {
 }
 
 type SchemaRulesetMigrationRuleArgs struct {
-	// An optional description of the rule.
-	Doc pulumi.StringPtrInput `pulumi:"doc"`
-	// The body of the rule, which is optional.
-	Expr pulumi.StringPtrInput `pulumi:"expr"`
-	// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// A user-defined name that can be used to reference the rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-	OnFailure pulumi.StringPtrInput `pulumi:"onFailure"`
-	// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
-	OnSuccess pulumi.StringPtrInput `pulumi:"onSuccess"`
-	// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-	//
-	// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-	//
-	// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-	// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-	Params pulumi.StringMapInput `pulumi:"params"`
-	// The tags to which the rule applies, if any.
-	Tags pulumi.StringArrayInput `pulumi:"tags"`
-	// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Doc       pulumi.StringPtrInput   `pulumi:"doc"`
+	Expr      pulumi.StringPtrInput   `pulumi:"expr"`
+	Kind      pulumi.StringPtrInput   `pulumi:"kind"`
+	Mode      pulumi.StringPtrInput   `pulumi:"mode"`
+	Name      pulumi.StringPtrInput   `pulumi:"name"`
+	OnFailure pulumi.StringPtrInput   `pulumi:"onFailure"`
+	OnSuccess pulumi.StringPtrInput   `pulumi:"onSuccess"`
+	Params    pulumi.StringMapInput   `pulumi:"params"`
+	Tags      pulumi.StringArrayInput `pulumi:"tags"`
+	Type      pulumi.StringPtrInput   `pulumi:"type"`
 }
 
 func (SchemaRulesetMigrationRuleArgs) ElementType() reflect.Type {
@@ -16673,57 +16572,42 @@ func (o SchemaRulesetMigrationRuleOutput) ToSchemaRulesetMigrationRuleOutputWith
 	return o
 }
 
-// An optional description of the rule.
 func (o SchemaRulesetMigrationRuleOutput) Doc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Doc }).(pulumi.StringPtrOutput)
 }
 
-// The body of the rule, which is optional.
 func (o SchemaRulesetMigrationRuleOutput) Expr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Expr }).(pulumi.StringPtrOutput)
 }
 
-// The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
 func (o SchemaRulesetMigrationRuleOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
 func (o SchemaRulesetMigrationRuleOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// A user-defined name that can be used to reference the rule.
 func (o SchemaRulesetMigrationRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
 func (o SchemaRulesetMigrationRuleOutput) OnFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.OnFailure }).(pulumi.StringPtrOutput)
 }
 
-// An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
 func (o SchemaRulesetMigrationRuleOutput) OnSuccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.OnSuccess }).(pulumi.StringPtrOutput)
 }
 
-// A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-//
-// > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-//
-// > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-// **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
 func (o SchemaRulesetMigrationRuleOutput) Params() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) map[string]string { return v.Params }).(pulumi.StringMapOutput)
 }
 
-// The tags to which the rule applies, if any.
 func (o SchemaRulesetMigrationRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
 func (o SchemaRulesetMigrationRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaRulesetMigrationRule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -16749,7 +16633,7 @@ func (o SchemaRulesetMigrationRuleArrayOutput) Index(i pulumi.IntInput) SchemaRu
 }
 
 type SchemaSchemaReference struct {
-	// A user-defined name that can be used to reference the rule.
+	// The name of the subject, representing the subject under which the referenced schema is registered.
 	Name string `pulumi:"name"`
 	// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
 	SubjectName string `pulumi:"subjectName"`
@@ -16769,7 +16653,7 @@ type SchemaSchemaReferenceInput interface {
 }
 
 type SchemaSchemaReferenceArgs struct {
-	// A user-defined name that can be used to reference the rule.
+	// The name of the subject, representing the subject under which the referenced schema is registered.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)
 	SubjectName pulumi.StringInput `pulumi:"subjectName"`
@@ -16828,7 +16712,7 @@ func (o SchemaSchemaReferenceOutput) ToSchemaSchemaReferenceOutputWithContext(ct
 	return o
 }
 
-// A user-defined name that can be used to reference the rule.
+// The name of the subject, representing the subject under which the referenced schema is registered.
 func (o SchemaSchemaReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaSchemaReference) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -18375,7 +18259,7 @@ func (o TransitGatewayAttachmentAwsPtrOutput) TransitGatewayId() pulumi.StringPt
 }
 
 type TransitGatewayAttachmentEnvironment struct {
-	// The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+	// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -18391,7 +18275,7 @@ type TransitGatewayAttachmentEnvironmentInput interface {
 }
 
 type TransitGatewayAttachmentEnvironmentArgs struct {
-	// The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+	// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -18472,7 +18356,7 @@ func (o TransitGatewayAttachmentEnvironmentOutput) ToTransitGatewayAttachmentEnv
 	}).(TransitGatewayAttachmentEnvironmentPtrOutput)
 }
 
-// The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
 func (o TransitGatewayAttachmentEnvironmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TransitGatewayAttachmentEnvironment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -18501,7 +18385,7 @@ func (o TransitGatewayAttachmentEnvironmentPtrOutput) Elem() TransitGatewayAttac
 	}).(TransitGatewayAttachmentEnvironmentOutput)
 }
 
-// The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
 func (o TransitGatewayAttachmentEnvironmentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGatewayAttachmentEnvironment) *string {
 		if v == nil {
@@ -18825,7 +18709,7 @@ func (o GetAccessPointEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetAccessPointGateway struct {
-	// The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+	// The ID of the Access Point, for example, `ap-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -18841,7 +18725,7 @@ type GetAccessPointGatewayInput interface {
 }
 
 type GetAccessPointGatewayArgs struct {
-	// The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+	// The ID of the Access Point, for example, `ap-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -18896,7 +18780,7 @@ func (o GetAccessPointGatewayOutput) ToGetAccessPointGatewayOutputWithContext(ct
 	return o
 }
 
-// The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+// The ID of the Access Point, for example, `ap-abc123`.
 func (o GetAccessPointGatewayOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccessPointGateway) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -20052,7 +19936,7 @@ func (o GetDnsRecordEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetDnsRecordGateway struct {
-	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+	// The ID of the DNS Record, for example, `dnsrec-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -20068,7 +19952,7 @@ type GetDnsRecordGatewayInput interface {
 }
 
 type GetDnsRecordGatewayArgs struct {
-	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+	// The ID of the DNS Record, for example, `dnsrec-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -20123,7 +20007,7 @@ func (o GetDnsRecordGatewayOutput) ToGetDnsRecordGatewayOutputWithContext(ctx co
 	return o
 }
 
-// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+// The ID of the DNS Record, for example, `dnsrec-abc123`.
 func (o GetDnsRecordGatewayOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDnsRecordGateway) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -20149,7 +20033,7 @@ func (o GetDnsRecordGatewayArrayOutput) Index(i pulumi.IntInput) GetDnsRecordGat
 }
 
 type GetDnsRecordPrivateLinkAccessPoint struct {
-	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+	// The ID of the DNS Record, for example, `dnsrec-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -20165,7 +20049,7 @@ type GetDnsRecordPrivateLinkAccessPointInput interface {
 }
 
 type GetDnsRecordPrivateLinkAccessPointArgs struct {
-	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+	// The ID of the DNS Record, for example, `dnsrec-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -20220,7 +20104,7 @@ func (o GetDnsRecordPrivateLinkAccessPointOutput) ToGetDnsRecordPrivateLinkAcces
 	return o
 }
 
-// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+// The ID of the DNS Record, for example, `dnsrec-abc123`.
 func (o GetDnsRecordPrivateLinkAccessPointOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDnsRecordPrivateLinkAccessPoint) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -21154,7 +21038,7 @@ type GetIpAddressesIpAddress struct {
 	Kind string `pulumi:"kind"`
 	// (Required Integer) The region/location where the IP Address is in use.
 	Region string `pulumi:"region"`
-	// A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+	// (Required List of Strings) The service types that will use the address.
 	Services []string `pulumi:"services"`
 }
 
@@ -21182,7 +21066,7 @@ type GetIpAddressesIpAddressArgs struct {
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// (Required Integer) The region/location where the IP Address is in use.
 	Region pulumi.StringInput `pulumi:"region"`
-	// A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+	// (Required List of Strings) The service types that will use the address.
 	Services pulumi.StringArrayInput `pulumi:"services"`
 }
 
@@ -21267,7 +21151,7 @@ func (o GetIpAddressesIpAddressOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIpAddressesIpAddress) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+// (Required List of Strings) The service types that will use the address.
 func (o GetIpAddressesIpAddressOutput) Services() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpAddressesIpAddress) []string { return v.Services }).(pulumi.StringArrayOutput)
 }
@@ -21681,9 +21565,7 @@ func (o GetKafkaClusterBasicArrayOutput) Index(i pulumi.IntInput) GetKafkaCluste
 }
 
 type GetKafkaClusterByokKey struct {
-	// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -21699,9 +21581,7 @@ type GetKafkaClusterByokKeyInput interface {
 }
 
 type GetKafkaClusterByokKeyArgs struct {
-	// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -21756,9 +21636,7 @@ func (o GetKafkaClusterByokKeyOutput) ToGetKafkaClusterByokKeyOutputWithContext(
 	return o
 }
 
-// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-//
-// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+// The ID of the Kafka cluster, for example, `lkc-abc123`.
 func (o GetKafkaClusterByokKeyOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaClusterByokKey) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -22117,9 +21995,7 @@ func (o GetKafkaClusterEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetKafkaClusterNetwork struct {
-	// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Kafka cluster, for example, `lkc-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -22135,9 +22011,7 @@ type GetKafkaClusterNetworkInput interface {
 }
 
 type GetKafkaClusterNetworkArgs struct {
-	// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Kafka cluster, for example, `lkc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -22192,9 +22066,7 @@ func (o GetKafkaClusterNetworkOutput) ToGetKafkaClusterNetworkOutputWithContext(
 	return o
 }
 
-// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-//
-// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+// The ID of the Kafka cluster, for example, `lkc-abc123`.
 func (o GetKafkaClusterNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKafkaClusterNetwork) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -22601,9 +22473,7 @@ func (o GetKafkaTopicKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type GetKsqlClusterCredentialIdentity struct {
-	// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -22619,9 +22489,7 @@ type GetKsqlClusterCredentialIdentityInput interface {
 }
 
 type GetKsqlClusterCredentialIdentityArgs struct {
-	// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -22676,9 +22544,7 @@ func (o GetKsqlClusterCredentialIdentityOutput) ToGetKsqlClusterCredentialIdenti
 	return o
 }
 
-// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-//
-// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+// The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
 func (o GetKsqlClusterCredentialIdentityOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKsqlClusterCredentialIdentity) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -22762,9 +22628,7 @@ func (o GetKsqlClusterEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetKsqlClusterKafkaCluster struct {
-	// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -22780,9 +22644,7 @@ type GetKsqlClusterKafkaClusterInput interface {
 }
 
 type GetKsqlClusterKafkaClusterArgs struct {
-	// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -22837,9 +22699,7 @@ func (o GetKsqlClusterKafkaClusterOutput) ToGetKsqlClusterKafkaClusterOutputWith
 	return o
 }
 
-// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-//
-// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+// The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
 func (o GetKsqlClusterKafkaClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKsqlClusterKafkaCluster) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -23238,9 +23098,7 @@ func (o GetNetworkEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetNetworkGateway struct {
-	// The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Network, for example, `n-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -23256,9 +23114,7 @@ type GetNetworkGatewayInput interface {
 }
 
 type GetNetworkGatewayArgs struct {
-	// The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Network, for example, `n-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -23313,9 +23169,7 @@ func (o GetNetworkGatewayOutput) ToGetNetworkGatewayOutputWithContext(ctx contex
 	return o
 }
 
-// The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
-//
-// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+// The ID of the Network, for example, `n-abc123`.
 func (o GetNetworkGatewayOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkGateway) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -23508,7 +23362,7 @@ func (o GetNetworkLinkEndpointEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetNetworkLinkEndpointNetwork struct {
-	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	// The ID of the Network Link Endpoint, for example, `nle-zyw30`.
 	Id string `pulumi:"id"`
 }
 
@@ -23524,7 +23378,7 @@ type GetNetworkLinkEndpointNetworkInput interface {
 }
 
 type GetNetworkLinkEndpointNetworkArgs struct {
-	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	// The ID of the Network Link Endpoint, for example, `nle-zyw30`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -23579,7 +23433,7 @@ func (o GetNetworkLinkEndpointNetworkOutput) ToGetNetworkLinkEndpointNetworkOutp
 	return o
 }
 
-// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+// The ID of the Network Link Endpoint, for example, `nle-zyw30`.
 func (o GetNetworkLinkEndpointNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkLinkEndpointNetwork) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -23605,7 +23459,7 @@ func (o GetNetworkLinkEndpointNetworkArrayOutput) Index(i pulumi.IntInput) GetNe
 }
 
 type GetNetworkLinkEndpointNetworkLinkService struct {
-	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	// The ID of the Network Link Endpoint, for example, `nle-zyw30`.
 	Id string `pulumi:"id"`
 }
 
@@ -23621,7 +23475,7 @@ type GetNetworkLinkEndpointNetworkLinkServiceInput interface {
 }
 
 type GetNetworkLinkEndpointNetworkLinkServiceArgs struct {
-	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	// The ID of the Network Link Endpoint, for example, `nle-zyw30`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -23676,7 +23530,7 @@ func (o GetNetworkLinkEndpointNetworkLinkServiceOutput) ToGetNetworkLinkEndpoint
 	return o
 }
 
-// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+// The ID of the Network Link Endpoint, for example, `nle-zyw30`.
 func (o GetNetworkLinkEndpointNetworkLinkServiceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkLinkEndpointNetworkLinkService) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -23910,7 +23764,7 @@ func (o GetNetworkLinkServiceEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetNetworkLinkServiceNetwork struct {
-	// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+	// The ID of the Network Link Service, for example, `nls-zyw30`.
 	Id string `pulumi:"id"`
 }
 
@@ -23926,7 +23780,7 @@ type GetNetworkLinkServiceNetworkInput interface {
 }
 
 type GetNetworkLinkServiceNetworkArgs struct {
-	// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+	// The ID of the Network Link Service, for example, `nls-zyw30`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -23981,7 +23835,7 @@ func (o GetNetworkLinkServiceNetworkOutput) ToGetNetworkLinkServiceNetworkOutput
 	return o
 }
 
-// The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.
+// The ID of the Network Link Service, for example, `nls-zyw30`.
 func (o GetNetworkLinkServiceNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkLinkServiceNetwork) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -24525,9 +24379,7 @@ func (o GetPeeringGcpArrayOutput) Index(i pulumi.IntInput) GetPeeringGcpOutput {
 }
 
 type GetPeeringNetwork struct {
-	// The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Peering, for example, `peer-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -24543,9 +24395,7 @@ type GetPeeringNetworkInput interface {
 }
 
 type GetPeeringNetworkArgs struct {
-	// The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Peering, for example, `peer-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -24600,9 +24450,7 @@ func (o GetPeeringNetworkOutput) ToGetPeeringNetworkOutputWithContext(ctx contex
 	return o
 }
 
-// The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.
-//
-// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+// The ID of the Peering, for example, `peer-abc123`.
 func (o GetPeeringNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPeeringNetwork) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -24977,9 +24825,7 @@ func (o GetPrivateLinkAccessGcpArrayOutput) Index(i pulumi.IntInput) GetPrivateL
 }
 
 type GetPrivateLinkAccessNetwork struct {
-	// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Private Link Access, for example, `pla-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -24995,9 +24841,7 @@ type GetPrivateLinkAccessNetworkInput interface {
 }
 
 type GetPrivateLinkAccessNetworkArgs struct {
-	// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Private Link Access, for example, `pla-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -25052,9 +24896,7 @@ func (o GetPrivateLinkAccessNetworkOutput) ToGetPrivateLinkAccessNetworkOutputWi
 	return o
 }
 
-// The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-//
-// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+// The ID of the Private Link Access, for example, `pla-abc123`.
 func (o GetPrivateLinkAccessNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAccessNetwork) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -25626,7 +25468,7 @@ func (o GetPrivateLinkAttachmentConnectionGcpArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetPrivateLinkAttachmentConnectionPrivateLinkAttachment struct {
-	// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+	// The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
 	Id string `pulumi:"id"`
 }
 
@@ -25642,7 +25484,7 @@ type GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentInput interface {
 }
 
 type GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentArgs struct {
-	// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+	// The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -25697,7 +25539,7 @@ func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) ToGetPriv
 	return o
 }
 
-// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
+// The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.
 func (o GetPrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrivateLinkAttachmentConnectionPrivateLinkAttachment) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -26212,7 +26054,7 @@ func (o GetSchemaMetadataPtrOutput) Tags() GetSchemaMetadataTagArrayOutput {
 }
 
 type GetSchemaMetadataTag struct {
-	// The Schema Registry API Key.
+	// (Required String) The setting name.
 	Key string `pulumi:"key"`
 	// (Required List of Strings) The list of tags.
 	Values []string `pulumi:"values"`
@@ -26230,7 +26072,7 @@ type GetSchemaMetadataTagInput interface {
 }
 
 type GetSchemaMetadataTagArgs struct {
-	// The Schema Registry API Key.
+	// (Required String) The setting name.
 	Key pulumi.StringInput `pulumi:"key"`
 	// (Required List of Strings) The list of tags.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -26287,7 +26129,7 @@ func (o GetSchemaMetadataTagOutput) ToGetSchemaMetadataTagOutputWithContext(ctx 
 	return o
 }
 
-// The Schema Registry API Key.
+// (Required String) The setting name.
 func (o GetSchemaMetadataTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaMetadataTag) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -26964,7 +26806,7 @@ func (o GetSchemaRegistryClusterModeSchemaRegistryClusterPtrOutput) Id() pulumi.
 }
 
 type GetSchemaRegistryClusterRegion struct {
-	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+	// The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
 	Id string `pulumi:"id"`
 }
 
@@ -26980,7 +26822,7 @@ type GetSchemaRegistryClusterRegionInput interface {
 }
 
 type GetSchemaRegistryClusterRegionArgs struct {
-	// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+	// The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -27035,7 +26877,7 @@ func (o GetSchemaRegistryClusterRegionOutput) ToGetSchemaRegistryClusterRegionOu
 	return o
 }
 
-// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+// The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
 func (o GetSchemaRegistryClusterRegionOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemaRegistryClusterRegion) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -30806,9 +30648,7 @@ func (o GetTransitGatewayAttachmentEnvironmentOutput) Id() pulumi.StringOutput {
 }
 
 type GetTransitGatewayAttachmentNetwork struct {
-	// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Peering, for example, `tgwa-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -30824,9 +30664,7 @@ type GetTransitGatewayAttachmentNetworkInput interface {
 }
 
 type GetTransitGatewayAttachmentNetworkArgs struct {
-	// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
-	//
-	// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+	// The ID of the Peering, for example, `tgwa-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -30881,9 +30719,7 @@ func (o GetTransitGatewayAttachmentNetworkOutput) ToGetTransitGatewayAttachmentN
 	return o
 }
 
-// The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.
-//
-// > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+// The ID of the Peering, for example, `tgwa-abc123`.
 func (o GetTransitGatewayAttachmentNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTransitGatewayAttachmentNetwork) string { return v.Id }).(pulumi.StringOutput)
 }

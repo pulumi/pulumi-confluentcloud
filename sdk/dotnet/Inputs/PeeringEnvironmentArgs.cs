@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class PeeringEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+        /// The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

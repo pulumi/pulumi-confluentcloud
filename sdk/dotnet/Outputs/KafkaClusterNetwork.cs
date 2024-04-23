@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class KafkaClusterNetwork
     {
         /// <summary>
-        /// The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+        /// The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
         /// </summary>
         public readonly string Id;
 

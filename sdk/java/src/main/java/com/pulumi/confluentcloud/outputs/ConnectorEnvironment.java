@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ConnectorEnvironment {
     /**
-     * @return The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+     * @return The ID of the Environment that the connector belongs to, for example, `env-abc123`.
      * 
      */
     private String id;
 
     private ConnectorEnvironment() {}
     /**
-     * @return The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+     * @return The ID of the Environment that the connector belongs to, for example, `env-abc123`.
      * 
      */
     public String id() {

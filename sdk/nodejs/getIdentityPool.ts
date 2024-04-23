@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -37,7 +36,6 @@ import * as utilities from "./utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIdentityPool(args: GetIdentityPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityPoolResult> {
 
@@ -58,9 +56,7 @@ export interface GetIdentityPoolArgs {
      */
     displayName?: string;
     /**
-     * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Identity Pool, for example, `pool-xyz456`.
      */
     id?: string;
     /**
@@ -105,7 +101,6 @@ export interface GetIdentityPoolResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -129,7 +124,6 @@ export interface GetIdentityPoolResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIdentityPoolOutput(args: GetIdentityPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityPoolResult> {
     return pulumi.output(args).apply((a: any) => getIdentityPool(a, opts))
@@ -144,9 +138,7 @@ export interface GetIdentityPoolOutputArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Identity Pool, for example, `pool-xyz456`.
      */
     id?: pulumi.Input<string>;
     /**

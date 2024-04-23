@@ -139,7 +139,6 @@ class GroupMapping(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -153,7 +152,6 @@ class GroupMapping(pulumi.CustomResource):
             role_name="EnvironmentAdmin",
             crn_pattern=prod["resourceName"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -190,7 +188,6 @@ class GroupMapping(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -204,7 +201,6 @@ class GroupMapping(pulumi.CustomResource):
             role_name="EnvironmentAdmin",
             crn_pattern=prod["resourceName"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -44,7 +43,6 @@ import * as utilities from "./utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSchemaRegistryCluster(args: GetSchemaRegistryClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryClusterResult> {
 
@@ -66,7 +64,7 @@ export interface GetSchemaRegistryClusterArgs {
     displayName?: string;
     environment: inputs.GetSchemaRegistryClusterEnvironment;
     /**
-     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     * The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
      */
     id?: string;
 }
@@ -116,7 +114,6 @@ export interface GetSchemaRegistryClusterResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -147,7 +144,6 @@ export interface GetSchemaRegistryClusterResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSchemaRegistryClusterOutput(args: GetSchemaRegistryClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryClusterResult> {
     return pulumi.output(args).apply((a: any) => getSchemaRegistryCluster(a, opts))
@@ -163,7 +159,7 @@ export interface GetSchemaRegistryClusterOutputArgs {
     displayName?: pulumi.Input<string>;
     environment: pulumi.Input<inputs.GetSchemaRegistryClusterEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+     * The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
      */
     id?: pulumi.Input<string>;
 }

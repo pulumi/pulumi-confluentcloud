@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class SchemaSchemaReferenceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A user-defined name that can be used to reference the rule.
+        /// The name of the subject, representing the subject under which the referenced schema is registered.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

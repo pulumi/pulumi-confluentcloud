@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class DnsRecordGateway
     {
         /// <summary>
-        /// The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+        /// The ID of the gateway to which the DNS Record belongs, for example, `gw-abc123`.
         /// </summary>
         public readonly string Id;
 

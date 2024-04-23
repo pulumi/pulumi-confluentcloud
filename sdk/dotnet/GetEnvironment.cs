@@ -18,7 +18,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,7 +54,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("confluentcloud:index/getEnvironment:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithDefaults());
@@ -67,7 +65,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -104,7 +101,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("confluentcloud:index/getEnvironment:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());

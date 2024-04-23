@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  *
  * ### Example BYOK Key on Azure
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -26,11 +25,9 @@ import * as utilities from "./utilities";
  *     keyIdentifier: "https://test-vault.vault.azure.net/keys/test-key",
  * }});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example BYOK Key on GCP
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -39,7 +36,6 @@ import * as utilities from "./utilities";
  *     keyId: "projects/temp-gear-123456/locations/us-central1/keyRings/byok-test/cryptoKeys/byok-test",
  * }});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Getting Started
  *

@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  * const main = confluentcloud.getEnvironments({});
  * export const environments = main.then(main => main.ids);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEnvironments(opts?: pulumi.InvokeOptions): Promise<GetEnvironmentsResult> {
 
@@ -48,7 +46,6 @@ export interface GetEnvironmentsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -56,7 +53,6 @@ export interface GetEnvironmentsResult {
  * const main = confluentcloud.getEnvironments({});
  * export const environments = main.then(main => main.ids);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEnvironmentsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentsResult> {
     return pulumi.output(getEnvironments(opts))

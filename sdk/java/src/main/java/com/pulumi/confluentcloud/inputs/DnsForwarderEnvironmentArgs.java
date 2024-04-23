@@ -15,14 +15,14 @@ public final class DnsForwarderEnvironmentArgs extends com.pulumi.resources.Reso
     public static final DnsForwarderEnvironmentArgs Empty = new DnsForwarderEnvironmentArgs();
 
     /**
-     * The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+     * The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+     * @return The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
      * 
      */
     public Output<String> id() {
@@ -54,7 +54,7 @@ public final class DnsForwarderEnvironmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param id The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+         * @param id The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DnsForwarderEnvironmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param id The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+         * @param id The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 

@@ -120,7 +120,6 @@ class Environment(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -131,7 +130,6 @@ class Environment(pulumi.CustomResource):
                 package="ESSENTIALS",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 
@@ -186,7 +184,6 @@ class Environment(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -197,7 +194,6 @@ class Environment(pulumi.CustomResource):
                 package="ESSENTIALS",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 

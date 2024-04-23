@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -31,7 +30,6 @@ import * as utilities from "./utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSchemaRegistryRegion(args: GetSchemaRegistryRegionArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryRegionResult> {
 
@@ -86,7 +84,6 @@ export interface GetSchemaRegistryRegionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -102,7 +99,6 @@ export interface GetSchemaRegistryRegionResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSchemaRegistryRegionOutput(args: GetSchemaRegistryRegionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryRegionResult> {
     return pulumi.output(args).apply((a: any) => getSchemaRegistryRegion(a, opts))

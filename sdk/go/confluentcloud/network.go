@@ -15,7 +15,6 @@ import (
 // ## Example Usage
 //
 // ### Example Network that supports Private Link Connections
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,10 +57,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Network that supports Peering Connections
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -100,10 +97,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Network that supports Private Service Connect Connections
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -149,10 +144,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Network that supports Transit Gateway Endpoints
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -191,7 +184,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Getting Started
 //
@@ -232,9 +224,7 @@ type Network struct {
 	Aws NetworkAwArrayOutput `pulumi:"aws"`
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures NetworkAzureArrayOutput `pulumi:"azures"`
-	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-	//
-	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+	// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
 	Cidr pulumi.StringOutput `pulumi:"cidr"`
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
@@ -317,9 +307,7 @@ type networkState struct {
 	Aws []NetworkAw `pulumi:"aws"`
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures []NetworkAzure `pulumi:"azures"`
-	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-	//
-	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+	// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
 	Cidr *string `pulumi:"cidr"`
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud *string `pulumi:"cloud"`
@@ -361,9 +349,7 @@ type NetworkState struct {
 	Aws NetworkAwArrayInput
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures NetworkAzureArrayInput
-	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-	//
-	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+	// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
 	Cidr pulumi.StringPtrInput
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud pulumi.StringPtrInput
@@ -409,9 +395,7 @@ type networkArgs struct {
 	Aws []NetworkAw `pulumi:"aws"`
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures []NetworkAzure `pulumi:"azures"`
-	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-	//
-	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+	// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
 	Cidr *string `pulumi:"cidr"`
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud string `pulumi:"cloud"`
@@ -446,9 +430,7 @@ type NetworkArgs struct {
 	Aws NetworkAwArrayInput
 	// (Optional Configuration Block) The Azure-specific network details if available. It supports the following:
 	Azures NetworkAzureArrayInput
-	// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-	//
-	// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+	// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
 	Cidr pulumi.StringPtrInput
 	// The cloud service provider in which the network exists. Accepted values are: `AWS`, `AZURE`, and `GCP`.
 	Cloud pulumi.StringInput
@@ -574,9 +556,7 @@ func (o NetworkOutput) Azures() NetworkAzureArrayOutput {
 	return o.ApplyT(func(v *Network) NetworkAzureArrayOutput { return v.Azures }).(NetworkAzureArrayOutput)
 }
 
-// The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.
-//
-// > **Note:** The `zoneInfo` configuration block and `reservedCidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.
+// The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.
 func (o NetworkOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
 }

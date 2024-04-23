@@ -18,7 +18,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetByokKeyResult> InvokeAsync(GetByokKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetByokKeyResult>("confluentcloud:index/getByokKey:getByokKey", args ?? new GetByokKeyArgs(), options.WithDefaults());
@@ -50,7 +48,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,7 +67,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetByokKeyResult> Invoke(GetByokKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetByokKeyResult>("confluentcloud:index/getByokKey:getByokKey", args ?? new GetByokKeyInvokeArgs(), options.WithDefaults());

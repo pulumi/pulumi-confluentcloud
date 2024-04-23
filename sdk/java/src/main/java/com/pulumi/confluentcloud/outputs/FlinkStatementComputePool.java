@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class FlinkStatementComputePool {
     /**
-     * @return The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     * @return The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
      * 
      */
     private String id;
 
     private FlinkStatementComputePool() {}
     /**
-     * @return The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     * @return The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
      * 
      */
     public String id() {

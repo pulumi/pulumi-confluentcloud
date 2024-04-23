@@ -197,7 +197,6 @@ def get_ksql_cluster(display_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -213,13 +212,10 @@ def get_ksql_cluster(display_name: Optional[str] = None,
         ))
     pulumi.export("exampleUsingName", example_using_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: The name of the ksqlDB cluster.
-    :param str id: The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-           
-           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    :param str id: The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
     """
     __args__ = dict()
     __args__['displayName'] = display_name
@@ -258,7 +254,6 @@ def get_ksql_cluster_output(display_name: Optional[pulumi.Input[Optional[str]]] 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -274,12 +269,9 @@ def get_ksql_cluster_output(display_name: Optional[pulumi.Input[Optional[str]]] 
         ))
     pulumi.export("exampleUsingName", example_using_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: The name of the ksqlDB cluster.
-    :param str id: The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-           
-           > **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+    :param str id: The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
     """
     ...

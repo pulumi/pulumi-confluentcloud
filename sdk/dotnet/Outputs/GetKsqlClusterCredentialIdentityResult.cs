@@ -14,9 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetKsqlClusterCredentialIdentityResult
     {
         /// <summary>
-        /// The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.
-        /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.
         /// </summary>
         public readonly string Id;
 

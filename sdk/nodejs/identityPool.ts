@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  *
  * ### Example Identity Pool to be used with Azure AD
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -36,11 +35,9 @@ import * as utilities from "./utilities";
  *     filter: "claims.aud==\"confluent\" && claims.group!=\"invalid_group\"",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example Identity Pool to be used with Okta
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -61,7 +58,6 @@ import * as utilities from "./utilities";
  *     filter: "claims.aud==\"confluent\" && claims.group!=\"invalid_group\"",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## External Documentation
  *

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NetworkGateway {
     /**
-     * @return The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+     * @return (Optional String) The ID of the Gateway, for example, `gw-abc123`.
      * 
      */
     private @Nullable String id;
 
     private NetworkGateway() {}
     /**
-     * @return The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+     * @return (Optional String) The ID of the Gateway, for example, `gw-abc123`.
      * 
      */
     public Optional<String> id() {

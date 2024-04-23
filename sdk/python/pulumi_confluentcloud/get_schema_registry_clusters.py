@@ -65,14 +65,12 @@ def get_schema_registry_clusters(opts: Optional[pulumi.InvokeOptions] = None) ->
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_schema_registry_clusters()
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -92,13 +90,11 @@ def get_schema_registry_clusters_output(opts: Optional[pulumi.InvokeOptions] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
 
     main = confluentcloud.get_schema_registry_clusters()
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

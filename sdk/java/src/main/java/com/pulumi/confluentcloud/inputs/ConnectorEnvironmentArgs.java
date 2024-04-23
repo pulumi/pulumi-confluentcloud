@@ -15,14 +15,14 @@ public final class ConnectorEnvironmentArgs extends com.pulumi.resources.Resourc
     public static final ConnectorEnvironmentArgs Empty = new ConnectorEnvironmentArgs();
 
     /**
-     * The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+     * The ID of the Environment that the connector belongs to, for example, `env-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+     * @return The ID of the Environment that the connector belongs to, for example, `env-abc123`.
      * 
      */
     public Output<String> id() {
@@ -54,7 +54,7 @@ public final class ConnectorEnvironmentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param id The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+         * @param id The ID of the Environment that the connector belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ConnectorEnvironmentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param id The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+         * @param id The ID of the Environment that the connector belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 

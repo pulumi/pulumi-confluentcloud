@@ -150,7 +150,6 @@ def get_schema_registry_cluster(display_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -171,11 +170,10 @@ def get_schema_registry_cluster(display_name: Optional[str] = None,
         ))
     pulumi.export("exampleUsingName", example_using_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: The name for the Schema Registry cluster.
-    :param str id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+    :param str id: The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
     """
     __args__ = dict()
     __args__['displayName'] = display_name
@@ -208,7 +206,6 @@ def get_schema_registry_cluster_output(display_name: Optional[pulumi.Input[Optio
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -229,10 +226,9 @@ def get_schema_registry_cluster_output(display_name: Optional[pulumi.Input[Optio
         ))
     pulumi.export("exampleUsingName", example_using_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str display_name: The name for the Schema Registry cluster.
-    :param str id: The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.
+    :param str id: The ID of the Schema Registry cluster (for example, `lsrc-abc123`).
     """
     ...

@@ -98,7 +98,6 @@ def get_gateway(environment: Optional[pulumi.InputType['GetGatewayEnvironmentArg
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -109,10 +108,9 @@ def get_gateway(environment: Optional[pulumi.InputType['GetGatewayEnvironmentArg
         ))
     pulumi.export("gateway", main)
     ```
-    <!--End PulumiCodeChooser -->
 
 
-    :param str id: The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+    :param str id: The ID of the Gateway, for example, `gw-abc123`.
     """
     __args__ = dict()
     __args__['environment'] = environment
@@ -139,7 +137,6 @@ def get_gateway_output(environment: Optional[pulumi.Input[pulumi.InputType['GetG
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -150,9 +147,8 @@ def get_gateway_output(environment: Optional[pulumi.Input[pulumi.InputType['GetG
         ))
     pulumi.export("gateway", main)
     ```
-    <!--End PulumiCodeChooser -->
 
 
-    :param str id: The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.
+    :param str id: The ID of the Gateway, for example, `gw-abc123`.
     """
     ...

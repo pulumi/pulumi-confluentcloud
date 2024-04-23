@@ -178,7 +178,6 @@ class IdentityProvider(pulumi.CustomResource):
 
         ### Example Identity Provider: Azure AD
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -189,11 +188,9 @@ class IdentityProvider(pulumi.CustomResource):
             issuer="https://login.microsoftonline.com/{tenant_id}/v2.0",
             jwks_uri="https://login.microsoftonline.com/common/discovery/v2.0/keys")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Identity Provider: Okta
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -204,7 +201,6 @@ class IdentityProvider(pulumi.CustomResource):
             issuer="https://mycompany.okta.com/oauth2/default",
             jwks_uri="https://mycompany.okta.com/oauth2/default/v1/keys")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## External Documentation
 
@@ -248,7 +244,6 @@ class IdentityProvider(pulumi.CustomResource):
 
         ### Example Identity Provider: Azure AD
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -259,11 +254,9 @@ class IdentityProvider(pulumi.CustomResource):
             issuer="https://login.microsoftonline.com/{tenant_id}/v2.0",
             jwks_uri="https://login.microsoftonline.com/common/discovery/v2.0/keys")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Identity Provider: Okta
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -274,7 +267,6 @@ class IdentityProvider(pulumi.CustomResource):
             issuer="https://mycompany.okta.com/oauth2/default",
             jwks_uri="https://mycompany.okta.com/oauth2/default/v1/keys")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## External Documentation
 

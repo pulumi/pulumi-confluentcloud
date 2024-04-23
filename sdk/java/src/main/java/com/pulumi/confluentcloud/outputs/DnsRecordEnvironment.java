@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class DnsRecordEnvironment {
     /**
-     * @return The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+     * @return The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
      * 
      */
     private String id;
 
     private DnsRecordEnvironment() {}
     /**
-     * @return The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+     * @return The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
      * 
      */
     public String id() {

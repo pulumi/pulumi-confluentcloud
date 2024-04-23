@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class ClusterLinkSourceKafkaClusterCredentials {
     /**
-     * @return The Kafka API Key.
+     * @return The Kafka API Key for your Confluent Cloud cluster.
      * 
      */
     private String key;
     /**
-     * @return The Kafka API Secret.
+     * @return The Kafka API Secret for your Confluent Cloud cluster.
      * 
      */
     private String secret;
 
     private ClusterLinkSourceKafkaClusterCredentials() {}
     /**
-     * @return The Kafka API Key.
+     * @return The Kafka API Key for your Confluent Cloud cluster.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return The Kafka API Secret.
+     * @return The Kafka API Secret for your Confluent Cloud cluster.
      * 
      */
     public String secret() {

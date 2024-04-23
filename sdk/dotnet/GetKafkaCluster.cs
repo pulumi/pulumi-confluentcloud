@@ -18,7 +18,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,7 +56,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetKafkaClusterResult> InvokeAsync(GetKafkaClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKafkaClusterResult>("confluentcloud:index/getKafkaCluster:getKafkaCluster", args ?? new GetKafkaClusterArgs(), options.WithDefaults());
@@ -69,7 +67,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -108,7 +105,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetKafkaClusterResult> Invoke(GetKafkaClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaClusterResult>("confluentcloud:index/getKafkaCluster:getKafkaCluster", args ?? new GetKafkaClusterInvokeArgs(), options.WithDefaults());
@@ -157,9 +153,7 @@ namespace Pulumi.ConfluentCloud
         public Inputs.GetKafkaClusterEnvironmentArgs Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-        /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// The ID of the Kafka cluster, for example, `lkc-abc123`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -224,9 +218,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.GetKafkaClusterEnvironmentInputArgs> Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.
-        /// 
-        /// &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+        /// The ID of the Kafka cluster, for example, `lkc-abc123`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

@@ -15,14 +15,14 @@ public final class ApiKeyOwnerArgs extends com.pulumi.resources.ResourceArgs {
     public static final ApiKeyOwnerArgs Empty = new ApiKeyOwnerArgs();
 
     /**
-     * The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+     * The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
      * 
      */
     @Import(name="apiVersion", required=true)
     private Output<String> apiVersion;
 
     /**
-     * @return The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+     * @return The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
      * 
      */
     public Output<String> apiVersion() {
@@ -30,14 +30,14 @@ public final class ApiKeyOwnerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * @return The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
      * 
      */
     public Output<String> id() {
@@ -45,14 +45,14 @@ public final class ApiKeyOwnerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+     * The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
      * 
      */
     @Import(name="kind", required=true)
     private Output<String> kind;
 
     /**
-     * @return The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+     * @return The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
      * 
      */
     public Output<String> kind() {
@@ -86,7 +86,7 @@ public final class ApiKeyOwnerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiVersion The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+         * @param apiVersion The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class ApiKeyOwnerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiVersion The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+         * @param apiVersion The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class ApiKeyOwnerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param id The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+         * @param id The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class ApiKeyOwnerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param id The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+         * @param id The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class ApiKeyOwnerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kind The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+         * @param kind The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class ApiKeyOwnerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kind The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+         * @param kind The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
          * 
          * @return builder
          * 
