@@ -11,18 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkGateway {
     /**
-     * @return The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * @return The ID of the Network, for example, `n-abc123`.
      * 
      */
     private String id;
 
     private GetNetworkGateway() {}
     /**
-     * @return The ID of the Environment that the Network belongs to, for example, `env-xyz456`.
-     * 
-     * &gt; **Note:** Exactly one from the `id` and `display_name` attributes must be specified.
+     * @return The ID of the Network, for example, `n-abc123`.
      * 
      */
     public String id() {

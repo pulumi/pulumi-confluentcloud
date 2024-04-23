@@ -108,7 +108,6 @@ def get_flink_region(cloud: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -117,7 +116,6 @@ def get_flink_region(cloud: Optional[str] = None,
         region="us-east-1")
     pulumi.export("example", example)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str cloud: The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.
@@ -149,7 +147,6 @@ def get_flink_region_output(cloud: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -158,7 +155,6 @@ def get_flink_region_output(cloud: Optional[pulumi.Input[str]] = None,
         region="us-east-1")
     pulumi.export("example", example)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str cloud: The cloud service provider that hosts the region. Accepted values are: `AWS`, `AZURE`, and `GCP`.

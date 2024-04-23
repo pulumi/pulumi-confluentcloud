@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class PrivateLinkAttachmentConnectionEnvironment
     {
         /// <summary>
-        /// The unique identifier for the private link attachment.
+        /// The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
         /// </summary>
         public readonly string Id;
 

@@ -26,7 +26,7 @@ export interface AccessPointAwsEgressPrivateLinkEndpoint {
 
 export interface AccessPointEnvironment {
     /**
-     * The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.
+     * The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -59,22 +59,22 @@ export interface ApiKeyManagedResource {
 
 export interface ApiKeyManagedResourceEnvironment {
     /**
-     * The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
      */
     id: pulumi.Input<string>;
 }
 
 export interface ApiKeyOwner {
     /**
-     * The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+     * The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
      */
     apiVersion: pulumi.Input<string>;
     /**
-     * The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
      */
     id: pulumi.Input<string>;
     /**
-     * The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+     * The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
      */
     kind: pulumi.Input<string>;
 }
@@ -85,7 +85,7 @@ export interface BusinessMetadataAttributeDefinition {
      */
     defaultValue?: pulumi.Input<string>;
     /**
-     * The description of the Business Metadata.
+     * The description of this attribute.
      */
     description?: pulumi.Input<string>;
     /**
@@ -185,7 +185,7 @@ export interface ByokKeyGcp {
 
 export interface ClusterLinkDestinationKafkaCluster {
     /**
-     * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: pulumi.Input<string>;
     /**
@@ -193,29 +193,29 @@ export interface ClusterLinkDestinationKafkaCluster {
      */
     credentials?: pulumi.Input<inputs.ClusterLinkDestinationKafkaClusterCredentials>;
     /**
-     * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+     * The ID of the destination Kafka cluster, for example, `lkc-abc123`.
      */
     id: pulumi.Input<string>;
     /**
-     * The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
 }
 
 export interface ClusterLinkDestinationKafkaClusterCredentials {
     /**
-     * The Kafka API Key.
+     * The Kafka API Key for your Confluent Cloud cluster.
      */
     key: pulumi.Input<string>;
     /**
-     * The Kafka API Secret.
+     * The Kafka API Secret for your Confluent Cloud cluster.
      */
     secret: pulumi.Input<string>;
 }
 
 export interface ClusterLinkLocalKafkaCluster {
     /**
-     * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: pulumi.Input<string>;
     /**
@@ -223,22 +223,22 @@ export interface ClusterLinkLocalKafkaCluster {
      */
     credentials?: pulumi.Input<inputs.ClusterLinkLocalKafkaClusterCredentials>;
     /**
-     * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+     * The ID of the local Kafka cluster, for example, `lkc-abc123`.
      */
     id: pulumi.Input<string>;
     /**
-     * The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
 }
 
 export interface ClusterLinkLocalKafkaClusterCredentials {
     /**
-     * The Kafka API Key.
+     * The Kafka API Key for your Confluent Cloud cluster.
      */
     key: pulumi.Input<string>;
     /**
-     * The Kafka API Secret.
+     * The Kafka API Secret for your Confluent Cloud cluster.
      */
     secret: pulumi.Input<string>;
 }
@@ -264,18 +264,18 @@ export interface ClusterLinkRemoteKafkaCluster {
 
 export interface ClusterLinkRemoteKafkaClusterCredentials {
     /**
-     * The Kafka API Key.
+     * The Kafka API Key for your Confluent Cloud cluster.
      */
     key: pulumi.Input<string>;
     /**
-     * The Kafka API Secret.
+     * The Kafka API Secret for your Confluent Cloud cluster.
      */
     secret: pulumi.Input<string>;
 }
 
 export interface ClusterLinkSourceKafkaCluster {
     /**
-     * The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      */
     bootstrapEndpoint?: pulumi.Input<string>;
     /**
@@ -283,29 +283,29 @@ export interface ClusterLinkSourceKafkaCluster {
      */
     credentials?: pulumi.Input<inputs.ClusterLinkSourceKafkaClusterCredentials>;
     /**
-     * The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+     * The ID of the source Kafka cluster, for example, `lkc-abc123`.
      */
     id: pulumi.Input<string>;
     /**
-     * The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      */
     restEndpoint?: pulumi.Input<string>;
 }
 
 export interface ClusterLinkSourceKafkaClusterCredentials {
     /**
-     * The Kafka API Key.
+     * The Kafka API Key for your Confluent Cloud cluster.
      */
     key: pulumi.Input<string>;
     /**
-     * The Kafka API Secret.
+     * The Kafka API Secret for your Confluent Cloud cluster.
      */
     secret: pulumi.Input<string>;
 }
 
 export interface ConnectorEnvironment {
     /**
-     * The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+     * The ID of the Environment that the connector belongs to, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -319,7 +319,7 @@ export interface ConnectorKafkaCluster {
 
 export interface DnsForwarderEnvironment {
     /**
-     * The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.
+     * The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -340,14 +340,14 @@ export interface DnsForwarderGateway {
 
 export interface DnsRecordEnvironment {
     /**
-     * The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+     * The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
 }
 
 export interface DnsRecordGateway {
     /**
-     * The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.
+     * The ID of the gateway to which the DNS Record belongs, for example, `gw-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -375,7 +375,7 @@ export interface FlinkComputePoolEnvironment {
 
 export interface FlinkStatementComputePool {
     /**
-     * The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -397,14 +397,14 @@ export interface FlinkStatementCredentials {
 
 export interface FlinkStatementEnvironment {
     /**
-     * The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     * The ID of the Environment, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
 }
 
 export interface FlinkStatementOrganization {
     /**
-     * The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     * The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
      */
     id: pulumi.Input<string>;
 }
@@ -1026,7 +1026,7 @@ export interface GetSchemaMetadataArgs {
 
 export interface GetSchemaMetadataTag {
     /**
-     * The Schema Registry API Key.
+     * (Required String) The setting name.
      */
     key?: string;
     /**
@@ -1037,7 +1037,7 @@ export interface GetSchemaMetadataTag {
 
 export interface GetSchemaMetadataTagArgs {
     /**
-     * The Schema Registry API Key.
+     * (Required String) The setting name.
      */
     key?: pulumi.Input<string>;
     /**
@@ -1690,11 +1690,7 @@ export interface KafkaClientQuotaEnvironment {
 
 export interface KafkaClientQuotaKafkaCluster {
     /**
-     * The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.
-     *
-     * > **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.
-     *
-     * > **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.
+     * The ID of the Kafka Cluster where the Kafka Client Quota is applied, for example, `lkc-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -1771,14 +1767,14 @@ export interface KafkaClusterEnterprise {
 
 export interface KafkaClusterEnvironment {
     /**
-     * The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     * The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
 }
 
 export interface KafkaClusterNetwork {
     /**
-     * The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.
+     * The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -1810,11 +1806,11 @@ export interface KafkaMirrorTopicKafkaCluster {
 
 export interface KafkaMirrorTopicKafkaClusterCredentials {
     /**
-     * The Kafka API Key.
+     * The Kafka API Key for your Confluent Cloud cluster.
      */
     key: pulumi.Input<string>;
     /**
-     * The Kafka API Secret.
+     * The Kafka API Secret for your Confluent Cloud cluster.
      */
     secret: pulumi.Input<string>;
 }
@@ -1857,14 +1853,14 @@ export interface KsqlClusterCredentialIdentity {
 
 export interface KsqlClusterEnvironment {
     /**
-     * The ID of the associated service or user account, for example, `sa-abc123`.
+     * The ID of the associated Environment, for example, `env-xyz456`.
      */
     id: pulumi.Input<string>;
 }
 
 export interface KsqlClusterKafkaCluster {
     /**
-     * The ID of the associated service or user account, for example, `sa-abc123`.
+     * The ID of the associated Kafka cluster, for example, `lkc-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -1909,7 +1905,7 @@ export interface NetworkEnvironment {
 
 export interface NetworkGateway {
     /**
-     * The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+     * (Optional String) The ID of the Gateway, for example, `gw-abc123`.
      */
     id?: pulumi.Input<string>;
 }
@@ -1938,14 +1934,14 @@ export interface NetworkLinkEndpointEnvironment {
 
 export interface NetworkLinkEndpointNetwork {
     /**
-     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     * The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
      */
     id: pulumi.Input<string>;
 }
 
 export interface NetworkLinkEndpointNetworkLinkService {
     /**
-     * The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+     * The ID of the Network Link Service, for example, `nls-g3e1ox`.
      */
     id: pulumi.Input<string>;
 }
@@ -1963,7 +1959,7 @@ export interface NetworkLinkServiceAccept {
 
 export interface NetworkLinkServiceEnvironment {
     /**
-     * The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.
+     * The ID of the Environment that the Network Link Service belongs to, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -1994,7 +1990,7 @@ export interface PeeringAws {
      */
     account: pulumi.Input<string>;
     /**
-     * The region of the Azure peer VNet.
+     * The region of the AWS peer VPC.
      */
     customerRegion: pulumi.Input<string>;
     /**
@@ -2024,7 +2020,7 @@ export interface PeeringAzure {
 
 export interface PeeringEnvironment {
     /**
-     * The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+     * The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -2075,7 +2071,7 @@ export interface PrivateLinkAccessAzure {
 
 export interface PrivateLinkAccessEnvironment {
     /**
-     * The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.
+     * The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -2134,7 +2130,7 @@ export interface PrivateLinkAttachmentConnectionAzure {
 
 export interface PrivateLinkAttachmentConnectionEnvironment {
     /**
-     * The unique identifier for the private link attachment.
+     * The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.
      */
     id: pulumi.Input<string>;
 }
@@ -2173,7 +2169,7 @@ export interface PrivateLinkAttachmentGcp {
 
 export interface SchemaCredentials {
     /**
-     * The setting name.
+     * The Schema Registry API Key.
      */
     key: pulumi.Input<string>;
     /**
@@ -2228,20 +2224,11 @@ export interface SchemaMetadata {
      * A list of metadata properties to be encrypted.
      */
     sensitives?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The tags to which the rule applies, if any.
-     */
     tags?: pulumi.Input<pulumi.Input<inputs.SchemaMetadataTag>[]>;
 }
 
 export interface SchemaMetadataTag {
-    /**
-     * The setting name.
-     */
     key?: pulumi.Input<string>;
-    /**
-     * The list of tags.
-     */
     values?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -2265,7 +2252,7 @@ export interface SchemaRegistryClusterConfigSchemaRegistryCluster {
 
 export interface SchemaRegistryClusterEnvironment {
     /**
-     * The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
 }
@@ -2337,104 +2324,34 @@ export interface SchemaRuleset {
 }
 
 export interface SchemaRulesetDomainRule {
-    /**
-     * An optional description of the rule.
-     */
     doc?: pulumi.Input<string>;
-    /**
-     * The body of the rule, which is optional.
-     */
     expr?: pulumi.Input<string>;
-    /**
-     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-     */
     kind?: pulumi.Input<string>;
-    /**
-     * The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-     */
     mode?: pulumi.Input<string>;
-    /**
-     * A user-defined name that can be used to reference the rule.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-     */
     onFailure?: pulumi.Input<string>;
-    /**
-     * An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
-     */
     onSuccess?: pulumi.Input<string>;
-    /**
-     * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-     *
-     * > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-     *
-     * > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-     */
     params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The tags to which the rule applies, if any.
-     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-     */
     type?: pulumi.Input<string>;
 }
 
 export interface SchemaRulesetMigrationRule {
-    /**
-     * An optional description of the rule.
-     */
     doc?: pulumi.Input<string>;
-    /**
-     * The body of the rule, which is optional.
-     */
     expr?: pulumi.Input<string>;
-    /**
-     * The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.
-     */
     kind?: pulumi.Input<string>;
-    /**
-     * The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.
-     */
     mode?: pulumi.Input<string>;
-    /**
-     * A user-defined name that can be used to reference the rule.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.
-     */
     onFailure?: pulumi.Input<string>;
-    /**
-     * An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as "NONE,ERROR" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.
-     */
     onSuccess?: pulumi.Input<string>;
-    /**
-     * A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.
-     *
-     * > **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).
-     *
-     * > **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.
-     * **Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.
-     */
     params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The tags to which the rule applies, if any.
-     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.
-     */
     type?: pulumi.Input<string>;
 }
 
 export interface SchemaSchemaReference {
     /**
-     * A user-defined name that can be used to reference the rule.
+     * The name of the subject, representing the subject under which the referenced schema is registered.
      */
     name: pulumi.Input<string>;
     /**
@@ -2549,7 +2466,7 @@ export interface TransitGatewayAttachmentAws {
 
 export interface TransitGatewayAttachmentEnvironment {
     /**
-     * The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+     * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
      */
     id: pulumi.Input<string>;
 }

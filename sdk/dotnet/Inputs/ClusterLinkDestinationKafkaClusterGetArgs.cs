@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class ClusterLinkDestinationKafkaClusterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+        /// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
         /// </summary>
         [Input("bootstrapEndpoint")]
         public Input<string>? BootstrapEndpoint { get; set; }
@@ -35,13 +35,13 @@ namespace Pulumi.ConfluentCloud.Inputs
         }
 
         /// <summary>
-        /// The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+        /// The ID of the destination Kafka cluster, for example, `lkc-abc123`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }

@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupDnsRecord(ctx *pulumi.Context, args *LookupDnsRecordArgs, opts ...pulumi.InvokeOption) (*LookupDnsRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDnsRecordResult
@@ -59,7 +57,7 @@ func LookupDnsRecord(ctx *pulumi.Context, args *LookupDnsRecordArgs, opts ...pul
 // A collection of arguments for invoking getDnsRecord.
 type LookupDnsRecordArgs struct {
 	Environment GetDnsRecordEnvironment `pulumi:"environment"`
-	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+	// The ID of the DNS Record, for example, `dnsrec-abc123`.
 	Id string `pulumi:"id"`
 }
 
@@ -94,7 +92,7 @@ func LookupDnsRecordOutput(ctx *pulumi.Context, args LookupDnsRecordOutputArgs, 
 // A collection of arguments for invoking getDnsRecord.
 type LookupDnsRecordOutputArgs struct {
 	Environment GetDnsRecordEnvironmentInput `pulumi:"environment"`
-	// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+	// The ID of the DNS Record, for example, `dnsrec-abc123`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 

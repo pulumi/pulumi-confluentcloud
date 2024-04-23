@@ -16,14 +16,14 @@ public final class NetworkGatewayArgs extends com.pulumi.resources.ResourceArgs 
     public static final NetworkGatewayArgs Empty = new NetworkGatewayArgs();
 
     /**
-     * The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+     * (Optional String) The ID of the Gateway, for example, `gw-abc123`.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+     * @return (Optional String) The ID of the Gateway, for example, `gw-abc123`.
      * 
      */
     public Optional<Output<String>> id() {
@@ -55,7 +55,7 @@ public final class NetworkGatewayArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param id The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+         * @param id (Optional String) The ID of the Gateway, for example, `gw-abc123`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class NetworkGatewayArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param id The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+         * @param id (Optional String) The ID of the Gateway, for example, `gw-abc123`.
          * 
          * @return builder
          * 

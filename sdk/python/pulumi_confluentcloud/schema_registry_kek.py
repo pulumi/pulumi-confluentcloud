@@ -37,7 +37,7 @@ class SchemaRegistryKekArgs:
         :param pulumi.Input[str] doc: The optional description for the KEK.
         :param pulumi.Input[bool] hard_delete: Controls whether a kek should be soft or hard deleted. Set it to `true` if you want to hard delete a schema registry kek
                on destroy. Defaults to `false` (soft delete).
-        :param pulumi.Input[str] name: The custom property name (for example, `KeyUsage`).
+        :param pulumi.Input[str] name: The name for the KEK.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[bool] shared: The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
@@ -129,7 +129,7 @@ class SchemaRegistryKekArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The custom property name (for example, `KeyUsage`).
+        The name for the KEK.
         """
         return pulumi.get(self, "name")
 
@@ -207,7 +207,7 @@ class _SchemaRegistryKekState:
                - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
                - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
         :param pulumi.Input[str] kms_type: The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
-        :param pulumi.Input[str] name: The custom property name (for example, `KeyUsage`).
+        :param pulumi.Input[str] name: The name for the KEK.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[bool] shared: The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
@@ -301,7 +301,7 @@ class _SchemaRegistryKekState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The custom property name (for example, `KeyUsage`).
+        The name for the KEK.
         """
         return pulumi.get(self, "name")
 
@@ -399,7 +399,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
                - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
                - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
         :param pulumi.Input[str] kms_type: The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
-        :param pulumi.Input[str] name: The custom property name (for example, `KeyUsage`).
+        :param pulumi.Input[str] name: The name for the KEK.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[bool] shared: The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
@@ -513,7 +513,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
                - When using the Azure Key Vault, this is a Key Identifier (URI), for example, `https://test-keyvault1.vault.azure.net/keys/test-key1/1234567890abcdef1234567890abcdef`.
                - When using the GCP KMS, this is a resource name, for example, `projects/test-project1/locations/us-central1/keyRings/test-keyRing1/cryptoKeys/test-key1`.
         :param pulumi.Input[str] kms_type: The type of Key Management Service (KMS). The supported values include `aws-kms`, `azure-kms`, and `gcp-kms`. Additionally, custom KMS types are supported as well.
-        :param pulumi.Input[str] name: The custom property name (for example, `KeyUsage`).
+        :param pulumi.Input[str] name: The name for the KEK.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom properties to set (for example, `KeyUsage=ENCRYPT_DECRYPT`, `KeyState=Enabled`):
         :param pulumi.Input[str] rest_endpoint: The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         :param pulumi.Input[bool] shared: The optional flag to control whether the DEK Registry has shared access to the KMS. Defaults to `false`.
@@ -582,7 +582,7 @@ class SchemaRegistryKek(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The custom property name (for example, `KeyUsage`).
+        The name for the KEK.
         """
         return pulumi.get(self, "name")
 

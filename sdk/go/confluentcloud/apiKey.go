@@ -15,7 +15,6 @@ import (
 // ## Example Usage
 //
 // ### Example Kafka API Key
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,10 +52,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example ksqlDB API Key
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,10 +91,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Schema Registry API Key
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -135,10 +130,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Flink API Key
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -176,10 +169,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Cloud API Key
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -209,7 +200,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Getting Started
 //

@@ -90,14 +90,14 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The configuration setting name.
+     * Name of the Schema Exporter.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The configuration setting name.
+     * @return Name of the Schema Exporter.
      * 
      */
     public Optional<Output<String>> name() {
@@ -120,14 +120,14 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
     @Import(name="restEndpoint")
     private @Nullable Output<String> restEndpoint;
 
     /**
-     * @return The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * @return The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
     public Optional<Output<String>> restEndpoint() {
@@ -315,7 +315,7 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The configuration setting name.
+         * @param name Name of the Schema Exporter.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The configuration setting name.
+         * @param name Name of the Schema Exporter.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+         * @param restEndpoint The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class SchemaExporterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param restEndpoint The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+         * @param restEndpoint The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
          * 
          * @return builder
          * 

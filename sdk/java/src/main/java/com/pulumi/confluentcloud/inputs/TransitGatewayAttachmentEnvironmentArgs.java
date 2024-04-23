@@ -15,14 +15,14 @@ public final class TransitGatewayAttachmentEnvironmentArgs extends com.pulumi.re
     public static final TransitGatewayAttachmentEnvironmentArgs Empty = new TransitGatewayAttachmentEnvironmentArgs();
 
     /**
-     * The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+     * The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+     * @return The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
      * 
      */
     public Output<String> id() {
@@ -54,7 +54,7 @@ public final class TransitGatewayAttachmentEnvironmentArgs extends com.pulumi.re
         }
 
         /**
-         * @param id The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+         * @param id The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class TransitGatewayAttachmentEnvironmentArgs extends com.pulumi.re
         }
 
         /**
-         * @param id The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.
+         * @param id The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 

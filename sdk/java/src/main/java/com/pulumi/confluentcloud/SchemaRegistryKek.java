@@ -118,14 +118,14 @@ public class SchemaRegistryKek extends com.pulumi.resources.CustomResource {
         return this.kmsType;
     }
     /**
-     * The custom property name (for example, `KeyUsage`).
+     * The name for the KEK.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The custom property name (for example, `KeyUsage`).
+     * @return The name for the KEK.
      * 
      */
     public Output<String> name() {

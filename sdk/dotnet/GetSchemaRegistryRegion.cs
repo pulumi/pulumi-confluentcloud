@@ -22,7 +22,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -44,7 +43,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSchemaRegistryRegionResult> InvokeAsync(GetSchemaRegistryRegionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemaRegistryRegionResult>("confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion", args ?? new GetSchemaRegistryRegionArgs(), options.WithDefaults());
@@ -60,7 +58,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -82,7 +79,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSchemaRegistryRegionResult> Invoke(GetSchemaRegistryRegionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryRegionResult>("confluentcloud:index/getSchemaRegistryRegion:getSchemaRegistryRegion", args ?? new GetSchemaRegistryRegionInvokeArgs(), options.WithDefaults());

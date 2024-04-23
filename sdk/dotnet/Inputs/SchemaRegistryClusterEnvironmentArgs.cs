@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class SchemaRegistryClusterEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+        /// The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

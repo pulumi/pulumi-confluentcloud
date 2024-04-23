@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class FlinkStatementOrganization
     {
         /// <summary>
-        /// The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+        /// The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.
         /// </summary>
         public readonly string Id;
 

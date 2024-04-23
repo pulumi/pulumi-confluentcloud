@@ -16,14 +16,14 @@ public final class GetSchemaMetadataTagArgs extends com.pulumi.resources.Resourc
     public static final GetSchemaMetadataTagArgs Empty = new GetSchemaMetadataTagArgs();
 
     /**
-     * The Schema Registry API Key.
+     * (Required String) The setting name.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The Schema Registry API Key.
+     * @return (Required String) The setting name.
      * 
      */
     public Output<String> key() {
@@ -71,7 +71,7 @@ public final class GetSchemaMetadataTagArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key The Schema Registry API Key.
+         * @param key (Required String) The setting name.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetSchemaMetadataTagArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key The Schema Registry API Key.
+         * @param key (Required String) The setting name.
          * 
          * @return builder
          * 

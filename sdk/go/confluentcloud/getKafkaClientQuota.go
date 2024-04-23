@@ -19,7 +19,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupKafkaClientQuota(ctx *pulumi.Context, args *LookupKafkaClientQuotaArgs, opts ...pulumi.InvokeOption) (*LookupKafkaClientQuotaResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKafkaClientQuotaResult

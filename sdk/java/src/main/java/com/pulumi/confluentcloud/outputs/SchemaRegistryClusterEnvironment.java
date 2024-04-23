@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class SchemaRegistryClusterEnvironment {
     /**
-     * @return The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     * @return The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
      * 
      */
     private String id;
 
     private SchemaRegistryClusterEnvironment() {}
     /**
-     * @return The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     * @return The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
      * 
      */
     public String id() {

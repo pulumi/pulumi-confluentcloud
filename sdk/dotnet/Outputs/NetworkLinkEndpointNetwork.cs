@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class NetworkLinkEndpointNetwork
     {
         /// <summary>
-        /// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+        /// The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.
         /// </summary>
         public readonly string Id;
 

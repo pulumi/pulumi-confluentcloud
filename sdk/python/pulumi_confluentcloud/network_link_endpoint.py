@@ -212,7 +212,6 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -231,7 +230,6 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
             ))
         pulumi.export("networkLinkEndpoint", nle)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 
@@ -269,7 +267,6 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -288,7 +285,6 @@ class NetworkLinkEndpoint(pulumi.CustomResource):
             ))
         pulumi.export("networkLinkEndpoint", nle)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 

@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -26,7 +25,6 @@ import * as utilities from "./utilities";
  * });
  * export const dnsRecord = main;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDnsRecord(args: GetDnsRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsRecordResult> {
 
@@ -43,7 +41,7 @@ export function getDnsRecord(args: GetDnsRecordArgs, opts?: pulumi.InvokeOptions
 export interface GetDnsRecordArgs {
     environment: inputs.GetDnsRecordEnvironment;
     /**
-     * The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+     * The ID of the DNS Record, for example, `dnsrec-abc123`.
      */
     id: string;
 }
@@ -81,7 +79,6 @@ export interface GetDnsRecordResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -94,7 +91,6 @@ export interface GetDnsRecordResult {
  * });
  * export const dnsRecord = main;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDnsRecordOutput(args: GetDnsRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsRecordResult> {
     return pulumi.output(args).apply((a: any) => getDnsRecord(a, opts))
@@ -106,7 +102,7 @@ export function getDnsRecordOutput(args: GetDnsRecordOutputArgs, opts?: pulumi.I
 export interface GetDnsRecordOutputArgs {
     environment: pulumi.Input<inputs.GetDnsRecordEnvironmentArgs>;
     /**
-     * The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+     * The ID of the DNS Record, for example, `dnsrec-abc123`.
      */
     id: pulumi.Input<string>;
 }

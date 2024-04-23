@@ -38,7 +38,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+        /// (Required List of Strings) The service types that will use the address.
         /// </summary>
         public readonly ImmutableArray<string> Services;
 

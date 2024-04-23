@@ -42,7 +42,7 @@ public final class GetIpAddressesIpAddress {
      */
     private String region;
     /**
-     * @return A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+     * @return (Required List of Strings) The service types that will use the address.
      * 
      */
     private List<String> services;
@@ -91,7 +91,7 @@ public final class GetIpAddressesIpAddress {
         return this.region;
     }
     /**
-     * @return A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.
+     * @return (Required List of Strings) The service types that will use the address.
      * 
      */
     public List<String> services() {

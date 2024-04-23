@@ -15,14 +15,14 @@ public final class SchemaRegistryClusterEnvironmentArgs extends com.pulumi.resou
     public static final SchemaRegistryClusterEnvironmentArgs Empty = new SchemaRegistryClusterEnvironmentArgs();
 
     /**
-     * The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     * The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+     * @return The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
      * 
      */
     public Output<String> id() {
@@ -54,7 +54,7 @@ public final class SchemaRegistryClusterEnvironmentArgs extends com.pulumi.resou
         }
 
         /**
-         * @param id The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+         * @param id The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class SchemaRegistryClusterEnvironmentArgs extends com.pulumi.resou
         }
 
         /**
-         * @param id The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.
+         * @param id The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.
          * 
          * @return builder
          * 

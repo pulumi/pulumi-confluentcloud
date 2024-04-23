@@ -13,7 +13,7 @@ namespace Pulumi.ConfluentCloud.Inputs
     public sealed class NetworkGatewayGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Environment that the Network belongs to, for example, `env-abc123`.
+        /// (Optional String) The ID of the Gateway, for example, `gw-abc123`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

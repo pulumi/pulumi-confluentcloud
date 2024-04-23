@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ### Example Transit Gateway Attachment on AWS
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -47,7 +46,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Getting Started
  *

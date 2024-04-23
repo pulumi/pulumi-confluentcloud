@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class SchemaSchemaReference
     {
         /// <summary>
-        /// A user-defined name that can be used to reference the rule.
+        /// The name of the subject, representing the subject under which the referenced schema is registered.
         /// </summary>
         public readonly string Name;
         /// <summary>

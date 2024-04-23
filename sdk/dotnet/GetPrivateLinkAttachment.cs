@@ -18,7 +18,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// 
         /// ## Getting Started
@@ -61,7 +59,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -85,7 +82,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// 
         /// ## Getting Started
@@ -105,7 +101,7 @@ namespace Pulumi.ConfluentCloud
         public Inputs.GetPrivateLinkAttachmentEnvironmentArgs Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+        /// The ID of the Private Link Attachment, for example, `platt-61ovvd`.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -122,7 +118,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.GetPrivateLinkAttachmentEnvironmentInputArgs> Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.
+        /// The ID of the Private Link Attachment, for example, `platt-61ovvd`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

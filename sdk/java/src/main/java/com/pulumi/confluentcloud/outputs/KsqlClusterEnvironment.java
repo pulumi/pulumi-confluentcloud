@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class KsqlClusterEnvironment {
     /**
-     * @return The ID of the associated service or user account, for example, `sa-abc123`.
+     * @return The ID of the associated Environment, for example, `env-xyz456`.
      * 
      */
     private String id;
 
     private KsqlClusterEnvironment() {}
     /**
-     * @return The ID of the associated service or user account, for example, `sa-abc123`.
+     * @return The ID of the associated Environment, for example, `env-xyz456`.
      * 
      */
     public String id() {

@@ -204,7 +204,6 @@ class IdentityPool(pulumi.CustomResource):
 
         ### Example Identity Pool to be used with Azure AD
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -223,11 +222,9 @@ class IdentityPool(pulumi.CustomResource):
             identity_claim="claims.sub",
             filter="claims.aud==\\"confluent\\" && claims.group!=\\"invalid_group\\"")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Identity Pool to be used with Okta
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -246,7 +243,6 @@ class IdentityPool(pulumi.CustomResource):
             identity_claim="claims.sub",
             filter="claims.aud==\\"confluent\\" && claims.group!=\\"invalid_group\\"")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## External Documentation
 
@@ -289,7 +285,6 @@ class IdentityPool(pulumi.CustomResource):
 
         ### Example Identity Pool to be used with Azure AD
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -308,11 +303,9 @@ class IdentityPool(pulumi.CustomResource):
             identity_claim="claims.sub",
             filter="claims.aud==\\"confluent\\" && claims.group!=\\"invalid_group\\"")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Identity Pool to be used with Okta
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -331,7 +324,6 @@ class IdentityPool(pulumi.CustomResource):
             identity_claim="claims.sub",
             filter="claims.aud==\\"confluent\\" && claims.group!=\\"invalid_group\\"")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## External Documentation
 

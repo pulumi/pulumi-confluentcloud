@@ -14,15 +14,15 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class ApiKeyOwner
     {
         /// <summary>
-        /// The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.
+        /// The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.
         /// </summary>
         public readonly string ApiVersion;
         /// <summary>
-        /// The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+        /// The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The kind of the managed resource that the API Key associated with, for example, `Cluster`.
+        /// The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.
         /// </summary>
         public readonly string Kind;
 

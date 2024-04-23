@@ -19,7 +19,7 @@ namespace Pulumi.ConfluentCloud.Inputs
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
-        /// The description of the Business Metadata.
+        /// The description of this attribute.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

@@ -15,14 +15,14 @@ public final class FlinkStatementComputePoolArgs extends com.pulumi.resources.Re
     public static final FlinkStatementComputePoolArgs Empty = new FlinkStatementComputePoolArgs();
 
     /**
-     * The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+     * @return The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
      * 
      */
     public Output<String> id() {
@@ -54,7 +54,7 @@ public final class FlinkStatementComputePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param id The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+         * @param id The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class FlinkStatementComputePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param id The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.
+         * @param id The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
          * 
          * @return builder
          * 

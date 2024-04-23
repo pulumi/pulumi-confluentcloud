@@ -13,14 +13,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * const main = confluentcloud.getSchemaRegistryClusters({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSchemaRegistryClusters(opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryClustersResult> {
 
@@ -49,14 +47,12 @@ export interface GetSchemaRegistryClustersResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
  *
  * const main = confluentcloud.getSchemaRegistryClusters({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSchemaRegistryClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryClustersResult> {
     return pulumi.output(getSchemaRegistryClusters(opts))

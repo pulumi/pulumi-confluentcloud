@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -37,7 +36,6 @@ import * as utilities from "./utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFlinkComputePool(args: GetFlinkComputePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetFlinkComputePoolResult> {
 
@@ -62,9 +60,7 @@ export interface GetFlinkComputePoolArgs {
      */
     environment: inputs.GetFlinkComputePoolEnvironment;
     /**
-     * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
      */
     id?: string;
 }
@@ -117,7 +113,6 @@ export interface GetFlinkComputePoolResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -141,7 +136,6 @@ export interface GetFlinkComputePoolResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFlinkComputePoolOutput(args: GetFlinkComputePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlinkComputePoolResult> {
     return pulumi.output(args).apply((a: any) => getFlinkComputePool(a, opts))
@@ -160,9 +154,7 @@ export interface GetFlinkComputePoolOutputArgs {
      */
     environment: pulumi.Input<inputs.GetFlinkComputePoolEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Flink Compute Pool, for example, `lfcp-abc123`.
      */
     id?: pulumi.Input<string>;
 }

@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class GetDnsRecordPrivateLinkAccessPointResult
     {
         /// <summary>
-        /// The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.
+        /// The ID of the DNS Record, for example, `dnsrec-abc123`.
         /// </summary>
         public readonly string Id;
 

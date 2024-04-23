@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -23,7 +22,6 @@ import * as utilities from "./utilities";
  * });
  * export const byok = azureKey;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getByokKey(args: GetByokKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetByokKeyResult> {
 
@@ -71,7 +69,6 @@ export interface GetByokKeyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -81,7 +78,6 @@ export interface GetByokKeyResult {
  * });
  * export const byok = azureKey;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getByokKeyOutput(args: GetByokKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetByokKeyResult> {
     return pulumi.output(args).apply((a: any) => getByokKey(a, opts))

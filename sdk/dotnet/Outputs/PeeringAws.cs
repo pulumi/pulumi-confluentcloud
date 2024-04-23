@@ -18,7 +18,7 @@ namespace Pulumi.ConfluentCloud.Outputs
         /// </summary>
         public readonly string Account;
         /// <summary>
-        /// The region of the Azure peer VNet.
+        /// The region of the AWS peer VPC.
         /// </summary>
         public readonly string CustomerRegion;
         /// <summary>

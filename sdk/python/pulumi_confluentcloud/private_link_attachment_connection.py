@@ -230,7 +230,6 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -259,7 +258,6 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
             ))
         pulumi.export("privateLinkAttachmentConnection", aws)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 
@@ -300,7 +298,6 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -329,7 +326,6 @@ class PrivateLinkAttachmentConnection(pulumi.CustomResource):
             ))
         pulumi.export("privateLinkAttachmentConnection", aws)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 

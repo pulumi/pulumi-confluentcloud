@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -23,7 +22,6 @@ import * as utilities from "./utilities";
  * });
  * export const invitation = main;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getInvitation(args: GetInvitationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvitationResult> {
 
@@ -87,7 +85,6 @@ export interface GetInvitationResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -97,7 +94,6 @@ export interface GetInvitationResult {
  * });
  * export const invitation = main;
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getInvitationOutput(args: GetInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvitationResult> {
     return pulumi.output(args).apply((a: any) => getInvitation(a, opts))

@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class ConnectorEnvironment
     {
         /// <summary>
-        /// The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.
+        /// The ID of the Environment that the connector belongs to, for example, `env-abc123`.
         /// </summary>
         public readonly string Id;
 

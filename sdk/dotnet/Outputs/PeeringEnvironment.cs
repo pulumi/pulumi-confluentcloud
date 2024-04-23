@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class PeeringEnvironment
     {
         /// <summary>
-        /// The ID of the Network that the Peering belongs to, for example, `n-abc123`.
+        /// The ID of the Environment that the Peering belongs to, for example, `env-abc123`.
         /// </summary>
         public readonly string Id;
 

@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupNetworkLinkEndpoint(ctx *pulumi.Context, args *LookupNetworkLinkEndpointArgs, opts ...pulumi.InvokeOption) (*LookupNetworkLinkEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkLinkEndpointResult
@@ -59,7 +57,7 @@ func LookupNetworkLinkEndpoint(ctx *pulumi.Context, args *LookupNetworkLinkEndpo
 // A collection of arguments for invoking getNetworkLinkEndpoint.
 type LookupNetworkLinkEndpointArgs struct {
 	Environment GetNetworkLinkEndpointEnvironment `pulumi:"environment"`
-	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	// The ID of the Network Link Endpoint, for example, `nle-zyw30`.
 	Id string `pulumi:"id"`
 }
 
@@ -96,7 +94,7 @@ func LookupNetworkLinkEndpointOutput(ctx *pulumi.Context, args LookupNetworkLink
 // A collection of arguments for invoking getNetworkLinkEndpoint.
 type LookupNetworkLinkEndpointOutputArgs struct {
 	Environment GetNetworkLinkEndpointEnvironmentInput `pulumi:"environment"`
-	// The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.
+	// The ID of the Network Link Endpoint, for example, `nle-zyw30`.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 

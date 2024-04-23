@@ -15,14 +15,14 @@ public final class ApiKeyManagedResourceEnvironmentArgs extends com.pulumi.resou
     public static final ApiKeyManagedResourceEnvironmentArgs Empty = new ApiKeyManagedResourceEnvironmentArgs();
 
     /**
-     * The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+     * @return (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
      * 
      */
     public Output<String> id() {
@@ -54,7 +54,7 @@ public final class ApiKeyManagedResourceEnvironmentArgs extends com.pulumi.resou
         }
 
         /**
-         * @param id The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+         * @param id (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ApiKeyManagedResourceEnvironmentArgs extends com.pulumi.resou
         }
 
         /**
-         * @param id The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.
+         * @param id (Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.
          * 
          * @return builder
          * 

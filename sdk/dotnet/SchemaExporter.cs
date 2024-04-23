@@ -57,7 +57,7 @@ namespace Pulumi.ConfluentCloud
         public Output<Outputs.SchemaExporterDestinationSchemaRegistryCluster> DestinationSchemaRegistryCluster { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration setting name.
+        /// Name of the Schema Exporter.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -69,7 +69,7 @@ namespace Pulumi.ConfluentCloud
         public Output<bool?> ResetOnUpdate { get; private set; } = null!;
 
         /// <summary>
-        /// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         [Output("restEndpoint")]
         public Output<string?> RestEndpoint { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.SchemaExporterDestinationSchemaRegistryClusterArgs> DestinationSchemaRegistryCluster { get; set; } = null!;
 
         /// <summary>
-        /// The configuration setting name.
+        /// Name of the Schema Exporter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.ConfluentCloud
         public Input<bool>? ResetOnUpdate { get; set; }
 
         /// <summary>
-        /// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.SchemaExporterDestinationSchemaRegistryClusterGetArgs>? DestinationSchemaRegistryCluster { get; set; }
 
         /// <summary>
-        /// The configuration setting name.
+        /// Name of the Schema Exporter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.ConfluentCloud
         public Input<bool>? ResetOnUpdate { get; set; }
 
         /// <summary>
-        /// The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+        /// The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).
         /// </summary>
         [Input("restEndpoint")]
         public Input<string>? RestEndpoint { get; set; }

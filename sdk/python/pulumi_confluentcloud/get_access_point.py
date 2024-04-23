@@ -101,7 +101,6 @@ def get_access_point(environment: Optional[pulumi.InputType['GetAccessPointEnvir
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -112,10 +111,9 @@ def get_access_point(environment: Optional[pulumi.InputType['GetAccessPointEnvir
         ))
     pulumi.export("accessPoint", main)
     ```
-    <!--End PulumiCodeChooser -->
 
 
-    :param str id: The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+    :param str id: The ID of the Access Point, for example, `ap-abc123`.
     """
     __args__ = dict()
     __args__['environment'] = environment
@@ -142,7 +140,6 @@ def get_access_point_output(environment: Optional[pulumi.Input[pulumi.InputType[
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_confluentcloud as confluentcloud
@@ -153,9 +150,8 @@ def get_access_point_output(environment: Optional[pulumi.Input[pulumi.InputType[
         ))
     pulumi.export("accessPoint", main)
     ```
-    <!--End PulumiCodeChooser -->
 
 
-    :param str id: The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+    :param str id: The ID of the Access Point, for example, `ap-abc123`.
     """
     ...

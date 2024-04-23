@@ -13,7 +13,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -37,7 +36,6 @@ import * as utilities from "./utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPrivateLinkAccess(args: GetPrivateLinkAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkAccessResult> {
 
@@ -62,9 +60,7 @@ export interface GetPrivateLinkAccessArgs {
      */
     environment: inputs.GetPrivateLinkAccessEnvironment;
     /**
-     * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Private Link Access, for example, `pla-abc123`.
      */
     id?: string;
 }
@@ -109,7 +105,6 @@ export interface GetPrivateLinkAccessResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -133,7 +128,6 @@ export interface GetPrivateLinkAccessResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPrivateLinkAccessOutput(args: GetPrivateLinkAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAccessResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkAccess(a, opts))
@@ -152,9 +146,7 @@ export interface GetPrivateLinkAccessOutputArgs {
      */
     environment: pulumi.Input<inputs.GetPrivateLinkAccessEnvironmentArgs>;
     /**
-     * The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.
-     *
-     * > **Note:** Exactly one from the `id` and `displayName` attributes must be specified.
+     * The ID of the Private Link Access, for example, `pla-abc123`.
      */
     id?: pulumi.Input<string>;
 }

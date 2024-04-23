@@ -16,7 +16,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -34,7 +33,6 @@ import * as utilities from "./utilities";
  * });
  * export const ipAddresses = main.then(main => main.ipAddresses);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIpAddresses(args?: GetIpAddressesArgs, opts?: pulumi.InvokeOptions): Promise<GetIpAddressesResult> {
     args = args || {};
@@ -76,7 +74,6 @@ export interface GetIpAddressesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as confluentcloud from "@pulumi/confluentcloud";
@@ -94,7 +91,6 @@ export interface GetIpAddressesResult {
  * });
  * export const ipAddresses = main.then(main => main.ipAddresses);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIpAddressesOutput(args?: GetIpAddressesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpAddressesResult> {
     return pulumi.output(args).apply((a: any) => getIpAddresses(a, opts))

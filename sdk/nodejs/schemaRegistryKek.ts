@@ -76,7 +76,7 @@ export class SchemaRegistryKek extends pulumi.CustomResource {
      */
     public readonly kmsType!: pulumi.Output<string>;
     /**
-     * The custom property name (for example, `KeyUsage`).
+     * The name for the KEK.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -171,7 +171,7 @@ export interface SchemaRegistryKekState {
      */
     kmsType?: pulumi.Input<string>;
     /**
-     * The custom property name (for example, `KeyUsage`).
+     * The name for the KEK.
      */
     name?: pulumi.Input<string>;
     /**
@@ -218,7 +218,7 @@ export interface SchemaRegistryKekArgs {
      */
     kmsType: pulumi.Input<string>;
     /**
-     * The custom property name (for example, `KeyUsage`).
+     * The name for the KEK.
      */
     name?: pulumi.Input<string>;
     /**

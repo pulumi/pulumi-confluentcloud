@@ -174,7 +174,6 @@ class TransitGatewayAttachment(pulumi.CustomResource):
 
         ### Example Transit Gateway Attachment on AWS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -208,7 +207,6 @@ class TransitGatewayAttachment(pulumi.CustomResource):
                 id=aws_transit_gateway_attachment.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 
@@ -249,7 +247,6 @@ class TransitGatewayAttachment(pulumi.CustomResource):
 
         ### Example Transit Gateway Attachment on AWS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_confluentcloud as confluentcloud
@@ -283,7 +280,6 @@ class TransitGatewayAttachment(pulumi.CustomResource):
                 id=aws_transit_gateway_attachment.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Getting Started
 

@@ -65,14 +65,14 @@ public final class BusinessMetadataArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the attribute.
+     * The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the attribute.
+     * @return The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
      * 
      */
     public Optional<Output<String>> name() {
@@ -204,7 +204,7 @@ public final class BusinessMetadataArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the attribute.
+         * @param name The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class BusinessMetadataArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the attribute.
+         * @param name The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.
          * 
          * @return builder
          * 

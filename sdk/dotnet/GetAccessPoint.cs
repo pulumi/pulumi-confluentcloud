@@ -18,7 +18,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAccessPointResult> InvokeAsync(GetAccessPointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessPointResult>("confluentcloud:index/getAccessPoint:getAccessPoint", args ?? new GetAccessPointArgs(), options.WithDefaults());
@@ -54,7 +52,6 @@ namespace Pulumi.ConfluentCloud
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -78,7 +75,6 @@ namespace Pulumi.ConfluentCloud
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPointResult>("confluentcloud:index/getAccessPoint:getAccessPoint", args ?? new GetAccessPointInvokeArgs(), options.WithDefaults());
@@ -91,7 +87,7 @@ namespace Pulumi.ConfluentCloud
         public Inputs.GetAccessPointEnvironmentArgs Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+        /// The ID of the Access Point, for example, `ap-abc123`.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -108,7 +104,7 @@ namespace Pulumi.ConfluentCloud
         public Input<Inputs.GetAccessPointEnvironmentInputArgs> Environment { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.
+        /// The ID of the Access Point, for example, `ap-abc123`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class SchemaCredentials
     {
         /// <summary>
-        /// The setting name.
+        /// The Schema Registry API Key.
         /// </summary>
         public readonly string Key;
         /// <summary>

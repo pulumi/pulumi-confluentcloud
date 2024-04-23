@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterLinkSourceKafkaCluster {
     /**
-     * @return The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * @return The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      * 
      */
     private @Nullable String bootstrapEndpoint;
@@ -24,19 +24,19 @@ public final class ClusterLinkSourceKafkaCluster {
      */
     private @Nullable ClusterLinkSourceKafkaClusterCredentials credentials;
     /**
-     * @return The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+     * @return The ID of the source Kafka cluster, for example, `lkc-abc123`.
      * 
      */
     private String id;
     /**
-     * @return The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * @return The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
     private @Nullable String restEndpoint;
 
     private ClusterLinkSourceKafkaCluster() {}
     /**
-     * @return The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
+     * @return The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
      * 
      */
     public Optional<String> bootstrapEndpoint() {
@@ -50,14 +50,14 @@ public final class ClusterLinkSourceKafkaCluster {
         return Optional.ofNullable(this.credentials);
     }
     /**
-     * @return The ID of the remote Kafka cluster, for example, `lkc-abc123`.
+     * @return The ID of the source Kafka cluster, for example, `lkc-abc123`.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
+     * @return The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).
      * 
      */
     public Optional<String> restEndpoint() {
