@@ -182,7 +182,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the gateway to which the Access Point belongs, for example, `gw-abc123`.\n",
+                    "description": "The ID of the Environment that the Access Point belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -239,7 +239,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.\n",
+                    "description": "(Required String) The ID of the API Key, for example, `EGWX3S4BVNQIRBMJ`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -252,17 +252,17 @@
             "properties": {
                 "apiVersion": {
                     "type": "string",
-                    "description": "The API group and version of the managed resource that the API Key associated with, for example, `cmk/v2`.\n",
+                    "description": "The API group and version of the owner that the API Key belongs to, for example, `iam/v2`.\n",
                     "willReplaceOnChanges": true
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the managed resource belongs to, for example, `env-abc123`.\n",
+                    "description": "The ID of the owner that the API Key belongs to, for example, `sa-abc123` or `u-abc123`.\n",
                     "willReplaceOnChanges": true
                 },
                 "kind": {
                     "type": "string",
-                    "description": "The kind of the managed resource that the API Key associated with, for example, `Cluster`.\n",
+                    "description": "The kind of the owner that the API Key belongs to, for example, `ServiceAccount` or `User`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -281,7 +281,7 @@
                 },
                 "description": {
                     "type": "string",
-                    "description": "The description of the Business Metadata.\n"
+                    "description": "The description of this attribute.\n"
                 },
                 "isOptional": {
                     "type": "boolean",
@@ -480,7 +480,7 @@
             "properties": {
                 "bootstrapEndpoint": {
                     "type": "string",
-                    "description": "The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
+                    "description": "The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
                     "willReplaceOnChanges": true
                 },
                 "credentials": {
@@ -490,12 +490,12 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of the remote Kafka cluster, for example, `lkc-abc123`.\n",
+                    "description": "The ID of the destination Kafka cluster, for example, `lkc-abc123`.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "description": "The REST endpoint of the destination Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -508,12 +508,12 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "The Kafka API Key.\n",
+                    "description": "The Kafka API Key for your Confluent Cloud cluster.\n",
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Kafka API Secret.\n",
+                    "description": "The Kafka API Secret for your Confluent Cloud cluster.\n",
                     "secret": true
                 }
             },
@@ -527,7 +527,7 @@
             "properties": {
                 "bootstrapEndpoint": {
                     "type": "string",
-                    "description": "The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
+                    "description": "The bootstrap endpoint of the local Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
                     "willReplaceOnChanges": true
                 },
                 "credentials": {
@@ -537,12 +537,12 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of the remote Kafka cluster, for example, `lkc-abc123`.\n",
+                    "description": "The ID of the local Kafka cluster, for example, `lkc-abc123`.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "description": "The REST endpoint of the local Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -555,12 +555,12 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "The Kafka API Key.\n",
+                    "description": "The Kafka API Key for your Confluent Cloud cluster.\n",
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Kafka API Secret.\n",
+                    "description": "The Kafka API Secret for your Confluent Cloud cluster.\n",
                     "secret": true
                 }
             },
@@ -602,12 +602,12 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "The Kafka API Key.\n",
+                    "description": "The Kafka API Key for your Confluent Cloud cluster.\n",
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Kafka API Secret.\n",
+                    "description": "The Kafka API Secret for your Confluent Cloud cluster.\n",
                     "secret": true
                 }
             },
@@ -621,7 +621,7 @@
             "properties": {
                 "bootstrapEndpoint": {
                     "type": "string",
-                    "description": "The bootstrap endpoint of the remote Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
+                    "description": "The bootstrap endpoint of the source Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).\n",
                     "willReplaceOnChanges": true
                 },
                 "credentials": {
@@ -631,12 +631,12 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of the remote Kafka cluster, for example, `lkc-abc123`.\n",
+                    "description": "The ID of the source Kafka cluster, for example, `lkc-abc123`.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the remote Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "description": "The REST endpoint of the source Kafka cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -649,12 +649,12 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "The Kafka API Key.\n",
+                    "description": "The Kafka API Key for your Confluent Cloud cluster.\n",
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Kafka API Secret.\n",
+                    "description": "The Kafka API Secret for your Confluent Cloud cluster.\n",
                     "secret": true
                 }
             },
@@ -668,7 +668,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Kafka cluster that the connector belongs to, for example, `lkc-abc123`.\n",
+                    "description": "The ID of the Environment that the connector belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -694,7 +694,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the gateway to which the DNS Forwarder belongs, for example, `gw-abc123`.\n",
+                    "description": "The ID of the Environment that the DNS Forwarder belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -739,7 +739,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.\n",
+                    "description": "The ID of the Environment that the DNS Record belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -752,7 +752,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Private Link access point to which the DNS Record is associated, for example `ap-123abc`.\n",
+                    "description": "The ID of the gateway to which the DNS Record belongs, for example, `gw-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -802,7 +802,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.\n",
+                    "description": "The ID of the Flink Compute Pool, for example, `lfcp-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -834,7 +834,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.\n",
+                    "description": "The ID of the Environment, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -847,7 +847,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Principal the Flink Statement runs as, for example, `sa-abc123`.\n",
+                    "description": "The ID of the Organization, for example, `1111aaaa-11aa-11aa-11aa-111111aaaaaa`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -963,7 +963,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the corresponding Kafka Cluster belongs to, for example, `env-abc123`.\n\n\u003e **Note:** Each principal assigned to a quota receives the full amount of the quota, meaning the quota is not shared by the principals it is assigned. For example, if a 10 MBps ingress quota is applied to Principals 1 and 2, Principal 1 can produce at most 10 MBps, independently of Principal 2.\n\n\u003e **Note:** Define a throughput maximum, but do not guarantee a throughput floor. Applications are rate-limited through the use of the Kafka throttling mechanism. Kafka asks the client to wait before sending more data and mutes the channel, which appears as latency to the client application.\n",
+                    "description": "The ID of the Kafka Cluster where the Kafka Client Quota is applied, for example, `lkc-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1075,7 +1075,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.\n",
+                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1088,7 +1088,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Confluent key that is used to encrypt the data in the Kafka cluster, for example, `cck-lye5m`.\n",
+                    "description": "The ID of the Network that the Kafka cluster belongs to, for example, `n-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1140,12 +1140,12 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "The Kafka API Key.\n",
+                    "description": "The Kafka API Key for your Confluent Cloud cluster.\n",
                     "secret": true
                 },
                 "secret": {
                     "type": "string",
-                    "description": "The Kafka API Secret.\n",
+                    "description": "The Kafka API Secret for your Confluent Cloud cluster.\n",
                     "secret": true
                 }
             },
@@ -1217,7 +1217,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the associated service or user account, for example, `sa-abc123`.\n",
+                    "description": "The ID of the associated Environment, for example, `env-xyz456`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1230,7 +1230,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the associated service or user account, for example, `sa-abc123`.\n",
+                    "description": "The ID of the associated Kafka cluster, for example, `lkc-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1314,7 +1314,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network belongs to, for example, `env-abc123`.\n"
+                    "description": "(Optional String) The ID of the Gateway, for example, `gw-abc123`.\n"
                 }
             },
             "type": "object",
@@ -1372,7 +1372,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
+                    "description": "The ID of the Network that the Network Link Endpoint belongs to, for example, `n-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1385,7 +1385,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n",
+                    "description": "The ID of the Network Link Service, for example, `nls-g3e1ox`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1425,7 +1425,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Network that the Network Link Service belongs to, for example, `n-abc123`.\n",
+                    "description": "The ID of the Environment that the Network Link Service belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1477,7 +1477,7 @@
                 },
                 "customerRegion": {
                     "type": "string",
-                    "description": "The region of the Azure peer VNet.\n",
+                    "description": "The region of the AWS peer VPC.\n",
                     "willReplaceOnChanges": true
                 },
                 "routes": {
@@ -1531,7 +1531,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Network that the Peering belongs to, for example, `n-abc123`.\n",
+                    "description": "The ID of the Environment that the Peering belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1607,7 +1607,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Network that the Private Link Access belongs to, for example, `n-abc123`.\n",
+                    "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1709,7 +1709,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The unique identifier for the private link attachment.\n",
+                    "description": "The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -1782,7 +1782,7 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "The setting name.\n",
+                    "description": "The Schema Registry API Key.\n",
                     "secret": true
                 },
                 "secret": {
@@ -1885,8 +1885,7 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/confluentcloud:index/SchemaMetadataTag:SchemaMetadataTag"
-                    },
-                    "description": "The tags to which the rule applies, if any.\n"
+                    }
                 }
             },
             "type": "object",
@@ -1903,15 +1902,13 @@
         "confluentcloud:index/SchemaMetadataTag:SchemaMetadataTag": {
             "properties": {
                 "key": {
-                    "type": "string",
-                    "description": "The setting name.\n"
+                    "type": "string"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "The list of tags.\n"
+                    }
                 }
             },
             "type": "object",
@@ -1960,7 +1957,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Schema Registry region that the Schema Registry cluster belongs to, for example, `sgreg-1`. See [Schema Registry Regions](https://docs.confluent.io/cloud/current/stream-governance/packages.html#stream-governance-regions) to find a corresponding region ID based on desired cloud provider region and types of the billing package.\n",
+                    "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -2106,50 +2103,40 @@
         "confluentcloud:index/SchemaRulesetDomainRule:SchemaRulesetDomainRule": {
             "properties": {
                 "doc": {
-                    "type": "string",
-                    "description": "An optional description of the rule.\n"
+                    "type": "string"
                 },
                 "expr": {
-                    "type": "string",
-                    "description": "The body of the rule, which is optional.\n"
+                    "type": "string"
                 },
                 "kind": {
-                    "type": "string",
-                    "description": "The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.\n"
+                    "type": "string"
                 },
                 "mode": {
-                    "type": "string",
-                    "description": "The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.\n"
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "A user-defined name that can be used to reference the rule.\n"
+                    "type": "string"
                 },
                 "onFailure": {
-                    "type": "string",
-                    "description": "An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.\n"
+                    "type": "string"
                 },
                 "onSuccess": {
-                    "type": "string",
-                    "description": "An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as \"NONE,ERROR\" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.\n"
+                    "type": "string"
                 },
                 "params": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "description": "A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n\n\u003e **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).\n\n\u003e **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n"
+                    }
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "The tags to which the rule applies, if any.\n"
+                    }
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2173,50 +2160,40 @@
         "confluentcloud:index/SchemaRulesetMigrationRule:SchemaRulesetMigrationRule": {
             "properties": {
                 "doc": {
-                    "type": "string",
-                    "description": "An optional description of the rule.\n"
+                    "type": "string"
                 },
                 "expr": {
-                    "type": "string",
-                    "description": "The body of the rule, which is optional.\n"
+                    "type": "string"
                 },
                 "kind": {
-                    "type": "string",
-                    "description": "The kind of the rule. Accepted values are `CONDITION` and `TRANSFORM`.\n"
+                    "type": "string"
                 },
                 "mode": {
-                    "type": "string",
-                    "description": "The mode of the rule. Accepted values are `UPGRADE`, `DOWNGRADE`, `UPDOWN`, `WRITE`, `READ`, and `WRITEREAD`.\n"
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "A user-defined name that can be used to reference the rule.\n"
+                    "type": "string"
                 },
                 "onFailure": {
-                    "type": "string",
-                    "description": "An optional action to execute if the rule fails, otherwise the built-in action type ERROR is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, as mentioned above.\n"
+                    "type": "string"
                 },
                 "onSuccess": {
-                    "type": "string",
-                    "description": "An optional action to execute if the rule succeeds, otherwise the built-in action type NONE is used. For `UPDOWN` and `WRITEREAD` rules, one can specify two actions separated by commas, such as \"NONE,ERROR\" for a `WRITEREAD` rule. In this case `NONE` applies to `WRITE` and `ERROR` applies to `READ`.\n"
+                    "type": "string"
                 },
                 "params": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "description": "A set of static parameters for the rule, which is optional. These are key-value pairs that are passed to the rule.\n\n\u003e **Note:** Schema rules (`ruleset`) are only available with the [Stream Governance Advanced package](https://docs.confluent.io/cloud/current/stream-governance/packages.html#packages).\n\n\u003e **Note:** `ruleset` and `metadata` attributes are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n"
+                    }
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "The tags to which the rule applies, if any.\n"
+                    }
                 },
                 "type": {
-                    "type": "string",
-                    "description": "The type of rule, which invokes a specific rule executor, such as Google Common Expression Language (CEL) or JSONata.\n"
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2241,7 +2218,7 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "A user-defined name that can be used to reference the rule.\n"
+                    "description": "The name of the subject, representing the subject under which the referenced schema is registered.\n"
                 },
                 "subjectName": {
                     "type": "string",
@@ -2446,7 +2423,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Network that the Transit Gateway Attachment belongs to, for example, `n-abc123`.\n",
+                    "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-abc123`.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -2516,7 +2493,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.\n"
+                    "description": "The ID of the Access Point, for example, `ap-abc123`.\n"
                 }
             },
             "type": "object",
@@ -2731,7 +2708,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.\n"
+                    "description": "The ID of the DNS Record, for example, `dnsrec-abc123`.\n"
                 }
             },
             "type": "object",
@@ -2748,7 +2725,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.\n"
+                    "description": "The ID of the DNS Record, for example, `dnsrec-abc123`.\n"
                 }
             },
             "type": "object",
@@ -2946,7 +2923,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of services to filter by. Accepted values are: `CONNECT`, `KAFKA`.\n"
+                    "description": "(Required List of Strings) The service types that will use the address.\n"
                 }
             },
             "type": "object",
@@ -3028,7 +3005,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the Kafka cluster, for example, `lkc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3090,7 +3067,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the Kafka cluster, for example, `lkc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3141,7 +3118,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3170,7 +3147,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3263,7 +3240,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the Network, for example, `n-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3322,7 +3299,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Network Link Endpoint, for example, `nle-zyw30`.\n"
                 }
             },
             "type": "object",
@@ -3339,7 +3316,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Network Link Endpoint, for example, `nle-zyw30`.\n"
                 }
             },
             "type": "object",
@@ -3396,7 +3373,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.\n"
+                    "description": "The ID of the Network Link Service, for example, `nls-zyw30`.\n"
                 }
             },
             "type": "object",
@@ -3536,7 +3513,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the Peering, for example, `peer-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3616,7 +3593,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the Private Link Access, for example, `pla-abc123`.\n"
                 }
             },
             "type": "object",
@@ -3735,7 +3712,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.\n"
+                    "description": "The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.\n"
                 }
             },
             "type": "object",
@@ -3841,7 +3818,7 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "The Schema Registry API Key.\n"
+                    "description": "(Required String) The setting name.\n"
                 },
                 "values": {
                     "type": "array",
@@ -3940,7 +3917,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n"
+                    "description": "The ID of the Schema Registry cluster (for example, `lsrc-abc123`).\n"
                 }
             },
             "type": "object",
@@ -4606,7 +4583,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                    "description": "The ID of the Peering, for example, `tgwa-abc123`.\n"
                 }
             },
             "type": "object",
@@ -4984,7 +4961,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the attribute.\n"
+                    "description": "The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n"
                 },
                 "restEndpoint": {
                     "type": "string",
@@ -5022,7 +4999,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the attribute.\n",
+                    "description": "The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n",
                     "willReplaceOnChanges": true
                 },
                 "restEndpoint": {
@@ -5056,7 +5033,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the attribute.\n",
+                        "description": "The name of the Business Metadata, for example, `PII`. The name must not be empty and consist of a letter followed by a sequence of letter, number, space, or _ characters.\n",
                         "willReplaceOnChanges": true
                     },
                     "restEndpoint": {
@@ -5380,7 +5357,7 @@
             }
         },
         "confluentcloud:index/connector:Connector": {
-            "description": "## Example Usage\n\n### Example Managed [Datagen Source Connector](https://docs.confluent.io/cloud/current/connectors/cc-datagen-source.html) that uses a service account to communicate with your Kafka cluster\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst source = new confluentcloud.Connector(\"source\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: basic.id,\n    },\n    configSensitive: {},\n    configNonsensitive: {\n        \"connector.class\": \"DatagenSource\",\n        name: \"DatagenSourceConnector_0\",\n        \"kafka.auth.mode\": \"SERVICE_ACCOUNT\",\n        \"kafka.service.account.id\": app_connector.id,\n        \"kafka.topic\": orders.topicName,\n        \"output.data.format\": \"JSON\",\n        quickstart: \"ORDERS\",\n        \"tasks.max\": \"1\",\n    },\n}, {\n    dependsOn: [\n        app_connector_describe_on_cluster,\n        app_connector_write_on_target_topic,\n        app_connector_create_on_data_preview_topics,\n        app_connector_write_on_data_preview_topics,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nsource = confluentcloud.Connector(\"source\",\n    environment=confluentcloud.ConnectorEnvironmentArgs(\n        id=staging[\"id\"],\n    ),\n    kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(\n        id=basic[\"id\"],\n    ),\n    config_sensitive={},\n    config_nonsensitive={\n        \"connector.class\": \"DatagenSource\",\n        \"name\": \"DatagenSourceConnector_0\",\n        \"kafka.auth.mode\": \"SERVICE_ACCOUNT\",\n        \"kafka.service.account.id\": app_connector[\"id\"],\n        \"kafka.topic\": orders[\"topicName\"],\n        \"output.data.format\": \"JSON\",\n        \"quickstart\": \"ORDERS\",\n        \"tasks.max\": \"1\",\n    },\n    opts=pulumi.ResourceOptions(depends_on=[\n            app_connector_describe_on_cluster,\n            app_connector_write_on_target_topic,\n            app_connector_create_on_data_preview_topics,\n            app_connector_write_on_data_preview_topics,\n        ]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var source = new ConfluentCloud.Connector(\"source\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.ConnectorKafkaClusterArgs\n        {\n            Id = basic.Id,\n        },\n        ConfigSensitive = null,\n        ConfigNonsensitive = \n        {\n            { \"connector.class\", \"DatagenSource\" },\n            { \"name\", \"DatagenSourceConnector_0\" },\n            { \"kafka.auth.mode\", \"SERVICE_ACCOUNT\" },\n            { \"kafka.service.account.id\", app_connector.Id },\n            { \"kafka.topic\", orders.TopicName },\n            { \"output.data.format\", \"JSON\" },\n            { \"quickstart\", \"ORDERS\" },\n            { \"tasks.max\", \"1\" },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            app_connector_describe_on_cluster, \n            app_connector_write_on_target_topic, \n            app_connector_create_on_data_preview_topics, \n            app_connector_write_on_data_preview_topics, \n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewConnector(ctx, \"source\", \u0026confluentcloud.ConnectorArgs{\n\t\t\tEnvironment: \u0026confluentcloud.ConnectorEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.ConnectorKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(basic.Id),\n\t\t\t},\n\t\t\tConfigSensitive: nil,\n\t\t\tConfigNonsensitive: pulumi.StringMap{\n\t\t\t\t\"connector.class\":          pulumi.String(\"DatagenSource\"),\n\t\t\t\t\"name\":                     pulumi.String(\"DatagenSourceConnector_0\"),\n\t\t\t\t\"kafka.auth.mode\":          pulumi.String(\"SERVICE_ACCOUNT\"),\n\t\t\t\t\"kafka.service.account.id\": pulumi.Any(app_connector.Id),\n\t\t\t\t\"kafka.topic\":              pulumi.Any(orders.TopicName),\n\t\t\t\t\"output.data.format\":       pulumi.String(\"JSON\"),\n\t\t\t\t\"quickstart\":               pulumi.String(\"ORDERS\"),\n\t\t\t\t\"tasks.max\":                pulumi.String(\"1\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tapp_connector_describe_on_cluster,\n\t\t\tapp_connector_write_on_target_topic,\n\t\t\tapp_connector_create_on_data_preview_topics,\n\t\t\tapp_connector_write_on_data_preview_topics,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Connector;\nimport com.pulumi.confluentcloud.ConnectorArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var source = new Connector(\"source\", ConnectorArgs.builder()        \n            .environment(ConnectorEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(ConnectorKafkaClusterArgs.builder()\n                .id(basic.id())\n                .build())\n            .configSensitive()\n            .configNonsensitive(Map.ofEntries(\n                Map.entry(\"connector.class\", \"DatagenSource\"),\n                Map.entry(\"name\", \"DatagenSourceConnector_0\"),\n                Map.entry(\"kafka.auth.mode\", \"SERVICE_ACCOUNT\"),\n                Map.entry(\"kafka.service.account.id\", app_connector.id()),\n                Map.entry(\"kafka.topic\", orders.topicName()),\n                Map.entry(\"output.data.format\", \"JSON\"),\n                Map.entry(\"quickstart\", \"ORDERS\"),\n                Map.entry(\"tasks.max\", \"1\")\n            ))\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(                \n                    app_connector_describe_on_cluster,\n                    app_connector_write_on_target_topic,\n                    app_connector_create_on_data_preview_topics,\n                    app_connector_write_on_data_preview_topics)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  source:\n    type: confluentcloud:Connector\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${basic.id}\n      configSensitive: {}\n      configNonsensitive:\n        connector.class: DatagenSource\n        name: DatagenSourceConnector_0\n        kafka.auth.mode: SERVICE_ACCOUNT\n        kafka.service.account.id: ${[\"app-connector\"].id}\n        kafka.topic: ${orders.topicName}\n        output.data.format: JSON\n        quickstart: ORDERS\n        tasks.max: '1'\n    options:\n      dependson:\n        - ${[\"app-connector-describe-on-cluster\"]}\n        - ${[\"app-connector-write-on-target-topic\"]}\n        - ${[\"app-connector-create-on-data-preview-topics\"]}\n        - ${[\"app-connector-write-on-data-preview-topics\"]}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example Managed [Amazon S3 Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-s3-sink.html) that uses a service account to communicate with your Kafka cluster\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst sink = new confluentcloud.Connector(\"sink\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: basic.id,\n    },\n    configSensitive: {\n        \"aws.access.key.id\": \"***REDACTED***\",\n        \"aws.secret.access.key\": \"***REDACTED***\",\n    },\n    configNonsensitive: {\n        topics: orders.topicName,\n        \"input.data.format\": \"JSON\",\n        \"connector.class\": \"S3_SINK\",\n        name: \"S3_SINKConnector_0\",\n        \"kafka.auth.mode\": \"SERVICE_ACCOUNT\",\n        \"kafka.service.account.id\": app_connector.id,\n        \"s3.bucket.name\": \"\u003cs3-bucket-name\u003e\",\n        \"output.data.format\": \"JSON\",\n        \"time.interval\": \"DAILY\",\n        \"flush.size\": \"1000\",\n        \"tasks.max\": \"1\",\n    },\n}, {\n    dependsOn: [\n        app_connector_describe_on_cluster,\n        app_connector_read_on_target_topic,\n        app_connector_create_on_dlq_lcc_topics,\n        app_connector_write_on_dlq_lcc_topics,\n        app_connector_create_on_success_lcc_topics,\n        app_connector_write_on_success_lcc_topics,\n        app_connector_create_on_error_lcc_topics,\n        app_connector_write_on_error_lcc_topics,\n        app_connector_read_on_connect_lcc_group,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nsink = confluentcloud.Connector(\"sink\",\n    environment=confluentcloud.ConnectorEnvironmentArgs(\n        id=staging[\"id\"],\n    ),\n    kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(\n        id=basic[\"id\"],\n    ),\n    config_sensitive={\n        \"aws.access.key.id\": \"***REDACTED***\",\n        \"aws.secret.access.key\": \"***REDACTED***\",\n    },\n    config_nonsensitive={\n        \"topics\": orders[\"topicName\"],\n        \"input.data.format\": \"JSON\",\n        \"connector.class\": \"S3_SINK\",\n        \"name\": \"S3_SINKConnector_0\",\n        \"kafka.auth.mode\": \"SERVICE_ACCOUNT\",\n        \"kafka.service.account.id\": app_connector[\"id\"],\n        \"s3.bucket.name\": \"\u003cs3-bucket-name\u003e\",\n        \"output.data.format\": \"JSON\",\n        \"time.interval\": \"DAILY\",\n        \"flush.size\": \"1000\",\n        \"tasks.max\": \"1\",\n    },\n    opts=pulumi.ResourceOptions(depends_on=[\n            app_connector_describe_on_cluster,\n            app_connector_read_on_target_topic,\n            app_connector_create_on_dlq_lcc_topics,\n            app_connector_write_on_dlq_lcc_topics,\n            app_connector_create_on_success_lcc_topics,\n            app_connector_write_on_success_lcc_topics,\n            app_connector_create_on_error_lcc_topics,\n            app_connector_write_on_error_lcc_topics,\n            app_connector_read_on_connect_lcc_group,\n        ]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var sink = new ConfluentCloud.Connector(\"sink\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.ConnectorKafkaClusterArgs\n        {\n            Id = basic.Id,\n        },\n        ConfigSensitive = \n        {\n            { \"aws.access.key.id\", \"***REDACTED***\" },\n            { \"aws.secret.access.key\", \"***REDACTED***\" },\n        },\n        ConfigNonsensitive = \n        {\n            { \"topics\", orders.TopicName },\n            { \"input.data.format\", \"JSON\" },\n            { \"connector.class\", \"S3_SINK\" },\n            { \"name\", \"S3_SINKConnector_0\" },\n            { \"kafka.auth.mode\", \"SERVICE_ACCOUNT\" },\n            { \"kafka.service.account.id\", app_connector.Id },\n            { \"s3.bucket.name\", \"\u003cs3-bucket-name\u003e\" },\n            { \"output.data.format\", \"JSON\" },\n            { \"time.interval\", \"DAILY\" },\n            { \"flush.size\", \"1000\" },\n            { \"tasks.max\", \"1\" },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            app_connector_describe_on_cluster, \n            app_connector_read_on_target_topic, \n            app_connector_create_on_dlq_lcc_topics, \n            app_connector_write_on_dlq_lcc_topics, \n            app_connector_create_on_success_lcc_topics, \n            app_connector_write_on_success_lcc_topics, \n            app_connector_create_on_error_lcc_topics, \n            app_connector_write_on_error_lcc_topics, \n            app_connector_read_on_connect_lcc_group, \n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewConnector(ctx, \"sink\", \u0026confluentcloud.ConnectorArgs{\n\t\t\tEnvironment: \u0026confluentcloud.ConnectorEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.ConnectorKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(basic.Id),\n\t\t\t},\n\t\t\tConfigSensitive: pulumi.StringMap{\n\t\t\t\t\"aws.access.key.id\":     pulumi.String(\"***REDACTED***\"),\n\t\t\t\t\"aws.secret.access.key\": pulumi.String(\"***REDACTED***\"),\n\t\t\t},\n\t\t\tConfigNonsensitive: pulumi.StringMap{\n\t\t\t\t\"topics\":                   pulumi.Any(orders.TopicName),\n\t\t\t\t\"input.data.format\":        pulumi.String(\"JSON\"),\n\t\t\t\t\"connector.class\":          pulumi.String(\"S3_SINK\"),\n\t\t\t\t\"name\":                     pulumi.String(\"S3_SINKConnector_0\"),\n\t\t\t\t\"kafka.auth.mode\":          pulumi.String(\"SERVICE_ACCOUNT\"),\n\t\t\t\t\"kafka.service.account.id\": pulumi.Any(app_connector.Id),\n\t\t\t\t\"s3.bucket.name\":           pulumi.String(\"\u003cs3-bucket-name\u003e\"),\n\t\t\t\t\"output.data.format\":       pulumi.String(\"JSON\"),\n\t\t\t\t\"time.interval\":            pulumi.String(\"DAILY\"),\n\t\t\t\t\"flush.size\":               pulumi.String(\"1000\"),\n\t\t\t\t\"tasks.max\":                pulumi.String(\"1\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tapp_connector_describe_on_cluster,\n\t\t\tapp_connector_read_on_target_topic,\n\t\t\tapp_connector_create_on_dlq_lcc_topics,\n\t\t\tapp_connector_write_on_dlq_lcc_topics,\n\t\t\tapp_connector_create_on_success_lcc_topics,\n\t\t\tapp_connector_write_on_success_lcc_topics,\n\t\t\tapp_connector_create_on_error_lcc_topics,\n\t\t\tapp_connector_write_on_error_lcc_topics,\n\t\t\tapp_connector_read_on_connect_lcc_group,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Connector;\nimport com.pulumi.confluentcloud.ConnectorArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var sink = new Connector(\"sink\", ConnectorArgs.builder()        \n            .environment(ConnectorEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(ConnectorKafkaClusterArgs.builder()\n                .id(basic.id())\n                .build())\n            .configSensitive(Map.ofEntries(\n                Map.entry(\"aws.access.key.id\", \"***REDACTED***\"),\n                Map.entry(\"aws.secret.access.key\", \"***REDACTED***\")\n            ))\n            .configNonsensitive(Map.ofEntries(\n                Map.entry(\"topics\", orders.topicName()),\n                Map.entry(\"input.data.format\", \"JSON\"),\n                Map.entry(\"connector.class\", \"S3_SINK\"),\n                Map.entry(\"name\", \"S3_SINKConnector_0\"),\n                Map.entry(\"kafka.auth.mode\", \"SERVICE_ACCOUNT\"),\n                Map.entry(\"kafka.service.account.id\", app_connector.id()),\n                Map.entry(\"s3.bucket.name\", \"\u003cs3-bucket-name\u003e\"),\n                Map.entry(\"output.data.format\", \"JSON\"),\n                Map.entry(\"time.interval\", \"DAILY\"),\n                Map.entry(\"flush.size\", \"1000\"),\n                Map.entry(\"tasks.max\", \"1\")\n            ))\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(                \n                    app_connector_describe_on_cluster,\n                    app_connector_read_on_target_topic,\n                    app_connector_create_on_dlq_lcc_topics,\n                    app_connector_write_on_dlq_lcc_topics,\n                    app_connector_create_on_success_lcc_topics,\n                    app_connector_write_on_success_lcc_topics,\n                    app_connector_create_on_error_lcc_topics,\n                    app_connector_write_on_error_lcc_topics,\n                    app_connector_read_on_connect_lcc_group)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  sink:\n    type: confluentcloud:Connector\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${basic.id}\n      configSensitive:\n        aws.access.key.id: '***REDACTED***'\n        aws.secret.access.key: '***REDACTED***'\n      configNonsensitive:\n        topics: ${orders.topicName}\n        input.data.format: JSON\n        connector.class: S3_SINK\n        name: S3_SINKConnector_0\n        kafka.auth.mode: SERVICE_ACCOUNT\n        kafka.service.account.id: ${[\"app-connector\"].id}\n        s3.bucket.name: \u003cs3-bucket-name\u003e\n        output.data.format: JSON\n        time.interval: DAILY\n        flush.size: '1000'\n        tasks.max: '1'\n    options:\n      dependson:\n        - ${[\"app-connector-describe-on-cluster\"]}\n        - ${[\"app-connector-read-on-target-topic\"]}\n        - ${[\"app-connector-create-on-dlq-lcc-topics\"]}\n        - ${[\"app-connector-write-on-dlq-lcc-topics\"]}\n        - ${[\"app-connector-create-on-success-lcc-topics\"]}\n        - ${[\"app-connector-write-on-success-lcc-topics\"]}\n        - ${[\"app-connector-create-on-error-lcc-topics\"]}\n        - ${[\"app-connector-write-on-error-lcc-topics\"]}\n        - ${[\"app-connector-read-on-connect-lcc-group\"]}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example Managed [Amazon DynamoDB Connector](https://docs.confluent.io/cloud/current/connectors/cc-amazon-dynamo-db-sink.html) that uses a service account to communicate with your Kafka cluster\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst sink = new confluentcloud.Connector(\"sink\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: basic.id,\n    },\n    configSensitive: {\n        \"aws.access.key.id\": \"***REDACTED***\",\n        \"aws.secret.access.key\": \"***REDACTED***\",\n    },\n    configNonsensitive: {\n        topics: orders.topicName,\n        \"input.data.format\": \"JSON\",\n        \"connector.class\": \"DynamoDbSink\",\n        name: \"DynamoDbSinkConnector_0\",\n        \"kafka.auth.mode\": \"SERVICE_ACCOUNT\",\n        \"kafka.service.account.id\": app_connector.id,\n        \"aws.dynamodb.pk.hash\": \"value.userid\",\n        \"aws.dynamodb.pk.sort\": \"value.pageid\",\n        \"tasks.max\": \"1\",\n    },\n}, {\n    dependsOn: [\n        app_connector_describe_on_cluster,\n        app_connector_read_on_target_topic,\n        app_connector_create_on_dlq_lcc_topics,\n        app_connector_write_on_dlq_lcc_topics,\n        app_connector_create_on_success_lcc_topics,\n        app_connector_write_on_success_lcc_topics,\n        app_connector_create_on_error_lcc_topics,\n        app_connector_write_on_error_lcc_topics,\n        app_connector_read_on_connect_lcc_group,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nsink = confluentcloud.Connector(\"sink\",\n    environment=confluentcloud.ConnectorEnvironmentArgs(\n        id=staging[\"id\"],\n    ),\n    kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(\n        id=basic[\"id\"],\n    ),\n    config_sensitive={\n        \"aws.access.key.id\": \"***REDACTED***\",\n        \"aws.secret.access.key\": \"***REDACTED***\",\n    },\n    config_nonsensitive={\n        \"topics\": orders[\"topicName\"],\n        \"input.data.format\": \"JSON\",\n        \"connector.class\": \"DynamoDbSink\",\n        \"name\": \"DynamoDbSinkConnector_0\",\n        \"kafka.auth.mode\": \"SERVICE_ACCOUNT\",\n        \"kafka.service.account.id\": app_connector[\"id\"],\n        \"aws.dynamodb.pk.hash\": \"value.userid\",\n        \"aws.dynamodb.pk.sort\": \"value.pageid\",\n        \"tasks.max\": \"1\",\n    },\n    opts=pulumi.ResourceOptions(depends_on=[\n            app_connector_describe_on_cluster,\n            app_connector_read_on_target_topic,\n            app_connector_create_on_dlq_lcc_topics,\n            app_connector_write_on_dlq_lcc_topics,\n            app_connector_create_on_success_lcc_topics,\n            app_connector_write_on_success_lcc_topics,\n            app_connector_create_on_error_lcc_topics,\n            app_connector_write_on_error_lcc_topics,\n            app_connector_read_on_connect_lcc_group,\n        ]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var sink = new ConfluentCloud.Connector(\"sink\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.ConnectorKafkaClusterArgs\n        {\n            Id = basic.Id,\n        },\n        ConfigSensitive = \n        {\n            { \"aws.access.key.id\", \"***REDACTED***\" },\n            { \"aws.secret.access.key\", \"***REDACTED***\" },\n        },\n        ConfigNonsensitive = \n        {\n            { \"topics\", orders.TopicName },\n            { \"input.data.format\", \"JSON\" },\n            { \"connector.class\", \"DynamoDbSink\" },\n            { \"name\", \"DynamoDbSinkConnector_0\" },\n            { \"kafka.auth.mode\", \"SERVICE_ACCOUNT\" },\n            { \"kafka.service.account.id\", app_connector.Id },\n            { \"aws.dynamodb.pk.hash\", \"value.userid\" },\n            { \"aws.dynamodb.pk.sort\", \"value.pageid\" },\n            { \"tasks.max\", \"1\" },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            app_connector_describe_on_cluster, \n            app_connector_read_on_target_topic, \n            app_connector_create_on_dlq_lcc_topics, \n            app_connector_write_on_dlq_lcc_topics, \n            app_connector_create_on_success_lcc_topics, \n            app_connector_write_on_success_lcc_topics, \n            app_connector_create_on_error_lcc_topics, \n            app_connector_write_on_error_lcc_topics, \n            app_connector_read_on_connect_lcc_group, \n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewConnector(ctx, \"sink\", \u0026confluentcloud.ConnectorArgs{\n\t\t\tEnvironment: \u0026confluentcloud.ConnectorEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.ConnectorKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(basic.Id),\n\t\t\t},\n\t\t\tConfigSensitive: pulumi.StringMap{\n\t\t\t\t\"aws.access.key.id\":     pulumi.String(\"***REDACTED***\"),\n\t\t\t\t\"aws.secret.access.key\": pulumi.String(\"***REDACTED***\"),\n\t\t\t},\n\t\t\tConfigNonsensitive: pulumi.StringMap{\n\t\t\t\t\"topics\":                   pulumi.Any(orders.TopicName),\n\t\t\t\t\"input.data.format\":        pulumi.String(\"JSON\"),\n\t\t\t\t\"connector.class\":          pulumi.String(\"DynamoDbSink\"),\n\t\t\t\t\"name\":                     pulumi.String(\"DynamoDbSinkConnector_0\"),\n\t\t\t\t\"kafka.auth.mode\":          pulumi.String(\"SERVICE_ACCOUNT\"),\n\t\t\t\t\"kafka.service.account.id\": pulumi.Any(app_connector.Id),\n\t\t\t\t\"aws.dynamodb.pk.hash\":     pulumi.String(\"value.userid\"),\n\t\t\t\t\"aws.dynamodb.pk.sort\":     pulumi.String(\"value.pageid\"),\n\t\t\t\t\"tasks.max\":                pulumi.String(\"1\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tapp_connector_describe_on_cluster,\n\t\t\tapp_connector_read_on_target_topic,\n\t\t\tapp_connector_create_on_dlq_lcc_topics,\n\t\t\tapp_connector_write_on_dlq_lcc_topics,\n\t\t\tapp_connector_create_on_success_lcc_topics,\n\t\t\tapp_connector_write_on_success_lcc_topics,\n\t\t\tapp_connector_create_on_error_lcc_topics,\n\t\t\tapp_connector_write_on_error_lcc_topics,\n\t\t\tapp_connector_read_on_connect_lcc_group,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Connector;\nimport com.pulumi.confluentcloud.ConnectorArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var sink = new Connector(\"sink\", ConnectorArgs.builder()        \n            .environment(ConnectorEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(ConnectorKafkaClusterArgs.builder()\n                .id(basic.id())\n                .build())\n            .configSensitive(Map.ofEntries(\n                Map.entry(\"aws.access.key.id\", \"***REDACTED***\"),\n                Map.entry(\"aws.secret.access.key\", \"***REDACTED***\")\n            ))\n            .configNonsensitive(Map.ofEntries(\n                Map.entry(\"topics\", orders.topicName()),\n                Map.entry(\"input.data.format\", \"JSON\"),\n                Map.entry(\"connector.class\", \"DynamoDbSink\"),\n                Map.entry(\"name\", \"DynamoDbSinkConnector_0\"),\n                Map.entry(\"kafka.auth.mode\", \"SERVICE_ACCOUNT\"),\n                Map.entry(\"kafka.service.account.id\", app_connector.id()),\n                Map.entry(\"aws.dynamodb.pk.hash\", \"value.userid\"),\n                Map.entry(\"aws.dynamodb.pk.sort\", \"value.pageid\"),\n                Map.entry(\"tasks.max\", \"1\")\n            ))\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(                \n                    app_connector_describe_on_cluster,\n                    app_connector_read_on_target_topic,\n                    app_connector_create_on_dlq_lcc_topics,\n                    app_connector_write_on_dlq_lcc_topics,\n                    app_connector_create_on_success_lcc_topics,\n                    app_connector_write_on_success_lcc_topics,\n                    app_connector_create_on_error_lcc_topics,\n                    app_connector_write_on_error_lcc_topics,\n                    app_connector_read_on_connect_lcc_group)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  sink:\n    type: confluentcloud:Connector\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${basic.id}\n      configSensitive:\n        aws.access.key.id: '***REDACTED***'\n        aws.secret.access.key: '***REDACTED***'\n      configNonsensitive:\n        topics: ${orders.topicName}\n        input.data.format: JSON\n        connector.class: DynamoDbSink\n        name: DynamoDbSinkConnector_0\n        kafka.auth.mode: SERVICE_ACCOUNT\n        kafka.service.account.id: ${[\"app-connector\"].id}\n        aws.dynamodb.pk.hash: value.userid\n        aws.dynamodb.pk.sort: value.pageid\n        tasks.max: '1'\n    options:\n      dependson:\n        - ${[\"app-connector-describe-on-cluster\"]}\n        - ${[\"app-connector-read-on-target-topic\"]}\n        - ${[\"app-connector-create-on-dlq-lcc-topics\"]}\n        - ${[\"app-connector-write-on-dlq-lcc-topics\"]}\n        - ${[\"app-connector-create-on-success-lcc-topics\"]}\n        - ${[\"app-connector-write-on-success-lcc-topics\"]}\n        - ${[\"app-connector-create-on-error-lcc-topics\"]}\n        - ${[\"app-connector-write-on-error-lcc-topics\"]}\n        - ${[\"app-connector-read-on-connect-lcc-group\"]}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example Custom [Datagen Source Connector](https://www.confluent.io/hub/confluentinc/kafka-connect-datagen) that uses a Kafka API Key to communicate with your Kafka cluster\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst source = new confluentcloud.Connector(\"source\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: basic.id,\n    },\n    configSensitive: {\n        \"kafka.api.key\": \"***REDACTED***\",\n        \"kafka.api.secret\": \"***REDACTED***\",\n    },\n    configNonsensitive: {\n        \"confluent.connector.type\": \"CUSTOM\",\n        \"connector.class\": sourceConfluentCustomConnectorPlugin.connectorClass,\n        name: \"DatagenConnectorExampleName\",\n        \"kafka.auth.mode\": \"KAFKA_API_KEY\",\n        \"kafka.topic\": orders.topicName,\n        \"output.data.format\": \"JSON\",\n        quickstart: \"ORDERS\",\n        \"confluent.custom.plugin.id\": sourceConfluentCustomConnectorPlugin.id,\n        \"min.interval\": \"1000\",\n        \"max.interval\": \"2000\",\n        \"tasks.max\": \"1\",\n    },\n}, {\n    dependsOn: [app_manager_kafka_cluster_admin],\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nsource = confluentcloud.Connector(\"source\",\n    environment=confluentcloud.ConnectorEnvironmentArgs(\n        id=staging[\"id\"],\n    ),\n    kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(\n        id=basic[\"id\"],\n    ),\n    config_sensitive={\n        \"kafka.api.key\": \"***REDACTED***\",\n        \"kafka.api.secret\": \"***REDACTED***\",\n    },\n    config_nonsensitive={\n        \"confluent.connector.type\": \"CUSTOM\",\n        \"connector.class\": source_confluent_custom_connector_plugin[\"connectorClass\"],\n        \"name\": \"DatagenConnectorExampleName\",\n        \"kafka.auth.mode\": \"KAFKA_API_KEY\",\n        \"kafka.topic\": orders[\"topicName\"],\n        \"output.data.format\": \"JSON\",\n        \"quickstart\": \"ORDERS\",\n        \"confluent.custom.plugin.id\": source_confluent_custom_connector_plugin[\"id\"],\n        \"min.interval\": \"1000\",\n        \"max.interval\": \"2000\",\n        \"tasks.max\": \"1\",\n    },\n    opts=pulumi.ResourceOptions(depends_on=[app_manager_kafka_cluster_admin]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var source = new ConfluentCloud.Connector(\"source\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.ConnectorKafkaClusterArgs\n        {\n            Id = basic.Id,\n        },\n        ConfigSensitive = \n        {\n            { \"kafka.api.key\", \"***REDACTED***\" },\n            { \"kafka.api.secret\", \"***REDACTED***\" },\n        },\n        ConfigNonsensitive = \n        {\n            { \"confluent.connector.type\", \"CUSTOM\" },\n            { \"connector.class\", sourceConfluentCustomConnectorPlugin.ConnectorClass },\n            { \"name\", \"DatagenConnectorExampleName\" },\n            { \"kafka.auth.mode\", \"KAFKA_API_KEY\" },\n            { \"kafka.topic\", orders.TopicName },\n            { \"output.data.format\", \"JSON\" },\n            { \"quickstart\", \"ORDERS\" },\n            { \"confluent.custom.plugin.id\", sourceConfluentCustomConnectorPlugin.Id },\n            { \"min.interval\", \"1000\" },\n            { \"max.interval\", \"2000\" },\n            { \"tasks.max\", \"1\" },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            app_manager_kafka_cluster_admin, \n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewConnector(ctx, \"source\", \u0026confluentcloud.ConnectorArgs{\n\t\t\tEnvironment: \u0026confluentcloud.ConnectorEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.ConnectorKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(basic.Id),\n\t\t\t},\n\t\t\tConfigSensitive: pulumi.StringMap{\n\t\t\t\t\"kafka.api.key\":    pulumi.String(\"***REDACTED***\"),\n\t\t\t\t\"kafka.api.secret\": pulumi.String(\"***REDACTED***\"),\n\t\t\t},\n\t\t\tConfigNonsensitive: pulumi.StringMap{\n\t\t\t\t\"confluent.connector.type\":   pulumi.String(\"CUSTOM\"),\n\t\t\t\t\"connector.class\":            pulumi.Any(sourceConfluentCustomConnectorPlugin.ConnectorClass),\n\t\t\t\t\"name\":                       pulumi.String(\"DatagenConnectorExampleName\"),\n\t\t\t\t\"kafka.auth.mode\":            pulumi.String(\"KAFKA_API_KEY\"),\n\t\t\t\t\"kafka.topic\":                pulumi.Any(orders.TopicName),\n\t\t\t\t\"output.data.format\":         pulumi.String(\"JSON\"),\n\t\t\t\t\"quickstart\":                 pulumi.String(\"ORDERS\"),\n\t\t\t\t\"confluent.custom.plugin.id\": pulumi.Any(sourceConfluentCustomConnectorPlugin.Id),\n\t\t\t\t\"min.interval\":               pulumi.String(\"1000\"),\n\t\t\t\t\"max.interval\":               pulumi.String(\"2000\"),\n\t\t\t\t\"tasks.max\":                  pulumi.String(\"1\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tapp_manager_kafka_cluster_admin,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Connector;\nimport com.pulumi.confluentcloud.ConnectorArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var source = new Connector(\"source\", ConnectorArgs.builder()        \n            .environment(ConnectorEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(ConnectorKafkaClusterArgs.builder()\n                .id(basic.id())\n                .build())\n            .configSensitive(Map.ofEntries(\n                Map.entry(\"kafka.api.key\", \"***REDACTED***\"),\n                Map.entry(\"kafka.api.secret\", \"***REDACTED***\")\n            ))\n            .configNonsensitive(Map.ofEntries(\n                Map.entry(\"confluent.connector.type\", \"CUSTOM\"),\n                Map.entry(\"connector.class\", sourceConfluentCustomConnectorPlugin.connectorClass()),\n                Map.entry(\"name\", \"DatagenConnectorExampleName\"),\n                Map.entry(\"kafka.auth.mode\", \"KAFKA_API_KEY\"),\n                Map.entry(\"kafka.topic\", orders.topicName()),\n                Map.entry(\"output.data.format\", \"JSON\"),\n                Map.entry(\"quickstart\", \"ORDERS\"),\n                Map.entry(\"confluent.custom.plugin.id\", sourceConfluentCustomConnectorPlugin.id()),\n                Map.entry(\"min.interval\", \"1000\"),\n                Map.entry(\"max.interval\", \"2000\"),\n                Map.entry(\"tasks.max\", \"1\")\n            ))\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(app_manager_kafka_cluster_admin)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  source:\n    type: confluentcloud:Connector\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${basic.id}\n      configSensitive:\n        kafka.api.key: '***REDACTED***'\n        kafka.api.secret: '***REDACTED***'\n      configNonsensitive:\n        confluent.connector.type: CUSTOM\n        connector.class: ${sourceConfluentCustomConnectorPlugin.connectorClass}\n        name: DatagenConnectorExampleName\n        kafka.auth.mode: KAFKA_API_KEY\n        kafka.topic: ${orders.topicName}\n        output.data.format: JSON\n        quickstart: ORDERS\n        confluent.custom.plugin.id: ${sourceConfluentCustomConnectorPlugin.id}\n        min.interval: '1000'\n        max.interval: '2000'\n        tasks.max: '1'\n    options:\n      dependson:\n        - ${[\"app-manager-kafka-cluster-admin\"]}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\u003e **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with `confluentcloud.Connector` resource:\n* `s3-sink-connector`\n* `snowflake-sink-connector`\n* `managed-datagen-source-connector`\n* `elasticsearch-sink-connector`\n* `dynamo-db-sink-connector`\n* `mongo-db-source-connector`\n* `mongo-db-sink-connector`\n* `sql-server-cdc-debezium-source-connector`\n* `postgre-sql-cdc-debezium-source-connector`\n* `custom-datagen-source-connector`\n\n\n\u003e **Note:** Certain connectors require additional ACL entries. See [Additional ACL entries](https://docs.confluent.io/cloud/current/connectors/service-account.html#additional-acl-entries) for more details.\n\n## Import\n\nYou can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `\u003cEnvironment ID\u003e/\u003cKafka cluster ID\u003e/\u003cConnector name\u003e`, for example:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/connector:Connector my_connector \"env-abc123/lkc-abc123/S3_SINKConnector_0\"\n```\n\n",
+            "description": "## Example Usage\n\n### Example Managed [Datagen Source Connector](https://docs.confluent.io/cloud/current/connectors/cc-datagen-source.html) that uses a service account to communicate with your Kafka cluster\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst source = new confluentcloud.Connector(\"source\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: basic.id,\n    },\n    configSensitive: {},\n    configNonsensitive: {\n        \"connector.class\": \"DatagenSource\",\n        name: \"DatagenSourceConnector_0\",\n        \"kafka.auth.mode\": \"SERVICE_ACCOUNT\",\n        \"kafka.service.account.id\": app_connector.id,\n        \"kafka.topic\": orders.topicName,\n        \"output.data.format\": \"JSON\",\n        quickstart: \"ORDERS\",\n        \"tasks.max\": \"1\",\n    },\n}, {\n    dependsOn: [\n        app_connector_describe_on_cluster,\n        app_connector_write_on_target_topic,\n        app_connector_create_on_data_preview_topics,\n        app_connector_write_on_data_preview_topics,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nsource = confluentcloud.Connector(\"source\",\n    environment=confluentcloud.ConnectorEnvironmentArgs(\n        id=staging[\"id\"],\n    ),\n    kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(\n        id=basic[\"id\"],\n    ),\n    config_sensitive={},\n    config_nonsensitive={\n        \"connector.class\": \"DatagenSource\",\n        \"name\": \"DatagenSourceConnector_0\",\n        \"kafka.auth.mode\": \"SERVICE_ACCOUNT\",\n        \"kafka.service.account.id\": app_connector[\"id\"],\n        \"kafka.topic\": orders[\"topicName\"],\n        \"output.data.format\": \"JSON\",\n        \"quickstart\": \"ORDERS\",\n        \"tasks.max\": \"1\",\n    },\n    opts=pulumi.ResourceOptions(depends_on=[\n            app_connector_describe_on_cluster,\n            app_connector_write_on_target_topic,\n            app_connector_create_on_data_preview_topics,\n            app_connector_write_on_data_preview_topics,\n        ]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var source = new ConfluentCloud.Connector(\"source\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.ConnectorKafkaClusterArgs\n        {\n            Id = basic.Id,\n        },\n        ConfigSensitive = null,\n        ConfigNonsensitive = \n        {\n            { \"connector.class\", \"DatagenSource\" },\n            { \"name\", \"DatagenSourceConnector_0\" },\n            { \"kafka.auth.mode\", \"SERVICE_ACCOUNT\" },\n            { \"kafka.service.account.id\", app_connector.Id },\n            { \"kafka.topic\", orders.TopicName },\n            { \"output.data.format\", \"JSON\" },\n            { \"quickstart\", \"ORDERS\" },\n            { \"tasks.max\", \"1\" },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            app_connector_describe_on_cluster,\n            app_connector_write_on_target_topic,\n            app_connector_create_on_data_preview_topics,\n            app_connector_write_on_data_preview_topics,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewConnector(ctx, \"source\", \u0026confluentcloud.ConnectorArgs{\n\t\t\tEnvironment: \u0026confluentcloud.ConnectorEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.ConnectorKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(basic.Id),\n\t\t\t},\n\t\t\tConfigSensitive: nil,\n\t\t\tConfigNonsensitive: pulumi.StringMap{\n\t\t\t\t\"connector.class\":          pulumi.String(\"DatagenSource\"),\n\t\t\t\t\"name\":                     pulumi.String(\"DatagenSourceConnector_0\"),\n\t\t\t\t\"kafka.auth.mode\":          pulumi.String(\"SERVICE_ACCOUNT\"),\n\t\t\t\t\"kafka.service.account.id\": pulumi.Any(app_connector.Id),\n\t\t\t\t\"kafka.topic\":              pulumi.Any(orders.TopicName),\n\t\t\t\t\"output.data.format\":       pulumi.String(\"JSON\"),\n\t\t\t\t\"quickstart\":               pulumi.String(\"ORDERS\"),\n\t\t\t\t\"tasks.max\":                pulumi.String(\"1\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tapp_connector_describe_on_cluster,\n\t\t\tapp_connector_write_on_target_topic,\n\t\t\tapp_connector_create_on_data_preview_topics,\n\t\t\tapp_connector_write_on_data_preview_topics,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Connector;\nimport com.pulumi.confluentcloud.ConnectorArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var source = new Connector(\"source\", ConnectorArgs.builder()        \n            .environment(ConnectorEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(ConnectorKafkaClusterArgs.builder()\n                .id(basic.id())\n                .build())\n            .configSensitive()\n            .configNonsensitive(Map.ofEntries(\n                Map.entry(\"connector.class\", \"DatagenSource\"),\n                Map.entry(\"name\", \"DatagenSourceConnector_0\"),\n                Map.entry(\"kafka.auth.mode\", \"SERVICE_ACCOUNT\"),\n                Map.entry(\"kafka.service.account.id\", app_connector.id()),\n                Map.entry(\"kafka.topic\", orders.topicName()),\n                Map.entry(\"output.data.format\", \"JSON\"),\n                Map.entry(\"quickstart\", \"ORDERS\"),\n                Map.entry(\"tasks.max\", \"1\")\n            ))\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(                \n                    app_connector_describe_on_cluster,\n                    app_connector_write_on_target_topic,\n                    app_connector_create_on_data_preview_topics,\n                    app_connector_write_on_data_preview_topics)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  source:\n    type: confluentcloud:Connector\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${basic.id}\n      configSensitive: {}\n      configNonsensitive:\n        connector.class: DatagenSource\n        name: DatagenSourceConnector_0\n        kafka.auth.mode: SERVICE_ACCOUNT\n        kafka.service.account.id: ${[\"app-connector\"].id}\n        kafka.topic: ${orders.topicName}\n        output.data.format: JSON\n        quickstart: ORDERS\n        tasks.max: '1'\n    options:\n      dependson:\n        - ${[\"app-connector-describe-on-cluster\"]}\n        - ${[\"app-connector-write-on-target-topic\"]}\n        - ${[\"app-connector-create-on-data-preview-topics\"]}\n        - ${[\"app-connector-write-on-data-preview-topics\"]}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example Managed [Amazon S3 Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-s3-sink.html) that uses a service account to communicate with your Kafka cluster\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst sink = new confluentcloud.Connector(\"sink\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: basic.id,\n    },\n    configSensitive: {\n        \"aws.access.key.id\": \"***REDACTED***\",\n        \"aws.secret.access.key\": \"***REDACTED***\",\n    },\n    configNonsensitive: {\n        topics: orders.topicName,\n        \"input.data.format\": \"JSON\",\n        \"connector.class\": \"S3_SINK\",\n        name: \"S3_SINKConnector_0\",\n        \"kafka.auth.mode\": \"SERVICE_ACCOUNT\",\n        \"kafka.service.account.id\": app_connector.id,\n        \"s3.bucket.name\": \"\u003cs3-bucket-name\u003e\",\n        \"output.data.format\": \"JSON\",\n        \"time.interval\": \"DAILY\",\n        \"flush.size\": \"1000\",\n        \"tasks.max\": \"1\",\n    },\n}, {\n    dependsOn: [\n        app_connector_describe_on_cluster,\n        app_connector_read_on_target_topic,\n        app_connector_create_on_dlq_lcc_topics,\n        app_connector_write_on_dlq_lcc_topics,\n        app_connector_create_on_success_lcc_topics,\n        app_connector_write_on_success_lcc_topics,\n        app_connector_create_on_error_lcc_topics,\n        app_connector_write_on_error_lcc_topics,\n        app_connector_read_on_connect_lcc_group,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nsink = confluentcloud.Connector(\"sink\",\n    environment=confluentcloud.ConnectorEnvironmentArgs(\n        id=staging[\"id\"],\n    ),\n    kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(\n        id=basic[\"id\"],\n    ),\n    config_sensitive={\n        \"aws.access.key.id\": \"***REDACTED***\",\n        \"aws.secret.access.key\": \"***REDACTED***\",\n    },\n    config_nonsensitive={\n        \"topics\": orders[\"topicName\"],\n        \"input.data.format\": \"JSON\",\n        \"connector.class\": \"S3_SINK\",\n        \"name\": \"S3_SINKConnector_0\",\n        \"kafka.auth.mode\": \"SERVICE_ACCOUNT\",\n        \"kafka.service.account.id\": app_connector[\"id\"],\n        \"s3.bucket.name\": \"\u003cs3-bucket-name\u003e\",\n        \"output.data.format\": \"JSON\",\n        \"time.interval\": \"DAILY\",\n        \"flush.size\": \"1000\",\n        \"tasks.max\": \"1\",\n    },\n    opts=pulumi.ResourceOptions(depends_on=[\n            app_connector_describe_on_cluster,\n            app_connector_read_on_target_topic,\n            app_connector_create_on_dlq_lcc_topics,\n            app_connector_write_on_dlq_lcc_topics,\n            app_connector_create_on_success_lcc_topics,\n            app_connector_write_on_success_lcc_topics,\n            app_connector_create_on_error_lcc_topics,\n            app_connector_write_on_error_lcc_topics,\n            app_connector_read_on_connect_lcc_group,\n        ]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var sink = new ConfluentCloud.Connector(\"sink\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.ConnectorKafkaClusterArgs\n        {\n            Id = basic.Id,\n        },\n        ConfigSensitive = \n        {\n            { \"aws.access.key.id\", \"***REDACTED***\" },\n            { \"aws.secret.access.key\", \"***REDACTED***\" },\n        },\n        ConfigNonsensitive = \n        {\n            { \"topics\", orders.TopicName },\n            { \"input.data.format\", \"JSON\" },\n            { \"connector.class\", \"S3_SINK\" },\n            { \"name\", \"S3_SINKConnector_0\" },\n            { \"kafka.auth.mode\", \"SERVICE_ACCOUNT\" },\n            { \"kafka.service.account.id\", app_connector.Id },\n            { \"s3.bucket.name\", \"\u003cs3-bucket-name\u003e\" },\n            { \"output.data.format\", \"JSON\" },\n            { \"time.interval\", \"DAILY\" },\n            { \"flush.size\", \"1000\" },\n            { \"tasks.max\", \"1\" },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            app_connector_describe_on_cluster,\n            app_connector_read_on_target_topic,\n            app_connector_create_on_dlq_lcc_topics,\n            app_connector_write_on_dlq_lcc_topics,\n            app_connector_create_on_success_lcc_topics,\n            app_connector_write_on_success_lcc_topics,\n            app_connector_create_on_error_lcc_topics,\n            app_connector_write_on_error_lcc_topics,\n            app_connector_read_on_connect_lcc_group,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewConnector(ctx, \"sink\", \u0026confluentcloud.ConnectorArgs{\n\t\t\tEnvironment: \u0026confluentcloud.ConnectorEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.ConnectorKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(basic.Id),\n\t\t\t},\n\t\t\tConfigSensitive: pulumi.StringMap{\n\t\t\t\t\"aws.access.key.id\":     pulumi.String(\"***REDACTED***\"),\n\t\t\t\t\"aws.secret.access.key\": pulumi.String(\"***REDACTED***\"),\n\t\t\t},\n\t\t\tConfigNonsensitive: pulumi.StringMap{\n\t\t\t\t\"topics\":                   pulumi.Any(orders.TopicName),\n\t\t\t\t\"input.data.format\":        pulumi.String(\"JSON\"),\n\t\t\t\t\"connector.class\":          pulumi.String(\"S3_SINK\"),\n\t\t\t\t\"name\":                     pulumi.String(\"S3_SINKConnector_0\"),\n\t\t\t\t\"kafka.auth.mode\":          pulumi.String(\"SERVICE_ACCOUNT\"),\n\t\t\t\t\"kafka.service.account.id\": pulumi.Any(app_connector.Id),\n\t\t\t\t\"s3.bucket.name\":           pulumi.String(\"\u003cs3-bucket-name\u003e\"),\n\t\t\t\t\"output.data.format\":       pulumi.String(\"JSON\"),\n\t\t\t\t\"time.interval\":            pulumi.String(\"DAILY\"),\n\t\t\t\t\"flush.size\":               pulumi.String(\"1000\"),\n\t\t\t\t\"tasks.max\":                pulumi.String(\"1\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tapp_connector_describe_on_cluster,\n\t\t\tapp_connector_read_on_target_topic,\n\t\t\tapp_connector_create_on_dlq_lcc_topics,\n\t\t\tapp_connector_write_on_dlq_lcc_topics,\n\t\t\tapp_connector_create_on_success_lcc_topics,\n\t\t\tapp_connector_write_on_success_lcc_topics,\n\t\t\tapp_connector_create_on_error_lcc_topics,\n\t\t\tapp_connector_write_on_error_lcc_topics,\n\t\t\tapp_connector_read_on_connect_lcc_group,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Connector;\nimport com.pulumi.confluentcloud.ConnectorArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var sink = new Connector(\"sink\", ConnectorArgs.builder()        \n            .environment(ConnectorEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(ConnectorKafkaClusterArgs.builder()\n                .id(basic.id())\n                .build())\n            .configSensitive(Map.ofEntries(\n                Map.entry(\"aws.access.key.id\", \"***REDACTED***\"),\n                Map.entry(\"aws.secret.access.key\", \"***REDACTED***\")\n            ))\n            .configNonsensitive(Map.ofEntries(\n                Map.entry(\"topics\", orders.topicName()),\n                Map.entry(\"input.data.format\", \"JSON\"),\n                Map.entry(\"connector.class\", \"S3_SINK\"),\n                Map.entry(\"name\", \"S3_SINKConnector_0\"),\n                Map.entry(\"kafka.auth.mode\", \"SERVICE_ACCOUNT\"),\n                Map.entry(\"kafka.service.account.id\", app_connector.id()),\n                Map.entry(\"s3.bucket.name\", \"\u003cs3-bucket-name\u003e\"),\n                Map.entry(\"output.data.format\", \"JSON\"),\n                Map.entry(\"time.interval\", \"DAILY\"),\n                Map.entry(\"flush.size\", \"1000\"),\n                Map.entry(\"tasks.max\", \"1\")\n            ))\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(                \n                    app_connector_describe_on_cluster,\n                    app_connector_read_on_target_topic,\n                    app_connector_create_on_dlq_lcc_topics,\n                    app_connector_write_on_dlq_lcc_topics,\n                    app_connector_create_on_success_lcc_topics,\n                    app_connector_write_on_success_lcc_topics,\n                    app_connector_create_on_error_lcc_topics,\n                    app_connector_write_on_error_lcc_topics,\n                    app_connector_read_on_connect_lcc_group)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  sink:\n    type: confluentcloud:Connector\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${basic.id}\n      configSensitive:\n        aws.access.key.id: '***REDACTED***'\n        aws.secret.access.key: '***REDACTED***'\n      configNonsensitive:\n        topics: ${orders.topicName}\n        input.data.format: JSON\n        connector.class: S3_SINK\n        name: S3_SINKConnector_0\n        kafka.auth.mode: SERVICE_ACCOUNT\n        kafka.service.account.id: ${[\"app-connector\"].id}\n        s3.bucket.name: \u003cs3-bucket-name\u003e\n        output.data.format: JSON\n        time.interval: DAILY\n        flush.size: '1000'\n        tasks.max: '1'\n    options:\n      dependson:\n        - ${[\"app-connector-describe-on-cluster\"]}\n        - ${[\"app-connector-read-on-target-topic\"]}\n        - ${[\"app-connector-create-on-dlq-lcc-topics\"]}\n        - ${[\"app-connector-write-on-dlq-lcc-topics\"]}\n        - ${[\"app-connector-create-on-success-lcc-topics\"]}\n        - ${[\"app-connector-write-on-success-lcc-topics\"]}\n        - ${[\"app-connector-create-on-error-lcc-topics\"]}\n        - ${[\"app-connector-write-on-error-lcc-topics\"]}\n        - ${[\"app-connector-read-on-connect-lcc-group\"]}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example Managed [Amazon DynamoDB Connector](https://docs.confluent.io/cloud/current/connectors/cc-amazon-dynamo-db-sink.html) that uses a service account to communicate with your Kafka cluster\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst sink = new confluentcloud.Connector(\"sink\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: basic.id,\n    },\n    configSensitive: {\n        \"aws.access.key.id\": \"***REDACTED***\",\n        \"aws.secret.access.key\": \"***REDACTED***\",\n    },\n    configNonsensitive: {\n        topics: orders.topicName,\n        \"input.data.format\": \"JSON\",\n        \"connector.class\": \"DynamoDbSink\",\n        name: \"DynamoDbSinkConnector_0\",\n        \"kafka.auth.mode\": \"SERVICE_ACCOUNT\",\n        \"kafka.service.account.id\": app_connector.id,\n        \"aws.dynamodb.pk.hash\": \"value.userid\",\n        \"aws.dynamodb.pk.sort\": \"value.pageid\",\n        \"tasks.max\": \"1\",\n    },\n}, {\n    dependsOn: [\n        app_connector_describe_on_cluster,\n        app_connector_read_on_target_topic,\n        app_connector_create_on_dlq_lcc_topics,\n        app_connector_write_on_dlq_lcc_topics,\n        app_connector_create_on_success_lcc_topics,\n        app_connector_write_on_success_lcc_topics,\n        app_connector_create_on_error_lcc_topics,\n        app_connector_write_on_error_lcc_topics,\n        app_connector_read_on_connect_lcc_group,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nsink = confluentcloud.Connector(\"sink\",\n    environment=confluentcloud.ConnectorEnvironmentArgs(\n        id=staging[\"id\"],\n    ),\n    kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(\n        id=basic[\"id\"],\n    ),\n    config_sensitive={\n        \"aws.access.key.id\": \"***REDACTED***\",\n        \"aws.secret.access.key\": \"***REDACTED***\",\n    },\n    config_nonsensitive={\n        \"topics\": orders[\"topicName\"],\n        \"input.data.format\": \"JSON\",\n        \"connector.class\": \"DynamoDbSink\",\n        \"name\": \"DynamoDbSinkConnector_0\",\n        \"kafka.auth.mode\": \"SERVICE_ACCOUNT\",\n        \"kafka.service.account.id\": app_connector[\"id\"],\n        \"aws.dynamodb.pk.hash\": \"value.userid\",\n        \"aws.dynamodb.pk.sort\": \"value.pageid\",\n        \"tasks.max\": \"1\",\n    },\n    opts=pulumi.ResourceOptions(depends_on=[\n            app_connector_describe_on_cluster,\n            app_connector_read_on_target_topic,\n            app_connector_create_on_dlq_lcc_topics,\n            app_connector_write_on_dlq_lcc_topics,\n            app_connector_create_on_success_lcc_topics,\n            app_connector_write_on_success_lcc_topics,\n            app_connector_create_on_error_lcc_topics,\n            app_connector_write_on_error_lcc_topics,\n            app_connector_read_on_connect_lcc_group,\n        ]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var sink = new ConfluentCloud.Connector(\"sink\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.ConnectorKafkaClusterArgs\n        {\n            Id = basic.Id,\n        },\n        ConfigSensitive = \n        {\n            { \"aws.access.key.id\", \"***REDACTED***\" },\n            { \"aws.secret.access.key\", \"***REDACTED***\" },\n        },\n        ConfigNonsensitive = \n        {\n            { \"topics\", orders.TopicName },\n            { \"input.data.format\", \"JSON\" },\n            { \"connector.class\", \"DynamoDbSink\" },\n            { \"name\", \"DynamoDbSinkConnector_0\" },\n            { \"kafka.auth.mode\", \"SERVICE_ACCOUNT\" },\n            { \"kafka.service.account.id\", app_connector.Id },\n            { \"aws.dynamodb.pk.hash\", \"value.userid\" },\n            { \"aws.dynamodb.pk.sort\", \"value.pageid\" },\n            { \"tasks.max\", \"1\" },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            app_connector_describe_on_cluster,\n            app_connector_read_on_target_topic,\n            app_connector_create_on_dlq_lcc_topics,\n            app_connector_write_on_dlq_lcc_topics,\n            app_connector_create_on_success_lcc_topics,\n            app_connector_write_on_success_lcc_topics,\n            app_connector_create_on_error_lcc_topics,\n            app_connector_write_on_error_lcc_topics,\n            app_connector_read_on_connect_lcc_group,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewConnector(ctx, \"sink\", \u0026confluentcloud.ConnectorArgs{\n\t\t\tEnvironment: \u0026confluentcloud.ConnectorEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.ConnectorKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(basic.Id),\n\t\t\t},\n\t\t\tConfigSensitive: pulumi.StringMap{\n\t\t\t\t\"aws.access.key.id\":     pulumi.String(\"***REDACTED***\"),\n\t\t\t\t\"aws.secret.access.key\": pulumi.String(\"***REDACTED***\"),\n\t\t\t},\n\t\t\tConfigNonsensitive: pulumi.StringMap{\n\t\t\t\t\"topics\":                   pulumi.Any(orders.TopicName),\n\t\t\t\t\"input.data.format\":        pulumi.String(\"JSON\"),\n\t\t\t\t\"connector.class\":          pulumi.String(\"DynamoDbSink\"),\n\t\t\t\t\"name\":                     pulumi.String(\"DynamoDbSinkConnector_0\"),\n\t\t\t\t\"kafka.auth.mode\":          pulumi.String(\"SERVICE_ACCOUNT\"),\n\t\t\t\t\"kafka.service.account.id\": pulumi.Any(app_connector.Id),\n\t\t\t\t\"aws.dynamodb.pk.hash\":     pulumi.String(\"value.userid\"),\n\t\t\t\t\"aws.dynamodb.pk.sort\":     pulumi.String(\"value.pageid\"),\n\t\t\t\t\"tasks.max\":                pulumi.String(\"1\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tapp_connector_describe_on_cluster,\n\t\t\tapp_connector_read_on_target_topic,\n\t\t\tapp_connector_create_on_dlq_lcc_topics,\n\t\t\tapp_connector_write_on_dlq_lcc_topics,\n\t\t\tapp_connector_create_on_success_lcc_topics,\n\t\t\tapp_connector_write_on_success_lcc_topics,\n\t\t\tapp_connector_create_on_error_lcc_topics,\n\t\t\tapp_connector_write_on_error_lcc_topics,\n\t\t\tapp_connector_read_on_connect_lcc_group,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Connector;\nimport com.pulumi.confluentcloud.ConnectorArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var sink = new Connector(\"sink\", ConnectorArgs.builder()        \n            .environment(ConnectorEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(ConnectorKafkaClusterArgs.builder()\n                .id(basic.id())\n                .build())\n            .configSensitive(Map.ofEntries(\n                Map.entry(\"aws.access.key.id\", \"***REDACTED***\"),\n                Map.entry(\"aws.secret.access.key\", \"***REDACTED***\")\n            ))\n            .configNonsensitive(Map.ofEntries(\n                Map.entry(\"topics\", orders.topicName()),\n                Map.entry(\"input.data.format\", \"JSON\"),\n                Map.entry(\"connector.class\", \"DynamoDbSink\"),\n                Map.entry(\"name\", \"DynamoDbSinkConnector_0\"),\n                Map.entry(\"kafka.auth.mode\", \"SERVICE_ACCOUNT\"),\n                Map.entry(\"kafka.service.account.id\", app_connector.id()),\n                Map.entry(\"aws.dynamodb.pk.hash\", \"value.userid\"),\n                Map.entry(\"aws.dynamodb.pk.sort\", \"value.pageid\"),\n                Map.entry(\"tasks.max\", \"1\")\n            ))\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(                \n                    app_connector_describe_on_cluster,\n                    app_connector_read_on_target_topic,\n                    app_connector_create_on_dlq_lcc_topics,\n                    app_connector_write_on_dlq_lcc_topics,\n                    app_connector_create_on_success_lcc_topics,\n                    app_connector_write_on_success_lcc_topics,\n                    app_connector_create_on_error_lcc_topics,\n                    app_connector_write_on_error_lcc_topics,\n                    app_connector_read_on_connect_lcc_group)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  sink:\n    type: confluentcloud:Connector\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${basic.id}\n      configSensitive:\n        aws.access.key.id: '***REDACTED***'\n        aws.secret.access.key: '***REDACTED***'\n      configNonsensitive:\n        topics: ${orders.topicName}\n        input.data.format: JSON\n        connector.class: DynamoDbSink\n        name: DynamoDbSinkConnector_0\n        kafka.auth.mode: SERVICE_ACCOUNT\n        kafka.service.account.id: ${[\"app-connector\"].id}\n        aws.dynamodb.pk.hash: value.userid\n        aws.dynamodb.pk.sort: value.pageid\n        tasks.max: '1'\n    options:\n      dependson:\n        - ${[\"app-connector-describe-on-cluster\"]}\n        - ${[\"app-connector-read-on-target-topic\"]}\n        - ${[\"app-connector-create-on-dlq-lcc-topics\"]}\n        - ${[\"app-connector-write-on-dlq-lcc-topics\"]}\n        - ${[\"app-connector-create-on-success-lcc-topics\"]}\n        - ${[\"app-connector-write-on-success-lcc-topics\"]}\n        - ${[\"app-connector-create-on-error-lcc-topics\"]}\n        - ${[\"app-connector-write-on-error-lcc-topics\"]}\n        - ${[\"app-connector-read-on-connect-lcc-group\"]}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example Custom [Datagen Source Connector](https://www.confluent.io/hub/confluentinc/kafka-connect-datagen) that uses a Kafka API Key to communicate with your Kafka cluster\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst source = new confluentcloud.Connector(\"source\", {\n    environment: {\n        id: staging.id,\n    },\n    kafkaCluster: {\n        id: basic.id,\n    },\n    configSensitive: {\n        \"kafka.api.key\": \"***REDACTED***\",\n        \"kafka.api.secret\": \"***REDACTED***\",\n    },\n    configNonsensitive: {\n        \"confluent.connector.type\": \"CUSTOM\",\n        \"connector.class\": sourceConfluentCustomConnectorPlugin.connectorClass,\n        name: \"DatagenConnectorExampleName\",\n        \"kafka.auth.mode\": \"KAFKA_API_KEY\",\n        \"kafka.topic\": orders.topicName,\n        \"output.data.format\": \"JSON\",\n        quickstart: \"ORDERS\",\n        \"confluent.custom.plugin.id\": sourceConfluentCustomConnectorPlugin.id,\n        \"min.interval\": \"1000\",\n        \"max.interval\": \"2000\",\n        \"tasks.max\": \"1\",\n    },\n}, {\n    dependsOn: [app_manager_kafka_cluster_admin],\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nsource = confluentcloud.Connector(\"source\",\n    environment=confluentcloud.ConnectorEnvironmentArgs(\n        id=staging[\"id\"],\n    ),\n    kafka_cluster=confluentcloud.ConnectorKafkaClusterArgs(\n        id=basic[\"id\"],\n    ),\n    config_sensitive={\n        \"kafka.api.key\": \"***REDACTED***\",\n        \"kafka.api.secret\": \"***REDACTED***\",\n    },\n    config_nonsensitive={\n        \"confluent.connector.type\": \"CUSTOM\",\n        \"connector.class\": source_confluent_custom_connector_plugin[\"connectorClass\"],\n        \"name\": \"DatagenConnectorExampleName\",\n        \"kafka.auth.mode\": \"KAFKA_API_KEY\",\n        \"kafka.topic\": orders[\"topicName\"],\n        \"output.data.format\": \"JSON\",\n        \"quickstart\": \"ORDERS\",\n        \"confluent.custom.plugin.id\": source_confluent_custom_connector_plugin[\"id\"],\n        \"min.interval\": \"1000\",\n        \"max.interval\": \"2000\",\n        \"tasks.max\": \"1\",\n    },\n    opts=pulumi.ResourceOptions(depends_on=[app_manager_kafka_cluster_admin]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var source = new ConfluentCloud.Connector(\"source\", new()\n    {\n        Environment = new ConfluentCloud.Inputs.ConnectorEnvironmentArgs\n        {\n            Id = staging.Id,\n        },\n        KafkaCluster = new ConfluentCloud.Inputs.ConnectorKafkaClusterArgs\n        {\n            Id = basic.Id,\n        },\n        ConfigSensitive = \n        {\n            { \"kafka.api.key\", \"***REDACTED***\" },\n            { \"kafka.api.secret\", \"***REDACTED***\" },\n        },\n        ConfigNonsensitive = \n        {\n            { \"confluent.connector.type\", \"CUSTOM\" },\n            { \"connector.class\", sourceConfluentCustomConnectorPlugin.ConnectorClass },\n            { \"name\", \"DatagenConnectorExampleName\" },\n            { \"kafka.auth.mode\", \"KAFKA_API_KEY\" },\n            { \"kafka.topic\", orders.TopicName },\n            { \"output.data.format\", \"JSON\" },\n            { \"quickstart\", \"ORDERS\" },\n            { \"confluent.custom.plugin.id\", sourceConfluentCustomConnectorPlugin.Id },\n            { \"min.interval\", \"1000\" },\n            { \"max.interval\", \"2000\" },\n            { \"tasks.max\", \"1\" },\n        },\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            app_manager_kafka_cluster_admin,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewConnector(ctx, \"source\", \u0026confluentcloud.ConnectorArgs{\n\t\t\tEnvironment: \u0026confluentcloud.ConnectorEnvironmentArgs{\n\t\t\t\tId: pulumi.Any(staging.Id),\n\t\t\t},\n\t\t\tKafkaCluster: \u0026confluentcloud.ConnectorKafkaClusterArgs{\n\t\t\t\tId: pulumi.Any(basic.Id),\n\t\t\t},\n\t\t\tConfigSensitive: pulumi.StringMap{\n\t\t\t\t\"kafka.api.key\":    pulumi.String(\"***REDACTED***\"),\n\t\t\t\t\"kafka.api.secret\": pulumi.String(\"***REDACTED***\"),\n\t\t\t},\n\t\t\tConfigNonsensitive: pulumi.StringMap{\n\t\t\t\t\"confluent.connector.type\":   pulumi.String(\"CUSTOM\"),\n\t\t\t\t\"connector.class\":            pulumi.Any(sourceConfluentCustomConnectorPlugin.ConnectorClass),\n\t\t\t\t\"name\":                       pulumi.String(\"DatagenConnectorExampleName\"),\n\t\t\t\t\"kafka.auth.mode\":            pulumi.String(\"KAFKA_API_KEY\"),\n\t\t\t\t\"kafka.topic\":                pulumi.Any(orders.TopicName),\n\t\t\t\t\"output.data.format\":         pulumi.String(\"JSON\"),\n\t\t\t\t\"quickstart\":                 pulumi.String(\"ORDERS\"),\n\t\t\t\t\"confluent.custom.plugin.id\": pulumi.Any(sourceConfluentCustomConnectorPlugin.Id),\n\t\t\t\t\"min.interval\":               pulumi.String(\"1000\"),\n\t\t\t\t\"max.interval\":               pulumi.String(\"2000\"),\n\t\t\t\t\"tasks.max\":                  pulumi.String(\"1\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tapp_manager_kafka_cluster_admin,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Connector;\nimport com.pulumi.confluentcloud.ConnectorArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.ConnectorKafkaClusterArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var source = new Connector(\"source\", ConnectorArgs.builder()        \n            .environment(ConnectorEnvironmentArgs.builder()\n                .id(staging.id())\n                .build())\n            .kafkaCluster(ConnectorKafkaClusterArgs.builder()\n                .id(basic.id())\n                .build())\n            .configSensitive(Map.ofEntries(\n                Map.entry(\"kafka.api.key\", \"***REDACTED***\"),\n                Map.entry(\"kafka.api.secret\", \"***REDACTED***\")\n            ))\n            .configNonsensitive(Map.ofEntries(\n                Map.entry(\"confluent.connector.type\", \"CUSTOM\"),\n                Map.entry(\"connector.class\", sourceConfluentCustomConnectorPlugin.connectorClass()),\n                Map.entry(\"name\", \"DatagenConnectorExampleName\"),\n                Map.entry(\"kafka.auth.mode\", \"KAFKA_API_KEY\"),\n                Map.entry(\"kafka.topic\", orders.topicName()),\n                Map.entry(\"output.data.format\", \"JSON\"),\n                Map.entry(\"quickstart\", \"ORDERS\"),\n                Map.entry(\"confluent.custom.plugin.id\", sourceConfluentCustomConnectorPlugin.id()),\n                Map.entry(\"min.interval\", \"1000\"),\n                Map.entry(\"max.interval\", \"2000\"),\n                Map.entry(\"tasks.max\", \"1\")\n            ))\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(app_manager_kafka_cluster_admin)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  source:\n    type: confluentcloud:Connector\n    properties:\n      environment:\n        id: ${staging.id}\n      kafkaCluster:\n        id: ${basic.id}\n      configSensitive:\n        kafka.api.key: '***REDACTED***'\n        kafka.api.secret: '***REDACTED***'\n      configNonsensitive:\n        confluent.connector.type: CUSTOM\n        connector.class: ${sourceConfluentCustomConnectorPlugin.connectorClass}\n        name: DatagenConnectorExampleName\n        kafka.auth.mode: KAFKA_API_KEY\n        kafka.topic: ${orders.topicName}\n        output.data.format: JSON\n        quickstart: ORDERS\n        confluent.custom.plugin.id: ${sourceConfluentCustomConnectorPlugin.id}\n        min.interval: '1000'\n        max.interval: '2000'\n        tasks.max: '1'\n    options:\n      dependson:\n        - ${[\"app-manager-kafka-cluster-admin\"]}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\u003e **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.  \n**Preview** features are intended for evaluation use in development and testing environments only, and not for production use. The warranty, SLA, and Support Services provisions of your agreement with Confluent do not apply to Preview features. Preview features are considered to be a Proof of Concept as defined in the Confluent Cloud Terms of Service. Confluent may discontinue providing preview releases of the Preview features at any time in Confluent’s sole discretion.\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with `confluentcloud.Connector` resource:\n* `s3-sink-connector`\n* `snowflake-sink-connector`\n* `managed-datagen-source-connector`\n* `elasticsearch-sink-connector`\n* `dynamo-db-sink-connector`\n* `mongo-db-source-connector`\n* `mongo-db-sink-connector`\n* `sql-server-cdc-debezium-source-connector`\n* `postgre-sql-cdc-debezium-source-connector`\n* `custom-datagen-source-connector`\n\n\n\u003e **Note:** Certain connectors require additional ACL entries. See [Additional ACL entries](https://docs.confluent.io/cloud/current/connectors/service-account.html#additional-acl-entries) for more details.\n\n## Import\n\nYou can import a connector by using Environment ID, Kafka cluster ID, and connector's name, in the format `\u003cEnvironment ID\u003e/\u003cKafka cluster ID\u003e/\u003cConnector name\u003e`, for example:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/connector:Connector my_connector \"env-abc123/lkc-abc123/S3_SINKConnector_0\"\n```\n\n",
             "properties": {
                 "configNonsensitive": {
                     "type": "object",
@@ -7387,7 +7364,7 @@
                 },
                 "cidr": {
                     "type": "string",
-                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n\n\u003e **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.\n"
+                    "description": "The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.\n"
                 },
                 "cloud": {
                     "type": "string",
@@ -7500,7 +7477,7 @@
                 },
                 "cidr": {
                     "type": "string",
-                    "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n\n\u003e **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.\n",
+                    "description": "The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.\n",
                     "willReplaceOnChanges": true
                 },
                 "cloud": {
@@ -7588,7 +7565,7 @@
                     },
                     "cidr": {
                         "type": "string",
-                        "description": "The IPv4 CIDR block to be used for the network. Must be `/27`. Required for VPC peering and AWS TransitGateway.\n\n\u003e **Note:** The `zone_info` configuration block and `reserved_cidr` are in a [Limited Availability lifecycle stage](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy), and it's available only for AWS networks with PEERING connection type.\n",
+                        "description": "The IPv4 CIDR block to be used for the network. Must be `/16`. Required for VPC peering and AWS TransitGateway.\n",
                         "willReplaceOnChanges": true
                     },
                     "cloud": {
@@ -8422,11 +8399,11 @@
                 },
                 "subjectName": {
                     "type": "string",
-                    "description": "The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n"
+                    "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.\n"
                 },
                 "version": {
                     "type": "integer",
-                    "description": "The version, representing the exact version of the schema under the registered subject.\n"
+                    "description": "(Required Integer) The version of the Schema, for example, `4`.\n"
                 }
             },
             "required": [
@@ -8493,7 +8470,7 @@
                 },
                 "subjectName": {
                     "type": "string",
-                    "description": "The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n",
+                    "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -8562,12 +8539,12 @@
                     },
                     "subjectName": {
                         "type": "string",
-                        "description": "The name for the reference. (For Avro Schema, the reference name is the fully qualified schema name, for JSON Schema it is a URL, and for Protobuf Schema, it is the name of another Protobuf file.)\n",
+                        "description": "The name of the subject (in other words, the namespace), representing the subject under which the schema will be registered, for example, `test-subject`. Schemas evolve safely, following a compatibility mode defined, under a subject name.\n",
                         "willReplaceOnChanges": true
                     },
                     "version": {
                         "type": "integer",
-                        "description": "The version, representing the exact version of the schema under the registered subject.\n"
+                        "description": "(Required Integer) The version of the Schema, for example, `4`.\n"
                     }
                 },
                 "type": "object"
@@ -8601,7 +8578,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The configuration setting name.\n"
+                    "description": "Name of the Schema Exporter.\n"
                 },
                 "resetOnUpdate": {
                     "type": "boolean",
@@ -8609,7 +8586,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
                 },
                 "schemaRegistryCluster": {
                     "$ref": "#/types/confluentcloud:index/SchemaExporterSchemaRegistryCluster:SchemaExporterSchemaRegistryCluster"
@@ -8666,7 +8643,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The configuration setting name.\n",
+                    "description": "Name of the Schema Exporter.\n",
                     "willReplaceOnChanges": true
                 },
                 "resetOnUpdate": {
@@ -8675,7 +8652,7 @@
                 },
                 "restEndpoint": {
                     "type": "string",
-                    "description": "The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                     "willReplaceOnChanges": true
                 },
                 "schemaRegistryCluster": {
@@ -8729,7 +8706,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The configuration setting name.\n",
+                        "description": "Name of the Schema Exporter.\n",
                         "willReplaceOnChanges": true
                     },
                     "resetOnUpdate": {
@@ -8738,7 +8715,7 @@
                     },
                     "restEndpoint": {
                         "type": "string",
-                        "description": "The REST endpoint of the destination Schema Registry cluster, for example, `https://pkc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
                         "willReplaceOnChanges": true
                     },
                     "schemaRegistryCluster": {
@@ -9178,7 +9155,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The custom property name (for example, `KeyUsage`).\n"
+                    "description": "The name for the KEK.\n"
                 },
                 "properties": {
                     "type": "object",
@@ -9232,7 +9209,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The custom property name (for example, `KeyUsage`).\n",
+                    "description": "The name for the KEK.\n",
                     "willReplaceOnChanges": true
                 },
                 "properties": {
@@ -9288,7 +9265,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The custom property name (for example, `KeyUsage`).\n",
+                        "description": "The name for the KEK.\n",
                         "willReplaceOnChanges": true
                     },
                     "properties": {
@@ -9894,7 +9871,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Access Point belongs to, for example, `env-123abc`.\n"
+                        "description": "The ID of the Access Point, for example, `ap-abc123`.\n"
                     }
                 },
                 "type": "object",
@@ -10156,7 +10133,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the DNS Record belongs to, for example, `env-123abc`.\n"
+                        "description": "The ID of the DNS Record, for example, `dnsrec-abc123`.\n"
                     }
                 },
                 "type": "object",
@@ -10295,7 +10272,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Flink Compute Pool belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Flink Compute Pool, for example, `lfcp-abc123`.\n"
                     }
                 },
                 "type": "object",
@@ -10424,7 +10401,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Gateway belongs to, for example, `env-123abc`.\n"
+                        "description": "The ID of the Gateway, for example, `gw-abc123`.\n"
                     }
                 },
                 "type": "object",
@@ -10527,7 +10504,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Identity Provider associated with the Identity Pool, for example, `op-abc123`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Identity Pool, for example, `pool-xyz456`.\n"
                     },
                     "identityProvider": {
                         "$ref": "#/types/confluentcloud:index/getIdentityPoolIdentityProvider:getIdentityPoolIdentityProvider",
@@ -10837,7 +10814,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Kafka cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Kafka cluster, for example, `lkc-abc123`.\n"
                     },
                     "standards": {
                         "type": "array",
@@ -11038,7 +11015,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the ksqlDB cluster belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the ksqlDB cluster, for example, `lksqlc-abc123`.\n"
                     }
                 },
                 "type": "object",
@@ -11166,7 +11143,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Network belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Network, for example, `n-abc123`.\n"
                     }
                 },
                 "type": "object",
@@ -11307,7 +11284,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Network Link Endpoint belongs to, for example, `env-xyz456`.\n"
+                        "description": "The ID of the Network Link Endpoint, for example, `nle-zyw30`.\n"
                     }
                 },
                 "type": "object",
@@ -11379,7 +11356,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Network Link Service belongs to, for example, `env-1234`.\n"
+                        "description": "The ID of the Network Link Service, for example, `nls-zyw30`.\n"
                     }
                 },
                 "type": "object",
@@ -11470,7 +11447,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Peering belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Peering, for example, `peer-abc123`.\n"
                     }
                 },
                 "type": "object",
@@ -11549,7 +11526,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Private Link Access belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Private Link Access, for example, `pla-abc123`.\n"
                     }
                 },
                 "type": "object",
@@ -11623,7 +11600,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Private Link Attachment belongs to, for example `env-xyz456`.\n"
+                        "description": "The ID of the Private Link Attachment, for example, `platt-61ovvd`.\n"
                     }
                 },
                 "type": "object",
@@ -11707,7 +11684,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Private Link Attachment Connection belongs to, for example `env-xyz456`.\n"
+                        "description": "The ID of the Private Link Attachment Connection, for example, `plattc-p5j3ov`.\n"
                     }
                 },
                 "type": "object",
@@ -11945,7 +11922,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Schema Registry cluster belongs to, for example, `env-xyz456`.\n"
+                        "description": "The ID of the Schema Registry cluster (for example, `lsrc-abc123`).\n"
                     }
                 },
                 "type": "object",
@@ -12740,7 +12717,7 @@
                     },
                     "id": {
                         "type": "string",
-                        "description": "The ID of the Environment that the Transit Gateway Attachment belongs to, for example, `env-xyz456`.\n\n\u003e **Note:** Exactly one from the `id` and `display_name` attributes must be specified.\n"
+                        "description": "The ID of the Peering, for example, `tgwa-abc123`.\n"
                     }
                 },
                 "type": "object",
