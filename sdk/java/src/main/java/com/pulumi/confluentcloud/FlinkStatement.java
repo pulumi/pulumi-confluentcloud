@@ -157,14 +157,14 @@ public class FlinkStatement extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="stopped", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> stopped;
+    private Output<Boolean> stopped;
 
     /**
      * @return Indicates whether the statement should be stopped.
      * 
      */
-    public Output<Optional<Boolean>> stopped() {
-        return Codegen.optional(this.stopped);
+    public Output<Boolean> stopped() {
+        return this.stopped;
     }
 
     /**

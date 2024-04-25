@@ -61,7 +61,7 @@ type FlinkStatement struct {
 	// The ID of the Flink Statement, for example, `cfeab4fe-b62c-49bd-9e99-51cc98c77a67`.
 	StatementName pulumi.StringOutput `pulumi:"statementName"`
 	// Indicates whether the statement should be stopped.
-	Stopped pulumi.BoolPtrOutput `pulumi:"stopped"`
+	Stopped pulumi.BoolOutput `pulumi:"stopped"`
 }
 
 // NewFlinkStatement registers a new resource with the given unique name, arguments, and options.
@@ -313,8 +313,8 @@ func (o FlinkStatementOutput) StatementName() pulumi.StringOutput {
 }
 
 // Indicates whether the statement should be stopped.
-func (o FlinkStatementOutput) Stopped() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FlinkStatement) pulumi.BoolPtrOutput { return v.Stopped }).(pulumi.BoolPtrOutput)
+func (o FlinkStatementOutput) Stopped() pulumi.BoolOutput {
+	return o.ApplyT(func(v *FlinkStatement) pulumi.BoolOutput { return v.Stopped }).(pulumi.BoolOutput)
 }
 
 type FlinkStatementArrayOutput struct{ *pulumi.OutputState }
