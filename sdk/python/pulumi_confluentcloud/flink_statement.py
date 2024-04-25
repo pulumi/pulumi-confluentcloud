@@ -573,7 +573,7 @@ class FlinkStatement(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def stopped(self) -> pulumi.Output[Optional[bool]]:
+    def stopped(self) -> pulumi.Output[bool]:
         """
         Indicates whether the statement should be stopped.
         """

@@ -94,7 +94,7 @@ export class FlinkStatement extends pulumi.CustomResource {
     /**
      * Indicates whether the statement should be stopped.
      */
-    public readonly stopped!: pulumi.Output<boolean | undefined>;
+    public readonly stopped!: pulumi.Output<boolean>;
 
     /**
      * Create a FlinkStatement resource with the given unique name, arguments, and options.

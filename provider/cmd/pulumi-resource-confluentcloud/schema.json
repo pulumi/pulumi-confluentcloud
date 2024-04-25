@@ -5984,7 +5984,8 @@
                 "principal",
                 "properties",
                 "statement",
-                "statementName"
+                "statementName",
+                "stopped"
             ],
             "inputProperties": {
                 "computePool": {

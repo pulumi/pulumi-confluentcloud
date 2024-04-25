@@ -91,7 +91,7 @@ namespace Pulumi.ConfluentCloud
         /// Indicates whether the statement should be stopped.
         /// </summary>
         [Output("stopped")]
-        public Output<bool?> Stopped { get; private set; } = null!;
+        public Output<bool> Stopped { get; private set; } = null!;
 
 
         /// <summary>
