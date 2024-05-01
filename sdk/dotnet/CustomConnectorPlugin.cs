@@ -51,6 +51,12 @@ namespace Pulumi.ConfluentCloud
     public partial class CustomConnectorPlugin : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+        /// </summary>
+        [Output("cloud")]
+        public Output<string> Cloud { get; private set; } = null!;
+
+        /// <summary>
         /// The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
         /// </summary>
         [Output("connectorClass")]
@@ -139,6 +145,12 @@ namespace Pulumi.ConfluentCloud
     public sealed class CustomConnectorPluginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+        /// </summary>
+        [Input("cloud")]
+        public Input<string>? Cloud { get; set; }
+
+        /// <summary>
         /// The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
         /// </summary>
         [Input("connectorClass", required: true)]
@@ -194,6 +206,12 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class CustomConnectorPluginState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+        /// </summary>
+        [Input("cloud")]
+        public Input<string>? Cloud { get; set; }
+
         /// <summary>
         /// The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
         /// </summary>

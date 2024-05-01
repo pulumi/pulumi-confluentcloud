@@ -72,6 +72,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin")
 public class CustomConnectorPlugin extends com.pulumi.resources.CustomResource {
     /**
+     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+     * 
+     */
+    @Export(name="cloud", refs={String.class}, tree="[0]")
+    private Output<String> cloud;
+
+    /**
+     * @return Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+     * 
+     */
+    public Output<String> cloud() {
+        return this.cloud;
+    }
+    /**
      * The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
      * 
      */

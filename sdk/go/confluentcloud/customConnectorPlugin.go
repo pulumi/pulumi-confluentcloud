@@ -59,6 +59,8 @@ import (
 type CustomConnectorPlugin struct {
 	pulumi.CustomResourceState
 
+	// Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+	Cloud pulumi.StringOutput `pulumi:"cloud"`
 	// The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
 	ConnectorClass pulumi.StringOutput `pulumi:"connectorClass"`
 	// The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
@@ -117,6 +119,8 @@ func GetCustomConnectorPlugin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomConnectorPlugin resources.
 type customConnectorPluginState struct {
+	// Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+	Cloud *string `pulumi:"cloud"`
 	// The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
 	ConnectorClass *string `pulumi:"connectorClass"`
 	// The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
@@ -134,6 +138,8 @@ type customConnectorPluginState struct {
 }
 
 type CustomConnectorPluginState struct {
+	// Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+	Cloud pulumi.StringPtrInput
 	// The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
 	ConnectorClass pulumi.StringPtrInput
 	// The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
@@ -155,6 +161,8 @@ func (CustomConnectorPluginState) ElementType() reflect.Type {
 }
 
 type customConnectorPluginArgs struct {
+	// Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+	Cloud *string `pulumi:"cloud"`
 	// The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
 	ConnectorClass string `pulumi:"connectorClass"`
 	// The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
@@ -173,6 +181,8 @@ type customConnectorPluginArgs struct {
 
 // The set of arguments for constructing a CustomConnectorPlugin resource.
 type CustomConnectorPluginArgs struct {
+	// Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+	Cloud pulumi.StringPtrInput
 	// The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
 	ConnectorClass pulumi.StringInput
 	// The type of the Custom Connector Plugin. Accepted values are: `SOURCE`, `SINK`.
@@ -274,6 +284,11 @@ func (o CustomConnectorPluginOutput) ToCustomConnectorPluginOutput() CustomConne
 
 func (o CustomConnectorPluginOutput) ToCustomConnectorPluginOutputWithContext(ctx context.Context) CustomConnectorPluginOutput {
 	return o
+}
+
+// Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+func (o CustomConnectorPluginOutput) Cloud() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomConnectorPlugin) pulumi.StringOutput { return v.Cloud }).(pulumi.StringOutput)
 }
 
 // The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.

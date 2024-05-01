@@ -17,6 +17,21 @@ public final class CustomConnectorPluginState extends com.pulumi.resources.Resou
     public static final CustomConnectorPluginState Empty = new CustomConnectorPluginState();
 
     /**
+     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+     * 
+     */
+    @Import(name="cloud")
+    private @Nullable Output<String> cloud;
+
+    /**
+     * @return Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+     * 
+     */
+    public Optional<Output<String>> cloud() {
+        return Optional.ofNullable(this.cloud);
+    }
+
+    /**
      * The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
      * 
      */
@@ -124,6 +139,7 @@ public final class CustomConnectorPluginState extends com.pulumi.resources.Resou
     private CustomConnectorPluginState() {}
 
     private CustomConnectorPluginState(CustomConnectorPluginState $) {
+        this.cloud = $.cloud;
         this.connectorClass = $.connectorClass;
         this.connectorType = $.connectorType;
         this.description = $.description;
@@ -149,6 +165,27 @@ public final class CustomConnectorPluginState extends com.pulumi.resources.Resou
 
         public Builder(CustomConnectorPluginState defaults) {
             $ = new CustomConnectorPluginState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param cloud Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloud(@Nullable Output<String> cloud) {
+            $.cloud = cloud;
+            return this;
+        }
+
+        /**
+         * @param cloud Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloud(String cloud) {
+            return cloud(Output.of(cloud));
         }
 
         /**
