@@ -64,6 +64,10 @@ export class CustomConnectorPlugin extends pulumi.CustomResource {
     }
 
     /**
+     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+     */
+    public readonly cloud!: pulumi.Output<string>;
+    /**
      * The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
      */
     public readonly connectorClass!: pulumi.Output<string>;
@@ -105,6 +109,7 @@ export class CustomConnectorPlugin extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomConnectorPluginState | undefined;
+            resourceInputs["cloud"] = state ? state.cloud : undefined;
             resourceInputs["connectorClass"] = state ? state.connectorClass : undefined;
             resourceInputs["connectorType"] = state ? state.connectorType : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -126,6 +131,7 @@ export class CustomConnectorPlugin extends pulumi.CustomResource {
             if ((!args || args.filename === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filename'");
             }
+            resourceInputs["cloud"] = args ? args.cloud : undefined;
             resourceInputs["connectorClass"] = args ? args.connectorClass : undefined;
             resourceInputs["connectorType"] = args ? args.connectorType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -143,6 +149,10 @@ export class CustomConnectorPlugin extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomConnectorPlugin resources.
  */
 export interface CustomConnectorPluginState {
+    /**
+     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+     */
+    cloud?: pulumi.Input<string>;
     /**
      * The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
      */
@@ -177,6 +187,10 @@ export interface CustomConnectorPluginState {
  * The set of arguments for constructing a CustomConnectorPlugin resource.
  */
 export interface CustomConnectorPluginArgs {
+    /**
+     * Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.
+     */
+    cloud?: pulumi.Input<string>;
     /**
      * The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.
      */

@@ -5466,6 +5466,10 @@
         "confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin": {
             "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst source = new confluentcloud.CustomConnectorPlugin(\"source\", {\n    displayName: \"Datagen Source Connector Plugin\",\n    documentationLink: \"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\",\n    connectorClass: \"io.confluent.kafka.connect.datagen.DatagenConnector\",\n    connectorType: \"SOURCE\",\n    sensitiveConfigProperties: [],\n    filename: \"confluentinc-kafka-connect-datagen-0.6.2.zip\",\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\nsource = confluentcloud.CustomConnectorPlugin(\"source\",\n    display_name=\"Datagen Source Connector Plugin\",\n    documentation_link=\"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\",\n    connector_class=\"io.confluent.kafka.connect.datagen.DatagenConnector\",\n    connector_type=\"SOURCE\",\n    sensitive_config_properties=[],\n    filename=\"confluentinc-kafka-connect-datagen-0.6.2.zip\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var source = new ConfluentCloud.CustomConnectorPlugin(\"source\", new()\n    {\n        DisplayName = \"Datagen Source Connector Plugin\",\n        DocumentationLink = \"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\",\n        ConnectorClass = \"io.confluent.kafka.connect.datagen.DatagenConnector\",\n        ConnectorType = \"SOURCE\",\n        SensitiveConfigProperties = new[] {},\n        Filename = \"confluentinc-kafka-connect-datagen-0.6.2.zip\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := confluentcloud.NewCustomConnectorPlugin(ctx, \"source\", \u0026confluentcloud.CustomConnectorPluginArgs{\n\t\t\tDisplayName:               pulumi.String(\"Datagen Source Connector Plugin\"),\n\t\t\tDocumentationLink:         pulumi.String(\"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\"),\n\t\t\tConnectorClass:            pulumi.String(\"io.confluent.kafka.connect.datagen.DatagenConnector\"),\n\t\t\tConnectorType:             pulumi.String(\"SOURCE\"),\n\t\t\tSensitiveConfigProperties: pulumi.StringArray{},\n\t\t\tFilename:                  pulumi.String(\"confluentinc-kafka-connect-datagen-0.6.2.zip\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.CustomConnectorPlugin;\nimport com.pulumi.confluentcloud.CustomConnectorPluginArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var source = new CustomConnectorPlugin(\"source\", CustomConnectorPluginArgs.builder()        \n            .displayName(\"Datagen Source Connector Plugin\")\n            .documentationLink(\"https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\")\n            .connectorClass(\"io.confluent.kafka.connect.datagen.DatagenConnector\")\n            .connectorType(\"SOURCE\")\n            .sensitiveConfigProperties()\n            .filename(\"confluentinc-kafka-connect-datagen-0.6.2.zip\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  source:\n    type: confluentcloud:CustomConnectorPlugin\n    properties:\n      displayName: Datagen Source Connector Plugin\n      documentationLink: https://www.confluent.io/hub/confluentinc/kafka-connect-datagen\n      connectorClass: io.confluent.kafka.connect.datagen.DatagenConnector\n      connectorType: SOURCE\n      sensitiveConfigProperties: []\n      filename: confluentinc-kafka-connect-datagen-0.6.2.zip\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Custom Connector Plugin by using a Custom Connector Plugin ID, in the format `\u003cCustom Connector Plugin\u003e`. The following example shows how to import a Custom Connector Plugin:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/customConnectorPlugin:CustomConnectorPlugin main ccp-abc123xyz\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
+                "cloud": {
+                    "type": "string",
+                    "description": "Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.\n"
+                },
                 "connectorClass": {
                     "type": "string",
                     "description": "The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.\n"
@@ -5499,12 +5503,18 @@
                 }
             },
             "required": [
+                "cloud",
                 "connectorClass",
                 "connectorType",
                 "displayName",
                 "filename"
             ],
             "inputProperties": {
+                "cloud": {
+                    "type": "string",
+                    "description": "Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.\n",
+                    "willReplaceOnChanges": true
+                },
                 "connectorClass": {
                     "type": "string",
                     "description": "The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.\n",
@@ -5549,6 +5559,11 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering CustomConnectorPlugin resources.\n",
                 "properties": {
+                    "cloud": {
+                        "type": "string",
+                        "description": "Cloud provider where the Custom Connector Plugin archive is uploaded. Defaults to `AWS`. Accepted values are: `AWS`, `AZURE`.\n",
+                        "willReplaceOnChanges": true
+                    },
                     "connectorClass": {
                         "type": "string",
                         "description": "The Java class or alias for the connector. You can get the connector class from the connector documentation provided by the developer.\n",
