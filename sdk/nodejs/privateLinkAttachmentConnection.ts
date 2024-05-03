@@ -104,7 +104,7 @@ export class PrivateLinkAttachmentConnection extends pulumi.CustomResource {
     public readonly environment!: pulumi.Output<outputs.PrivateLinkAttachmentConnectionEnvironment>;
     public readonly gcp!: pulumi.Output<outputs.PrivateLinkAttachmentConnectionGcp | undefined>;
     /**
-     * The private_link_attachment to which this belongs.
+     * The privateLinkAttachment to which this belongs.
      */
     public readonly privateLinkAttachment!: pulumi.Output<outputs.PrivateLinkAttachmentConnectionPrivateLinkAttachment>;
     /**
@@ -169,7 +169,7 @@ export interface PrivateLinkAttachmentConnectionState {
     environment?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionEnvironment>;
     gcp?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionGcp>;
     /**
-     * The private_link_attachment to which this belongs.
+     * The privateLinkAttachment to which this belongs.
      */
     privateLinkAttachment?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionPrivateLinkAttachment>;
     /**
@@ -194,7 +194,7 @@ export interface PrivateLinkAttachmentConnectionArgs {
     environment: pulumi.Input<inputs.PrivateLinkAttachmentConnectionEnvironment>;
     gcp?: pulumi.Input<inputs.PrivateLinkAttachmentConnectionGcp>;
     /**
-     * The private_link_attachment to which this belongs.
+     * The privateLinkAttachment to which this belongs.
      */
     privateLinkAttachment: pulumi.Input<inputs.PrivateLinkAttachmentConnectionPrivateLinkAttachment>;
 }
