@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BusinessMetadataBinding{}
 	case "confluentcloud:index/byokKey:ByokKey":
 		r = &ByokKey{}
+	case "confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes":
+		r = &CatalogEntityAttributes{}
 	case "confluentcloud:index/clusterLink:ClusterLink":
 		r = &ClusterLink{}
 	case "confluentcloud:index/connector:Connector":
@@ -167,6 +169,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"confluentcloud",
 		"index/byokKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"confluentcloud",
+		"index/catalogEntityAttributes",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

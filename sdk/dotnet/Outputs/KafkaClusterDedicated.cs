@@ -14,7 +14,7 @@ namespace Pulumi.ConfluentCloud.Outputs
     public sealed class KafkaClusterDedicated
     {
         /// <summary>
-        /// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+        /// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
         /// 
         /// &gt; **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
         /// 

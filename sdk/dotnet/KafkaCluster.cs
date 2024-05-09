@@ -242,7 +242,7 @@ namespace Pulumi.ConfluentCloud
         public Output<string> ApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+        /// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
         /// </summary>
         [Output("availability")]
         public Output<string> Availability { get; private set; } = null!;
@@ -376,7 +376,7 @@ namespace Pulumi.ConfluentCloud
     public sealed class KafkaClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+        /// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
         /// </summary>
         [Input("availability", required: true)]
         public Input<string> Availability { get; set; } = null!;
@@ -460,7 +460,7 @@ namespace Pulumi.ConfluentCloud
         public Input<string>? ApiVersion { get; set; }
 
         /// <summary>
-        /// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+        /// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
         /// </summary>
         [Input("availability")]
         public Input<string>? Availability { get; set; }

@@ -476,6 +476,38 @@
                 }
             }
         },
+        "confluentcloud:index/CatalogEntityAttributesCredentials:CatalogEntityAttributesCredentials": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The Schema Registry API Key.\n",
+                    "secret": true
+                },
+                "secret": {
+                    "type": "string",
+                    "description": "The Schema Registry API Secret.\n",
+                    "secret": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "secret"
+            ]
+        },
+        "confluentcloud:index/CatalogEntityAttributesSchemaRegistryCluster:CatalogEntityAttributesSchemaRegistryCluster": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the Schema Registry cluster, for example, `lsrc-abc123`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "confluentcloud:index/ClusterLinkDestinationKafkaCluster:ClusterLinkDestinationKafkaCluster": {
             "properties": {
                 "bootstrapEndpoint": {
@@ -1041,7 +1073,7 @@
             "properties": {
                 "cku": {
                     "type": "integer",
-                    "description": "The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.\n\n\u003e **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.\n\n!\u003e **Warning:** You can only upgrade clusters from `basic` to `standard`.\n\n\u003e **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.\n"
+                    "description": "The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.\n\n\u003e **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.\n\n!\u003e **Warning:** You can only upgrade clusters from `basic` to `standard`.\n\n\u003e **Note:** Currently, provisioning of a Dedicated Kafka cluster takes around 25 minutes on average but might take up to 24 hours. If you can't wait for the `pulumi up` step to finish, you can exit it and import the cluster by using the `pulumi import` command once it has been provisioned. When the cluster is provisioned, you will receive an email notification, and you can also follow updates on the Target Environment web page of the Confluent Cloud website.\n"
                 },
                 "encryptionKey": {
                     "type": "string",
@@ -3022,7 +3054,7 @@
             "properties": {
                 "cku": {
                     "type": "integer",
-                    "description": "(Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.\n"
+                    "description": "(Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.\n"
                 },
                 "encryptionKey": {
                     "type": "string",
@@ -5240,6 +5272,115 @@
                 "type": "object"
             }
         },
+        "confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes": {
+            "properties": {
+                "attributes": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The attributes.\n"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/CatalogEntityAttributesCredentials:CatalogEntityAttributesCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "entityName": {
+                    "type": "string",
+                    "description": "The qualified name of the entity, for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.\n"
+                },
+                "entityType": {
+                    "type": "string",
+                    "description": "The entity type, for example, `sr_schema`, `kafka_topic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.\n"
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n"
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/CatalogEntityAttributesSchemaRegistryCluster:CatalogEntityAttributesSchemaRegistryCluster"
+                }
+            },
+            "required": [
+                "entityName",
+                "entityType"
+            ],
+            "inputProperties": {
+                "attributes": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The attributes.\n"
+                },
+                "credentials": {
+                    "$ref": "#/types/confluentcloud:index/CatalogEntityAttributesCredentials:CatalogEntityAttributesCredentials",
+                    "description": "The Cluster API Credentials.\n",
+                    "secret": true
+                },
+                "entityName": {
+                    "type": "string",
+                    "description": "The qualified name of the entity, for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "entityType": {
+                    "type": "string",
+                    "description": "The entity type, for example, `sr_schema`, `kafka_topic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.\n",
+                    "willReplaceOnChanges": true
+                },
+                "restEndpoint": {
+                    "type": "string",
+                    "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                    "willReplaceOnChanges": true
+                },
+                "schemaRegistryCluster": {
+                    "$ref": "#/types/confluentcloud:index/CatalogEntityAttributesSchemaRegistryCluster:CatalogEntityAttributesSchemaRegistryCluster",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "entityName",
+                "entityType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CatalogEntityAttributes resources.\n",
+                "properties": {
+                    "attributes": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "The attributes.\n"
+                    },
+                    "credentials": {
+                        "$ref": "#/types/confluentcloud:index/CatalogEntityAttributesCredentials:CatalogEntityAttributesCredentials",
+                        "description": "The Cluster API Credentials.\n",
+                        "secret": true
+                    },
+                    "entityName": {
+                        "type": "string",
+                        "description": "The qualified name of the entity, for example, `${confluent_schema_registry_cluster.main.id}:.:${confluent_schema.purchase.schema_identifier}`, `${confluent_schema_registry_cluster.main.id}:${confluent_kafka_cluster.basic.id}:${confluent_kafka_topic.purchase.topic_name}`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "entityType": {
+                        "type": "string",
+                        "description": "The entity type, for example, `sr_schema`, `kafka_topic`. Refer to the [Entity types](https://docs.confluent.io/cloud/current/stream-governance/stream-catalog-rest-apis.html#entity-types) to learn more about entity types.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "restEndpoint": {
+                        "type": "string",
+                        "description": "The REST endpoint of the Schema Registry cluster, for example, `https://psrc-00000.us-central1.gcp.confluent.cloud:443`).\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "schemaRegistryCluster": {
+                        "$ref": "#/types/confluentcloud:index/CatalogEntityAttributesSchemaRegistryCluster:CatalogEntityAttributesSchemaRegistryCluster",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "confluentcloud:index/clusterLink:ClusterLink": {
             "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\n// https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode\nconst east_to_west = new confluentcloud.ClusterLink(\"east-to-west\", {\n    link: \"bidirectional-link\",\n    linkMode: \"BIDIRECTIONAL\",\n    localKafkaCluster: {\n        id: east.id,\n        restEndpoint: east.restEndpoint,\n        credentials: {\n            key: app_manager_east_cluster_api_key.id,\n            secret: app_manager_east_cluster_api_key.secret,\n        },\n    },\n    remoteKafkaCluster: {\n        id: west.id,\n        bootstrapEndpoint: west.bootstrapEndpoint,\n        credentials: {\n            key: app_manager_west_cluster_api_key.id,\n            secret: app_manager_west_cluster_api_key.secret,\n        },\n    },\n});\nconst west_to_east = new confluentcloud.ClusterLink(\"west-to-east\", {\n    link: \"bidirectional-link\",\n    linkMode: \"BIDIRECTIONAL\",\n    localKafkaCluster: {\n        id: west.id,\n        restEndpoint: west.restEndpoint,\n        credentials: {\n            key: app_manager_west_cluster_api_key.id,\n            secret: app_manager_west_cluster_api_key.secret,\n        },\n    },\n    remoteKafkaCluster: {\n        id: east.id,\n        bootstrapEndpoint: east.bootstrapEndpoint,\n        credentials: {\n            key: app_manager_east_cluster_api_key.id,\n            secret: app_manager_east_cluster_api_key.secret,\n        },\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\n# https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode\neast_to_west = confluentcloud.ClusterLink(\"east-to-west\",\n    link=\"bidirectional-link\",\n    link_mode=\"BIDIRECTIONAL\",\n    local_kafka_cluster=confluentcloud.ClusterLinkLocalKafkaClusterArgs(\n        id=east[\"id\"],\n        rest_endpoint=east[\"restEndpoint\"],\n        credentials=confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs(\n            key=app_manager_east_cluster_api_key[\"id\"],\n            secret=app_manager_east_cluster_api_key[\"secret\"],\n        ),\n    ),\n    remote_kafka_cluster=confluentcloud.ClusterLinkRemoteKafkaClusterArgs(\n        id=west[\"id\"],\n        bootstrap_endpoint=west[\"bootstrapEndpoint\"],\n        credentials=confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs(\n            key=app_manager_west_cluster_api_key[\"id\"],\n            secret=app_manager_west_cluster_api_key[\"secret\"],\n        ),\n    ))\nwest_to_east = confluentcloud.ClusterLink(\"west-to-east\",\n    link=\"bidirectional-link\",\n    link_mode=\"BIDIRECTIONAL\",\n    local_kafka_cluster=confluentcloud.ClusterLinkLocalKafkaClusterArgs(\n        id=west[\"id\"],\n        rest_endpoint=west[\"restEndpoint\"],\n        credentials=confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs(\n            key=app_manager_west_cluster_api_key[\"id\"],\n            secret=app_manager_west_cluster_api_key[\"secret\"],\n        ),\n    ),\n    remote_kafka_cluster=confluentcloud.ClusterLinkRemoteKafkaClusterArgs(\n        id=east[\"id\"],\n        bootstrap_endpoint=east[\"bootstrapEndpoint\"],\n        credentials=confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs(\n            key=app_manager_east_cluster_api_key[\"id\"],\n            secret=app_manager_east_cluster_api_key[\"secret\"],\n        ),\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode\n    var east_to_west = new ConfluentCloud.ClusterLink(\"east-to-west\", new()\n    {\n        Link = \"bidirectional-link\",\n        LinkMode = \"BIDIRECTIONAL\",\n        LocalKafkaCluster = new ConfluentCloud.Inputs.ClusterLinkLocalKafkaClusterArgs\n        {\n            Id = east.Id,\n            RestEndpoint = east.RestEndpoint,\n            Credentials = new ConfluentCloud.Inputs.ClusterLinkLocalKafkaClusterCredentialsArgs\n            {\n                Key = app_manager_east_cluster_api_key.Id,\n                Secret = app_manager_east_cluster_api_key.Secret,\n            },\n        },\n        RemoteKafkaCluster = new ConfluentCloud.Inputs.ClusterLinkRemoteKafkaClusterArgs\n        {\n            Id = west.Id,\n            BootstrapEndpoint = west.BootstrapEndpoint,\n            Credentials = new ConfluentCloud.Inputs.ClusterLinkRemoteKafkaClusterCredentialsArgs\n            {\n                Key = app_manager_west_cluster_api_key.Id,\n                Secret = app_manager_west_cluster_api_key.Secret,\n            },\n        },\n    });\n\n    var west_to_east = new ConfluentCloud.ClusterLink(\"west-to-east\", new()\n    {\n        Link = \"bidirectional-link\",\n        LinkMode = \"BIDIRECTIONAL\",\n        LocalKafkaCluster = new ConfluentCloud.Inputs.ClusterLinkLocalKafkaClusterArgs\n        {\n            Id = west.Id,\n            RestEndpoint = west.RestEndpoint,\n            Credentials = new ConfluentCloud.Inputs.ClusterLinkLocalKafkaClusterCredentialsArgs\n            {\n                Key = app_manager_west_cluster_api_key.Id,\n                Secret = app_manager_west_cluster_api_key.Secret,\n            },\n        },\n        RemoteKafkaCluster = new ConfluentCloud.Inputs.ClusterLinkRemoteKafkaClusterArgs\n        {\n            Id = east.Id,\n            BootstrapEndpoint = east.BootstrapEndpoint,\n            Credentials = new ConfluentCloud.Inputs.ClusterLinkRemoteKafkaClusterCredentialsArgs\n            {\n                Key = app_manager_east_cluster_api_key.Id,\n                Secret = app_manager_east_cluster_api_key.Secret,\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode\n\t\t_, err := confluentcloud.NewClusterLink(ctx, \"east-to-west\", \u0026confluentcloud.ClusterLinkArgs{\n\t\t\tLink:     pulumi.String(\"bidirectional-link\"),\n\t\t\tLinkMode: pulumi.String(\"BIDIRECTIONAL\"),\n\t\t\tLocalKafkaCluster: \u0026confluentcloud.ClusterLinkLocalKafkaClusterArgs{\n\t\t\t\tId:           pulumi.Any(east.Id),\n\t\t\t\tRestEndpoint: pulumi.Any(east.RestEndpoint),\n\t\t\t\tCredentials: \u0026confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs{\n\t\t\t\t\tKey:    pulumi.Any(app_manager_east_cluster_api_key.Id),\n\t\t\t\t\tSecret: pulumi.Any(app_manager_east_cluster_api_key.Secret),\n\t\t\t\t},\n\t\t\t},\n\t\t\tRemoteKafkaCluster: \u0026confluentcloud.ClusterLinkRemoteKafkaClusterArgs{\n\t\t\t\tId:                pulumi.Any(west.Id),\n\t\t\t\tBootstrapEndpoint: pulumi.Any(west.BootstrapEndpoint),\n\t\t\t\tCredentials: \u0026confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs{\n\t\t\t\t\tKey:    pulumi.Any(app_manager_west_cluster_api_key.Id),\n\t\t\t\t\tSecret: pulumi.Any(app_manager_west_cluster_api_key.Secret),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewClusterLink(ctx, \"west-to-east\", \u0026confluentcloud.ClusterLinkArgs{\n\t\t\tLink:     pulumi.String(\"bidirectional-link\"),\n\t\t\tLinkMode: pulumi.String(\"BIDIRECTIONAL\"),\n\t\t\tLocalKafkaCluster: \u0026confluentcloud.ClusterLinkLocalKafkaClusterArgs{\n\t\t\t\tId:           pulumi.Any(west.Id),\n\t\t\t\tRestEndpoint: pulumi.Any(west.RestEndpoint),\n\t\t\t\tCredentials: \u0026confluentcloud.ClusterLinkLocalKafkaClusterCredentialsArgs{\n\t\t\t\t\tKey:    pulumi.Any(app_manager_west_cluster_api_key.Id),\n\t\t\t\t\tSecret: pulumi.Any(app_manager_west_cluster_api_key.Secret),\n\t\t\t\t},\n\t\t\t},\n\t\t\tRemoteKafkaCluster: \u0026confluentcloud.ClusterLinkRemoteKafkaClusterArgs{\n\t\t\t\tId:                pulumi.Any(east.Id),\n\t\t\t\tBootstrapEndpoint: pulumi.Any(east.BootstrapEndpoint),\n\t\t\t\tCredentials: \u0026confluentcloud.ClusterLinkRemoteKafkaClusterCredentialsArgs{\n\t\t\t\t\tKey:    pulumi.Any(app_manager_east_cluster_api_key.Id),\n\t\t\t\t\tSecret: pulumi.Any(app_manager_east_cluster_api_key.Secret),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.ClusterLink;\nimport com.pulumi.confluentcloud.ClusterLinkArgs;\nimport com.pulumi.confluentcloud.inputs.ClusterLinkLocalKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.ClusterLinkLocalKafkaClusterCredentialsArgs;\nimport com.pulumi.confluentcloud.inputs.ClusterLinkRemoteKafkaClusterArgs;\nimport com.pulumi.confluentcloud.inputs.ClusterLinkRemoteKafkaClusterCredentialsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode\n        var east_to_west = new ClusterLink(\"east-to-west\", ClusterLinkArgs.builder()        \n            .link(\"bidirectional-link\")\n            .linkMode(\"BIDIRECTIONAL\")\n            .localKafkaCluster(ClusterLinkLocalKafkaClusterArgs.builder()\n                .id(east.id())\n                .restEndpoint(east.restEndpoint())\n                .credentials(ClusterLinkLocalKafkaClusterCredentialsArgs.builder()\n                    .key(app_manager_east_cluster_api_key.id())\n                    .secret(app_manager_east_cluster_api_key.secret())\n                    .build())\n                .build())\n            .remoteKafkaCluster(ClusterLinkRemoteKafkaClusterArgs.builder()\n                .id(west.id())\n                .bootstrapEndpoint(west.bootstrapEndpoint())\n                .credentials(ClusterLinkRemoteKafkaClusterCredentialsArgs.builder()\n                    .key(app_manager_west_cluster_api_key.id())\n                    .secret(app_manager_west_cluster_api_key.secret())\n                    .build())\n                .build())\n            .build());\n\n        var west_to_east = new ClusterLink(\"west-to-east\", ClusterLinkArgs.builder()        \n            .link(\"bidirectional-link\")\n            .linkMode(\"BIDIRECTIONAL\")\n            .localKafkaCluster(ClusterLinkLocalKafkaClusterArgs.builder()\n                .id(west.id())\n                .restEndpoint(west.restEndpoint())\n                .credentials(ClusterLinkLocalKafkaClusterCredentialsArgs.builder()\n                    .key(app_manager_west_cluster_api_key.id())\n                    .secret(app_manager_west_cluster_api_key.secret())\n                    .build())\n                .build())\n            .remoteKafkaCluster(ClusterLinkRemoteKafkaClusterArgs.builder()\n                .id(east.id())\n                .bootstrapEndpoint(east.bootstrapEndpoint())\n                .credentials(ClusterLinkRemoteKafkaClusterCredentialsArgs.builder()\n                    .key(app_manager_east_cluster_api_key.id())\n                    .secret(app_manager_east_cluster_api_key.secret())\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode\n  east-to-west:\n    type: confluentcloud:ClusterLink\n    properties:\n      link: bidirectional-link\n      linkMode: BIDIRECTIONAL\n      localKafkaCluster:\n        id: ${east.id}\n        restEndpoint: ${east.restEndpoint}\n        credentials:\n          key: ${[\"app-manager-east-cluster-api-key\"].id}\n          secret: ${[\"app-manager-east-cluster-api-key\"].secret}\n      remoteKafkaCluster:\n        id: ${west.id}\n        bootstrapEndpoint: ${west.bootstrapEndpoint}\n        credentials:\n          key: ${[\"app-manager-west-cluster-api-key\"].id}\n          secret: ${[\"app-manager-west-cluster-api-key\"].secret}\n  west-to-east:\n    type: confluentcloud:ClusterLink\n    properties:\n      link: bidirectional-link\n      linkMode: BIDIRECTIONAL\n      localKafkaCluster:\n        id: ${west.id}\n        restEndpoint: ${west.restEndpoint}\n        credentials:\n          key: ${[\"app-manager-west-cluster-api-key\"].id}\n          secret: ${[\"app-manager-west-cluster-api-key\"].secret}\n      remoteKafkaCluster:\n        id: ${east.id}\n        bootstrapEndpoint: ${east.bootstrapEndpoint}\n        credentials:\n          key: ${[\"app-manager-east-cluster-api-key\"].id}\n          secret: ${[\"app-manager-east-cluster-api-key\"].secret}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\n## Getting Started\n\nThe following end-to-end examples might help to get started with `confluentcloud.ClusterLink` resource:\n  * `destination-initiated-cluster-link-rbac`: An example of setting up a _destination_ initiated cluster link with a mirror topic\n  * `source-initiated-cluster-link-rbac`: An example of setting up a _source_ initiated cluster link with a mirror topic\n  * `regular-bidirectional-cluster-link-rbac`: An example of setting up a bidirectional cluster link with 2 mirror topics\n  * `advanced-bidirectional-cluster-link-rbac`: An example of setting up a bidirectional cluster link with 2 mirror topics ([advanced option](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode))\n\nSee [Cluster Linking on Confluent Cloud](https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/index.html) to learn more about Cluster Linking on Confluent Cloud.\n\n## Import\n\nYou can import a Kafka mirror topic by using the cluster link name, cluster link mode, cluster link connection mode,\n\nsource (or local for bidirectional cluster links) Kafka cluster ID, and destination (or remote  for bidirectional cluster links) Kafka cluster ID, in the format `\u003cCluster link name\u003e/\u003cCluster link mode\u003e/\u003cCluster connection mode\u003e/\u003cSource (Local) Kafka cluster ID\u003e/\u003cDestination (Remote) Kafka cluster ID\u003e`, for example:\n\nOption #1 when using source-initiated or destination-initiated cluster links\n\n$ export IMPORT_SOURCE_KAFKA_BOOTSTRAP_ENDPOINT=\"\u003csource_kafka_bootstrap_endpoint\u003e\"\n\n$ export IMPORT_SOURCE_KAFKA_API_KEY=\"\u003csource_kafka_api_key\u003e\"\n\n$ export IMPORT_SOURCE_KAFKA_API_SECRET=\"\u003csource_kafka_api_secret\u003e\"\n\n$ export IMPORT_DESTINATION_KAFKA_REST_ENDPOINT=\"\u003cdestination_kafka_rest_endpoint\u003e\"\n\n$ export IMPORT_DESTINATION_KAFKA_API_KEY=\"\u003cdestination_kafka_api_key\u003e\"\n\n$ export IMPORT_DESTINATION_KAFKA_API_SECRET=\"\u003cdestination_kafka_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/DESTINATION/OUTBOUND/lkc-abc123/lkc-xyz456\n```\n\nOption #2 when using bidirectional cluster links\n\n$ export IMPORT_LOCAL_KAFKA_BOOTSTRAP_ENDPOINT=\"\u003clocal_kafka_bootstrap_endpoint\u003e\"\n\n$ export IMPORT_LOCAL_KAFKA_API_KEY=\"\u003clocal_kafka_api_key\u003e\"\n\n$ export IMPORT_LOCAL_KAFKA_API_SECRET=\"\u003clocal_kafka_api_secret\u003e\"\n\n$ export IMPORT_REMOTE_KAFKA_REST_ENDPOINT=\"\u003cremote_kafka_rest_endpoint\u003e\"\n\n$ export IMPORT_REMOTE_KAFKA_API_KEY=\"\u003cremote_kafka_api_key\u003e\"\n\n$ export IMPORT_REMOTE_KAFKA_API_SECRET=\"\u003cremote_kafka_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/clusterLink:ClusterLink my_cluster_link my-cluster-link/BIDIRECTIONAL/OUTBOUND/lkc-abc123/lkc-xyz456\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
@@ -6713,7 +6854,7 @@
                 },
                 "availability": {
                     "type": "string",
-                    "description": "The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.\n"
+                    "description": "The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.\n"
                 },
                 "basic": {
                     "$ref": "#/types/confluentcloud:index/KafkaClusterBasic:KafkaClusterBasic",
@@ -6791,7 +6932,7 @@
             "inputProperties": {
                 "availability": {
                     "type": "string",
-                    "description": "The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.\n",
+                    "description": "The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.\n",
                     "willReplaceOnChanges": true
                 },
                 "basic": {
@@ -6855,7 +6996,7 @@
                     },
                     "availability": {
                         "type": "string",
-                        "description": "The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.\n",
+                        "description": "The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.\n",
                         "willReplaceOnChanges": true
                     },
                     "basic": {
@@ -10853,7 +10994,7 @@
                         "type": "string"
                     },
                     "availability": {
-                        "description": "(Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.\n",
+                        "description": "(Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.\n",
                         "type": "string"
                     },
                     "basics": {

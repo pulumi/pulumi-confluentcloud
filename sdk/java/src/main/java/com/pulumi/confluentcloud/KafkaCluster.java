@@ -305,14 +305,14 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
         return this.apiVersion;
     }
     /**
-     * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+     * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
      * 
      */
     @Export(name="availability", refs={String.class}, tree="[0]")
     private Output<String> availability;
 
     /**
-     * @return The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+     * @return The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
      * 
      */
     public Output<String> availability() {

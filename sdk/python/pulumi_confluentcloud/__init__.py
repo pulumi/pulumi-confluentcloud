@@ -10,6 +10,7 @@ from .api_key import *
 from .business_metadata import *
 from .business_metadata_binding import *
 from .byok_key import *
+from .catalog_entity_attributes import *
 from .cluster_link import *
 from .connector import *
 from .custom_connector_plugin import *
@@ -148,6 +149,14 @@ _utilities.register(
   "fqn": "pulumi_confluentcloud",
   "classes": {
    "confluentcloud:index/byokKey:ByokKey": "ByokKey"
+  }
+ },
+ {
+  "pkg": "confluentcloud",
+  "mod": "index/catalogEntityAttributes",
+  "fqn": "pulumi_confluentcloud",
+  "classes": {
+   "confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes": "CatalogEntityAttributes"
   }
  },
  {

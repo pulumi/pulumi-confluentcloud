@@ -259,7 +259,7 @@ type KafkaCluster struct {
 
 	// (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
 	ApiVersion pulumi.StringOutput `pulumi:"apiVersion"`
-	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
 	Availability pulumi.StringOutput `pulumi:"availability"`
 	// The configuration of the Basic Kafka cluster.
 	Basic KafkaClusterBasicPtrOutput `pulumi:"basic"`
@@ -335,7 +335,7 @@ func GetKafkaCluster(ctx *pulumi.Context,
 type kafkaClusterState struct {
 	// (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
 	ApiVersion *string `pulumi:"apiVersion"`
-	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
 	Availability *string `pulumi:"availability"`
 	// The configuration of the Basic Kafka cluster.
 	Basic *KafkaClusterBasic `pulumi:"basic"`
@@ -370,7 +370,7 @@ type kafkaClusterState struct {
 type KafkaClusterState struct {
 	// (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
 	ApiVersion pulumi.StringPtrInput
-	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
 	Availability pulumi.StringPtrInput
 	// The configuration of the Basic Kafka cluster.
 	Basic KafkaClusterBasicPtrInput
@@ -407,7 +407,7 @@ func (KafkaClusterState) ElementType() reflect.Type {
 }
 
 type kafkaClusterArgs struct {
-	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
 	Availability string `pulumi:"availability"`
 	// The configuration of the Basic Kafka cluster.
 	Basic   *KafkaClusterBasic   `pulumi:"basic"`
@@ -433,7 +433,7 @@ type kafkaClusterArgs struct {
 
 // The set of arguments for constructing a KafkaCluster resource.
 type KafkaClusterArgs struct {
-	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+	// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
 	Availability pulumi.StringInput
 	// The configuration of the Basic Kafka cluster.
 	Basic   KafkaClusterBasicPtrInput
@@ -549,7 +549,7 @@ func (o KafkaClusterOutput) ApiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.ApiVersion }).(pulumi.StringOutput)
 }
 
-// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+// The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
 func (o KafkaClusterOutput) Availability() pulumi.StringOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.Availability }).(pulumi.StringOutput)
 }

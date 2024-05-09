@@ -2221,6 +2221,299 @@ func (o ByokKeyGcpPtrOutput) SecurityGroup() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type CatalogEntityAttributesCredentials struct {
+	// The Schema Registry API Key.
+	Key string `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret string `pulumi:"secret"`
+}
+
+// CatalogEntityAttributesCredentialsInput is an input type that accepts CatalogEntityAttributesCredentialsArgs and CatalogEntityAttributesCredentialsOutput values.
+// You can construct a concrete instance of `CatalogEntityAttributesCredentialsInput` via:
+//
+//	CatalogEntityAttributesCredentialsArgs{...}
+type CatalogEntityAttributesCredentialsInput interface {
+	pulumi.Input
+
+	ToCatalogEntityAttributesCredentialsOutput() CatalogEntityAttributesCredentialsOutput
+	ToCatalogEntityAttributesCredentialsOutputWithContext(context.Context) CatalogEntityAttributesCredentialsOutput
+}
+
+type CatalogEntityAttributesCredentialsArgs struct {
+	// The Schema Registry API Key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The Schema Registry API Secret.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (CatalogEntityAttributesCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogEntityAttributesCredentials)(nil)).Elem()
+}
+
+func (i CatalogEntityAttributesCredentialsArgs) ToCatalogEntityAttributesCredentialsOutput() CatalogEntityAttributesCredentialsOutput {
+	return i.ToCatalogEntityAttributesCredentialsOutputWithContext(context.Background())
+}
+
+func (i CatalogEntityAttributesCredentialsArgs) ToCatalogEntityAttributesCredentialsOutputWithContext(ctx context.Context) CatalogEntityAttributesCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogEntityAttributesCredentialsOutput)
+}
+
+func (i CatalogEntityAttributesCredentialsArgs) ToCatalogEntityAttributesCredentialsPtrOutput() CatalogEntityAttributesCredentialsPtrOutput {
+	return i.ToCatalogEntityAttributesCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogEntityAttributesCredentialsArgs) ToCatalogEntityAttributesCredentialsPtrOutputWithContext(ctx context.Context) CatalogEntityAttributesCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogEntityAttributesCredentialsOutput).ToCatalogEntityAttributesCredentialsPtrOutputWithContext(ctx)
+}
+
+// CatalogEntityAttributesCredentialsPtrInput is an input type that accepts CatalogEntityAttributesCredentialsArgs, CatalogEntityAttributesCredentialsPtr and CatalogEntityAttributesCredentialsPtrOutput values.
+// You can construct a concrete instance of `CatalogEntityAttributesCredentialsPtrInput` via:
+//
+//	        CatalogEntityAttributesCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogEntityAttributesCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToCatalogEntityAttributesCredentialsPtrOutput() CatalogEntityAttributesCredentialsPtrOutput
+	ToCatalogEntityAttributesCredentialsPtrOutputWithContext(context.Context) CatalogEntityAttributesCredentialsPtrOutput
+}
+
+type catalogEntityAttributesCredentialsPtrType CatalogEntityAttributesCredentialsArgs
+
+func CatalogEntityAttributesCredentialsPtr(v *CatalogEntityAttributesCredentialsArgs) CatalogEntityAttributesCredentialsPtrInput {
+	return (*catalogEntityAttributesCredentialsPtrType)(v)
+}
+
+func (*catalogEntityAttributesCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogEntityAttributesCredentials)(nil)).Elem()
+}
+
+func (i *catalogEntityAttributesCredentialsPtrType) ToCatalogEntityAttributesCredentialsPtrOutput() CatalogEntityAttributesCredentialsPtrOutput {
+	return i.ToCatalogEntityAttributesCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogEntityAttributesCredentialsPtrType) ToCatalogEntityAttributesCredentialsPtrOutputWithContext(ctx context.Context) CatalogEntityAttributesCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogEntityAttributesCredentialsPtrOutput)
+}
+
+type CatalogEntityAttributesCredentialsOutput struct{ *pulumi.OutputState }
+
+func (CatalogEntityAttributesCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogEntityAttributesCredentials)(nil)).Elem()
+}
+
+func (o CatalogEntityAttributesCredentialsOutput) ToCatalogEntityAttributesCredentialsOutput() CatalogEntityAttributesCredentialsOutput {
+	return o
+}
+
+func (o CatalogEntityAttributesCredentialsOutput) ToCatalogEntityAttributesCredentialsOutputWithContext(ctx context.Context) CatalogEntityAttributesCredentialsOutput {
+	return o
+}
+
+func (o CatalogEntityAttributesCredentialsOutput) ToCatalogEntityAttributesCredentialsPtrOutput() CatalogEntityAttributesCredentialsPtrOutput {
+	return o.ToCatalogEntityAttributesCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogEntityAttributesCredentialsOutput) ToCatalogEntityAttributesCredentialsPtrOutputWithContext(ctx context.Context) CatalogEntityAttributesCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogEntityAttributesCredentials) *CatalogEntityAttributesCredentials {
+		return &v
+	}).(CatalogEntityAttributesCredentialsPtrOutput)
+}
+
+// The Schema Registry API Key.
+func (o CatalogEntityAttributesCredentialsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogEntityAttributesCredentials) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The Schema Registry API Secret.
+func (o CatalogEntityAttributesCredentialsOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogEntityAttributesCredentials) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type CatalogEntityAttributesCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogEntityAttributesCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogEntityAttributesCredentials)(nil)).Elem()
+}
+
+func (o CatalogEntityAttributesCredentialsPtrOutput) ToCatalogEntityAttributesCredentialsPtrOutput() CatalogEntityAttributesCredentialsPtrOutput {
+	return o
+}
+
+func (o CatalogEntityAttributesCredentialsPtrOutput) ToCatalogEntityAttributesCredentialsPtrOutputWithContext(ctx context.Context) CatalogEntityAttributesCredentialsPtrOutput {
+	return o
+}
+
+func (o CatalogEntityAttributesCredentialsPtrOutput) Elem() CatalogEntityAttributesCredentialsOutput {
+	return o.ApplyT(func(v *CatalogEntityAttributesCredentials) CatalogEntityAttributesCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogEntityAttributesCredentials
+		return ret
+	}).(CatalogEntityAttributesCredentialsOutput)
+}
+
+// The Schema Registry API Key.
+func (o CatalogEntityAttributesCredentialsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogEntityAttributesCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Schema Registry API Secret.
+func (o CatalogEntityAttributesCredentialsPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogEntityAttributesCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogEntityAttributesSchemaRegistryCluster struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id string `pulumi:"id"`
+}
+
+// CatalogEntityAttributesSchemaRegistryClusterInput is an input type that accepts CatalogEntityAttributesSchemaRegistryClusterArgs and CatalogEntityAttributesSchemaRegistryClusterOutput values.
+// You can construct a concrete instance of `CatalogEntityAttributesSchemaRegistryClusterInput` via:
+//
+//	CatalogEntityAttributesSchemaRegistryClusterArgs{...}
+type CatalogEntityAttributesSchemaRegistryClusterInput interface {
+	pulumi.Input
+
+	ToCatalogEntityAttributesSchemaRegistryClusterOutput() CatalogEntityAttributesSchemaRegistryClusterOutput
+	ToCatalogEntityAttributesSchemaRegistryClusterOutputWithContext(context.Context) CatalogEntityAttributesSchemaRegistryClusterOutput
+}
+
+type CatalogEntityAttributesSchemaRegistryClusterArgs struct {
+	// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (CatalogEntityAttributesSchemaRegistryClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogEntityAttributesSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i CatalogEntityAttributesSchemaRegistryClusterArgs) ToCatalogEntityAttributesSchemaRegistryClusterOutput() CatalogEntityAttributesSchemaRegistryClusterOutput {
+	return i.ToCatalogEntityAttributesSchemaRegistryClusterOutputWithContext(context.Background())
+}
+
+func (i CatalogEntityAttributesSchemaRegistryClusterArgs) ToCatalogEntityAttributesSchemaRegistryClusterOutputWithContext(ctx context.Context) CatalogEntityAttributesSchemaRegistryClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogEntityAttributesSchemaRegistryClusterOutput)
+}
+
+func (i CatalogEntityAttributesSchemaRegistryClusterArgs) ToCatalogEntityAttributesSchemaRegistryClusterPtrOutput() CatalogEntityAttributesSchemaRegistryClusterPtrOutput {
+	return i.ToCatalogEntityAttributesSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogEntityAttributesSchemaRegistryClusterArgs) ToCatalogEntityAttributesSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) CatalogEntityAttributesSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogEntityAttributesSchemaRegistryClusterOutput).ToCatalogEntityAttributesSchemaRegistryClusterPtrOutputWithContext(ctx)
+}
+
+// CatalogEntityAttributesSchemaRegistryClusterPtrInput is an input type that accepts CatalogEntityAttributesSchemaRegistryClusterArgs, CatalogEntityAttributesSchemaRegistryClusterPtr and CatalogEntityAttributesSchemaRegistryClusterPtrOutput values.
+// You can construct a concrete instance of `CatalogEntityAttributesSchemaRegistryClusterPtrInput` via:
+//
+//	        CatalogEntityAttributesSchemaRegistryClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogEntityAttributesSchemaRegistryClusterPtrInput interface {
+	pulumi.Input
+
+	ToCatalogEntityAttributesSchemaRegistryClusterPtrOutput() CatalogEntityAttributesSchemaRegistryClusterPtrOutput
+	ToCatalogEntityAttributesSchemaRegistryClusterPtrOutputWithContext(context.Context) CatalogEntityAttributesSchemaRegistryClusterPtrOutput
+}
+
+type catalogEntityAttributesSchemaRegistryClusterPtrType CatalogEntityAttributesSchemaRegistryClusterArgs
+
+func CatalogEntityAttributesSchemaRegistryClusterPtr(v *CatalogEntityAttributesSchemaRegistryClusterArgs) CatalogEntityAttributesSchemaRegistryClusterPtrInput {
+	return (*catalogEntityAttributesSchemaRegistryClusterPtrType)(v)
+}
+
+func (*catalogEntityAttributesSchemaRegistryClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogEntityAttributesSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (i *catalogEntityAttributesSchemaRegistryClusterPtrType) ToCatalogEntityAttributesSchemaRegistryClusterPtrOutput() CatalogEntityAttributesSchemaRegistryClusterPtrOutput {
+	return i.ToCatalogEntityAttributesSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogEntityAttributesSchemaRegistryClusterPtrType) ToCatalogEntityAttributesSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) CatalogEntityAttributesSchemaRegistryClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogEntityAttributesSchemaRegistryClusterPtrOutput)
+}
+
+type CatalogEntityAttributesSchemaRegistryClusterOutput struct{ *pulumi.OutputState }
+
+func (CatalogEntityAttributesSchemaRegistryClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogEntityAttributesSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o CatalogEntityAttributesSchemaRegistryClusterOutput) ToCatalogEntityAttributesSchemaRegistryClusterOutput() CatalogEntityAttributesSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o CatalogEntityAttributesSchemaRegistryClusterOutput) ToCatalogEntityAttributesSchemaRegistryClusterOutputWithContext(ctx context.Context) CatalogEntityAttributesSchemaRegistryClusterOutput {
+	return o
+}
+
+func (o CatalogEntityAttributesSchemaRegistryClusterOutput) ToCatalogEntityAttributesSchemaRegistryClusterPtrOutput() CatalogEntityAttributesSchemaRegistryClusterPtrOutput {
+	return o.ToCatalogEntityAttributesSchemaRegistryClusterPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogEntityAttributesSchemaRegistryClusterOutput) ToCatalogEntityAttributesSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) CatalogEntityAttributesSchemaRegistryClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogEntityAttributesSchemaRegistryCluster) *CatalogEntityAttributesSchemaRegistryCluster {
+		return &v
+	}).(CatalogEntityAttributesSchemaRegistryClusterPtrOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o CatalogEntityAttributesSchemaRegistryClusterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogEntityAttributesSchemaRegistryCluster) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type CatalogEntityAttributesSchemaRegistryClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogEntityAttributesSchemaRegistryClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogEntityAttributesSchemaRegistryCluster)(nil)).Elem()
+}
+
+func (o CatalogEntityAttributesSchemaRegistryClusterPtrOutput) ToCatalogEntityAttributesSchemaRegistryClusterPtrOutput() CatalogEntityAttributesSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o CatalogEntityAttributesSchemaRegistryClusterPtrOutput) ToCatalogEntityAttributesSchemaRegistryClusterPtrOutputWithContext(ctx context.Context) CatalogEntityAttributesSchemaRegistryClusterPtrOutput {
+	return o
+}
+
+func (o CatalogEntityAttributesSchemaRegistryClusterPtrOutput) Elem() CatalogEntityAttributesSchemaRegistryClusterOutput {
+	return o.ApplyT(func(v *CatalogEntityAttributesSchemaRegistryCluster) CatalogEntityAttributesSchemaRegistryCluster {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogEntityAttributesSchemaRegistryCluster
+		return ret
+	}).(CatalogEntityAttributesSchemaRegistryClusterOutput)
+}
+
+// The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+func (o CatalogEntityAttributesSchemaRegistryClusterPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogEntityAttributesSchemaRegistryCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterLinkDestinationKafkaCluster struct {
 	// The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
 	BootstrapEndpoint *string `pulumi:"bootstrapEndpoint"`
@@ -7348,7 +7641,7 @@ func (o KafkaClusterConfigKafkaClusterPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type KafkaClusterDedicated struct {
-	// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+	// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 	//
 	// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
 	//
@@ -7377,7 +7670,7 @@ type KafkaClusterDedicatedInput interface {
 }
 
 type KafkaClusterDedicatedArgs struct {
-	// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+	// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 	//
 	// > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
 	//
@@ -7471,7 +7764,7 @@ func (o KafkaClusterDedicatedOutput) ToKafkaClusterDedicatedPtrOutputWithContext
 	}).(KafkaClusterDedicatedPtrOutput)
 }
 
-// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 //
 // > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
 //
@@ -7519,7 +7812,7 @@ func (o KafkaClusterDedicatedPtrOutput) Elem() KafkaClusterDedicatedOutput {
 	}).(KafkaClusterDedicatedOutput)
 }
 
-// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+// The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 //
 // > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
 //
@@ -21662,7 +21955,7 @@ func (o GetKafkaClusterByokKeyArrayOutput) Index(i pulumi.IntInput) GetKafkaClus
 }
 
 type GetKafkaClusterDedicated struct {
-	// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+	// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 	Cku int `pulumi:"cku"`
 	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 	EncryptionKey string `pulumi:"encryptionKey"`
@@ -21685,7 +21978,7 @@ type GetKafkaClusterDedicatedInput interface {
 }
 
 type GetKafkaClusterDedicatedArgs struct {
-	// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+	// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 	Cku pulumi.IntInput `pulumi:"cku"`
 	// The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
 	EncryptionKey pulumi.StringInput `pulumi:"encryptionKey"`
@@ -21773,7 +22066,7 @@ func (o GetKafkaClusterDedicatedOutput) ToGetKafkaClusterDedicatedPtrOutputWithC
 	}).(GetKafkaClusterDedicatedPtrOutput)
 }
 
-// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 func (o GetKafkaClusterDedicatedOutput) Cku() pulumi.IntOutput {
 	return o.ApplyT(func(v GetKafkaClusterDedicated) int { return v.Cku }).(pulumi.IntOutput)
 }
@@ -21815,7 +22108,7 @@ func (o GetKafkaClusterDedicatedPtrOutput) Elem() GetKafkaClusterDedicatedOutput
 	}).(GetKafkaClusterDedicatedOutput)
 }
 
-// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+// (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 func (o GetKafkaClusterDedicatedPtrOutput) Cku() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetKafkaClusterDedicated) *int {
 		if v == nil {
@@ -30773,6 +31066,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyAzurePtrInput)(nil)).Elem(), ByokKeyAzureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyGcpInput)(nil)).Elem(), ByokKeyGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ByokKeyGcpPtrInput)(nil)).Elem(), ByokKeyGcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntityAttributesCredentialsInput)(nil)).Elem(), CatalogEntityAttributesCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntityAttributesCredentialsPtrInput)(nil)).Elem(), CatalogEntityAttributesCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntityAttributesSchemaRegistryClusterInput)(nil)).Elem(), CatalogEntityAttributesSchemaRegistryClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntityAttributesSchemaRegistryClusterPtrInput)(nil)).Elem(), CatalogEntityAttributesSchemaRegistryClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterPtrInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLinkDestinationKafkaClusterCredentialsInput)(nil)).Elem(), ClusterLinkDestinationKafkaClusterCredentialsArgs{})
@@ -31228,6 +31525,10 @@ func init() {
 	pulumi.RegisterOutputType(ByokKeyAzurePtrOutput{})
 	pulumi.RegisterOutputType(ByokKeyGcpOutput{})
 	pulumi.RegisterOutputType(ByokKeyGcpPtrOutput{})
+	pulumi.RegisterOutputType(CatalogEntityAttributesCredentialsOutput{})
+	pulumi.RegisterOutputType(CatalogEntityAttributesCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(CatalogEntityAttributesSchemaRegistryClusterOutput{})
+	pulumi.RegisterOutputType(CatalogEntityAttributesSchemaRegistryClusterPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLinkDestinationKafkaClusterCredentialsOutput{})

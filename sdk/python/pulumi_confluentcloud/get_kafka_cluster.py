@@ -88,7 +88,7 @@ class GetKafkaClusterResult:
     @pulumi.getter
     def availability(self) -> str:
         """
-        (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+        (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
         """
         return pulumi.get(self, "availability")
 
