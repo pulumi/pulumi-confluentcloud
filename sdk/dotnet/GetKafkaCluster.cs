@@ -250,7 +250,7 @@ namespace Pulumi.ConfluentCloud
         /// </summary>
         public readonly string ApiVersion;
         /// <summary>
-        /// (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+        /// (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
         /// </summary>
         public readonly string Availability;
         /// <summary>

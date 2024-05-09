@@ -39,14 +39,14 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+     * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
      * 
      */
     @Import(name="availability")
     private @Nullable Output<String> availability;
 
     /**
-     * @return The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+     * @return The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
      * 
      */
     public Optional<Output<String>> availability() {
@@ -318,7 +318,7 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availability The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+         * @param availability The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availability The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+         * @param availability The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
          * 
          * @return builder
          * 

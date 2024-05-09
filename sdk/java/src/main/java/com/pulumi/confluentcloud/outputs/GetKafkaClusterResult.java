@@ -26,7 +26,7 @@ public final class GetKafkaClusterResult {
      */
     private String apiVersion;
     /**
-     * @return (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+     * @return (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
      * 
      */
     private String availability;
@@ -111,7 +111,7 @@ public final class GetKafkaClusterResult {
         return this.apiVersion;
     }
     /**
-     * @return (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+     * @return (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
      * 
      */
     public String availability() {

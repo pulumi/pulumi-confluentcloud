@@ -205,7 +205,7 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly apiVersion!: pulumi.Output<string>;
     /**
-     * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+     * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
      */
     public readonly availability!: pulumi.Output<string>;
     /**
@@ -337,7 +337,7 @@ export interface KafkaClusterState {
      */
     apiVersion?: pulumi.Input<string>;
     /**
-     * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+     * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
      */
     availability?: pulumi.Input<string>;
     /**
@@ -401,7 +401,7 @@ export interface KafkaClusterState {
  */
 export interface KafkaClusterArgs {
     /**
-     * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+     * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
      */
     availability: pulumi.Input<string>;
     /**

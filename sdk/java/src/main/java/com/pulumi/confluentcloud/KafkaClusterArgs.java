@@ -25,14 +25,14 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
     public static final KafkaClusterArgs Empty = new KafkaClusterArgs();
 
     /**
-     * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+     * The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
      * 
      */
     @Import(name="availability", required=true)
     private Output<String> availability;
 
     /**
-     * @return The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+     * @return The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
      * 
      */
     public Output<String> availability() {
@@ -218,7 +218,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availability The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+         * @param availability The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availability The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+         * @param availability The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
          * 
          * @return builder
          * 

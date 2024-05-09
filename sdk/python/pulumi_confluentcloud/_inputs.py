@@ -24,6 +24,8 @@ __all__ = [
     'ByokKeyAwsArgs',
     'ByokKeyAzureArgs',
     'ByokKeyGcpArgs',
+    'CatalogEntityAttributesCredentialsArgs',
+    'CatalogEntityAttributesSchemaRegistryClusterArgs',
     'ClusterLinkDestinationKafkaClusterArgs',
     'ClusterLinkDestinationKafkaClusterCredentialsArgs',
     'ClusterLinkLocalKafkaClusterArgs',
@@ -816,6 +818,65 @@ class ByokKeyGcpArgs:
     @security_group.setter
     def security_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "security_group", value)
+
+
+@pulumi.input_type
+class CatalogEntityAttributesCredentialsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Schema Registry API Key.
+        :param pulumi.Input[str] secret: The Schema Registry API Secret.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Schema Registry API Key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> pulumi.Input[str]:
+        """
+        The Schema Registry API Secret.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class CatalogEntityAttributesSchemaRegistryClusterArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -1918,7 +1979,7 @@ class KafkaClusterDedicatedArgs:
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[int] cku: The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+        :param pulumi.Input[int] cku: The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
                
                > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
                
@@ -1941,7 +2002,7 @@ class KafkaClusterDedicatedArgs:
     @pulumi.getter
     def cku(self) -> pulumi.Input[int]:
         """
-        The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+        The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
 
         > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
 
@@ -4867,7 +4928,7 @@ class GetKafkaClusterDedicatedArgs:
                  encryption_key: str,
                  zones: Sequence[str]):
         """
-        :param int cku: (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+        :param int cku: (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
         :param str encryption_key: The ID of the encryption key that is used to encrypt the data in the Kafka cluster.
         :param Sequence[str] zones: (Required List of String) The list of zones the cluster is in.
                On AWS, zones are AWS [AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html), for example, `use1-az3`.
@@ -4882,7 +4943,7 @@ class GetKafkaClusterDedicatedArgs:
     @pulumi.getter
     def cku(self) -> int:
         """
-        (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+        (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
         """
         return pulumi.get(self, "cku")
 

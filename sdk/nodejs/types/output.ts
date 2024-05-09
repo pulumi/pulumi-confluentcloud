@@ -183,6 +183,24 @@ export interface ByokKeyGcp {
     securityGroup: string;
 }
 
+export interface CatalogEntityAttributesCredentials {
+    /**
+     * The Schema Registry API Key.
+     */
+    key: string;
+    /**
+     * The Schema Registry API Secret.
+     */
+    secret: string;
+}
+
+export interface CatalogEntityAttributesSchemaRegistryCluster {
+    /**
+     * The ID of the Schema Registry cluster, for example, `lsrc-abc123`.
+     */
+    id: string;
+}
+
 export interface ClusterLinkDestinationKafkaCluster {
     /**
      * The bootstrap endpoint of the destination Kafka cluster, for example, `SASL_SSL://pkc-00000.us-central1.gcp.confluent.cloud:9092` or `pkc-00000.us-central1.gcp.confluent.cloud:9092`).
@@ -729,7 +747,7 @@ export interface GetKafkaClusterByokKey {
 
 export interface GetKafkaClusterDedicated {
     /**
-     * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+     * (Required Number) The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
      */
     cku: number;
     /**
@@ -1678,7 +1696,7 @@ export interface KafkaClusterConfigKafkaCluster {
 
 export interface KafkaClusterDedicated {
     /**
-     * The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have more than `2` CKUs.
+     * The number of Confluent Kafka Units (CKUs) for Dedicated cluster types. The minimum number of CKUs for `SINGLE_ZONE` dedicated clusters is `1` whereas `MULTI_ZONE` dedicated clusters must have `2` CKUs or more.
      *
      * > **Note:** Exactly one from the `basic`, `standard`, `dedicated`, and `enterprise` configuration blocks must be specified.
      *

@@ -93,7 +93,7 @@ type LookupKafkaClusterArgs struct {
 type LookupKafkaClusterResult struct {
 	// (Required String) An API Version of the schema version of the Kafka cluster, for example, `cmk/v2`.
 	ApiVersion string `pulumi:"apiVersion"`
-	// (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+	// (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
 	Availability string `pulumi:"availability"`
 	// (Optional Configuration Block) The configuration of the Basic Kafka cluster.
 	Basics []GetKafkaClusterBasic `pulumi:"basics"`
@@ -180,7 +180,7 @@ func (o LookupKafkaClusterResultOutput) ApiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKafkaClusterResult) string { return v.ApiVersion }).(pulumi.StringOutput)
 }
 
-// (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE` and `MULTI_ZONE`.
+// (Required String) The availability zone configuration of the Kafka cluster. Accepted values are: `SINGLE_ZONE`, `MULTI_ZONE`, `LOW`, and `HIGH`.
 func (o LookupKafkaClusterResultOutput) Availability() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKafkaClusterResult) string { return v.Availability }).(pulumi.StringOutput)
 }
