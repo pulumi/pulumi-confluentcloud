@@ -79,6 +79,17 @@
                     }
                 }
             },
+            "confluent_catalog_entity_attributes": {
+                "current": "confluentcloud:index/catalogEntityAttributes:CatalogEntityAttributes",
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "schema_registry_cluster": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "confluent_cluster_link": {
                 "current": "confluentcloud:index/clusterLink:ClusterLink",
                 "fields": {
