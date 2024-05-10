@@ -63,8 +63,10 @@ type LookupAccessPointArgs struct {
 
 // A collection of values returned by getAccessPoint.
 type LookupAccessPointResult struct {
-	// (Required Configuration Block) supports the following:
+	// (Optional Configuration Block) supports the following:
 	AwsEgressPrivateLinkEndpoints []GetAccessPointAwsEgressPrivateLinkEndpoint `pulumi:"awsEgressPrivateLinkEndpoints"`
+	// (Optional Configuration Block) supports the following:
+	AzureEgressPrivateLinkEndpoints []GetAccessPointAzureEgressPrivateLinkEndpoint `pulumi:"azureEgressPrivateLinkEndpoints"`
 	// (Required String) A human-readable name for the Access Point.
 	DisplayName string                    `pulumi:"displayName"`
 	Environment GetAccessPointEnvironment `pulumi:"environment"`
@@ -113,11 +115,18 @@ func (o LookupAccessPointResultOutput) ToLookupAccessPointResultOutputWithContex
 	return o
 }
 
-// (Required Configuration Block) supports the following:
+// (Optional Configuration Block) supports the following:
 func (o LookupAccessPointResultOutput) AwsEgressPrivateLinkEndpoints() GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointAwsEgressPrivateLinkEndpoint {
 		return v.AwsEgressPrivateLinkEndpoints
 	}).(GetAccessPointAwsEgressPrivateLinkEndpointArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o LookupAccessPointResultOutput) AzureEgressPrivateLinkEndpoints() GetAccessPointAzureEgressPrivateLinkEndpointArrayOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointAzureEgressPrivateLinkEndpoint {
+		return v.AzureEgressPrivateLinkEndpoints
+	}).(GetAccessPointAzureEgressPrivateLinkEndpointArrayOutput)
 }
 
 // (Required String) A human-readable name for the Access Point.

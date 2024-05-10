@@ -67,6 +67,10 @@ type GetGatewayResult struct {
 	AwsEgressPrivateLinkGateways []GetGatewayAwsEgressPrivateLinkGateway `pulumi:"awsEgressPrivateLinkGateways"`
 	// (Optional Configuration Block) supports the following:
 	AwsPeeringGateways []GetGatewayAwsPeeringGateway `pulumi:"awsPeeringGateways"`
+	// (Optional Configuration Block) supports the following:
+	AzureEgressPrivateLinkGateways []GetGatewayAzureEgressPrivateLinkGateway `pulumi:"azureEgressPrivateLinkGateways"`
+	// (Optional Configuration Block) supports the following:
+	AzurePeeringGateways []GetGatewayAzurePeeringGateway `pulumi:"azurePeeringGateways"`
 	// (Required String) A human-readable name for the Gateway.
 	DisplayName string                `pulumi:"displayName"`
 	Environment GetGatewayEnvironment `pulumi:"environment"`
@@ -122,6 +126,18 @@ func (o GetGatewayResultOutput) AwsEgressPrivateLinkGateways() GetGatewayAwsEgre
 // (Optional Configuration Block) supports the following:
 func (o GetGatewayResultOutput) AwsPeeringGateways() GetGatewayAwsPeeringGatewayArrayOutput {
 	return o.ApplyT(func(v GetGatewayResult) []GetGatewayAwsPeeringGateway { return v.AwsPeeringGateways }).(GetGatewayAwsPeeringGatewayArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GetGatewayResultOutput) AzureEgressPrivateLinkGateways() GetGatewayAzureEgressPrivateLinkGatewayArrayOutput {
+	return o.ApplyT(func(v GetGatewayResult) []GetGatewayAzureEgressPrivateLinkGateway {
+		return v.AzureEgressPrivateLinkGateways
+	}).(GetGatewayAzureEgressPrivateLinkGatewayArrayOutput)
+}
+
+// (Optional Configuration Block) supports the following:
+func (o GetGatewayResultOutput) AzurePeeringGateways() GetGatewayAzurePeeringGatewayArrayOutput {
+	return o.ApplyT(func(v GetGatewayResult) []GetGatewayAzurePeeringGateway { return v.AzurePeeringGateways }).(GetGatewayAzurePeeringGatewayArrayOutput)
 }
 
 // (Required String) A human-readable name for the Gateway.

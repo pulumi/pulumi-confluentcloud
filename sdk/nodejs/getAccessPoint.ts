@@ -51,9 +51,13 @@ export interface GetAccessPointArgs {
  */
 export interface GetAccessPointResult {
     /**
-     * (Required Configuration Block) supports the following:
+     * (Optional Configuration Block) supports the following:
      */
     readonly awsEgressPrivateLinkEndpoints: outputs.GetAccessPointAwsEgressPrivateLinkEndpoint[];
+    /**
+     * (Optional Configuration Block) supports the following:
+     */
+    readonly azureEgressPrivateLinkEndpoints: outputs.GetAccessPointAzureEgressPrivateLinkEndpoint[];
     /**
      * (Required String) A human-readable name for the Access Point.
      */

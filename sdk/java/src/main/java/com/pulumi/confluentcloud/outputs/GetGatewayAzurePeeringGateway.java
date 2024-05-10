@@ -9,14 +9,14 @@ import java.lang.String;
 import java.util.Objects;
 
 @CustomType
-public final class GetGatewayAwsPeeringGateway {
+public final class GetGatewayAzurePeeringGateway {
     /**
      * @return (Required String) Azure region of the Peering Gateway.
      * 
      */
     private String region;
 
-    private GetGatewayAwsPeeringGateway() {}
+    private GetGatewayAzurePeeringGateway() {}
     /**
      * @return (Required String) Azure region of the Peering Gateway.
      * 
@@ -29,14 +29,14 @@ public final class GetGatewayAwsPeeringGateway {
         return new Builder();
     }
 
-    public static Builder builder(GetGatewayAwsPeeringGateway defaults) {
+    public static Builder builder(GetGatewayAzurePeeringGateway defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
     public static final class Builder {
         private String region;
         public Builder() {}
-        public Builder(GetGatewayAwsPeeringGateway defaults) {
+        public Builder(GetGatewayAzurePeeringGateway defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.region = defaults.region;
         }
@@ -44,13 +44,13 @@ public final class GetGatewayAwsPeeringGateway {
         @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
-              throw new MissingRequiredPropertyException("GetGatewayAwsPeeringGateway", "region");
+              throw new MissingRequiredPropertyException("GetGatewayAzurePeeringGateway", "region");
             }
             this.region = region;
             return this;
         }
-        public GetGatewayAwsPeeringGateway build() {
-            final var _resultValue = new GetGatewayAwsPeeringGateway();
+        public GetGatewayAzurePeeringGateway build() {
+            final var _resultValue = new GetGatewayAzurePeeringGateway();
             _resultValue.region = region;
             return _resultValue;
         }

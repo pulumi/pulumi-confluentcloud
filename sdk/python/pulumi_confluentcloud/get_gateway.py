@@ -23,13 +23,19 @@ class GetGatewayResult:
     """
     A collection of values returned by getGateway.
     """
-    def __init__(__self__, aws_egress_private_link_gateways=None, aws_peering_gateways=None, display_name=None, environment=None, id=None):
+    def __init__(__self__, aws_egress_private_link_gateways=None, aws_peering_gateways=None, azure_egress_private_link_gateways=None, azure_peering_gateways=None, display_name=None, environment=None, id=None):
         if aws_egress_private_link_gateways and not isinstance(aws_egress_private_link_gateways, list):
             raise TypeError("Expected argument 'aws_egress_private_link_gateways' to be a list")
         pulumi.set(__self__, "aws_egress_private_link_gateways", aws_egress_private_link_gateways)
         if aws_peering_gateways and not isinstance(aws_peering_gateways, list):
             raise TypeError("Expected argument 'aws_peering_gateways' to be a list")
         pulumi.set(__self__, "aws_peering_gateways", aws_peering_gateways)
+        if azure_egress_private_link_gateways and not isinstance(azure_egress_private_link_gateways, list):
+            raise TypeError("Expected argument 'azure_egress_private_link_gateways' to be a list")
+        pulumi.set(__self__, "azure_egress_private_link_gateways", azure_egress_private_link_gateways)
+        if azure_peering_gateways and not isinstance(azure_peering_gateways, list):
+            raise TypeError("Expected argument 'azure_peering_gateways' to be a list")
+        pulumi.set(__self__, "azure_peering_gateways", azure_peering_gateways)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -55,6 +61,22 @@ class GetGatewayResult:
         (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "aws_peering_gateways")
+
+    @property
+    @pulumi.getter(name="azureEgressPrivateLinkGateways")
+    def azure_egress_private_link_gateways(self) -> Sequence['outputs.GetGatewayAzureEgressPrivateLinkGatewayResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_egress_private_link_gateways")
+
+    @property
+    @pulumi.getter(name="azurePeeringGateways")
+    def azure_peering_gateways(self) -> Sequence['outputs.GetGatewayAzurePeeringGatewayResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_peering_gateways")
 
     @property
     @pulumi.getter(name="displayName")
@@ -83,6 +105,8 @@ class AwaitableGetGatewayResult(GetGatewayResult):
         return GetGatewayResult(
             aws_egress_private_link_gateways=self.aws_egress_private_link_gateways,
             aws_peering_gateways=self.aws_peering_gateways,
+            azure_egress_private_link_gateways=self.azure_egress_private_link_gateways,
+            azure_peering_gateways=self.azure_peering_gateways,
             display_name=self.display_name,
             environment=self.environment,
             id=self.id)
@@ -121,6 +145,8 @@ def get_gateway(environment: Optional[pulumi.InputType['GetGatewayEnvironmentArg
     return AwaitableGetGatewayResult(
         aws_egress_private_link_gateways=pulumi.get(__ret__, 'aws_egress_private_link_gateways'),
         aws_peering_gateways=pulumi.get(__ret__, 'aws_peering_gateways'),
+        azure_egress_private_link_gateways=pulumi.get(__ret__, 'azure_egress_private_link_gateways'),
+        azure_peering_gateways=pulumi.get(__ret__, 'azure_peering_gateways'),
         display_name=pulumi.get(__ret__, 'display_name'),
         environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'))

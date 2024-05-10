@@ -29,7 +29,7 @@ namespace Pulumi.ConfluentCloud
     ///         DisplayName = "Development",
     ///     });
     /// 
-    ///     var main = new ConfluentCloud.AccessPoint("main", new()
+    ///     var aws = new ConfluentCloud.AccessPoint("aws", new()
     ///     {
     ///         DisplayName = "access_point",
     ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs
@@ -38,11 +38,29 @@ namespace Pulumi.ConfluentCloud
     ///         },
     ///         Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs
     ///         {
-    ///             Id = mainConfluentNetwork.Gateway[0].Id,
+    ///             Id = main.Gateway[0].Id,
     ///         },
     ///         AwsEgressPrivateLinkEndpoint = new ConfluentCloud.Inputs.AccessPointAwsEgressPrivateLinkEndpointArgs
     ///         {
     ///             VpcEndpointServiceName = "com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000",
+    ///         },
+    ///     });
+    /// 
+    ///     var azure = new ConfluentCloud.AccessPoint("azure", new()
+    ///     {
+    ///         DisplayName = "access_point",
+    ///         Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs
+    ///         {
+    ///             Id = development.Id,
+    ///         },
+    ///         Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs
+    ///         {
+    ///             Id = main.Gateway[0].Id,
+    ///         },
+    ///         AzureEgressPrivateLinkEndpoint = new ConfluentCloud.Inputs.AccessPointAzureEgressPrivateLinkEndpointArgs
+    ///         {
+    ///             PrivateLinkServiceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3",
+    ///             PrivateLinkSubresourceName = "sqlServer",
     ///         },
     ///     });
     /// 
@@ -66,8 +84,17 @@ namespace Pulumi.ConfluentCloud
     [ConfluentCloudResourceType("confluentcloud:index/accessPoint:AccessPoint")]
     public partial class AccessPoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         [Output("awsEgressPrivateLinkEndpoint")]
         public Output<Outputs.AccessPointAwsEgressPrivateLinkEndpoint?> AwsEgressPrivateLinkEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Output("azureEgressPrivateLinkEndpoint")]
+        public Output<Outputs.AccessPointAzureEgressPrivateLinkEndpoint?> AzureEgressPrivateLinkEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Access Point.
@@ -130,8 +157,17 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class AccessPointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         [Input("awsEgressPrivateLinkEndpoint")]
         public Input<Inputs.AccessPointAwsEgressPrivateLinkEndpointArgs>? AwsEgressPrivateLinkEndpoint { get; set; }
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("azureEgressPrivateLinkEndpoint")]
+        public Input<Inputs.AccessPointAzureEgressPrivateLinkEndpointArgs>? AzureEgressPrivateLinkEndpoint { get; set; }
 
         /// <summary>
         /// The name of the Access Point.
@@ -156,8 +192,17 @@ namespace Pulumi.ConfluentCloud
 
     public sealed class AccessPointState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
         [Input("awsEgressPrivateLinkEndpoint")]
         public Input<Inputs.AccessPointAwsEgressPrivateLinkEndpointGetArgs>? AwsEgressPrivateLinkEndpoint { get; set; }
+
+        /// <summary>
+        /// (Optional Configuration Block) supports the following:
+        /// </summary>
+        [Input("azureEgressPrivateLinkEndpoint")]
+        public Input<Inputs.AccessPointAzureEgressPrivateLinkEndpointGetArgs>? AzureEgressPrivateLinkEndpoint { get; set; }
 
         /// <summary>
         /// The name of the Access Point.

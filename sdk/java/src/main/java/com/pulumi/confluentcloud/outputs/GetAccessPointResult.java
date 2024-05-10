@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.outputs;
 
 import com.pulumi.confluentcloud.outputs.GetAccessPointAwsEgressPrivateLinkEndpoint;
+import com.pulumi.confluentcloud.outputs.GetAccessPointAzureEgressPrivateLinkEndpoint;
 import com.pulumi.confluentcloud.outputs.GetAccessPointEnvironment;
 import com.pulumi.confluentcloud.outputs.GetAccessPointGateway;
 import com.pulumi.core.annotations.CustomType;
@@ -15,10 +16,15 @@ import java.util.Objects;
 @CustomType
 public final class GetAccessPointResult {
     /**
-     * @return (Required Configuration Block) supports the following:
+     * @return (Optional Configuration Block) supports the following:
      * 
      */
     private List<GetAccessPointAwsEgressPrivateLinkEndpoint> awsEgressPrivateLinkEndpoints;
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    private List<GetAccessPointAzureEgressPrivateLinkEndpoint> azureEgressPrivateLinkEndpoints;
     /**
      * @return (Required String) A human-readable name for the Access Point.
      * 
@@ -38,11 +44,18 @@ public final class GetAccessPointResult {
 
     private GetAccessPointResult() {}
     /**
-     * @return (Required Configuration Block) supports the following:
+     * @return (Optional Configuration Block) supports the following:
      * 
      */
     public List<GetAccessPointAwsEgressPrivateLinkEndpoint> awsEgressPrivateLinkEndpoints() {
         return this.awsEgressPrivateLinkEndpoints;
+    }
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public List<GetAccessPointAzureEgressPrivateLinkEndpoint> azureEgressPrivateLinkEndpoints() {
+        return this.azureEgressPrivateLinkEndpoints;
     }
     /**
      * @return (Required String) A human-readable name for the Access Point.
@@ -79,6 +92,7 @@ public final class GetAccessPointResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetAccessPointAwsEgressPrivateLinkEndpoint> awsEgressPrivateLinkEndpoints;
+        private List<GetAccessPointAzureEgressPrivateLinkEndpoint> azureEgressPrivateLinkEndpoints;
         private String displayName;
         private GetAccessPointEnvironment environment;
         private List<GetAccessPointGateway> gateways;
@@ -87,6 +101,7 @@ public final class GetAccessPointResult {
         public Builder(GetAccessPointResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.awsEgressPrivateLinkEndpoints = defaults.awsEgressPrivateLinkEndpoints;
+    	      this.azureEgressPrivateLinkEndpoints = defaults.azureEgressPrivateLinkEndpoints;
     	      this.displayName = defaults.displayName;
     	      this.environment = defaults.environment;
     	      this.gateways = defaults.gateways;
@@ -103,6 +118,17 @@ public final class GetAccessPointResult {
         }
         public Builder awsEgressPrivateLinkEndpoints(GetAccessPointAwsEgressPrivateLinkEndpoint... awsEgressPrivateLinkEndpoints) {
             return awsEgressPrivateLinkEndpoints(List.of(awsEgressPrivateLinkEndpoints));
+        }
+        @CustomType.Setter
+        public Builder azureEgressPrivateLinkEndpoints(List<GetAccessPointAzureEgressPrivateLinkEndpoint> azureEgressPrivateLinkEndpoints) {
+            if (azureEgressPrivateLinkEndpoints == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointResult", "azureEgressPrivateLinkEndpoints");
+            }
+            this.azureEgressPrivateLinkEndpoints = azureEgressPrivateLinkEndpoints;
+            return this;
+        }
+        public Builder azureEgressPrivateLinkEndpoints(GetAccessPointAzureEgressPrivateLinkEndpoint... azureEgressPrivateLinkEndpoints) {
+            return azureEgressPrivateLinkEndpoints(List.of(azureEgressPrivateLinkEndpoints));
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
@@ -142,6 +168,7 @@ public final class GetAccessPointResult {
         public GetAccessPointResult build() {
             final var _resultValue = new GetAccessPointResult();
             _resultValue.awsEgressPrivateLinkEndpoints = awsEgressPrivateLinkEndpoints;
+            _resultValue.azureEgressPrivateLinkEndpoints = azureEgressPrivateLinkEndpoints;
             _resultValue.displayName = displayName;
             _resultValue.environment = environment;
             _resultValue.gateways = gateways;

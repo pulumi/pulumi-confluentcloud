@@ -23,10 +23,13 @@ class GetAccessPointResult:
     """
     A collection of values returned by getAccessPoint.
     """
-    def __init__(__self__, aws_egress_private_link_endpoints=None, display_name=None, environment=None, gateways=None, id=None):
+    def __init__(__self__, aws_egress_private_link_endpoints=None, azure_egress_private_link_endpoints=None, display_name=None, environment=None, gateways=None, id=None):
         if aws_egress_private_link_endpoints and not isinstance(aws_egress_private_link_endpoints, list):
             raise TypeError("Expected argument 'aws_egress_private_link_endpoints' to be a list")
         pulumi.set(__self__, "aws_egress_private_link_endpoints", aws_egress_private_link_endpoints)
+        if azure_egress_private_link_endpoints and not isinstance(azure_egress_private_link_endpoints, list):
+            raise TypeError("Expected argument 'azure_egress_private_link_endpoints' to be a list")
+        pulumi.set(__self__, "azure_egress_private_link_endpoints", azure_egress_private_link_endpoints)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -44,9 +47,17 @@ class GetAccessPointResult:
     @pulumi.getter(name="awsEgressPrivateLinkEndpoints")
     def aws_egress_private_link_endpoints(self) -> Sequence['outputs.GetAccessPointAwsEgressPrivateLinkEndpointResult']:
         """
-        (Required Configuration Block) supports the following:
+        (Optional Configuration Block) supports the following:
         """
         return pulumi.get(self, "aws_egress_private_link_endpoints")
+
+    @property
+    @pulumi.getter(name="azureEgressPrivateLinkEndpoints")
+    def azure_egress_private_link_endpoints(self) -> Sequence['outputs.GetAccessPointAzureEgressPrivateLinkEndpointResult']:
+        """
+        (Optional Configuration Block) supports the following:
+        """
+        return pulumi.get(self, "azure_egress_private_link_endpoints")
 
     @property
     @pulumi.getter(name="displayName")
@@ -85,6 +96,7 @@ class AwaitableGetAccessPointResult(GetAccessPointResult):
             yield self
         return GetAccessPointResult(
             aws_egress_private_link_endpoints=self.aws_egress_private_link_endpoints,
+            azure_egress_private_link_endpoints=self.azure_egress_private_link_endpoints,
             display_name=self.display_name,
             environment=self.environment,
             gateways=self.gateways,
@@ -123,6 +135,7 @@ def get_access_point(environment: Optional[pulumi.InputType['GetAccessPointEnvir
 
     return AwaitableGetAccessPointResult(
         aws_egress_private_link_endpoints=pulumi.get(__ret__, 'aws_egress_private_link_endpoints'),
+        azure_egress_private_link_endpoints=pulumi.get(__ret__, 'azure_egress_private_link_endpoints'),
         display_name=pulumi.get(__ret__, 'display_name'),
         environment=pulumi.get(__ret__, 'environment'),
         gateways=pulumi.get(__ret__, 'gateways'),

@@ -4,6 +4,7 @@
 package com.pulumi.confluentcloud.inputs;
 
 import com.pulumi.confluentcloud.inputs.AccessPointAwsEgressPrivateLinkEndpointArgs;
+import com.pulumi.confluentcloud.inputs.AccessPointAzureEgressPrivateLinkEndpointArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointEnvironmentArgs;
 import com.pulumi.confluentcloud.inputs.AccessPointGatewayArgs;
 import com.pulumi.core.Output;
@@ -18,11 +19,34 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
 
     public static final AccessPointState Empty = new AccessPointState();
 
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
     @Import(name="awsEgressPrivateLinkEndpoint")
     private @Nullable Output<AccessPointAwsEgressPrivateLinkEndpointArgs> awsEgressPrivateLinkEndpoint;
 
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
     public Optional<Output<AccessPointAwsEgressPrivateLinkEndpointArgs>> awsEgressPrivateLinkEndpoint() {
         return Optional.ofNullable(this.awsEgressPrivateLinkEndpoint);
+    }
+
+    /**
+     * (Optional Configuration Block) supports the following:
+     * 
+     */
+    @Import(name="azureEgressPrivateLinkEndpoint")
+    private @Nullable Output<AccessPointAzureEgressPrivateLinkEndpointArgs> azureEgressPrivateLinkEndpoint;
+
+    /**
+     * @return (Optional Configuration Block) supports the following:
+     * 
+     */
+    public Optional<Output<AccessPointAzureEgressPrivateLinkEndpointArgs>> azureEgressPrivateLinkEndpoint() {
+        return Optional.ofNullable(this.azureEgressPrivateLinkEndpoint);
     }
 
     /**
@@ -66,6 +90,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
 
     private AccessPointState(AccessPointState $) {
         this.awsEgressPrivateLinkEndpoint = $.awsEgressPrivateLinkEndpoint;
+        this.azureEgressPrivateLinkEndpoint = $.azureEgressPrivateLinkEndpoint;
         this.displayName = $.displayName;
         this.environment = $.environment;
         this.gateway = $.gateway;
@@ -89,13 +114,46 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
             $ = new AccessPointState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param awsEgressPrivateLinkEndpoint (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsEgressPrivateLinkEndpoint(@Nullable Output<AccessPointAwsEgressPrivateLinkEndpointArgs> awsEgressPrivateLinkEndpoint) {
             $.awsEgressPrivateLinkEndpoint = awsEgressPrivateLinkEndpoint;
             return this;
         }
 
+        /**
+         * @param awsEgressPrivateLinkEndpoint (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsEgressPrivateLinkEndpoint(AccessPointAwsEgressPrivateLinkEndpointArgs awsEgressPrivateLinkEndpoint) {
             return awsEgressPrivateLinkEndpoint(Output.of(awsEgressPrivateLinkEndpoint));
+        }
+
+        /**
+         * @param azureEgressPrivateLinkEndpoint (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureEgressPrivateLinkEndpoint(@Nullable Output<AccessPointAzureEgressPrivateLinkEndpointArgs> azureEgressPrivateLinkEndpoint) {
+            $.azureEgressPrivateLinkEndpoint = azureEgressPrivateLinkEndpoint;
+            return this;
+        }
+
+        /**
+         * @param azureEgressPrivateLinkEndpoint (Optional Configuration Block) supports the following:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureEgressPrivateLinkEndpoint(AccessPointAzureEgressPrivateLinkEndpointArgs azureEgressPrivateLinkEndpoint) {
+            return azureEgressPrivateLinkEndpoint(Output.of(azureEgressPrivateLinkEndpoint));
         }
 
         /**
