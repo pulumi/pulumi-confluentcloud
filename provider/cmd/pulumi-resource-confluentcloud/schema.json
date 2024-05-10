@@ -178,6 +178,46 @@
                 }
             }
         },
+        "confluentcloud:index/AccessPointAzureEgressPrivateLinkEndpoint:AccessPointAzureEgressPrivateLinkEndpoint": {
+            "properties": {
+                "privateEndpointDomain": {
+                    "type": "string",
+                    "description": "(Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.\n"
+                },
+                "privateEndpointIpAddress": {
+                    "type": "string",
+                    "description": "(Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.\n"
+                },
+                "privateEndpointResourceId": {
+                    "type": "string",
+                    "description": "(Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.\n"
+                },
+                "privateLinkServiceResourceId": {
+                    "type": "string",
+                    "description": "Resource ID of the Azure Private Link service.\n",
+                    "willReplaceOnChanges": true
+                },
+                "privateLinkSubresourceName": {
+                    "type": "string",
+                    "description": "Name of the subresource for the Private Endpoint to connect to.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "privateLinkServiceResourceId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "privateEndpointDomain",
+                        "privateEndpointIpAddress",
+                        "privateEndpointResourceId",
+                        "privateLinkServiceResourceId"
+                    ]
+                }
+            }
+        },
         "confluentcloud:index/AccessPointEnvironment:AccessPointEnvironment": {
             "properties": {
                 "id": {
@@ -2509,6 +2549,43 @@
                 }
             }
         },
+        "confluentcloud:index/getAccessPointAzureEgressPrivateLinkEndpoint:getAccessPointAzureEgressPrivateLinkEndpoint": {
+            "properties": {
+                "privateEndpointDomain": {
+                    "type": "string",
+                    "description": "(Required String) Domain of the Private Endpoint (if any) that is connected to the Private Link service.\n"
+                },
+                "privateEndpointIpAddress": {
+                    "type": "string",
+                    "description": "(Required String) IP address of the Private Endpoint (if any) that is connected to the Private Link service.\n"
+                },
+                "privateEndpointResourceId": {
+                    "type": "string",
+                    "description": "(Required String) Resource ID of the Private Endpoint (if any) that is connected to the Private Link service.\n"
+                },
+                "privateLinkServiceResourceId": {
+                    "type": "string",
+                    "description": "(Required String) Resource ID of the Azure Private Link service.\n"
+                },
+                "privateLinkSubresourceName": {
+                    "type": "string",
+                    "description": "(Required String) Name of the subresource for the Private Endpoint to connect to.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "privateEndpointDomain",
+                "privateEndpointIpAddress",
+                "privateEndpointResourceId",
+                "privateLinkServiceResourceId",
+                "privateLinkSubresourceName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "confluentcloud:index/getAccessPointEnvironment:getAccessPointEnvironment": {
             "properties": {
                 "id": {
@@ -2802,7 +2879,7 @@
                 },
                 "region": {
                     "type": "string",
-                    "description": "(Required String) AWS region of the Peering Gateway.\n"
+                    "description": "(Required String) Azure region of the Peering Gateway.\n"
                 }
             },
             "type": "object",
@@ -2820,7 +2897,46 @@
             "properties": {
                 "region": {
                     "type": "string",
-                    "description": "(Required String) AWS region of the Peering Gateway.\n"
+                    "description": "(Required String) Azure region of the Peering Gateway.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "region"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getGatewayAzureEgressPrivateLinkGateway:getGatewayAzureEgressPrivateLinkGateway": {
+            "properties": {
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) Azure region of the Peering Gateway.\n"
+                },
+                "subscription": {
+                    "type": "string",
+                    "description": "(Required String) The Azure Subscription ID associated with the Confluent Cloud VPC.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "region",
+                "subscription"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "confluentcloud:index/getGatewayAzurePeeringGateway:getGatewayAzurePeeringGateway": {
+            "properties": {
+                "region": {
+                    "type": "string",
+                    "description": "(Required String) Azure region of the Peering Gateway.\n"
                 }
             },
             "type": "object",
@@ -4806,10 +4922,15 @@
     },
     "resources": {
         "confluentcloud:index/accessPoint:AccessPoint": {
-            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.AccessPoint` provides a Access Point resource that enables creating, editing, and deleting Access Points on Confluent Cloud.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst main = new confluentcloud.AccessPoint(\"main\", {\n    displayName: \"access_point\",\n    environment: {\n        id: development.id,\n    },\n    gateway: {\n        id: mainConfluentNetwork.gateway[0].id,\n    },\n    awsEgressPrivateLinkEndpoint: {\n        vpcEndpointServiceName: \"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\nmain = confluentcloud.AccessPoint(\"main\",\n    display_name=\"access_point\",\n    environment=confluentcloud.AccessPointEnvironmentArgs(\n        id=development.id,\n    ),\n    gateway=confluentcloud.AccessPointGatewayArgs(\n        id=main_confluent_network[\"gateway\"][0][\"id\"],\n    ),\n    aws_egress_private_link_endpoint=confluentcloud.AccessPointAwsEgressPrivateLinkEndpointArgs(\n        vpc_endpoint_service_name=\"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\",\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var main = new ConfluentCloud.AccessPoint(\"main\", new()\n    {\n        DisplayName = \"access_point\",\n        Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs\n        {\n            Id = mainConfluentNetwork.Gateway[0].Id,\n        },\n        AwsEgressPrivateLinkEndpoint = new ConfluentCloud.Inputs.AccessPointAwsEgressPrivateLinkEndpointArgs\n        {\n            VpcEndpointServiceName = \"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewAccessPoint(ctx, \"main\", \u0026confluentcloud.AccessPointArgs{\n\t\t\tDisplayName: pulumi.String(\"access_point\"),\n\t\t\tEnvironment: \u0026confluentcloud.AccessPointEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t\tGateway: \u0026confluentcloud.AccessPointGatewayArgs{\n\t\t\t\tId: pulumi.Any(mainConfluentNetwork.Gateway[0].Id),\n\t\t\t},\n\t\t\tAwsEgressPrivateLinkEndpoint: \u0026confluentcloud.AccessPointAwsEgressPrivateLinkEndpointArgs{\n\t\t\t\tVpcEndpointServiceName: pulumi.String(\"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.AccessPoint;\nimport com.pulumi.confluentcloud.AccessPointArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointGatewayArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointAwsEgressPrivateLinkEndpointArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()        \n            .displayName(\"Development\")\n            .build());\n\n        var main = new AccessPoint(\"main\", AccessPointArgs.builder()        \n            .displayName(\"access_point\")\n            .environment(AccessPointEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .gateway(AccessPointGatewayArgs.builder()\n                .id(mainConfluentNetwork.gateway()[0].id())\n                .build())\n            .awsEgressPrivateLinkEndpoint(AccessPointAwsEgressPrivateLinkEndpointArgs.builder()\n                .vpcEndpointServiceName(\"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  main:\n    type: confluentcloud:AccessPoint\n    properties:\n      displayName: access_point\n      environment:\n        id: ${development.id}\n      gateway:\n        id: ${mainConfluentNetwork.gateway[0].id}\n      awsEgressPrivateLinkEndpoint:\n        vpcEndpointServiceName: com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Access Point by using Environment ID and Access Point ID, in the format `\u003cEnvironment ID\u003e/\u003cAccess Point ID\u003e`. The following example shows how to import a Access Point:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/accessPoint:AccessPoint main env-abc123/ap-abc123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
+            "description": "[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](https://docs.confluent.io/cloud/current/api.html#section/Versioning/API-Lifecycle-Policy)\n\n`confluentcloud.AccessPoint` provides a Access Point resource that enables creating, editing, and deleting Access Points on Confluent Cloud.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as confluentcloud from \"@pulumi/confluentcloud\";\n\nconst development = new confluentcloud.Environment(\"development\", {displayName: \"Development\"});\nconst aws = new confluentcloud.AccessPoint(\"aws\", {\n    displayName: \"access_point\",\n    environment: {\n        id: development.id,\n    },\n    gateway: {\n        id: main.gateway[0].id,\n    },\n    awsEgressPrivateLinkEndpoint: {\n        vpcEndpointServiceName: \"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\",\n    },\n});\nconst azure = new confluentcloud.AccessPoint(\"azure\", {\n    displayName: \"access_point\",\n    environment: {\n        id: development.id,\n    },\n    gateway: {\n        id: main.gateway[0].id,\n    },\n    azureEgressPrivateLinkEndpoint: {\n        privateLinkServiceResourceId: \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\",\n        privateLinkSubresourceName: \"sqlServer\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_confluentcloud as confluentcloud\n\ndevelopment = confluentcloud.Environment(\"development\", display_name=\"Development\")\naws = confluentcloud.AccessPoint(\"aws\",\n    display_name=\"access_point\",\n    environment=confluentcloud.AccessPointEnvironmentArgs(\n        id=development.id,\n    ),\n    gateway=confluentcloud.AccessPointGatewayArgs(\n        id=main[\"gateway\"][0][\"id\"],\n    ),\n    aws_egress_private_link_endpoint=confluentcloud.AccessPointAwsEgressPrivateLinkEndpointArgs(\n        vpc_endpoint_service_name=\"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\",\n    ))\nazure = confluentcloud.AccessPoint(\"azure\",\n    display_name=\"access_point\",\n    environment=confluentcloud.AccessPointEnvironmentArgs(\n        id=development.id,\n    ),\n    gateway=confluentcloud.AccessPointGatewayArgs(\n        id=main[\"gateway\"][0][\"id\"],\n    ),\n    azure_egress_private_link_endpoint=confluentcloud.AccessPointAzureEgressPrivateLinkEndpointArgs(\n        private_link_service_resource_id=\"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\",\n        private_link_subresource_name=\"sqlServer\",\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing ConfluentCloud = Pulumi.ConfluentCloud;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var development = new ConfluentCloud.Environment(\"development\", new()\n    {\n        DisplayName = \"Development\",\n    });\n\n    var aws = new ConfluentCloud.AccessPoint(\"aws\", new()\n    {\n        DisplayName = \"access_point\",\n        Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs\n        {\n            Id = main.Gateway[0].Id,\n        },\n        AwsEgressPrivateLinkEndpoint = new ConfluentCloud.Inputs.AccessPointAwsEgressPrivateLinkEndpointArgs\n        {\n            VpcEndpointServiceName = \"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\",\n        },\n    });\n\n    var azure = new ConfluentCloud.AccessPoint(\"azure\", new()\n    {\n        DisplayName = \"access_point\",\n        Environment = new ConfluentCloud.Inputs.AccessPointEnvironmentArgs\n        {\n            Id = development.Id,\n        },\n        Gateway = new ConfluentCloud.Inputs.AccessPointGatewayArgs\n        {\n            Id = main.Gateway[0].Id,\n        },\n        AzureEgressPrivateLinkEndpoint = new ConfluentCloud.Inputs.AccessPointAzureEgressPrivateLinkEndpointArgs\n        {\n            PrivateLinkServiceResourceId = \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\",\n            PrivateLinkSubresourceName = \"sqlServer\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-confluentcloud/sdk/go/confluentcloud\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevelopment, err := confluentcloud.NewEnvironment(ctx, \"development\", \u0026confluentcloud.EnvironmentArgs{\n\t\t\tDisplayName: pulumi.String(\"Development\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewAccessPoint(ctx, \"aws\", \u0026confluentcloud.AccessPointArgs{\n\t\t\tDisplayName: pulumi.String(\"access_point\"),\n\t\t\tEnvironment: \u0026confluentcloud.AccessPointEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t\tGateway: \u0026confluentcloud.AccessPointGatewayArgs{\n\t\t\t\tId: pulumi.Any(main.Gateway[0].Id),\n\t\t\t},\n\t\t\tAwsEgressPrivateLinkEndpoint: \u0026confluentcloud.AccessPointAwsEgressPrivateLinkEndpointArgs{\n\t\t\t\tVpcEndpointServiceName: pulumi.String(\"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = confluentcloud.NewAccessPoint(ctx, \"azure\", \u0026confluentcloud.AccessPointArgs{\n\t\t\tDisplayName: pulumi.String(\"access_point\"),\n\t\t\tEnvironment: \u0026confluentcloud.AccessPointEnvironmentArgs{\n\t\t\t\tId: development.ID(),\n\t\t\t},\n\t\t\tGateway: \u0026confluentcloud.AccessPointGatewayArgs{\n\t\t\t\tId: pulumi.Any(main.Gateway[0].Id),\n\t\t\t},\n\t\t\tAzureEgressPrivateLinkEndpoint: \u0026confluentcloud.AccessPointAzureEgressPrivateLinkEndpointArgs{\n\t\t\t\tPrivateLinkServiceResourceId: pulumi.String(\"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\"),\n\t\t\t\tPrivateLinkSubresourceName:   pulumi.String(\"sqlServer\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.confluentcloud.Environment;\nimport com.pulumi.confluentcloud.EnvironmentArgs;\nimport com.pulumi.confluentcloud.AccessPoint;\nimport com.pulumi.confluentcloud.AccessPointArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointEnvironmentArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointGatewayArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointAwsEgressPrivateLinkEndpointArgs;\nimport com.pulumi.confluentcloud.inputs.AccessPointAzureEgressPrivateLinkEndpointArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var development = new Environment(\"development\", EnvironmentArgs.builder()        \n            .displayName(\"Development\")\n            .build());\n\n        var aws = new AccessPoint(\"aws\", AccessPointArgs.builder()        \n            .displayName(\"access_point\")\n            .environment(AccessPointEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .gateway(AccessPointGatewayArgs.builder()\n                .id(main.gateway()[0].id())\n                .build())\n            .awsEgressPrivateLinkEndpoint(AccessPointAwsEgressPrivateLinkEndpointArgs.builder()\n                .vpcEndpointServiceName(\"com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\")\n                .build())\n            .build());\n\n        var azure = new AccessPoint(\"azure\", AccessPointArgs.builder()        \n            .displayName(\"access_point\")\n            .environment(AccessPointEnvironmentArgs.builder()\n                .id(development.id())\n                .build())\n            .gateway(AccessPointGatewayArgs.builder()\n                .id(main.gateway()[0].id())\n                .build())\n            .azureEgressPrivateLinkEndpoint(AccessPointAzureEgressPrivateLinkEndpointArgs.builder()\n                .privateLinkServiceResourceId(\"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\")\n                .privateLinkSubresourceName(\"sqlServer\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  development:\n    type: confluentcloud:Environment\n    properties:\n      displayName: Development\n  aws:\n    type: confluentcloud:AccessPoint\n    properties:\n      displayName: access_point\n      environment:\n        id: ${development.id}\n      gateway:\n        id: ${main.gateway[0].id}\n      awsEgressPrivateLinkEndpoint:\n        vpcEndpointServiceName: com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000\n  azure:\n    type: confluentcloud:AccessPoint\n    properties:\n      displayName: access_point\n      environment:\n        id: ${development.id}\n      gateway:\n        id: ${main.gateway[0].id}\n      azureEgressPrivateLinkEndpoint:\n        privateLinkServiceResourceId: /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/s-abcde/providers/Microsoft.Network/privateLinkServices/pls-plt-abcdef-az3\n        privateLinkSubresourceName: sqlServer\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nYou can import a Access Point by using Environment ID and Access Point ID, in the format `\u003cEnvironment ID\u003e/\u003cAccess Point ID\u003e`. The following example shows how to import a Access Point:\n\n$ export CONFLUENT_CLOUD_API_KEY=\"\u003ccloud_api_key\u003e\"\n\n$ export CONFLUENT_CLOUD_API_SECRET=\"\u003ccloud_api_secret\u003e\"\n\n```sh\n$ pulumi import confluentcloud:index/accessPoint:AccessPoint main env-abc123/ap-abc123\n```\n\n!\u003e **Warning:** Do not forget to delete terminal command history afterwards for security purposes.\n\n",
             "properties": {
                 "awsEgressPrivateLinkEndpoint": {
-                    "$ref": "#/types/confluentcloud:index/AccessPointAwsEgressPrivateLinkEndpoint:AccessPointAwsEgressPrivateLinkEndpoint"
+                    "$ref": "#/types/confluentcloud:index/AccessPointAwsEgressPrivateLinkEndpoint:AccessPointAwsEgressPrivateLinkEndpoint",
+                    "description": "(Optional Configuration Block) supports the following:\n"
+                },
+                "azureEgressPrivateLinkEndpoint": {
+                    "$ref": "#/types/confluentcloud:index/AccessPointAzureEgressPrivateLinkEndpoint:AccessPointAzureEgressPrivateLinkEndpoint",
+                    "description": "(Optional Configuration Block) supports the following:\n"
                 },
                 "displayName": {
                     "type": "string",
@@ -4831,6 +4952,12 @@
             "inputProperties": {
                 "awsEgressPrivateLinkEndpoint": {
                     "$ref": "#/types/confluentcloud:index/AccessPointAwsEgressPrivateLinkEndpoint:AccessPointAwsEgressPrivateLinkEndpoint",
+                    "description": "(Optional Configuration Block) supports the following:\n",
+                    "willReplaceOnChanges": true
+                },
+                "azureEgressPrivateLinkEndpoint": {
+                    "$ref": "#/types/confluentcloud:index/AccessPointAzureEgressPrivateLinkEndpoint:AccessPointAzureEgressPrivateLinkEndpoint",
+                    "description": "(Optional Configuration Block) supports the following:\n",
                     "willReplaceOnChanges": true
                 },
                 "displayName": {
@@ -4856,6 +4983,12 @@
                 "properties": {
                     "awsEgressPrivateLinkEndpoint": {
                         "$ref": "#/types/confluentcloud:index/AccessPointAwsEgressPrivateLinkEndpoint:AccessPointAwsEgressPrivateLinkEndpoint",
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "azureEgressPrivateLinkEndpoint": {
+                        "$ref": "#/types/confluentcloud:index/AccessPointAzureEgressPrivateLinkEndpoint:AccessPointAzureEgressPrivateLinkEndpoint",
+                        "description": "(Optional Configuration Block) supports the following:\n",
                         "willReplaceOnChanges": true
                     },
                     "displayName": {
@@ -10041,9 +10174,16 @@
                 "description": "A collection of values returned by getAccessPoint.\n",
                 "properties": {
                     "awsEgressPrivateLinkEndpoints": {
-                        "description": "(Required Configuration Block) supports the following:\n",
+                        "description": "(Optional Configuration Block) supports the following:\n",
                         "items": {
                             "$ref": "#/types/confluentcloud:index/getAccessPointAwsEgressPrivateLinkEndpoint:getAccessPointAwsEgressPrivateLinkEndpoint"
+                        },
+                        "type": "array"
+                    },
+                    "azureEgressPrivateLinkEndpoints": {
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getAccessPointAzureEgressPrivateLinkEndpoint:getAccessPointAzureEgressPrivateLinkEndpoint"
                         },
                         "type": "array"
                     },
@@ -10068,6 +10208,7 @@
                 },
                 "required": [
                     "awsEgressPrivateLinkEndpoints",
+                    "azureEgressPrivateLinkEndpoints",
                     "displayName",
                     "environment",
                     "gateways",
@@ -10584,6 +10725,20 @@
                         },
                         "type": "array"
                     },
+                    "azureEgressPrivateLinkGateways": {
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getGatewayAzureEgressPrivateLinkGateway:getGatewayAzureEgressPrivateLinkGateway"
+                        },
+                        "type": "array"
+                    },
+                    "azurePeeringGateways": {
+                        "description": "(Optional Configuration Block) supports the following:\n",
+                        "items": {
+                            "$ref": "#/types/confluentcloud:index/getGatewayAzurePeeringGateway:getGatewayAzurePeeringGateway"
+                        },
+                        "type": "array"
+                    },
                     "displayName": {
                         "description": "(Required String) A human-readable name for the Gateway.\n",
                         "type": "string"
@@ -10598,6 +10753,8 @@
                 "required": [
                     "awsEgressPrivateLinkGateways",
                     "awsPeeringGateways",
+                    "azureEgressPrivateLinkGateways",
+                    "azurePeeringGateways",
                     "displayName",
                     "environment",
                     "id"
