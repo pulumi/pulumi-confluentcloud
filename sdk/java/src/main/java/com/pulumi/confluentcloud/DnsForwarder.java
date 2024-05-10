@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,31 +53,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var main = new DnsForwarder(&#34;main&#34;, DnsForwarderArgs.builder()        
- *             .displayName(&#34;dns_forwarder&#34;)
+ *         var main = new DnsForwarder("main", DnsForwarderArgs.builder()        
+ *             .displayName("dns_forwarder")
  *             .environment(DnsForwarderEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .domains(            
- *                 &#34;example.com&#34;,
- *                 &#34;domainname.com&#34;)
+ *                 "example.com",
+ *                 "domainname.com")
  *             .gateway(DnsForwarderGatewayArgs.builder()
  *                 .id(mainConfluentNetwork.gateway()[0].id())
  *                 .build())
  *             .forwardViaIp(DnsForwarderForwardViaIpArgs.builder()
  *                 .dnsServerIps(                
- *                     &#34;10.200.0.0&#34;,
- *                     &#34;10.200.0.1&#34;)
+ *                     "10.200.0.0",
+ *                     "10.200.0.1")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

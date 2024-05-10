@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,29 +47,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
  *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
- *             .cloud(&#34;AWS&#34;)
- *             .region(&#34;us-east-2&#34;)
- *             .package_(&#34;ESSENTIALS&#34;)
+ *             .cloud("AWS")
+ *             .region("us-east-2")
+ *             .package_("ESSENTIALS")
  *             .build());
  * 
- *         var essentials = new SchemaRegistryCluster(&#34;essentials&#34;, SchemaRegistryClusterArgs.builder()        
- *             .package_(example.applyValue(getSchemaRegistryRegionResult -&gt; getSchemaRegistryRegionResult.package()))
+ *         var essentials = new SchemaRegistryCluster("essentials", SchemaRegistryClusterArgs.builder()        
+ *             .package_(example.applyValue(getSchemaRegistryRegionResult -> getSchemaRegistryRegionResult.package()))
  *             .environment(SchemaRegistryClusterEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
  *             .region(SchemaRegistryClusterRegionArgs.builder()
- *                 .id(example.applyValue(getSchemaRegistryRegionResult -&gt; getSchemaRegistryRegionResult.id()))
+ *                 .id(example.applyValue(getSchemaRegistryRegionResult -> getSchemaRegistryRegionResult.id()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

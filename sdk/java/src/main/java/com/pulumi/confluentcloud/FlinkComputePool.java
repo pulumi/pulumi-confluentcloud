@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var main = new FlinkComputePool(&#34;main&#34;, FlinkComputePoolArgs.builder()        
- *             .displayName(&#34;standard_compute_pool&#34;)
- *             .cloud(&#34;AWS&#34;)
- *             .region(&#34;us-east-1&#34;)
+ *         var main = new FlinkComputePool("main", FlinkComputePoolArgs.builder()        
+ *             .displayName("standard_compute_pool")
+ *             .cloud("AWS")
+ *             .region("us-east-1")
  *             .maxCfu(5)
  *             .environment(FlinkComputePoolEnvironmentArgs.builder()
  *                 .id(development.id())
@@ -59,7 +60,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

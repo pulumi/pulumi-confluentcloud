@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var main = new AccessPoint(&#34;main&#34;, AccessPointArgs.builder()        
- *             .displayName(&#34;access_point&#34;)
+ *         var main = new AccessPoint("main", AccessPointArgs.builder()        
+ *             .displayName("access_point")
  *             .environment(AccessPointEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
@@ -64,13 +65,14 @@ import javax.annotation.Nullable;
  *                 .id(mainConfluentNetwork.gateway()[0].id())
  *                 .build())
  *             .awsEgressPrivateLinkEndpoint(AccessPointAwsEgressPrivateLinkEndpointArgs.builder()
- *                 .vpcEndpointServiceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000&#34;)
+ *                 .vpcEndpointServiceName("com.amazonaws.vpce.us-west-2.vpce-svc-00000000000000000")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

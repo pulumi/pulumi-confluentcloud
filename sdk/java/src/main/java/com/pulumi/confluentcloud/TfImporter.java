@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,15 +41,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TfImporter(&#34;example&#34;, TfImporterArgs.builder()        
+ *         var example = new TfImporter("example", TfImporterArgs.builder()        
  *             .resources(            
- *                 &#34;confluent_service_account&#34;,
- *                 &#34;confluent_environment&#34;)
+ *                 "confluent_service_account",
+ *                 "confluent_environment")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started

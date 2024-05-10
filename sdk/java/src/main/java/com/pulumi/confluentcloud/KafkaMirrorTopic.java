@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,9 +46,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new KafkaMirrorTopic(&#34;example&#34;, KafkaMirrorTopicArgs.builder()        
+ *         var example = new KafkaMirrorTopic("example", KafkaMirrorTopicArgs.builder()        
  *             .sourceKafkaTopic(KafkaMirrorTopicSourceKafkaTopicArgs.builder()
- *                 .topicName(&#34;orders&#34;)
+ *                 .topicName("orders")
  *                 .build())
  *             .clusterLink(KafkaMirrorTopicClusterLinkArgs.builder()
  *                 .linkName(source_outbound.linkName())
@@ -64,7 +65,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started

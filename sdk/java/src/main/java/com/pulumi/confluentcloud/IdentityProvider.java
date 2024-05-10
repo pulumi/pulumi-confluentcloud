@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Example Identity Provider: Azure AD
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,22 +45,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var azure = new IdentityProvider(&#34;azure&#34;, IdentityProviderArgs.builder()        
- *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
- *             .description(&#34;My description&#34;)
- *             .issuer(&#34;https://login.microsoftonline.com/{tenant_id}/v2.0&#34;)
- *             .jwksUri(&#34;https://login.microsoftonline.com/common/discovery/v2.0/keys&#34;)
+ *         var azure = new IdentityProvider("azure", IdentityProviderArgs.builder()        
+ *             .displayName("My OIDC Provider: Azure AD")
+ *             .description("My description")
+ *             .issuer("https://login.microsoftonline.com/{tenant_id}/v2.0")
+ *             .jwksUri("https://login.microsoftonline.com/common/discovery/v2.0/keys")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Identity Provider: Okta
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -80,16 +83,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var okta = new IdentityProvider(&#34;okta&#34;, IdentityProviderArgs.builder()        
- *             .displayName(&#34;My OIDC Provider: Okta&#34;)
- *             .description(&#34;My description&#34;)
- *             .issuer(&#34;https://mycompany.okta.com/oauth2/default&#34;)
- *             .jwksUri(&#34;https://mycompany.okta.com/oauth2/default/v1/keys&#34;)
+ *         var okta = new IdentityProvider("okta", IdentityProviderArgs.builder()        
+ *             .displayName("My OIDC Provider: Okta")
+ *             .description("My description")
+ *             .issuer("https://mycompany.okta.com/oauth2/default")
+ *             .jwksUri("https://mycompany.okta.com/oauth2/default/v1/keys")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## External Documentation

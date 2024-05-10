@@ -147,7 +147,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -170,16 +171,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getAccessPoint(GetAccessPointArgs.builder()
-     *             .id(&#34;ap-abc123&#34;)
+     *             .id("ap-abc123")
      *             .environment(GetAccessPointEnvironmentArgs.builder()
-     *                 .id(&#34;env-123abc&#34;)
+     *                 .id("env-123abc")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;accessPoint&#34;, main.applyValue(getAccessPointResult -&gt; getAccessPointResult));
+     *         ctx.export("accessPoint", main.applyValue(getAccessPointResult -> getAccessPointResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -194,7 +196,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -217,16 +220,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getAccessPoint(GetAccessPointArgs.builder()
-     *             .id(&#34;ap-abc123&#34;)
+     *             .id("ap-abc123")
      *             .environment(GetAccessPointEnvironmentArgs.builder()
-     *                 .id(&#34;env-123abc&#34;)
+     *                 .id("env-123abc")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;accessPoint&#34;, main.applyValue(getAccessPointResult -&gt; getAccessPointResult));
+     *         ctx.export("accessPoint", main.applyValue(getAccessPointResult -> getAccessPointResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -241,7 +245,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -264,16 +269,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getAccessPoint(GetAccessPointArgs.builder()
-     *             .id(&#34;ap-abc123&#34;)
+     *             .id("ap-abc123")
      *             .environment(GetAccessPointEnvironmentArgs.builder()
-     *                 .id(&#34;env-123abc&#34;)
+     *                 .id("env-123abc")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;accessPoint&#34;, main.applyValue(getAccessPointResult -&gt; getAccessPointResult));
+     *         ctx.export("accessPoint", main.applyValue(getAccessPointResult -> getAccessPointResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -288,7 +294,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -311,16 +318,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getAccessPoint(GetAccessPointArgs.builder()
-     *             .id(&#34;ap-abc123&#34;)
+     *             .id("ap-abc123")
      *             .environment(GetAccessPointEnvironmentArgs.builder()
-     *                 .id(&#34;env-123abc&#34;)
+     *                 .id("env-123abc")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;accessPoint&#34;, main.applyValue(getAccessPointResult -&gt; getAccessPointResult));
+     *         ctx.export("accessPoint", main.applyValue(getAccessPointResult -> getAccessPointResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -359,7 +367,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -381,13 +390,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var azureKey = ConfluentcloudFunctions.getByokKey(GetByokKeyArgs.builder()
-     *             .id(&#34;cck-abcde&#34;)
+     *             .id("cck-abcde")
      *             .build());
      * 
-     *         ctx.export(&#34;byok&#34;, azureKey.applyValue(getByokKeyResult -&gt; getByokKeyResult));
+     *         ctx.export("byok", azureKey.applyValue(getByokKeyResult -> getByokKeyResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -402,7 +412,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -424,13 +435,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var azureKey = ConfluentcloudFunctions.getByokKey(GetByokKeyArgs.builder()
-     *             .id(&#34;cck-abcde&#34;)
+     *             .id("cck-abcde")
      *             .build());
      * 
-     *         ctx.export(&#34;byok&#34;, azureKey.applyValue(getByokKeyResult -&gt; getByokKeyResult));
+     *         ctx.export("byok", azureKey.applyValue(getByokKeyResult -> getByokKeyResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -445,7 +457,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -467,13 +480,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var azureKey = ConfluentcloudFunctions.getByokKey(GetByokKeyArgs.builder()
-     *             .id(&#34;cck-abcde&#34;)
+     *             .id("cck-abcde")
      *             .build());
      * 
-     *         ctx.export(&#34;byok&#34;, azureKey.applyValue(getByokKeyResult -&gt; getByokKeyResult));
+     *         ctx.export("byok", azureKey.applyValue(getByokKeyResult -> getByokKeyResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -488,7 +502,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -510,13 +525,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var azureKey = ConfluentcloudFunctions.getByokKey(GetByokKeyArgs.builder()
-     *             .id(&#34;cck-abcde&#34;)
+     *             .id("cck-abcde")
      *             .build());
      * 
-     *         ctx.export(&#34;byok&#34;, azureKey.applyValue(getByokKeyResult -&gt; getByokKeyResult));
+     *         ctx.export("byok", azureKey.applyValue(getByokKeyResult -> getByokKeyResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -531,7 +547,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -554,16 +571,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getDnsRecord(GetDnsRecordArgs.builder()
-     *             .id(&#34;dnsrec-abc123&#34;)
+     *             .id("dnsrec-abc123")
      *             .environment(GetDnsRecordEnvironmentArgs.builder()
-     *                 .id(&#34;env-123abc&#34;)
+     *                 .id("env-123abc")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;dnsRecord&#34;, main.applyValue(getDnsRecordResult -&gt; getDnsRecordResult));
+     *         ctx.export("dnsRecord", main.applyValue(getDnsRecordResult -> getDnsRecordResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -578,7 +596,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -601,16 +620,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getDnsRecord(GetDnsRecordArgs.builder()
-     *             .id(&#34;dnsrec-abc123&#34;)
+     *             .id("dnsrec-abc123")
      *             .environment(GetDnsRecordEnvironmentArgs.builder()
-     *                 .id(&#34;env-123abc&#34;)
+     *                 .id("env-123abc")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;dnsRecord&#34;, main.applyValue(getDnsRecordResult -&gt; getDnsRecordResult));
+     *         ctx.export("dnsRecord", main.applyValue(getDnsRecordResult -> getDnsRecordResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -625,7 +645,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -648,16 +669,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getDnsRecord(GetDnsRecordArgs.builder()
-     *             .id(&#34;dnsrec-abc123&#34;)
+     *             .id("dnsrec-abc123")
      *             .environment(GetDnsRecordEnvironmentArgs.builder()
-     *                 .id(&#34;env-123abc&#34;)
+     *                 .id("env-123abc")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;dnsRecord&#34;, main.applyValue(getDnsRecordResult -&gt; getDnsRecordResult));
+     *         ctx.export("dnsRecord", main.applyValue(getDnsRecordResult -> getDnsRecordResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -672,7 +694,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -695,16 +718,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getDnsRecord(GetDnsRecordArgs.builder()
-     *             .id(&#34;dnsrec-abc123&#34;)
+     *             .id("dnsrec-abc123")
      *             .environment(GetDnsRecordEnvironmentArgs.builder()
-     *                 .id(&#34;env-123abc&#34;)
+     *                 .id("env-123abc")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;dnsRecord&#34;, main.applyValue(getDnsRecordResult -&gt; getDnsRecordResult));
+     *         ctx.export("dnsRecord", main.applyValue(getDnsRecordResult -> getDnsRecordResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -719,7 +743,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -744,27 +769,28 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .id(&#34;env-abc123&#34;)
+     *             .id("env-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getEnvironmentResult -> getEnvironmentResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .displayName(&#34;stag&#34;)
+     *             .displayName("stag")
      *             .build());
      * 
      *         final var exampleUsingNameGetServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .displayName(&#34;test_sa&#34;)
+     *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
-     *             .roleName(&#34;EnvironmentAdmin&#34;)
-     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
+     *             .roleName("EnvironmentAdmin")
+     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -779,7 +805,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -804,27 +831,28 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .id(&#34;env-abc123&#34;)
+     *             .id("env-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getEnvironmentResult -> getEnvironmentResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .displayName(&#34;stag&#34;)
+     *             .displayName("stag")
      *             .build());
      * 
      *         final var exampleUsingNameGetServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .displayName(&#34;test_sa&#34;)
+     *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
-     *             .roleName(&#34;EnvironmentAdmin&#34;)
-     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
+     *             .roleName("EnvironmentAdmin")
+     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -839,7 +867,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -864,27 +893,28 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .id(&#34;env-abc123&#34;)
+     *             .id("env-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getEnvironmentResult -> getEnvironmentResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .displayName(&#34;stag&#34;)
+     *             .displayName("stag")
      *             .build());
      * 
      *         final var exampleUsingNameGetServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .displayName(&#34;test_sa&#34;)
+     *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
-     *             .roleName(&#34;EnvironmentAdmin&#34;)
-     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
+     *             .roleName("EnvironmentAdmin")
+     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -899,7 +929,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -924,27 +955,28 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .id(&#34;env-abc123&#34;)
+     *             .id("env-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getEnvironmentResult -> getEnvironmentResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .displayName(&#34;stag&#34;)
+     *             .displayName("stag")
      *             .build());
      * 
      *         final var exampleUsingNameGetServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .displayName(&#34;test_sa&#34;)
+     *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
-     *             .roleName(&#34;EnvironmentAdmin&#34;)
-     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
+     *             .roleName("EnvironmentAdmin")
+     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -959,7 +991,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -984,27 +1017,28 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .id(&#34;env-abc123&#34;)
+     *             .id("env-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getEnvironmentResult -> getEnvironmentResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .displayName(&#34;stag&#34;)
+     *             .displayName("stag")
      *             .build());
      * 
      *         final var exampleUsingNameGetServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .displayName(&#34;test_sa&#34;)
+     *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
-     *             .roleName(&#34;EnvironmentAdmin&#34;)
-     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
+     *             .roleName("EnvironmentAdmin")
+     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1019,7 +1053,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1044,27 +1079,28 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .id(&#34;env-abc123&#34;)
+     *             .id("env-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getEnvironmentResult -&gt; getEnvironmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getEnvironmentResult -> getEnvironmentResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .displayName(&#34;stag&#34;)
+     *             .displayName("stag")
      *             .build());
      * 
      *         final var exampleUsingNameGetServiceAccount = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .displayName(&#34;test_sa&#34;)
+     *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.id())))
-     *             .roleName(&#34;EnvironmentAdmin&#34;)
-     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.resourceName()))
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *             .principal(String.format("User:%s", exampleUsingNameGetServiceAccount.applyValue(getServiceAccountResult -> getServiceAccountResult.id())))
+     *             .roleName("EnvironmentAdmin")
+     *             .crnPattern(exampleUsingName.applyValue(getEnvironmentResult -> getEnvironmentResult.resourceName()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1079,7 +1115,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1101,10 +1138,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getEnvironments();
      * 
-     *         ctx.export(&#34;environments&#34;, main.applyValue(getEnvironmentsResult -&gt; getEnvironmentsResult.ids()));
+     *         ctx.export("environments", main.applyValue(getEnvironmentsResult -> getEnvironmentsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1119,7 +1157,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1141,10 +1180,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getEnvironments();
      * 
-     *         ctx.export(&#34;environments&#34;, main.applyValue(getEnvironmentsResult -&gt; getEnvironmentsResult.ids()));
+     *         ctx.export("environments", main.applyValue(getEnvironmentsResult -> getEnvironmentsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1159,7 +1199,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1181,10 +1222,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getEnvironments();
      * 
-     *         ctx.export(&#34;environments&#34;, main.applyValue(getEnvironmentsResult -&gt; getEnvironmentsResult.ids()));
+     *         ctx.export("environments", main.applyValue(getEnvironmentsResult -> getEnvironmentsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1199,7 +1241,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1221,10 +1264,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getEnvironments();
      * 
-     *         ctx.export(&#34;environments&#34;, main.applyValue(getEnvironmentsResult -&gt; getEnvironmentsResult.ids()));
+     *         ctx.export("environments", main.applyValue(getEnvironmentsResult -> getEnvironmentsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1239,7 +1283,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1261,10 +1306,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getEnvironments();
      * 
-     *         ctx.export(&#34;environments&#34;, main.applyValue(getEnvironmentsResult -&gt; getEnvironmentsResult.ids()));
+     *         ctx.export("environments", main.applyValue(getEnvironmentsResult -> getEnvironmentsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1279,7 +1325,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1301,10 +1348,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getEnvironments();
      * 
-     *         ctx.export(&#34;environments&#34;, main.applyValue(getEnvironmentsResult -&gt; getEnvironmentsResult.ids()));
+     *         ctx.export("environments", main.applyValue(getEnvironmentsResult -> getEnvironmentsResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1319,7 +1367,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1342,24 +1391,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
-     *             .id(&#34;lfcp-abc123&#34;)
+     *             .id("lfcp-abc123")
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
-     *             .displayName(&#34;my_compute_pool&#34;)
+     *             .displayName("my_compute_pool")
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1374,7 +1424,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1397,24 +1448,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
-     *             .id(&#34;lfcp-abc123&#34;)
+     *             .id("lfcp-abc123")
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
-     *             .displayName(&#34;my_compute_pool&#34;)
+     *             .displayName("my_compute_pool")
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1429,7 +1481,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1452,24 +1505,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
-     *             .id(&#34;lfcp-abc123&#34;)
+     *             .id("lfcp-abc123")
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
-     *             .displayName(&#34;my_compute_pool&#34;)
+     *             .displayName("my_compute_pool")
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1484,7 +1538,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1507,24 +1562,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
-     *             .id(&#34;lfcp-abc123&#34;)
+     *             .id("lfcp-abc123")
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getFlinkComputePool(GetFlinkComputePoolArgs.builder()
-     *             .displayName(&#34;my_compute_pool&#34;)
+     *             .displayName("my_compute_pool")
      *             .environment(GetFlinkComputePoolEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getFlinkComputePoolResult -&gt; getFlinkComputePoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getFlinkComputePoolResult -> getFlinkComputePoolResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1539,7 +1595,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1561,14 +1618,15 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-east-1&#34;)
+     *             .cloud("AWS")
+     *             .region("us-east-1")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
+     *         ctx.export("example", example.applyValue(getFlinkRegionResult -> getFlinkRegionResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1583,7 +1641,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1605,14 +1664,15 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-east-1&#34;)
+     *             .cloud("AWS")
+     *             .region("us-east-1")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
+     *         ctx.export("example", example.applyValue(getFlinkRegionResult -> getFlinkRegionResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1627,7 +1687,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1649,14 +1710,15 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-east-1&#34;)
+     *             .cloud("AWS")
+     *             .region("us-east-1")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
+     *         ctx.export("example", example.applyValue(getFlinkRegionResult -> getFlinkRegionResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1671,7 +1733,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1693,14 +1756,15 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getFlinkRegion(GetFlinkRegionArgs.builder()
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-east-1&#34;)
+     *             .cloud("AWS")
+     *             .region("us-east-1")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getFlinkRegionResult -&gt; getFlinkRegionResult));
+     *         ctx.export("example", example.applyValue(getFlinkRegionResult -> getFlinkRegionResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1715,7 +1779,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1738,16 +1803,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getGateway(GetGatewayArgs.builder()
-     *             .id(&#34;gw-abc123&#34;)
+     *             .id("gw-abc123")
      *             .environment(GetGatewayEnvironmentArgs.builder()
-     *                 .id(&#34;env-123abc&#34;)
+     *                 .id("env-123abc")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;gateway&#34;, main.applyValue(getGatewayResult -&gt; getGatewayResult));
+     *         ctx.export("gateway", main.applyValue(getGatewayResult -> getGatewayResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1762,7 +1828,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1785,16 +1852,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getGateway(GetGatewayArgs.builder()
-     *             .id(&#34;gw-abc123&#34;)
+     *             .id("gw-abc123")
      *             .environment(GetGatewayEnvironmentArgs.builder()
-     *                 .id(&#34;env-123abc&#34;)
+     *                 .id("env-123abc")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;gateway&#34;, main.applyValue(getGatewayResult -&gt; getGatewayResult));
+     *         ctx.export("gateway", main.applyValue(getGatewayResult -> getGatewayResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1809,7 +1877,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1832,16 +1901,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getGateway(GetGatewayArgs.builder()
-     *             .id(&#34;gw-abc123&#34;)
+     *             .id("gw-abc123")
      *             .environment(GetGatewayEnvironmentArgs.builder()
-     *                 .id(&#34;env-123abc&#34;)
+     *                 .id("env-123abc")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;gateway&#34;, main.applyValue(getGatewayResult -&gt; getGatewayResult));
+     *         ctx.export("gateway", main.applyValue(getGatewayResult -> getGatewayResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1856,7 +1926,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1879,16 +1950,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getGateway(GetGatewayArgs.builder()
-     *             .id(&#34;gw-abc123&#34;)
+     *             .id("gw-abc123")
      *             .environment(GetGatewayEnvironmentArgs.builder()
-     *                 .id(&#34;env-123abc&#34;)
+     *                 .id("env-123abc")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;gateway&#34;, main.applyValue(getGatewayResult -&gt; getGatewayResult));
+     *         ctx.export("gateway", main.applyValue(getGatewayResult -> getGatewayResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1905,7 +1977,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1927,17 +2000,18 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
-     *             .id(&#34;group-abc123&#34;)
+     *             .id("group-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getGroupMappingResult -> getGroupMappingResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
-     *             .displayName(&#34;Default&#34;)
+     *             .displayName("Default")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1954,7 +2028,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1976,17 +2051,18 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
-     *             .id(&#34;group-abc123&#34;)
+     *             .id("group-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getGroupMappingResult -> getGroupMappingResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
-     *             .displayName(&#34;Default&#34;)
+     *             .displayName("Default")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2003,7 +2079,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2025,17 +2102,18 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
-     *             .id(&#34;group-abc123&#34;)
+     *             .id("group-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getGroupMappingResult -> getGroupMappingResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
-     *             .displayName(&#34;Default&#34;)
+     *             .displayName("Default")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2052,7 +2130,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2074,17 +2153,18 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
-     *             .id(&#34;group-abc123&#34;)
+     *             .id("group-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getGroupMappingResult -> getGroupMappingResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
-     *             .displayName(&#34;Default&#34;)
+     *             .displayName("Default")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2101,7 +2181,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2123,17 +2204,18 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
-     *             .id(&#34;group-abc123&#34;)
+     *             .id("group-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getGroupMappingResult -> getGroupMappingResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
-     *             .displayName(&#34;Default&#34;)
+     *             .displayName("Default")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2150,7 +2232,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2172,17 +2255,18 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
-     *             .id(&#34;group-abc123&#34;)
+     *             .id("group-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getGroupMappingResult -&gt; getGroupMappingResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getGroupMappingResult -> getGroupMappingResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getGroupMapping(GetGroupMappingArgs.builder()
-     *             .displayName(&#34;Default&#34;)
+     *             .displayName("Default")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2197,7 +2281,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2220,24 +2305,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
-     *             .id(&#34;pool-xyz456&#34;)
+     *             .id("pool-xyz456")
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
-     *                 .id(&#34;op-abc123&#34;)
+     *                 .id("op-abc123")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
-     *             .displayName(&#34;My Identity Pool&#34;)
+     *             .displayName("My Identity Pool")
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
-     *                 .id(&#34;op-abc123&#34;)
+     *                 .id("op-abc123")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2252,7 +2338,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2275,24 +2362,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
-     *             .id(&#34;pool-xyz456&#34;)
+     *             .id("pool-xyz456")
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
-     *                 .id(&#34;op-abc123&#34;)
+     *                 .id("op-abc123")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
-     *             .displayName(&#34;My Identity Pool&#34;)
+     *             .displayName("My Identity Pool")
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
-     *                 .id(&#34;op-abc123&#34;)
+     *                 .id("op-abc123")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2307,7 +2395,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2330,24 +2419,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
-     *             .id(&#34;pool-xyz456&#34;)
+     *             .id("pool-xyz456")
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
-     *                 .id(&#34;op-abc123&#34;)
+     *                 .id("op-abc123")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
-     *             .displayName(&#34;My Identity Pool&#34;)
+     *             .displayName("My Identity Pool")
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
-     *                 .id(&#34;op-abc123&#34;)
+     *                 .id("op-abc123")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2362,7 +2452,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2385,24 +2476,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
-     *             .id(&#34;pool-xyz456&#34;)
+     *             .id("pool-xyz456")
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
-     *                 .id(&#34;op-abc123&#34;)
+     *                 .id("op-abc123")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
-     *             .displayName(&#34;My Identity Pool&#34;)
+     *             .displayName("My Identity Pool")
      *             .identityProvider(GetIdentityPoolIdentityProviderArgs.builder()
-     *                 .id(&#34;op-abc123&#34;)
+     *                 .id("op-abc123")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityPoolResult -&gt; getIdentityPoolResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityPoolResult -> getIdentityPoolResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2417,7 +2509,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2439,18 +2532,19 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
-     *             .id(&#34;op-abc123&#34;)
+     *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
-     *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
+     *             .displayName("My OIDC Provider: Azure AD")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2465,7 +2559,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2487,18 +2582,19 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
-     *             .id(&#34;op-abc123&#34;)
+     *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
-     *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
+     *             .displayName("My OIDC Provider: Azure AD")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2513,7 +2609,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2535,18 +2632,19 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
-     *             .id(&#34;op-abc123&#34;)
+     *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
-     *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
+     *             .displayName("My OIDC Provider: Azure AD")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2561,7 +2659,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2583,18 +2682,19 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
-     *             .id(&#34;op-abc123&#34;)
+     *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
-     *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
+     *             .displayName("My OIDC Provider: Azure AD")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2609,7 +2709,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2631,18 +2732,19 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
-     *             .id(&#34;op-abc123&#34;)
+     *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
-     *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
+     *             .displayName("My OIDC Provider: Azure AD")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2657,7 +2759,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2679,18 +2782,19 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
-     *             .id(&#34;op-abc123&#34;)
+     *             .id("op-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getIdentityProvider(GetIdentityProviderArgs.builder()
-     *             .displayName(&#34;My OIDC Provider: Azure AD&#34;)
+     *             .displayName("My OIDC Provider: Azure AD")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getIdentityProviderResult -&gt; getIdentityProviderResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getIdentityProviderResult -> getIdentityProviderResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2705,7 +2809,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2727,13 +2832,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getInvitation(GetInvitationArgs.builder()
-     *             .id(&#34;i-gxxn1&#34;)
+     *             .id("i-gxxn1")
      *             .build());
      * 
-     *         ctx.export(&#34;invitation&#34;, main.applyValue(getInvitationResult -&gt; getInvitationResult));
+     *         ctx.export("invitation", main.applyValue(getInvitationResult -> getInvitationResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2748,7 +2854,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2770,13 +2877,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getInvitation(GetInvitationArgs.builder()
-     *             .id(&#34;i-gxxn1&#34;)
+     *             .id("i-gxxn1")
      *             .build());
      * 
-     *         ctx.export(&#34;invitation&#34;, main.applyValue(getInvitationResult -&gt; getInvitationResult));
+     *         ctx.export("invitation", main.applyValue(getInvitationResult -> getInvitationResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2791,7 +2899,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2813,13 +2922,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getInvitation(GetInvitationArgs.builder()
-     *             .id(&#34;i-gxxn1&#34;)
+     *             .id("i-gxxn1")
      *             .build());
      * 
-     *         ctx.export(&#34;invitation&#34;, main.applyValue(getInvitationResult -&gt; getInvitationResult));
+     *         ctx.export("invitation", main.applyValue(getInvitationResult -> getInvitationResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2834,7 +2944,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2856,13 +2967,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getInvitation(GetInvitationArgs.builder()
-     *             .id(&#34;i-gxxn1&#34;)
+     *             .id("i-gxxn1")
      *             .build());
      * 
-     *         ctx.export(&#34;invitation&#34;, main.applyValue(getInvitationResult -&gt; getInvitationResult));
+     *         ctx.export("invitation", main.applyValue(getInvitationResult -> getInvitationResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2880,7 +2992,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2904,19 +3017,20 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getIpAddresses(GetIpAddressesArgs.builder()
      *             .filter(GetIpAddressesFilterArgs.builder()
-     *                 .clouds(&#34;AWS&#34;)
+     *                 .clouds("AWS")
      *                 .regions(                
-     *                     &#34;us-east-1&#34;,
-     *                     &#34;us-east-2&#34;)
-     *                 .services(&#34;KAFKA&#34;)
-     *                 .addressTypes(&#34;EGRESS&#34;)
+     *                     "us-east-1",
+     *                     "us-east-2")
+     *                 .services("KAFKA")
+     *                 .addressTypes("EGRESS")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;ipAddresses&#34;, main.applyValue(getIpAddressesResult -&gt; getIpAddressesResult.ipAddresses()));
+     *         ctx.export("ipAddresses", main.applyValue(getIpAddressesResult -> getIpAddressesResult.ipAddresses()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2934,7 +3048,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2958,19 +3073,20 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getIpAddresses(GetIpAddressesArgs.builder()
      *             .filter(GetIpAddressesFilterArgs.builder()
-     *                 .clouds(&#34;AWS&#34;)
+     *                 .clouds("AWS")
      *                 .regions(                
-     *                     &#34;us-east-1&#34;,
-     *                     &#34;us-east-2&#34;)
-     *                 .services(&#34;KAFKA&#34;)
-     *                 .addressTypes(&#34;EGRESS&#34;)
+     *                     "us-east-1",
+     *                     "us-east-2")
+     *                 .services("KAFKA")
+     *                 .addressTypes("EGRESS")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;ipAddresses&#34;, main.applyValue(getIpAddressesResult -&gt; getIpAddressesResult.ipAddresses()));
+     *         ctx.export("ipAddresses", main.applyValue(getIpAddressesResult -> getIpAddressesResult.ipAddresses()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2988,7 +3104,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3012,19 +3129,20 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getIpAddresses(GetIpAddressesArgs.builder()
      *             .filter(GetIpAddressesFilterArgs.builder()
-     *                 .clouds(&#34;AWS&#34;)
+     *                 .clouds("AWS")
      *                 .regions(                
-     *                     &#34;us-east-1&#34;,
-     *                     &#34;us-east-2&#34;)
-     *                 .services(&#34;KAFKA&#34;)
-     *                 .addressTypes(&#34;EGRESS&#34;)
+     *                     "us-east-1",
+     *                     "us-east-2")
+     *                 .services("KAFKA")
+     *                 .addressTypes("EGRESS")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;ipAddresses&#34;, main.applyValue(getIpAddressesResult -&gt; getIpAddressesResult.ipAddresses()));
+     *         ctx.export("ipAddresses", main.applyValue(getIpAddressesResult -> getIpAddressesResult.ipAddresses()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3042,7 +3160,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3066,19 +3185,20 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getIpAddresses(GetIpAddressesArgs.builder()
      *             .filter(GetIpAddressesFilterArgs.builder()
-     *                 .clouds(&#34;AWS&#34;)
+     *                 .clouds("AWS")
      *                 .regions(                
-     *                     &#34;us-east-1&#34;,
-     *                     &#34;us-east-2&#34;)
-     *                 .services(&#34;KAFKA&#34;)
-     *                 .addressTypes(&#34;EGRESS&#34;)
+     *                     "us-east-1",
+     *                     "us-east-2")
+     *                 .services("KAFKA")
+     *                 .addressTypes("EGRESS")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;ipAddresses&#34;, main.applyValue(getIpAddressesResult -&gt; getIpAddressesResult.ipAddresses()));
+     *         ctx.export("ipAddresses", main.applyValue(getIpAddressesResult -> getIpAddressesResult.ipAddresses()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3096,7 +3216,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3120,19 +3241,20 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getIpAddresses(GetIpAddressesArgs.builder()
      *             .filter(GetIpAddressesFilterArgs.builder()
-     *                 .clouds(&#34;AWS&#34;)
+     *                 .clouds("AWS")
      *                 .regions(                
-     *                     &#34;us-east-1&#34;,
-     *                     &#34;us-east-2&#34;)
-     *                 .services(&#34;KAFKA&#34;)
-     *                 .addressTypes(&#34;EGRESS&#34;)
+     *                     "us-east-1",
+     *                     "us-east-2")
+     *                 .services("KAFKA")
+     *                 .addressTypes("EGRESS")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;ipAddresses&#34;, main.applyValue(getIpAddressesResult -&gt; getIpAddressesResult.ipAddresses()));
+     *         ctx.export("ipAddresses", main.applyValue(getIpAddressesResult -> getIpAddressesResult.ipAddresses()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3150,7 +3272,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3174,19 +3297,20 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getIpAddresses(GetIpAddressesArgs.builder()
      *             .filter(GetIpAddressesFilterArgs.builder()
-     *                 .clouds(&#34;AWS&#34;)
+     *                 .clouds("AWS")
      *                 .regions(                
-     *                     &#34;us-east-1&#34;,
-     *                     &#34;us-east-2&#34;)
-     *                 .services(&#34;KAFKA&#34;)
-     *                 .addressTypes(&#34;EGRESS&#34;)
+     *                     "us-east-1",
+     *                     "us-east-2")
+     *                 .services("KAFKA")
+     *                 .addressTypes("EGRESS")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;ipAddresses&#34;, main.applyValue(getIpAddressesResult -&gt; getIpAddressesResult.ipAddresses()));
+     *         ctx.export("ipAddresses", main.applyValue(getIpAddressesResult -> getIpAddressesResult.ipAddresses()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3203,7 +3327,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3225,13 +3350,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
-     *             .id(&#34;cq-abc123&#34;)
+     *             .id("cq-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
+     *         ctx.export("example", example.applyValue(getKafkaClientQuotaResult -> getKafkaClientQuotaResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3248,7 +3374,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3270,13 +3397,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
-     *             .id(&#34;cq-abc123&#34;)
+     *             .id("cq-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
+     *         ctx.export("example", example.applyValue(getKafkaClientQuotaResult -> getKafkaClientQuotaResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3293,7 +3421,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3315,13 +3444,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
-     *             .id(&#34;cq-abc123&#34;)
+     *             .id("cq-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
+     *         ctx.export("example", example.applyValue(getKafkaClientQuotaResult -> getKafkaClientQuotaResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3338,7 +3468,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3360,13 +3491,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getKafkaClientQuota(GetKafkaClientQuotaArgs.builder()
-     *             .id(&#34;cq-abc123&#34;)
+     *             .id("cq-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getKafkaClientQuotaResult -&gt; getKafkaClientQuotaResult));
+     *         ctx.export("example", example.applyValue(getKafkaClientQuotaResult -> getKafkaClientQuotaResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3381,7 +3513,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3406,28 +3539,29 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
-     *             .id(&#34;lkc-abc123&#34;)
+     *             .id("lkc-abc123")
      *             .environment(GetKafkaClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
-     *             .displayName(&#34;app_mgr&#34;)
-     *             .description(String.format(&#34;app_mgr for %s&#34;, exampleUsingId.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult.displayName())))
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *             .displayName("app_mgr")
+     *             .description(String.format("app_mgr for %s", exampleUsingId.applyValue(getKafkaClusterResult -> getKafkaClusterResult.displayName())))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
-     *             .displayName(&#34;basic_kafka_cluster&#34;)
+     *             .displayName("basic_kafka_cluster")
      *             .environment(GetKafkaClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKafkaClusterResult -> getKafkaClusterResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3442,7 +3576,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3467,28 +3602,29 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
-     *             .id(&#34;lkc-abc123&#34;)
+     *             .id("lkc-abc123")
      *             .environment(GetKafkaClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
-     *             .displayName(&#34;app_mgr&#34;)
-     *             .description(String.format(&#34;app_mgr for %s&#34;, exampleUsingId.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult.displayName())))
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *             .displayName("app_mgr")
+     *             .description(String.format("app_mgr for %s", exampleUsingId.applyValue(getKafkaClusterResult -> getKafkaClusterResult.displayName())))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
-     *             .displayName(&#34;basic_kafka_cluster&#34;)
+     *             .displayName("basic_kafka_cluster")
      *             .environment(GetKafkaClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKafkaClusterResult -> getKafkaClusterResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3503,7 +3639,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3528,28 +3665,29 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
-     *             .id(&#34;lkc-abc123&#34;)
+     *             .id("lkc-abc123")
      *             .environment(GetKafkaClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
-     *             .displayName(&#34;app_mgr&#34;)
-     *             .description(String.format(&#34;app_mgr for %s&#34;, exampleUsingId.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult.displayName())))
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *             .displayName("app_mgr")
+     *             .description(String.format("app_mgr for %s", exampleUsingId.applyValue(getKafkaClusterResult -> getKafkaClusterResult.displayName())))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
-     *             .displayName(&#34;basic_kafka_cluster&#34;)
+     *             .displayName("basic_kafka_cluster")
      *             .environment(GetKafkaClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKafkaClusterResult -> getKafkaClusterResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3564,7 +3702,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3589,28 +3728,29 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
-     *             .id(&#34;lkc-abc123&#34;)
+     *             .id("lkc-abc123")
      *             .environment(GetKafkaClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
-     *             .displayName(&#34;app_mgr&#34;)
-     *             .description(String.format(&#34;app_mgr for %s&#34;, exampleUsingId.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult.displayName())))
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *             .displayName("app_mgr")
+     *             .description(String.format("app_mgr for %s", exampleUsingId.applyValue(getKafkaClusterResult -> getKafkaClusterResult.displayName())))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getKafkaCluster(GetKafkaClusterArgs.builder()
-     *             .displayName(&#34;basic_kafka_cluster&#34;)
+     *             .displayName("basic_kafka_cluster")
      *             .environment(GetKafkaClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKafkaClusterResult -&gt; getKafkaClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKafkaClusterResult -> getKafkaClusterResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3639,7 +3779,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3662,24 +3803,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
-     *             .id(&#34;lksqlc-abc123&#34;)
+     *             .id("lksqlc-abc123")
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
-     *             .displayName(&#34;ksqldb_cluster&#34;)
+     *             .displayName("ksqldb_cluster")
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3696,7 +3838,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3719,24 +3862,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
-     *             .id(&#34;lksqlc-abc123&#34;)
+     *             .id("lksqlc-abc123")
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
-     *             .displayName(&#34;ksqldb_cluster&#34;)
+     *             .displayName("ksqldb_cluster")
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3753,7 +3897,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3776,24 +3921,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
-     *             .id(&#34;lksqlc-abc123&#34;)
+     *             .id("lksqlc-abc123")
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
-     *             .displayName(&#34;ksqldb_cluster&#34;)
+     *             .displayName("ksqldb_cluster")
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3810,7 +3956,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3833,24 +3980,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
-     *             .id(&#34;lksqlc-abc123&#34;)
+     *             .id("lksqlc-abc123")
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getKsqlCluster(GetKsqlClusterArgs.builder()
-     *             .displayName(&#34;ksqldb_cluster&#34;)
+     *             .displayName("ksqldb_cluster")
      *             .environment(GetKsqlClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getKsqlClusterResult -&gt; getKsqlClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getKsqlClusterResult -> getKsqlClusterResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3861,7 +4009,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3886,28 +4035,29 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id(&#34;n-abc123&#34;)
+     *             .id("n-abc123")
      *             .environment(GetNetworkEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
-     *             .displayName(&#34;test_sa&#34;)
-     *             .description(String.format(&#34;test_sa for %s&#34;, exampleUsingId.applyValue(getNetworkResult -&gt; getNetworkResult.displayName())))
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *             .displayName("test_sa")
+     *             .description(String.format("test_sa for %s", exampleUsingId.applyValue(getNetworkResult -> getNetworkResult.displayName())))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .displayName(&#34;my_network&#34;)
+     *             .displayName("my_network")
      *             .environment(GetNetworkEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getNetworkResult -&gt; getNetworkResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getNetworkResult -> getNetworkResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3918,7 +4068,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3943,28 +4094,29 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id(&#34;n-abc123&#34;)
+     *             .id("n-abc123")
      *             .environment(GetNetworkEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
-     *             .displayName(&#34;test_sa&#34;)
-     *             .description(String.format(&#34;test_sa for %s&#34;, exampleUsingId.applyValue(getNetworkResult -&gt; getNetworkResult.displayName())))
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *             .displayName("test_sa")
+     *             .description(String.format("test_sa for %s", exampleUsingId.applyValue(getNetworkResult -> getNetworkResult.displayName())))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .displayName(&#34;my_network&#34;)
+     *             .displayName("my_network")
      *             .environment(GetNetworkEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getNetworkResult -&gt; getNetworkResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getNetworkResult -> getNetworkResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3975,7 +4127,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4000,28 +4153,29 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id(&#34;n-abc123&#34;)
+     *             .id("n-abc123")
      *             .environment(GetNetworkEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
-     *             .displayName(&#34;test_sa&#34;)
-     *             .description(String.format(&#34;test_sa for %s&#34;, exampleUsingId.applyValue(getNetworkResult -&gt; getNetworkResult.displayName())))
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *             .displayName("test_sa")
+     *             .description(String.format("test_sa for %s", exampleUsingId.applyValue(getNetworkResult -> getNetworkResult.displayName())))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .displayName(&#34;my_network&#34;)
+     *             .displayName("my_network")
      *             .environment(GetNetworkEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getNetworkResult -&gt; getNetworkResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getNetworkResult -> getNetworkResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4032,7 +4186,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4057,28 +4212,29 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .id(&#34;n-abc123&#34;)
+     *             .id("n-abc123")
      *             .environment(GetNetworkEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         var test_sa = new ServiceAccount(&#34;test-sa&#34;, ServiceAccountArgs.builder()        
-     *             .displayName(&#34;test_sa&#34;)
-     *             .description(String.format(&#34;test_sa for %s&#34;, exampleUsingId.applyValue(getNetworkResult -&gt; getNetworkResult.displayName())))
+     *         var test_sa = new ServiceAccount("test-sa", ServiceAccountArgs.builder()        
+     *             .displayName("test_sa")
+     *             .description(String.format("test_sa for %s", exampleUsingId.applyValue(getNetworkResult -> getNetworkResult.displayName())))
      *             .build());
      * 
      *         final var exampleUsingName = ConfluentcloudFunctions.getNetwork(GetNetworkArgs.builder()
-     *             .displayName(&#34;my_network&#34;)
+     *             .displayName("my_network")
      *             .environment(GetNetworkEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getNetworkResult -&gt; getNetworkResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getNetworkResult -> getNetworkResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4093,7 +4249,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4116,16 +4273,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var nle = ConfluentcloudFunctions.getNetworkLinkEndpoint(GetNetworkLinkEndpointArgs.builder()
-     *             .id(&#34;nle-1357&#34;)
+     *             .id("nle-1357")
      *             .environment(GetNetworkLinkEndpointEnvironmentArgs.builder()
-     *                 .id(&#34;env-1234&#34;)
+     *                 .id("env-1234")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;networkLinkEndpoint&#34;, nle.applyValue(getNetworkLinkEndpointResult -&gt; getNetworkLinkEndpointResult));
+     *         ctx.export("networkLinkEndpoint", nle.applyValue(getNetworkLinkEndpointResult -> getNetworkLinkEndpointResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4140,7 +4298,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4163,16 +4322,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var nle = ConfluentcloudFunctions.getNetworkLinkEndpoint(GetNetworkLinkEndpointArgs.builder()
-     *             .id(&#34;nle-1357&#34;)
+     *             .id("nle-1357")
      *             .environment(GetNetworkLinkEndpointEnvironmentArgs.builder()
-     *                 .id(&#34;env-1234&#34;)
+     *                 .id("env-1234")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;networkLinkEndpoint&#34;, nle.applyValue(getNetworkLinkEndpointResult -&gt; getNetworkLinkEndpointResult));
+     *         ctx.export("networkLinkEndpoint", nle.applyValue(getNetworkLinkEndpointResult -> getNetworkLinkEndpointResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4187,7 +4347,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4210,16 +4371,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var nle = ConfluentcloudFunctions.getNetworkLinkEndpoint(GetNetworkLinkEndpointArgs.builder()
-     *             .id(&#34;nle-1357&#34;)
+     *             .id("nle-1357")
      *             .environment(GetNetworkLinkEndpointEnvironmentArgs.builder()
-     *                 .id(&#34;env-1234&#34;)
+     *                 .id("env-1234")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;networkLinkEndpoint&#34;, nle.applyValue(getNetworkLinkEndpointResult -&gt; getNetworkLinkEndpointResult));
+     *         ctx.export("networkLinkEndpoint", nle.applyValue(getNetworkLinkEndpointResult -> getNetworkLinkEndpointResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4234,7 +4396,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4257,16 +4420,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var nle = ConfluentcloudFunctions.getNetworkLinkEndpoint(GetNetworkLinkEndpointArgs.builder()
-     *             .id(&#34;nle-1357&#34;)
+     *             .id("nle-1357")
      *             .environment(GetNetworkLinkEndpointEnvironmentArgs.builder()
-     *                 .id(&#34;env-1234&#34;)
+     *                 .id("env-1234")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;networkLinkEndpoint&#34;, nle.applyValue(getNetworkLinkEndpointResult -&gt; getNetworkLinkEndpointResult));
+     *         ctx.export("networkLinkEndpoint", nle.applyValue(getNetworkLinkEndpointResult -> getNetworkLinkEndpointResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4281,7 +4445,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4304,16 +4469,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var nls = ConfluentcloudFunctions.getNetworkLinkService(GetNetworkLinkServiceArgs.builder()
-     *             .id(&#34;nls-zyw30&#34;)
+     *             .id("nls-zyw30")
      *             .environment(GetNetworkLinkServiceEnvironmentArgs.builder()
-     *                 .id(&#34;env-1234&#34;)
+     *                 .id("env-1234")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;networkLinkService&#34;, nls.applyValue(getNetworkLinkServiceResult -&gt; getNetworkLinkServiceResult));
+     *         ctx.export("networkLinkService", nls.applyValue(getNetworkLinkServiceResult -> getNetworkLinkServiceResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4328,7 +4494,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4351,16 +4518,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var nls = ConfluentcloudFunctions.getNetworkLinkService(GetNetworkLinkServiceArgs.builder()
-     *             .id(&#34;nls-zyw30&#34;)
+     *             .id("nls-zyw30")
      *             .environment(GetNetworkLinkServiceEnvironmentArgs.builder()
-     *                 .id(&#34;env-1234&#34;)
+     *                 .id("env-1234")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;networkLinkService&#34;, nls.applyValue(getNetworkLinkServiceResult -&gt; getNetworkLinkServiceResult));
+     *         ctx.export("networkLinkService", nls.applyValue(getNetworkLinkServiceResult -> getNetworkLinkServiceResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4375,7 +4543,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4398,16 +4567,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var nls = ConfluentcloudFunctions.getNetworkLinkService(GetNetworkLinkServiceArgs.builder()
-     *             .id(&#34;nls-zyw30&#34;)
+     *             .id("nls-zyw30")
      *             .environment(GetNetworkLinkServiceEnvironmentArgs.builder()
-     *                 .id(&#34;env-1234&#34;)
+     *                 .id("env-1234")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;networkLinkService&#34;, nls.applyValue(getNetworkLinkServiceResult -&gt; getNetworkLinkServiceResult));
+     *         ctx.export("networkLinkService", nls.applyValue(getNetworkLinkServiceResult -> getNetworkLinkServiceResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4422,7 +4592,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4445,16 +4616,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var nls = ConfluentcloudFunctions.getNetworkLinkService(GetNetworkLinkServiceArgs.builder()
-     *             .id(&#34;nls-zyw30&#34;)
+     *             .id("nls-zyw30")
      *             .environment(GetNetworkLinkServiceEnvironmentArgs.builder()
-     *                 .id(&#34;env-1234&#34;)
+     *                 .id("env-1234")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;networkLinkService&#34;, nls.applyValue(getNetworkLinkServiceResult -&gt; getNetworkLinkServiceResult));
+     *         ctx.export("networkLinkService", nls.applyValue(getNetworkLinkServiceResult -> getNetworkLinkServiceResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4469,7 +4641,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4491,10 +4664,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *         ctx.export("example", example.applyValue(getOrganizationResult -> getOrganizationResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4509,7 +4683,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4531,10 +4706,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *         ctx.export("example", example.applyValue(getOrganizationResult -> getOrganizationResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4549,7 +4725,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4571,10 +4748,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *         ctx.export("example", example.applyValue(getOrganizationResult -> getOrganizationResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4589,7 +4767,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4611,10 +4790,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *         ctx.export("example", example.applyValue(getOrganizationResult -> getOrganizationResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4629,7 +4809,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4651,10 +4832,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *         ctx.export("example", example.applyValue(getOrganizationResult -> getOrganizationResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4669,7 +4851,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4691,10 +4874,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult));
+     *         ctx.export("example", example.applyValue(getOrganizationResult -> getOrganizationResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4709,7 +4893,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4732,24 +4917,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
-     *             .id(&#34;peer-abc123&#34;)
+     *             .id("peer-abc123")
      *             .environment(GetPeeringEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPeeringResult -> getPeeringResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
-     *             .displayName(&#34;my_peering&#34;)
+     *             .displayName("my_peering")
      *             .environment(GetPeeringEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPeeringResult -> getPeeringResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4764,7 +4950,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4787,24 +4974,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
-     *             .id(&#34;peer-abc123&#34;)
+     *             .id("peer-abc123")
      *             .environment(GetPeeringEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPeeringResult -> getPeeringResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
-     *             .displayName(&#34;my_peering&#34;)
+     *             .displayName("my_peering")
      *             .environment(GetPeeringEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPeeringResult -> getPeeringResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4819,7 +5007,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4842,24 +5031,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
-     *             .id(&#34;peer-abc123&#34;)
+     *             .id("peer-abc123")
      *             .environment(GetPeeringEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPeeringResult -> getPeeringResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
-     *             .displayName(&#34;my_peering&#34;)
+     *             .displayName("my_peering")
      *             .environment(GetPeeringEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPeeringResult -> getPeeringResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4874,7 +5064,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4897,24 +5088,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
-     *             .id(&#34;peer-abc123&#34;)
+     *             .id("peer-abc123")
      *             .environment(GetPeeringEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPeeringResult -> getPeeringResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getPeering(GetPeeringArgs.builder()
-     *             .displayName(&#34;my_peering&#34;)
+     *             .displayName("my_peering")
      *             .environment(GetPeeringEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPeeringResult -&gt; getPeeringResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPeeringResult -> getPeeringResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4929,7 +5121,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4952,24 +5145,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
-     *             .id(&#34;pla-abc123&#34;)
+     *             .id("pla-abc123")
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
-     *             .displayName(&#34;my_pla&#34;)
+     *             .displayName("my_pla")
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4984,7 +5178,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5007,24 +5202,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
-     *             .id(&#34;pla-abc123&#34;)
+     *             .id("pla-abc123")
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
-     *             .displayName(&#34;my_pla&#34;)
+     *             .displayName("my_pla")
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5039,7 +5235,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5062,24 +5259,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
-     *             .id(&#34;pla-abc123&#34;)
+     *             .id("pla-abc123")
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
-     *             .displayName(&#34;my_pla&#34;)
+     *             .displayName("my_pla")
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5094,7 +5292,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5117,24 +5316,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
-     *             .id(&#34;pla-abc123&#34;)
+     *             .id("pla-abc123")
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getPrivateLinkAccess(GetPrivateLinkAccessArgs.builder()
-     *             .displayName(&#34;my_pla&#34;)
+     *             .displayName("my_pla")
      *             .environment(GetPrivateLinkAccessEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getPrivateLinkAccessResult -&gt; getPrivateLinkAccessResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getPrivateLinkAccessResult -> getPrivateLinkAccessResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5149,7 +5349,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5172,16 +5373,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs.builder()
-     *             .id(&#34;platt-abcde&#34;)
+     *             .id("platt-abcde")
      *             .environment(GetPrivateLinkAttachmentEnvironmentArgs.builder()
-     *                 .id(&#34;env-1234&#34;)
+     *                 .id("env-1234")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;platt&#34;, main.applyValue(getPrivateLinkAttachmentResult -&gt; getPrivateLinkAttachmentResult));
+     *         ctx.export("platt", main.applyValue(getPrivateLinkAttachmentResult -> getPrivateLinkAttachmentResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Getting Started
@@ -5202,7 +5404,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5225,16 +5428,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs.builder()
-     *             .id(&#34;platt-abcde&#34;)
+     *             .id("platt-abcde")
      *             .environment(GetPrivateLinkAttachmentEnvironmentArgs.builder()
-     *                 .id(&#34;env-1234&#34;)
+     *                 .id("env-1234")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;platt&#34;, main.applyValue(getPrivateLinkAttachmentResult -&gt; getPrivateLinkAttachmentResult));
+     *         ctx.export("platt", main.applyValue(getPrivateLinkAttachmentResult -> getPrivateLinkAttachmentResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Getting Started
@@ -5255,7 +5459,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5278,16 +5483,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs.builder()
-     *             .id(&#34;platt-abcde&#34;)
+     *             .id("platt-abcde")
      *             .environment(GetPrivateLinkAttachmentEnvironmentArgs.builder()
-     *                 .id(&#34;env-1234&#34;)
+     *                 .id("env-1234")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;platt&#34;, main.applyValue(getPrivateLinkAttachmentResult -&gt; getPrivateLinkAttachmentResult));
+     *         ctx.export("platt", main.applyValue(getPrivateLinkAttachmentResult -> getPrivateLinkAttachmentResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Getting Started
@@ -5308,7 +5514,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5331,16 +5538,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachment(GetPrivateLinkAttachmentArgs.builder()
-     *             .id(&#34;platt-abcde&#34;)
+     *             .id("platt-abcde")
      *             .environment(GetPrivateLinkAttachmentEnvironmentArgs.builder()
-     *                 .id(&#34;env-1234&#34;)
+     *                 .id("env-1234")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;platt&#34;, main.applyValue(getPrivateLinkAttachmentResult -&gt; getPrivateLinkAttachmentResult));
+     *         ctx.export("platt", main.applyValue(getPrivateLinkAttachmentResult -> getPrivateLinkAttachmentResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Getting Started
@@ -5361,7 +5569,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5384,16 +5593,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs.builder()
-     *             .id(&#34;plattc-p5j3ov&#34;)
+     *             .id("plattc-p5j3ov")
      *             .environment(GetPrivateLinkAttachmentConnectionEnvironmentArgs.builder()
-     *                 .id(&#34;env-8gv0v5&#34;)
+     *                 .id("env-8gv0v5")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;plattc&#34;, main.applyValue(getPrivateLinkAttachmentConnectionResult -&gt; getPrivateLinkAttachmentConnectionResult));
+     *         ctx.export("plattc", main.applyValue(getPrivateLinkAttachmentConnectionResult -> getPrivateLinkAttachmentConnectionResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Getting Started
@@ -5414,7 +5624,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5437,16 +5648,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs.builder()
-     *             .id(&#34;plattc-p5j3ov&#34;)
+     *             .id("plattc-p5j3ov")
      *             .environment(GetPrivateLinkAttachmentConnectionEnvironmentArgs.builder()
-     *                 .id(&#34;env-8gv0v5&#34;)
+     *                 .id("env-8gv0v5")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;plattc&#34;, main.applyValue(getPrivateLinkAttachmentConnectionResult -&gt; getPrivateLinkAttachmentConnectionResult));
+     *         ctx.export("plattc", main.applyValue(getPrivateLinkAttachmentConnectionResult -> getPrivateLinkAttachmentConnectionResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Getting Started
@@ -5467,7 +5679,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5490,16 +5703,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs.builder()
-     *             .id(&#34;plattc-p5j3ov&#34;)
+     *             .id("plattc-p5j3ov")
      *             .environment(GetPrivateLinkAttachmentConnectionEnvironmentArgs.builder()
-     *                 .id(&#34;env-8gv0v5&#34;)
+     *                 .id("env-8gv0v5")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;plattc&#34;, main.applyValue(getPrivateLinkAttachmentConnectionResult -&gt; getPrivateLinkAttachmentConnectionResult));
+     *         ctx.export("plattc", main.applyValue(getPrivateLinkAttachmentConnectionResult -> getPrivateLinkAttachmentConnectionResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Getting Started
@@ -5520,7 +5734,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5543,16 +5758,17 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getPrivateLinkAttachmentConnection(GetPrivateLinkAttachmentConnectionArgs.builder()
-     *             .id(&#34;plattc-p5j3ov&#34;)
+     *             .id("plattc-p5j3ov")
      *             .environment(GetPrivateLinkAttachmentConnectionEnvironmentArgs.builder()
-     *                 .id(&#34;env-8gv0v5&#34;)
+     *                 .id("env-8gv0v5")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;plattc&#34;, main.applyValue(getPrivateLinkAttachmentConnectionResult -&gt; getPrivateLinkAttachmentConnectionResult));
+     *         ctx.export("plattc", main.applyValue(getPrivateLinkAttachmentConnectionResult -> getPrivateLinkAttachmentConnectionResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Getting Started
@@ -5575,7 +5791,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5597,13 +5814,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()
-     *             .id(&#34;rb-abc123&#34;)
+     *             .id("rb-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getRoleBindingResult -&gt; getRoleBindingResult));
+     *         ctx.export("example", example.applyValue(getRoleBindingResult -> getRoleBindingResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5620,7 +5838,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5642,13 +5861,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()
-     *             .id(&#34;rb-abc123&#34;)
+     *             .id("rb-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getRoleBindingResult -&gt; getRoleBindingResult));
+     *         ctx.export("example", example.applyValue(getRoleBindingResult -> getRoleBindingResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5665,7 +5885,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5687,13 +5908,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()
-     *             .id(&#34;rb-abc123&#34;)
+     *             .id("rb-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getRoleBindingResult -&gt; getRoleBindingResult));
+     *         ctx.export("example", example.applyValue(getRoleBindingResult -> getRoleBindingResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5710,7 +5932,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5732,13 +5955,14 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getRoleBinding(GetRoleBindingArgs.builder()
-     *             .id(&#34;rb-abc123&#34;)
+     *             .id("rb-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getRoleBindingResult -&gt; getRoleBindingResult));
+     *         ctx.export("example", example.applyValue(getRoleBindingResult -> getRoleBindingResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5765,7 +5989,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5790,30 +6015,31 @@ public final class ConfluentcloudFunctions {
      *         // Loads the only Schema Registry cluster in the target environment
      *         final var exampleUsingEnvId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingEnvId&#34;, exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
      *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
-     *             .id(&#34;lsrc-abc123&#34;)
+     *             .id("lsrc-abc123")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
-     *             .displayName(&#34;Stream Governance Package&#34;)
+     *             .displayName("Stream Governance Package")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5828,7 +6054,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5853,30 +6080,31 @@ public final class ConfluentcloudFunctions {
      *         // Loads the only Schema Registry cluster in the target environment
      *         final var exampleUsingEnvId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingEnvId&#34;, exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
      *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
-     *             .id(&#34;lsrc-abc123&#34;)
+     *             .id("lsrc-abc123")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
-     *             .displayName(&#34;Stream Governance Package&#34;)
+     *             .displayName("Stream Governance Package")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5891,7 +6119,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5916,30 +6145,31 @@ public final class ConfluentcloudFunctions {
      *         // Loads the only Schema Registry cluster in the target environment
      *         final var exampleUsingEnvId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingEnvId&#34;, exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
      *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
-     *             .id(&#34;lsrc-abc123&#34;)
+     *             .id("lsrc-abc123")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
-     *             .displayName(&#34;Stream Governance Package&#34;)
+     *             .displayName("Stream Governance Package")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5954,7 +6184,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5979,30 +6210,31 @@ public final class ConfluentcloudFunctions {
      *         // Loads the only Schema Registry cluster in the target environment
      *         final var exampleUsingEnvId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingEnvId&#34;, exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingEnvId", exampleUsingEnvId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
      *         final var exampleUsingId = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
-     *             .id(&#34;lsrc-abc123&#34;)
+     *             .id("lsrc-abc123")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getSchemaRegistryCluster(GetSchemaRegistryClusterArgs.builder()
-     *             .displayName(&#34;Stream Governance Package&#34;)
+     *             .displayName("Stream Governance Package")
      *             .environment(GetSchemaRegistryClusterEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getSchemaRegistryClusterResult -&gt; getSchemaRegistryClusterResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getSchemaRegistryClusterResult -> getSchemaRegistryClusterResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6053,7 +6285,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6077,7 +6310,8 @@ public final class ConfluentcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6092,7 +6326,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6116,7 +6351,8 @@ public final class ConfluentcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6131,7 +6367,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6155,7 +6392,8 @@ public final class ConfluentcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6170,7 +6408,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6194,7 +6433,8 @@ public final class ConfluentcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6209,7 +6449,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6233,7 +6474,8 @@ public final class ConfluentcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6248,7 +6490,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6272,7 +6515,8 @@ public final class ConfluentcloudFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6315,7 +6559,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6337,15 +6582,16 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-east-2&#34;)
-     *             .package_(&#34;ESSENTIALS&#34;)
+     *             .cloud("AWS")
+     *             .region("us-east-2")
+     *             .package_("ESSENTIALS")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getSchemaRegistryRegionResult -&gt; getSchemaRegistryRegionResult));
+     *         ctx.export("example", example.applyValue(getSchemaRegistryRegionResult -> getSchemaRegistryRegionResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6364,7 +6610,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6386,15 +6633,16 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-east-2&#34;)
-     *             .package_(&#34;ESSENTIALS&#34;)
+     *             .cloud("AWS")
+     *             .region("us-east-2")
+     *             .package_("ESSENTIALS")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getSchemaRegistryRegionResult -&gt; getSchemaRegistryRegionResult));
+     *         ctx.export("example", example.applyValue(getSchemaRegistryRegionResult -> getSchemaRegistryRegionResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6413,7 +6661,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6435,15 +6684,16 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-east-2&#34;)
-     *             .package_(&#34;ESSENTIALS&#34;)
+     *             .cloud("AWS")
+     *             .region("us-east-2")
+     *             .package_("ESSENTIALS")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getSchemaRegistryRegionResult -&gt; getSchemaRegistryRegionResult));
+     *         ctx.export("example", example.applyValue(getSchemaRegistryRegionResult -> getSchemaRegistryRegionResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6462,7 +6712,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6484,15 +6735,16 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConfluentcloudFunctions.getSchemaRegistryRegion(GetSchemaRegistryRegionArgs.builder()
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-east-2&#34;)
-     *             .package_(&#34;ESSENTIALS&#34;)
+     *             .cloud("AWS")
+     *             .region("us-east-2")
+     *             .package_("ESSENTIALS")
      *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, example.applyValue(getSchemaRegistryRegionResult -&gt; getSchemaRegistryRegionResult));
+     *         ctx.export("example", example.applyValue(getSchemaRegistryRegionResult -> getSchemaRegistryRegionResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6525,7 +6777,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6549,21 +6802,22 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .id(&#34;sa-abc123&#34;)
+     *             .id("sa-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .displayName(&#34;test_sa&#34;)
+     *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
-     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.displayName())))
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6578,7 +6832,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6602,21 +6857,22 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .id(&#34;sa-abc123&#34;)
+     *             .id("sa-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .displayName(&#34;test_sa&#34;)
+     *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
-     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.displayName())))
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6631,7 +6887,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6655,21 +6912,22 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .id(&#34;sa-abc123&#34;)
+     *             .id("sa-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .displayName(&#34;test_sa&#34;)
+     *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
-     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.displayName())))
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6684,7 +6942,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6708,21 +6967,22 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .id(&#34;sa-abc123&#34;)
+     *             .id("sa-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .displayName(&#34;test_sa&#34;)
+     *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
-     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.displayName())))
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6737,7 +6997,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6761,21 +7022,22 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .id(&#34;sa-abc123&#34;)
+     *             .id("sa-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .displayName(&#34;test_sa&#34;)
+     *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
-     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.displayName())))
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6790,7 +7052,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6814,21 +7077,22 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .id(&#34;sa-abc123&#34;)
+     *             .id("sa-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getServiceAccount(GetServiceAccountArgs.builder()
-     *             .displayName(&#34;test_sa&#34;)
+     *             .displayName("test_sa")
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
-     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.displayName())))
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getServiceAccountResult -> getServiceAccountResult.displayName())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6891,7 +7155,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6914,24 +7179,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
-     *             .id(&#34;tgwa-abc123&#34;)
+     *             .id("tgwa-abc123")
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
-     *             .displayName(&#34;my_tgwa&#34;)
+     *             .displayName("my_tgwa")
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -6946,7 +7212,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -6969,24 +7236,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
-     *             .id(&#34;tgwa-abc123&#34;)
+     *             .id("tgwa-abc123")
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
-     *             .displayName(&#34;my_tgwa&#34;)
+     *             .displayName("my_tgwa")
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7001,7 +7269,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7024,24 +7293,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
-     *             .id(&#34;tgwa-abc123&#34;)
+     *             .id("tgwa-abc123")
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
-     *             .displayName(&#34;my_tgwa&#34;)
+     *             .displayName("my_tgwa")
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7056,7 +7326,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7079,24 +7350,25 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
-     *             .id(&#34;tgwa-abc123&#34;)
+     *             .id("tgwa-abc123")
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
      *         final var exampleUsingName = ConfluentcloudFunctions.getTransitGatewayAttachment(GetTransitGatewayAttachmentArgs.builder()
-     *             .displayName(&#34;my_tgwa&#34;)
+     *             .displayName("my_tgwa")
      *             .environment(GetTransitGatewayAttachmentEnvironmentArgs.builder()
-     *                 .id(&#34;env-xyz456&#34;)
+     *                 .id("env-xyz456")
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingName&#34;, exampleUsingName.applyValue(getTransitGatewayAttachmentResult -&gt; getTransitGatewayAttachmentResult));
+     *         ctx.export("exampleUsingName", exampleUsingName.applyValue(getTransitGatewayAttachmentResult -> getTransitGatewayAttachmentResult));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7111,7 +7383,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7141,42 +7414,43 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .id(&#34;u-abc123&#34;)
+     *             .id("u-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;test123@gmail.com&#34;)
+     *             .email("test123{@literal @}gmail.com")
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
-     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult.fullName())))
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
      *             .build());
      * 
-     *         var standard_cluster_on_aws = new KafkaCluster(&#34;standard-cluster-on-aws&#34;, KafkaClusterArgs.builder()        
-     *             .displayName(&#34;standard_kafka_cluster_on_aws&#34;)
-     *             .availability(&#34;SINGLE_ZONE&#34;)
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-west-2&#34;)
+     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()        
+     *             .displayName("standard_kafka_cluster_on_aws")
+     *             .availability("SINGLE_ZONE")
+     *             .cloud("AWS")
+     *             .region("us-west-2")
      *             .standard()
      *             .environment(KafkaClusterEnvironmentArgs.builder()
      *                 .id(test_env.id())
      *                 .build())
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingEmail.applyValue(getUserResult -&gt; getUserResult.id())))
-     *             .roleName(&#34;CloudClusterAdmin&#34;)
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
+     *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
      *             .build());
      * 
      *         final var exampleUsingFullName = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .fullName(&#34;John Doe&#34;)
+     *             .fullName("John Doe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7191,7 +7465,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7221,42 +7496,43 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .id(&#34;u-abc123&#34;)
+     *             .id("u-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;test123@gmail.com&#34;)
+     *             .email("test123{@literal @}gmail.com")
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
-     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult.fullName())))
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
      *             .build());
      * 
-     *         var standard_cluster_on_aws = new KafkaCluster(&#34;standard-cluster-on-aws&#34;, KafkaClusterArgs.builder()        
-     *             .displayName(&#34;standard_kafka_cluster_on_aws&#34;)
-     *             .availability(&#34;SINGLE_ZONE&#34;)
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-west-2&#34;)
+     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()        
+     *             .displayName("standard_kafka_cluster_on_aws")
+     *             .availability("SINGLE_ZONE")
+     *             .cloud("AWS")
+     *             .region("us-west-2")
      *             .standard()
      *             .environment(KafkaClusterEnvironmentArgs.builder()
      *                 .id(test_env.id())
      *                 .build())
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingEmail.applyValue(getUserResult -&gt; getUserResult.id())))
-     *             .roleName(&#34;CloudClusterAdmin&#34;)
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
+     *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
      *             .build());
      * 
      *         final var exampleUsingFullName = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .fullName(&#34;John Doe&#34;)
+     *             .fullName("John Doe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7271,7 +7547,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7301,42 +7578,43 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .id(&#34;u-abc123&#34;)
+     *             .id("u-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;test123@gmail.com&#34;)
+     *             .email("test123{@literal @}gmail.com")
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
-     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult.fullName())))
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
      *             .build());
      * 
-     *         var standard_cluster_on_aws = new KafkaCluster(&#34;standard-cluster-on-aws&#34;, KafkaClusterArgs.builder()        
-     *             .displayName(&#34;standard_kafka_cluster_on_aws&#34;)
-     *             .availability(&#34;SINGLE_ZONE&#34;)
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-west-2&#34;)
+     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()        
+     *             .displayName("standard_kafka_cluster_on_aws")
+     *             .availability("SINGLE_ZONE")
+     *             .cloud("AWS")
+     *             .region("us-west-2")
      *             .standard()
      *             .environment(KafkaClusterEnvironmentArgs.builder()
      *                 .id(test_env.id())
      *                 .build())
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingEmail.applyValue(getUserResult -&gt; getUserResult.id())))
-     *             .roleName(&#34;CloudClusterAdmin&#34;)
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
+     *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
      *             .build());
      * 
      *         final var exampleUsingFullName = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .fullName(&#34;John Doe&#34;)
+     *             .fullName("John Doe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7351,7 +7629,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7381,42 +7660,43 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .id(&#34;u-abc123&#34;)
+     *             .id("u-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;test123@gmail.com&#34;)
+     *             .email("test123{@literal @}gmail.com")
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
-     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult.fullName())))
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
      *             .build());
      * 
-     *         var standard_cluster_on_aws = new KafkaCluster(&#34;standard-cluster-on-aws&#34;, KafkaClusterArgs.builder()        
-     *             .displayName(&#34;standard_kafka_cluster_on_aws&#34;)
-     *             .availability(&#34;SINGLE_ZONE&#34;)
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-west-2&#34;)
+     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()        
+     *             .displayName("standard_kafka_cluster_on_aws")
+     *             .availability("SINGLE_ZONE")
+     *             .cloud("AWS")
+     *             .region("us-west-2")
      *             .standard()
      *             .environment(KafkaClusterEnvironmentArgs.builder()
      *                 .id(test_env.id())
      *                 .build())
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingEmail.applyValue(getUserResult -&gt; getUserResult.id())))
-     *             .roleName(&#34;CloudClusterAdmin&#34;)
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
+     *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
      *             .build());
      * 
      *         final var exampleUsingFullName = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .fullName(&#34;John Doe&#34;)
+     *             .fullName("John Doe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7431,7 +7711,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7461,42 +7742,43 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .id(&#34;u-abc123&#34;)
+     *             .id("u-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;test123@gmail.com&#34;)
+     *             .email("test123{@literal @}gmail.com")
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
-     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult.fullName())))
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
      *             .build());
      * 
-     *         var standard_cluster_on_aws = new KafkaCluster(&#34;standard-cluster-on-aws&#34;, KafkaClusterArgs.builder()        
-     *             .displayName(&#34;standard_kafka_cluster_on_aws&#34;)
-     *             .availability(&#34;SINGLE_ZONE&#34;)
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-west-2&#34;)
+     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()        
+     *             .displayName("standard_kafka_cluster_on_aws")
+     *             .availability("SINGLE_ZONE")
+     *             .cloud("AWS")
+     *             .region("us-west-2")
      *             .standard()
      *             .environment(KafkaClusterEnvironmentArgs.builder()
      *                 .id(test_env.id())
      *                 .build())
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingEmail.applyValue(getUserResult -&gt; getUserResult.id())))
-     *             .roleName(&#34;CloudClusterAdmin&#34;)
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
+     *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
      *             .build());
      * 
      *         final var exampleUsingFullName = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .fullName(&#34;John Doe&#34;)
+     *             .fullName("John Doe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7511,7 +7793,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7541,42 +7824,43 @@ public final class ConfluentcloudFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var exampleUsingId = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .id(&#34;u-abc123&#34;)
+     *             .id("u-abc123")
      *             .build());
      * 
-     *         ctx.export(&#34;exampleUsingId&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult));
+     *         ctx.export("exampleUsingId", exampleUsingId.applyValue(getUserResult -> getUserResult));
      *         final var exampleUsingEmail = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .email(&#34;test123@gmail.com&#34;)
+     *             .email("test123{@literal @}gmail.com")
      *             .build());
      * 
-     *         var test_env = new Environment(&#34;test-env&#34;, EnvironmentArgs.builder()        
-     *             .displayName(String.format(&#34;env_for_%s&#34;, exampleUsingId.applyValue(getUserResult -&gt; getUserResult.fullName())))
+     *         var test_env = new Environment("test-env", EnvironmentArgs.builder()        
+     *             .displayName(String.format("env_for_%s", exampleUsingId.applyValue(getUserResult -> getUserResult.fullName())))
      *             .build());
      * 
-     *         var standard_cluster_on_aws = new KafkaCluster(&#34;standard-cluster-on-aws&#34;, KafkaClusterArgs.builder()        
-     *             .displayName(&#34;standard_kafka_cluster_on_aws&#34;)
-     *             .availability(&#34;SINGLE_ZONE&#34;)
-     *             .cloud(&#34;AWS&#34;)
-     *             .region(&#34;us-west-2&#34;)
+     *         var standard_cluster_on_aws = new KafkaCluster("standard-cluster-on-aws", KafkaClusterArgs.builder()        
+     *             .displayName("standard_kafka_cluster_on_aws")
+     *             .availability("SINGLE_ZONE")
+     *             .cloud("AWS")
+     *             .region("us-west-2")
      *             .standard()
      *             .environment(KafkaClusterEnvironmentArgs.builder()
      *                 .id(test_env.id())
      *                 .build())
      *             .build());
      * 
-     *         var test_role_binding = new RoleBinding(&#34;test-role-binding&#34;, RoleBindingArgs.builder()        
-     *             .principal(String.format(&#34;User:%s&#34;, exampleUsingEmail.applyValue(getUserResult -&gt; getUserResult.id())))
-     *             .roleName(&#34;CloudClusterAdmin&#34;)
+     *         var test_role_binding = new RoleBinding("test-role-binding", RoleBindingArgs.builder()        
+     *             .principal(String.format("User:%s", exampleUsingEmail.applyValue(getUserResult -> getUserResult.id())))
+     *             .roleName("CloudClusterAdmin")
      *             .crnPattern(standard_cluster_on_aws.rbacCrn())
      *             .build());
      * 
      *         final var exampleUsingFullName = ConfluentcloudFunctions.getUser(GetUserArgs.builder()
-     *             .fullName(&#34;John Doe&#34;)
+     *             .fullName("John Doe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7591,7 +7875,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7613,10 +7898,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getUsers();
      * 
-     *         ctx.export(&#34;users&#34;, main.applyValue(getUsersResult -&gt; getUsersResult.ids()));
+     *         ctx.export("users", main.applyValue(getUsersResult -> getUsersResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7631,7 +7917,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7653,10 +7940,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getUsers();
      * 
-     *         ctx.export(&#34;users&#34;, main.applyValue(getUsersResult -&gt; getUsersResult.ids()));
+     *         ctx.export("users", main.applyValue(getUsersResult -> getUsersResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7671,7 +7959,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7693,10 +7982,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getUsers();
      * 
-     *         ctx.export(&#34;users&#34;, main.applyValue(getUsersResult -&gt; getUsersResult.ids()));
+     *         ctx.export("users", main.applyValue(getUsersResult -> getUsersResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7711,7 +8001,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7733,10 +8024,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getUsers();
      * 
-     *         ctx.export(&#34;users&#34;, main.applyValue(getUsersResult -&gt; getUsersResult.ids()));
+     *         ctx.export("users", main.applyValue(getUsersResult -> getUsersResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7751,7 +8043,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7773,10 +8066,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getUsers();
      * 
-     *         ctx.export(&#34;users&#34;, main.applyValue(getUsersResult -&gt; getUsersResult.ids()));
+     *         ctx.export("users", main.applyValue(getUsersResult -> getUsersResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -7791,7 +8085,8 @@ public final class ConfluentcloudFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -7813,10 +8108,11 @@ public final class ConfluentcloudFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ConfluentcloudFunctions.getUsers();
      * 
-     *         ctx.export(&#34;users&#34;, main.applyValue(getUsersResult -&gt; getUsersResult.ids()));
+     *         ctx.export("users", main.applyValue(getUsersResult -> getUsersResult.ids()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

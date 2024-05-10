@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,24 +45,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nle = new NetworkLinkEndpoint(&#34;nle&#34;, NetworkLinkEndpointArgs.builder()        
- *             .displayName(&#34;nle1&#34;)
- *             .description(&#34;TEST-NLE1&#34;)
+ *         var nle = new NetworkLinkEndpoint("nle", NetworkLinkEndpointArgs.builder()        
+ *             .displayName("nle1")
+ *             .description("TEST-NLE1")
  *             .environment(NetworkLinkEndpointEnvironmentArgs.builder()
- *                 .id(&#34;env-xyz456&#34;)
+ *                 .id("env-xyz456")
  *                 .build())
  *             .network(NetworkLinkEndpointNetworkArgs.builder()
- *                 .id(&#34;n-abc123&#34;)
+ *                 .id("n-abc123")
  *                 .build())
  *             .networkLinkService(NetworkLinkEndpointNetworkLinkServiceArgs.builder()
- *                 .id(&#34;nls-g3e1ox&#34;)
+ *                 .id("nls-g3e1ox")
  *                 .build())
  *             .build());
  * 
- *         ctx.export(&#34;networkLinkEndpoint&#34;, nle);
+ *         ctx.export("networkLinkEndpoint", nle);
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started

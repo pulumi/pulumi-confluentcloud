@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * 
  * ### Example Managed [Datagen Source Connector](https://docs.confluent.io/cloud/current/connectors/cc-datagen-source.html) that uses a service account to communicate with your Kafka cluster
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var source = new Connector(&#34;source&#34;, ConnectorArgs.builder()        
+ *         var source = new Connector("source", ConnectorArgs.builder()        
  *             .environment(ConnectorEnvironmentArgs.builder()
  *                 .id(staging.id())
  *                 .build())
@@ -55,14 +56,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .configSensitive()
  *             .configNonsensitive(Map.ofEntries(
- *                 Map.entry(&#34;connector.class&#34;, &#34;DatagenSource&#34;),
- *                 Map.entry(&#34;name&#34;, &#34;DatagenSourceConnector_0&#34;),
- *                 Map.entry(&#34;kafka.auth.mode&#34;, &#34;SERVICE_ACCOUNT&#34;),
- *                 Map.entry(&#34;kafka.service.account.id&#34;, app_connector.id()),
- *                 Map.entry(&#34;kafka.topic&#34;, orders.topicName()),
- *                 Map.entry(&#34;output.data.format&#34;, &#34;JSON&#34;),
- *                 Map.entry(&#34;quickstart&#34;, &#34;ORDERS&#34;),
- *                 Map.entry(&#34;tasks.max&#34;, &#34;1&#34;)
+ *                 Map.entry("connector.class", "DatagenSource"),
+ *                 Map.entry("name", "DatagenSourceConnector_0"),
+ *                 Map.entry("kafka.auth.mode", "SERVICE_ACCOUNT"),
+ *                 Map.entry("kafka.service.account.id", app_connector.id()),
+ *                 Map.entry("kafka.topic", orders.topicName()),
+ *                 Map.entry("output.data.format", "JSON"),
+ *                 Map.entry("quickstart", "ORDERS"),
+ *                 Map.entry("tasks.max", "1")
  *             ))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
@@ -74,12 +75,14 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Managed [Amazon S3 Sink Connector](https://docs.confluent.io/cloud/current/connectors/cc-s3-sink.html) that uses a service account to communicate with your Kafka cluster
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -103,7 +106,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sink = new Connector(&#34;sink&#34;, ConnectorArgs.builder()        
+ *         var sink = new Connector("sink", ConnectorArgs.builder()        
  *             .environment(ConnectorEnvironmentArgs.builder()
  *                 .id(staging.id())
  *                 .build())
@@ -111,21 +114,21 @@ import javax.annotation.Nullable;
  *                 .id(basic.id())
  *                 .build())
  *             .configSensitive(Map.ofEntries(
- *                 Map.entry(&#34;aws.access.key.id&#34;, &#34;***REDACTED***&#34;),
- *                 Map.entry(&#34;aws.secret.access.key&#34;, &#34;***REDACTED***&#34;)
+ *                 Map.entry("aws.access.key.id", "***REDACTED***"),
+ *                 Map.entry("aws.secret.access.key", "***REDACTED***")
  *             ))
  *             .configNonsensitive(Map.ofEntries(
- *                 Map.entry(&#34;topics&#34;, orders.topicName()),
- *                 Map.entry(&#34;input.data.format&#34;, &#34;JSON&#34;),
- *                 Map.entry(&#34;connector.class&#34;, &#34;S3_SINK&#34;),
- *                 Map.entry(&#34;name&#34;, &#34;S3_SINKConnector_0&#34;),
- *                 Map.entry(&#34;kafka.auth.mode&#34;, &#34;SERVICE_ACCOUNT&#34;),
- *                 Map.entry(&#34;kafka.service.account.id&#34;, app_connector.id()),
- *                 Map.entry(&#34;s3.bucket.name&#34;, &#34;&lt;s3-bucket-name&gt;&#34;),
- *                 Map.entry(&#34;output.data.format&#34;, &#34;JSON&#34;),
- *                 Map.entry(&#34;time.interval&#34;, &#34;DAILY&#34;),
- *                 Map.entry(&#34;flush.size&#34;, &#34;1000&#34;),
- *                 Map.entry(&#34;tasks.max&#34;, &#34;1&#34;)
+ *                 Map.entry("topics", orders.topicName()),
+ *                 Map.entry("input.data.format", "JSON"),
+ *                 Map.entry("connector.class", "S3_SINK"),
+ *                 Map.entry("name", "S3_SINKConnector_0"),
+ *                 Map.entry("kafka.auth.mode", "SERVICE_ACCOUNT"),
+ *                 Map.entry("kafka.service.account.id", app_connector.id()),
+ *                 Map.entry("s3.bucket.name", "<s3-bucket-name>"),
+ *                 Map.entry("output.data.format", "JSON"),
+ *                 Map.entry("time.interval", "DAILY"),
+ *                 Map.entry("flush.size", "1000"),
+ *                 Map.entry("tasks.max", "1")
  *             ))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
@@ -142,12 +145,14 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Managed [Amazon DynamoDB Connector](https://docs.confluent.io/cloud/current/connectors/cc-amazon-dynamo-db-sink.html) that uses a service account to communicate with your Kafka cluster
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -171,7 +176,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sink = new Connector(&#34;sink&#34;, ConnectorArgs.builder()        
+ *         var sink = new Connector("sink", ConnectorArgs.builder()        
  *             .environment(ConnectorEnvironmentArgs.builder()
  *                 .id(staging.id())
  *                 .build())
@@ -179,19 +184,19 @@ import javax.annotation.Nullable;
  *                 .id(basic.id())
  *                 .build())
  *             .configSensitive(Map.ofEntries(
- *                 Map.entry(&#34;aws.access.key.id&#34;, &#34;***REDACTED***&#34;),
- *                 Map.entry(&#34;aws.secret.access.key&#34;, &#34;***REDACTED***&#34;)
+ *                 Map.entry("aws.access.key.id", "***REDACTED***"),
+ *                 Map.entry("aws.secret.access.key", "***REDACTED***")
  *             ))
  *             .configNonsensitive(Map.ofEntries(
- *                 Map.entry(&#34;topics&#34;, orders.topicName()),
- *                 Map.entry(&#34;input.data.format&#34;, &#34;JSON&#34;),
- *                 Map.entry(&#34;connector.class&#34;, &#34;DynamoDbSink&#34;),
- *                 Map.entry(&#34;name&#34;, &#34;DynamoDbSinkConnector_0&#34;),
- *                 Map.entry(&#34;kafka.auth.mode&#34;, &#34;SERVICE_ACCOUNT&#34;),
- *                 Map.entry(&#34;kafka.service.account.id&#34;, app_connector.id()),
- *                 Map.entry(&#34;aws.dynamodb.pk.hash&#34;, &#34;value.userid&#34;),
- *                 Map.entry(&#34;aws.dynamodb.pk.sort&#34;, &#34;value.pageid&#34;),
- *                 Map.entry(&#34;tasks.max&#34;, &#34;1&#34;)
+ *                 Map.entry("topics", orders.topicName()),
+ *                 Map.entry("input.data.format", "JSON"),
+ *                 Map.entry("connector.class", "DynamoDbSink"),
+ *                 Map.entry("name", "DynamoDbSinkConnector_0"),
+ *                 Map.entry("kafka.auth.mode", "SERVICE_ACCOUNT"),
+ *                 Map.entry("kafka.service.account.id", app_connector.id()),
+ *                 Map.entry("aws.dynamodb.pk.hash", "value.userid"),
+ *                 Map.entry("aws.dynamodb.pk.sort", "value.pageid"),
+ *                 Map.entry("tasks.max", "1")
  *             ))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
@@ -208,13 +213,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Custom [Datagen Source Connector](https://www.confluent.io/hub/confluentinc/kafka-connect-datagen) that uses a Kafka API Key to communicate with your Kafka cluster
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -238,7 +245,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var source = new Connector(&#34;source&#34;, ConnectorArgs.builder()        
+ *         var source = new Connector("source", ConnectorArgs.builder()        
  *             .environment(ConnectorEnvironmentArgs.builder()
  *                 .id(staging.id())
  *                 .build())
@@ -246,21 +253,21 @@ import javax.annotation.Nullable;
  *                 .id(basic.id())
  *                 .build())
  *             .configSensitive(Map.ofEntries(
- *                 Map.entry(&#34;kafka.api.key&#34;, &#34;***REDACTED***&#34;),
- *                 Map.entry(&#34;kafka.api.secret&#34;, &#34;***REDACTED***&#34;)
+ *                 Map.entry("kafka.api.key", "***REDACTED***"),
+ *                 Map.entry("kafka.api.secret", "***REDACTED***")
  *             ))
  *             .configNonsensitive(Map.ofEntries(
- *                 Map.entry(&#34;confluent.connector.type&#34;, &#34;CUSTOM&#34;),
- *                 Map.entry(&#34;connector.class&#34;, sourceConfluentCustomConnectorPlugin.connectorClass()),
- *                 Map.entry(&#34;name&#34;, &#34;DatagenConnectorExampleName&#34;),
- *                 Map.entry(&#34;kafka.auth.mode&#34;, &#34;KAFKA_API_KEY&#34;),
- *                 Map.entry(&#34;kafka.topic&#34;, orders.topicName()),
- *                 Map.entry(&#34;output.data.format&#34;, &#34;JSON&#34;),
- *                 Map.entry(&#34;quickstart&#34;, &#34;ORDERS&#34;),
- *                 Map.entry(&#34;confluent.custom.plugin.id&#34;, sourceConfluentCustomConnectorPlugin.id()),
- *                 Map.entry(&#34;min.interval&#34;, &#34;1000&#34;),
- *                 Map.entry(&#34;max.interval&#34;, &#34;2000&#34;),
- *                 Map.entry(&#34;tasks.max&#34;, &#34;1&#34;)
+ *                 Map.entry("confluent.connector.type", "CUSTOM"),
+ *                 Map.entry("connector.class", sourceConfluentCustomConnectorPlugin.connectorClass()),
+ *                 Map.entry("name", "DatagenConnectorExampleName"),
+ *                 Map.entry("kafka.auth.mode", "KAFKA_API_KEY"),
+ *                 Map.entry("kafka.topic", orders.topicName()),
+ *                 Map.entry("output.data.format", "JSON"),
+ *                 Map.entry("quickstart", "ORDERS"),
+ *                 Map.entry("confluent.custom.plugin.id", sourceConfluentCustomConnectorPlugin.id()),
+ *                 Map.entry("min.interval", "1000"),
+ *                 Map.entry("max.interval", "2000"),
+ *                 Map.entry("tasks.max", "1")
  *             ))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(app_manager_kafka_cluster_admin)
@@ -268,7 +275,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** Custom connectors are available in **Preview** for early adopters. Preview features are introduced to gather customer feedback. This feature should be used only for evaluation and non-production testing purposes or to provide feedback to Confluent, particularly as it becomes more widely available in follow-on editions.\

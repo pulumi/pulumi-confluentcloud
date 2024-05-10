@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example_sa = new ServiceAccount(&#34;example-sa&#34;, ServiceAccountArgs.builder()        
- *             .displayName(&#34;orders-app-sa&#34;)
- *             .description(&#34;Service Account for orders app&#34;)
+ *         var example_sa = new ServiceAccount("example-sa", ServiceAccountArgs.builder()        
+ *             .displayName("orders-app-sa")
+ *             .description("Service Account for orders app")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started

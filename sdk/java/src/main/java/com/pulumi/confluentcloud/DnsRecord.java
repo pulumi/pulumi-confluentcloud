@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,16 +52,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var development = new Environment(&#34;development&#34;, EnvironmentArgs.builder()        
- *             .displayName(&#34;Development&#34;)
+ *         var development = new Environment("development", EnvironmentArgs.builder()        
+ *             .displayName("Development")
  *             .build());
  * 
- *         var main = new DnsRecord(&#34;main&#34;, DnsRecordArgs.builder()        
- *             .displayName(&#34;dns_record&#34;)
+ *         var main = new DnsRecord("main", DnsRecordArgs.builder()        
+ *             .displayName("dns_record")
  *             .environment(DnsRecordEnvironmentArgs.builder()
  *                 .id(development.id())
  *                 .build())
- *             .domain(&#34;example.com&#34;)
+ *             .domain("example.com")
  *             .gateway(DnsRecordGatewayArgs.builder()
  *                 .id(mainConfluentNetwork.gateway()[0].id())
  *                 .build())
@@ -71,7 +72,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

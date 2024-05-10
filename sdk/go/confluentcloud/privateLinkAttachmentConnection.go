@@ -96,7 +96,7 @@ type PrivateLinkAttachmentConnection struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAttachmentConnectionEnvironmentOutput `pulumi:"environment"`
 	Gcp         PrivateLinkAttachmentConnectionGcpPtrOutput      `pulumi:"gcp"`
-	// The private_link_attachment to which this belongs.
+	// The privateLinkAttachment to which this belongs.
 	PrivateLinkAttachment PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput `pulumi:"privateLinkAttachment"`
 	// (Required String) The Confluent Resource Name of the Private Link Attachment Connection, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0/private-link-attachment-connection=plattc-77zq2w`.
 	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
@@ -145,7 +145,7 @@ type privateLinkAttachmentConnectionState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment *PrivateLinkAttachmentConnectionEnvironment `pulumi:"environment"`
 	Gcp         *PrivateLinkAttachmentConnectionGcp         `pulumi:"gcp"`
-	// The private_link_attachment to which this belongs.
+	// The privateLinkAttachment to which this belongs.
 	PrivateLinkAttachment *PrivateLinkAttachmentConnectionPrivateLinkAttachment `pulumi:"privateLinkAttachment"`
 	// (Required String) The Confluent Resource Name of the Private Link Attachment Connection, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0/private-link-attachment-connection=plattc-77zq2w`.
 	ResourceName *string `pulumi:"resourceName"`
@@ -159,7 +159,7 @@ type PrivateLinkAttachmentConnectionState struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAttachmentConnectionEnvironmentPtrInput
 	Gcp         PrivateLinkAttachmentConnectionGcpPtrInput
-	// The private_link_attachment to which this belongs.
+	// The privateLinkAttachment to which this belongs.
 	PrivateLinkAttachment PrivateLinkAttachmentConnectionPrivateLinkAttachmentPtrInput
 	// (Required String) The Confluent Resource Name of the Private Link Attachment Connection, for example `crn://confluent.cloud/organization=1111aaaa-11aa-11aa-11aa-111111aaaaaa/environment=env-75gxp2/private-link-attachment=platt-1q0ky0/private-link-attachment-connection=plattc-77zq2w`.
 	ResourceName pulumi.StringPtrInput
@@ -177,7 +177,7 @@ type privateLinkAttachmentConnectionArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAttachmentConnectionEnvironment `pulumi:"environment"`
 	Gcp         *PrivateLinkAttachmentConnectionGcp        `pulumi:"gcp"`
-	// The private_link_attachment to which this belongs.
+	// The privateLinkAttachment to which this belongs.
 	PrivateLinkAttachment PrivateLinkAttachmentConnectionPrivateLinkAttachment `pulumi:"privateLinkAttachment"`
 }
 
@@ -190,7 +190,7 @@ type PrivateLinkAttachmentConnectionArgs struct {
 	// Environment objects represent an isolated namespace for your Confluent resources for organizational purposes.
 	Environment PrivateLinkAttachmentConnectionEnvironmentInput
 	Gcp         PrivateLinkAttachmentConnectionGcpPtrInput
-	// The private_link_attachment to which this belongs.
+	// The privateLinkAttachment to which this belongs.
 	PrivateLinkAttachment PrivateLinkAttachmentConnectionPrivateLinkAttachmentInput
 }
 
@@ -305,7 +305,7 @@ func (o PrivateLinkAttachmentConnectionOutput) Gcp() PrivateLinkAttachmentConnec
 	return o.ApplyT(func(v *PrivateLinkAttachmentConnection) PrivateLinkAttachmentConnectionGcpPtrOutput { return v.Gcp }).(PrivateLinkAttachmentConnectionGcpPtrOutput)
 }
 
-// The private_link_attachment to which this belongs.
+// The privateLinkAttachment to which this belongs.
 func (o PrivateLinkAttachmentConnectionOutput) PrivateLinkAttachment() PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
 	return o.ApplyT(func(v *PrivateLinkAttachmentConnection) PrivateLinkAttachmentConnectionPrivateLinkAttachmentOutput {
 		return v.PrivateLinkAttachment

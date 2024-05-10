@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,9 +50,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // https://docs.confluent.io/cloud/current/multi-cloud/cluster-linking/cluster-links-cc.html#create-a-cluster-link-in-bidirectional-mode
- *         var east_to_west = new ClusterLink(&#34;east-to-west&#34;, ClusterLinkArgs.builder()        
- *             .link(&#34;bidirectional-link&#34;)
- *             .linkMode(&#34;BIDIRECTIONAL&#34;)
+ *         var east_to_west = new ClusterLink("east-to-west", ClusterLinkArgs.builder()        
+ *             .link("bidirectional-link")
+ *             .linkMode("BIDIRECTIONAL")
  *             .localKafkaCluster(ClusterLinkLocalKafkaClusterArgs.builder()
  *                 .id(east.id())
  *                 .restEndpoint(east.restEndpoint())
@@ -70,9 +71,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var west_to_east = new ClusterLink(&#34;west-to-east&#34;, ClusterLinkArgs.builder()        
- *             .link(&#34;bidirectional-link&#34;)
- *             .linkMode(&#34;BIDIRECTIONAL&#34;)
+ *         var west_to_east = new ClusterLink("west-to-east", ClusterLinkArgs.builder()        
+ *             .link("bidirectional-link")
+ *             .linkMode("BIDIRECTIONAL")
  *             .localKafkaCluster(ClusterLinkLocalKafkaClusterArgs.builder()
  *                 .id(west.id())
  *                 .restEndpoint(west.restEndpoint())
@@ -93,7 +94,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Getting Started

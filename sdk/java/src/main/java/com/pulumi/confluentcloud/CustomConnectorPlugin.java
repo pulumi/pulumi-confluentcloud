@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,18 +41,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var source = new CustomConnectorPlugin(&#34;source&#34;, CustomConnectorPluginArgs.builder()        
- *             .displayName(&#34;Datagen Source Connector Plugin&#34;)
- *             .documentationLink(&#34;https://www.confluent.io/hub/confluentinc/kafka-connect-datagen&#34;)
- *             .connectorClass(&#34;io.confluent.kafka.connect.datagen.DatagenConnector&#34;)
- *             .connectorType(&#34;SOURCE&#34;)
+ *         var source = new CustomConnectorPlugin("source", CustomConnectorPluginArgs.builder()        
+ *             .displayName("Datagen Source Connector Plugin")
+ *             .documentationLink("https://www.confluent.io/hub/confluentinc/kafka-connect-datagen")
+ *             .connectorClass("io.confluent.kafka.connect.datagen.DatagenConnector")
+ *             .connectorType("SOURCE")
  *             .sensitiveConfigProperties()
- *             .filename(&#34;confluentinc-kafka-connect-datagen-0.6.2.zip&#34;)
+ *             .filename("confluentinc-kafka-connect-datagen-0.6.2.zip")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
